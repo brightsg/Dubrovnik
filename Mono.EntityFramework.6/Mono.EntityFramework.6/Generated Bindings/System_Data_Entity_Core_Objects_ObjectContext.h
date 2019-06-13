@@ -29,6 +29,7 @@
 @class System_Data_Entity_Core_Objects_RefreshMode;
 @class System_Data_Entity_Core_Objects_SaveOptions;
 @class System_Data_Entity_Infrastructure_IObjectContextAdapter;
+@class System_EventHandler;
 @class System_IDisposable;
 @class System_Int32;
 @class System_NullableA1;
@@ -54,6 +55,15 @@
 // Import superclass and adopted protocols
 //
 #import "System_Data_Entity_Infrastructure_IObjectContextAdapter_Protocol.h"
+
+// 
+// Event support
+// 
+#define System_Data_Entity_Core_Objects_ObjectContext_ObjectMaterialized_EventBlock System_Data_Entity_Core_Objects_ObjectContext_ObjectMaterialized_EventBlock
+typedef void (^System_Data_Entity_Core_Objects_ObjectContext_ObjectMaterialized_EventBlock)(System_Object *sender, System_Data_Entity_Core_Objects_ObjectMaterializedEventArgs *e);
+
+#define System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_EventBlock System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_EventBlock
+typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_EventBlock)(System_Object *sender, System_EventArgs *e);
 
 @interface System_Data_Entity_Core_Objects_ObjectContext : System_Object <System_IDisposable_, System_Data_Entity_Infrastructure_IObjectContextAdapter_>
 
@@ -806,5 +816,30 @@
 /* Skipped method : System.Data.Entity.Core.Objects.ObjectResult`1<System.Data.Entity.Core.Objects.ObjectContext+TEntity> Translate(System.Data.Common.DbDataReader reader, System.String entitySetName, System.Data.Entity.Core.Objects.MergeOption mergeOption) */
 
 /* Skipped method : System.Boolean TryGetObjectByKey(System.Data.Entity.Core.EntityKey key, System.Object& value) */
+
+#pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Data.Entity.Core.Objects.ObjectMaterializedEventHandler ObjectMaterialized */
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   SavingChanges
+
+ @/textblock
+*/
++ (NSString *)savingChangesEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   SavingChanges
+
+ @/textblock
+*/
+- (System_EventHandler *)savingChanges_addEventHandlerWithBlock:(System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_EventBlock)block;
 @end
 //--Dubrovnik.CodeGenerator

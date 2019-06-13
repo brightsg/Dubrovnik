@@ -668,12 +668,30 @@
       <Method Name="WriteTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="w" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="NodeChanged" HandlerType="System.Xml.XmlNodeChangedEventHandler" />
-      <Event Name="NodeChanging" HandlerType="System.Xml.XmlNodeChangedEventHandler" />
-      <Event Name="NodeInserted" HandlerType="System.Xml.XmlNodeChangedEventHandler" />
-      <Event Name="NodeInserting" HandlerType="System.Xml.XmlNodeChangedEventHandler" />
-      <Event Name="NodeRemoved" HandlerType="System.Xml.XmlNodeChangedEventHandler" />
-      <Event Name="NodeRemoving" HandlerType="System.Xml.XmlNodeChangedEventHandler" />
+      <Event Name="NodeChanged" Type="System.Xml.XmlNodeChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.XmlNodeChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="NodeChanging" Type="System.Xml.XmlNodeChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.XmlNodeChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="NodeInserted" Type="System.Xml.XmlNodeChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.XmlNodeChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="NodeInserting" Type="System.Xml.XmlNodeChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.XmlNodeChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="NodeRemoved" Type="System.Xml.XmlNodeChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.XmlNodeChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="NodeRemoving" Type="System.Xml.XmlNodeChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.XmlNodeChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="XmlDocumentFragment" Type="System.Xml.XmlDocumentFragment" BaseName="XmlNode" BaseType="System.Xml.XmlNode">
       <ImplementedInterface Type="System.ICloneable" />
@@ -1736,7 +1754,10 @@
       </Constructor>
       <Method Name="Clone" Type="System.Xml.XmlReaderSettings" BaseName="Object" BaseType="System.Object" />
       <Method Name="Reset" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      <Event Name="ValidationEventHandler" HandlerType="System.Xml.Schema.ValidationEventHandler" />
+      <Event Name="ValidationEventHandler" Type="System.Xml.Schema.ValidationEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.Schema.ValidationEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="XmlResolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object">
       <Property Name="Credentials" Type="System.Net.ICredentials" IsInterface="True" IsWritable="True" />
@@ -2253,7 +2274,10 @@
       <Method Name="ReadString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       <Method Name="ReadTypedValue" Type="System.Object" IsDelegate="True" />
       <Method Name="ResolveEntity" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      <Event Name="ValidationEventHandler" HandlerType="System.Xml.Schema.ValidationEventHandler" />
+      <Event Name="ValidationEventHandler" Type="System.Xml.Schema.ValidationEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.Schema.ValidationEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="XmlWhitespace" Type="System.Xml.XmlWhitespace" BaseName="XmlCharacterData" BaseType="System.Xml.XmlCharacterData">
       <ImplementedInterface Type="System.ICloneable" />
@@ -2908,7 +2932,10 @@
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetEnumerator" Type="System.Xml.Schema.XmlSchemaCollectionEnumerator" BaseName="Object" BaseType="System.Object" />
-      <Event Name="ValidationEventHandler" HandlerType="System.Xml.Schema.ValidationEventHandler" />
+      <Event Name="ValidationEventHandler" Type="System.Xml.Schema.ValidationEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.Schema.ValidationEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="XmlSchemaCollectionEnumerator" Type="System.Xml.Schema.XmlSchemaCollectionEnumerator" BaseName="Object" BaseType="System.Object">
       <ImplementedInterface Type="System.Collections.IEnumerator" />
@@ -3304,7 +3331,10 @@
       <Method Name="Schemas" Type="System.Collections.ICollection" IsInterface="True">
         <Parameter Name="targetNamespace" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="ValidationEventHandler" HandlerType="System.Xml.Schema.ValidationEventHandler" />
+      <Event Name="ValidationEventHandler" Type="System.Xml.Schema.ValidationEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.Schema.ValidationEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="XmlSchemaSimpleContent" Type="System.Xml.Schema.XmlSchemaSimpleContent" BaseName="XmlSchemaContentModel" BaseType="System.Xml.Schema.XmlSchemaContentModel">
       <Property Name="Content" Type="System.Xml.Schema.XmlSchemaContent" BaseName="XmlSchemaAnnotated" BaseType="System.Xml.Schema.XmlSchemaAnnotated" IsReadable="True" IsWritable="True" />
@@ -3488,7 +3518,10 @@
       <Method Name="ValidateWhitespace" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="elementValue" Type="System.Xml.Schema.XmlValueGetter" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
       </Method>
-      <Event Name="ValidationEventHandler" HandlerType="System.Xml.Schema.ValidationEventHandler" />
+      <Event Name="ValidationEventHandler" Type="System.Xml.Schema.ValidationEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.Schema.ValidationEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Enumeration Name="XmlSchemaValidity" Type="System.Xml.Schema.XmlSchemaValidity" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum">
       <ImplementedInterface Type="System.IComparable" />
@@ -4851,10 +4884,22 @@
         <Parameter Name="encodingStyle" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="id" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="UnknownAttribute" HandlerType="System.Xml.Serialization.XmlAttributeEventHandler" />
-      <Event Name="UnknownElement" HandlerType="System.Xml.Serialization.XmlElementEventHandler" />
-      <Event Name="UnknownNode" HandlerType="System.Xml.Serialization.XmlNodeEventHandler" />
-      <Event Name="UnreferencedObject" HandlerType="System.Xml.Serialization.UnreferencedObjectEventHandler" />
+      <Event Name="UnknownAttribute" Type="System.Xml.Serialization.XmlAttributeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.Serialization.XmlAttributeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="UnknownElement" Type="System.Xml.Serialization.XmlElementEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.Serialization.XmlElementEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="UnknownNode" Type="System.Xml.Serialization.XmlNodeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.Serialization.XmlNodeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="UnreferencedObject" Type="System.Xml.Serialization.UnreferencedObjectEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.Serialization.UnreferencedObjectEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="XmlSerializerAssemblyAttribute" Type="System.Xml.Serialization.XmlSerializerAssemblyAttribute" BaseName="Attribute" BaseType="System.Attribute">
       <ImplementedInterface Type="System.Runtime.InteropServices._Attribute" />
@@ -5764,7 +5809,10 @@
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceUri" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="XsltMessageEncountered" HandlerType="System.Xml.Xsl.XsltMessageEncounteredEventHandler" />
+      <Event Name="XsltMessageEncountered" Type="System.Xml.Xsl.XsltMessageEncounteredEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Xml.Xsl.XsltMessageEncounteredEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="XsltCompileException" Type="System.Xml.Xsl.XsltCompileException" BaseName="XsltException" BaseType="System.Xml.Xsl.XsltException">
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />

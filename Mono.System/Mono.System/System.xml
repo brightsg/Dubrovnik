@@ -202,20 +202,62 @@
       <Method Name="KillTimer" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="timerId" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="DisplaySettingsChanged" HandlerType="System.EventHandler" />
-      <Event Name="DisplaySettingsChanging" HandlerType="System.EventHandler" />
-      <Event Name="EventsThreadShutdown" HandlerType="System.EventHandler" />
-      <Event Name="InstalledFontsChanged" HandlerType="System.EventHandler" />
-      <Event Name="LowMemory" HandlerType="System.EventHandler" />
-      <Event Name="PaletteChanged" HandlerType="System.EventHandler" />
-      <Event Name="PowerModeChanged" HandlerType="Microsoft.Win32.PowerModeChangedEventHandler" />
-      <Event Name="SessionEnded" HandlerType="Microsoft.Win32.SessionEndedEventHandler" />
-      <Event Name="SessionEnding" HandlerType="Microsoft.Win32.SessionEndingEventHandler" />
-      <Event Name="SessionSwitch" HandlerType="Microsoft.Win32.SessionSwitchEventHandler" />
-      <Event Name="TimeChanged" HandlerType="System.EventHandler" />
-      <Event Name="TimerElapsed" HandlerType="Microsoft.Win32.TimerElapsedEventHandler" />
-      <Event Name="UserPreferenceChanged" HandlerType="Microsoft.Win32.UserPreferenceChangedEventHandler" />
-      <Event Name="UserPreferenceChanging" HandlerType="Microsoft.Win32.UserPreferenceChangingEventHandler" />
+      <Event Name="DisplaySettingsChanged" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="DisplaySettingsChanging" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="EventsThreadShutdown" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="InstalledFontsChanged" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="LowMemory" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="PaletteChanged" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="PowerModeChanged" Type="Microsoft.Win32.PowerModeChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="Microsoft.Win32.PowerModeChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="SessionEnded" Type="Microsoft.Win32.SessionEndedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="Microsoft.Win32.SessionEndedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="SessionEnding" Type="Microsoft.Win32.SessionEndingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="Microsoft.Win32.SessionEndingEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="SessionSwitch" Type="Microsoft.Win32.SessionSwitchEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="Microsoft.Win32.SessionSwitchEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="TimeChanged" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="TimerElapsed" Type="Microsoft.Win32.TimerElapsedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="Microsoft.Win32.TimerElapsedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="UserPreferenceChanged" Type="Microsoft.Win32.UserPreferenceChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="Microsoft.Win32.UserPreferenceChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="UserPreferenceChanging" Type="Microsoft.Win32.UserPreferenceChangingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="Microsoft.Win32.UserPreferenceChangingEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="TimerElapsedEventArgs" Type="Microsoft.Win32.TimerElapsedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs">
       <Property Name="TimerId" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
@@ -1312,9 +1354,18 @@
       <Property Name="ReturnTypeCustomAttributes" Type="System.CodeDom.CodeAttributeDeclarationCollection" BaseName="CollectionBase" BaseType="System.Collections.CollectionBase" IsReadable="True" />
       <Property Name="Statements" Type="System.CodeDom.CodeStatementCollection" BaseName="CollectionBase" BaseType="System.Collections.CollectionBase" IsReadable="True" />
       <Property Name="TypeParameters" Type="System.CodeDom.CodeTypeParameterCollection" BaseName="CollectionBase" BaseType="System.Collections.CollectionBase" IsReadable="True" />
-      <Event Name="PopulateImplementationTypes" HandlerType="System.EventHandler" />
-      <Event Name="PopulateParameters" HandlerType="System.EventHandler" />
-      <Event Name="PopulateStatements" HandlerType="System.EventHandler" />
+      <Event Name="PopulateImplementationTypes" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="PopulateParameters" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="PopulateStatements" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Class>
     <Class Name="CodeMemberProperty" Type="System.CodeDom.CodeMemberProperty" BaseName="CodeTypeMember" BaseType="System.CodeDom.CodeTypeMember">
       <Property Name="GetStatements" Type="System.CodeDom.CodeStatementCollection" BaseName="CollectionBase" BaseType="System.Collections.CollectionBase" IsReadable="True" />
@@ -1367,9 +1418,18 @@
       <Constructor>
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
-      <Event Name="PopulateComments" HandlerType="System.EventHandler" />
-      <Event Name="PopulateImports" HandlerType="System.EventHandler" />
-      <Event Name="PopulateTypes" HandlerType="System.EventHandler" />
+      <Event Name="PopulateComments" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="PopulateImports" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="PopulateTypes" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Class>
     <Class Name="CodeNamespaceCollection" Type="System.CodeDom.CodeNamespaceCollection" BaseName="CollectionBase" BaseType="System.Collections.CollectionBase">
       <ImplementedInterface Type="System.Collections.IList" />
@@ -1680,8 +1740,14 @@
       <Constructor>
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
-      <Event Name="PopulateBaseTypes" HandlerType="System.EventHandler" />
-      <Event Name="PopulateMembers" HandlerType="System.EventHandler" />
+      <Event Name="PopulateBaseTypes" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="PopulateMembers" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Class>
     <Class Name="CodeTypeDeclarationCollection" Type="System.CodeDom.CodeTypeDeclarationCollection" BaseName="CollectionBase" BaseType="System.Collections.CollectionBase">
       <ImplementedInterface Type="System.Collections.IList" />
@@ -3353,7 +3419,10 @@
         <Parameter Name="oldIndex" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="newIndex" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="CollectionChanged" HandlerType="System.Collections.Specialized.NotifyCollectionChangedEventHandler" />
+      <Event Name="CollectionChanged" Type="System.Collections.Specialized.NotifyCollectionChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Collections.Specialized.NotifyCollectionChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="ReadOnlyObservableCollection`1&lt;T&gt;" Type="System.Collections.ObjectModel.ReadOnlyObservableCollection`1&lt;System.Collections.ObjectModel.ReadOnlyObservableCollection`1+T&gt;" BaseName="ReadOnlyCollection`1&lt;T&gt;" BaseType="System.Collections.ObjectModel.ReadOnlyCollection`1&lt;System.Collections.ObjectModel.ReadOnlyObservableCollection`1+T&gt;" IsGenericType="True" IsGenericTypeDefinition="True" ContainsGenericParameters="True">
       <GenericTypeParameter Type="System.Collections.ObjectModel.ReadOnlyObservableCollection`1+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" />
@@ -3494,7 +3563,10 @@
       </Method>
     </Class>
     <Interface Name="INotifyCollectionChanged" Type="System.Collections.Specialized.INotifyCollectionChanged" IsInterface="True">
-      <Event Name="CollectionChanged" HandlerType="System.Collections.Specialized.NotifyCollectionChangedEventHandler" />
+      <Event Name="CollectionChanged" Type="System.Collections.Specialized.NotifyCollectionChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Collections.Specialized.NotifyCollectionChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Interface>
     <Interface Name="IOrderedDictionary" Type="System.Collections.Specialized.IOrderedDictionary" IsInterface="True">
       <ImplementedInterface Type="System.Collections.IDictionary" />
@@ -4109,9 +4181,18 @@
       <Method Name="RunWorkerAsync" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="argument" Type="System.Object" IsDelegate="True" />
       </Method>
-      <Event Name="DoWork" HandlerType="System.ComponentModel.DoWorkEventHandler" />
-      <Event Name="ProgressChanged" HandlerType="System.ComponentModel.ProgressChangedEventHandler" />
-      <Event Name="RunWorkerCompleted" HandlerType="System.ComponentModel.RunWorkerCompletedEventHandler" />
+      <Event Name="DoWork" Type="System.ComponentModel.DoWorkEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.DoWorkEventArgs" BaseName="CancelEventArgs" BaseType="System.ComponentModel.CancelEventArgs" />
+      </Event>
+      <Event Name="ProgressChanged" Type="System.ComponentModel.ProgressChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.ProgressChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="RunWorkerCompleted" Type="System.ComponentModel.RunWorkerCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.RunWorkerCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
     </Class>
     <Class Name="BaseNumberConverter" Type="System.ComponentModel.BaseNumberConverter" BaseName="TypeConverter" BaseType="System.ComponentModel.TypeConverter">
       <Method Name="CanConvertFrom" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -4207,8 +4288,14 @@
       <Method Name="ResetItem" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" ContainsGenericMethodParameters="True">
         <Parameter Name="position" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="AddingNew" HandlerType="System.ComponentModel.AddingNewEventHandler" />
-      <Event Name="ListChanged" HandlerType="System.ComponentModel.ListChangedEventHandler" />
+      <Event Name="AddingNew" Type="System.ComponentModel.AddingNewEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.AddingNewEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="ListChanged" Type="System.ComponentModel.ListChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.ListChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="BooleanConverter" Type="System.ComponentModel.BooleanConverter" BaseName="TypeConverter" BaseType="System.ComponentModel.TypeConverter">
       <Method Name="CanConvertFrom" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -4393,7 +4480,10 @@
       <Property Name="Site" Type="System.ComponentModel.ISite" IsInterface="True" IsReadable="True" IsWritable="True" />
       <Method Name="Dispose" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      <Event Name="Disposed" HandlerType="System.EventHandler" />
+      <Event Name="Disposed" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Class>
     <Class Name="ComponentCollection" Type="System.ComponentModel.ComponentCollection" BaseName="ReadOnlyCollectionBase" BaseType="System.Collections.ReadOnlyCollectionBase">
       <ImplementedInterface Type="System.Collections.ICollection" />
@@ -5154,7 +5244,10 @@
         <Parameter Name="property" Type="System.ComponentModel.PropertyDescriptor" BaseName="MemberDescriptor" BaseType="System.ComponentModel.MemberDescriptor" />
       </Method>
       <Method Name="RemoveSort" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      <Event Name="ListChanged" HandlerType="System.ComponentModel.ListChangedEventHandler" />
+      <Event Name="ListChanged" Type="System.ComponentModel.ListChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.ListChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Interface>
     <Interface Name="IBindingListView" Type="System.ComponentModel.IBindingListView" IsInterface="True">
       <ImplementedInterface Type="System.ComponentModel.IBindingList" />
@@ -5230,7 +5323,10 @@
     <Interface Name="IComponent" Type="System.ComponentModel.IComponent" IsInterface="True">
       <ImplementedInterface Type="System.IDisposable" />
       <Property Name="Site" Type="System.ComponentModel.ISite" IsInterface="True" IsReadable="True" IsWritable="True" />
-      <Event Name="Disposed" HandlerType="System.EventHandler" />
+      <Event Name="Disposed" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Interface>
     <Interface Name="IContainer" Type="System.ComponentModel.IContainer" IsInterface="True">
       <ImplementedInterface Type="System.IDisposable" />
@@ -5358,13 +5454,22 @@
       <Method Name="GetErrors" Type="System.Collections.IEnumerable" IsInterface="True">
         <Parameter Name="propertyName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="ErrorsChanged" HandlerType="System.EventHandler`1&lt;System.ComponentModel.DataErrorsChangedEventArgs&gt;" />
+      <Event Name="ErrorsChanged" Type="System.EventHandler`1&lt;System.ComponentModel.DataErrorsChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.DataErrorsChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Interface>
     <Interface Name="INotifyPropertyChanged" Type="System.ComponentModel.INotifyPropertyChanged" IsInterface="True">
-      <Event Name="PropertyChanged" HandlerType="System.ComponentModel.PropertyChangedEventHandler" />
+      <Event Name="PropertyChanged" Type="System.ComponentModel.PropertyChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.PropertyChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Interface>
     <Interface Name="INotifyPropertyChanging" Type="System.ComponentModel.INotifyPropertyChanging" IsInterface="True">
-      <Event Name="PropertyChanging" HandlerType="System.ComponentModel.PropertyChangingEventHandler" />
+      <Event Name="PropertyChanging" Type="System.ComponentModel.PropertyChangingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.PropertyChangingEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Interface>
     <Class Name="InstallerTypeAttribute" Type="System.ComponentModel.InstallerTypeAttribute" BaseName="Attribute" BaseType="System.Attribute">
       <ImplementedInterface Type="System.Runtime.InteropServices._Attribute" />
@@ -5438,7 +5543,10 @@
     <Interface Name="ISupportInitializeNotification" Type="System.ComponentModel.ISupportInitializeNotification" IsInterface="True">
       <ImplementedInterface Type="System.ComponentModel.ISupportInitialize" />
       <Property Name="IsInitialized" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Event Name="Initialized" HandlerType="System.EventHandler" />
+      <Event Name="Initialized" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Interface>
     <Interface Name="ISynchronizeInvoke" Type="System.ComponentModel.ISynchronizeInvoke" IsInterface="True">
       <Property Name="InvokeRequired" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
@@ -5755,7 +5863,10 @@
         <Parameter Name="service" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
       </Method>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      <Event Name="Disposed" HandlerType="System.EventHandler" />
+      <Event Name="Disposed" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Class>
     <Class Name="MaskedTextProvider" Type="System.ComponentModel.MaskedTextProvider" BaseName="Object" BaseType="System.Object">
       <ImplementedInterface Type="System.ICloneable" />
@@ -7150,7 +7261,9 @@
       <Method Name="SortDescriptorArray" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="infos" Type="System.Collections.IList" IsInterface="True" />
       </Method>
-      <Event Name="Refreshed" HandlerType="System.ComponentModel.RefreshEventHandler" />
+      <Event Name="Refreshed" Type="System.ComponentModel.RefreshEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="e" Type="System.ComponentModel.RefreshEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="TypeListConverter" Type="System.ComponentModel.TypeListConverter" BaseName="TypeConverter" BaseType="System.ComponentModel.TypeConverter">
       <Method Name="CanConvertFrom" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -7642,13 +7755,34 @@
         <Parameter Name="component" Type="System.Object" IsDelegate="True" />
         <Parameter Name="member" Type="System.ComponentModel.MemberDescriptor" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="ComponentAdded" HandlerType="System.ComponentModel.Design.ComponentEventHandler" />
-      <Event Name="ComponentAdding" HandlerType="System.ComponentModel.Design.ComponentEventHandler" />
-      <Event Name="ComponentChanged" HandlerType="System.ComponentModel.Design.ComponentChangedEventHandler" />
-      <Event Name="ComponentChanging" HandlerType="System.ComponentModel.Design.ComponentChangingEventHandler" />
-      <Event Name="ComponentRemoved" HandlerType="System.ComponentModel.Design.ComponentEventHandler" />
-      <Event Name="ComponentRemoving" HandlerType="System.ComponentModel.Design.ComponentEventHandler" />
-      <Event Name="ComponentRename" HandlerType="System.ComponentModel.Design.ComponentRenameEventHandler" />
+      <Event Name="ComponentAdded" Type="System.ComponentModel.Design.ComponentEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.Design.ComponentEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="ComponentAdding" Type="System.ComponentModel.Design.ComponentEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.Design.ComponentEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="ComponentChanged" Type="System.ComponentModel.Design.ComponentChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.Design.ComponentChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="ComponentChanging" Type="System.ComponentModel.Design.ComponentChangingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.Design.ComponentChangingEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="ComponentRemoved" Type="System.ComponentModel.Design.ComponentEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.Design.ComponentEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="ComponentRemoving" Type="System.ComponentModel.Design.ComponentEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.Design.ComponentEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="ComponentRename" Type="System.ComponentModel.Design.ComponentRenameEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.Design.ComponentRenameEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Interface>
     <Interface Name="IComponentDiscoveryService" Type="System.ComponentModel.Design.IComponentDiscoveryService" IsInterface="True">
       <Method Name="GetComponentTypes" Type="System.Collections.ICollection" IsInterface="True">
@@ -7676,10 +7810,22 @@
     <Interface Name="IDesignerEventService" Type="System.ComponentModel.Design.IDesignerEventService" IsInterface="True">
       <Property Name="ActiveDesigner" Type="System.ComponentModel.Design.IDesignerHost" IsInterface="True" IsReadable="True" />
       <Property Name="Designers" Type="System.ComponentModel.Design.DesignerCollection" BaseName="Object" BaseType="System.Object" IsReadable="True" />
-      <Event Name="ActiveDesignerChanged" HandlerType="System.ComponentModel.Design.ActiveDesignerEventHandler" />
-      <Event Name="DesignerCreated" HandlerType="System.ComponentModel.Design.DesignerEventHandler" />
-      <Event Name="DesignerDisposed" HandlerType="System.ComponentModel.Design.DesignerEventHandler" />
-      <Event Name="SelectionChanged" HandlerType="System.EventHandler" />
+      <Event Name="ActiveDesignerChanged" Type="System.ComponentModel.Design.ActiveDesignerEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.Design.ActiveDesignerEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="DesignerCreated" Type="System.ComponentModel.Design.DesignerEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.Design.DesignerEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="DesignerDisposed" Type="System.ComponentModel.Design.DesignerEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.Design.DesignerEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="SelectionChanged" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Interface>
     <Interface Name="IDesignerFilter" Type="System.ComponentModel.Design.IDesignerFilter" IsInterface="True">
       <Method Name="PostFilterAttributes" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -7731,13 +7877,34 @@
       <Method Name="GetType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo">
         <Parameter Name="typeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="Activated" HandlerType="System.EventHandler" />
-      <Event Name="Deactivated" HandlerType="System.EventHandler" />
-      <Event Name="LoadComplete" HandlerType="System.EventHandler" />
-      <Event Name="TransactionClosed" HandlerType="System.ComponentModel.Design.DesignerTransactionCloseEventHandler" />
-      <Event Name="TransactionClosing" HandlerType="System.ComponentModel.Design.DesignerTransactionCloseEventHandler" />
-      <Event Name="TransactionOpened" HandlerType="System.EventHandler" />
-      <Event Name="TransactionOpening" HandlerType="System.EventHandler" />
+      <Event Name="Activated" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="Deactivated" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="LoadComplete" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="TransactionClosed" Type="System.ComponentModel.Design.DesignerTransactionCloseEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.Design.DesignerTransactionCloseEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="TransactionClosing" Type="System.ComponentModel.Design.DesignerTransactionCloseEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.Design.DesignerTransactionCloseEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="TransactionOpened" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="TransactionOpening" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Interface>
     <Interface Name="IDesignerHostTransactionState" Type="System.ComponentModel.Design.IDesignerHostTransactionState" IsInterface="True">
       <Property Name="IsClosingTransaction" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
@@ -7906,8 +8073,14 @@
         <Parameter Name="components" Type="System.Collections.ICollection" IsInterface="True" />
         <Parameter Name="selectionType" Type="System.ComponentModel.Design.SelectionTypes" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
-      <Event Name="SelectionChanged" HandlerType="System.EventHandler" />
-      <Event Name="SelectionChanging" HandlerType="System.EventHandler" />
+      <Event Name="SelectionChanged" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="SelectionChanging" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Interface>
     <Interface Name="IServiceContainer" Type="System.ComponentModel.Design.IServiceContainer" IsInterface="True">
       <ImplementedInterface Type="System.IServiceProvider" />
@@ -8007,7 +8180,10 @@
         <Parameter Name="arg" Type="System.Object" IsDelegate="True" />
       </Method>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      <Event Name="CommandChanged" HandlerType="System.EventHandler" />
+      <Event Name="CommandChanged" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Class>
     <Enumeration Name="SelectionTypes" Type="System.ComponentModel.Design.SelectionTypes" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum">
       <ImplementedInterface Type="System.IComparable" />
@@ -8329,8 +8505,14 @@
         <Parameter Name="instance" Type="System.Object" IsDelegate="True" />
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="ResolveName" HandlerType="System.ComponentModel.Design.Serialization.ResolveNameEventHandler" />
-      <Event Name="SerializationComplete" HandlerType="System.EventHandler" />
+      <Event Name="ResolveName" Type="System.ComponentModel.Design.Serialization.ResolveNameEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.Design.Serialization.ResolveNameEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="SerializationComplete" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Interface>
     <Interface Name="IDesignerSerializationProvider" Type="System.ComponentModel.Design.Serialization.IDesignerSerializationProvider" IsInterface="True">
       <Method Name="GetSerializer" Type="System.Object" IsDelegate="True">
@@ -8503,10 +8685,22 @@
       <Method Name="Reset" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Save" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Upgrade" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      <Event Name="PropertyChanged" HandlerType="System.ComponentModel.PropertyChangedEventHandler" />
-      <Event Name="SettingChanging" HandlerType="System.Configuration.SettingChangingEventHandler" />
-      <Event Name="SettingsLoaded" HandlerType="System.Configuration.SettingsLoadedEventHandler" />
-      <Event Name="SettingsSaving" HandlerType="System.Configuration.SettingsSavingEventHandler" />
+      <Event Name="PropertyChanged" Type="System.ComponentModel.PropertyChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.PropertyChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="SettingChanging" Type="System.Configuration.SettingChangingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Configuration.SettingChangingEventArgs" BaseName="CancelEventArgs" BaseType="System.ComponentModel.CancelEventArgs" />
+      </Event>
+      <Event Name="SettingsLoaded" Type="System.Configuration.SettingsLoadedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Configuration.SettingsLoadedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="SettingsSaving" Type="System.Configuration.SettingsSavingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.CancelEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="ApplicationSettingsGroup" Type="System.Configuration.ApplicationSettingsGroup" BaseName="ConfigurationSectionGroup" BaseType="System.Configuration.ConfigurationSectionGroup" />
     <Class Name="AppSettingsReader" Type="System.Configuration.AppSettingsReader" BaseName="Object" BaseType="System.Object">
@@ -9698,7 +9892,10 @@
         <Parameter Name="data" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="values" Type="System.Object[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Object" />
       </Method>
-      <Event Name="EntryWritten" HandlerType="System.Diagnostics.EntryWrittenEventHandler" />
+      <Event Name="EntryWritten" Type="System.Diagnostics.EntryWrittenEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Diagnostics.EntryWrittenEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="EventLogEntry" Type="System.Diagnostics.EventLogEntry" BaseName="Component" BaseType="System.ComponentModel.Component">
       <ImplementedInterface Type="System.ComponentModel.IComponent" />
@@ -10396,9 +10593,18 @@
         <Parameter Name="milliseconds" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="WaitForInputIdle" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      <Event Name="ErrorDataReceived" HandlerType="System.Diagnostics.DataReceivedEventHandler" />
-      <Event Name="Exited" HandlerType="System.EventHandler" />
-      <Event Name="OutputDataReceived" HandlerType="System.Diagnostics.DataReceivedEventHandler" />
+      <Event Name="ErrorDataReceived" Type="System.Diagnostics.DataReceivedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Diagnostics.DataReceivedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="Exited" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="OutputDataReceived" Type="System.Diagnostics.DataReceivedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Diagnostics.DataReceivedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="ProcessModule" Type="System.Diagnostics.ProcessModule" BaseName="Component" BaseType="System.ComponentModel.Component">
       <ImplementedInterface Type="System.ComponentModel.IComponent" />
@@ -11258,11 +11464,26 @@
         <Parameter Name="changeType" Type="System.IO.WatcherChangeTypes" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="timeout" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="Changed" HandlerType="System.IO.FileSystemEventHandler" />
-      <Event Name="Created" HandlerType="System.IO.FileSystemEventHandler" />
-      <Event Name="Deleted" HandlerType="System.IO.FileSystemEventHandler" />
-      <Event Name="Error" HandlerType="System.IO.ErrorEventHandler" />
-      <Event Name="Renamed" HandlerType="System.IO.RenamedEventHandler" />
+      <Event Name="Changed" Type="System.IO.FileSystemEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.IO.FileSystemEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="Created" Type="System.IO.FileSystemEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.IO.FileSystemEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="Deleted" Type="System.IO.FileSystemEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.IO.FileSystemEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="Error" Type="System.IO.ErrorEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.IO.ErrorEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="Renamed" Type="System.IO.RenamedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.IO.RenamedEventArgs" BaseName="FileSystemEventArgs" BaseType="System.IO.FileSystemEventArgs" />
+      </Event>
     </Class>
     <Class Name="InternalBufferOverflowException" Type="System.IO.InternalBufferOverflowException" BaseName="SystemException" BaseType="System.SystemException">
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
@@ -11715,9 +11936,18 @@
       <Method Name="WriteLine" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="text" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="DataReceived" HandlerType="System.IO.Ports.SerialDataReceivedEventHandler" />
-      <Event Name="ErrorReceived" HandlerType="System.IO.Ports.SerialErrorReceivedEventHandler" />
-      <Event Name="PinChanged" HandlerType="System.IO.Ports.SerialPinChangedEventHandler" />
+      <Event Name="DataReceived" Type="System.IO.Ports.SerialDataReceivedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.IO.Ports.SerialDataReceivedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="ErrorReceived" Type="System.IO.Ports.SerialErrorReceivedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.IO.Ports.SerialErrorReceivedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="PinChanged" Type="System.IO.Ports.SerialPinChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.IO.Ports.SerialPinChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Enumeration Name="StopBits" Type="System.IO.Ports.StopBits" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum">
       <ImplementedInterface Type="System.IComparable" />
@@ -11751,9 +11981,18 @@
       <Method Name="PlayLooping" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="PlaySync" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Stop" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      <Event Name="LoadCompleted" HandlerType="System.ComponentModel.AsyncCompletedEventHandler" />
-      <Event Name="SoundLocationChanged" HandlerType="System.EventHandler" />
-      <Event Name="StreamChanged" HandlerType="System.EventHandler" />
+      <Event Name="LoadCompleted" Type="System.ComponentModel.AsyncCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.AsyncCompletedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="SoundLocationChanged" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="StreamChanged" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Class>
     <Class Name="SystemSound" Type="System.Media.SystemSound" BaseName="Object" BaseType="System.Object">
       <Method Name="Play" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -13793,18 +14032,54 @@
         <Parameter Name="method" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="data" Type="System.Collections.Specialized.NameValueCollection" BaseName="NameObjectCollectionBase" BaseType="System.Collections.Specialized.NameObjectCollectionBase" />
       </Method>
-      <Event Name="DownloadDataCompleted" HandlerType="System.Net.DownloadDataCompletedEventHandler" />
-      <Event Name="DownloadFileCompleted" HandlerType="System.ComponentModel.AsyncCompletedEventHandler" />
-      <Event Name="DownloadProgressChanged" HandlerType="System.Net.DownloadProgressChangedEventHandler" />
-      <Event Name="DownloadStringCompleted" HandlerType="System.Net.DownloadStringCompletedEventHandler" />
-      <Event Name="OpenReadCompleted" HandlerType="System.Net.OpenReadCompletedEventHandler" />
-      <Event Name="OpenWriteCompleted" HandlerType="System.Net.OpenWriteCompletedEventHandler" />
-      <Event Name="UploadDataCompleted" HandlerType="System.Net.UploadDataCompletedEventHandler" />
-      <Event Name="UploadFileCompleted" HandlerType="System.Net.UploadFileCompletedEventHandler" />
-      <Event Name="UploadProgressChanged" HandlerType="System.Net.UploadProgressChangedEventHandler" />
-      <Event Name="UploadStringCompleted" HandlerType="System.Net.UploadStringCompletedEventHandler" />
-      <Event Name="UploadValuesCompleted" HandlerType="System.Net.UploadValuesCompletedEventHandler" />
-      <Event Name="WriteStreamClosed" HandlerType="System.Net.WriteStreamClosedEventHandler" />
+      <Event Name="DownloadDataCompleted" Type="System.Net.DownloadDataCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.DownloadDataCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
+      <Event Name="DownloadFileCompleted" Type="System.ComponentModel.AsyncCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.AsyncCompletedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="DownloadProgressChanged" Type="System.Net.DownloadProgressChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.DownloadProgressChangedEventArgs" BaseName="ProgressChangedEventArgs" BaseType="System.ComponentModel.ProgressChangedEventArgs" />
+      </Event>
+      <Event Name="DownloadStringCompleted" Type="System.Net.DownloadStringCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.DownloadStringCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
+      <Event Name="OpenReadCompleted" Type="System.Net.OpenReadCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.OpenReadCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
+      <Event Name="OpenWriteCompleted" Type="System.Net.OpenWriteCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.OpenWriteCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
+      <Event Name="UploadDataCompleted" Type="System.Net.UploadDataCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.UploadDataCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
+      <Event Name="UploadFileCompleted" Type="System.Net.UploadFileCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.UploadFileCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
+      <Event Name="UploadProgressChanged" Type="System.Net.UploadProgressChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.UploadProgressChangedEventArgs" BaseName="ProgressChangedEventArgs" BaseType="System.ComponentModel.ProgressChangedEventArgs" />
+      </Event>
+      <Event Name="UploadStringCompleted" Type="System.Net.UploadStringCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.UploadStringCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
+      <Event Name="UploadValuesCompleted" Type="System.Net.UploadValuesCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.UploadValuesCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
+      <Event Name="WriteStreamClosed" Type="System.Net.WriteStreamClosedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.WriteStreamClosedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="WebException" Type="System.Net.WebException" BaseName="InvalidOperationException" BaseType="System.InvalidOperationException">
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
@@ -14984,7 +15259,10 @@
       <Method Name="SendMailAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
         <Parameter Name="message" Type="System.Net.Mail.MailMessage" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="SendCompleted" HandlerType="System.Net.Mail.SendCompletedEventHandler" />
+      <Event Name="SendCompleted" Type="System.Net.Mail.SendCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.AsyncCompletedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Enumeration Name="SmtpDeliveryFormat" Type="System.Net.Mail.SmtpDeliveryFormat" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum">
       <ImplementedInterface Type="System.IComparable" />
@@ -15612,8 +15890,14 @@
       <Method Name="RegisterNetworkChange" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="nc" Type="System.Net.NetworkInformation.NetworkChange" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="NetworkAddressChanged" HandlerType="System.Net.NetworkInformation.NetworkAddressChangedEventHandler" />
-      <Event Name="NetworkAvailabilityChanged" HandlerType="System.Net.NetworkInformation.NetworkAvailabilityChangedEventHandler" />
+      <Event Name="NetworkAddressChanged" Type="System.Net.NetworkInformation.NetworkAddressChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="NetworkAvailabilityChanged" Type="System.Net.NetworkInformation.NetworkAvailabilityChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.NetworkInformation.NetworkAvailabilityEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Enumeration Name="NetworkInformationAccess" Type="System.Net.NetworkInformation.NetworkInformationAccess" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum">
       <ImplementedInterface Type="System.IComparable" />
@@ -15886,7 +16170,10 @@
         <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="options" Type="System.Net.NetworkInformation.PingOptions" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="PingCompleted" HandlerType="System.Net.NetworkInformation.PingCompletedEventHandler" />
+      <Event Name="PingCompleted" Type="System.Net.NetworkInformation.PingCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.NetworkInformation.PingCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
     </Class>
     <Class Name="PingCompletedEventArgs" Type="System.Net.NetworkInformation.PingCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs">
       <Property Name="Reply" Type="System.Net.NetworkInformation.PingReply" BaseName="Object" BaseType="System.Object" IsReadable="True" />
@@ -17397,7 +17684,10 @@
         <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="count" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="Completed" HandlerType="System.EventHandler`1&lt;System.Net.Sockets.SocketAsyncEventArgs&gt;" />
+      <Event Name="Completed" Type="System.EventHandler`1&lt;System.Net.Sockets.SocketAsyncEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.Sockets.SocketAsyncEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Enumeration Name="SocketAsyncOperation" Type="System.Net.Sockets.SocketAsyncOperation" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum">
       <ImplementedInterface Type="System.IComparable" />
@@ -20273,7 +20563,10 @@
       <Method Name="EndInit" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Start" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Stop" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      <Event Name="Elapsed" HandlerType="System.Timers.ElapsedEventHandler" />
+      <Event Name="Elapsed" Type="System.Timers.ElapsedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Timers.ElapsedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="TimersDescriptionAttribute" Type="System.Timers.TimersDescriptionAttribute" BaseName="DescriptionAttribute" BaseType="System.ComponentModel.DescriptionAttribute">
       <ImplementedInterface Type="System.Runtime.InteropServices._Attribute" />
@@ -20340,7 +20633,10 @@
       <Method Name="Execute" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="parameter" Type="System.Object" IsDelegate="True" />
       </Method>
-      <Event Name="CanExecuteChanged" HandlerType="System.EventHandler" />
+      <Event Name="CanExecuteChanged" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Interface>
   </Namespace>
   <Namespace Name="System.Windows.Markup">

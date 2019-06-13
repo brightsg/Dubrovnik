@@ -194,6 +194,11 @@
 }
 
 #pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Data.StateChangeEventHandler StateChange */
+
+#pragma mark -
 #pragma mark Teardown
 
 - (void)dealloc

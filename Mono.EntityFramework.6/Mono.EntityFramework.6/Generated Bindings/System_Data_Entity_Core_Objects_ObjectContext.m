@@ -425,6 +425,21 @@
 /* Skipped method : System.Boolean TryGetObjectByKey(System.Data.Entity.Core.EntityKey key, System.Object& value) */
 
 #pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Data.Entity.Core.Objects.ObjectMaterializedEventHandler ObjectMaterialized */
+
++ (NSString *)savingChangesEventName
+{
+	return @"SavingChanges";
+}
+
+- (System_EventHandler *)savingChanges_addEventHandlerWithBlock:(System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_EventBlock)block
+{
+	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler *.class forEventName:self.class.savingChangesEventName block:(EventBlock)block];
+}
+
+#pragma mark -
 #pragma mark Teardown
 
 - (void)dealloc

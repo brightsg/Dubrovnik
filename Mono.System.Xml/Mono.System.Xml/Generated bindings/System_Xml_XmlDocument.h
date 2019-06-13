@@ -36,6 +36,27 @@
 //
 //#import "System_Xml_XmlNode.h" // class base defaults to System.Object
 
+// 
+// Event support
+// 
+#define System_Xml_XmlDocument_NodeChanged_EventBlock System_Xml_XmlDocument_NodeChanged_EventBlock
+typedef void (^System_Xml_XmlDocument_NodeChanged_EventBlock)(System_Object *sender, System_Xml_XmlNodeChangedEventArgs *e);
+
+#define System_Xml_XmlDocument_NodeChanging_EventBlock System_Xml_XmlDocument_NodeChanging_EventBlock
+typedef void (^System_Xml_XmlDocument_NodeChanging_EventBlock)(System_Object *sender, System_Xml_XmlNodeChangedEventArgs *e);
+
+#define System_Xml_XmlDocument_NodeInserted_EventBlock System_Xml_XmlDocument_NodeInserted_EventBlock
+typedef void (^System_Xml_XmlDocument_NodeInserted_EventBlock)(System_Object *sender, System_Xml_XmlNodeChangedEventArgs *e);
+
+#define System_Xml_XmlDocument_NodeInserting_EventBlock System_Xml_XmlDocument_NodeInserting_EventBlock
+typedef void (^System_Xml_XmlDocument_NodeInserting_EventBlock)(System_Object *sender, System_Xml_XmlNodeChangedEventArgs *e);
+
+#define System_Xml_XmlDocument_NodeRemoved_EventBlock System_Xml_XmlDocument_NodeRemoved_EventBlock
+typedef void (^System_Xml_XmlDocument_NodeRemoved_EventBlock)(System_Object *sender, System_Xml_XmlNodeChangedEventArgs *e);
+
+#define System_Xml_XmlDocument_NodeRemoving_EventBlock System_Xml_XmlDocument_NodeRemoving_EventBlock
+typedef void (^System_Xml_XmlDocument_NodeRemoving_EventBlock)(System_Object *sender, System_Xml_XmlNodeChangedEventArgs *e);
+
 @interface System_Xml_XmlDocument : System_Object <System_ICloneable_, System_Collections_IEnumerable_>
 
 #pragma mark -
@@ -324,5 +345,20 @@
 /* Skipped method : System.Void WriteContentTo(System.Xml.XmlWriter xw) */
 
 /* Skipped method : System.Void WriteTo(System.Xml.XmlWriter w) */
+
+#pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeChanged */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeChanging */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeInserted */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeInserting */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeRemoved */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeRemoving */
 @end
 //--Dubrovnik.CodeGenerator

@@ -54,6 +54,19 @@
 }
 
 #pragma mark -
+#pragma mark Events
+
++ (NSString *)collectionChangedEventName
+{
+	return @"CollectionChanged";
+}
+
+- (System_Collections_Specialized_NotifyCollectionChangedEventHandler *)collectionChanged_addEventHandlerWithBlock:(System_Collections_ObjectModel_ObservableCollectionA1_CollectionChanged_EventBlock)block
+{
+	return (System_Collections_Specialized_NotifyCollectionChangedEventHandler *)[self db_addEventHandlerWithClass:System_Collections_Specialized_NotifyCollectionChangedEventHandler *.class forEventName:self.class.collectionChangedEventName block:(EventBlock)block];
+}
+
+#pragma mark -
 #pragma mark Teardown
 
 - (void)dealloc

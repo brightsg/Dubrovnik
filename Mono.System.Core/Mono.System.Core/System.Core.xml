@@ -1668,7 +1668,10 @@
         <Parameter Name="readExistingEvents" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Dispose" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      <Event Name="EventRecordWritten" HandlerType="System.EventHandler`1&lt;System.Diagnostics.Eventing.Reader.EventRecordWrittenEventArgs&gt;" />
+      <Event Name="EventRecordWritten" Type="System.EventHandler`1&lt;System.Diagnostics.Eventing.Reader.EventRecordWrittenEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Diagnostics.Eventing.Reader.EventRecordWrittenEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="EventMetadata" Type="System.Diagnostics.Eventing.Reader.EventMetadata" BaseName="Object" BaseType="System.Object">
       <Property Name="Description" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" />

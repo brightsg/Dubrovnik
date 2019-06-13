@@ -36,6 +36,12 @@
 //
 #import "System_Data_IDbConnection_Protocol.h"
 
+// 
+// Event support
+// 
+#define System_Data_Common_DbConnection_StateChange_EventBlock System_Data_Common_DbConnection_StateChange_EventBlock
+typedef void (^System_Data_Common_DbConnection_StateChange_EventBlock)(System_Object *sender, System_Data_StateChangeEventArgs *e);
+
 @interface System_Data_Common_DbConnection : System_Object <System_IDisposable_, System_Data_IDbConnection_>
 
 #pragma mark -
@@ -200,5 +206,10 @@
  @/textblock
 */
 - (System_Threading_Tasks_Task *)openAsync_withCancellationToken:(System_Threading_CancellationToken *)p1;
+
+#pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Data.StateChangeEventHandler StateChange */
 @end
 //--Dubrovnik.CodeGenerator

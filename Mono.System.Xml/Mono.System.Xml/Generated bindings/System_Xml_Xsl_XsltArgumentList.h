@@ -32,6 +32,12 @@
 //
 
 
+// 
+// Event support
+// 
+#define System_Xml_Xsl_XsltArgumentList_XsltMessageEncountered_EventBlock System_Xml_Xsl_XsltArgumentList_XsltMessageEncountered_EventBlock
+typedef void (^System_Xml_Xsl_XsltArgumentList_XsltMessageEncountered_EventBlock)(System_Object *sender, System_Xml_Xsl_XsltMessageEncounteredEventArgs *e);
+
 @interface System_Xml_Xsl_XsltArgumentList : System_Object
 
 #pragma mark -
@@ -152,5 +158,10 @@
  @/textblock
 */
 - (System_Object *)removeParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2;
+
+#pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Xml.Xsl.XsltMessageEncounteredEventHandler XsltMessageEncountered */
 @end
 //--Dubrovnik.CodeGenerator

@@ -22,6 +22,7 @@
 @class System_Boolean;
 @class System_Byte;
 @class System_CrossAppDomainDelegate;
+@class System_EventHandler;
 @class System_Globalization_CultureInfo;
 @class System_Int32;
 @class System_Int64;
@@ -33,6 +34,7 @@
 @class System_String;
 @class System_TimeSpan;
 @class System_Type;
+@class System_UnhandledExceptionEventHandler;
 @class System_Void;
 
 //
@@ -44,6 +46,36 @@
 // Import superclass and adopted protocols
 //
 #import "System_MarshalByRefObject.h"
+
+// 
+// Event support
+// 
+#define System_AppDomain_AssemblyLoad_EventBlock System_AppDomain_AssemblyLoad_EventBlock
+typedef void (^System_AppDomain_AssemblyLoad_EventBlock)(System_Object *sender, System_AssemblyLoadEventArgs *args);
+
+#define System_AppDomain_AssemblyResolve_EventBlock System_AppDomain_AssemblyResolve_EventBlock
+typedef void (^System_AppDomain_AssemblyResolve_EventBlock)(System_Object *sender, System_ResolveEventArgs *args);
+
+#define System_AppDomain_DomainUnload_EventBlock System_AppDomain_DomainUnload_EventBlock
+typedef void (^System_AppDomain_DomainUnload_EventBlock)(System_Object *sender, System_EventArgs *e);
+
+#define System_AppDomain_FirstChanceException_EventBlock System_AppDomain_FirstChanceException_EventBlock
+typedef void (^System_AppDomain_FirstChanceException_EventBlock)(System_Object *sender, System_Runtime_ExceptionServices_FirstChanceExceptionEventArgs *e);
+
+#define System_AppDomain_ProcessExit_EventBlock System_AppDomain_ProcessExit_EventBlock
+typedef void (^System_AppDomain_ProcessExit_EventBlock)(System_Object *sender, System_EventArgs *e);
+
+#define System_AppDomain_ReflectionOnlyAssemblyResolve_EventBlock System_AppDomain_ReflectionOnlyAssemblyResolve_EventBlock
+typedef void (^System_AppDomain_ReflectionOnlyAssemblyResolve_EventBlock)(System_Object *sender, System_ResolveEventArgs *args);
+
+#define System_AppDomain_ResourceResolve_EventBlock System_AppDomain_ResourceResolve_EventBlock
+typedef void (^System_AppDomain_ResourceResolve_EventBlock)(System_Object *sender, System_ResolveEventArgs *args);
+
+#define System_AppDomain_TypeResolve_EventBlock System_AppDomain_TypeResolve_EventBlock
+typedef void (^System_AppDomain_TypeResolve_EventBlock)(System_Object *sender, System_ResolveEventArgs *args);
+
+#define System_AppDomain_UnhandledException_EventBlock System_AppDomain_UnhandledException_EventBlock
+typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object *sender, System_UnhandledExceptionEventArgs *e);
 
 @interface System_AppDomain : System_MarshalByRefObject
 
@@ -869,5 +901,80 @@
  @/textblock
 */
 + (void)unload_withDomain:(System_AppDomain *)p1;
+
+#pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.AssemblyLoadEventHandler AssemblyLoad */
+
+/* Skipped event : System.ResolveEventHandler AssemblyResolve */
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   DomainUnload
+
+ @/textblock
+*/
++ (NSString *)domainUnloadEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   DomainUnload
+
+ @/textblock
+*/
+- (System_EventHandler *)domainUnload_addEventHandlerWithBlock:(System_AppDomain_DomainUnload_EventBlock)block;
+
+/* Skipped event : System.EventHandler`1<System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs> FirstChanceException */
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   ProcessExit
+
+ @/textblock
+*/
++ (NSString *)processExitEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   ProcessExit
+
+ @/textblock
+*/
+- (System_EventHandler *)processExit_addEventHandlerWithBlock:(System_AppDomain_ProcessExit_EventBlock)block;
+
+/* Skipped event : System.ResolveEventHandler ReflectionOnlyAssemblyResolve */
+
+/* Skipped event : System.ResolveEventHandler ResourceResolve */
+
+/* Skipped event : System.ResolveEventHandler TypeResolve */
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   UnhandledException
+
+ @/textblock
+*/
++ (NSString *)unhandledExceptionEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   UnhandledException
+
+ @/textblock
+*/
+- (System_UnhandledExceptionEventHandler *)unhandledException_addEventHandlerWithBlock:(System_AppDomain_UnhandledException_EventBlock)block;
 @end
 //--Dubrovnik.CodeGenerator

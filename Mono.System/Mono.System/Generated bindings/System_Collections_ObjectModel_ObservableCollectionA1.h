@@ -26,6 +26,7 @@
 @class System_Collections_IEnumerable;
 @class System_Collections_IList;
 @class System_Collections_ObjectModel_ObservableCollectionA1;
+@class System_Collections_Specialized_NotifyCollectionChangedEventHandler;
 @class System_ComponentModel_INotifyPropertyChanged;
 @class System_Int32;
 @class System_Void;
@@ -41,6 +42,12 @@
 // Import superclass and adopted protocols
 //
 #import "System_ComponentModel_INotifyPropertyChanged_Protocol.h"
+
+// 
+// Event support
+// 
+#define System_Collections_ObjectModel_ObservableCollectionA1_CollectionChanged_EventBlock System_Collections_ObjectModel_ObservableCollectionA1_CollectionChanged_EventBlock
+typedef void (^System_Collections_ObjectModel_ObservableCollectionA1_CollectionChanged_EventBlock)(System_Object *sender, System_Collections_Specialized_NotifyCollectionChangedEventArgs *e);
 
 @interface System_Collections_ObjectModel_ObservableCollectionA1 : System_Collections_ObjectModel_CollectionA1 <System_Collections_Generic_IListA1_, System_Collections_Generic_ICollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_IList_, System_Collections_Generic_IReadOnlyListA1_, System_Collections_Generic_IReadOnlyCollectionA1_, System_ComponentModel_INotifyPropertyChanged_>
 
@@ -101,5 +108,28 @@
  @/textblock
 */
 - (void)move_withOldIndex:(int32_t)p1 newIndex:(int32_t)p2;
+
+#pragma mark -
+#pragma mark Events
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   CollectionChanged
+
+ @/textblock
+*/
++ (NSString *)collectionChangedEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   CollectionChanged
+
+ @/textblock
+*/
+- (System_Collections_Specialized_NotifyCollectionChangedEventHandler *)collectionChanged_addEventHandlerWithBlock:(System_Collections_ObjectModel_ObservableCollectionA1_CollectionChanged_EventBlock)block;
 @end
 //--Dubrovnik.CodeGenerator

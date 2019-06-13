@@ -258,7 +258,10 @@
         <Parameter Name="promotableNotification" Type="System.Transactions.IPromotableSinglePhaseNotification" IsInterface="True" />
         <Parameter Name="distributedTransactionIdentifier" Type="System.Guid" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="TransactionCompleted" HandlerType="System.Transactions.TransactionCompletedEventHandler" />
+      <Event Name="TransactionCompleted" Type="System.Transactions.TransactionCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Transactions.TransactionEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="TransactionAbortedException" Type="System.Transactions.TransactionAbortedException" BaseName="TransactionException" BaseType="System.Transactions.TransactionException">
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
@@ -358,7 +361,10 @@
         <Parameter Name="recoveryInformation" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="enlistmentNotification" Type="System.Transactions.IEnlistmentNotification" IsInterface="True" />
       </Method>
-      <Event Name="DistributedTransactionStarted" HandlerType="System.Transactions.TransactionStartedEventHandler" />
+      <Event Name="DistributedTransactionStarted" Type="System.Transactions.TransactionStartedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Transactions.TransactionEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="TransactionManagerCommunicationException" Type="System.Transactions.TransactionManagerCommunicationException" BaseName="TransactionException" BaseType="System.Transactions.TransactionException">
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />

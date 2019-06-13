@@ -1003,13 +1003,18 @@
 	  <string>System.Collections.ObjectModel.ObservableCollection`1</string>
 		<string>System.Collections.Specialized.NotifyCollectionChangedAction</string>
 		<string>System.Collections.Specialized.NotifyCollectionChangedEventArgs</string>
+    <string>System.Collections.Specialized.NotifyCollectionChangedEventHandler</string>
 		<string>System.ComponentModel.AsyncCompletedEventArgs</string>
+    <string>System.ComponentModel.AsyncCompletedEventHandler</string>
 		<string>System.ComponentModel.INotifyPropertyChanged</string>
 		<string>System.ComponentModel.INotifyPropertyChanging</string>
     <string>System.ComponentModel.ListSortDirection</string>
 		<string>System.ComponentModel.PropertyChangedEventArgs</string>
+    <string>System.ComponentModel.PropertyChangedEventHandler</string>
 		<string>System.ComponentModel.PropertyChangingEventArgs</string>
+    <string>System.ComponentModel.PropertyChangingEventHandler</string>
 		<string>System.ComponentModel.RunWorkerCompletedEventArgs</string>
+    <string>System.ComponentModel.RunWorkerCompletedEventHandler</string>
 		<string>System.Configuration.SettingsBase</string>
     <string>System.Net.HttpStatusCode</string>
     <string>System.Net.HttpWebRequest</string>

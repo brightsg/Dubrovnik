@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     06/06/2019 09:19:30
+// Date:     13/06/2019 22:15:20
 //
 // Assembly: System
 // Fullname: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -385,8 +385,7 @@
 /* Skipped type : System.Collections.Specialized.NameValueCollection NameValueCollection */
 #define SCSNotifyCollectionChangedAction_ System_Collections_Specialized_NotifyCollectionChangedAction
 #define SCSNotifyCollectionChangedEventArgs_ System_Collections_Specialized_NotifyCollectionChangedEventArgs
-
-/* Skipped type : System.Collections.Specialized.NotifyCollectionChangedEventHandler NotifyCollectionChangedEventHandler */
+#define SCSNotifyCollectionChangedEventHandler_ System_Collections_Specialized_NotifyCollectionChangedEventHandler
 
 /* Skipped type : System.Collections.Specialized.OrderedDictionary OrderedDictionary */
 
@@ -404,8 +403,7 @@
 
 /* Skipped type : System.ComponentModel.ArrayConverter ArrayConverter */
 #define SCAsyncCompletedEventArgs_ System_ComponentModel_AsyncCompletedEventArgs
-
-/* Skipped type : System.ComponentModel.AsyncCompletedEventHandler AsyncCompletedEventHandler */
+#define SCAsyncCompletedEventHandler_ System_ComponentModel_AsyncCompletedEventHandler
 
 /* Skipped type : System.ComponentModel.AsyncOperation AsyncOperation */
 
@@ -828,11 +826,9 @@
 
 /* Skipped type : System.ComponentModel.ProgressChangedEventHandler ProgressChangedEventHandler */
 #define SCPropertyChangedEventArgs_ System_ComponentModel_PropertyChangedEventArgs
-
-/* Skipped type : System.ComponentModel.PropertyChangedEventHandler PropertyChangedEventHandler */
+#define SCPropertyChangedEventHandler_ System_ComponentModel_PropertyChangedEventHandler
 #define SCPropertyChangingEventArgs_ System_ComponentModel_PropertyChangingEventArgs
-
-/* Skipped type : System.ComponentModel.PropertyChangingEventHandler PropertyChangingEventHandler */
+#define SCPropertyChangingEventHandler_ System_ComponentModel_PropertyChangingEventHandler
 
 /* Skipped type : System.ComponentModel.PropertyDescriptor PropertyDescriptor */
 
@@ -860,8 +856,7 @@
 
 /* Skipped type : System.ComponentModel.RunInstallerAttribute RunInstallerAttribute */
 #define SCRunWorkerCompletedEventArgs_ System_ComponentModel_RunWorkerCompletedEventArgs
-
-/* Skipped type : System.ComponentModel.RunWorkerCompletedEventHandler RunWorkerCompletedEventHandler */
+#define SCRunWorkerCompletedEventHandler_ System_ComponentModel_RunWorkerCompletedEventHandler
 
 /* Skipped type : System.ComponentModel.SByteConverter SByteConverter */
 
@@ -2053,7 +2048,9 @@ Assembly type imports
 #import "System_Collections_ObjectModel_ObservableCollectionA1.h"
 #import "System_Collections_Specialized_NotifyCollectionChangedAction.h"
 #import "System_Collections_Specialized_NotifyCollectionChangedEventArgs.h"
+#import "System_Collections_Specialized_NotifyCollectionChangedEventHandler.h"
 #import "System_ComponentModel_AsyncCompletedEventArgs.h"
+#import "System_ComponentModel_AsyncCompletedEventHandler.h"
 #import "System_ComponentModel_INotifyPropertyChanged.h"
 #import "System_ComponentModel_INotifyPropertyChanged.h"
 #import "System_ComponentModel_INotifyPropertyChanged_Protocol.h"
@@ -2062,8 +2059,11 @@ Assembly type imports
 #import "System_ComponentModel_INotifyPropertyChanging_Protocol.h"
 #import "System_ComponentModel_ListSortDirection.h"
 #import "System_ComponentModel_PropertyChangedEventArgs.h"
+#import "System_ComponentModel_PropertyChangedEventHandler.h"
 #import "System_ComponentModel_PropertyChangingEventArgs.h"
+#import "System_ComponentModel_PropertyChangingEventHandler.h"
 #import "System_ComponentModel_RunWorkerCompletedEventArgs.h"
+#import "System_ComponentModel_RunWorkerCompletedEventHandler.h"
 #import "System_Configuration_SettingsBase.h"
 #import "System_IO_ErrorEventArgs.h"
 #import "System_IO_ErrorEventHandler.h"

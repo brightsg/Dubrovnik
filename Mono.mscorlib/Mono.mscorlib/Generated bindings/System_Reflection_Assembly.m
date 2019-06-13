@@ -566,6 +566,11 @@
 }
 
 #pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Reflection.ModuleResolveEventHandler ModuleResolve */
+
+#pragma mark -
 #pragma mark Teardown
 
 - (void)dealloc

@@ -73,6 +73,11 @@
 }
 
 #pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Xml.Xsl.XsltMessageEncounteredEventHandler XsltMessageEncountered */
+
+#pragma mark -
 #pragma mark Teardown
 
 - (void)dealloc

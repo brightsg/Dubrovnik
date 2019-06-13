@@ -341,6 +341,21 @@
 /* Skipped method : System.Void WriteTo(System.Xml.XmlWriter w) */
 
 #pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeChanged */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeChanging */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeInserted */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeInserting */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeRemoved */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeRemoving */
+
+#pragma mark -
 #pragma mark Teardown
 
 - (void)dealloc

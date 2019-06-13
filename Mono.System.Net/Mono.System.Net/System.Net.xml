@@ -4,9 +4,18 @@
   <Reference Name="System" FullName="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <Namespace Name="System.Net">
     <Interface Name="INetworkProgress" Type="System.Net.INetworkProgress" IsInterface="True">
-      <Event Name="ProgressChanged" HandlerType="System.EventHandler`1&lt;System.Net.NetworkProgressChangedEventArgs&gt;" />
-      <Event Name="ProgressCompleted" HandlerType="System.EventHandler`1&lt;System.Net.NetworkProgressChangedEventArgs&gt;" />
-      <Event Name="ProgressFailed" HandlerType="System.EventHandler`1&lt;System.Net.NetworkProgressChangedEventArgs&gt;" />
+      <Event Name="ProgressChanged" Type="System.EventHandler`1&lt;System.Net.NetworkProgressChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.NetworkProgressChangedEventArgs" BaseName="ProgressChangedEventArgs" BaseType="System.ComponentModel.ProgressChangedEventArgs" />
+      </Event>
+      <Event Name="ProgressCompleted" Type="System.EventHandler`1&lt;System.Net.NetworkProgressChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.NetworkProgressChangedEventArgs" BaseName="ProgressChangedEventArgs" BaseType="System.ComponentModel.ProgressChangedEventArgs" />
+      </Event>
+      <Event Name="ProgressFailed" Type="System.EventHandler`1&lt;System.Net.NetworkProgressChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.NetworkProgressChangedEventArgs" BaseName="ProgressChangedEventArgs" BaseType="System.ComponentModel.ProgressChangedEventArgs" />
+      </Event>
     </Interface>
     <Class Name="IPEndPointCollection" Type="System.Net.IPEndPointCollection" BaseName="Collection`1&lt;IPEndPoint&gt;" BaseType="System.Collections.ObjectModel.Collection`1&lt;System.Net.IPEndPoint&gt;">
       <ImplementedInterface Type="System.Collections.Generic.IList`1&lt;System.Net.IPEndPoint&gt;" />
@@ -183,8 +192,14 @@
       <Method Name="ResolveAsyncCancel" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="userState" Type="System.Object" IsDelegate="True" />
       </Method>
-      <Event Name="ResolveCompleted" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.ResolveCompletedEventArgs&gt;" />
-      <Event Name="ResolveProgressChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.ResolveProgressChangedEventArgs&gt;" />
+      <Event Name="ResolveCompleted" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.ResolveCompletedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.ResolveCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
+      <Event Name="ResolveProgressChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.ResolveProgressChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.ResolveProgressChangedEventArgs" BaseName="ProgressChangedEventArgs" BaseType="System.ComponentModel.ProgressChangedEventArgs" />
+      </Event>
     </Class>
     <Enumeration Name="PeerNameType" Type="System.Net.PeerToPeer.PeerNameType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum">
       <ImplementedInterface Type="System.IComparable" />
@@ -300,12 +315,30 @@
       <Method Name="UpdateContact" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="peerContact" Type="System.Net.PeerToPeer.Collaboration.PeerContact" BaseName="Peer" BaseType="System.Net.PeerToPeer.Collaboration.Peer" />
       </Method>
-      <Event Name="ApplicationChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ApplicationChangedEventArgs&gt;" />
-      <Event Name="CreateContactCompleted" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.CreateContactCompletedEventArgs&gt;" />
-      <Event Name="NameChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.NameChangedEventArgs&gt;" />
-      <Event Name="ObjectChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ObjectChangedEventArgs&gt;" />
-      <Event Name="PresenceChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.PresenceChangedEventArgs&gt;" />
-      <Event Name="SubscriptionListChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.SubscriptionListChangedEventArgs&gt;" />
+      <Event Name="ApplicationChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ApplicationChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.ApplicationChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="CreateContactCompleted" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.CreateContactCompletedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.CreateContactCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
+      <Event Name="NameChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.NameChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.NameChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="ObjectChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ObjectChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.ObjectChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="PresenceChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.PresenceChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.PresenceChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="SubscriptionListChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.SubscriptionListChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.SubscriptionListChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="CreateContactCompletedEventArgs" Type="System.Net.PeerToPeer.Collaboration.CreateContactCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs">
       <Property Name="PeerContact" Type="System.Net.PeerToPeer.Collaboration.PeerContact" BaseName="Peer" BaseType="System.Net.PeerToPeer.Collaboration.Peer" IsReadable="True" />
@@ -361,7 +394,10 @@
         <Parameter Name="userToken" Type="System.Object" IsDelegate="True" />
       </Method>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      <Event Name="InviteCompleted" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.InviteCompletedEventArgs&gt;" />
+      <Event Name="InviteCompleted" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.InviteCompletedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.InviteCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
     </Class>
     <Class Name="PeerApplication" Type="System.Net.PeerToPeer.Collaboration.PeerApplication" BaseName="Object" BaseType="System.Object">
       <ImplementedInterface Type="System.IDisposable" />
@@ -395,7 +431,10 @@
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      <Event Name="ApplicationChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ApplicationChangedEventArgs&gt;" />
+      <Event Name="ApplicationChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ApplicationChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.ApplicationChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="PeerApplicationCollection" Type="System.Net.PeerToPeer.Collaboration.PeerApplicationCollection" BaseName="Collection`1&lt;PeerApplication&gt;" BaseType="System.Collections.ObjectModel.Collection`1&lt;System.Net.PeerToPeer.Collaboration.PeerApplication&gt;">
       <ImplementedInterface Type="System.Collections.Generic.IList`1&lt;System.Net.PeerToPeer.Collaboration.PeerApplication&gt;" />
@@ -463,10 +502,22 @@
         <Parameter Name="application" Type="System.Net.PeerToPeer.Collaboration.PeerApplication" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="type" Type="System.Net.PeerToPeer.Collaboration.PeerApplicationRegistrationType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
-      <Event Name="LocalApplicationChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ApplicationChangedEventArgs&gt;" />
-      <Event Name="LocalNameChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.NameChangedEventArgs&gt;" />
-      <Event Name="LocalObjectChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ObjectChangedEventArgs&gt;" />
-      <Event Name="LocalPresenceChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.PresenceChangedEventArgs&gt;" />
+      <Event Name="LocalApplicationChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ApplicationChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.ApplicationChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="LocalNameChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.NameChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.NameChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="LocalObjectChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ObjectChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.ObjectChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="LocalPresenceChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.PresenceChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.PresenceChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="PeerCollaborationPermission" Type="System.Net.PeerToPeer.Collaboration.PeerCollaborationPermission" BaseName="CodeAccessPermission" BaseType="System.Security.CodeAccessPermission">
       <ImplementedInterface Type="System.Security.IPermission" />
@@ -586,10 +637,22 @@
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       <Method Name="ToXml" Type="System.String" BaseName="Object" BaseType="System.Object" />
       <Method Name="Unsubscribe" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      <Event Name="ApplicationChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ApplicationChangedEventArgs&gt;" />
-      <Event Name="ObjectChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ObjectChangedEventArgs&gt;" />
-      <Event Name="PresenceChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.PresenceChangedEventArgs&gt;" />
-      <Event Name="SubscribeCompleted" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.SubscribeCompletedEventArgs&gt;" />
+      <Event Name="ApplicationChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ApplicationChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.ApplicationChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="ObjectChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ObjectChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.ObjectChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="PresenceChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.PresenceChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.PresenceChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="SubscribeCompleted" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.SubscribeCompletedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.SubscribeCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
     </Class>
     <Class Name="PeerContactCollection" Type="System.Net.PeerToPeer.Collaboration.PeerContactCollection" BaseName="Collection`1&lt;PeerContact&gt;" BaseType="System.Collections.ObjectModel.Collection`1&lt;System.Net.PeerToPeer.Collaboration.PeerContact&gt;">
       <ImplementedInterface Type="System.Collections.Generic.IList`1&lt;System.Net.PeerToPeer.Collaboration.PeerContact&gt;" />
@@ -629,7 +692,10 @@
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      <Event Name="NameChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.NameChangedEventArgs&gt;" />
+      <Event Name="NameChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.NameChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.NameChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="PeerEndPointCollection" Type="System.Net.PeerToPeer.Collaboration.PeerEndPointCollection" BaseName="Collection`1&lt;PeerEndPoint&gt;" BaseType="System.Collections.ObjectModel.Collection`1&lt;System.Net.PeerToPeer.Collaboration.PeerEndPoint&gt;">
       <ImplementedInterface Type="System.Collections.Generic.IList`1&lt;System.Net.PeerToPeer.Collaboration.PeerEndPoint&gt;" />
@@ -703,8 +769,14 @@
         <Parameter Name="userToken" Type="System.Object" IsDelegate="True" />
       </Method>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      <Event Name="PeerNearMeChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.PeerNearMeChangedEventArgs&gt;" />
-      <Event Name="RefreshDataCompleted" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.RefreshDataCompletedEventArgs&gt;" />
+      <Event Name="PeerNearMeChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.PeerNearMeChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.PeerNearMeChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="RefreshDataCompleted" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.RefreshDataCompletedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.RefreshDataCompletedEventArgs" BaseName="AsyncCompletedEventArgs" BaseType="System.ComponentModel.AsyncCompletedEventArgs" />
+      </Event>
     </Class>
     <Class Name="PeerNearMeChangedEventArgs" Type="System.Net.PeerToPeer.Collaboration.PeerNearMeChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs">
       <Property Name="PeerChangeType" Type="System.Net.PeerToPeer.Collaboration.PeerChangeType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" />
@@ -747,7 +819,10 @@
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      <Event Name="ObjectChanged" HandlerType="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ObjectChangedEventArgs&gt;" />
+      <Event Name="ObjectChanged" Type="System.EventHandler`1&lt;System.Net.PeerToPeer.Collaboration.ObjectChangedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Net.PeerToPeer.Collaboration.ObjectChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="PeerObjectCollection" Type="System.Net.PeerToPeer.Collaboration.PeerObjectCollection" BaseName="Collection`1&lt;PeerObject&gt;" BaseType="System.Collections.ObjectModel.Collection`1&lt;System.Net.PeerToPeer.Collaboration.PeerObject&gt;">
       <ImplementedInterface Type="System.Collections.Generic.IList`1&lt;System.Net.PeerToPeer.Collaboration.PeerObject&gt;" />

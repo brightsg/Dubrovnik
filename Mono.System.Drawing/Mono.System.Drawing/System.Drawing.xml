@@ -3958,7 +3958,10 @@
       <Method Name="RemovePropertyValueUIHandler" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="newHandler" Type="System.Drawing.Design.PropertyValueUIHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
       </Method>
-      <Event Name="PropertyUIValueItemsChanged" HandlerType="System.EventHandler" />
+      <Event Name="PropertyUIValueItemsChanged" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Interface>
     <Interface Name="IToolboxItemProvider" Type="System.Drawing.Design.IToolboxItemProvider" IsInterface="True">
       <Property Name="Items" Type="System.Drawing.Design.ToolboxItemCollection" BaseName="ReadOnlyCollectionBase" BaseType="System.Collections.ReadOnlyCollectionBase" IsReadable="True" />
@@ -4222,8 +4225,14 @@
       </Method>
       <Method Name="Lock" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      <Event Name="ComponentsCreated" HandlerType="System.Drawing.Design.ToolboxComponentsCreatedEventHandler" />
-      <Event Name="ComponentsCreating" HandlerType="System.Drawing.Design.ToolboxComponentsCreatingEventHandler" />
+      <Event Name="ComponentsCreated" Type="System.Drawing.Design.ToolboxComponentsCreatedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Drawing.Design.ToolboxComponentsCreatedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="ComponentsCreating" Type="System.Drawing.Design.ToolboxComponentsCreatingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Drawing.Design.ToolboxComponentsCreatingEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="ToolboxItemCollection" Type="System.Drawing.Design.ToolboxItemCollection" BaseName="ReadOnlyCollectionBase" BaseType="System.Collections.ReadOnlyCollectionBase">
       <ImplementedInterface Type="System.Collections.ICollection" />
@@ -6831,10 +6840,22 @@
       <Property Name="PrinterSettings" Type="System.Drawing.Printing.PrinterSettings" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Method Name="Print" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      <Event Name="BeginPrint" HandlerType="System.Drawing.Printing.PrintEventHandler" />
-      <Event Name="EndPrint" HandlerType="System.Drawing.Printing.PrintEventHandler" />
-      <Event Name="PrintPage" HandlerType="System.Drawing.Printing.PrintPageEventHandler" />
-      <Event Name="QueryPageSettings" HandlerType="System.Drawing.Printing.QueryPageSettingsEventHandler" />
+      <Event Name="BeginPrint" Type="System.Drawing.Printing.PrintEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Drawing.Printing.PrintEventArgs" BaseName="CancelEventArgs" BaseType="System.ComponentModel.CancelEventArgs" />
+      </Event>
+      <Event Name="EndPrint" Type="System.Drawing.Printing.PrintEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Drawing.Printing.PrintEventArgs" BaseName="CancelEventArgs" BaseType="System.ComponentModel.CancelEventArgs" />
+      </Event>
+      <Event Name="PrintPage" Type="System.Drawing.Printing.PrintPageEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Drawing.Printing.PrintPageEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="QueryPageSettings" Type="System.Drawing.Printing.QueryPageSettingsEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Drawing.Printing.QueryPageSettingsEventArgs" BaseName="PrintEventArgs" BaseType="System.Drawing.Printing.PrintEventArgs" />
+      </Event>
     </Class>
     <Class Name="PrinterResolution" Type="System.Drawing.Printing.PrinterResolution" BaseName="Object" BaseType="System.Object">
       <Property Name="Kind" Type="System.Drawing.Printing.PrinterResolutionKind" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />

@@ -18,6 +18,7 @@
 // Forward class and protocol declarations
 //
 @class System_ComponentModel_INotifyPropertyChanged;
+@class System_ComponentModel_PropertyChangedEventHandler;
 @protocol System_ComponentModel_INotifyPropertyChanged;
 @protocol System_ComponentModel_INotifyPropertyChanged_;
 
@@ -74,6 +75,29 @@
 @optional
 
 #ifdef  DEF_P_AND_M_SYSTEM_COMPONENTMODEL_INOTIFYPROPERTYCHANGED_
+
+#pragma mark -
+#pragma mark Events
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   PropertyChanged
+
+ @/textblock
+*/
++ (NSString *)propertyChangedEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   PropertyChanged
+
+ @/textblock
+*/
+- (System_ComponentModel_PropertyChangedEventHandler *)propertyChanged_addEventHandlerWithBlock:(System_ComponentModel_INotifyPropertyChanged_PropertyChanged_EventBlock)block;
 #endif
 
 
@@ -87,6 +111,29 @@
 
 @optional
 
+
+#pragma mark -
+#pragma mark Events
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   PropertyChanged
+
+ @/textblock
+*/
++ (NSString *)propertyChangedEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   PropertyChanged
+
+ @/textblock
+*/
+- (System_ComponentModel_PropertyChangedEventHandler *)propertyChanged_addEventHandlerWithBlock:(System_ComponentModel_INotifyPropertyChanged_PropertyChanged_EventBlock)block;
 
 @end
 

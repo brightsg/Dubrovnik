@@ -154,7 +154,10 @@
         <Parameter Name="configuration" Type="System.Data.Entity.DbConfiguration" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      <Event Name="Loaded" HandlerType="System.EventHandler`1&lt;System.Data.Entity.Infrastructure.DependencyResolution.DbConfigurationLoadedEventArgs&gt;" />
+      <Event Name="Loaded" Type="System.EventHandler`1&lt;System.Data.Entity.Infrastructure.DependencyResolution.DbConfigurationLoadedEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Data.Entity.Infrastructure.DependencyResolution.DbConfigurationLoadedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="DbConfigurationTypeAttribute" Type="System.Data.Entity.DbConfigurationTypeAttribute" BaseName="Attribute" BaseType="System.Attribute">
       <ImplementedInterface Type="System.Runtime.InteropServices._Attribute" />
@@ -5934,7 +5937,10 @@
         <Parameter Name="xmlWriter" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="modelNamespace" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="OnError" HandlerType="System.EventHandler`1&lt;System.Data.Entity.Core.Metadata.Edm.DataModelErrorEventArgs&gt;" />
+      <Event Name="OnError" Type="System.EventHandler`1&lt;System.Data.Entity.Core.Metadata.Edm.DataModelErrorEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Data.Entity.Core.Metadata.Edm.DataModelErrorEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="DataModelErrorEventArgs" Type="System.Data.Entity.Core.Metadata.Edm.DataModelErrorEventArgs" BaseName="EventArgs" BaseType="System.EventArgs">
       <Property Name="ErrorMessage" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
@@ -7008,7 +7014,10 @@
         <Parameter Name="xmlWriter" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="serializeDefaultNullability" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="OnError" HandlerType="System.EventHandler`1&lt;System.Data.Entity.Core.Metadata.Edm.DataModelErrorEventArgs&gt;" />
+      <Event Name="OnError" Type="System.EventHandler`1&lt;System.Data.Entity.Core.Metadata.Edm.DataModelErrorEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Data.Entity.Core.Metadata.Edm.DataModelErrorEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Enumeration Name="StoreGeneratedPattern" Type="System.Data.Entity.Core.Metadata.Edm.StoreGeneratedPattern" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum">
       <ImplementedInterface Type="System.IComparable" />
@@ -8430,8 +8439,14 @@
         <Parameter Name="key" Type="System.Data.Entity.Core.EntityKey" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="value" Type="System.Object&amp;" IsByRef="True" ElementType="System.Object" />
       </Method>
-      <Event Name="ObjectMaterialized" HandlerType="System.Data.Entity.Core.Objects.ObjectMaterializedEventHandler" />
-      <Event Name="SavingChanges" HandlerType="System.EventHandler" />
+      <Event Name="ObjectMaterialized" Type="System.Data.Entity.Core.Objects.ObjectMaterializedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.Data.Entity.Core.Objects.ObjectMaterializedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="SavingChanges" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
     </Class>
     <Class Name="ObjectContextOptions" Type="System.Data.Entity.Core.Objects.ObjectContextOptions" BaseName="Object" BaseType="System.Object">
       <Property Name="EnsureTransactionsForFunctionsAndCommands" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
@@ -8786,7 +8801,10 @@
         <Parameter Name="entity" Type="System.Object" IsDelegate="True" />
         <Parameter Name="relationshipManager" Type="System.Data.Entity.Core.Objects.DataClasses.RelationshipManager&amp;" IsByRef="True" ElementType="System.Data.Entity.Core.Objects.DataClasses.RelationshipManager" />
       </Method>
-      <Event Name="ObjectStateManagerChanged" HandlerType="System.ComponentModel.CollectionChangeEventHandler" />
+      <Event Name="ObjectStateManagerChanged" Type="System.ComponentModel.CollectionChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.CollectionChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="OriginalValueRecord" Type="System.Data.Entity.Core.Objects.OriginalValueRecord" BaseName="DbUpdatableDataRecord" BaseType="System.Data.Entity.Core.Objects.DbUpdatableDataRecord">
       <ImplementedInterface Type="System.ComponentModel.ICustomTypeDescriptor" />
@@ -9087,7 +9105,10 @@
       <Method Name="OnDeserialized" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="context" Type="System.Runtime.Serialization.StreamingContext" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="AssociationChanged" HandlerType="System.ComponentModel.CollectionChangeEventHandler" />
+      <Event Name="AssociationChanged" Type="System.ComponentModel.CollectionChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.CollectionChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Enumeration Name="RelationshipKind" Type="System.Data.Entity.Core.Objects.DataClasses.RelationshipKind" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum">
       <ImplementedInterface Type="System.IComparable" />
@@ -9141,8 +9162,14 @@
       <ImplementedInterface Type="System.ComponentModel.INotifyPropertyChanging" />
       <ImplementedInterface Type="System.ComponentModel.INotifyPropertyChanged" />
       <Field Name="EntityKeyPropertyName" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="-EntityKey-" />
-      <Event Name="PropertyChanged" HandlerType="System.ComponentModel.PropertyChangedEventHandler" />
-      <Event Name="PropertyChanging" HandlerType="System.ComponentModel.PropertyChangingEventHandler" />
+      <Event Name="PropertyChanged" Type="System.ComponentModel.PropertyChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.PropertyChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="PropertyChanging" Type="System.ComponentModel.PropertyChangingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="e" Type="System.ComponentModel.PropertyChangingEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
   </Namespace>
   <Namespace Name="System.Data.Entity.Infrastructure">
