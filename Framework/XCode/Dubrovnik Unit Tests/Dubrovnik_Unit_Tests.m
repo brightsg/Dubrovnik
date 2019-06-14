@@ -2607,13 +2607,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([resultFuncA2 isEqualToString:@"Klepto"], DBUEqualityTestFailed);
     
     // System_FuncA3<TResult>
-    // in this case we need to construct the type of our delegate
+    // in this case we merely pass the delegate types into the convenience method
     delegateBlock = ^System_Object *(NSArray * parameters) {
         NSAssert(parameters.count == 2 && ((DBNumber *)parameters[0]).integerValue == 104 && ((DBNumber *)parameters[1]).doubleValue == 202.2, @"invalid parameters");
         return @"Battery".managedObject;
     };
-    constructedType = [System_FuncA3 db_constructTypeWithParameters:@[[System_Int32 class], [System_Double class], [System_String class]]];
-    System_FuncA3 *funcDelegateA3 = [System_FuncA3 universalDelegateWithConstructedType:constructedType block:delegateBlock];
+    NSArray<id> *delegateTypes = @[[System_Int32 class], [System_Double class], [System_String class]];
+    System_FuncA3 *funcDelegateA3 = [System_FuncA3 universalDelegate:delegateTypes block:delegateBlock];
     NSString *resultFuncA3 = [refObject invokeFunctionA3_withFunc:funcDelegateA3];
     XCTAssertTrue([resultFuncA3 isEqualToString:@"Battery"], DBUEqualityTestFailed);
 }
