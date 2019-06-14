@@ -744,20 +744,27 @@ namespace Dubrovnik.UnitTests {
 		//=========================
 		public void RaiseUnitTestEvent1() {
 			if (UnitTestEvent1 != null) {
-				UnitTestEvent1(this, null);
+				UnitTestEvent1(this, EventArgs.Empty);
 			}
 		}
 
 		public void RaiseUnitTestEvent2() {
 			if (UnitTestEvent2 != null) {
-				UnitTestEvent2(this, null);
+				UnitTestEvent2(this, new EventArgs());
 			}
 		}
 
-		//=====================
-		// Equality
-		//=====================
-		public override bool Equals(Object obj) {
+        public void RaiseUnitTestEvent3()
+        {
+            if (UnitTestEvent3 != null) {
+                UnitTestEvent3(this, new ReferenceEventArgs());
+            }
+        }
+
+        //=====================
+        // Equality
+        //=====================
+        public override bool Equals(Object obj) {
 			//Check for null and compare run-time types. 
 			if ((obj == null) || !this.GetType().Equals(obj.GetType())) {
 				return false;

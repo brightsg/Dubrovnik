@@ -50,10 +50,10 @@
     <Class Name="SqlDataRecord" Type="Microsoft.SqlServer.Server.SqlDataRecord" BaseName="Object" BaseType="System.Object">
       <ImplementedInterface Type="System.Data.IDataRecord" />
       <Property Name="FieldCount" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Constructor>
@@ -172,7 +172,7 @@
       <Method Name="GetSqlString" Type="System.Data.SqlTypes.SqlString" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetSqlValue" Type="System.Object" IsDelegate="True">
+      <Method Name="GetSqlValue" Type="System.Object">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetSqlValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -187,7 +187,7 @@
       <Method Name="GetTimeSpan" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetValue" Type="System.Object" IsDelegate="True">
+      <Method Name="GetValue" Type="System.Object">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -335,7 +335,7 @@
       </Method>
       <Method Name="SetValue" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="SetValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="values" Type="System.Object[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Object" />
@@ -582,8 +582,8 @@
       <Method Name="Adjust" Type="System.DateTimeOffset" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.DateTimeOffset" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="Adjust" Type="System.Object" IsDelegate="True">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+      <Method Name="Adjust" Type="System.Object">
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Adjust" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -601,7 +601,7 @@
         <Parameter Name="value" Type="System.Char[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Char" />
       </Method>
       <Method Name="InferFromValue" Type="Microsoft.SqlServer.Server.SqlMetaData" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
     </Class>
@@ -880,8 +880,8 @@
       <Method Name="RemoveAt" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="CollectionChanged" Type="System.ComponentModel.CollectionChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="CollectionChanged" Type="System.ComponentModel.CollectionChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.ComponentModel.CollectionChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -909,7 +909,7 @@
       <Property Name="ColumnName" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="DataType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" IsReadable="True" IsWritable="True" />
       <Property Name="DateTimeMode" Type="System.Data.DataSetDateTime" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
-      <Property Name="DefaultValue" Type="System.Object" IsDelegate="True" IsReadable="True" IsWritable="True" />
+      <Property Name="DefaultValue" Type="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="Expression" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="ExtendedProperties" Type="System.Data.PropertyCollection" BaseName="Hashtable" BaseType="System.Collections.Hashtable" IsReadable="True" />
       <Property Name="MaxLength" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
@@ -944,32 +944,32 @@
     </Class>
     <Class Name="DataColumnChangeEventArgs" Type="System.Data.DataColumnChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs">
       <Property Name="Column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" IsReadable="True" />
-      <Property Name="ProposedValue" Type="System.Object" IsDelegate="True" IsReadable="True" IsWritable="True" />
+      <Property Name="ProposedValue" Type="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="Row" Type="System.Data.DataRow" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Constructor>
         <Parameter Name="row" Type="System.Data.DataRow" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Constructor>
     </Class>
-    <Class Name="DataColumnChangeEventHandler" Type="System.Data.DataColumnChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="DataColumnChangeEventHandler" Type="System.Data.DataColumnChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataColumnChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataColumnChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -1027,8 +1027,8 @@
       <Method Name="RemoveAt" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="CollectionChanged" Type="System.ComponentModel.CollectionChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="CollectionChanged" Type="System.ComponentModel.CollectionChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.ComponentModel.CollectionChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -1167,8 +1167,8 @@
       <Method Name="RemoveAt" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="CollectionChanged" Type="System.ComponentModel.CollectionChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="CollectionChanged" Type="System.ComponentModel.CollectionChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.ComponentModel.CollectionChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -1178,36 +1178,36 @@
       <Property Name="RowError" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="RowState" Type="System.Data.DataRowState" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" />
       <Property Name="Table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" IsReadable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="columnIndex" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="set_Item" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="columnIndex" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="set_Item" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
       </Method>
       <Method Name="set_Item" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="columnIndex" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="version" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="version" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
         <Parameter Name="version" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
@@ -1330,24 +1330,24 @@
         <Parameter Name="action" Type="System.Data.DataRowAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
     </Class>
-    <Class Name="DataRowChangeEventHandler" Type="System.Data.DataRowChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="DataRowChangeEventHandler" Type="System.Data.DataRowChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -1366,7 +1366,7 @@
       </Method>
       <Method Name="Clear" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="key" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="key" Type="System.Object" />
       </Method>
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="keys" Type="System.Object[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Object" />
@@ -1380,7 +1380,7 @@
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Find" Type="System.Data.DataRow" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="key" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="key" Type="System.Object" />
       </Method>
       <Method Name="Find" Type="System.Data.DataRow" BaseName="Object" BaseType="System.Object">
         <Parameter Name="keys" Type="System.Object[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Object" />
@@ -1429,19 +1429,19 @@
       <Property Name="IsNew" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="Row" Type="System.Data.DataRow" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Property Name="RowVersion" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="ndx" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="set_Item" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="ndx" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="property" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="set_Item" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="property" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="BeginEdit" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="CancelEdit" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -1462,11 +1462,11 @@
       <Method Name="Delete" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="EndEdit" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="other" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="other" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      <Event Name="PropertyChanged" Type="System.ComponentModel.PropertyChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="PropertyChanged" Type="System.ComponentModel.PropertyChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.ComponentModel.PropertyChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -1543,7 +1543,7 @@
       <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
         <Parameter Name="loadOption" Type="System.Data.LoadOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="errorHandler" Type="System.Data.FillErrorEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
+        <Parameter Name="errorHandler" Type="System.Data.FillErrorEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
         <Parameter Name="tables" Type="System.Data.DataTable[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataTable" />
       </Method>
       <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -1659,35 +1659,35 @@
       </Method>
       <Method Name="WriteXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="multipleTargetConverter" Type="System.Converter`2&lt;System.Type, System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="multipleTargetConverter" Type="System.Converter`2&lt;System.Type, System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="WriteXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="WriteXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="multipleTargetConverter" Type="System.Converter`2&lt;System.Type, System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="multipleTargetConverter" Type="System.Converter`2&lt;System.Type, System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="WriteXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="writer" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Method>
       <Method Name="WriteXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="writer" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="multipleTargetConverter" Type="System.Converter`2&lt;System.Type, System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="multipleTargetConverter" Type="System.Converter`2&lt;System.Type, System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="WriteXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="writer" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="WriteXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="writer" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="multipleTargetConverter" Type="System.Converter`2&lt;System.Type, System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="multipleTargetConverter" Type="System.Converter`2&lt;System.Type, System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
-      <Event Name="Initialized" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="Initialized" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
       </Event>
-      <Event Name="MergeFailed" Type="System.Data.MergeFailedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="MergeFailed" Type="System.Data.MergeFailedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.MergeFailedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -1771,7 +1771,7 @@
       <Method Name="BeginLoadData" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Clear" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Clone" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-      <Method Name="Compute" Type="System.Object" IsDelegate="True">
+      <Method Name="Compute" Type="System.Object">
         <Parameter Name="expression" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="filter" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
@@ -1804,7 +1804,7 @@
       <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
         <Parameter Name="loadOption" Type="System.Data.LoadOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="errorHandler" Type="System.Data.FillErrorEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
+        <Parameter Name="errorHandler" Type="System.Data.FillErrorEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
       </Method>
       <Method Name="LoadDataRow" Type="System.Data.DataRow" BaseName="Object" BaseType="System.Object">
         <Parameter Name="values" Type="System.Object[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Object" />
@@ -1959,44 +1959,44 @@
         <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="ColumnChanged" Type="System.Data.DataColumnChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="ColumnChanged" Type="System.Data.DataColumnChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataColumnChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
-      <Event Name="ColumnChanging" Type="System.Data.DataColumnChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="ColumnChanging" Type="System.Data.DataColumnChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataColumnChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
-      <Event Name="Initialized" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="Initialized" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
       </Event>
-      <Event Name="RowChanged" Type="System.Data.DataRowChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="RowChanged" Type="System.Data.DataRowChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
-      <Event Name="RowChanging" Type="System.Data.DataRowChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="RowChanging" Type="System.Data.DataRowChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
-      <Event Name="RowDeleted" Type="System.Data.DataRowChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="RowDeleted" Type="System.Data.DataRowChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
-      <Event Name="RowDeleting" Type="System.Data.DataRowChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="RowDeleting" Type="System.Data.DataRowChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataRowChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
-      <Event Name="TableCleared" Type="System.Data.DataTableClearEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="TableCleared" Type="System.Data.DataTableClearEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataTableClearEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
-      <Event Name="TableClearing" Type="System.Data.DataTableClearEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="TableClearing" Type="System.Data.DataTableClearEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataTableClearEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
-      <Event Name="TableNewRow" Type="System.Data.DataTableNewRowEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="TableNewRow" Type="System.Data.DataTableNewRowEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataTableNewRowEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -2008,24 +2008,24 @@
         <Parameter Name="dataTable" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
       </Constructor>
     </Class>
-    <Class Name="DataTableClearEventHandler" Type="System.Data.DataTableClearEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="DataTableClearEventHandler" Type="System.Data.DataTableClearEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataTableClearEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataTableClearEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -2094,12 +2094,12 @@
       <Method Name="RemoveAt" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="CollectionChanged" Type="System.ComponentModel.CollectionChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="CollectionChanged" Type="System.ComponentModel.CollectionChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.ComponentModel.CollectionChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
-      <Event Name="CollectionChanging" Type="System.ComponentModel.CollectionChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="CollectionChanging" Type="System.ComponentModel.CollectionChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.ComponentModel.CollectionChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -2109,24 +2109,24 @@
         <Parameter Name="dataRow" Type="System.Data.DataRow" BaseName="Object" BaseType="System.Object" />
       </Constructor>
     </Class>
-    <Class Name="DataTableNewRowEventHandler" Type="System.Data.DataTableNewRowEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="DataTableNewRowEventHandler" Type="System.Data.DataTableNewRowEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataTableNewRowEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.DataTableNewRowEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -2140,10 +2140,10 @@
       <Property Name="HasRows" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsClosed" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="RecordsAffected" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Constructor>
@@ -2216,7 +2216,7 @@
       <Method Name="GetProviderSpecificFieldType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetProviderSpecificValue" Type="System.Object" IsDelegate="True">
+      <Method Name="GetProviderSpecificValue" Type="System.Object">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetProviderSpecificValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -2226,7 +2226,7 @@
       <Method Name="GetString" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetValue" Type="System.Object" IsDelegate="True">
+      <Method Name="GetValue" Type="System.Object">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -2287,13 +2287,13 @@
         <Parameter Name="view" Type="System.Data.DataView" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
       </Method>
       <Method Name="Find" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="key" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="key" Type="System.Object" />
       </Method>
       <Method Name="Find" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="key" Type="System.Object[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Object" />
       </Method>
       <Method Name="FindRows" Type="System.Data.DataRowView[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataRowView">
-        <Parameter Name="key" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="key" Type="System.Object" />
       </Method>
       <Method Name="FindRows" Type="System.Data.DataRowView[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataRowView">
         <Parameter Name="key" Type="System.Object[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Object" />
@@ -2312,12 +2312,12 @@
         <Parameter Name="distinct" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="columnNames" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
       </Method>
-      <Event Name="Initialized" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="Initialized" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
       </Event>
-      <Event Name="ListChanged" Type="System.ComponentModel.ListChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="ListChanged" Type="System.ComponentModel.ListChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.ComponentModel.ListChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -2339,8 +2339,8 @@
       <Method Name="CreateDataView" Type="System.Data.DataView" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent">
         <Parameter Name="table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
       </Method>
-      <Event Name="ListChanged" Type="System.ComponentModel.ListChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="ListChanged" Type="System.ComponentModel.ListChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.ComponentModel.ListChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -2371,7 +2371,7 @@
       <Property Name="Count" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsReadOnly" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsSynchronized" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Property Name="SyncRoot" Type="System.Object" IsDelegate="True" IsReadable="True" />
+      <Property Name="SyncRoot" Type="System.Object" IsReadable="True" />
       <Method Name="get_Item" Type="System.Data.DataViewSetting" BaseName="Object" BaseType="System.Object">
         <Parameter Name="table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
       </Method>
@@ -2503,24 +2503,24 @@
         <Parameter Name="values" Type="System.Object[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Object" />
       </Constructor>
     </Class>
-    <Class Name="FillErrorEventHandler" Type="System.Data.FillErrorEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="FillErrorEventHandler" Type="System.Data.FillErrorEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.FillErrorEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.FillErrorEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -2570,7 +2570,7 @@
         <Parameter Name="updateRule" Type="System.Data.Rule" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="key" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="key" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
     </Class>
@@ -2582,12 +2582,12 @@
       <ImplementedInterface Type="System.Collections.IList" />
       <ImplementedInterface Type="System.Collections.ICollection" />
       <ImplementedInterface Type="System.Collections.IEnumerable" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="index" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="set_Item" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Data.IColumnMapping" IsInterface="True">
         <Parameter Name="sourceColumnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -2629,18 +2629,18 @@
       <Property Name="ParameterName" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="SourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="SourceVersion" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
-      <Property Name="Value" Type="System.Object" IsDelegate="True" IsReadable="True" IsWritable="True" />
+      <Property Name="Value" Type="System.Object" IsReadable="True" IsWritable="True" />
     </Interface>
     <Interface Name="IDataParameterCollection" Type="System.Data.IDataParameterCollection" IsInterface="True">
       <ImplementedInterface Type="System.Collections.IList" />
       <ImplementedInterface Type="System.Collections.ICollection" />
       <ImplementedInterface Type="System.Collections.IEnumerable" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="set_Item" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -2665,10 +2665,10 @@
     </Interface>
     <Interface Name="IDataRecord" Type="System.Data.IDataRecord" IsInterface="True">
       <Property Name="FieldCount" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="GetBoolean" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -2736,7 +2736,7 @@
       <Method Name="GetString" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetValue" Type="System.Object" IsDelegate="True">
+      <Method Name="GetValue" Type="System.Object">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -2762,7 +2762,7 @@
       <Method Name="ExecuteReader" Type="System.Data.IDataReader" IsInterface="True">
         <Parameter Name="behavior" Type="System.Data.CommandBehavior" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
-      <Method Name="ExecuteScalar" Type="System.Object" IsDelegate="True" />
+      <Method Name="ExecuteScalar" Type="System.Object" />
       <Method Name="Prepare" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
     </Interface>
     <Interface Name="IDbConnection" Type="System.Data.IDbConnection" IsInterface="True">
@@ -2819,7 +2819,7 @@
       <Property Name="Count" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsReadOnly" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsSynchronized" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Property Name="SyncRoot" Type="System.Object" IsDelegate="True" IsReadable="True" />
+      <Property Name="SyncRoot" Type="System.Object" IsReadable="True" />
       <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="ar" Type="System.Array" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -2869,12 +2869,12 @@
       <ImplementedInterface Type="System.Collections.IList" />
       <ImplementedInterface Type="System.Collections.ICollection" />
       <ImplementedInterface Type="System.Collections.IEnumerable" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="index" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="set_Item" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Data.ITableMapping" IsInterface="True">
         <Parameter Name="sourceTableName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -2925,24 +2925,24 @@
         <Parameter Name="conflict" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
     </Class>
-    <Class Name="MergeFailedEventHandler" Type="System.Data.MergeFailedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="MergeFailedEventHandler" Type="System.Data.MergeFailedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.MergeFailedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.MergeFailedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -3015,7 +3015,7 @@
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <ImplementedInterface Type="System.Runtime.Serialization.IDeserializationCallback" />
       <ImplementedInterface Type="System.ICloneable" />
-      <Method Name="Clone" Type="System.Object" IsDelegate="True" />
+      <Method Name="Clone" Type="System.Object" />
     </Class>
     <Class Name="ReadOnlyException" Type="System.Data.ReadOnlyException" BaseName="DataException" BaseType="System.Data.DataException">
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
@@ -3113,24 +3113,24 @@
         <Parameter Name="currentState" Type="System.Data.ConnectionState" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
     </Class>
-    <Class Name="StateChangeEventHandler" Type="System.Data.StateChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="StateChangeEventHandler" Type="System.Data.StateChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.StateChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.StateChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -3140,24 +3140,24 @@
         <Parameter Name="recordCount" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
     </Class>
-    <Class Name="StatementCompletedEventHandler" Type="System.Data.StatementCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="StatementCompletedEventHandler" Type="System.Data.StatementCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.StatementCompletedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.StatementCompletedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -3265,7 +3265,7 @@
         <Parameter Name="isPrimaryKey" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="key2" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="key2" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
     </Class>
@@ -3353,8 +3353,8 @@
       <Method Name="Update" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="dataSet" Type="System.Data.DataSet" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
       </Method>
-      <Event Name="FillError" Type="System.Data.FillErrorEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="FillError" Type="System.Data.FillErrorEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.FillErrorEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -3402,7 +3402,7 @@
         <Parameter Name="value" Type="System.Data.Common.DataColumnMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Method>
       <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Data.Common.DataColumnMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject">
         <Parameter Name="sourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -3419,7 +3419,7 @@
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="array" Type="System.Array" BaseName="Object" BaseType="System.Object" />
@@ -3447,7 +3447,7 @@
       </Method>
       <Method Name="GetEnumerator" Type="System.Collections.IEnumerator" IsInterface="True" />
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="sourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -3457,14 +3457,14 @@
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="value" Type="System.Data.Common.DataColumnMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.Common.DataColumnMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
@@ -3529,7 +3529,7 @@
         <Parameter Name="value" Type="System.Data.Common.DataTableMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Method>
       <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Data.Common.DataTableMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject">
         <Parameter Name="sourceTable" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -3546,7 +3546,7 @@
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="array" Type="System.Array" BaseName="Object" BaseType="System.Object" />
@@ -3567,7 +3567,7 @@
         <Parameter Name="mappingAction" Type="System.Data.MissingMappingAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="sourceTable" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -3577,14 +3577,14 @@
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="value" Type="System.Data.Common.DataTableMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.Common.DataTableMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
@@ -3648,7 +3648,7 @@
         <GenericTypeArgument Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Property>
       <Property Name="UdtAssemblyQualifiedName" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="property" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
     </Class>
@@ -3694,12 +3694,12 @@
         <Parameter Name="behavior" Type="System.Data.CommandBehavior" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="ExecuteScalar" Type="System.Object" IsDelegate="True" />
+      <Method Name="ExecuteScalar" Type="System.Object" />
       <Method Name="ExecuteScalarAsync" Type="System.Threading.Tasks.Task`1&lt;System.Object&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True">
-        <GenericTypeArgument Type="System.Object" IsDelegate="True" />
+        <GenericTypeArgument Type="System.Object" />
       </Method>
       <Method Name="ExecuteScalarAsync" Type="System.Threading.Tasks.Task`1&lt;System.Object&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True">
-        <GenericTypeArgument Type="System.Object" IsDelegate="True" />
+        <GenericTypeArgument Type="System.Object" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Prepare" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -3770,8 +3770,8 @@
       <Method Name="OpenAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="StateChange" Type="System.Data.StateChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="StateChange" Type="System.Data.StateChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.StateChangeEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -3787,19 +3787,19 @@
       <Property Name="IsReadOnly" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="Keys" Type="System.Collections.ICollection" IsInterface="True" IsReadable="True" />
       <Property Name="Values" Type="System.Collections.ICollection" IsInterface="True" IsReadable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="keyword" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="set_Item" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="keyword" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Constructor>
         <Parameter Name="useOdbcRules" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="keyword" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="AppendKeyValuePair" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="builder" Type="System.Text.StringBuilder" BaseName="Object" BaseType="System.Object" />
@@ -3939,10 +3939,10 @@
       <Property Name="IsClosed" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="RecordsAffected" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="VisibleFieldCount" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Close" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -4028,7 +4028,7 @@
       <Method Name="GetProviderSpecificFieldType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetProviderSpecificValue" Type="System.Object" IsDelegate="True">
+      <Method Name="GetProviderSpecificValue" Type="System.Object">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetProviderSpecificValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -4044,7 +4044,7 @@
       <Method Name="GetTextReader" Type="System.IO.TextReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetValue" Type="System.Object" IsDelegate="True">
+      <Method Name="GetValue" Type="System.Object">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -4092,10 +4092,10 @@
       <ImplementedInterface Type="System.ComponentModel.ICustomTypeDescriptor" />
       <ImplementedInterface Type="System.Data.IDataRecord" />
       <Property Name="FieldCount" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="GetBoolean" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -4163,7 +4163,7 @@
       <Method Name="GetString" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetValue" Type="System.Object" IsDelegate="True">
+      <Method Name="GetValue" Type="System.Object">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -4178,7 +4178,7 @@
     </Class>
     <Class Name="DbEnumerator" Type="System.Data.Common.DbEnumerator" BaseName="Object" BaseType="System.Object">
       <ImplementedInterface Type="System.Collections.IEnumerator" />
-      <Property Name="Current" Type="System.Object" IsDelegate="True" IsReadable="True" />
+      <Property Name="Current" Type="System.Object" IsReadable="True" />
       <Constructor>
         <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
       </Constructor>
@@ -4265,7 +4265,7 @@
       <Property Name="SourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="SourceColumnNullMapping" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="SourceVersion" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
-      <Property Name="Value" Type="System.Object" IsDelegate="True" IsReadable="True" IsWritable="True" />
+      <Property Name="Value" Type="System.Object" IsReadable="True" IsWritable="True" />
       <Method Name="ResetDbType" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
     </Class>
     <Class Name="DbParameterCollection" Type="System.Data.Common.DbParameterCollection" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject">
@@ -4277,7 +4277,7 @@
       <Property Name="IsFixedSize" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsReadOnly" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsSynchronized" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Property Name="SyncRoot" Type="System.Object" IsDelegate="True" IsReadable="True" />
+      <Property Name="SyncRoot" Type="System.Object" IsReadable="True" />
       <Method Name="get_Item" Type="System.Data.Common.DbParameter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
@@ -4293,14 +4293,14 @@
         <Parameter Name="value" Type="System.Data.Common.DbParameter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Method>
       <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="AddRange" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="values" Type="System.Array" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Clear" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -4311,17 +4311,17 @@
       </Method>
       <Method Name="GetEnumerator" Type="System.Collections.IEnumerator" IsInterface="True" />
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="RemoveAt" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -4332,9 +4332,9 @@
     </Class>
     <Class Name="DbProviderConfigurationHandler" Type="System.Data.Common.DbProviderConfigurationHandler" BaseName="Object" BaseType="System.Object">
       <ImplementedInterface Type="System.Configuration.IConfigurationSectionHandler" />
-      <Method Name="Create" Type="System.Object" IsDelegate="True">
-        <Parameter Name="parent" Type="System.Object" IsDelegate="True" />
-        <Parameter Name="configContext" Type="System.Object" IsDelegate="True" />
+      <Method Name="Create" Type="System.Object">
+        <Parameter Name="parent" Type="System.Object" />
+        <Parameter Name="configContext" Type="System.Object" />
         <Parameter Name="section" Type="System.Xml.XmlNode" BaseName="Object" BaseType="System.Object" />
       </Method>
     </Class>
@@ -4352,9 +4352,9 @@
     </Class>
     <Class Name="DbProviderFactoriesConfigurationHandler" Type="System.Data.Common.DbProviderFactoriesConfigurationHandler" BaseName="Object" BaseType="System.Object">
       <ImplementedInterface Type="System.Configuration.IConfigurationSectionHandler" />
-      <Method Name="Create" Type="System.Object" IsDelegate="True">
-        <Parameter Name="parent" Type="System.Object" IsDelegate="True" />
-        <Parameter Name="configContext" Type="System.Object" IsDelegate="True" />
+      <Method Name="Create" Type="System.Object">
+        <Parameter Name="parent" Type="System.Object" />
+        <Parameter Name="configContext" Type="System.Object" />
         <Parameter Name="section" Type="System.Xml.XmlNode" BaseName="Object" BaseType="System.Object" />
       </Method>
     </Class>
@@ -4526,7 +4526,7 @@
       <Method Name="ExecuteReader" Type="System.Data.Odbc.OdbcDataReader" BaseName="DbDataReader" BaseType="System.Data.Common.DbDataReader">
         <Parameter Name="behavior" Type="System.Data.CommandBehavior" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
-      <Method Name="ExecuteScalar" Type="System.Object" IsDelegate="True" />
+      <Method Name="ExecuteScalar" Type="System.Object" />
       <Method Name="Prepare" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ResetCommandTimeout" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
     </Class>
@@ -4607,8 +4607,8 @@
       </Method>
       <Method Name="Open" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ReleaseObjectPool" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True" />
-      <Event Name="InfoMessage" Type="System.Data.Odbc.OdbcInfoMessageEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="InfoMessage" Type="System.Data.Odbc.OdbcInfoMessageEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.Odbc.OdbcInfoMessageEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -4620,12 +4620,12 @@
       <Property Name="Driver" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="Dsn" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="Keys" Type="System.Collections.ICollection" IsInterface="True" IsReadable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="keyword" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="set_Item" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="keyword" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Constructor>
         <Parameter Name="connectionString" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -4663,12 +4663,12 @@
         <Parameter Name="selectCommandText" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="selectConnectionString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
-      <Event Name="RowUpdated" Type="System.Data.Odbc.OdbcRowUpdatedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="RowUpdated" Type="System.Data.Odbc.OdbcRowUpdatedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.Odbc.OdbcRowUpdatedEventArgs" BaseName="RowUpdatedEventArgs" BaseType="System.Data.Common.RowUpdatedEventArgs" />
       </Event>
-      <Event Name="RowUpdating" Type="System.Data.Odbc.OdbcRowUpdatingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="RowUpdating" Type="System.Data.Odbc.OdbcRowUpdatingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.Odbc.OdbcRowUpdatingEventArgs" BaseName="RowUpdatingEventArgs" BaseType="System.Data.Common.RowUpdatingEventArgs" />
       </Event>
     </Class>
@@ -4682,10 +4682,10 @@
       <Property Name="HasRows" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsClosed" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="RecordsAffected" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Close" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -4759,7 +4759,7 @@
       <Method Name="GetTime" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetValue" Type="System.Object" IsDelegate="True">
+      <Method Name="GetValue" Type="System.Object">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -4822,24 +4822,24 @@
       <Property Name="Message" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
     </Class>
-    <Class Name="OdbcInfoMessageEventHandler" Type="System.Data.Odbc.OdbcInfoMessageEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="OdbcInfoMessageEventHandler" Type="System.Data.Odbc.OdbcInfoMessageEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.Odbc.OdbcInfoMessageEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.Odbc.OdbcInfoMessageEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -4872,10 +4872,10 @@
       <Property Name="SourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="SourceColumnNullMapping" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="SourceVersion" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
-      <Property Name="Value" Type="System.Object" IsDelegate="True" IsReadable="True" IsWritable="True" />
+      <Property Name="Value" Type="System.Object" IsReadable="True" IsWritable="True" />
       <Constructor>
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -4902,7 +4902,7 @@
         <Parameter Name="scale" Type="System.Byte" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="srcColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="srcVersion" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -4914,7 +4914,7 @@
         <Parameter Name="sourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="sourceVersion" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="sourceColumnNullMapping" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Constructor>
       <Method Name="ResetDbType" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ResetOdbcType" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -4929,7 +4929,7 @@
       <Property Name="IsFixedSize" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsReadOnly" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsSynchronized" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Property Name="SyncRoot" Type="System.Object" IsDelegate="True" IsReadable="True" />
+      <Property Name="SyncRoot" Type="System.Object" IsReadable="True" />
       <Method Name="get_Item" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
@@ -4949,7 +4949,7 @@
       </Method>
       <Method Name="Add" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -4967,7 +4967,7 @@
         <Parameter Name="sourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="AddRange" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="values" Type="System.Data.Odbc.OdbcParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.Odbc.OdbcParameter" />
@@ -4977,7 +4977,7 @@
       </Method>
       <Method Name="AddWithValue" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Clear" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -4987,7 +4987,7 @@
         <Parameter Name="value" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="array" Type="System.Data.Odbc.OdbcParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.Odbc.OdbcParameter" />
@@ -5005,7 +5005,7 @@
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -5013,13 +5013,13 @@
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="RemoveAt" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -5063,24 +5063,24 @@
         <Parameter Name="tableMapping" Type="System.Data.Common.DataTableMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Constructor>
     </Class>
-    <Class Name="OdbcRowUpdatedEventHandler" Type="System.Data.Odbc.OdbcRowUpdatedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="OdbcRowUpdatedEventHandler" Type="System.Data.Odbc.OdbcRowUpdatedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.Odbc.OdbcRowUpdatedEventArgs" BaseName="RowUpdatedEventArgs" BaseType="System.Data.Common.RowUpdatedEventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.Odbc.OdbcRowUpdatedEventArgs" BaseName="RowUpdatedEventArgs" BaseType="System.Data.Common.RowUpdatedEventArgs" />
       </Method>
     </Class>
@@ -5093,24 +5093,24 @@
         <Parameter Name="tableMapping" Type="System.Data.Common.DataTableMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Constructor>
     </Class>
-    <Class Name="OdbcRowUpdatingEventHandler" Type="System.Data.Odbc.OdbcRowUpdatingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="OdbcRowUpdatingEventHandler" Type="System.Data.Odbc.OdbcRowUpdatingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.Odbc.OdbcRowUpdatingEventArgs" BaseName="RowUpdatingEventArgs" BaseType="System.Data.Common.RowUpdatingEventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.Odbc.OdbcRowUpdatingEventArgs" BaseName="RowUpdatingEventArgs" BaseType="System.Data.Common.RowUpdatingEventArgs" />
       </Method>
     </Class>
@@ -5186,7 +5186,7 @@
       <Method Name="ExecuteReader" Type="System.Data.OleDb.OleDbDataReader" BaseName="DbDataReader" BaseType="System.Data.Common.DbDataReader">
         <Parameter Name="behavior" Type="System.Data.CommandBehavior" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
-      <Method Name="ExecuteScalar" Type="System.Object" IsDelegate="True" />
+      <Method Name="ExecuteScalar" Type="System.Object" />
       <Method Name="Prepare" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ResetCommandTimeout" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
     </Class>
@@ -5272,8 +5272,8 @@
       <Method Name="Open" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ReleaseObjectPool" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True" />
       <Method Name="ResetState" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      <Event Name="InfoMessage" Type="System.Data.OleDb.OleDbInfoMessageEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="InfoMessage" Type="System.Data.OleDb.OleDbInfoMessageEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.OleDb.OleDbInfoMessageEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -5288,12 +5288,12 @@
       <Property Name="OleDbServices" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="PersistSecurityInfo" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="Provider" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="keyword" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="set_Item" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="keyword" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Constructor>
         <Parameter Name="connectionString" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -5333,19 +5333,19 @@
       </Constructor>
       <Method Name="Fill" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="dataTable" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="ADODBRecordSet" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="ADODBRecordSet" Type="System.Object" />
       </Method>
       <Method Name="Fill" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="dataSet" Type="System.Data.DataSet" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="ADODBRecordSet" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="ADODBRecordSet" Type="System.Object" />
         <Parameter Name="srcTable" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="RowUpdated" Type="System.Data.OleDb.OleDbRowUpdatedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="RowUpdated" Type="System.Data.OleDb.OleDbRowUpdatedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.OleDb.OleDbRowUpdatedEventArgs" BaseName="RowUpdatedEventArgs" BaseType="System.Data.Common.RowUpdatedEventArgs" />
       </Event>
-      <Event Name="RowUpdating" Type="System.Data.OleDb.OleDbRowUpdatingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="RowUpdating" Type="System.Data.OleDb.OleDbRowUpdatingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.OleDb.OleDbRowUpdatingEventArgs" BaseName="RowUpdatingEventArgs" BaseType="System.Data.Common.RowUpdatingEventArgs" />
       </Event>
     </Class>
@@ -5360,10 +5360,10 @@
       <Property Name="IsClosed" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="RecordsAffected" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="VisibleFieldCount" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Close" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -5437,7 +5437,7 @@
       <Method Name="GetTimeSpan" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetValue" Type="System.Object" IsDelegate="True">
+      <Method Name="GetValue" Type="System.Object">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -5509,24 +5509,24 @@
       <Property Name="Source" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
     </Class>
-    <Class Name="OleDbInfoMessageEventHandler" Type="System.Data.OleDb.OleDbInfoMessageEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="OleDbInfoMessageEventHandler" Type="System.Data.OleDb.OleDbInfoMessageEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.OleDb.OleDbInfoMessageEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.OleDb.OleDbInfoMessageEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -5598,10 +5598,10 @@
       <Property Name="SourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="SourceColumnNullMapping" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="SourceVersion" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
-      <Property Name="Value" Type="System.Object" IsDelegate="True" IsReadable="True" IsWritable="True" />
+      <Property Name="Value" Type="System.Object" IsReadable="True" IsWritable="True" />
       <Constructor>
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -5628,7 +5628,7 @@
         <Parameter Name="scale" Type="System.Byte" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="srcColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="srcVersion" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -5640,7 +5640,7 @@
         <Parameter Name="sourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="sourceVersion" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="sourceColumnNullMapping" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Constructor>
       <Method Name="ResetDbType" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ResetOleDbType" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -5655,7 +5655,7 @@
       <Property Name="IsFixedSize" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsReadOnly" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsSynchronized" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Property Name="SyncRoot" Type="System.Object" IsDelegate="True" IsReadable="True" />
+      <Property Name="SyncRoot" Type="System.Object" IsReadable="True" />
       <Method Name="get_Item" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
@@ -5675,7 +5675,7 @@
       </Method>
       <Method Name="Add" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -5693,7 +5693,7 @@
         <Parameter Name="sourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="AddRange" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="values" Type="System.Data.OleDb.OleDbParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.OleDb.OleDbParameter" />
@@ -5703,7 +5703,7 @@
       </Method>
       <Method Name="AddWithValue" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Clear" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -5713,7 +5713,7 @@
         <Parameter Name="value" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="array" Type="System.Data.OleDb.OleDbParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.OleDb.OleDbParameter" />
@@ -5731,7 +5731,7 @@
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -5739,13 +5739,13 @@
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="RemoveAt" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -5786,24 +5786,24 @@
         <Parameter Name="tableMapping" Type="System.Data.Common.DataTableMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Constructor>
     </Class>
-    <Class Name="OleDbRowUpdatedEventHandler" Type="System.Data.OleDb.OleDbRowUpdatedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="OleDbRowUpdatedEventHandler" Type="System.Data.OleDb.OleDbRowUpdatedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.OleDb.OleDbRowUpdatedEventArgs" BaseName="RowUpdatedEventArgs" BaseType="System.Data.Common.RowUpdatedEventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.OleDb.OleDbRowUpdatedEventArgs" BaseName="RowUpdatedEventArgs" BaseType="System.Data.Common.RowUpdatedEventArgs" />
       </Method>
     </Class>
@@ -5816,24 +5816,24 @@
         <Parameter Name="tableMapping" Type="System.Data.Common.DataTableMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Constructor>
     </Class>
-    <Class Name="OleDbRowUpdatingEventHandler" Type="System.Data.OleDb.OleDbRowUpdatingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="OleDbRowUpdatingEventHandler" Type="System.Data.OleDb.OleDbRowUpdatingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.OleDb.OleDbRowUpdatingEventArgs" BaseName="RowUpdatingEventArgs" BaseType="System.Data.Common.RowUpdatingEventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.OleDb.OleDbRowUpdatingEventArgs" BaseName="RowUpdatingEventArgs" BaseType="System.Data.Common.RowUpdatingEventArgs" />
       </Method>
     </Class>
@@ -5955,24 +5955,24 @@
       <Field Name="ReadOnly" Type="System.Data.SqlClient.ApplicationIntent" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="1" />
       <Field Name="ReadWrite" Type="System.Data.SqlClient.ApplicationIntent" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="0" />
     </Enumeration>
-    <Class Name="OnChangeEventHandler" Type="System.Data.SqlClient.OnChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="OnChangeEventHandler" Type="System.Data.SqlClient.OnChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlNotificationEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlNotificationEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -6122,8 +6122,8 @@
         <Parameter Name="rowState" Type="System.Data.DataRowState" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="SqlRowsCopied" Type="System.Data.SqlClient.SqlRowsCopiedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="SqlRowsCopied" Type="System.Data.SqlClient.SqlRowsCopiedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlRowsCopiedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -6430,26 +6430,26 @@
       </Constructor>
       <Method Name="BeginExecuteNonQuery" Type="System.IAsyncResult" IsInterface="True" />
       <Method Name="BeginExecuteNonQuery" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="stateObject" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="stateObject" Type="System.Object" />
       </Method>
       <Method Name="BeginExecuteReader" Type="System.IAsyncResult" IsInterface="True" />
       <Method Name="BeginExecuteReader" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="stateObject" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="stateObject" Type="System.Object" />
       </Method>
       <Method Name="BeginExecuteReader" Type="System.IAsyncResult" IsInterface="True">
         <Parameter Name="behavior" Type="System.Data.CommandBehavior" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="BeginExecuteReader" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="stateObject" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="stateObject" Type="System.Object" />
         <Parameter Name="behavior" Type="System.Data.CommandBehavior" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="BeginExecuteXmlReader" Type="System.IAsyncResult" IsInterface="True" />
       <Method Name="BeginExecuteXmlReader" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="stateObject" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="stateObject" Type="System.Object" />
       </Method>
       <Method Name="Cancel" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Clone" Type="System.Data.SqlClient.SqlCommand" BaseName="DbCommand" BaseType="System.Data.Common.DbCommand" />
@@ -6488,9 +6488,9 @@
         <Parameter Name="behavior" Type="System.Data.CommandBehavior" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="ExecuteScalar" Type="System.Object" IsDelegate="True" />
+      <Method Name="ExecuteScalar" Type="System.Object" />
       <Method Name="ExecuteScalarAsync" Type="System.Threading.Tasks.Task`1&lt;System.Object&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True">
-        <GenericTypeArgument Type="System.Object" IsDelegate="True" />
+        <GenericTypeArgument Type="System.Object" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="ExecuteXmlReader" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
@@ -6503,8 +6503,8 @@
       </Method>
       <Method Name="Prepare" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ResetCommandTimeout" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      <Event Name="StatementCompleted" Type="System.Data.StatementCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="StatementCompleted" Type="System.Data.StatementCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.StatementCompletedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -6634,8 +6634,8 @@
       </Method>
       <Method Name="ResetStatistics" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="RetrieveStatistics" Type="System.Collections.IDictionary" IsInterface="True" />
-      <Event Name="InfoMessage" Type="System.Data.SqlClient.SqlInfoMessageEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="InfoMessage" Type="System.Data.SqlClient.SqlInfoMessageEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlInfoMessageEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -6692,12 +6692,12 @@
       <Property Name="UserInstance" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="Values" Type="System.Collections.ICollection" IsInterface="True" IsReadable="True" />
       <Property Name="WorkstationID" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="keyword" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="set_Item" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="keyword" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Constructor>
         <Parameter Name="connectionString" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -6747,12 +6747,12 @@
         <Parameter Name="selectCommandText" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="selectConnection" Type="System.Data.SqlClient.SqlConnection" BaseName="DbConnection" BaseType="System.Data.Common.DbConnection" />
       </Constructor>
-      <Event Name="RowUpdated" Type="System.Data.SqlClient.SqlRowUpdatedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="RowUpdated" Type="System.Data.SqlClient.SqlRowUpdatedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlRowUpdatedEventArgs" BaseName="RowUpdatedEventArgs" BaseType="System.Data.Common.RowUpdatedEventArgs" />
       </Event>
-      <Event Name="RowUpdating" Type="System.Data.SqlClient.SqlRowUpdatingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="RowUpdating" Type="System.Data.SqlClient.SqlRowUpdatingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlRowUpdatingEventArgs" BaseName="RowUpdatingEventArgs" BaseType="System.Data.Common.RowUpdatingEventArgs" />
       </Event>
     </Class>
@@ -6767,10 +6767,10 @@
       <Property Name="IsClosed" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="RecordsAffected" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="VisibleFieldCount" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="get_Item" Type="System.Object" IsDelegate="True">
+      <Method Name="get_Item" Type="System.Object">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Close" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -6850,7 +6850,7 @@
       <Method Name="GetProviderSpecificFieldType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetProviderSpecificValue" Type="System.Object" IsDelegate="True">
+      <Method Name="GetProviderSpecificValue" Type="System.Object">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetProviderSpecificValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -6902,7 +6902,7 @@
       <Method Name="GetSqlString" Type="System.Data.SqlTypes.SqlString" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetSqlValue" Type="System.Object" IsDelegate="True">
+      <Method Name="GetSqlValue" Type="System.Object">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetSqlValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -6923,7 +6923,7 @@
       <Method Name="GetTimeSpan" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetValue" Type="System.Object" IsDelegate="True">
+      <Method Name="GetValue" Type="System.Object">
         <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetValues" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -6980,8 +6980,8 @@
         <Parameter Name="connectionString" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="queue" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Event Name="OnChange" Type="System.Data.SqlClient.OnChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+      <Event Name="OnChange" Type="System.Data.SqlClient.OnChangeEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlNotificationEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Event>
     </Class>
@@ -7055,24 +7055,24 @@
       <Property Name="Source" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
     </Class>
-    <Class Name="SqlInfoMessageEventHandler" Type="System.Data.SqlClient.SqlInfoMessageEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="SqlInfoMessageEventHandler" Type="System.Data.SqlClient.SqlInfoMessageEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlInfoMessageEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlInfoMessageEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -7153,10 +7153,10 @@
       <Property Name="SourceColumnNullMapping" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="SourceVersion" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
       <Property Name="SqlDbType" Type="System.Data.SqlDbType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
-      <Property Name="SqlValue" Type="System.Object" IsDelegate="True" IsReadable="True" IsWritable="True" />
+      <Property Name="SqlValue" Type="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="TypeName" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="UdtTypeName" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
-      <Property Name="Value" Type="System.Object" IsDelegate="True" IsReadable="True" IsWritable="True" />
+      <Property Name="Value" Type="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="XmlSchemaCollectionDatabase" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="XmlSchemaCollectionName" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="XmlSchemaCollectionOwningSchema" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
@@ -7170,7 +7170,7 @@
         <Parameter Name="scale" Type="System.Byte" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="sourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="sourceVersion" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -7182,7 +7182,7 @@
         <Parameter Name="sourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="sourceVersion" Type="System.Data.DataRowVersion" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="sourceColumnNullMapping" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
         <Parameter Name="xmlSchemaCollectionDatabase" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="xmlSchemaCollectionOwningSchema" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="xmlSchemaCollectionName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -7193,7 +7193,7 @@
       </Constructor>
       <Constructor>
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -7219,7 +7219,7 @@
       <Property Name="IsFixedSize" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsReadOnly" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="IsSynchronized" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
-      <Property Name="SyncRoot" Type="System.Object" IsDelegate="True" IsReadable="True" />
+      <Property Name="SyncRoot" Type="System.Object" IsReadable="True" />
       <Method Name="get_Item" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
@@ -7239,7 +7239,7 @@
       </Method>
       <Method Name="Add" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -7257,7 +7257,7 @@
         <Parameter Name="sourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="AddRange" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="values" Type="System.Data.SqlClient.SqlParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.SqlClient.SqlParameter" />
@@ -7267,7 +7267,7 @@
       </Method>
       <Method Name="AddWithValue" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Clear" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -7277,7 +7277,7 @@
         <Parameter Name="value" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="array" Type="System.Data.SqlClient.SqlParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.SqlClient.SqlParameter" />
@@ -7295,7 +7295,7 @@
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -7303,13 +7303,13 @@
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="RemoveAt" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -7325,24 +7325,24 @@
         <Parameter Name="rowsCopied" Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
     </Class>
-    <Class Name="SqlRowsCopiedEventHandler" Type="System.Data.SqlClient.SqlRowsCopiedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="SqlRowsCopiedEventHandler" Type="System.Data.SqlClient.SqlRowsCopiedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlRowsCopiedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlRowsCopiedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -7355,24 +7355,24 @@
         <Parameter Name="tableMapping" Type="System.Data.Common.DataTableMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Constructor>
     </Class>
-    <Class Name="SqlRowUpdatedEventHandler" Type="System.Data.SqlClient.SqlRowUpdatedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="SqlRowUpdatedEventHandler" Type="System.Data.SqlClient.SqlRowUpdatedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlRowUpdatedEventArgs" BaseName="RowUpdatedEventArgs" BaseType="System.Data.Common.RowUpdatedEventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlRowUpdatedEventArgs" BaseName="RowUpdatedEventArgs" BaseType="System.Data.Common.RowUpdatedEventArgs" />
       </Method>
     </Class>
@@ -7385,24 +7385,24 @@
         <Parameter Name="tableMapping" Type="System.Data.Common.DataTableMapping" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Constructor>
     </Class>
-    <Class Name="SqlRowUpdatingEventHandler" Type="System.Data.SqlClient.SqlRowUpdatingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="SqlRowUpdatingEventHandler" Type="System.Data.SqlClient.SqlRowUpdatingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlRowUpdatingEventArgs" BaseName="RowUpdatingEventArgs" BaseType="System.Data.Common.RowUpdatingEventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Data.SqlClient.SqlRowUpdatingEventArgs" BaseName="RowUpdatingEventArgs" BaseType="System.Data.Common.RowUpdatingEventArgs" />
       </Method>
     </Class>
@@ -7455,7 +7455,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlBinary" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlTypes.SqlBinary" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -7469,7 +7469,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlBinary" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetXsdType" Type="System.Xml.XmlQualifiedName" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -7560,7 +7560,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlBoolean" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlTypes.SqlBoolean" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -7570,7 +7570,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlBoolean" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetXsdType" Type="System.Xml.XmlQualifiedName" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -7728,7 +7728,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlByte" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlTypes.SqlByte" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -7742,7 +7742,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlByte" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetXsdType" Type="System.Xml.XmlQualifiedName" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -8072,7 +8072,7 @@
         <Parameter Name="t" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlTypes.SqlDateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -8082,7 +8082,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlDateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetXsdType" Type="System.Xml.XmlQualifiedName" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -8218,7 +8218,7 @@
         <Parameter Name="n" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -8237,7 +8237,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Floor" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="n" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -8404,7 +8404,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlDouble" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlTypes.SqlDouble" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -8418,7 +8418,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlDouble" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetXsdType" Type="System.Xml.XmlQualifiedName" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -8570,15 +8570,15 @@
         <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="count" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="state" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="state" Type="System.Object" />
       </Method>
       <Method Name="BeginWrite" Type="System.IAsyncResult" IsInterface="True">
         <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="count" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="state" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="state" Type="System.Object" />
       </Method>
       <Method Name="EndRead" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="asyncResult" Type="System.IAsyncResult" IsInterface="True" />
@@ -8639,7 +8639,7 @@
         <Parameter Name="k" Type="System.Byte" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlTypes.SqlGuid" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -8649,7 +8649,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlGuid" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetXsdType" Type="System.Xml.XmlQualifiedName" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -8745,7 +8745,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlInt16" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlTypes.SqlInt16" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -8759,7 +8759,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlInt16" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetXsdType" Type="System.Xml.XmlQualifiedName" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -8943,7 +8943,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlInt32" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlTypes.SqlInt32" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -8957,7 +8957,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlInt32" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetXsdType" Type="System.Xml.XmlQualifiedName" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -9141,7 +9141,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlInt64" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlTypes.SqlInt64" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -9155,7 +9155,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlInt64" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetXsdType" Type="System.Xml.XmlQualifiedName" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -9340,7 +9340,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlMoney" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlTypes.SqlMoney" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -9354,7 +9354,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlMoney" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetXsdType" Type="System.Xml.XmlQualifiedName" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -9531,7 +9531,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlSingle" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlTypes.SqlSingle" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -9545,7 +9545,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlSingle" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetXsdType" Type="System.Xml.XmlQualifiedName" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -9733,7 +9733,7 @@
         <Parameter Name="compareOptions" Type="System.Data.SqlTypes.SqlCompareOptions" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="CompareTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlTypes.SqlString" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -9747,7 +9747,7 @@
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlString" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetNonUnicodeBytes" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />

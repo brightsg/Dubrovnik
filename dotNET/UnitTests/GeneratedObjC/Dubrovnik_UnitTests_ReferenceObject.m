@@ -1999,6 +1999,11 @@ static NSString * m_classStringProperty;
 	[self invokeMonoMethod:"RaiseUnitTestEvent2()" withNumArgs:0];
 }
 
+- (void)raiseUnitTestEvent3
+{
+	[self invokeMonoMethod:"RaiseUnitTestEvent3()" withNumArgs:0];
+}
+
 - (Dubrovnik_UnitTests_ReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
