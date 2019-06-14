@@ -22,6 +22,7 @@
 @class System_Boolean;
 @class System_Byte;
 @class System_CrossAppDomainDelegate;
+@class System_EventArgs;
 @class System_EventHandler;
 @class System_Globalization_CultureInfo;
 @class System_Int32;
@@ -34,6 +35,7 @@
 @class System_String;
 @class System_TimeSpan;
 @class System_Type;
+@class System_UnhandledExceptionEventArgs;
 @class System_UnhandledExceptionEventHandler;
 @class System_Void;
 

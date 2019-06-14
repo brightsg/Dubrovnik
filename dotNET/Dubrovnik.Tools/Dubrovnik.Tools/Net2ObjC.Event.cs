@@ -26,6 +26,7 @@ namespace Dubrovnik.Tools
 
         public void WriteFacetAsEvent(InterfaceFacet interfaceFacet, EventFacet eventFacet, Dictionary<string, object> options = null)
         {
+            // test if binding generation required
             if (!Config.GenerateFacetBinding(eventFacet)) {
                 WriteSkippedItem("event", eventFacet.Description());
                 return;

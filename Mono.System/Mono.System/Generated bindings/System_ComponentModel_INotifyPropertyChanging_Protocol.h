@@ -18,7 +18,9 @@
 // Forward class and protocol declarations
 //
 @class System_ComponentModel_INotifyPropertyChanging;
+@class System_ComponentModel_PropertyChangingEventArgs;
 @class System_ComponentModel_PropertyChangingEventHandler;
+@class System_Object;
 @protocol System_ComponentModel_INotifyPropertyChanging;
 @protocol System_ComponentModel_INotifyPropertyChanging_;
 

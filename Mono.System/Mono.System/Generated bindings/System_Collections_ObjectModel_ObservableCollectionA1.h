@@ -26,9 +26,11 @@
 @class System_Collections_IEnumerable;
 @class System_Collections_IList;
 @class System_Collections_ObjectModel_ObservableCollectionA1;
+@class System_Collections_Specialized_NotifyCollectionChangedEventArgs;
 @class System_Collections_Specialized_NotifyCollectionChangedEventHandler;
 @class System_ComponentModel_INotifyPropertyChanged;
 @class System_Int32;
+@class System_Object;
 @class System_Void;
 @protocol System_Collections_Generic_IEnumerableA1;
 @protocol System_Collections_Generic_IEnumerableA1_;

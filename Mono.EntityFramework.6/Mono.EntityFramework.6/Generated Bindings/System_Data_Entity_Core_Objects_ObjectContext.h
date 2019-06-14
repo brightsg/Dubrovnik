@@ -29,6 +29,7 @@
 @class System_Data_Entity_Core_Objects_RefreshMode;
 @class System_Data_Entity_Core_Objects_SaveOptions;
 @class System_Data_Entity_Infrastructure_IObjectContextAdapter;
+@class System_EventArgs;
 @class System_EventHandler;
 @class System_IDisposable;
 @class System_Int32;

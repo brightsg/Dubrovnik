@@ -45,11 +45,14 @@
 @class System_Collections_Generic_ListA1;
 @class System_ComponentModel_INotifyPropertyChanged;
 @class System_ComponentModel_INotifyPropertyChanging;
+@class System_ComponentModel_PropertyChangedEventArgs;
 @class System_ComponentModel_PropertyChangedEventHandler;
+@class System_ComponentModel_PropertyChangingEventArgs;
 @class System_ComponentModel_PropertyChangingEventHandler;
 @class System_DateTime;
 @class System_Decimal;
 @class System_Double;
+@class System_EventArgs;
 @class System_EventHandler;
 @class System_FuncA1;
 @class System_FuncA2;
