@@ -454,6 +454,7 @@ namespace Dubrovnik.Tools
                                 xtw.WriteStartElement("Event");
 								xtw.WriteAttributeString("Name", eventInfo.Name);
                                 WriteTypeAttributes(xtw, eventType);
+                                WriteGenericTypeElements(xtw, eventType);
 
                                 // write delegate invocation parameters
                                 foreach (var parameterInfo in GetDelegateParameterInfo(eventType)) {

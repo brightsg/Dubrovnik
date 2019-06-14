@@ -25,6 +25,7 @@
 @class Dubrovnik_UnitTests_IReferenceObjectBase;
 @class Dubrovnik_UnitTests_ITestProperty;
 @class Dubrovnik_UnitTests_LongEnum;
+@class Dubrovnik_UnitTests_ReferenceEventArgs;
 @class Dubrovnik_UnitTests_ReferenceObject;
 @class Dubrovnik_UnitTests_ReferenceObject__ActionDelegate;
 @class Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1;
@@ -54,6 +55,7 @@
 @class System_Double;
 @class System_EventArgs;
 @class System_EventHandler;
+@class System_EventHandlerA1;
 @class System_FuncA1;
 @class System_FuncA2;
 @class System_FuncA3;
@@ -95,17 +97,20 @@
 // 
 // Event support
 // 
-#define Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock
+#define DUReferenceObject_PropertyChanged_EventBlock Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock
 typedef void (^Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangedEventArgs *e);
 
-#define Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock
+#define DUReferenceObject_PropertyChanging_EventBlock Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock
 typedef void (^Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangingEventArgs *e);
 
-#define Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock
+#define DUReferenceObject_UnitTestEvent1_EventBlock Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock
 typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock)(System_Object *sender, System_EventArgs *e);
 
-#define Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock
+#define DUReferenceObject_UnitTestEvent2_EventBlock Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock
 typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock)(System_Object *sender, System_EventArgs *e);
+
+#define DUReferenceObject_UnitTestEvent3_EventBlock Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(System_Object *sender, Dubrovnik_UnitTests_ReferenceEventArgs *e);
 
 @interface Dubrovnik_UnitTests_ReferenceObject : System_Object <Dubrovnik_UnitTests_IMinimalReferenceObject_, Dubrovnik_UnitTests_IReferenceObject1_, Dubrovnik_UnitTests_IReferenceObjectBase_, Dubrovnik_UnitTests_IReferenceObject2_>
 
@@ -1815,5 +1820,25 @@ typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock)(Sy
  @/textblock
 */
 - (System_EventHandler *)unitTestEvent2_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock)block;
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   UnitTestEvent3
+
+ @/textblock
+*/
++ (NSString *)unitTestEvent3EventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   UnitTestEvent3
+
+ @/textblock
+*/
+- (System_EventHandlerA1 *)unitTestEvent3_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)block;
 @end
 //--Dubrovnik.CodeGenerator

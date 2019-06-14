@@ -149,7 +149,14 @@ namespace Dubrovnik.Tools
             if (OutputFileType == OutputType.Implementation) {
                 WriteLine("{");
                 PushTabIndent();
-                WriteLine($"return ({event_.ObjCTypeDecl})[self db_addEventHandlerWithClass:{event_.ObjCType}.class forEventName:self.class.{event_.ObjCEventName}EventName block:(EventBlock)block];");
+
+                // non generic and generic event handlers require separate calls
+                if (event_.ObjCGenericTypeArgument == null) {
+                    WriteLine($"return ({event_.ObjCTypeDecl})[self db_addEventHandlerWithClass:{event_.ObjCType}.class forEventName:self.class.{event_.ObjCEventName}EventName block:(EventBlock)block];");
+                }
+                else {
+                    WriteLine($"return ({event_.ObjCTypeDecl})[self db_addEventHandlerWithClass:{event_.ObjCType}.class forEventName:self.class.{event_.ObjCEventName}EventName typeParameter:{event_.ObjCGenericTypeArgument}.class block:(EventBlock)block];");
+                }
                 PopIndent();
                 WriteLine("}");
             }

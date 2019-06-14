@@ -52,6 +52,14 @@ namespace Dubrovnik.UnitTests {
 	//==============================
 	// classes
 	//==============================
+    public class ReferenceEventArgs : EventArgs
+    {
+        public ReferenceEventArgs() : base()
+        {
+
+        }
+    }
+
 	public class ReferenceObject : IMinimalReferenceObject, IReferenceObject1, IReferenceObject2, INotifyPropertyChanged, INotifyPropertyChanging {
 
 		//==============================
@@ -59,7 +67,9 @@ namespace Dubrovnik.UnitTests {
 		//==============================
 		public event EventHandler UnitTestEvent1;
 		public event EventHandler UnitTestEvent2;
-		public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler<ReferenceEventArgs> UnitTestEvent3;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 		public event PropertyChangingEventHandler PropertyChanging;
 
 		//==============================

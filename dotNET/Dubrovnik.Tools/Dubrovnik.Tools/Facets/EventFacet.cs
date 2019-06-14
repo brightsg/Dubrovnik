@@ -13,9 +13,14 @@ namespace Dubrovnik.Tools.Facets
         /// </summary>
         public IList<ParameterFacet> Parameters { get; set; }
 
+        /// <summary>
+        /// A collection of types passed to a generic event delegate
+        /// </summary>
+        public IList<CodeFacet> GenericTypeArguments { get; set; }
+
         // really?
-        public bool IsGenericMethodDefinition { get; set; }
         public bool IsOverloadedParameterMethod { get; set; }
+        public bool IsGenericMethodDefinition { get; set; }
 
         /// <summary>
         /// Constructor
@@ -25,6 +30,7 @@ namespace Dubrovnik.Tools.Facets
             : base(xelement)
         {
             Parameters = new FacetList<ParameterFacet>(xelement, "Parameter", this);
+            GenericTypeArguments = new FacetList<CodeFacet>(xelement, "GenericTypeArgument", this);
         }
 
         /// <summary>
@@ -35,8 +41,7 @@ namespace Dubrovnik.Tools.Facets
             List<CodeFacet> facets = new List<CodeFacet>();
             facets.AddRange(base.Children());
             facets.AddRange(Parameters);
-            //facets.AddRange(GenericTypeArguments);
-            //facets.AddRange(GenericMethodDefinitionGenericTypeArguments);
+            facets.AddRange(GenericTypeArguments);
 
             return facets;
         }

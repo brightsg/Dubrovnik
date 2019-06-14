@@ -15,8 +15,11 @@ namespace Dubrovnik.Tools.Output
         public string ObjCEventBlockParameters { get; private set; }
         public string ObjCTypeDecl { get; private set; }
         public string ObjCType { get; private set; }
+        public string ObjCGenericTypeArgument { get; private set; }
 
         // copied from Net2ObjC.Method 
+        public bool IsGenericMethod { get; set; }
+        public bool IsGenericMethodDefinition { get; set; }
         public string ObjCMethodName { get; private set; } 
         public string ObjCMethodType { get; private set; }
         public string ManagedValueToObjC { get; private set; }
@@ -44,7 +47,7 @@ namespace Dubrovnik.Tools.Output
             // type name for the event block for this event
             string eventBlockName = $"_{ MonoEventName}_EventBlock";
             ObjCEventBlockTypeName = $"{interfaceFacet.ObjCFacet.Type}{eventBlockName}";
-            ObjCEventBlockTypeMinimalName = $"{n2c.ObjCMinimalIdentifierFromManagedIdentifier(interfaceFacet.ObjCFacet.Type)}{eventBlockName}";
+            ObjCEventBlockTypeMinimalName = $"{n2c.ObjCMinimalIdentifierFromManagedIdentifier(interfaceFacet.Type)}{eventBlockName}";
 
             // process the parameters
             ProcessParameters(n2c, eventFacet, options);
@@ -52,6 +55,11 @@ namespace Dubrovnik.Tools.Output
             // finalize argument list representations
             ObjCEventBlockParameters = CParameterBuilder.ToString();
 
+            // if event handler type is generic then record type argument
+            if (eventFacet.IsConstructedGenericType) {
+                ObjCGenericTypeArgument = eventFacet.GenericTypeArguments[0].ObjCFacet.Type;
+            }
+            
             IsValid = true;
         }
 

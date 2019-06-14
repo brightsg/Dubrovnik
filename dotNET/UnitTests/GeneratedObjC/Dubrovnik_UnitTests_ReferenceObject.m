@@ -2170,6 +2170,16 @@ static NSString * m_classStringProperty;
 	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler.class forEventName:self.class.unitTestEvent2EventName block:(EventBlock)block];
 }
 
++ (NSString *)unitTestEvent3EventName
+{
+	return @"UnitTestEvent3";
+}
+
+- (System_EventHandlerA1 *)unitTestEvent3_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)block
+{
+	return (System_EventHandlerA1 *)[self db_addEventHandlerWithClass:System_EventHandlerA1.class forEventName:self.class.unitTestEvent3EventName typeParameter:Dubrovnik_UnitTests_ReferenceEventArgs.class block:(EventBlock)block];
+}
+
 #pragma mark -
 #pragma mark Teardown
 
