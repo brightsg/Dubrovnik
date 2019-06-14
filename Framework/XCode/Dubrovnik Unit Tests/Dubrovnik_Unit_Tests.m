@@ -39,7 +39,7 @@ static BOOL m_runningAutoGenCodeTest = NO;
 #endif
 
 
-#define REST_EVENT_VARS(X)    self.event1Fired = X; \
+#define RESET_EVENT_VARS(X)    self.event1Fired = X; \
 self.event2Fired = X; \
 testObject.event1Fired = X; \
 testObject.event2Fired = X; \
@@ -2299,7 +2299,110 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     return m_runningAutoGenCodeTest ? @"Generated code" : @"Manual code";
 }
 
-- (void)doTestEvents:(id)refObject class:(Class)testClass
+
+- (void)doTestEvents:(DUReferenceObject_ *)refObject class:(Class)testClass
+{
+    if (![refObject isKindOfClass:DUReferenceObject_.class]) {
+        XCTAssertTrue(NO, @"Invalid reference object");
+    }
+    
+    //
+    // define blocks to be called when event delegate invoked
+    //
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-parameter"
+    System_EventHandler *eh1 = [refObject unitTestEvent1_addEventHandlerWithBlock:^(System_Object *sender, System_EventArgs *e) {
+        self.event1Fired++;
+    }];
+    System_EventHandler *eh2 = [refObject unitTestEvent2_addEventHandlerWithBlock:^(System_Object *sender, System_EventArgs *e) {
+        self.event2Fired++;
+    }];
+#pragma clang diagnostic pop
+    
+    self.event1Fired = 0;
+    self.event2Fired = 0;
+    
+    [refObject raiseUnitTestEvent1];
+    XCTAssertTrue(self.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    
+    [refObject raiseUnitTestEvent2];
+    XCTAssertTrue(self.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 1, DBUEqualityTestFailed);
+    
+    //
+    // define additional handlers for the same events
+    //
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-parameter"
+    System_EventHandler *eh1a = [refObject unitTestEvent1_addEventHandlerWithBlock:^(System_Object *sender, System_EventArgs *e) {
+        self.event1Fired += 2;
+    }];
+    System_EventHandler *eh2a = [refObject unitTestEvent2_addEventHandlerWithBlock:^(System_Object *sender, System_EventArgs *e) {
+        self.event2Fired += 3;
+    }];
+#pragma clang diagnostic pop
+    
+    self.event1Fired = 0;
+    self.event2Fired = 0;
+    [refObject raiseUnitTestEvent1];
+    XCTAssertTrue(self.event1Fired == 3, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    
+    [refObject raiseUnitTestEvent2];
+    XCTAssertTrue(self.event1Fired == 3, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 4, DBUEqualityTestFailed);
+    
+    //
+    // now remove the additional handlers
+    //
+    [refObject db_removeEventHandler:eh1a];
+    [refObject db_removeEventHandler:eh2a];
+    
+    self.event1Fired = 0;
+    self.event2Fired = 0;
+    
+    [refObject raiseUnitTestEvent1];
+    XCTAssertTrue(self.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    
+    [refObject raiseUnitTestEvent2];
+    XCTAssertTrue(self.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 1, DBUEqualityTestFailed);
+    
+    //
+    // now remove the original handlers
+    //
+    [refObject db_removeEventHandler:eh1];
+    [refObject db_removeEventHandler:eh2];
+
+    self.event1Fired = 0;
+    self.event2Fired = 0;
+    
+    [refObject raiseUnitTestEvent1];
+    XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    
+    [refObject raiseUnitTestEvent2];
+    XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    
+    // test the legacy event API
+    [self doTestLegacyEvents:refObject class:testClass];
+}
+
+
+/**
+ Tests the legacy managed event API support.
+ This API works fine but requires a lot of glue code including defining
+ a managed static internal call method on a Dubrovnik.ClientApplication.EventHelper partial class.
+ Note there is no code gen support for this API.
+ The newer event API is much easier to use and is supported by the code generator.
+
+ @param refObject Reference object
+ @param testClass testClass Test class
+ */
+- (void)doTestLegacyEvents:(id)refObject class:(Class)testClass
 {
 #pragma unused(testClass)
     
@@ -2393,7 +2496,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([targets db_indexForObjectPointer:eventTarget1] != NSUIntegerMax, DBUEqualityTestFailed);
     
     // raise events
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject1 raiseUnitTestEvent1];
@@ -2406,7 +2509,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(eventTarget1.event1Fired == 1, DBUEqualityTestFailed);
     XCTAssertTrue(eventTarget1.event2Fired == 0, DBUEqualityTestFailed);
     
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent2];
     [refObject1 raiseUnitTestEvent2];
@@ -2421,7 +2524,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // remove handler 1 for self
     [self removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
@@ -2434,7 +2537,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // remove handler 1 for testObject
     [testObject removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
@@ -2447,7 +2550,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // remove handler 2 for self
     [self removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
@@ -2460,7 +2563,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // remove handler 2 for testObject
     [testObject removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
@@ -2473,7 +2576,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // remove handler 1 for eventTarget
     [eventTarget removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
@@ -2486,7 +2589,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // remove handler 2 for eventTarget
     [eventTarget removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
@@ -2607,13 +2710,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([resultFuncA2 isEqualToString:@"Klepto"], DBUEqualityTestFailed);
     
     // System_FuncA3<TResult>
-    // in this case we need to construct the type of our delegate
+    // in this case we merely pass the delegate types into the convenience method
     delegateBlock = ^System_Object *(NSArray * parameters) {
         NSAssert(parameters.count == 2 && ((DBNumber *)parameters[0]).integerValue == 104 && ((DBNumber *)parameters[1]).doubleValue == 202.2, @"invalid parameters");
         return @"Battery".managedObject;
     };
-    constructedType = [System_FuncA3 db_constructTypeWithParameters:@[[System_Int32 class], [System_Double class], [System_String class]]];
-    System_FuncA3 *funcDelegateA3 = [System_FuncA3 universalDelegateWithConstructedType:constructedType block:delegateBlock];
+    NSArray<id> *delegateTypes = @[[System_Int32 class], [System_Double class], [System_String class]];
+    System_FuncA3 *funcDelegateA3 = [System_FuncA3 universalDelegate:delegateTypes block:delegateBlock];
     NSString *resultFuncA3 = [refObject invokeFunctionA3_withFunc:funcDelegateA3];
     XCTAssertTrue([resultFuncA3 isEqualToString:@"Battery"], DBUEqualityTestFailed);
 }

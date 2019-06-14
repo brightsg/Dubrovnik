@@ -74,6 +74,7 @@
 		AB6ED4D11A9DDA1900A4F174 /* Mono.mscorlib.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = AB6ED4CF1A9DD9F900A4F174 /* Mono.mscorlib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB6ED4D31A9DDA8600A4F174 /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6ED4D21A9DDA8600A4F174 /* Mono.System.Core.framework */; };
 		AB6ED4D41A9DDA9200A4F174 /* Mono.System.Core.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = AB6ED4D21A9DDA8600A4F174 /* Mono.System.Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB813C0522B3068200BAE144 /* Mono.System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB813C0422B3068200BAE144 /* Mono.System.framework */; };
 		AB81D5C317D7B1B6007214E1 /* DBType.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C117D7B1B6007214E1 /* DBType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB81D5C417D7B1B6007214E1 /* DBType.m in Sources */ = {isa = PBXBuildFile; fileRef = AB81D5C217D7B1B6007214E1 /* DBType.m */; };
 		AB81D5C717D7B380007214E1 /* DBTypeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AB81D5C517D7B380007214E1 /* DBTypeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -254,6 +255,7 @@
 		AB6A752C19A9307000CDE475 /* NSArray+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Dubrovnik.m"; sourceTree = "<group>"; };
 		AB6ED4CF1A9DD9F900A4F174 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6ED4D21A9DDA8600A4F174 /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB813C0422B3068200BAE144 /* Mono.System.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mono.System.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB81D5C117D7B1B6007214E1 /* DBType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBType.h; path = "Mono Environment/DBType.h"; sourceTree = "<group>"; };
 		AB81D5C217D7B1B6007214E1 /* DBType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBType.m; path = "Mono Environment/DBType.m"; sourceTree = "<group>"; };
 		AB81D5C517D7B380007214E1 /* DBTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBTypeManager.h; path = "Mono Environment/DBTypeManager.h"; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB813C0522B3068200BAE144 /* Mono.System.framework in Frameworks */,
 				AB6ED4D31A9DDA8600A4F174 /* Mono.System.Core.framework in Frameworks */,
 				AB6ED4D01A9DD9F900A4F174 /* Mono.mscorlib.framework in Frameworks */,
 				ABA35A4A1A10DB3700149C00 /* Cocoa.framework in Frameworks */,
@@ -589,6 +592,7 @@
 		AB588DC3178308000000AAC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB813C0422B3068200BAE144 /* Mono.System.framework */,
 				AB26E09B1E49F8F4004876FE /* Mono.framework */,
 				AB6ED4D21A9DDA8600A4F174 /* Mono.System.Core.framework */,
 				AB6ED4CF1A9DD9F900A4F174 /* Mono.mscorlib.framework */,
@@ -888,6 +892,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* Dumbarton */;
