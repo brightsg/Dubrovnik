@@ -2317,6 +2317,11 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     System_EventHandler *eh2 = [refObject unitTestEvent2_addEventHandlerWithBlock:^(System_Object *sender, System_EventArgs *e) {
         self.event2Fired++;
     }];
+    System_EventHandlerA1 *eh3 = [refObject unitTestEvent3_addEventHandlerWithBlock:^(System_Object *sender, Dubrovnik_UnitTests_ReferenceEventArgs *e) {
+        XCTAssertTrue([e isKindOfClass:Dubrovnik_UnitTests_ReferenceEventArgs.class], DBUEqualityTestFailed);
+        self.event1Fired++;
+        self.event2Fired++;
+    }];
 #pragma clang diagnostic pop
     
     self.event1Fired = 0;
@@ -2330,6 +2335,10 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(self.event1Fired == 1, DBUEqualityTestFailed);
     XCTAssertTrue(self.event2Fired == 1, DBUEqualityTestFailed);
     
+    [refObject raiseUnitTestEvent3];
+    XCTAssertTrue(self.event1Fired == 2, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 2, DBUEqualityTestFailed);
+    
     //
     // define additional handlers for the same events
     //
@@ -2340,6 +2349,11 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }];
     System_EventHandler *eh2a = [refObject unitTestEvent2_addEventHandlerWithBlock:^(System_Object *sender, System_EventArgs *e) {
         self.event2Fired += 3;
+    }];
+    System_EventHandlerA1 *eh3a = [refObject unitTestEvent3_addEventHandlerWithBlock:^(System_Object *sender, Dubrovnik_UnitTests_ReferenceEventArgs *e) {
+        XCTAssertTrue([e isKindOfClass:Dubrovnik_UnitTests_ReferenceEventArgs.class], DBUEqualityTestFailed);
+        self.event1Fired += 4;
+        self.event2Fired += 4;
     }];
 #pragma clang diagnostic pop
     
@@ -2353,11 +2367,16 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(self.event1Fired == 3, DBUEqualityTestFailed);
     XCTAssertTrue(self.event2Fired == 4, DBUEqualityTestFailed);
     
+    [refObject raiseUnitTestEvent3];
+    XCTAssertTrue(self.event1Fired == 8, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 9, DBUEqualityTestFailed);
+    
     //
     // now remove the additional handlers
     //
     [refObject db_removeEventHandler:eh1a];
     [refObject db_removeEventHandler:eh2a];
+    [refObject db_removeEventHandler:eh3a];
     
     self.event1Fired = 0;
     self.event2Fired = 0;
@@ -2370,12 +2389,17 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(self.event1Fired == 1, DBUEqualityTestFailed);
     XCTAssertTrue(self.event2Fired == 1, DBUEqualityTestFailed);
     
+    [refObject raiseUnitTestEvent3];
+    XCTAssertTrue(self.event1Fired == 2, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 2, DBUEqualityTestFailed);
+    
     //
     // now remove the original handlers
     //
     [refObject db_removeEventHandler:eh1];
     [refObject db_removeEventHandler:eh2];
-
+    [refObject db_removeEventHandler:eh3];
+    
     self.event1Fired = 0;
     self.event2Fired = 0;
     
@@ -2384,6 +2408,10 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
     
     [refObject raiseUnitTestEvent2];
+    XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    
+    [refObject raiseUnitTestEvent3];
     XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
     XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
     

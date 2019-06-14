@@ -43,6 +43,7 @@
 		AB26E09C1E49F8F4004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E09B1E49F8F4004876FE /* Mono.framework */; };
 		AB26E09D1E49F905004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E09B1E49F8F4004876FE /* Mono.framework */; };
 		AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; };
+		AB31A31322B41A2A00A4C5E8 /* Dubrovnik_UnitTests_ReferenceEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB31A31222B41A2A00A4C5E8 /* Dubrovnik_UnitTests_ReferenceEventArgs.m */; };
 		AB3451DE190A96F500A6F47B /* DBMonoIncludes.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB3451DF190A96F500A6F47B /* Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB3451DD190A96F500A6F47B /* Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB36B79E21495E6600D31D13 /* DBSecondaryInstanceCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AB36B79C21495E6600D31D13 /* DBSecondaryInstanceCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -211,6 +212,8 @@
 		AB120DA318BB47F300461FA2 /* DBNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNumber.h; sourceTree = "<group>"; };
 		AB120DA418BB47F300461FA2 /* DBNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNumber.m; sourceTree = "<group>"; };
 		AB26E09B1E49F8F4004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Framework/XCode/../../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
+		AB31A31122B41A2A00A4C5E8 /* Dubrovnik_UnitTests_ReferenceEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_UnitTests_ReferenceEventArgs.h; sourceTree = "<group>"; };
+		AB31A31222B41A2A00A4C5E8 /* Dubrovnik_UnitTests_ReferenceEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_UnitTests_ReferenceEventArgs.m; sourceTree = "<group>"; };
 		AB3451DC190A96F500A6F47B /* DBMonoIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DBMonoIncludes.h; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		AB3451DD190A96F500A6F47B /* Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik.h; sourceTree = SOURCE_ROOT; };
 		AB36B79C21495E6600D31D13 /* DBSecondaryInstanceCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBSecondaryInstanceCache.h; sourceTree = "<group>"; };
@@ -631,6 +634,8 @@
 		AB8DDC5818EED03A00FEEA8B /* GeneratedObjC */ = {
 			isa = PBXGroup;
 			children = (
+				AB31A31122B41A2A00A4C5E8 /* Dubrovnik_UnitTests_ReferenceEventArgs.h */,
+				AB31A31222B41A2A00A4C5E8 /* Dubrovnik_UnitTests_ReferenceEventArgs.m */,
 				AB9918FC1E63015900F70071 /* Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2.h */,
 				AB9918FD1E63015900F70071 /* Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2.m */,
 				AB01126D1E620DC600217A6B /* Dubrovnik_UnitTests_ByteEnum.h */,
@@ -1016,6 +1021,7 @@
 				ABB2C95C19717AF0001AABA7 /* Dubrovnik_UnitTests_IReferenceObject1.m in Sources */,
 				ABB230DB192953D1009998F9 /* Dubrovnik_UnitTests_BaseObjectTwo.m in Sources */,
 				AB4D7BCF18FC342900E7C2D3 /* Dubrovnik_UnitTests_ReferenceStruct.m in Sources */,
+				AB31A31322B41A2A00A4C5E8 /* Dubrovnik_UnitTests_ReferenceEventArgs.m in Sources */,
 				AB0112741E620DC600217A6B /* Dubrovnik_UnitTests_ReferenceObject__NestedEnum.m in Sources */,
 				ABB230DE192953E1009998F9 /* Dubrovnik_UnitTests_GenericReferenceObjectA2__NestedClass.m in Sources */,
 				AB3FF5FC1D9A7A8400A6E6B8 /* Dubrovnik_UnitTests_IntEnum.m in Sources */,
