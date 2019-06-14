@@ -39,16 +39,16 @@ namespace Dubrovnik.Tools
             }
 
             // parse options
-            bool isClassStart = false;
+            bool isPreDelarations = false;
             if (options != null) {
                 object outObj;
                 if (options.TryGetValue("caller", out outObj)) {
-                    isClassStart = (string)outObj == "WriteClassStart";
+                    isPreDelarations = (string)outObj == nameof(WriteFacetPreDeclarations);
                 }
             }
 
             // write unique interface output for start of class 
-            if (OutputFileType == OutputType.Interface && isClassStart) {
+            if (OutputFileType == OutputType.Interface && isPreDelarations) {
                 WriteEventClassStart(event_, options);
                 return;
             }

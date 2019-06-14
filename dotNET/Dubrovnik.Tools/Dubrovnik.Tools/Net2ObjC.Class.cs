@@ -43,26 +43,7 @@ namespace Dubrovnik.Tools {
 			}
 
 			if (OutputFileType == OutputType.Interface) {
-                var options = new Dictionary<string, object> { { "caller", nameof(WriteClassStart) } };
-
-                if (facet is EnumerationFacet) {
-					WriteLine("");
-					WriteLine("// C enumeration");
-					WriteFacetAsEnumeration((EnumerationFacet)facet);
-					WriteLine("");
-				}
-                else if (facet is ClassFacet) {
-                    ClassFacet classFacet = (ClassFacet)facet;
-                    if (classFacet.Events.Count > 0) {
-                        WriteLine("// ");
-                        WriteLine("// Event support");
-                        WriteLine("// ");
-                        foreach (EventFacet eventFacet in classFacet.Events) { 
-                            WriteFacetAsEvent(classFacet, eventFacet, options);
-                            WriteLine("");
-                        }
-                    }
-                }
+                WriteFacetPreDeclarations(facet);
 			}
 
 			WriteLine($"@{classPrefix} {facet.ObjCFacet.Type}{superClass}{implementedProtocols}");

@@ -34,6 +34,12 @@
 //
 #import "System_ComponentModel_INotifyPropertyChanging_Protocol.h"
 
+// 
+// Event support
+// 
+#define System_ComponentModel_INotifyPropertyChanging_PropertyChanging_EventBlock System_ComponentModel_INotifyPropertyChanging_PropertyChanging_EventBlock
+typedef void (^System_ComponentModel_INotifyPropertyChanging_PropertyChanging_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangingEventArgs *e);
+
 @interface System_ComponentModel_INotifyPropertyChanging : System_Object
 
 #pragma mark -

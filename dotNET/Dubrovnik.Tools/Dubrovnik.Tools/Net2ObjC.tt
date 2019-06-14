@@ -271,6 +271,8 @@ public void WriteProtocolStart(InterfaceFacet facet, string module, bool writeIm
 	if (!writeImplementation) {
 		WriteModuleBanner(facet, module);
    }
+
+	WriteFacetPreDeclarations(facet);
 	
 	ObjCProtocol protocol = new ObjCProtocol(this, facet, writeImplementation);
 

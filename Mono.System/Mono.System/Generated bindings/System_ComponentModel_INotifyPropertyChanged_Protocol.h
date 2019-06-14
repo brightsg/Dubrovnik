@@ -34,6 +34,12 @@
 //
 #import "System_ComponentModel_INotifyPropertyChanged_Protocol.h"
 
+// 
+// Event support
+// 
+#define System_ComponentModel_INotifyPropertyChanged_PropertyChanged_EventBlock System_ComponentModel_INotifyPropertyChanged_PropertyChanged_EventBlock
+typedef void (^System_ComponentModel_INotifyPropertyChanged_PropertyChanged_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangedEventArgs *e);
+
 
 /*
  A managed interface is represented as follows:
@@ -104,6 +110,12 @@
 
 
 @end
+
+// 
+// Event support
+// 
+#define System_ComponentModel_INotifyPropertyChanged_PropertyChanged_EventBlock System_ComponentModel_INotifyPropertyChanged_PropertyChanged_EventBlock
+typedef void (^System_ComponentModel_INotifyPropertyChanged_PropertyChanged_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangedEventArgs *e);
 
 
 //
