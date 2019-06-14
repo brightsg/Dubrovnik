@@ -77,7 +77,7 @@ namespace Dubrovnik.Tools
 			if (type.IsInterface) xtw.WriteAttributeString("IsInterface", Boolean.TrueString);
 
 			// Delegate
-			if (type.IsAssignableFrom(typeof(Delegate))) xtw.WriteAttributeString("IsDelegate", Boolean.TrueString);
+			if (type.IsSubclassOf(typeof(Delegate))) xtw.WriteAttributeString("IsDelegate", Boolean.TrueString);
 
 			// Nested
 			if (type.IsNested) xtw.WriteAttributeString("IsNested", Boolean.TrueString);
