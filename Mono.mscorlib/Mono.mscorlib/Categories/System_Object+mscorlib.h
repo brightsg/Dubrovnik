@@ -115,6 +115,17 @@ typedef void(^EventBlock)(System_Object* sender, System_EventArgs *eventArgs);
 - (System_Delegate *)db_addEventHandlerWithClass:(Class)eventHandlerClass forEventName:(NSString *)eventName block:(EventBlock)block;
 
 /**
+ Adds, and in doing so creates, a managed generic System.Delegate subclass for the named event. The block is executed when the managed event is invoked.
+ 
+ @param eventHandlerClass Native class identifying System.Delegate eventhandler type.
+ @param eventName Event namne
+ @param typeParameter Type parameter info for event handler.
+ @param block Block to be executed when event is invoked.
+ @return Managed event handler instance.
+ */
+- (System_Delegate *)db_addEventHandlerWithClass:(Class)eventHandlerClass forEventName:(NSString *)eventName typeParameter:(id)typeParameter block:(EventBlock)block;
+
+/**
  Adds, and in doing so creates, a managed System.EventHandler for the named event. The block is executed when the managed event is invoked.
  
  @param eventName Event namne

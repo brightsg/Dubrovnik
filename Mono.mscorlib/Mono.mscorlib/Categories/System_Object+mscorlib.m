@@ -189,6 +189,16 @@
     return eventHandler;
 }
 
+- (System_Delegate *)db_addEventHandlerWithClass:(Class)eventHandlerClass forEventName:(NSString *)eventName typeParameter:(id)typeParameter block:(EventBlock)block
+{
+    System_Delegate *eventHandler = [eventHandlerClass universalDelegate:@[typeParameter] block:^System_Object *(NSArray<id> *parameters) {
+        block(parameters[0], parameters[1]);
+        return nil;
+    }];
+    [self db_addEventHandler:eventHandler eventName:eventName];
+    return eventHandler;
+}
+
 - (void)db_cacheEventHandler:(System_Delegate *)eventHandler eventName:(NSString *)eventName
 {
     if (!eventHandler || !eventName) return;
