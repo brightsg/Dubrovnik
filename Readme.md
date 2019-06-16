@@ -1,7 +1,7 @@
 Overview
 ======== 
 
-The Dubrovnik project provides a series of bindings between Obj-C and the [Mono](https://www.mono-project.com) open source implementation of .NET. Functionally, it works like an Objective-C to C# language bridge. 
+The Dubrovnik project provides a series of bindings between Obj-C and the [Mono](https://www.mono-project.com) open source implementation of .NET. Functionally, it works like an Objective-C to C# language bridge. It is aslo possible to call the generated bindings from Swift.
 
 Dubrovnik is intended to provide a means of interfacing a Cocoa app to a .NET backend assembly or assemblies. The Dubrovnik code generator can be used to automate the generation of Obj-C bindings to those assemblies. This greatly simplifies interfacing .NET to Obj-C.
 
@@ -19,7 +19,7 @@ Check out the unit test [Objective-C reference object](https://github.com/Thesau
 TLDR
 ====
 
-- A competent bridge between Objective-C and the Mono .NET implementation that provides Obj-C wrappers for managed classes.
+- A competent bridge between Objective-C and the Mono .NET implementation that provides Obj-C wrappers for managed classes. Also callable from Swift.
 
 - A set of ObjC categories to facilitate easy conversion between Application Kit objects and their C# equivalents e.g. System.String -> NSString *.
 
@@ -48,14 +48,14 @@ Version: 1.0.0
 1. Explicit interface property and method invocation.
 1. Support for SGEN and moveable memory.
 1. Automatic support for indexers.
-1. BInding support for all types in mscorlib.dll. 
+1. Binding support for all types in mscorlib.dll (though see type skipping).
+1. Automatic generation of managed event support code.
 
 **Outstanding Project Goals**
 
 The following project goals are outstanding:
 
 1. Automatic generic method support in generated code. This is largely complete but a few issues remain.
-2. Automatic generation of managed event support code.
 
 
 Project Map
@@ -364,12 +364,45 @@ Managed Interface Representation
 
 The natural Objective-C equivalent of a managed interface is a protocol. However, .NET can return an instance of an interface as an object, hence in addition to a protocol definition the code generator outputs a class named after the interface that implements the managed interface protocol.
 
+Automatic Change Noptifications
+======================
+
+By default, if a managed object supports the `PropertyChanging` or `PropertyChanged` events then corresponding `-willChangeValueForKey:` and `-didChangeValueForKey:` KVO notifications will be sent. This means that managed objects can be observed or bound to in a more or less transparent fashion.
+
 Managed Event Handling
 ======================
 
-Managed events can be routed to any Objective-C object via a defined selector. An example of this can be seen in the unit test module.
+The code generator outputs native code that enables an Obj-C block to be called in response to a managed event invocation.
 
-By default, if a managed object supports the `PropertyChanging` or `PropertyChanged` events then corresponding `-willChangeValueForKey:` and `-didChangeValueForKey:` KVO notifications will be sent. This means that managed objects can be observed or bound to in a more or less transparent fashion.
+Given a managed event like so:
+
+    public class ReferenceObject
+    {
+        public event EventHandler<ReferenceEventArgs> UnitTestEvent3;
+    }
+
+The code generator will output native code to create an appropriate event handler and associate it with a strongly typed invocation block. When the managed event is invoked the assocaited bl;ock is called:
+
+    @interface Dubrovnik_UnitTests_ReferenceObject : System_Object
+    {
+        - (System_EventHandlerA1 *)unitTestEvent3_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)block;
+    }
+
+At the call site this looks like:
+
+    System_EventHandlerA1 *eh3 = [refObject unitTestEvent3_addEventHandlerWithBlock:^(System_Object *sender, Dubrovnik_UnitTests_ReferenceEventArgs *e) {
+            XCTAssertTrue([e isKindOfClass:Dubrovnik_UnitTests_ReferenceEventArgs.class], DBUEqualityTestFailed);
+            self.event1Fired++;
+            self.event2Fired++;
+        }];
+        
+
+Legacy Managed Event Handling
+======================
+
+Managed events can be routed to any Objective-C object via a defined selector. An example of this can be seen in the unit test module. This legacy approach is muych more cumbersome that the modern approach and is not supported by the code generator.
+
+See the unit tests for explicit detail.
 
 DateTime Handling
 =================
@@ -387,13 +420,13 @@ Any thread that calls into managed code must pre-attach itself to the Mono envir
     dispatch_async(globalConcurrentQueue, ^{
         
         // Any thread that accesses Mono must be attached. Failure to do so is fatal.
-        MonoThread *monoThread = [[DBMonoEnvironment currentEnvironment] attachCurrentThread];
+        MonoThread *monoThread = [[DBManagedEnvironment currentEnvironment] attachCurrentThread];
         
         // create the data file
         [TUBDEntities_ createDataFile_withFileName:fileName];
         
         // detach the thread before it terminates
-        [[DBMonoEnvironment currentEnvironment] detachMonoThread:monoThread];
+        [[DBManagedEnvironment currentEnvironment] detachMonoThread:monoThread];
         
         // dispatch onto the main thread
         dispatch_async(dispatch_get_main_queue(), ^ {
@@ -408,9 +441,9 @@ While Dubrovnik is much easier to use than the raw Mono C embedding API, it is
 not magic. Writing code against Dubrovnik still requires that you understand how
 your code will interact with the managed runtime.
 
-Dubrovnik provides two main classes: `DBMonoObject` and
-`DBMonoClass`. They can be thought of as wrappers around C# objects
-and classes. `DBMonoObject` serves as the base class for `System_Object`, our native wrapper to `System.Object`.
+Dubrovnik provides two main classes: `DBManagedObject` and
+`DBManagedClass`. They can be thought of as wrappers around C# objects
+and classes. `DBManagedObject` serves as the base class for `System_Object`, our native wrapper to `System.Object`.
 
 So to call a method with this managed signature:
 
@@ -419,11 +452,11 @@ So to call a method with this managed signature:
 from native code using Dubrovnik you could do something this:
 
 	MonoObject *monoObject = <an object you got from somewhere>;
-	DBMonoObject *someObject = [DBMonoObject representationWithMonoObject:monoObject];
+	DBManagedObject *someObject = [DBManagedObject representationWithMonoObject:monoObject];
 	MonoString *monoString = [someObject invokeMethod:"Blargle(string)" withNumArgs:1, [someString monoString]];
 	NSString *blargleString = [NSString stringWithMonoString:monoString];
 
-However, in general it is much nicer to subclass `DBMonoObject` and in your subclass write a method like so:
+However, in general it is much nicer to subclass `DBManagedObject` and in your subclass write a method like so:
 
 	- (NSString *)blargle:(NSString *)someString {
 		MonoString *monoString = [self invokeMethod:"Blargle(string)" withNumArgs:1, [someString monoString]];
@@ -435,7 +468,7 @@ Then, in your native code that accesses the managed object, it would be no diffe
 
 	NSString *blargleString = [someObject blargle:@"this is a string"];
 
-The Dubrovnik copde generator automates the production of `DBMonoObject` subclasses.
+The Dubrovnik code generator automates the production of `DBManagedObject` subclasses.
 
 Calling Conventions
 ===================
@@ -476,7 +509,7 @@ There Be Dragons Here
 
 Watch out for these issues:
 
-1. Mono internally represents the "float" type as "single". That means that
+1. The embedded Mono method invocation API identifies the "float" type as "single". That means that
 calls to invokeMethod: will need to specify "single" instead of "float" where
 appropriate.
 
