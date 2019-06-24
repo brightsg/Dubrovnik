@@ -364,7 +364,7 @@ Managed Interface Representation
 
 The natural Objective-C equivalent of a managed interface is a protocol. However, .NET can return an instance of an interface as an object, hence in addition to a protocol definition the code generator outputs a class named after the interface that implements the managed interface protocol.
 
-Automatic Change Noptifications
+Automatic Change Notifications
 ======================
 
 By default, if a managed object supports the `PropertyChanging` or `PropertyChanged` events then corresponding `-willChangeValueForKey:` and `-didChangeValueForKey:` KVO notifications will be sent. This means that managed objects can be observed or bound to in a more or less transparent fashion.
@@ -381,7 +381,7 @@ Given a managed event like so:
         public event EventHandler<ReferenceEventArgs> UnitTestEvent3;
     }
 
-The code generator will output native code to create an appropriate event handler and associate it with a strongly typed invocation block. When the managed event is invoked the assocaited bl;ock is called:
+The code generator will output native code to create an appropriate event handler and associate it with a strongly typed invocation block. When the managed event is invoked the associated block is called:
 
     @interface Dubrovnik_UnitTests_ReferenceObject : System_Object
     {
