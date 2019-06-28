@@ -76,7 +76,7 @@
 
 - (void)add_withItem:(System_Object *)p1
 {
-	[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 - (void)attach_withEntities:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
@@ -86,7 +86,7 @@
 
 - (void)attach_withEntity:(System_Object *)p1
 {
-	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 - (void)clear
@@ -96,7 +96,7 @@
 
 - (BOOL)contains_withItem:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Contains(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Contains(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -127,7 +127,7 @@
 
 - (BOOL)remove_withItem:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

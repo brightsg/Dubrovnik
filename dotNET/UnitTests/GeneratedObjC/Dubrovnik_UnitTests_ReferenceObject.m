@@ -1848,14 +1848,14 @@ static NSString * m_classStringProperty;
 - (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod1(T)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:1, [p1 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
 {
 	DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod2(T,U)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], [self monoRTInvokeArg:p2 typeParameterIndex:1]];
 	return [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 }
 

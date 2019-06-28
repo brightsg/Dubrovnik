@@ -35,7 +35,7 @@
 
 + (System_NullableA1 *)new_withValue:(System_Object *)p1
 {
-	System_NullableA1 * object = [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_NullableA1 * object = [[self alloc] initWithSignature:"<_T_0>" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return object;
 }
 
@@ -104,7 +104,7 @@
 
 - (System_Object *)getValueOrDefault_withDefaultValue:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetValueOrDefault(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetValueOrDefault(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -116,7 +116,7 @@
 
 + (System_NullableA1 *)op_Implicit_withValue:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_NullableA1 bestObjectWithMonoObject:monoObject];
 }
 

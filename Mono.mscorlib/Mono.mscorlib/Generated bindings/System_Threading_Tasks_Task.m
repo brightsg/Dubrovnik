@@ -324,7 +324,7 @@ static System_NullableA1 * m_currentId;
 
 + (System_Threading_Tasks_TaskA1 *)fromResult_withResult:(System_Object *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FromResult(TResult)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromResult(TResult)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
