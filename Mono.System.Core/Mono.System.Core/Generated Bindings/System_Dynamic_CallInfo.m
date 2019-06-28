@@ -35,13 +35,13 @@
 
 + (System_Dynamic_CallInfo *)new_withArgCountInt:(int32_t)p1 argNamesSCGIEnumerableA1string:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2
 {
-	System_Dynamic_CallInfo * object = [[self alloc] initWithSignature:"int,System.Collections.Generic.IEnumerable`1<string>" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+	System_Dynamic_CallInfo * object = [[self alloc] initWithSignature:"int,System.Collections.Generic.IEnumerable`1<string>" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeObject]];
 	return object;
 }
 
 + (System_Dynamic_CallInfo *)new_withArgCountInt:(int32_t)p1 argNamesStringArray:(System_Array *)p2
 {
-	System_Dynamic_CallInfo * object = [[self alloc] initWithSignature:"int,string[]" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+	System_Dynamic_CallInfo * object = [[self alloc] initWithSignature:"int,string[]" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeObject]];
 	return object;
 }
 
@@ -74,7 +74,7 @@
 
 - (BOOL)equals_withObj:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

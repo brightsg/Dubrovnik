@@ -35,7 +35,7 @@
 
 + (System_ComponentModel_AsyncCompletedEventArgs *)new_withError:(System_Exception *)p1 cancelled:(BOOL)p2 userState:(System_Object *)p3
 {
-	System_ComponentModel_AsyncCompletedEventArgs * object = [[self alloc] initWithSignature:"System.Exception,bool,object" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+	System_ComponentModel_AsyncCompletedEventArgs * object = [[self alloc] initWithSignature:"System.Exception,bool,object" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), [p3 monoRTInvokeObject]];
 	return object;
 }
 

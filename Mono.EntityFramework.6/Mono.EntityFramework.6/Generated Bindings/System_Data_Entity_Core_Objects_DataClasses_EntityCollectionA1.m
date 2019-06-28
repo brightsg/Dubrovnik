@@ -76,17 +76,17 @@
 
 - (void)add_withItem:(System_Object *)p1
 {
-	[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)attach_withEntities:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
-	[self invokeMonoMethod:"Attach(System.Collections.Generic.IEnumerable`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Attach(System.Collections.Generic.IEnumerable`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)attach_withEntity:(System_Object *)p1
 {
-	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)clear
@@ -96,13 +96,13 @@
 
 - (BOOL)contains_withItem:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Contains(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Contains(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2
 {
-	[self invokeMonoMethod:"CopyTo(TEntity[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"CopyTo(TEntity[],int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 }
 
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery
@@ -127,7 +127,7 @@
 
 - (BOOL)remove_withItem:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

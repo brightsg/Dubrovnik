@@ -65,13 +65,13 @@
 
 - (System_Object *)get_Item_withPropertyName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (void)set_Item_withPropertyName:(NSString *)p1 value:(System_Object *)p2
 {
-	[self invokeMonoMethod:"set_Item(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"set_Item(string,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Void Initialize(System.Configuration.SettingsContext context, System.Configuration.SettingsPropertyCollection properties, System.Configuration.SettingsProviderCollection providers) */
@@ -83,7 +83,7 @@
 
 + (System_Configuration_SettingsBase *)synchronized_withSettingsBase:(System_Configuration_SettingsBase *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Configuration.SettingsBase)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Synchronized(System.Configuration.SettingsBase)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Configuration_SettingsBase bestObjectWithMonoObject:monoObject];
 }
 

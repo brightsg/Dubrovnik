@@ -367,9 +367,16 @@ namespace Dubrovnik.Tools.Output
                 if (idx > 0) InvokeArgsBuilder.Append(", ");
                 if (objCParameterIsObject) {
                     if (parameter.IsByRef) {
-                        argFormat = "&refPtr{0}";   // use reference pointer
-                    } else {
+                        // use reference pointer
+                        argFormat = "&refPtr{0}";   
+                    } else if (parameter.IsValueType) {
+                        // if parameter is of value type then get suitable embedded runtime API argument value.
+                        // in general value types are passed as unboxed data.
                         argFormat = "[p{0} monoRTInvokeArg]";
+                    } else {
+                        // is parameter is of object type then get suitable embedded runtime API argument value.
+                        // note that if the actual argument is of value type it will be passed as a boxed value.
+                        argFormat = "[p{0} monoRTInvokeObject]";
                     }
                 } else {
                     if (parameter.IsByRef || parameter.IsPointer) {

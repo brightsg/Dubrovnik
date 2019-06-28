@@ -182,12 +182,12 @@
 
 - (void)register_withObj:(System_Object <System_Runtime_Remoting_Lifetime_ISponsor_> *)p1
 {
-	[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Register(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Register(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)register_withObj:(System_Object <System_Runtime_Remoting_Lifetime_ISponsor_> *)p1 renewalTime:(System_TimeSpan *)p2
 {
-	[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Register(System.Runtime.Remoting.Lifetime.ISponsor,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Register(System.Runtime.Remoting.Lifetime.ISponsor,System.TimeSpan)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg]];
 }
 
 - (System_TimeSpan *)renew_withRenewalTime:(System_TimeSpan *)p1
@@ -198,7 +198,7 @@
 
 - (void)unregister_withObj:(System_Object <System_Runtime_Remoting_Lifetime_ISponsor_> *)p1
 {
-	[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Unregister(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"System.Runtime.Remoting.Lifetime.ILease.Unregister(System.Runtime.Remoting.Lifetime.ISponsor)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 #pragma mark -

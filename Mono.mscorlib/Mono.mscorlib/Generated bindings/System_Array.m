@@ -174,13 +174,13 @@
 
 + (int32_t)binarySearch_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(System.Array,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(System.Array,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)binarySearch_withArraySArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueObject:(System_Object *)p4
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(System.Array,int,int,object)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(System.Array,int,int,object)" withNumArgs:4, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -190,31 +190,31 @@
 
 + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(T[],T)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(T[],T)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 comparerSCGIArray__T:(System_Object <System_Collections_Generic_IComparerA1_> *)p3 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(T[],T,System.Collections.Generic.IComparer`1<System.Array/T>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(T[],T,System.Collections.Generic.IComparer`1<System.Array/T>)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(System_Object *)p4 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(T[],int,int,T)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(T[],int,int,T)" withNumArgs:4, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(System_Object *)p4 comparerSCGIArray__T:(System_Object <System_Collections_Generic_IComparerA1_> *)p5 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(T[],int,int,T,System.Collections.Generic.IComparer`1<System.Array/T>)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], [p5 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"BinarySearch(T[],int,int,T,System.Collections.Generic.IComparer`1<System.Array/T>)" withNumArgs:5, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeObject], [p5 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (void)clear_withArray:(System_Array *)p1 index:(int32_t)p2 length:(int32_t)p3
 {
-	[self invokeMonoClassMethod:"Clear(System.Array,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoClassMethod:"Clear(System.Array,int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
 }
 
 - (System_Object *)clone
@@ -225,74 +225,74 @@
 
 + (void)constrainedCopy_withSourceArray:(System_Array *)p1 sourceIndex:(int32_t)p2 destinationArray:(System_Array *)p3 destinationIndex:(int32_t)p4 length:(int32_t)p5
 {
-	[self invokeMonoClassMethod:"ConstrainedCopy(System.Array,int,System.Array,int,int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
+	[self invokeMonoClassMethod:"ConstrainedCopy(System.Array,int,System.Array,int,int)" withNumArgs:5, [p1 monoRTInvokeObject], DB_VALUE(p2), [p3 monoRTInvokeObject], DB_VALUE(p4), DB_VALUE(p5)];
 }
 
 /* Skipped method : TOutput[] ConvertAll(TInput[] array, System.Converter`2<System.Array+TInput, System.Array+TOutput> converter) */
 
 + (void)copy_withSourceArraySArray:(System_Array *)p1 destinationArraySArray:(System_Array *)p2 lengthInt:(int32_t)p3
 {
-	[self invokeMonoClassMethod:"Copy(System.Array,System.Array,int)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+	[self invokeMonoClassMethod:"Copy(System.Array,System.Array,int)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3)];
 }
 
 + (void)copy_withSourceArraySArray:(System_Array *)p1 sourceIndexInt:(int32_t)p2 destinationArraySArray:(System_Array *)p3 destinationIndexInt:(int32_t)p4 lengthInt:(int32_t)p5
 {
-	[self invokeMonoClassMethod:"Copy(System.Array,int,System.Array,int,int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
+	[self invokeMonoClassMethod:"Copy(System.Array,int,System.Array,int,int)" withNumArgs:5, [p1 monoRTInvokeObject], DB_VALUE(p2), [p3 monoRTInvokeObject], DB_VALUE(p4), DB_VALUE(p5)];
 }
 
 + (void)copy_withSourceArraySArray:(System_Array *)p1 destinationArraySArray:(System_Array *)p2 lengthLong:(int64_t)p3
 {
-	[self invokeMonoClassMethod:"Copy(System.Array,System.Array,long)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+	[self invokeMonoClassMethod:"Copy(System.Array,System.Array,long)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3)];
 }
 
 + (void)copy_withSourceArraySArray:(System_Array *)p1 sourceIndexLong:(int64_t)p2 destinationArraySArray:(System_Array *)p3 destinationIndexLong:(int64_t)p4 lengthLong:(int64_t)p5
 {
-	[self invokeMonoClassMethod:"Copy(System.Array,long,System.Array,long,long)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
+	[self invokeMonoClassMethod:"Copy(System.Array,long,System.Array,long,long)" withNumArgs:5, [p1 monoRTInvokeObject], DB_VALUE(p2), [p3 monoRTInvokeObject], DB_VALUE(p4), DB_VALUE(p5)];
 }
 
 - (void)copyTo_withArraySArray:(System_Array *)p1 indexInt:(int32_t)p2
 {
-	[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 }
 
 - (void)copyTo_withArraySArray:(System_Array *)p1 indexLong:(int64_t)p2
 {
-	[self invokeMonoMethod:"CopyTo(System.Array,long)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"CopyTo(System.Array,long)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 }
 
 + (System_Array *)createInstance_withElementType:(System_Type *)p1 length:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 + (System_Array *)createInstance_withElementType:(System_Type *)p1 length1:(int32_t)p2 length2:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 + (System_Array *)createInstance_withElementType:(System_Type *)p1 length1:(int32_t)p2 length2:(int32_t)p3 length3:(int32_t)p4
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int,int,int)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int,int,int)" withNumArgs:4, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 + (System_Array *)createInstance_withElementTypeSType:(System_Type *)p1 lengthsIntArray:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 + (System_Array *)createInstance_withElementTypeSType:(System_Type *)p1 lengthsLongArray:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,long[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,long[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 + (System_Array *)createInstance_withElementType:(System_Type *)p1 lengths:(System_Array *)p2 lowerBounds:(System_Array *)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int[],int[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int[],int[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
@@ -304,67 +304,67 @@
 
 + (BOOL)exists_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Exists(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Exists(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (System_Object *)find_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Find(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Find(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Array *)findAll_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FindAll(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindAll(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 + (int32_t)findIndex_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FindIndex(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindIndex(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)findIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FindIndex(T[],int,System.Predicate`1<System.Array/T>)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindIndex(T[],int,System.Predicate`1<System.Array/T>)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), [p3 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)findIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FindIndex(T[],int,int,System.Predicate`1<System.Array/T>)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindIndex(T[],int,int,System.Predicate`1<System.Array/T>)" withNumArgs:4, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (System_Object *)findLast_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FindLast(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindLast(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (int32_t)findLastIndex_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FindLastIndex(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindLastIndex(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)findLastIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FindLastIndex(T[],int,System.Predicate`1<System.Array/T>)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindLastIndex(T[],int,System.Predicate`1<System.Array/T>)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), [p3 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)findLastIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FindLastIndex(T[],int,int,System.Predicate`1<System.Array/T>)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindLastIndex(T[],int,int,System.Predicate`1<System.Array/T>)" withNumArgs:4, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (void)forEach_withArray:(System_Array *)p1 action:(System_ActionA1 *)p2 typeParameter:(id)typeParameter
 {
-	[self invokeMonoClassMethod:"ForEach(T[],System.Action`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"ForEach(T[],System.Action`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 - (System_Object <System_Collections_IEnumerator> *)getEnumerator
@@ -399,7 +399,7 @@
 
 - (System_Object *)getValue_withIndicesIntArray:(System_Array *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(int[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(int[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -441,43 +441,43 @@
 
 - (System_Object *)getValue_withIndicesLongArray:(System_Array *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(long[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(long[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (int32_t)indexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(System.Array,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(System.Array,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)indexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(System.Array,object,int)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(System.Array,object,int)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3)];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)indexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(System.Array,object,int,int)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(System.Array,object,int,int)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3), DB_VALUE(p4)];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(T[],T)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(T[],T)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(T[],T,int)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(T[],T,int)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3)];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(T[],T,int,int)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IndexOf(T[],T,int,int)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3), DB_VALUE(p4)];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -488,37 +488,37 @@
 
 + (int32_t)lastIndexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(System.Array,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(System.Array,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)lastIndexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(System.Array,object,int)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(System.Array,object,int)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3)];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)lastIndexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(System.Array,object,int,int)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(System.Array,object,int,int)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3), DB_VALUE(p4)];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(T[],T)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(T[],T)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(T[],T,int)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(T[],T,int)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3)];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(T[],T,int,int)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"LastIndexOf(T[],T,int,int)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3), DB_VALUE(p4)];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -526,72 +526,72 @@
 
 + (void)reverse_withArray:(System_Array *)p1
 {
-	[self invokeMonoClassMethod:"Reverse(System.Array)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"Reverse(System.Array)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 + (void)reverse_withArray:(System_Array *)p1 index:(int32_t)p2 length:(int32_t)p3
 {
-	[self invokeMonoClassMethod:"Reverse(System.Array,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoClassMethod:"Reverse(System.Array,int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
 }
 
 - (void)setValue_withValueObject:(System_Object *)p1 indexInt:(int32_t)p2
 {
-	[self invokeMonoMethod:"SetValue(object,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"SetValue(object,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 }
 
 - (void)setValue_withValueObject:(System_Object *)p1 index1Int:(int32_t)p2 index2Int:(int32_t)p3
 {
-	[self invokeMonoMethod:"SetValue(object,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"SetValue(object,int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
 }
 
 - (void)setValue_withValueObject:(System_Object *)p1 index1Int:(int32_t)p2 index2Int:(int32_t)p3 index3Int:(int32_t)p4
 {
-	[self invokeMonoMethod:"SetValue(object,int,int,int)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+	[self invokeMonoMethod:"SetValue(object,int,int,int)" withNumArgs:4, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
 }
 
 - (void)setValue_withValueObject:(System_Object *)p1 indicesIntArray:(System_Array *)p2
 {
-	[self invokeMonoMethod:"SetValue(object,int[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetValue(object,int[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 - (void)setValue_withValueObject:(System_Object *)p1 indexLong:(int64_t)p2
 {
-	[self invokeMonoMethod:"SetValue(object,long)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"SetValue(object,long)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 }
 
 - (void)setValue_withValueObject:(System_Object *)p1 index1Long:(int64_t)p2 index2Long:(int64_t)p3
 {
-	[self invokeMonoMethod:"SetValue(object,long,long)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"SetValue(object,long,long)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
 }
 
 - (void)setValue_withValueObject:(System_Object *)p1 index1Long:(int64_t)p2 index2Long:(int64_t)p3 index3Long:(int64_t)p4
 {
-	[self invokeMonoMethod:"SetValue(object,long,long,long)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+	[self invokeMonoMethod:"SetValue(object,long,long,long)" withNumArgs:4, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
 }
 
 - (void)setValue_withValueObject:(System_Object *)p1 indicesLongArray:(System_Array *)p2
 {
-	[self invokeMonoMethod:"SetValue(object,long[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetValue(object,long[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 + (void)sort_withArraySArray:(System_Array *)p1
 {
-	[self invokeMonoClassMethod:"Sort(System.Array)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"Sort(System.Array)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 + (void)sort_withKeysSArray:(System_Array *)p1 itemsSArray:(System_Array *)p2
 {
-	[self invokeMonoClassMethod:"Sort(System.Array,System.Array)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"Sort(System.Array,System.Array)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 + (void)sort_withArraySArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3
 {
-	[self invokeMonoClassMethod:"Sort(System.Array,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoClassMethod:"Sort(System.Array,int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
 }
 
 + (void)sort_withKeysSArray:(System_Array *)p1 itemsSArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4
 {
-	[self invokeMonoClassMethod:"Sort(System.Array,System.Array,int,int)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+	[self invokeMonoClassMethod:"Sort(System.Array,System.Array,int,int)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3), DB_VALUE(p4)];
 }
 
 /* Skipped method : System.Void Sort(System.Array array, System.Collections.IComparer comparer) */
@@ -604,49 +604,49 @@
 
 + (void)sort_withArrayTArray:(System_Array *)p1 typeParameter:(id)typeParameter
 {
-	[self invokeMonoClassMethod:"Sort(T[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"Sort(T[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 typeParameters:(NSArray<id> *)typeParameter
 {
-	[self invokeMonoClassMethod:"Sort(TKey[],TValue[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"Sort(TKey[],TValue[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 + (void)sort_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 typeParameter:(id)typeParameter
 {
-	[self invokeMonoClassMethod:"Sort(T[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoClassMethod:"Sort(T[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
 }
 
 + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 typeParameters:(NSArray<id> *)typeParameter
 {
-	[self invokeMonoClassMethod:"Sort(TKey[],TValue[],int,int)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4)];
+	[self invokeMonoClassMethod:"Sort(TKey[],TValue[],int,int)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3), DB_VALUE(p4)];
 }
 
 + (void)sort_withArrayTArray:(System_Array *)p1 comparerSCGIArray__T:(System_Object <System_Collections_Generic_IComparerA1_> *)p2 typeParameter:(id)typeParameter
 {
-	[self invokeMonoClassMethod:"Sort(T[],System.Collections.Generic.IComparer`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"Sort(T[],System.Collections.Generic.IComparer`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 comparerSCGIArray__TKey:(System_Object <System_Collections_Generic_IComparerA1_> *)p3 typeParameters:(NSArray<id> *)typeParameter
 {
-	[self invokeMonoClassMethod:"Sort(TKey[],TValue[],System.Collections.Generic.IComparer`1<System.Array/TKey>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"Sort(TKey[],TValue[],System.Collections.Generic.IComparer`1<System.Array/TKey>)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 }
 
 + (void)sort_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 comparerSCGIArray__T:(System_Object <System_Collections_Generic_IComparerA1_> *)p4 typeParameter:(id)typeParameter
 {
-	[self invokeMonoClassMethod:"Sort(T[],int,int,System.Collections.Generic.IComparer`1<System.Array/T>)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"Sort(T[],int,int,System.Collections.Generic.IComparer`1<System.Array/T>)" withNumArgs:4, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeObject]];
 }
 
 + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 comparerSCGIArray__TKey:(System_Object <System_Collections_Generic_IComparerA1_> *)p5 typeParameters:(NSArray<id> *)typeParameter
 {
-	[self invokeMonoClassMethod:"Sort(TKey[],TValue[],int,int,System.Collections.Generic.IComparer`1<System.Array/TKey>)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"Sort(TKey[],TValue[],int,int,System.Collections.Generic.IComparer`1<System.Array/TKey>)" withNumArgs:5, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Void Sort(T[] array, System.Comparison`1<System.Array+T> comparison) */
 
 + (BOOL)trueForAll_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"TrueForAll(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TrueForAll(T[],System.Predicate`1<System.Array/T>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

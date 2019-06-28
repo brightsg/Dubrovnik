@@ -35,7 +35,7 @@
 
 + (System_Collections_Generic_DictionaryA2__KeyCollection *)new_withDictionary:(System_Collections_Generic_DictionaryA2 *)p1
 {
-	System_Collections_Generic_DictionaryA2__KeyCollection * object = [[self alloc] initWithSignature:"System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2/KeyCollection/TKey, System.Collections.Generic.Dictionary`2/KeyCollection/TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Collections_Generic_DictionaryA2__KeyCollection * object = [[self alloc] initWithSignature:"System.Collections.Generic.Dictionary`2<System.Collections.Generic.Dictionary`2/KeyCollection/TKey, System.Collections.Generic.Dictionary`2/KeyCollection/TValue>" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -66,7 +66,7 @@
 
 - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2
 {
-	[self invokeMonoMethod:"CopyTo(TKey[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"CopyTo(TKey[],int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 }
 
 - (System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator *)getEnumerator

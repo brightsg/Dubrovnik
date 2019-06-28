@@ -159,7 +159,7 @@
 
 - (BOOL)equals_withObj:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -233,13 +233,13 @@
 
 - (System_Object *)getValue_withObj:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)getValue_withObj:(System_Object *)p1 index:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object,object[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -247,13 +247,13 @@
 
 + (BOOL)op_Equality_withLeft:(System_Reflection_PropertyInfo *)p1 right:(System_Reflection_PropertyInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_Inequality_withLeft:(System_Reflection_PropertyInfo *)p1 right:(System_Reflection_PropertyInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -261,12 +261,12 @@
 
 - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2
 {
-	[self invokeMonoMethod:"SetValue(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetValue(object,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 - (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 index:(System_Array *)p3
 {
-	[self invokeMonoMethod:"SetValue(object,object,object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetValue(object,object,object[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 }
 
 #pragma mark -

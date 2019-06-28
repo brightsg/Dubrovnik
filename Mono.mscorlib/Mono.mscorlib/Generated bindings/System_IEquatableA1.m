@@ -35,7 +35,7 @@
 
 - (BOOL)equals_withOther:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.IEquatable`1<System.IEquatable`1+T>.Equals(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.IEquatable`1<System.IEquatable`1+T>.Equals(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

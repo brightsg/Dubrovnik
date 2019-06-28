@@ -35,7 +35,7 @@
 
 + (System_Data_Entity_Core_Objects_ObjectQueryA1 *)new_withCommandText:(NSString *)p1 context:(System_Data_Entity_Core_Objects_ObjectContext *)p2
 {
-	System_Data_Entity_Core_Objects_ObjectQueryA1 * object = [[self alloc] initWithSignature:"string,System.Data.Entity.Core.Objects.ObjectContext" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	System_Data_Entity_Core_Objects_ObjectQueryA1 * object = [[self alloc] initWithSignature:"string,System.Data.Entity.Core.Objects.ObjectContext" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return object;
 }
 
@@ -90,7 +90,7 @@
 
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)except_withQuery:(System_Data_Entity_Core_Objects_ObjectQueryA1 *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Except(System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Except(System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1/T>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -104,13 +104,13 @@
 
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)include_withPath:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Include(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Include(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)intersect_withQuery:(System_Data_Entity_Core_Objects_ObjectQueryA1 *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Intersect(System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1/T>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -133,13 +133,13 @@
 
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)union_withQuery:(System_Data_Entity_Core_Objects_ObjectQueryA1 *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Union(System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1/T>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)unionAll_withQuery:(System_Data_Entity_Core_Objects_ObjectQueryA1 *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"UnionAll(System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1/T>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"UnionAll(System.Data.Entity.Core.Objects.ObjectQuery`1<System.Data.Entity.Core.Objects.ObjectQuery`1/T>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
 }
 

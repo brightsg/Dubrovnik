@@ -58,7 +58,7 @@ static NSString * m_trueString;
 
 - (int32_t)compareTo_withObj:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -70,7 +70,7 @@ static NSString * m_trueString;
 
 - (BOOL)equals_withObjObject:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -90,7 +90,7 @@ static NSString * m_trueString;
 
 + (BOOL)parse_withValue:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -104,7 +104,7 @@ static NSString * m_trueString;
 
 + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(BOOL*)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,bool&)" withNumArgs:2, [p1 monoRTInvokeObject], p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

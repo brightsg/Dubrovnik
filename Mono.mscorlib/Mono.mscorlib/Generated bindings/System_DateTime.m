@@ -483,7 +483,7 @@ static NSDate * m_utcNow;
 
 - (int32_t)compareTo_withValueObject:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -501,7 +501,7 @@ static NSDate * m_utcNow;
 
 - (BOOL)equals_withValueObject:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -633,7 +633,7 @@ static NSDate * m_utcNow;
 
 + (NSDate *)parse_withS:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
@@ -727,7 +727,7 @@ static NSDate * m_utcNow;
 
 - (NSString *)toString_withFormat:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -744,7 +744,7 @@ static NSDate * m_utcNow;
 + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(NSDate **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
-	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.DateTime&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.DateTime&)" withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
 	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }

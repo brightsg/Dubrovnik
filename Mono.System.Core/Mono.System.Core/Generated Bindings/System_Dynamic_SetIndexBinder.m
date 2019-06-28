@@ -78,19 +78,19 @@
 
 - (System_Dynamic_DynamicMetaObject *)bind_withTarget:(System_Dynamic_DynamicMetaObject *)p1 args:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Bind(System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Bind(System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)fallbackSetIndex_withTarget:(System_Dynamic_DynamicMetaObject *)p1 indexes:(System_Array *)p2 value:(System_Dynamic_DynamicMetaObject *)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"FallbackSetIndex(System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject[],System.Dynamic.DynamicMetaObject)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"FallbackSetIndex(System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject[],System.Dynamic.DynamicMetaObject)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)fallbackSetIndex_withTarget:(System_Dynamic_DynamicMetaObject *)p1 indexes:(System_Array *)p2 value:(System_Dynamic_DynamicMetaObject *)p3 errorSuggestion:(System_Dynamic_DynamicMetaObject *)p4
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"FallbackSetIndex(System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject[],System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"FallbackSetIndex(System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject[],System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 

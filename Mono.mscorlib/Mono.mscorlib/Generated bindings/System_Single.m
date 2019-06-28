@@ -92,7 +92,7 @@ static float m_positiveInfinity;
 
 - (int32_t)compareTo_withValueObject:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -104,7 +104,7 @@ static float m_positiveInfinity;
 
 - (BOOL)equals_withObjObject:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -184,7 +184,7 @@ static float m_positiveInfinity;
 
 + (float)parse_withS:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_FLOAT(monoObject);
 }
 
@@ -204,7 +204,7 @@ static float m_positiveInfinity;
 
 - (NSString *)toString_withFormat:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -212,7 +212,7 @@ static float m_positiveInfinity;
 
 + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(float*)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,single&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,single&)" withNumArgs:2, [p1 monoRTInvokeObject], p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

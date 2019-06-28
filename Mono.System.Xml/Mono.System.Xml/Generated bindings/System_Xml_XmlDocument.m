@@ -296,36 +296,36 @@
 
 - (void)load_withFilename:(NSString *)p1
 {
-	[self invokeMonoMethod:"Load(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Load(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)load_withInStream:(System_IO_Stream *)p1
 {
-	[self invokeMonoMethod:"Load(System.IO.Stream)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Load(System.IO.Stream)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)load_withTxtReader:(System_IO_TextReader *)p1
 {
-	[self invokeMonoMethod:"Load(System.IO.TextReader)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Load(System.IO.TextReader)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Void Load(System.Xml.XmlReader reader) */
 
 - (void)loadXml_withXml:(NSString *)p1
 {
-	[self invokeMonoMethod:"LoadXml(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"LoadXml(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Xml.XmlNode ReadNode(System.Xml.XmlReader reader) */
 
 - (void)save_withFilename:(NSString *)p1
 {
-	[self invokeMonoMethod:"Save(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Save(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)save_withOutStream:(System_IO_Stream *)p1
 {
-	[self invokeMonoMethod:"Save(System.IO.Stream)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Save(System.IO.Stream)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Void Save(System.IO.TextWriter writer) */

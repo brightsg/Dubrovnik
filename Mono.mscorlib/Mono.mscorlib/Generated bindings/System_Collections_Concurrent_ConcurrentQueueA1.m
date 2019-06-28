@@ -35,7 +35,7 @@
 
 + (System_Collections_Concurrent_ConcurrentQueueA1 *)new_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
-	System_Collections_Concurrent_ConcurrentQueueA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentQueue`1/T>" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Collections_Concurrent_ConcurrentQueueA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentQueue`1/T>" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -85,12 +85,12 @@
 
 - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2
 {
-	[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 }
 
 - (void)enqueue_withItem:(System_Object *)p1
 {
-	[self invokeMonoMethod:"Enqueue(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Enqueue(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (System_Object <System_Collections_Generic_IEnumeratorA1> *)getEnumerator

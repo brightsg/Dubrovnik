@@ -35,19 +35,19 @@
 
 + (System_Object *)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Connect(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Connect(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object *)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2 data:(System_Object *)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Connect(System.Type,string,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Connect(System.Type,string,object)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (BOOL)disconnect_withObj:(System_MarshalByRefObject *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Disconnect(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Disconnect(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -57,7 +57,7 @@
 
 + (System_Object *)getLifetimeService_withObj:(System_MarshalByRefObject *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"GetLifetimeService(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetLifetimeService(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -67,7 +67,7 @@
 
 + (NSString *)getObjectUri_withObj:(System_MarshalByRefObject *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"GetObjectUri(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetObjectUri(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -75,13 +75,13 @@
 
 + (System_Runtime_Remoting_Proxies_RealProxy *)getRealProxy_withProxy:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"GetRealProxy(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetRealProxy(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Runtime_Remoting_Proxies_RealProxy bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Type *)getServerTypeForUri_withURI:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"GetServerTypeForUri(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetServerTypeForUri(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
@@ -91,25 +91,25 @@
 
 + (BOOL)isObjectOutOfAppDomain_withTp:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsObjectOutOfAppDomain(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsObjectOutOfAppDomain(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)isObjectOutOfContext_withTp:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsObjectOutOfContext(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsObjectOutOfContext(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)isOneWay_withMethod:(System_Reflection_MethodBase *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsOneWay(System.Reflection.MethodBase)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsOneWay(System.Reflection.MethodBase)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)isTransparentProxy_withProxy:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsTransparentProxy(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsTransparentProxy(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -126,7 +126,7 @@
 
 + (void)setObjectUriForMarshal_withObj:(System_MarshalByRefObject *)p1 uri:(NSString *)p2
 {
-	[self invokeMonoClassMethod:"SetObjectUriForMarshal(System.MarshalByRefObject,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"SetObjectUriForMarshal(System.MarshalByRefObject,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Object Unmarshal(System.Runtime.Remoting.ObjRef objectRef) */

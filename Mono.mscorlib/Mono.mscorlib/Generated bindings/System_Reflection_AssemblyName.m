@@ -35,7 +35,7 @@
 
 + (System_Reflection_AssemblyName *)new_withAssemblyName:(NSString *)p1
 {
-	System_Reflection_AssemblyName * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Reflection_AssemblyName * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -280,7 +280,7 @@
 
 + (System_Reflection_AssemblyName *)getAssemblyName_withAssemblyFile:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssemblyName(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
 }
 
@@ -300,23 +300,23 @@
 
 - (void)onDeserialization_withSender:(System_Object *)p1
 {
-	[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 + (BOOL)referenceMatchesDefinition_withReference:(System_Reflection_AssemblyName *)p1 definition:(System_Reflection_AssemblyName *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ReferenceMatchesDefinition(System.Reflection.AssemblyName,System.Reflection.AssemblyName)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ReferenceMatchesDefinition(System.Reflection.AssemblyName,System.Reflection.AssemblyName)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (void)setPublicKey_withPublicKey:(NSData *)p1
 {
-	[self invokeMonoMethod:"SetPublicKey(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetPublicKey(byte[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)setPublicKeyToken_withPublicKeyToken:(NSData *)p1
 {
-	[self invokeMonoMethod:"SetPublicKeyToken(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetPublicKeyToken(byte[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (NSString *)toString

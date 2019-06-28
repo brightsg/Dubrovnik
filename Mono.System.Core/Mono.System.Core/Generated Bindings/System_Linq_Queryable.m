@@ -43,7 +43,7 @@
 
 + (BOOL)any_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Any(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Any(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -51,73 +51,73 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)asQueryable_withSourceSCGILQueryable__TElement:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"AsQueryable(System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TElement>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"AsQueryable(System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TElement>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object <System_Linq_IQueryable> *)asQueryable_withSourceSCIEnumerable:(System_Object <System_Collections_IEnumerable_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"AsQueryable(System.Collections.IEnumerable)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"AsQueryable(System.Collections.IEnumerable)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Linq_IQueryable bestObjectWithMonoObject:monoObject];
 }
 
 + (double)average_withSourceSLIQueryableA1int:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<int>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<int>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_DOUBLE(monoObject);
 }
 
 + (System_NullableA1 *)average_withSourceSLINullableA1int:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<System.Nullable`1<int>>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<System.Nullable`1<int>>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_NullableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (double)average_withSourceSLIQueryableA1long:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<long>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<long>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_DOUBLE(monoObject);
 }
 
 + (System_NullableA1 *)average_withSourceSLINullableA1long:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<System.Nullable`1<long>>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<System.Nullable`1<long>>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_NullableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (float)average_withSourceSLIQueryableA1single:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<single>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<single>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_FLOAT(monoObject);
 }
 
 + (System_NullableA1 *)average_withSourceSLINullableA1single:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<System.Nullable`1<single>>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<System.Nullable`1<single>>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_NullableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (double)average_withSourceSLIQueryableA1double:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<double>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<double>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_DOUBLE(monoObject);
 }
 
 + (System_NullableA1 *)average_withSourceSLINullableA1double:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<System.Nullable`1<double>>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<System.Nullable`1<double>>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_NullableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (NSDecimalNumber *)average_withSourceSLIDecimal:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<System.Decimal>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<System.Decimal>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
 + (System_NullableA1 *)average_withSourceSLINDecimal:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<System.Nullable`1<System.Decimal>>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Average(System.Linq.IQueryable`1<System.Nullable`1<System.Decimal>>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_NullableA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -143,19 +143,19 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)cast_withSource:(System_Object <System_Linq_IQueryable_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Cast(System.Linq.IQueryable)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Cast(System.Linq.IQueryable)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object <System_Linq_IQueryableA1> *)concat_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Concat(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Concat(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (BOOL)contains_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 item:(System_Object *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Contains(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,TSource)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Contains(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,TSource)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -163,7 +163,7 @@
 
 + (int32_t)count_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Count(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Count(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -171,19 +171,19 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)defaultIfEmpty_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"DefaultIfEmpty(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"DefaultIfEmpty(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object <System_Linq_IQueryableA1> *)defaultIfEmpty_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 defaultValue:(System_Object *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"DefaultIfEmpty(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,TSource)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"DefaultIfEmpty(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,TSource)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object <System_Linq_IQueryableA1> *)distinct_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Distinct(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Distinct(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -191,19 +191,19 @@
 
 + (System_Object *)elementAt_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 index:(int32_t)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ElementAt(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ElementAt(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object *)elementAtOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 index:(int32_t)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ElementAtOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ElementAtOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object <System_Linq_IQueryableA1> *)except_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Except(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Except(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -211,7 +211,7 @@
 
 + (System_Object *)first_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"First(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"First(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -219,7 +219,7 @@
 
 + (System_Object *)firstOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FirstOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FirstOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -247,7 +247,7 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)intersect_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Intersect(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Intersect(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -259,7 +259,7 @@
 
 + (System_Object *)last_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Last(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Last(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -267,7 +267,7 @@
 
 + (System_Object *)lastOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"LastOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"LastOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -275,7 +275,7 @@
 
 + (int64_t)longCount_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"LongCount(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"LongCount(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT64(monoObject);
 }
 
@@ -283,7 +283,7 @@
 
 + (System_Object *)max_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Max(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Max(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -291,7 +291,7 @@
 
 + (System_Object *)min_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Min(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Min(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -299,7 +299,7 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)ofType_withSource:(System_Object <System_Linq_IQueryable_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"OfType(System.Linq.IQueryable)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"OfType(System.Linq.IQueryable)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -313,7 +313,7 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)reverse_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Reverse(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Reverse(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -331,7 +331,7 @@
 
 + (BOOL)sequenceEqual_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"SequenceEqual(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"SequenceEqual(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -339,7 +339,7 @@
 
 + (System_Object *)single_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Single(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Single(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -347,7 +347,7 @@
 
 + (System_Object *)singleOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"SingleOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"SingleOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -355,7 +355,7 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)skip_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 count:(int32_t)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Skip(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Skip(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -365,61 +365,61 @@
 
 + (int32_t)sum_withSourceSLIQueryableA1int:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<int>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<int>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 + (System_NullableA1 *)sum_withSourceSLINullableA1int:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<System.Nullable`1<int>>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<System.Nullable`1<int>>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_NullableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (int64_t)sum_withSourceSLIQueryableA1long:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<long>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<long>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT64(monoObject);
 }
 
 + (System_NullableA1 *)sum_withSourceSLINullableA1long:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<System.Nullable`1<long>>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<System.Nullable`1<long>>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_NullableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (float)sum_withSourceSLIQueryableA1single:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<single>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<single>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_FLOAT(monoObject);
 }
 
 + (System_NullableA1 *)sum_withSourceSLINullableA1single:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<System.Nullable`1<single>>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<System.Nullable`1<single>>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_NullableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (double)sum_withSourceSLIQueryableA1double:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<double>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<double>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_DOUBLE(monoObject);
 }
 
 + (System_NullableA1 *)sum_withSourceSLINullableA1double:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<System.Nullable`1<double>>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<System.Nullable`1<double>>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_NullableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (NSDecimalNumber *)sum_withSourceSLIDecimal:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<System.Decimal>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<System.Decimal>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
 + (System_NullableA1 *)sum_withSourceSLINDecimal:(System_Object <System_Linq_IQueryableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<System.Nullable`1<System.Decimal>>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Sum(System.Linq.IQueryable`1<System.Nullable`1<System.Decimal>>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_NullableA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -445,7 +445,7 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)take_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 count:(int32_t)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Take(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Take(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -463,7 +463,7 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)union_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Union(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Union(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 

@@ -58,43 +58,43 @@
 
 - (System_Object *)add_withEntity:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object <System_Collections_Generic_IEnumerableA1> *)addRange_withEntities:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"AddRange(System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"AddRange(System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)attach_withEntity:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (BOOL)equals_withObj:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (System_Object *)find_withKeyValues:(System_Array *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Find(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Find(object[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Threading_Tasks_TaskA1 *)findAsync_withCancellationToken:(System_Threading_CancellationToken *)p1 keyValues:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"FindAsync(System.Threading.CancellationToken,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"FindAsync(System.Threading.CancellationToken,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeObject]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Threading_Tasks_TaskA1 *)findAsync_withKeyValues:(System_Array *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"FindAsync(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"FindAsync(object[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -114,13 +114,13 @@
 
 - (System_Object *)remove_withEntity:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object <System_Collections_Generic_IEnumerableA1> *)removeRange_withEntities:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"RemoveRange(System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"RemoveRange(System.Collections.Generic.IEnumerable`1<System.Data.Entity.DbSet`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 }
 

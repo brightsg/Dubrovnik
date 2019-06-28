@@ -35,12 +35,12 @@
 
 - (void)addExtensionObject_withNamespaceUri:(NSString *)p1 extension:(System_Object *)p2
 {
-	[self invokeMonoMethod:"AddExtensionObject(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"AddExtensionObject(string,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 - (void)addParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2 parameter:(System_Object *)p3
 {
-	[self invokeMonoMethod:"AddParam(string,string,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	[self invokeMonoMethod:"AddParam(string,string,object)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 }
 
 - (void)clear
@@ -50,25 +50,25 @@
 
 - (System_Object *)getExtensionObject_withNamespaceUri:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetExtensionObject(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetExtensionObject(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)getParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetParam(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetParam(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)removeExtensionObject_withNamespaceUri:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"RemoveExtensionObject(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"RemoveExtensionObject(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)removeParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"RemoveParam(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"RemoveParam(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 

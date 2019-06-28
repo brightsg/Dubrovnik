@@ -78,20 +78,20 @@
 
 - (System_Object *)get_Item_withKey:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.get_Item(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.get_Item(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (BOOL)containsKey_withKey:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.ContainsKey(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.ContainsKey(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.TryGetValue(<_T_0>,System.Collections.Generic.IReadOnlyDictionary`2/TValue&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.TryGetValue(<_T_0>,System.Collections.Generic.IReadOnlyDictionary`2/TValue&)" withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
 	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }

@@ -322,55 +322,55 @@
 
 - (System_Object <System_IAsyncResult> *)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BeginGetRequestStream(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BeginGetRequestStream(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object <System_IAsyncResult> *)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BeginGetResponse(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BeginGetResponse(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Net_WebRequest *)create_withRequestUriString:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Create(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Net_WebRequest bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Net_WebRequest *)create_withRequestUri:(System_Uri *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Create(System.Uri)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Net_WebRequest bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Net_WebRequest *)createDefault_withRequestUri:(System_Uri *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDefault(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDefault(System.Uri)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Net_WebRequest bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Net_HttpWebRequest *)createHttp_withRequestUriString:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateHttp(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateHttp(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Net_HttpWebRequest bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Net_HttpWebRequest *)createHttp_withRequestUri:(System_Uri *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateHttp(System.Uri)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateHttp(System.Uri)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Net_HttpWebRequest bestObjectWithMonoObject:monoObject];
 }
 
 - (System_IO_Stream *)endGetRequestStream_withAsyncResult:(System_Object <System_IAsyncResult_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"EndGetRequestStream(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"EndGetRequestStream(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_IO_Stream bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Net_WebResponse *)endGetResponse_withAsyncResult:(System_Object <System_IAsyncResult_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"EndGetResponse(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"EndGetResponse(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Net_WebResponse bestObjectWithMonoObject:monoObject];
 }
 

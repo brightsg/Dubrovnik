@@ -339,12 +339,12 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (void)appendPrivatePath_withPath:(NSString *)p1
 {
-	[self invokeMonoMethod:"AppendPrivatePath(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"AppendPrivatePath(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (NSString *)applyPolicy_withAssemblyName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ApplyPolicy(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ApplyPolicy(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -368,7 +368,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 + (System_AppDomain *)createDomain_withFriendlyName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDomain(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDomain(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_AppDomain bestObjectWithMonoObject:monoObject];
 }
 
@@ -388,13 +388,13 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceAndUnwrap(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceAndUnwrap(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceAndUnwrap(string,string,object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceAndUnwrap(string,string,object[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -412,13 +412,13 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceFromAndUnwrap(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceFromAndUnwrap(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceFromAndUnwrap(string,string,object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceFromAndUnwrap(string,string,object[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -454,12 +454,12 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (void)doCallBack_withCallBackDelegate:(System_CrossAppDomainDelegate *)p1
 {
-	[self invokeMonoMethod:"DoCallBack(System.CrossAppDomainDelegate)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"DoCallBack(System.CrossAppDomainDelegate)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (int32_t)executeAssembly_withAssemblyFile:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssembly(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssembly(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -469,7 +469,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (int32_t)executeAssembly_withAssemblyFile:(NSString *)p1 args:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssembly(string,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssembly(string,string[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -479,7 +479,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (int32_t)executeAssemblyByName_withAssemblyName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssemblyByName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssemblyByName(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -489,7 +489,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (int32_t)executeAssemblyByName_withAssemblyNameString:(NSString *)p1 argsStringArray:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssemblyByName(string,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssemblyByName(string,string[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -497,7 +497,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (int32_t)executeAssemblyByName_withAssemblyNameSRAssemblyName:(System_Reflection_AssemblyName *)p1 argsStringArray:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssemblyByName(System.Reflection.AssemblyName,string[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ExecuteAssemblyByName(System.Reflection.AssemblyName,string[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -515,7 +515,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (System_Object *)getData_withName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetData(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetData(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -533,7 +533,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (System_NullableA1 *)isCompatibilitySwitchSet_withValue:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"IsCompatibilitySwitchSet(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"IsCompatibilitySwitchSet(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_NullableA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -551,25 +551,25 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Load(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Load(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Load(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Load(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Load(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Load(byte[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Load(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Load(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
@@ -589,19 +589,19 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (void)setCachePath_withPath:(NSString *)p1
 {
-	[self invokeMonoMethod:"SetCachePath(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetCachePath(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)setData_withName:(NSString *)p1 data:(System_Object *)p2
 {
-	[self invokeMonoMethod:"SetData(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetData(string,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Void SetData(System.String name, System.Object data, System.Security.IPermission permission) */
 
 - (void)setDynamicBase_withPath:(NSString *)p1
 {
-	[self invokeMonoMethod:"SetDynamicBase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetDynamicBase(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Void SetPrincipalPolicy(System.Security.Principal.PrincipalPolicy policy) */
@@ -613,7 +613,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (void)setShadowCopyPath_withPath:(NSString *)p1
 {
-	[self invokeMonoMethod:"SetShadowCopyPath(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetShadowCopyPath(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Void SetThreadPrincipal(System.Security.Principal.IPrincipal principal) */
@@ -626,7 +626,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 + (void)unload_withDomain:(System_AppDomain *)p1
 {
-	[self invokeMonoClassMethod:"Unload(System.AppDomain)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"Unload(System.AppDomain)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 #pragma mark -

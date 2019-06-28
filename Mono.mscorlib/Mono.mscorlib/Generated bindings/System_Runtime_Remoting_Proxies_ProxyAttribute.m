@@ -35,7 +35,7 @@
 
 - (System_MarshalByRefObject *)createInstance_withServerType:(System_Type *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(System.Type)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_MarshalByRefObject bestObjectWithMonoObject:monoObject];
 }
 

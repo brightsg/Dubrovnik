@@ -35,7 +35,7 @@
 
 + (System_CrossAppDomainDelegate *)new_withObject:(System_Object *)p1 method:(void *)p2
 {
-	System_CrossAppDomainDelegate * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	System_CrossAppDomainDelegate * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return object;
 }
 
@@ -44,13 +44,13 @@
 
 - (System_Object <System_IAsyncResult> *)beginInvoke_withCallback:(System_AsyncCallback *)p1 object:(System_Object *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.AsyncCallback,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
 - (void)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1
 {
-	[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)invoke

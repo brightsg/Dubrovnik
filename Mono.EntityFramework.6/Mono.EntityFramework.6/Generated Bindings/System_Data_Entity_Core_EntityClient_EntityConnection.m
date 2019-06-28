@@ -35,7 +35,7 @@
 
 + (System_Data_Entity_Core_EntityClient_EntityConnection *)new_withConnectionString:(NSString *)p1
 {
-	System_Data_Entity_Core_EntityClient_EntityConnection * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Data_Entity_Core_EntityClient_EntityConnection * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -193,7 +193,7 @@
 
 - (void)changeDatabase_withDatabaseName:(NSString *)p1
 {
-	[self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)close

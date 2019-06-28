@@ -35,7 +35,7 @@
 
 + (System_UnhandledExceptionEventArgs *)new_withException:(System_Object *)p1 isTerminating:(BOOL)p2
 {
-	System_UnhandledExceptionEventArgs * object = [[self alloc] initWithSignature:"object,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	System_UnhandledExceptionEventArgs * object = [[self alloc] initWithSignature:"object,bool" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return object;
 }
 

@@ -144,7 +144,7 @@
 
 - (BOOL)equals_withOther:(System_TimeZoneInfo__AdjustmentRule *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.TimeZoneInfo/AdjustmentRule)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.TimeZoneInfo/AdjustmentRule)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

@@ -35,7 +35,7 @@
 
 + (Dubrovnik_UnitTests_ReferenceStruct *)new_withS:(NSString *)p1
 {
-	Dubrovnik_UnitTests_ReferenceStruct * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	Dubrovnik_UnitTests_ReferenceStruct * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -116,7 +116,7 @@
 
 - (NSString *)stringMethod_withS1:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 

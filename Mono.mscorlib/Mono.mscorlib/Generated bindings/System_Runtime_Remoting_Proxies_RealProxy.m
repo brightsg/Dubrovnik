@@ -51,7 +51,7 @@
 
 + (System_Object *)getStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"GetStubData(System.Runtime.Remoting.Proxies.RealProxy)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetStubData(System.Runtime.Remoting.Proxies.RealProxy)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -72,7 +72,7 @@
 
 + (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(System_Object *)p2
 {
-	[self invokeMonoClassMethod:"SetStubData(System.Runtime.Remoting.Proxies.RealProxy,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"SetStubData(System.Runtime.Remoting.Proxies.RealProxy,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 - (void *)supportsInterface_withIidRef:(System_Guid **)p1

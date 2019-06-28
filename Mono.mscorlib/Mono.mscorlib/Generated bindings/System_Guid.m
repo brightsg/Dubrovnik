@@ -35,7 +35,7 @@
 
 + (System_Guid *)new_withB:(NSData *)p1
 {
-	System_Guid * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Guid * object = [[self alloc] initWithSignature:"byte[]" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -47,7 +47,7 @@
 
 + (System_Guid *)new_withA:(int32_t)p1 b:(int16_t)p2 c:(int16_t)p3 d:(NSData *)p4
 {
-	System_Guid * object = [[self alloc] initWithSignature:"int,int16,int16,byte[]" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+	System_Guid * object = [[self alloc] initWithSignature:"int,int16,int16,byte[]" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeObject]];
 	return object;
 }
 
@@ -59,7 +59,7 @@
 
 + (System_Guid *)new_withG:(NSString *)p1
 {
-	System_Guid * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Guid * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -81,7 +81,7 @@ static System_Guid * m_empty;
 
 - (int32_t)compareTo_withValueObject:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -93,7 +93,7 @@ static System_Guid * m_empty;
 
 - (BOOL)equals_withO:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -129,13 +129,13 @@ static System_Guid * m_empty;
 
 + (System_Guid *)parse_withInput:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Guid bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Guid *)parseExact_withInput:(NSString *)p1 format:(NSString *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ParseExact(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Guid bestObjectWithMonoObject:monoObject];
 }
 
@@ -153,7 +153,7 @@ static System_Guid * m_empty;
 
 - (NSString *)toString_withFormat:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -162,7 +162,7 @@ static System_Guid * m_empty;
 + (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_Guid **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
-	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Guid&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Guid&)" withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
 	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
@@ -170,7 +170,7 @@ static System_Guid * m_empty;
 + (BOOL)tryParseExact_withInput:(NSString *)p1 format:(NSString *)p2 resultRef:(System_Guid **)p3
 {
 	void *refPtr3 = [*p3 monoRTInvokeArg];
-	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string,System.Guid&)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], &refPtr3];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParseExact(string,string,System.Guid&)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &refPtr3];
 	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }

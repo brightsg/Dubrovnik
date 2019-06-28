@@ -204,13 +204,13 @@ static System_TimeZoneInfo * m_utc;
 
 + (NSDate *)convertTime_withDateTime:(NSDate *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTime(System.DateTime,System.TimeZoneInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTime(System.DateTime,System.TimeZoneInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeObject]];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 + (NSDate *)convertTime_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2 destinationTimeZone:(System_TimeZoneInfo *)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTime(System.DateTime,System.TimeZoneInfo,System.TimeZoneInfo)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTime(System.DateTime,System.TimeZoneInfo,System.TimeZoneInfo)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
@@ -218,19 +218,19 @@ static System_TimeZoneInfo * m_utc;
 
 + (NSDate *)convertTimeBySystemTimeZoneId_withDateTime:(NSDate *)p1 destinationTimeZoneId:(NSString *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeBySystemTimeZoneId(System.DateTime,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeBySystemTimeZoneId(System.DateTime,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeObject]];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 + (NSDate *)convertTimeBySystemTimeZoneId_withDateTime:(NSDate *)p1 sourceTimeZoneId:(NSString *)p2 destinationTimeZoneId:(NSString *)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeBySystemTimeZoneId(System.DateTime,string,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeBySystemTimeZoneId(System.DateTime,string,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 + (NSDate *)convertTimeFromUtc_withDateTime:(NSDate *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeFromUtc(System.DateTime,System.TimeZoneInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeFromUtc(System.DateTime,System.TimeZoneInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeObject]];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
@@ -242,49 +242,49 @@ static System_TimeZoneInfo * m_utc;
 
 + (NSDate *)convertTimeToUtc_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeToUtc(System.DateTime,System.TimeZoneInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeToUtc(System.DateTime,System.TimeZoneInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeObject]];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject]];
 	return [System_TimeZoneInfo bestObjectWithMonoObject:monoObject];
 }
 
 + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(System_Array *)p6
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string,string,System.TimeZoneInfo/AdjustmentRule[])" withNumArgs:6, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string,string,System.TimeZoneInfo/AdjustmentRule[])" withNumArgs:6, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject], [p6 monoRTInvokeObject]];
 	return [System_TimeZoneInfo bestObjectWithMonoObject:monoObject];
 }
 
 + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(System_Array *)p6 disableDaylightSavingTime:(BOOL)p7
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string,string,System.TimeZoneInfo/AdjustmentRule[],bool)" withNumArgs:7, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], DB_VALUE(p7)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string,string,System.TimeZoneInfo/AdjustmentRule[],bool)" withNumArgs:7, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject], [p6 monoRTInvokeObject], DB_VALUE(p7)];
 	return [System_TimeZoneInfo bestObjectWithMonoObject:monoObject];
 }
 
 - (BOOL)equals_withOther:(System_TimeZoneInfo *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.TimeZoneInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.TimeZoneInfo)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)equals_withObj:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (System_TimeZoneInfo *)findSystemTimeZoneById_withId:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FindSystemTimeZoneById(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FindSystemTimeZoneById(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_TimeZoneInfo bestObjectWithMonoObject:monoObject];
 }
 
 + (System_TimeZoneInfo *)fromSerializedString_withSource:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FromSerializedString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromSerializedString(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_TimeZoneInfo bestObjectWithMonoObject:monoObject];
 }
 
@@ -320,7 +320,7 @@ static System_TimeZoneInfo * m_utc;
 
 - (BOOL)hasSameRules_withOther:(System_TimeZoneInfo *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"HasSameRules(System.TimeZoneInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"HasSameRules(System.TimeZoneInfo)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

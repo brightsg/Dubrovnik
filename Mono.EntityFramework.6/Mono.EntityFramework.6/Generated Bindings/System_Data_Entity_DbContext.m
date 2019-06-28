@@ -35,7 +35,7 @@
 
 + (System_Data_Entity_DbContext *)new_withNameOrConnectionString:(NSString *)p1
 {
-	System_Data_Entity_DbContext * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Data_Entity_DbContext * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -43,7 +43,7 @@
 
 + (System_Data_Entity_DbContext *)new_withExistingConnection:(System_Data_Common_DbConnection *)p1 contextOwnsConnection:(BOOL)p2
 {
-	System_Data_Entity_DbContext * object = [[self alloc] initWithSignature:"System.Data.Common.DbConnection,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	System_Data_Entity_DbContext * object = [[self alloc] initWithSignature:"System.Data.Common.DbConnection,bool" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return object;
 }
 
@@ -51,7 +51,7 @@
 
 + (System_Data_Entity_DbContext *)new_withObjectContext:(System_Data_Entity_Core_Objects_ObjectContext *)p1 dbContextOwnsObjectContext:(BOOL)p2
 {
-	System_Data_Entity_DbContext * object = [[self alloc] initWithSignature:"System.Data.Entity.Core.Objects.ObjectContext,bool" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	System_Data_Entity_DbContext * object = [[self alloc] initWithSignature:"System.Data.Entity.Core.Objects.ObjectContext,bool" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return object;
 }
 
@@ -78,7 +78,7 @@
 
 - (BOOL)equals_withObj:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

@@ -35,13 +35,13 @@
 
 + (System_Xml_XmlTextWriter *)new_withW:(System_IO_Stream *)p1 encoding:(System_Text_Encoding *)p2
 {
-	System_Xml_XmlTextWriter * object = [[self alloc] initWithSignature:"System.IO.Stream,System.Text.Encoding" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	System_Xml_XmlTextWriter * object = [[self alloc] initWithSignature:"System.IO.Stream,System.Text.Encoding" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return object;
 }
 
 + (System_Xml_XmlTextWriter *)new_withFilename:(NSString *)p1 encoding:(System_Text_Encoding *)p2
 {
-	System_Xml_XmlTextWriter * object = [[self alloc] initWithSignature:"string,System.Text.Encoding" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	System_Xml_XmlTextWriter * object = [[self alloc] initWithSignature:"string,System.Text.Encoding" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return object;
 }
 
@@ -247,23 +247,23 @@
 
 - (NSString *)lookupPrefix_withNs:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"LookupPrefix(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"LookupPrefix(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (void)writeBase64_withBuffer:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-	[self invokeMonoMethod:"WriteBase64(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"WriteBase64(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
 }
 
 - (void)writeBinHex_withBuffer:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-	[self invokeMonoMethod:"WriteBinHex(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"WriteBinHex(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
 }
 
 - (void)writeCData_withText:(NSString *)p1
 {
-	[self invokeMonoMethod:"WriteCData(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"WriteCData(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)writeCharEntity_withCh:(uint16_t)p1
@@ -273,17 +273,17 @@
 
 - (void)writeChars_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-	[self invokeMonoMethod:"WriteChars(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"WriteChars(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
 }
 
 - (void)writeComment_withText:(NSString *)p1
 {
-	[self invokeMonoMethod:"WriteComment(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"WriteComment(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)writeDocType_withName:(NSString *)p1 pubid:(NSString *)p2 sysid:(NSString *)p3 subset:(NSString *)p4
 {
-	[self invokeMonoMethod:"WriteDocType(string,string,string,string)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+	[self invokeMonoMethod:"WriteDocType(string,string,string,string)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject]];
 }
 
 - (void)writeEndAttribute
@@ -303,7 +303,7 @@
 
 - (void)writeEntityRef_withName:(NSString *)p1
 {
-	[self invokeMonoMethod:"WriteEntityRef(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"WriteEntityRef(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)writeFullEndElement
@@ -313,37 +313,37 @@
 
 - (void)writeName_withName:(NSString *)p1
 {
-	[self invokeMonoMethod:"WriteName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"WriteName(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)writeNmToken_withName:(NSString *)p1
 {
-	[self invokeMonoMethod:"WriteNmToken(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"WriteNmToken(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)writeProcessingInstruction_withName:(NSString *)p1 text:(NSString *)p2
 {
-	[self invokeMonoMethod:"WriteProcessingInstruction(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"WriteProcessingInstruction(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 - (void)writeQualifiedName_withLocalName:(NSString *)p1 ns:(NSString *)p2
 {
-	[self invokeMonoMethod:"WriteQualifiedName(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"WriteQualifiedName(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 - (void)writeRaw_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-	[self invokeMonoMethod:"WriteRaw(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"WriteRaw(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
 }
 
 - (void)writeRaw_withData:(NSString *)p1
 {
-	[self invokeMonoMethod:"WriteRaw(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"WriteRaw(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)writeStartAttribute_withPrefix:(NSString *)p1 localName:(NSString *)p2 ns:(NSString *)p3
 {
-	[self invokeMonoMethod:"WriteStartAttribute(string,string,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	[self invokeMonoMethod:"WriteStartAttribute(string,string,string)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 }
 
 - (void)writeStartDocument
@@ -358,12 +358,12 @@
 
 - (void)writeStartElement_withPrefix:(NSString *)p1 localName:(NSString *)p2 ns:(NSString *)p3
 {
-	[self invokeMonoMethod:"WriteStartElement(string,string,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	[self invokeMonoMethod:"WriteStartElement(string,string,string)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 }
 
 - (void)writeString_withText:(NSString *)p1
 {
-	[self invokeMonoMethod:"WriteString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"WriteString(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)writeSurrogateCharEntity_withLowChar:(uint16_t)p1 highChar:(uint16_t)p2
@@ -373,7 +373,7 @@
 
 - (void)writeWhitespace_withWs:(NSString *)p1
 {
-	[self invokeMonoMethod:"WriteWhitespace(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"WriteWhitespace(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 #pragma mark -

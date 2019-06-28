@@ -128,12 +128,12 @@
 
 - (void)applyCurrentValues_withCurrentEntity:(System_Object *)p1
 {
-	[self invokeMonoMethod:"ApplyCurrentValues(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"ApplyCurrentValues(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)applyOriginalValues_withOriginalEntity:(System_Object *)p1
 {
-	[self invokeMonoMethod:"ApplyOriginalValues(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"ApplyOriginalValues(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)changeState_withState:(enumSystem_Data_Entity_EntityState)p1
@@ -156,13 +156,13 @@
 
 - (BOOL)isPropertyChanged_withPropertyName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"IsPropertyChanged(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"IsPropertyChanged(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (void)rejectPropertyChanges_withPropertyName:(NSString *)p1
 {
-	[self invokeMonoMethod:"RejectPropertyChanges(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"RejectPropertyChanges(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)setModified
@@ -172,7 +172,7 @@
 
 - (void)setModifiedProperty_withPropertyName:(NSString *)p1
 {
-	[self invokeMonoMethod:"SetModifiedProperty(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetModifiedProperty(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 #pragma mark -

@@ -63,7 +63,7 @@ static NSString * m_typeConstructorName;
 
 - (BOOL)equals_withObj:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -77,19 +77,19 @@ static NSString * m_typeConstructorName;
 
 - (System_Object *)invoke_withParameters:(System_Array *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (BOOL)op_Equality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_Inequality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

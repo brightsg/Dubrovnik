@@ -35,7 +35,7 @@
 
 + (System_EventHandlerA1 *)new_withObject:(System_Object *)p1 method:(void *)p2
 {
-	System_EventHandlerA1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	System_EventHandlerA1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return object;
 }
 
@@ -44,18 +44,18 @@
 
 - (System_Object <System_IAsyncResult> *)beginInvoke_withSender:(System_Object *)p1 e:(System_Object *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,<_T_0>,System.AsyncCallback,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,<_T_0>,System.AsyncCallback,object)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
 - (void)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1
 {
-	[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)invoke_withSender:(System_Object *)p1 e:(System_Object *)p2
 {
-	[self invokeMonoMethod:"Invoke(object,<_T_0>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Invoke(object,<_T_0>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 #pragma mark -

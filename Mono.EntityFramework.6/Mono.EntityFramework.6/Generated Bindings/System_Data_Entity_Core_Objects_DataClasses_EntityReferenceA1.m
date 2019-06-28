@@ -73,7 +73,7 @@
 
 - (void)attach_withEntity:(System_Object *)p1
 {
-	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery

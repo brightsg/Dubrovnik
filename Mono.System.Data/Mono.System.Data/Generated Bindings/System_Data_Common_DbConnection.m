@@ -158,7 +158,7 @@
 
 - (void)changeDatabase_withDatabaseName:(NSString *)p1
 {
-	[self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)close

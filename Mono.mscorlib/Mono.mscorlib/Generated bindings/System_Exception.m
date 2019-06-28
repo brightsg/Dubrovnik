@@ -35,13 +35,13 @@
 
 + (System_Exception *)new_withMessage:(NSString *)p1
 {
-	System_Exception * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Exception * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
 + (System_Exception *)new_withMessage:(NSString *)p1 innerException:(System_Exception *)p2
 {
-	System_Exception * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	System_Exception * object = [[self alloc] initWithSignature:"string,System.Exception" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return object;
 }
 

@@ -35,7 +35,7 @@
 
 + (System_ComponentModel_RunWorkerCompletedEventArgs *)new_withResult:(System_Object *)p1 error:(System_Exception *)p2 cancelled:(BOOL)p3
 {
-	System_ComponentModel_RunWorkerCompletedEventArgs * object = [[self alloc] initWithSignature:"object,System.Exception,bool" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+	System_ComponentModel_RunWorkerCompletedEventArgs * object = [[self alloc] initWithSignature:"object,System.Exception,bool" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3)];
 	return object;
 }
 

@@ -45,7 +45,7 @@
 
 + (System_Collections_Concurrent_ConcurrentDictionaryA2 *)new_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
-	System_Collections_Concurrent_ConcurrentDictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>>" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Collections_Concurrent_ConcurrentDictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>>" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -139,31 +139,31 @@
 
 - (System_Object *)get_Item_withKey:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2
 {
-	[self invokeMonoMethod:"set_Item(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"set_Item(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 - (System_Object *)addOrUpdate_withKey:(System_Object *)p1 addValueFactory:(System_FuncA2 *)p2 updateValueFactory:(System_FuncA3 *)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"AddOrUpdate(<_T_0>,System.Func`2<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>,System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"AddOrUpdate(<_T_0>,System.Func`2<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>,System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)addOrUpdate_withKey:(System_Object *)p1 addValueFactory:(System_FuncA3 *)p2 updateValueFactory:(System_FuncA4 *)p3 factoryArgument:(System_Object *)p4 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"AddOrUpdate(<_T_0>,System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TArg, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>,System.Func`4<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue, System.Collections.Concurrent.ConcurrentDictionary`2/TArg, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>,TArg)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)addOrUpdate_withKey:(System_Object *)p1 addValue:(System_Object *)p2 updateValueFactory:(System_FuncA3 *)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"AddOrUpdate(<_T_0>,<_T_1>,System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"AddOrUpdate(<_T_0>,<_T_1>,System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -174,7 +174,7 @@
 
 - (BOOL)containsKey_withKey:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -186,20 +186,20 @@
 
 - (System_Object *)getOrAdd_withKey:(System_Object *)p1 valueFactory:(System_FuncA2 *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetOrAdd(<_T_0>,System.Func`2<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetOrAdd(<_T_0>,System.Func`2<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)getOrAdd_withKey:(System_Object *)p1 value:(System_Object *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetOrAdd(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetOrAdd(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)getOrAdd_withKey:(System_Object *)p1 valueFactory:(System_FuncA3 *)p2 factoryArgument:(System_Object *)p3 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GetOrAdd(<_T_0>,System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TArg, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>,TArg)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -211,14 +211,14 @@
 
 - (BOOL)tryAdd_withKey:(System_Object *)p1 value:(System_Object *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryAdd(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
-	MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,System.Collections.Concurrent.ConcurrentDictionary`2/TValue&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,System.Collections.Concurrent.ConcurrentDictionary`2/TValue&)" withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
 	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
@@ -226,14 +226,14 @@
 - (BOOL)tryRemove_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
-	MonoObject *monoObject = [self invokeMonoMethod:"TryRemove(<_T_0>,System.Collections.Concurrent.ConcurrentDictionary`2/TValue&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryRemove(<_T_0>,System.Collections.Concurrent.ConcurrentDictionary`2/TValue&)" withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
 	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)tryUpdate_withKey:(System_Object *)p1 newValue:(System_Object *)p2 comparisonValue:(System_Object *)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"TryUpdate(<_T_0>,<_T_1>,<_T_1>)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryUpdate(<_T_0>,<_T_1>,<_T_1>)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

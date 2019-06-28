@@ -56,7 +56,7 @@ static int32_t m_minValue;
 
 - (int32_t)compareTo_withValueObject:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -68,7 +68,7 @@ static int32_t m_minValue;
 
 - (BOOL)equals_withObjObject:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -88,7 +88,7 @@ static int32_t m_minValue;
 
 + (int32_t)parse_withS:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -106,7 +106,7 @@ static int32_t m_minValue;
 
 - (NSString *)toString_withFormat:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -116,7 +116,7 @@ static int32_t m_minValue;
 
 + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(int32_t*)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,int&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,int&)" withNumArgs:2, [p1 monoRTInvokeObject], p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

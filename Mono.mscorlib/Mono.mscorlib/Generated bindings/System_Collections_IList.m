@@ -82,12 +82,12 @@
 
 - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2
 {
-	[self invokeMonoMethod:"System.Collections.IList.set_Item(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"System.Collections.IList.set_Item(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeObject]];
 }
 
 - (int32_t)add_withValue:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.Add(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.Add(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -98,24 +98,24 @@
 
 - (BOOL)contains_withValue:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.Contains(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.Contains(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (int32_t)indexOf_withValue:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.IndexOf(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.IndexOf(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 - (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2
 {
-	[self invokeMonoMethod:"System.Collections.IList.Insert(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"System.Collections.IList.Insert(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeObject]];
 }
 
 - (void)remove_withValue:(System_Object *)p1
 {
-	[self invokeMonoMethod:"System.Collections.IList.Remove(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"System.Collections.IList.Remove(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)removeAt_withIndex:(int32_t)p1

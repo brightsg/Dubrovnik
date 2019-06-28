@@ -35,12 +35,12 @@
 
 - (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerMethodName:(NSString *)p3 attach:(BOOL)p4
 {
-	[self invokeMonoMethod:"Dubrovnik.ClientApplication.IEventHelper.ConfigureStaticEventHandler(object,string,string,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
+	[self invokeMonoMethod:"Dubrovnik.ClientApplication.IEventHelper.ConfigureStaticEventHandler(object,string,string,bool)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], DB_VALUE(p4)];
 }
 
 - (BOOL)objectSupportsEvent_withObj:(System_Object *)p1 objEventName:(NSString *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Dubrovnik.ClientApplication.IEventHelper.ObjectSupportsEvent(object,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Dubrovnik.ClientApplication.IEventHelper.ObjectSupportsEvent(object,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

@@ -35,7 +35,7 @@
 
 - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2
 {
-	[self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 }
 
 - (System_Array *)toArray
@@ -46,7 +46,7 @@
 
 - (BOOL)tryAdd_withItem:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.TryAdd(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Concurrent.IProducerConsumerCollection`1<System.Collections.Concurrent.IProducerConsumerCollection`1+T>.TryAdd(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

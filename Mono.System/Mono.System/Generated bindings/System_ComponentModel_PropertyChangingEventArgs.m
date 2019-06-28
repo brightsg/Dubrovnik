@@ -35,7 +35,7 @@
 
 + (System_ComponentModel_PropertyChangingEventArgs *)new_withPropertyName:(NSString *)p1
 {
-	System_ComponentModel_PropertyChangingEventArgs * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_ComponentModel_PropertyChangingEventArgs * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 

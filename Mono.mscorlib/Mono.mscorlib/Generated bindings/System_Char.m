@@ -56,7 +56,7 @@ static uint16_t m_minValue;
 
 - (int32_t)compareTo_withValueObject:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -80,13 +80,13 @@ static uint16_t m_minValue;
 
 + (int32_t)convertToUtf32_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertToUtf32(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertToUtf32(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 - (BOOL)equals_withObjObject:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -110,7 +110,7 @@ static uint16_t m_minValue;
 
 + (double)getNumericValue_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"GetNumericValue(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetNumericValue(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_DOUBLE(monoObject);
 }
 
@@ -128,7 +128,7 @@ static uint16_t m_minValue;
 
 + (BOOL)isControl_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsControl(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsControl(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -140,7 +140,7 @@ static uint16_t m_minValue;
 
 + (BOOL)isDigit_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsDigit(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsDigit(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -152,7 +152,7 @@ static uint16_t m_minValue;
 
 + (BOOL)isHighSurrogate_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsHighSurrogate(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsHighSurrogate(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -164,7 +164,7 @@ static uint16_t m_minValue;
 
 + (BOOL)isLetter_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsLetter(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsLetter(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -176,7 +176,7 @@ static uint16_t m_minValue;
 
 + (BOOL)isLetterOrDigit_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsLetterOrDigit(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsLetterOrDigit(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -188,7 +188,7 @@ static uint16_t m_minValue;
 
 + (BOOL)isLower_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsLower(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsLower(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -200,7 +200,7 @@ static uint16_t m_minValue;
 
 + (BOOL)isLowSurrogate_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsLowSurrogate(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsLowSurrogate(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -212,7 +212,7 @@ static uint16_t m_minValue;
 
 + (BOOL)isNumber_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsNumber(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsNumber(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -224,7 +224,7 @@ static uint16_t m_minValue;
 
 + (BOOL)isPunctuation_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsPunctuation(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsPunctuation(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -236,7 +236,7 @@ static uint16_t m_minValue;
 
 + (BOOL)isSeparator_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsSeparator(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsSeparator(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -248,13 +248,13 @@ static uint16_t m_minValue;
 
 + (BOOL)isSurrogate_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsSurrogate(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsSurrogate(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)isSurrogatePair_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsSurrogatePair(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsSurrogatePair(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -272,7 +272,7 @@ static uint16_t m_minValue;
 
 + (BOOL)isSymbol_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsSymbol(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsSymbol(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -284,7 +284,7 @@ static uint16_t m_minValue;
 
 + (BOOL)isUpper_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsUpper(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsUpper(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -296,19 +296,19 @@ static uint16_t m_minValue;
 
 + (BOOL)isWhiteSpace_withS:(NSString *)p1 index:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsWhiteSpace(string,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsWhiteSpace(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (uint16_t)parse_withS:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_UINT16(monoObject);
 }
 
 + (uint16_t)toLower_withC:(uint16_t)p1 culture:(System_Globalization_CultureInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ToLower(char,System.Globalization.CultureInfo)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ToLower(char,System.Globalization.CultureInfo)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeObject]];
 	return DB_UNBOX_UINT16(monoObject);
 }
 
@@ -340,7 +340,7 @@ static uint16_t m_minValue;
 
 + (uint16_t)toUpper_withC:(uint16_t)p1 culture:(System_Globalization_CultureInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ToUpper(char,System.Globalization.CultureInfo)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ToUpper(char,System.Globalization.CultureInfo)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeObject]];
 	return DB_UNBOX_UINT16(monoObject);
 }
 
@@ -358,7 +358,7 @@ static uint16_t m_minValue;
 
 + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(uint16_t*)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,char&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,char&)" withNumArgs:2, [p1 monoRTInvokeObject], p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

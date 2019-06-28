@@ -93,19 +93,19 @@
 
 - (BOOL)register_withObj:(System_MarshalByRefObject *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Register(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Register(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (System_TimeSpan *)renewal_withLease:(System_Object <System_Runtime_Remoting_Lifetime_ILease_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Renewal(System.Runtime.Remoting.Lifetime.ILease)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Renewal(System.Runtime.Remoting.Lifetime.ILease)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
 - (void)unregister_withObj:(System_MarshalByRefObject *)p1
 {
-	[self invokeMonoMethod:"Unregister(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Unregister(System.MarshalByRefObject)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 #pragma mark -

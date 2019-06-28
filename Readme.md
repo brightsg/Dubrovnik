@@ -1,7 +1,7 @@
 Overview
 ======== 
 
-The Dubrovnik project provides a series of bindings between Obj-C and the [Mono](https://www.mono-project.com) open source implementation of .NET. Functionally, it works like an Objective-C to C# language bridge. It is aslo possible to call the generated bindings from Swift.
+The Dubrovnik project provides a series of bindings between Obj-C and the [Mono](https://www.mono-project.com) open source implementation of .NET. Functionally, it works like an Objective-C to C# language bridge. It is also possible to call the generated bindings from Swift.
 
 Dubrovnik is intended to provide a means of interfacing a Cocoa app to a .NET backend assembly or assemblies. The Dubrovnik code generator can be used to automate the generation of Obj-C bindings to those assemblies. This greatly simplifies interfacing .NET to Obj-C.
 

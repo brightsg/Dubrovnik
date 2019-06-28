@@ -97,19 +97,19 @@
 
 - (System_Dynamic_DynamicMetaObject *)bind_withTarget:(System_Dynamic_DynamicMetaObject *)p1 args:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Bind(System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Bind(System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)fallbackDeleteMember_withTarget:(System_Dynamic_DynamicMetaObject *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"FallbackDeleteMember(System.Dynamic.DynamicMetaObject)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"FallbackDeleteMember(System.Dynamic.DynamicMetaObject)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)fallbackDeleteMember_withTarget:(System_Dynamic_DynamicMetaObject *)p1 errorSuggestion:(System_Dynamic_DynamicMetaObject *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"FallbackDeleteMember(System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"FallbackDeleteMember(System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 

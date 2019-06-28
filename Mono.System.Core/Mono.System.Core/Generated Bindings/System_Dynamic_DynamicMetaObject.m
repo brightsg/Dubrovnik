@@ -159,73 +159,73 @@ static System_Array * m_emptyMetaObjects;
 
 - (System_Dynamic_DynamicMetaObject *)bindBinaryOperation_withBinder:(System_Dynamic_BinaryOperationBinder *)p1 arg:(System_Dynamic_DynamicMetaObject *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BindBinaryOperation(System.Dynamic.BinaryOperationBinder,System.Dynamic.DynamicMetaObject)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BindBinaryOperation(System.Dynamic.BinaryOperationBinder,System.Dynamic.DynamicMetaObject)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)bindConvert_withBinder:(System_Dynamic_ConvertBinder *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BindConvert(System.Dynamic.ConvertBinder)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BindConvert(System.Dynamic.ConvertBinder)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)bindCreateInstance_withBinder:(System_Dynamic_CreateInstanceBinder *)p1 args:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BindCreateInstance(System.Dynamic.CreateInstanceBinder,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BindCreateInstance(System.Dynamic.CreateInstanceBinder,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)bindDeleteIndex_withBinder:(System_Dynamic_DeleteIndexBinder *)p1 indexes:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BindDeleteIndex(System.Dynamic.DeleteIndexBinder,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BindDeleteIndex(System.Dynamic.DeleteIndexBinder,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)bindDeleteMember_withBinder:(System_Dynamic_DeleteMemberBinder *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BindDeleteMember(System.Dynamic.DeleteMemberBinder)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BindDeleteMember(System.Dynamic.DeleteMemberBinder)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)bindGetIndex_withBinder:(System_Dynamic_GetIndexBinder *)p1 indexes:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BindGetIndex(System.Dynamic.GetIndexBinder,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BindGetIndex(System.Dynamic.GetIndexBinder,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)bindGetMember_withBinder:(System_Dynamic_GetMemberBinder *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BindGetMember(System.Dynamic.GetMemberBinder)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BindGetMember(System.Dynamic.GetMemberBinder)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)bindInvoke_withBinder:(System_Dynamic_InvokeBinder *)p1 args:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BindInvoke(System.Dynamic.InvokeBinder,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BindInvoke(System.Dynamic.InvokeBinder,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)bindInvokeMember_withBinder:(System_Dynamic_InvokeMemberBinder *)p1 args:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BindInvokeMember(System.Dynamic.InvokeMemberBinder,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BindInvokeMember(System.Dynamic.InvokeMemberBinder,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)bindSetIndex_withBinder:(System_Dynamic_SetIndexBinder *)p1 indexes:(System_Array *)p2 value:(System_Dynamic_DynamicMetaObject *)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BindSetIndex(System.Dynamic.SetIndexBinder,System.Dynamic.DynamicMetaObject[],System.Dynamic.DynamicMetaObject)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BindSetIndex(System.Dynamic.SetIndexBinder,System.Dynamic.DynamicMetaObject[],System.Dynamic.DynamicMetaObject)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)bindSetMember_withBinder:(System_Dynamic_SetMemberBinder *)p1 value:(System_Dynamic_DynamicMetaObject *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BindSetMember(System.Dynamic.SetMemberBinder,System.Dynamic.DynamicMetaObject)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BindSetMember(System.Dynamic.SetMemberBinder,System.Dynamic.DynamicMetaObject)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Dynamic_DynamicMetaObject *)bindUnaryOperation_withBinder:(System_Dynamic_UnaryOperationBinder *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BindUnaryOperation(System.Dynamic.UnaryOperationBinder)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BindUnaryOperation(System.Dynamic.UnaryOperationBinder)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 

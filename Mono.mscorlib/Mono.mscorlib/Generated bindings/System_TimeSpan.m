@@ -364,7 +364,7 @@ static System_TimeSpan * m_zero;
 
 - (int32_t)compareTo_withValueObject:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -382,7 +382,7 @@ static System_TimeSpan * m_zero;
 
 - (BOOL)equals_withValue:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -508,7 +508,7 @@ static System_TimeSpan * m_zero;
 
 + (System_TimeSpan *)parse_withS:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
@@ -536,7 +536,7 @@ static System_TimeSpan * m_zero;
 
 - (NSString *)toString_withFormat:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -545,7 +545,7 @@ static System_TimeSpan * m_zero;
 + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(System_TimeSpan **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
-	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.TimeSpan&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.TimeSpan&)" withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
 	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
