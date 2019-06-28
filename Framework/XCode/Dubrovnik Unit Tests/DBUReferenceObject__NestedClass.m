@@ -1,4 +1,4 @@
-﻿
+
 #import "DBUReferenceObject__NestedClass.h"
 
 @implementation DBUReferenceObject__NestedClass
@@ -33,7 +33,7 @@
     - (void)setStringProperty:(NSString *)value
 	{
 		_stringProperty = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
+		MonoObject *monoObject = [value monoRTInvokeObject];
 		[self setMonoProperty:"StringProperty" valueObject:monoObject];          
 	}
 

@@ -46,7 +46,12 @@
     return (MonoString *)[self monoObject];
 }
 
-- (MonoObject *)monoRTInvokeArg
+- (void *)monoRTInvokeArg
+{
+    return [self monoObject];
+}
+
+- (MonoObject *)monoRTInvokeObject
 {
     return [self monoObject];
 }

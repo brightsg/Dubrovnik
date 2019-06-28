@@ -29,7 +29,7 @@ extern NS_ENUM(NSInteger, DBSystemNullableTypes) {
 - (BOOL)db_hasValue;
 - (DBManagedObject *)db_value;
 
-- (MonoObject *)monoRTInvokeArg;
+- (void *)monoRTInvokeArg;
 
 + (NSDictionary *)typeAssociations;
 

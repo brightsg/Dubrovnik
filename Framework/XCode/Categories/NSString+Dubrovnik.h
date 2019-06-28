@@ -20,7 +20,8 @@
 - (id)initWithMonoString:(MonoString *)monoString;
 
 - (MonoString *)monoString;
-- (MonoObject *)monoRTInvokeArg;
+- (MonoObject *)monoRTInvokeObject;
+- (void *)monoRTInvokeArg;
 - (MonoObject *)monoObject;
 
 - (NSString *)simpleObjCToMonoClassNameString;

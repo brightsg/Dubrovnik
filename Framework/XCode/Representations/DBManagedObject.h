@@ -21,7 +21,9 @@ extern char DBCacheSuffixChar;
 @property (strong, readonly) DBManagedEnvironment *monoEnvironment;
 @property (assign, readonly) MonoObject *monoObject;
 @property (assign, readonly) NSUInteger monoHash;
-- (MonoObject *)monoRTInvokeArg;
+- (void *)monoRTInvokeArg;
+- (MonoObject *)monoRTInvokeObject;
+- (void *)monoRTInvokeArg:(DBManagedObject *)object typeParameterIndex:(NSUInteger)idx;
 @end
 
 @protocol DBManagedObjectOptionalCategoryMethods <NSObject>
@@ -226,7 +228,8 @@ extern char DBCacheSuffixChar;
  This method is generally used when passing arguments to managed methods.
  
  */
-- (MonoObject *)monoRTInvokeArg;
+- (void *)monoRTInvokeArg;
+- (MonoObject *)monoRTInvokeObject;
 - (MonoAssembly *)monoAssembly;
 - (MonoImage *)monoImage;
 

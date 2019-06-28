@@ -48,11 +48,12 @@ If HasValue returns true, a value of the underlying value type T is boxed, not t
 }
 
 
-- (MonoObject *)monoRTInvokeArg
+- (void *)monoRTInvokeArg
 {
     // we are a value type but we don't want unboxed
     return self.monoObject;
 }
+
 
 // Managed type : System.Boolean
 
