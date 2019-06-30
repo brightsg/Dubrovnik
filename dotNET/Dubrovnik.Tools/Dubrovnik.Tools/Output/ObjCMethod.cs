@@ -100,8 +100,8 @@ namespace Dubrovnik.Tools.Output
                     if (!facet.IsGenericMethodDefinition) {
                         objCMethodInvokeFormat = "[self invokeMonoMethod:\"{0}({1})\" withNumArgs:{2}]";
                     } else {
-                        objCMethodPrepareFormat = "DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:\"{0}({1})\" typeParameters:typeParameter]";
-                        objCMethodInvokeFormat = "[self invokeMethod:managedMethod withNumArgs:{2}]";
+                        objCMethodPrepareFormat = "DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:\"{0}({1})\" typeParameters:typeParameter]";
+                        objCMethodInvokeFormat = "[self invokeMethod:method withNumArgs:{2}]";
                     }
                 } else {
                     objCMethodInvokeFormat = "[self invokeMonoClassMethod:\"{0}({1})\" withNumArgs:{2}]";
@@ -123,7 +123,7 @@ namespace Dubrovnik.Tools.Output
 
             // a generic method definition will require an additional parameter to specify the generic type parameters
             if (facet.IsGenericMethodDefinition) {
-                // get number of generic type arameters defined by the generic method definition as opposed to by the type defining the method
+                // get number of generic type parameters defined by the generic method definition as opposed to by the type defining the method
                 int numberOfTypeParametersDeclaredByMethod = facet.GenericMethodDefinitionGenericTypeArguments.Count();
                 string parameterSig = "typeParameter:(id)typeParameter";
                 if (numberOfTypeParametersDeclaredByMethod > 1) {
@@ -370,7 +370,11 @@ namespace Dubrovnik.Tools.Output
                         // use reference pointer
                         argFormat = "&refPtr{0}";
                     } else if (parameter.IsGenericParameter) {
-                        argFormat = "[self monoRTInvokeArg:p{0}" + $" typeParameterIndex:{parameter.GenericParameterPosition}]";
+                        if (parameter.DeclaredByMethod) {
+                            argFormat = "[method monoRTInvokeArg:p{0}" + $" typeParameterIndex:{parameter.GenericParameterPosition}]";
+                        } else {
+                            argFormat = "[self monoRTInvokeArg:p{0}" + $" typeParameterIndex:{parameter.GenericParameterPosition}]";
+                        }
                     } else if (parameter.IsValueType) {
                         // if parameter is of value type then get suitable embedded runtime API argument value.
                         // in general value types are passed as unboxed data.
