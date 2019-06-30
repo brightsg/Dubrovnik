@@ -40,34 +40,34 @@
 
 - (void)addObject_withEntity:(System_Object *)p1
 {
-	[self invokeMonoMethod:"AddObject(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	[self invokeMonoMethod:"AddObject(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 - (System_Object *)applyCurrentValues_withCurrentEntity:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ApplyCurrentValues(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ApplyCurrentValues(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)applyOriginalValues_withOriginalEntity:(System_Object *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ApplyOriginalValues(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ApplyOriginalValues(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (void)attach_withEntity:(System_Object *)p1
 {
-	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 - (void)deleteObject_withEntity:(System_Object *)p1
 {
-	[self invokeMonoMethod:"DeleteObject(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	[self invokeMonoMethod:"DeleteObject(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 - (void)detach_withEntity:(System_Object *)p1
 {
-	[self invokeMonoMethod:"Detach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	[self invokeMonoMethod:"Detach(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 #pragma mark -

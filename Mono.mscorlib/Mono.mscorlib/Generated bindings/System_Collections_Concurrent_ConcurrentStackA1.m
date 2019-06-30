@@ -101,7 +101,7 @@
 
 - (void)push_withItem:(System_Object *)p1
 {
-	[self invokeMonoMethod:"Push(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	[self invokeMonoMethod:"Push(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 - (void)pushRange_withItems:(System_Array *)p1

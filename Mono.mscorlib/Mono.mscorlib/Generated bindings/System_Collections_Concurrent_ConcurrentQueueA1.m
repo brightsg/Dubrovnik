@@ -90,7 +90,7 @@
 
 - (void)enqueue_withItem:(System_Object *)p1
 {
-	[self invokeMonoMethod:"Enqueue(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	[self invokeMonoMethod:"Enqueue(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 - (System_Object <System_Collections_Generic_IEnumeratorA1> *)getEnumerator

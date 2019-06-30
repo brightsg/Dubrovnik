@@ -35,7 +35,7 @@
 
 - (System_Object *)genericMethodReturningParameterOfTypeT_withP1:(System_Object *)p1 u:(System_Object *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterOfTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterOfTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], [self monoRTInvokeArg:p2 typeParameterIndex:1]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 

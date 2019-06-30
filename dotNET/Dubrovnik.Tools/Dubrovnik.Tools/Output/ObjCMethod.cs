@@ -368,7 +368,9 @@ namespace Dubrovnik.Tools.Output
                 if (objCParameterIsObject) {
                     if (parameter.IsByRef) {
                         // use reference pointer
-                        argFormat = "&refPtr{0}";   
+                        argFormat = "&refPtr{0}";
+                    } else if (parameter.IsGenericParameter) {
+                        argFormat = "[self monoRTInvokeArg:p{0}" + $" typeParameterIndex:{parameter.GenericParameterPosition}]";
                     } else if (parameter.IsValueType) {
                         // if parameter is of value type then get suitable embedded runtime API argument value.
                         // in general value types are passed as unboxed data.
