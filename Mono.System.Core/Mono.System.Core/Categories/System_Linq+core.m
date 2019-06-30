@@ -26,7 +26,7 @@
                                       assemblyName:"System.Core"];
     
     // Get the type with which to inflate the method.
-    MonoType *monoType = [[DBGenericTypeHelper sharedHelper] monoTypeForTypeParameter:typeParameter];
+    MonoType *monoType = [DBGenericTypeHelper.sharedHelper monoTypeForObject:typeParameter];
     managedMethod.genericMonoType = monoType;
     
     // Invoke the extension method passing mono object as first argument

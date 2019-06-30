@@ -13,7 +13,7 @@ extern char DBCacheSuffixChar;
 #import "DBMonoIncludes.h"
 #import "DBManagedType.h"
 
-@class DBManagedEnvironment, DBManagedClass, DBManagedMethod;
+@class DBManagedEnvironment, DBManagedClass, DBManagedMethod, DBManagedObject;
 
 @protocol DBManagedObject <NSObject>
 
@@ -24,6 +24,8 @@ extern char DBCacheSuffixChar;
 - (void *)monoRTInvokeArg;
 - (MonoObject *)monoRTInvokeObject;
 - (void *)monoRTInvokeArg:(DBManagedObject *)object typeParameterIndex:(NSUInteger)idx;
++ (void *)monoRTInvokeArg:(DBManagedObject *)object typeParameterIndex:(NSUInteger)idx;
+- (void *)monoRTInvokeArg:(DBManagedObject *)object method:(DBManagedMethod *)method typeParameterIndex:(NSUInteger)idx;
 @end
 
 @protocol DBManagedObjectOptionalCategoryMethods <NSObject>

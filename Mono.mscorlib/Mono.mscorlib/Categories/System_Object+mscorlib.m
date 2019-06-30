@@ -81,7 +81,7 @@
 + (System_Type *)db_constructTypeWithParameters:(NSArray <id> *)typeParameters
 {
     // get System.Array of System.Type
-    NSArray <System_Type *> *systemTypes = [[DBGenericTypeHelper sharedHelper] systemTypesForTypeParameters:typeParameters];
+    NSArray <System_Type *> *systemTypes = [[DBGenericTypeHelper sharedHelper] systemTypesForObjects:typeParameters];
     System_Array *systemTypesManaged = [systemTypes managedArrayWithTypeName:[System_Type managedTypeName]];
 
     // construct the type

@@ -10,9 +10,12 @@
 #import "DBManagedObject.h"
 
 @interface DBManagedMethod()
+
 @property (assign, readwrite) const char *methodName;
 @property (assign, readwrite) const char *monoClassName;
 @property (assign, readwrite) const char *assemblyName;
+@property (assign, readwrite) MonoArray *monoReflectionTypeParameters;
+
 @end
 
 @implementation DBManagedMethod
@@ -25,7 +28,9 @@
     return [self methodWithMonoMethodNamed:methodName className:NULL assemblyName:NULL];
 }
 
-+ (instancetype)methodWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName
++ (instancetype)methodWithMonoMethodNamed:(const char *)methodName
+                                className:(const char *)className
+                             assemblyName:(const char *)assemblyName
 {
     return [[self alloc] initWithMonoMethodNamed:methodName className:className assemblyName:assemblyName];
 }
@@ -35,13 +40,25 @@
     return [self initWithMonoMethodNamed:methodName className:NULL assemblyName:NULL];
 }
 
-- (id)initWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName
+- (id)initWithMonoMethodNamed:(const char *)methodName
+                    className:(const char *)className
+                 assemblyName:(const char *)assemblyName
+{
+    return [self initWithMonoMethodNamed:methodName className:className assemblyName:assemblyName monoReflectionTypeParameters:NULL];
+}
+
+- (id)initWithMonoMethodNamed:(const char *)methodName
+                    className:(const char *)className
+                 assemblyName:(const char *)assemblyName
+ monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters
+
 {
     self = [super init];
     if (self) {
         self.methodName = methodName;
         self.monoClassName = className;
         self.assemblyName = assemblyName;
+        self.monoReflectionTypeParameters = monoReflectionTypeParameters;
     }
     return self;
 }
@@ -54,11 +71,45 @@
     return [NSString stringWithFormat:@"%@ methodName: %s", [super description], self.methodName];
 }
 
-- (MonoArray *)monoReflectionTypeParameters
+#pragma mark -
+#pragma mark Parameter type info
+
+- (MonoType *)monoTypeParameterAtIndex:(NSUInteger)idx
 {
-    return (MonoArray *)[(id)self.typeParameters monoObject];
+    MonoReflectionType *reflectionType = mono_array_get(self.monoReflectionTypeParameters, MonoReflectionType *, idx);
+    MonoType *monoType = mono_reflection_type_get_type(reflectionType);
+    
+    return monoType;
 }
 
+#pragma mark -
+#pragma mark Invocation Argument type info
+
+- (void *)monoRTInvokeArg:(id)object typeParameterIndex:(NSUInteger)idx
+{
+    if (![object respondsToSelector:@selector(monoObject)]) {
+        [NSException raise:@"DBManagedMethodInvokeArgException" format:@"Failed to retrieve generic method level type parameter."];
+    }
+    
+    MonoObject *monoObject = [object monoObject];
+    if (!monoObject) {
+        return NULL;
+    }
+    
+    // get the method level type parameter at the given index
+    MonoType *parameterMonoType = [self monoTypeParameterAtIndex:idx];
+    if (!parameterMonoType) {
+        [NSException raise:@"DBManagedMethodInvokeArgException" format:@"Failed to retrieve generic method level type parameter."];
+    }
+    
+    // if the mnethod level type parameter is a value type then allow unboxing of the object.
+    MonoClass *parameterClass = mono_class_from_mono_type(parameterMonoType);
+    if (mono_class_is_valuetype(parameterClass)) {
+        return [object monoRTInvokeArg];
+    }
+    
+    return monoObject;
+}
 /*
 
  In future we may want to query the method signature types.

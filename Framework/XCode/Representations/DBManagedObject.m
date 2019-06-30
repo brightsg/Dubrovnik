@@ -666,7 +666,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
         if (isGenericMethodDefinition) {
             
             // A generic type definition contains type information about the type parameters defined by the definition
-            if (methodRepresentation.typeParameters) {
+            if (methodRepresentation.monoReflectionTypeParameters) {
                 monoMethod = [self makeGenericMethod:methodInfo typeParameters:methodRepresentation.monoReflectionTypeParameters];
             }
             else {
@@ -942,14 +942,37 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 - (void *)monoRTInvokeArg:(DBManagedObject *)object typeParameterIndex:(NSUInteger)idx
 {
+    // it is only valid to retrieve class level type parameters on a generic type
+    if (!self.managedType.isGenericType) {
+        [NSException raise:@"DBManagedObjectInvokeException" format:@"Requesting class level type parameters on a non generic type class."];
+    }
+    
     MonoObject *monoObject = [object monoObject];
     
-    // if the type parameter is a value type then allow unboxing of the object
+    // if the class level type parameter is a value type then allow unboxing of the object.
     MonoType *parameterMonoType = [self.managedType monoGenericTypeAtIndex:idx];
+    if (!parameterMonoType) {
+        [NSException raise:@"DBManagedObjectInvokeException" format:@"Failed to retrieve generic class level type parameter."];
+    }
+    
     MonoClass *parameterClass = mono_class_from_mono_type(parameterMonoType);
     if (mono_class_is_valuetype(parameterClass)) {
         return [object monoRTInvokeArg];
     }
+    
+    return monoObject;
+}
+
+- (void *)monoRTInvokeArg:(DBManagedObject *)object method:(DBManagedMethod *)method typeParameterIndex:(NSUInteger)idx
+{
+    MonoObject *monoObject = [method monoRTInvokeArg:object typeParameterIndex:idx];
+    return monoObject;
+}
+
+#warning TEMPORARY
++ (void *)monoRTInvokeArg:(DBManagedObject *)object typeParameterIndex:(NSUInteger)idx
+{
+    MonoObject *monoObject = [object monoObject];
     
     return monoObject;
 }
