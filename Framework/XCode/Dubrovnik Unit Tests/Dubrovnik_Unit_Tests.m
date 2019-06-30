@@ -807,44 +807,31 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     System_Int16 *int16arg3 = [System_Int16 objectWithInt16:456];
     System_Int32 *int32arg = [System_Int32 objectWithInt32:456];
 
-    XCTAssertTrue(![int16arg compareTo_withValueInt16:int16arg.db_int16Value], DBUInequalityTestFailed);
+    // value comparison
+    XCTAssertFalse([int16arg compareTo_withValueInt16:int16arg.db_int16Value], DBUInequalityTestFailed);
     XCTAssertTrue([int16arg compareTo_withValueObject:int16arg] == 0, DBUEqualityTestFailed);
     XCTAssertTrue([int16arg compareTo_withValueObject:int16arg2] == 0, DBUEqualityTestFailed);
     XCTAssertTrue([int16arg compareTo_withValueObject:int16arg3] < 0, DBUInequalityTestFailed);
     XCTAssertTrue([int16arg3 compareTo_withValueObject:int16arg2] > 0, DBUInequalityTestFailed);
-    
-    BOOL int16arg3InvalidArgTypeExceptionCaught = NO;
+    BOOL exceptionCaught = NO;
     @try {
         [int16arg3 compareTo_withValueObject:int32arg];
     }
     @catch (NSException *e) {
-        int16arg3InvalidArgTypeExceptionCaught = YES;
+        exceptionCaught = YES;
     }
-    XCTAssertTrue(int16arg3InvalidArgTypeExceptionCaught, DBUEqualityTestFailed);
+    XCTAssertTrue(exceptionCaught, DBUEqualityTestFailed);
     
-    //XCTAssertTrue(![int16 isEqual:@"not me".managedString], DBUInequalityTestFailed);
-    //XCTAssertTrue(![int16 equals_withObjObject:@"not me".managedString], DBUInequalityTestFailed);
-    //XCTAssertTrue(![int16 equals_withObjObject:int32], DBUInequalityTestFailed);
-    
-    //[int16 invokeMonoMethod:"Equals(object)" withNumArgs:1, nil];
-    //[int16 invokeMonoMethod:"Equals(object)" withNumArgs:1, [@"not me".managedString monoRTInvokeArg]];
-    //[int16 invokeMonoMethod:"Equals(object)" withNumArgs:1, int32arg];
-    
-    /*
-    XCTAssertTrue([int16 isEqual:int16], DBUEqualityTestFailed);
-    XCTAssertTrue([int16 isEqual:int16a], DBUEqualityTestFailed);
-    XCTAssertFalse([int16 isEqual:int16b], DBUEqualityTestFailed);
-    
-    
+    // value equality
+    XCTAssertFalse([int16arg isEqual:@"not me".managedString], DBUInequalityTestFailed);
+    XCTAssertTrue([int16arg isEqual:int16arg], DBUEqualityTestFailed);
+    XCTAssertTrue([int16arg equals_withObjInt16:int16arg.db_int16Value], DBUEqualityTestFailed);
+    XCTAssertFalse([int16arg equals_withObjObject:int32arg], DBUEqualityTestFailed);
+
     // enum equality testing
-    DULongEnum_ *longEnum1 = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
-    DULongEnum_ *longEnum1a = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
-    XCTAssertTrue([longEnum1 isEqual:longEnum1a], DBUEqualityTestFailed);
-    
-    //MonoObject *monoObject = [longEnum1 invokeMonoMethod:"ReferenceEquals(object)" withNumArgs:1, longEnum1];
-    BOOL b = [System_Object referenceEquals_withObjA:longEnum1 objB:longEnum1a];
-    int a = 0;
-    */
+    //DULongEnum_ *longEnum1 = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
+    //DULongEnum_ *longEnum1a = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
+    //XCTAssertTrue([longEnum1 isEqual:longEnum1a], DBUEqualityTestFailed);
 }
 
 - (void)doTestFields:(id)refObject class:(Class)testClass
