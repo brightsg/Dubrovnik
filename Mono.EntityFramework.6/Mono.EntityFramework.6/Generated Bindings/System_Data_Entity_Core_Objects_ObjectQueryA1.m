@@ -116,8 +116,8 @@
 
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)ofType_withTypeParameter:(id)typeParameter
 {
-	DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"OfType()" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:0];
+	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"OfType()" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeMethod:method withNumArgs:0];
 	return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
 }
 

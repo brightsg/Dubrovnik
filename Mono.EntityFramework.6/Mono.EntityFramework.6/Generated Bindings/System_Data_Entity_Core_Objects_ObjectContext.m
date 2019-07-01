@@ -169,15 +169,15 @@
 
 - (System_Object *)applyCurrentValues_withEntitySetName:(NSString *)p1 currentEntity:(System_Object *)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ApplyCurrentValues(string,TEntity)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:2, [p1 monoRTInvokeObject], [self monoRTInvokeArg:p2 typeParameterIndex:0]];
+	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"ApplyCurrentValues(string,TEntity)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [method monoRTInvokeArg:p2 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)applyOriginalValues_withEntitySetName:(NSString *)p1 originalEntity:(System_Object *)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"ApplyOriginalValues(string,TEntity)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:2, [p1 monoRTInvokeObject], [self monoRTInvokeArg:p2 typeParameterIndex:0]];
+	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"ApplyOriginalValues(string,TEntity)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [method monoRTInvokeArg:p2 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -208,22 +208,22 @@
 
 - (System_Object *)createObject_withTypeParameter:(id)typeParameter
 {
-	DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"CreateObject()" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:0];
+	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"CreateObject()" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeMethod:method withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Data_Entity_Core_Objects_ObjectSetA1 *)createObjectSet_withTypeParameter:(id)typeParameter
 {
-	DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"CreateObjectSet()" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:0];
+	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"CreateObjectSet()" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeMethod:method withNumArgs:0];
 	return [System_Data_Entity_Core_Objects_ObjectSetA1 objectSetWithMonoObject:monoObject];
 }
 
 - (System_Data_Entity_Core_Objects_ObjectSetA1 *)createObjectSet_withEntitySetName:(NSString *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"CreateObjectSet(string)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:1, [p1 monoRTInvokeObject]];
+	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"CreateObjectSet(string)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Data_Entity_Core_Objects_ObjectSetA1 objectSetWithMonoObject:monoObject];
 }
 
