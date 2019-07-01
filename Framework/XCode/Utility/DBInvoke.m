@@ -26,9 +26,8 @@ void (^DBOnManagedExceptionWillRaise)(MonoObject *) = nil;
 char *DBFormatPropertyName(const char * propertyName, const char* fmt);
 
 inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, unsigned int numArgs) {
-	if(numArgs > 0) {
-		int i;
-		for(i = 0; i < numArgs; i++) {
+	if (numArgs > 0) {
+		for(unsigned int i = 0; i < numArgs; i++) {
 			args[i] = va_arg(va_args, void *);
 		}
 	}
@@ -330,7 +329,6 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, B
 	return(meth);
 }
 
-
 MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName, BOOL requireSignature) {
     
     if (requireSignature) {
@@ -449,8 +447,6 @@ MonoMethod *GetPropertySetMethod(MonoClass *monoClass, const char *name) {
 	return method;
 }
 
-
-
 inline static void SetPropertyGetMethod(MonoClass *monoClass, const char *name, MonoMethod *method) {
     MethodCacheInsert(&m_propertyGetMethodMap, monoClass, name, method);
 }
@@ -559,9 +555,9 @@ MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, unsi
 
 MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, unsigned int numArgs, va_list va_args)
 {
-    // get the runtime method
-	MonoMethod *meth = GetMonoObjectMethod(monoObject, methodName, YES);
-    if (!meth) {
+    // get method
+	MonoMethod *monoMethod = GetMonoObjectMethod(monoObject, methodName, YES);
+    if (!monoMethod) {
         [NSException raise:@"DBMethodNotFoundException" format:@"Managed object method not found: %s", methodName];
     }
     
@@ -569,13 +565,12 @@ MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, u
     void *monoArgs[numArgs];
     DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
     
-    // if invoking method on a reference type object then unbox it
-    MonoClass *klass = mono_object_get_class(monoObject);
-    void *invokeObj = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
+    // get the invocation pointer
+    void *invokePtr = DBMonoInvokePtr(monoObject);
     
     // invoke the method
     MonoObject *monoException = NULL;
-    MonoObject *retval = mono_runtime_invoke(meth, invokeObj, monoArgs, &monoException);
+    MonoObject *retval = mono_runtime_invoke(monoMethod, invokePtr, monoArgs, &monoException);
 	
     // handle managed exception
     if (monoException != NULL) {
@@ -585,28 +580,37 @@ MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, u
 	return retval;
 }
 
-void *DBMonoObjectValue(MonoObject *monoObject)
+void *DBMonoInvokePtr(MonoObject *monoObject)
 {
     // returns a pointer to an address that can be used as a property value or invocation argument
     MonoClass *klass = mono_object_get_class(monoObject);
-    void *valueObject = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
-    return valueObject;
+    
+    // the invocation API wants value types to be unboxed
+    void *invokePtr = DB_IS_VALUETYPE(klass)? mono_object_unbox(monoObject) : monoObject;
+    
+    return invokePtr;
 }
 
 #pragma mark -
 #pragma mark Property Access
 
 MonoObject *DBMonoObjectGetProperty(MonoObject *monoObject, const char *propertyName) {
-	MonoObject *monoException = NULL;
+    
+    // get method
 	MonoClass *klass = mono_object_get_class(monoObject);
 	MonoMethod *monoMethod = GetPropertyGetMethod(klass, propertyName);
+    if (!monoMethod) {
+        [NSException raise:@"DBGetPropertyMethodNotFoundException" format:@"Managed object get property method not found: %s", propertyName];
+    }
+    
+    // get the invocation pointer
+    void *invokePtr = DBMonoInvokePtr(monoObject);
+    
+    // invoke the method
+    MonoObject *monoException = NULL;
+    MonoObject *retval= mono_runtime_invoke(monoMethod, invokePtr, NULL, &monoException);
 	
-	MonoObject *retval = NULL;
-	if (monoMethod != NULL) {
-		void *invokeObj = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
-		retval = mono_runtime_invoke(monoMethod, invokeObj, NULL, &monoException);
-	}
-	
+    // handle managed exception
 	if (monoException != NULL) {
         @throw(NSExceptionFromMonoException(monoException, @{@"DBObjectGetPropertyException" : @(propertyName)}));
     }
@@ -630,22 +634,8 @@ MonoObject *DBMonoClassGetProperty(MonoClass *monoClass, const char *propertyNam
 	return(retval);
 }
 
-void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, MonoObject *valueObject) {
-
-	// NOTE:
-    // IF valueObject represents a .NET object or string (ie: a ref type) then it is passed as a MonoObject *.
-    // ELSE it is passed as a direct pointer to the value type or as an unboxed MonoObject : (MonoObject *)mono_object_unbox(monoObject)
-    // Failure to observe the above is a common source of problems.
-    //
-    // Value types: see http://msdn.microsoft.com/en-us/library/s1ax56ch.aspx
-    // These are all defined as public struct. All struct types are value types.
-    // All structs inherit directly from System.ValueType, which inherits from System.Object.
-    // bool, byte,char,decimal, double, enum, float, int, long, sbyte, short, struct, unit, ulong, ushort
-    //
-    // Reference types: see http://msdn.microsoft.com/en-us/library/490f96s2.aspx
-    // Declarations: class, interface, delegate
-    // Types: dynamic, object, string
-    //
+void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, MonoObject *valueObject)
+{
     MonoObject *monoException = NULL;
 	MonoClass *klass = mono_object_get_class(monoObject);
 	MonoMethod *monoMethod = GetPropertySetMethod(klass, propertyName);
@@ -653,8 +643,12 @@ void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, M
 	args[0] = valueObject;
 	
 	if (monoMethod != NULL) {
-		void *invokeObj = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
-		mono_runtime_invoke(monoMethod, invokeObj, args, &monoException);
+        
+        // get the invocation pointer
+        void *invokePtr = DBMonoInvokePtr(monoObject);
+
+        // invoke the method
+		mono_runtime_invoke(monoMethod, invokePtr, args, &monoException);
 	}
 	
 	if (monoException != NULL) {
@@ -688,7 +682,7 @@ MonoObject *DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, 
     
 	MonoClass *monoClass = mono_object_get_class(monoObject);
 	MonoClassField *field = mono_class_get_field_from_name(monoClass, fieldName);
-    MonoType* fieldType = mono_field_get_type(field);
+    MonoType *fieldType = mono_field_get_type(field);
     MonoClass *klass = mono_class_from_mono_type(fieldType);
     
     // if no valueObject then use a local buffer
@@ -711,9 +705,6 @@ MonoObject *DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, 
         } else {
             monoResult = *(void **)valuebuffer;
         }
-    }
-    
-    if (localBuffer) {
         free(valuebuffer);
     }
     
@@ -768,9 +759,6 @@ MonoObject *DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, voi
         } else {
             monoResult = *(void **)valuebuffer;
         }
-    }
-    
-    if (localBuffer) {
         free(valuebuffer);
     }
     
@@ -801,8 +789,11 @@ MonoObject *DBMonoObjectGetIndexedObject(MonoObject *monoObject, void *indexObje
 	
 	MonoObject *retval = NULL;
 	if(monoMethod != NULL) {
-		void *invokeObj = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
-		retval = mono_runtime_invoke(monoMethod, invokeObj, args, &monoException);
+        // get the invocation pointer
+        void *invokePtr = DBMonoInvokePtr(monoObject);
+        
+        // invoke the method
+		retval = mono_runtime_invoke(monoMethod, invokePtr, args, &monoException);
 	}
 	
     if(monoException != NULL) {
@@ -821,8 +812,11 @@ void DBMonoObjectSetIndexedObject(MonoObject *monoObject, void *indexObject, Mon
 	args[1] = valueObject;
 	
 	if(monoMethod != NULL) {
-		void *invokeObj = mono_class_is_valuetype(klass) ? mono_object_unbox(monoObject) : monoObject;
-		mono_runtime_invoke(monoMethod, invokeObj, args, &monoException);
+        // get the invocation pointer
+        void *invokePtr = DBMonoInvokePtr(monoObject);
+        
+        // invoke the method
+		mono_runtime_invoke(monoMethod, invokePtr, args, &monoException);
 	}
 	
     if(monoException != NULL) {
@@ -893,7 +887,7 @@ BOOL DBMonoNullableObjectHasValue(MonoObject *monoNullable)
     return hasValue;
 }
 
-MonoObject * DBMonoNullableObjectValue(MonoObject *monoNullable)
+MonoObject *DBMonoNullableObjectValue(MonoObject *monoNullable)
 {
     return DBMonoObjectGetProperty(monoNullable, "Value");
 }

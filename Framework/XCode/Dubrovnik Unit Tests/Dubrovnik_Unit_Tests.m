@@ -801,7 +801,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([object2 hash] != [object3 hash], DBUInequalityTestFailed);
     XCTAssertTrue(![object2 isEqual:object3], DBUInequalityTestFailed);
     
-    // value type equality and comparison testing
+    //
+    // value type
+    //
     System_Int16 *int16arg = [System_Int16 objectWithInt16:123];
     System_Int16 *int16arg2 = [System_Int16 objectWithInt16:123];
     System_Int16 *int16arg3 = [System_Int16 objectWithInt16:456];
@@ -828,10 +830,36 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([int16arg equals_withObjInt16:int16arg.db_int16Value], DBUEqualityTestFailed);
     XCTAssertFalse([int16arg equals_withObjObject:int32arg], DBUEqualityTestFailed);
 
-    // enum equality testing
-    //DULongEnum_ *longEnum1 = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
-    //DULongEnum_ *longEnum1a = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
-    //XCTAssertTrue([longEnum1 isEqual:longEnum1a], DBUEqualityTestFailed);
+    //
+    // enum
+    //
+    DULongEnum_ *longEnum1 = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
+    DULongEnum_ *longEnum1a = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
+    DULongEnum_ *longEnum2 = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val2];
+    
+    // enum comparison
+    XCTAssertTrue([longEnum1 compareTo_withTarget:longEnum1] == 0, DBUEqualityTestFailed);
+    XCTAssertTrue([longEnum1 compareTo_withTarget:longEnum2] < 0, DBUInequalityTestFailed);
+    
+    // enum equality
+    XCTAssertFalse([longEnum1 isEqual:nil], DBUInequalityTestFailed);
+    XCTAssertFalse([longEnum1 isEqual:@"not me".managedString], DBUInequalityTestFailed);
+    XCTAssertTrue([longEnum1 isEqual:longEnum1], DBUEqualityTestFailed);
+    XCTAssertTrue([longEnum1 isEqual:longEnum1a], DBUEqualityTestFailed);
+    XCTAssertFalse([longEnum1 isEqual:longEnum2], DBUInequalityTestFailed);
+    
+    //
+    // nullable equality
+    //
+    SNullableA1_ *nullableInt1 = [SNullableA1_ newNullableFromInt64:122];
+    SNullableA1_ *nullableInt1a = [SNullableA1_ newNullableFromInt64:122];
+    SNullableA1_ *nullableInt2 = [SNullableA1_ newNullableFromInt64:123];
+    
+    // nullable equality
+    XCTAssertFalse([nullableInt1 isEqual:nil], DBUInequalityTestFailed);
+    XCTAssertTrue([nullableInt1 isEqual:nullableInt1], DBUEqualityTestFailed);
+    XCTAssertTrue([nullableInt1 isEqual:nullableInt1a], DBUEqualityTestFailed);
+    XCTAssertFalse([nullableInt1 isEqual:nullableInt2], DBUInequalityTestFailed);
 }
 
 - (void)doTestFields:(id)refObject class:(Class)testClass
@@ -1886,7 +1914,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
 }
 
-- (void)doTestEnumderations
+- (void)doTestEnumerations
 {
 
     if (m_runningAutoGenCodeTest) {
@@ -1922,9 +1950,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         
         DULongEnum_ *longEnum = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
         XCTAssertTrue(longEnum.db_int64Value == Dubrovnik_UnitTests_LongEnum_val1, DBUEqualityTestFailed);
+        
+        NSString *stringValue = [System_Enum getName_withEnumType:[DULongEnum_ db_getType] value:longEnum];
+        XCTAssertTrue([stringValue isEqualToString:@"val1"], DBUEqualityTestFailed);
     }
-
 }
+
 - (void)doTestStructRepresentation:(id)refObject class:(Class)testClass
 {
     
@@ -2293,7 +2324,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         [self doTestStructRepresentation:refObject class:testClass];
         [self doTestObjectRepresentation:refObject class:testClass];
         [self doTestArrayListRepresentation:refObject class:testClass];
-        [self doTestEnumderations];
+        [self doTestEnumerations];
         
         //===================================
         // Delegates
