@@ -219,7 +219,7 @@ static NSString * m_empty;
 
 + (NSString *)concat_withValuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Concat(System.Collections.Generic.IEnumerable`1<string/T>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Concat(System.Collections.Generic.IEnumerable`1<string/T>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
@@ -485,7 +485,7 @@ static NSString * m_empty;
 
 + (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Join(string,System.Collections.Generic.IEnumerable`1<string/T>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Join(string,System.Collections.Generic.IEnumerable`1<string/T>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }

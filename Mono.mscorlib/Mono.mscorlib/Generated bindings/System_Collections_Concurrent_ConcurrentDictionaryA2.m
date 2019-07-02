@@ -156,7 +156,7 @@
 
 - (System_Object *)addOrUpdate_withKey:(System_Object *)p1 addValueFactory:(System_FuncA3 *)p2 updateValueFactory:(System_FuncA4 *)p3 factoryArgument:(System_Object *)p4 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"AddOrUpdate(<_T_0>,System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TArg, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>,System.Func`4<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue, System.Collections.Concurrent.ConcurrentDictionary`2/TArg, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>,TArg)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"AddOrUpdate(<_T_0>,System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TArg, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>,System.Func`4<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TValue, System.Collections.Concurrent.ConcurrentDictionary`2/TArg, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>,TArg)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:4, [self monoRTInvokeArg:p1 typeParameterIndex:0], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [method monoRTInvokeArg:p4 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
@@ -198,7 +198,7 @@
 
 - (System_Object *)getOrAdd_withKey:(System_Object *)p1 valueFactory:(System_FuncA3 *)p2 factoryArgument:(System_Object *)p3 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"GetOrAdd(<_T_0>,System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TArg, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>,TArg)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"GetOrAdd(<_T_0>,System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2/TKey, System.Collections.Concurrent.ConcurrentDictionary`2/TArg, System.Collections.Concurrent.ConcurrentDictionary`2/TValue>,TArg)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:3, [self monoRTInvokeArg:p1 typeParameterIndex:0], [p2 monoRTInvokeObject], [method monoRTInvokeArg:p3 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }

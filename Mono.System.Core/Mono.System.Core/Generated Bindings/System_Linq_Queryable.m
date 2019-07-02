@@ -43,7 +43,7 @@
 
 + (BOOL)any_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Any(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Any(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
@@ -52,7 +52,7 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)asQueryable_withSourceSCGILQueryable__TElement:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"AsQueryable(System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TElement>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"AsQueryable(System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TElement>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
@@ -145,21 +145,21 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)cast_withSource:(System_Object <System_Linq_IQueryable_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Cast(System.Linq.IQueryable)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Cast(System.Linq.IQueryable)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object <System_Linq_IQueryableA1> *)concat_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Concat(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Concat(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (BOOL)contains_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 item:(System_Object *)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Contains(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,TSource)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Contains(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,TSource)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [method monoRTInvokeArg:p2 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
@@ -168,7 +168,7 @@
 
 + (int32_t)count_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Count(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Count(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
@@ -177,21 +177,21 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)defaultIfEmpty_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"DefaultIfEmpty(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"DefaultIfEmpty(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object <System_Linq_IQueryableA1> *)defaultIfEmpty_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 defaultValue:(System_Object *)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"DefaultIfEmpty(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,TSource)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"DefaultIfEmpty(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,TSource)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [method monoRTInvokeArg:p2 typeParameterIndex:0]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object <System_Linq_IQueryableA1> *)distinct_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Distinct(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Distinct(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
@@ -200,21 +200,21 @@
 
 + (System_Object *)elementAt_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 index:(int32_t)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"ElementAt(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"ElementAt(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object *)elementAtOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 index:(int32_t)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"ElementAtOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"ElementAtOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object <System_Linq_IQueryableA1> *)except_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Except(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Except(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
@@ -223,7 +223,7 @@
 
 + (System_Object *)first_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"First(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"First(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
@@ -232,7 +232,7 @@
 
 + (System_Object *)firstOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"FirstOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"FirstOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
@@ -261,7 +261,7 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)intersect_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Intersect(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Intersect(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
@@ -274,7 +274,7 @@
 
 + (System_Object *)last_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Last(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Last(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
@@ -283,7 +283,7 @@
 
 + (System_Object *)lastOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"LastOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"LastOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
@@ -292,7 +292,7 @@
 
 + (int64_t)longCount_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"LongCount(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"LongCount(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT64(monoObject);
 }
@@ -301,7 +301,7 @@
 
 + (System_Object *)max_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Max(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Max(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
@@ -310,7 +310,7 @@
 
 + (System_Object *)min_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Min(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Min(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
@@ -319,7 +319,7 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)ofType_withSource:(System_Object <System_Linq_IQueryable_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"OfType(System.Linq.IQueryable)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"OfType(System.Linq.IQueryable)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
@@ -334,7 +334,7 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)reverse_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Reverse(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Reverse(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
@@ -353,7 +353,7 @@
 
 + (BOOL)sequenceEqual_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"SequenceEqual(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"SequenceEqual(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
@@ -362,7 +362,7 @@
 
 + (System_Object *)single_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Single(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Single(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
@@ -371,7 +371,7 @@
 
 + (System_Object *)singleOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"SingleOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"SingleOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
@@ -380,7 +380,7 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)skip_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 count:(int32_t)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Skip(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Skip(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
@@ -471,7 +471,7 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)take_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 count:(int32_t)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Take(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Take(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
@@ -490,7 +490,7 @@
 
 + (System_Object <System_Linq_IQueryableA1> *)union_withSource1:(System_Object <System_Linq_IQueryableA1_> *)p1 source2:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"Union(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [self methodWithMonoName:"Union(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,System.Collections.Generic.IEnumerable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
