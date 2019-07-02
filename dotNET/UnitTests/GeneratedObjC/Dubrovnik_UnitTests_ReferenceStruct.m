@@ -1,4 +1,4 @@
-//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceStruct.m
+﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceStruct.m
 //
 // Managed struct : ReferenceStruct
 //
@@ -69,7 +69,7 @@
 - (void)setStringField:(NSString *)value
 {
 	_stringField = value;
-	MonoObject *monoObject = [value monoRTInvokeObject];
+	MonoObject *monoObject = [value monoRTInvokeArg];
 	[self setMonoField:"StringField" valueObject:monoObject];
 }
 

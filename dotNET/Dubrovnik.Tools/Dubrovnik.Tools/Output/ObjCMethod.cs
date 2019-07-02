@@ -69,7 +69,8 @@ namespace Dubrovnik.Tools.Output
                         ObjCMethodName += "_";
                     }
                 }
-            } else {
+            }
+            else {
                 ObjCMethodType = "-";
 
                 // decorate instance method names known to be unsafe
@@ -97,19 +98,28 @@ namespace Dubrovnik.Tools.Output
                 ManagedValueToObjC = n2c.ManagedValueToObjc(ManagedVariableName, facet);
 
                 if (facet.IsGenericMethodDefinition) {
-                    // allocate and invoke the DBManagedMethod
-                    objCMethodPrepareFormat = "DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:\"{0}({1})\" typeParameters:typeParameter]";
+                    // generic method definitions require additional type processing prior to invocation.
+                    // DBManagedMethod co-ordinates this.
+                    if (facet.IsStatic) {
+                        objCMethodPrepareFormat = "DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoName:\"{0}({1})\" monoClass:self.monoClass typeParameters:typeParameter]";
+                    }
+                    else { 
+                        objCMethodPrepareFormat = "DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoName:\"{0}({1})\" object:self typeParameters:typeParameter]";
+                    }
                     objCMethodInvokeFormat = "[self invokeMethod:method withNumArgs:{2}]";
-                } else {
+                }
+                else {
                     if (facet.IsStatic) {
                         // invoke mono class method
                         objCMethodInvokeFormat = "[self invokeMonoClassMethod:\"{0}({1})\" withNumArgs:{2}]";
-                    } else {
+                    }
+                    else {
                         // invoke mono method
                         objCMethodInvokeFormat = "[self invokeMonoMethod:\"{0}({1})\" withNumArgs:{2}]";
                     }
                 }
-            } else {
+            }
+            else {
                 // this looks like a default constructor
                 if (facet.Parameters.Count() == 0) {
                     return;
@@ -135,7 +145,8 @@ namespace Dubrovnik.Tools.Output
                 if (facet.Parameters.Count() == 0) {
                     ObjCMethodName += "_with";
                     ObjCParameterBuilder.AppendFormat("{0}", parameterSig.FirstCharacterToUpper());
-                } else {
+                }
+                else {
                     ObjCParameterBuilder.AppendFormat(" {0}", parameterSig);
                 }
             }
@@ -225,7 +236,8 @@ namespace Dubrovnik.Tools.Output
 
                     objCParamTypeDecl = objCTypeAssociate.ObjCTypeDecl;
                     objCParameterIsObject = objCTypeAssociate.IsNSObject;
-                } else {
+                }
+                else {
                     //
                     // Generate default objC representations
                     //
@@ -285,7 +297,8 @@ namespace Dubrovnik.Tools.Output
                     if (parameter.IsArray) {
                         monoParameterTypeInvoke += "[]";
                     }
-                } else {
+                }
+                else {
                     monoParameterTypeInvoke = n2c.ManagedTypeInvokeFromManagedType(monoParameterType);
                 }
 
@@ -357,7 +370,8 @@ namespace Dubrovnik.Tools.Output
                         ObjCMethodName += "_with";
                         ObjCParameterBuilder.AppendFormat("{0}", objCParamName.FirstCharacterToUpper());
                     }
-                } else {
+                }
+                else {
                     ObjCParameterBuilder.AppendFormat(" {0}", objCParamName.FirstCharacterToLower());
                 }
                 ObjCParameterBuilder.AppendFormat(":({0})p{1}", objCParamTypeDecl, idx + 1);
@@ -372,25 +386,31 @@ namespace Dubrovnik.Tools.Output
                     if (parameter.IsByRef) {
                         // use reference pointer
                         argFormat = "&refPtr{0}";
-                    } else if (parameter.IsGenericParameter) {
+                    }
+                    else if (parameter.IsGenericParameter) {
                         if (parameter.DeclaredByMethod) {
                             argFormat = "[method monoRTInvokeArg:p{0}" + $" typeParameterIndex:{parameter.GenericParameterPosition}]";
-                        } else {
+                        }
+                        else {
                             argFormat = "[self monoRTInvokeArg:p{0}" + $" typeParameterIndex:{parameter.GenericParameterPosition}]";
                         }
-                    } else if (parameter.IsValueType) {
+                    }
+                    else if (parameter.IsValueType) {
                         // if parameter is of value type then get suitable embedded runtime API argument value.
                         // in general value types are passed as unboxed data.
                         argFormat = "[p{0} monoRTInvokeArg]";
-                    } else {
+                    }
+                    else {
                         // is parameter is of object type then get suitable embedded runtime API argument value.
                         // note that if the actual argument is of value type it will be passed as a boxed value.
                         argFormat = "[p{0} monoRTInvokeObject]";
                     }
-                } else {
+                }
+                else {
                     if (parameter.IsByRef || parameter.IsPointer) {
                         argFormat = "p{0}"; // just pass the pointer
-                    } else {
+                    }
+                    else {
                         argFormat = "DB_VALUE(p{0})";   // DB_VALUE equates to &
                     }
                 }

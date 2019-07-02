@@ -1,4 +1,4 @@
-//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject.m
+﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject.m
 //
 // Managed class : ReferenceObject
 //
@@ -111,7 +111,7 @@ static NSString * m_classStringField;
 + (void)setClassStringField:(NSString *)value
 {
 	m_classStringField = value;
-	MonoObject *monoObject = [value monoRTInvokeObject];
+	MonoObject *monoObject = [value monoRTInvokeArg];
 	[[self class] setMonoClassField:"ClassStringField" valueObject:monoObject];
 }
 
@@ -188,7 +188,7 @@ static NSString * m_classStringField;
 - (void)setStringField:(NSString *)value
 {
 	_stringField = value;
-	MonoObject *monoObject = [value monoRTInvokeObject];
+	MonoObject *monoObject = [value monoRTInvokeArg];
 	[self setMonoField:"StringField" valueObject:monoObject];
 }
 
@@ -1833,42 +1833,42 @@ static NSString * m_classStringProperty;
 
 - (NSString *)genericMethod0_withTypeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"GenericMethod0()" typeParameters:typeParameter];
+	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoName:"GenericMethod0()" object:self typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:0];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (NSString *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"GenericMethod02()" typeParameters:typeParameter];
+	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoName:"GenericMethod02()" object:self typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:0];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"GenericMethod1(T)" typeParameters:typeParameter];
+	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoName:"GenericMethod1(T)" object:self typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [method monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"GenericMethod2(T,U)" typeParameters:typeParameter];
+	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoName:"GenericMethod2(T,U)" object:self typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [method monoRTInvokeArg:p1 typeParameterIndex:0], [method monoRTInvokeArg:p2 typeParameterIndex:1]];
 	return [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"GenericMethodList1(System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject/T>)" typeParameters:typeParameter];
+	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoName:"GenericMethodList1(System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject/T>)" object:self typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Collections_Generic_DictionaryA2 *)genericMethodStatic2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
 {
-	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"GenericMethodStatic2(T,U)" typeParameters:typeParameter];
+	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoName:"GenericMethodStatic2(T,U)" monoClass:self.monoClass typeParameters:typeParameter];
 	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [method monoRTInvokeArg:p1 typeParameterIndex:0], [method monoRTInvokeArg:p2 typeParameterIndex:1]];
 	return [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 }
@@ -2067,7 +2067,7 @@ static NSString * m_classStringProperty;
 
 - (NSString *)stringMethodWithStringRef_withS1Ref:(NSString **)p1
 {
-	void *refPtr1 = [*p1 monoRTInvokeObject];
+	void *refPtr1 = [*p1 monoRTInvokeArg];
 	MonoObject *monoObject = [self invokeMonoMethod:"StringMethodWithStringRef(string&)" withNumArgs:1, &refPtr1];
 	*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
