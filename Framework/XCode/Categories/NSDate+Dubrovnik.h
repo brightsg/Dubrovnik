@@ -45,7 +45,7 @@ typedef NS_OPTIONS(NSUInteger, DBMonoDateTimeOptions) {
 
 - (MonoObject *)monoObject;
 - (MonoObject *)monoDateTime;
-- (MonoObject *)monoRTInvokeArg;
+- (void *)monoRTInvokeArg;
 - (MonoObject *)nullableMonoDateTime;
 - (MonoObject *)nullableMonoValue;
 

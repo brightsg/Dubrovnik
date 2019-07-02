@@ -17,6 +17,7 @@
 - (id)initWithMonoArray:(MonoArray *)monoArray;
 
 - (MonoArray *)monoArray;
-- (MonoObject *)monoRTInvokeArg;
+- (MonoObject *)monoRTInvokeObject;
+- (void *)monoRTInvokeArg;
 - (MonoObject *)monoObject;
 @end

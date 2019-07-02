@@ -21,7 +21,7 @@
 
 - (MonoObject *)monoObject;
 - (MonoObject *)monoDecimal;
-- (MonoObject *)monoRTInvokeArg;
+- (void *)monoRTInvokeArg;
 - (MonoObject *)nullableMonoDecimal;
 - (MonoObject *)nullableMonoValue;
 

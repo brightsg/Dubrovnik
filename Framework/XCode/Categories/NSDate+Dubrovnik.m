@@ -143,7 +143,7 @@ static DBMonoDateTimeOptions m_monoDateTimeOptions = DBMonoDateTimeOptionNone;
     return [self monoObject];
 }
 
-- (MonoObject *)monoRTInvokeArg
+- (void *)monoRTInvokeArg
 {
     // unbox value type for use in invocation
     return DB_OBJECT(mono_object_unbox([self monoDateTime]));

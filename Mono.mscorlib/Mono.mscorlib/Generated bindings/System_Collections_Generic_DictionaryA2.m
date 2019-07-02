@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator System_Collections_Generic_DictionaryA2.m
+//++Dubrovnik.CodeGenerator System_Collections_Generic_DictionaryA2.m
 //
 // Managed class : Dictionary`2<TKey, TValue>
 //

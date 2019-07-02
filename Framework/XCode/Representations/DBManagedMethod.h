@@ -16,14 +16,17 @@
 @property (assign, readwrite) MonoType *genericMonoType;
 @property (assign, readonly) MonoArray *monoReflectionTypeParameters;
 
-/*! typeParameter may be a type defining object or an array of such objects
- */
-@property (strong, nonatomic) id typeParameters; // System_Type[] - will respond to -monoArray
-
 + (instancetype)methodWithMonoMethodNamed:(const char *)methodName;
 + (instancetype)methodWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName;
 
 - (id)initWithMonoMethodNamed:(const char *)methodName;
 - (id)initWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName;
+- (id)initWithMonoMethodNamed:(const char *)methodName
+                    className:(const char *)className
+                 assemblyName:(const char *)assemblyName
+ monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters;
 
+- (MonoType *)monoTypeParameterAtIndex:(NSUInteger)idx;
+
+- (void *)monoRTInvokeArg:(id)object typeParameterIndex:(NSUInteger)idx;
 @end

@@ -52,7 +52,7 @@
 - (System_Type *)constructType:(const char *)typeName monoImage:(MonoImage *)monoImage typeParameters:(NSArray<id> *)typeParameters
 {
     // get System.Array of System.Type
-    NSArray <System_Type *> *systemTypes = [self systemTypesForTypeParameters:typeParameters];
+    NSArray <System_Type *> *systemTypes = [self systemTypesForObjects:typeParameters];
     System_Array *systemTypesManaged = [systemTypes managedArrayWithTypeName:[System_Type managedTypeName]];
     
     // get type representing type definition
@@ -67,45 +67,45 @@
 }
 
 #pragma mark -
-#pragma mark Generic type parameter helper methods
+#pragma mark Type helper methods
 
-- (MonoType *)monoTypeForTypeParameter:(id)typeParameter
+- (MonoType *)monoTypeForObject:(id)typeObject
 {
     MonoType *monoType = NULL;
     
     // System_Object subclass class - eg: [System_String class]
-    if (class_isMetaClass(object_getClass(typeParameter))) {
+    if (class_isMetaClass(object_getClass(typeObject))) {
         
         // validate the class
-        Class typeClass = typeParameter;
+        Class typeClass = typeObject;
         if (![typeClass isSubclassOfClass:[System_Object class]]) [NSException raise:@"Invalid class" format:@""];
         
         monoType = [typeClass monoType];
     }
     
     // System_Type instance - eg: [System_String db_getType]
-    else if ([typeParameter isKindOfClass:[System_Type class]]) {
-        return [(System_Type *)typeParameter monoType];
+    else if ([typeObject isKindOfClass:[System_Type class]]) {
+        return [(System_Type *)typeObject monoType];
     }
     
     // object responding to -monoObject (this obviously includes System_Object)
-    else if ([typeParameter respondsToSelector:@selector(monoObject)]) {
+    else if ([typeObject respondsToSelector:@selector(monoObject)]) {
         
         // get System.Type representation from -monoObject
-        monoType = [DBType monoTypeForMonoObject:[typeParameter monoObject]];
+        monoType = [DBType monoTypeForMonoObject:[typeObject monoObject]];
     }
     
     // DBManagedType
-    else if ([typeParameter isKindOfClass:[DBManagedType class]]) {
+    else if ([typeObject isKindOfClass:[DBManagedType class]]) {
         // if this misbehaves consider how we deal with [System_Type class] above
-        monoType = [(DBManagedType *)typeParameter monoType];
+        monoType = [(DBManagedType *)typeObject monoType];
     }
 
     // NSValue containing pointer
-    else if ([typeParameter isKindOfClass:[NSValue class]]) {
+    else if ([typeObject isKindOfClass:[NSValue class]]) {
         
         // -pointerValue must contain *monoType
-        monoType = [(NSValue *)typeParameter pointerValue];
+        monoType = [(NSValue *)typeObject pointerValue];
     }
     else {
         [NSException raise:@"Invalid object" format:@""];
@@ -114,16 +114,31 @@
     return monoType;
 }
 
-- (NSArray<System_Type *> *)systemTypesForTypeParameters:(NSArray<id> *)typeParameters
+- (NSArray<System_Type *> *)systemTypesForObject:(id)typeObject
 {
-    NSMutableArray <System_Type *> *systemTypes = [NSMutableArray arrayWithCapacity:typeParameters.count];
+    // get System_Type instances from possibly diverse typeParametersObject
+    NSArray *typeParameters = nil;
+    if (![typeObject isKindOfClass:[NSArray class]]) {
+        typeParameters = @[typeObject];
+    }
+    else {
+        typeParameters = typeObject;
+    }
+    NSArray<System_Type *> *systemTypeParameters = [self systemTypesForObjects:typeParameters];
+    
+    return systemTypeParameters;
+}
+
+- (NSArray<System_Type *> *)systemTypesForObjects:(NSArray<id> *)typeObjects
+{
+    NSMutableArray <System_Type *> *systemTypes = [NSMutableArray arrayWithCapacity:typeObjects.count];
     
     // build an array of System_Type
     @try {
-        for (id typeParameter in typeParameters) {
+        for (id typeObject in typeObjects) {
             
             // get monoType for parameter
-            MonoType *monoType = [self monoTypeForTypeParameter:typeParameter];
+            MonoType *monoType = [self monoTypeForObject:typeObject];
             
             // get System.Type
             MonoReflectionType *monoReflectionType = mono_type_get_object([DBManagedEnvironment currentDomain], monoType);
@@ -140,23 +155,19 @@
     return systemTypes;
 }
 
-- (DBManagedMethod *)methodWithMonoMethodNamed:(const char *)methodName typeParameters:(id)typeParametersObject
+- (DBManagedMethod *)methodWithMonoMethodNamed:(const char *)methodName typeParameters:(id)typeParameters
 {
-    DBManagedMethod *method = [DBManagedMethod methodWithMonoMethodNamed:methodName className:NULL assemblyName:NULL];
+    NSArray<System_Type *> *systemTypeParameters = [self systemTypesForObject:typeParameters];
     
-    // get System_Type instances from possibly diverse typeParametersObject
-    NSArray *typeParameters = nil;
-    if (![typeParametersObject isKindOfClass:[NSArray class]]) {
-        typeParameters = @[typeParametersObject];
-    }
-    else {
-        typeParameters = typeParametersObject;
-    }
-    NSArray *systemTypeParameters =  [self systemTypesForTypeParameters:typeParameters];
+    // create a MonoArray of System_Type aka MonoReflectionType
+    System_Array *typeParametersSystemArray = [systemTypeParameters managedArrayWithTypeName:@"System_Object"];
+    MonoArray *monoReflectionTypeParameters = typeParametersSystemArray.monoArray;
     
-    // create a System_Array of System_Type.
-    // if we send -monoArray or -monoObject to this object we will get a MonoArray *
-    method.typeParameters =  [systemTypeParameters managedArrayWithTypeName:@"System_Object"];
+    // create methjod object that contains method level generic type parameter info
+    DBManagedMethod *method = [[DBManagedMethod alloc] initWithMonoMethodNamed:methodName
+                                                                     className:NULL
+                                                                  assemblyName:NULL
+                                                  monoReflectionTypeParameters:monoReflectionTypeParameters];
     
     return method;
 }

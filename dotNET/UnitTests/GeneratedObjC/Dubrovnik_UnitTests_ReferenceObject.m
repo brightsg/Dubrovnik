@@ -1,4 +1,4 @@
-﻿//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject.m
+//++Dubrovnik.CodeGenerator Dubrovnik_UnitTests_ReferenceObject.m
 //
 // Managed class : ReferenceObject
 //
@@ -111,7 +111,7 @@ static NSString * m_classStringField;
 + (void)setClassStringField:(NSString *)value
 {
 	m_classStringField = value;
-	MonoObject *monoObject = [value monoRTInvokeArg];
+	MonoObject *monoObject = [value monoRTInvokeObject];
 	[[self class] setMonoClassField:"ClassStringField" valueObject:monoObject];
 }
 
@@ -188,7 +188,7 @@ static NSString * m_classStringField;
 - (void)setStringField:(NSString *)value
 {
 	_stringField = value;
-	MonoObject *monoObject = [value monoRTInvokeArg];
+	MonoObject *monoObject = [value monoRTInvokeObject];
 	[self setMonoField:"StringField" valueObject:monoObject];
 }
 
@@ -2067,7 +2067,7 @@ static NSString * m_classStringProperty;
 
 - (NSString *)stringMethodWithStringRef_withS1Ref:(NSString **)p1
 {
-	void *refPtr1 = [*p1 monoRTInvokeArg];
+	void *refPtr1 = [*p1 monoRTInvokeObject];
 	MonoObject *monoObject = [self invokeMonoMethod:"StringMethodWithStringRef(string&)" withNumArgs:1, &refPtr1];
 	*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];

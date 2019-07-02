@@ -800,6 +800,66 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [(id)object3 setStringProperty:[NSString stringWithFormat:@"+%@", eProperty]];
     XCTAssertTrue([object2 hash] != [object3 hash], DBUInequalityTestFailed);
     XCTAssertTrue(![object2 isEqual:object3], DBUInequalityTestFailed);
+    
+    //
+    // value type
+    //
+    System_Int16 *int16arg = [System_Int16 objectWithInt16:123];
+    System_Int16 *int16arg2 = [System_Int16 objectWithInt16:123];
+    System_Int16 *int16arg3 = [System_Int16 objectWithInt16:456];
+    System_Int32 *int32arg = [System_Int32 objectWithInt32:456];
+
+    // value comparison
+    XCTAssertFalse([int16arg compareTo_withValueInt16:int16arg.db_int16Value], DBUInequalityTestFailed);
+    XCTAssertTrue([int16arg compareTo_withValueObject:int16arg] == 0, DBUEqualityTestFailed);
+    XCTAssertTrue([int16arg compareTo_withValueObject:int16arg2] == 0, DBUEqualityTestFailed);
+    XCTAssertTrue([int16arg compareTo_withValueObject:int16arg3] < 0, DBUInequalityTestFailed);
+    XCTAssertTrue([int16arg3 compareTo_withValueObject:int16arg2] > 0, DBUInequalityTestFailed);
+    BOOL exceptionCaught = NO;
+    @try {
+        [int16arg3 compareTo_withValueObject:int32arg];
+    }
+    @catch (NSException *e) {
+        exceptionCaught = YES;
+    }
+    XCTAssertTrue(exceptionCaught, DBUEqualityTestFailed);
+    
+    // value equality
+    XCTAssertFalse([int16arg isEqual:@"not me".managedString], DBUInequalityTestFailed);
+    XCTAssertTrue([int16arg isEqual:int16arg], DBUEqualityTestFailed);
+    XCTAssertTrue([int16arg equals_withObjInt16:int16arg.db_int16Value], DBUEqualityTestFailed);
+    XCTAssertFalse([int16arg equals_withObjObject:int32arg], DBUEqualityTestFailed);
+
+    //
+    // enum
+    //
+    DULongEnum_ *longEnum1 = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
+    DULongEnum_ *longEnum1a = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
+    DULongEnum_ *longEnum2 = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val2];
+    
+    // enum comparison
+    XCTAssertTrue([longEnum1 compareTo_withTarget:longEnum1] == 0, DBUEqualityTestFailed);
+    XCTAssertTrue([longEnum1 compareTo_withTarget:longEnum2] < 0, DBUInequalityTestFailed);
+    
+    // enum equality
+    XCTAssertFalse([longEnum1 isEqual:nil], DBUInequalityTestFailed);
+    XCTAssertFalse([longEnum1 isEqual:@"not me".managedString], DBUInequalityTestFailed);
+    XCTAssertTrue([longEnum1 isEqual:longEnum1], DBUEqualityTestFailed);
+    XCTAssertTrue([longEnum1 isEqual:longEnum1a], DBUEqualityTestFailed);
+    XCTAssertFalse([longEnum1 isEqual:longEnum2], DBUInequalityTestFailed);
+    
+    //
+    // nullable equality
+    //
+    SNullableA1_ *nullableInt1 = [SNullableA1_ newNullableFromInt64:122];
+    SNullableA1_ *nullableInt1a = [SNullableA1_ newNullableFromInt64:122];
+    SNullableA1_ *nullableInt2 = [SNullableA1_ newNullableFromInt64:123];
+    
+    // nullable equality
+    XCTAssertFalse([nullableInt1 isEqual:nil], DBUInequalityTestFailed);
+    XCTAssertTrue([nullableInt1 isEqual:nullableInt1], DBUEqualityTestFailed);
+    XCTAssertTrue([nullableInt1 isEqual:nullableInt1a], DBUEqualityTestFailed);
+    XCTAssertFalse([nullableInt1 isEqual:nullableInt2], DBUInequalityTestFailed);
 }
 
 - (void)doTestFields:(id)refObject class:(Class)testClass
@@ -1552,7 +1612,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     // test using managed indexer exposed as get_Item_withKey:
 #warning need to look at this. it calls - (id)bestObjectWithMonoObject: so we have a method advertised as System_Object returning a DBNumber as -bestObjectWithMonoObject: prefers to package managed numerics as an NSNumber subclass as opposed to say a System_Int.
-    DBNumber *valNumber = (DBNumber *)[intIntDictA2 get_Item_withKey:[[DBNumber numberWithInt:3] managedObject]];
+    DBNumber *valNumber = (DBNumber *)[intIntDictA2 get_Item_withKey:[DBNumber numberWithInt:3].managedObject];
     XCTAssertTrue([valNumber intValue] == 6, DBUEqualityTestFailed);
     
     // key is a DBManagedObject containing a boxed int
@@ -1854,7 +1914,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
 }
 
-- (void)doTestEnumderations
+- (void)doTestEnumerations
 {
 
     if (m_runningAutoGenCodeTest) {
@@ -1890,9 +1950,12 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         
         DULongEnum_ *longEnum = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
         XCTAssertTrue(longEnum.db_int64Value == Dubrovnik_UnitTests_LongEnum_val1, DBUEqualityTestFailed);
+        
+        NSString *stringValue = [System_Enum getName_withEnumType:[DULongEnum_ db_getType] value:longEnum];
+        XCTAssertTrue([stringValue isEqualToString:@"val1"], DBUEqualityTestFailed);
     }
-
 }
+
 - (void)doTestStructRepresentation:(id)refObject class:(Class)testClass
 {
     
@@ -2261,7 +2324,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         [self doTestStructRepresentation:refObject class:testClass];
         [self doTestObjectRepresentation:refObject class:testClass];
         [self doTestArrayListRepresentation:refObject class:testClass];
-        [self doTestEnumderations];
+        [self doTestEnumerations];
         
         //===================================
         // Delegates

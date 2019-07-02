@@ -88,7 +88,7 @@ static DBManagedClass *_classRep = nil;
     return self;
 }
 
-- (MonoObject *)monoRTInvokeArg
+- (void *)monoRTInvokeArg
 {
     // we are a value type but we don't want unboxed
     return self.monoObject;

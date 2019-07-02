@@ -473,6 +473,9 @@
 		AB2E74C618FFDB0D0061C63E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
 		AB2F9E2221DBE34A00A28C5C /* NSDecimalNumber+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDecimalNumber+mscorlib.h"; path = "Categories/NSDecimalNumber+mscorlib.h"; sourceTree = "<group>"; };
 		AB2F9E2321DBE34A00A28C5C /* NSDecimalNumber+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDecimalNumber+mscorlib.m"; path = "Categories/NSDecimalNumber+mscorlib.m"; sourceTree = "<group>"; };
+		AB324CB922C5622B00561E32 /* mscorlib.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mscorlib.xml; sourceTree = "<group>"; };
+		AB324CBA22C5622B00561E32 /* mscorlib.codegen.config.objc.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mscorlib.codegen.config.objc.xml; sourceTree = "<group>"; };
+		AB324CBB22C5622B00561E32 /* mscorlib.types.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mscorlib.types.xml; sourceTree = "<group>"; };
 		AB342C0D20E67A0700CA1659 /* System_Boolean+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Boolean+mscorlib.h"; sourceTree = "<group>"; };
 		AB342C0E20E67A0700CA1659 /* System_Boolean+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Boolean+mscorlib.m"; sourceTree = "<group>"; };
 		AB348B2521CBC5CD00F07B68 /* System_Runtime_Remoting_Proxies_ProxyAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Runtime_Remoting_Proxies_ProxyAttribute.m; sourceTree = "<group>"; };
@@ -1271,6 +1274,9 @@
 		ABB8A28E18FEFB0700213B80 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AB324CBA22C5622B00561E32 /* mscorlib.codegen.config.objc.xml */,
+				AB324CBB22C5622B00561E32 /* mscorlib.types.xml */,
+				AB324CB922C5622B00561E32 /* mscorlib.xml */,
 				ABB8A28F18FEFB0700213B80 /* Mono.mscorlib-Info.plist */,
 				ABB8A29018FEFB0700213B80 /* InfoPlist.strings */,
 			);

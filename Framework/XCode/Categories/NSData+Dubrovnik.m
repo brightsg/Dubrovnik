@@ -55,7 +55,12 @@
 	return(monoArray);
 }
 
-- (MonoObject *)monoRTInvokeArg
+- (void *)monoRTInvokeArg
+{
+    return DB_OBJECT([self monoArray]);
+}
+
+- (MonoObject *)monoRTInvokeObject
 {
     return DB_OBJECT([self monoArray]);
 }
