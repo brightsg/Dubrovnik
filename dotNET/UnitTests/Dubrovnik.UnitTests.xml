@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Assembly Name="Dubrovnik.UnitTests" FullName="Dubrovnik.UnitTests, Version=1.0.7122.41362, Culture=neutral, PublicKeyToken=null" Path="C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe">
+<Assembly Name="Dubrovnik.UnitTests" FullName="Dubrovnik.UnitTests, Version=1.0.7122.42006, Culture=neutral, PublicKeyToken=null" Path="C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe">
   <Reference Name="mscorlib" FullName="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <Reference Name="System" FullName="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <Reference Name="System.Core" FullName="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />

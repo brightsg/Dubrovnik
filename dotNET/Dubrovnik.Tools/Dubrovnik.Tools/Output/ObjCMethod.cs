@@ -100,12 +100,7 @@ namespace Dubrovnik.Tools.Output
                 if (facet.IsGenericMethodDefinition) {
                     // generic method definitions require additional type processing prior to invocation.
                     // DBManagedMethod co-ordinates this.
-                    if (facet.IsStatic) {
-                        objCMethodPrepareFormat = "DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoName:\"{0}({1})\" monoClass:self.monoClass typeParameters:typeParameter]";
-                    }
-                    else { 
-                        objCMethodPrepareFormat = "DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoName:\"{0}({1})\" object:self typeParameters:typeParameter]";
-                    }
+                    objCMethodPrepareFormat = "DBManagedMethod *method = [self methodWithMonoName:\"{0}({1})\" typeParameters:typeParameter]";
                     objCMethodInvokeFormat = "[self invokeMethod:method withNumArgs:{2}]";
                 }
                 else {
