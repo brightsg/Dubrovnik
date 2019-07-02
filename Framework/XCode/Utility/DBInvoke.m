@@ -63,7 +63,6 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
             @throw([NSException exceptionWithName:@"DBBadMethodNameException" reason:[NSString stringWithFormat:@"Full signature not provided for method name : %s. Method name must include parenthesis and type names (if appropriate).", methodName] userInfo:nil]);
             
     }
-    
 }
 
 #pragma mark -

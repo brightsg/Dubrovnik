@@ -8,14 +8,18 @@
 
 #import "DBManagedMethod.h"
 #import "DBManagedObject.h"
+#import "DBManagedClass.h"
+#import "DBManagedEnvironment.h"
+#import "DBInvoke.h"
+#import "DBBoxing.h"
 
 @interface DBManagedMethod()
 
-@property (assign, readwrite) const char *methodName;
+@property (assign, readwrite) const char *methodName;;
 @property (assign, readwrite) const char *monoClassName;
 @property (assign, readwrite) const char *assemblyName;
 @property (assign, readwrite) MonoArray *monoReflectionTypeParameters;
-
+@property (assign, readwrite) void *invokePtr;
 @end
 
 @implementation DBManagedMethod
@@ -63,12 +67,46 @@
     return self;
 }
 
+- (id)initWithMonoMethodNamed:(const char *)methodName
+                       object:(DBManagedObject *)object
+ monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters
+
+{
+    self = [super init];
+    if (self) {
+        self.methodName = methodName;
+        self.monoClass = object.monoClass;
+        self.monoObject = object.monoObject;
+        self.monoReflectionTypeParameters = monoReflectionTypeParameters;
+    }
+    return self;
+}
+
 #pragma mark -
 #pragma mark Accessors
 
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"%@ methodName: %s", [super description], self.methodName];
+}
+
+- (MonoDomain *)monoDomain
+{
+    if (_monoDomain) {
+        return _monoDomain;
+    }
+    
+    return DBManagedEnvironment.currentEnvironment.monoDomain;
+}
+
+- (void)setInstanceType:(DBManagedType *)instanceType
+{
+    _instanceType = instanceType;
+    
+    // build method name using type parameters defined by the receiver type
+    if (_instanceType.isGenericType) {
+        self.methodName = [_instanceType inflateMethodName:self.methodName];
+    }
 }
 
 #pragma mark -
@@ -141,4 +179,151 @@ MonoType *DBMonoMethodSignatureParams(MonoMethod *meth, uint32_t *paramCount)
 }
 */
 
+- (MonoMethod *)monoMethod
+{
+    MonoMethod *monoMethod = nil;
+    MonoClass *monoClass = self.monoClass;
+
+    // instance
+    MonoObject *monoObject = self.monoObject;
+    NSAssert(monoObject != nil, @"MonoObject cannot be nil.");
+    
+    // The presence of a class name indicates that the method is an extension method
+    // implemented as a static method on the indicated class
+    if (self.monoClassName == NULL) {
+        
+        self.invokePtr = DB_IS_VALUETYPE(monoClass) ? mono_object_unbox(monoObject) : monoObject;
+        
+        // get the instance method
+        monoMethod = GetMonoObjectMethod(monoObject, self.methodName, YES);
+    }
+    else {
+        // The first argument must be the represented mono object in the case of an extension method.
+        // It would be possible to insert this if not supplied but then there would be an apparent mismatch between the
+        // method signature and the argument count at the call site.
+#warning UPDATE
+        /*if (monoArgs[0] != monoObject) {
+            [NSException raise:@"DBInvokeException" format: @"Invalid first argument to extension method implementation."];
+        }*/
+        
+        // get the extension assembly
+        MonoAssembly *monoAssembly = [DBManagedEnvironment.currentEnvironment openAssemblyWithName:self.assemblyName];
+        if (!monoAssembly) {
+            [NSException raise:@"DBInvokeException" format: @"Assembly %s not found for extension method : %s.", self.assemblyName, self.methodName];
+        }
+        
+        // get the extension mono class
+        DBManagedClass *classRepresentation = [DBManagedClass classWithMonoClassNamed:self.monoClassName fromMonoAssembly:monoAssembly];
+        MonoClass *monoClass  = [classRepresentation monoClass];
+        
+        // get the class method
+        monoMethod = GetMonoClassMethod(monoClass, self.methodName, YES);
+    }
+    
+    if (!monoMethod) {
+        [NSException raise:@"DBInvokeException" format: @"Method not found : %s.", self.methodName];
+    }
+    
+    // get object representing C# MethodInfo class
+    MonoReflectionMethod* methodInfo = mono_method_get_object(self.monoDomain, monoMethod, monoClass);
+    
+    // if method is generic then inflate it
+    if (DBIsGenericMonoMethod(methodInfo)) {
+        monoMethod = [self inflateMonoMethod:monoMethod methodInfo:methodInfo];
+    }
+    
+    return monoMethod;
+}
+
+- (MonoMethod *)monoClassMethod
+{
+    MonoClass *monoClass = self.monoClass;
+    NSAssert(monoClass != nil, @"MonoClass cannot be nil.");
+    
+    // get the class method
+    MonoMethod *monoMethod = GetMonoClassMethod(monoClass, self.methodName, YES);
+    if (!monoMethod) {
+        [NSException raise:@"DBInvokeException" format: @"Method not found : %s.", self.methodName];
+    }
+    
+    // get object representing C# MethodInfo class
+    MonoReflectionMethod *methodInfo = mono_method_get_object(self.monoDomain, monoMethod, monoClass);
+    
+    // if method is generic then inflate it
+    if (DBIsGenericMonoMethod(methodInfo)) {
+        monoMethod = [self inflateMonoMethod:monoMethod methodInfo:methodInfo];
+    }
+    
+    return monoMethod;
+}
+
+BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
+{
+    return DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "IsGenericMethod"));
+}
+
+- (MonoMethod *)inflateMonoMethod:(MonoMethod *)monoMethod methodInfo:(MonoReflectionMethod*)methodInfo
+{
+    //
+    // For insight into various properties used in this statement see the remarks here
+    // http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.isgenericmethod(v=vs.85).aspx
+    //
+    // Perhaps checkout https://gist.github.com/gedim21/8d86ba8e59ac5d8ed0ee for more insight here.
+    //
+        
+    // If generic method has unassigned generic parameters then the method needs to be
+    // inflated with real types instead of generic type placeholders.
+    BOOL containsGenericParameters = DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "ContainsGenericParameters"));
+    BOOL isGenericMethodDefinition = DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "IsGenericMethodDefinition"));
+    
+    // If method is a generic method definition then we inflate the method so that from say
+    // T Method<T>(T) we make say String Method(String)
+    if (isGenericMethodDefinition) {
+        
+        // A generic type definition contains type information about the type parameters defined by the definition
+        if (self.monoReflectionTypeParameters) {
+            monoMethod = [self.class inflateMonoMethodInfo:methodInfo typeParameters:self.monoReflectionTypeParameters];
+        }
+        else {
+            monoMethod = [self.class inflateMonoMethodInfo:methodInfo genericParameterType:self.genericMonoType];
+        }
+    } else if (containsGenericParameters) {
+        NSAssert(NO, @"Cannot invoke a method that contains unassigned generic type parameters");
+    }
+    
+    return monoMethod;
+}
+
++ (MonoMethod *)inflateMonoMethodInfo:(MonoReflectionMethod*)methodInfo genericParameterType:(MonoType *)genericParameterType
+{
+    // get the generic method helper method
+    MonoMethod *helperMethod = [DBManagedEnvironment dubrovnikMonoMethodWithName:"MakeGenericMethod_1" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:2];
+    
+    // invoke the generic helper method to assign specific types to the type parameters in the generic method definition
+    // see http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.makegenericmethod.aspx
+    MonoReflectionType* parameterType = mono_type_get_object([DBManagedEnvironment currentDomain], genericParameterType);
+    MonoObject *boxedPtr = DBMonoClassInvokeMethod(helperMethod, 2, methodInfo, parameterType);
+    MonoMethod *genericMethod = (MonoMethod *)DB_UNBOX_PTR(boxedPtr);
+    if (!genericMethod) {
+        [NSException raise:@"DBMakeGenericMethodException" format: @"Generic method not found."];
+    }
+    
+    return genericMethod;
+}
+
++ (MonoMethod *)inflateMonoMethodInfo:(MonoReflectionMethod*)methodInfo typeParameters:(MonoArray *)typeParameters
+{
+    // get the generic method helper method
+    MonoMethod *helperMethod = [DBManagedEnvironment dubrovnikMonoMethodWithName:"MakeGenericMethod" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:2];
+    
+    // get intPtr to methodHandle from MethodBase.MethodHandle.Value
+    // typeParameters is a MonoArray * of MonoReflectionType *
+    MonoObject *boxedPtr = DBMonoClassInvokeMethod(helperMethod, 2, methodInfo, typeParameters);
+    MonoMethod *genericMethod = (MonoMethod *)DB_UNBOX_PTR(boxedPtr);
+    if (!genericMethod) {
+        [NSException raise:@"DBMakeGenericMethodException" format: @"Generic method not found."];
+    }
+    
+    return genericMethod;
+}
 @end

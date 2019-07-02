@@ -245,6 +245,9 @@ extern char DBCacheSuffixChar;
 - (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs varArgList:(va_list)va_args;
 - (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...;
 
++ (MonoObject *)invokeMethod:(DBManagedMethod *)methodRepresentation withNumArgs:(int)numArgs varArgList:(va_list)va_args;
++ (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...;
+
 // Equality testing
 + (BOOL)object:(id)object1 isEqualToMonoObjectForObject:(id)object2;
 + (BOOL)object:(id)object isEqualToMonoObject:(MonoObject *)monoObject;
