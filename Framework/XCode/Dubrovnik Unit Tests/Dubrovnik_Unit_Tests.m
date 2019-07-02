@@ -1149,6 +1149,38 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         resultA2 = [refObject genericMethod2_withKey:numberKey.managedObject value:listA1 typeParameters:@[number, listA1]];
         NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
         NSAssert([[resultA2 objectForKey:numberKey] isKindOfClass:[System_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
+        
+        //
+        // static methods
+        //
+        
+        // Method<string,string>(string,string)
+        resultA2 = [DUReferenceObject_ genericMethodStatic2_withKey:@"key".managedString value:DBUTestString.managedString typeParameters:@[[System_String class], [System_String class]]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:@"key"] isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        // Method<int,string>(int,string)
+        numberKey = [DBNumber numberWithLong:101];
+        resultA2 = [DUReferenceObject_ genericMethodStatic2_withKey:numberKey.managedObject value:DBUTestString.managedString typeParameters:@[number, [System_String class]]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:numberKey] isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        // Method<string,int>(string,int)
+        number = [DBNumber numberWithLong:101];
+        resultA2 = [DUReferenceObject_ genericMethodStatic2_withKey:@"key".managedString value:number.managedObject typeParameters:@[[System_String class], number]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:@"key"] isEqualTo:number], DBUEqualityTestFailed);
+        
+        // Method<int,int>(int,int)
+        numberValue = [DBNumber numberWithLong:9052];
+        resultA2 = [DUReferenceObject_ genericMethodStatic2_withKey:numberKey.managedObject value:numberValue.managedObject typeParameters:@[number, numberValue]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:numberKey] isEqualTo:numberValue], DBUEqualityTestFailed);
+        
+        // Method<int,List<string>>(int,List<string>)
+        resultA2 = [DUReferenceObject_ genericMethodStatic2_withKey:numberKey.managedObject value:listA1 typeParameters:@[number, listA1]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:numberKey] isKindOfClass:[System_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
     }
     
     //
