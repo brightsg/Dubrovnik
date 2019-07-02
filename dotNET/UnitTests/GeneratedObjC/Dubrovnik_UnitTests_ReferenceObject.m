@@ -1866,6 +1866,13 @@ static NSString * m_classStringProperty;
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
++ (System_Collections_Generic_DictionaryA2 *)genericMethodStatic2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
+{
+	DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:"GenericMethodStatic2(T,U)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [method monoRTInvokeArg:p1 typeParameterIndex:0], [method monoRTInvokeArg:p2 typeParameterIndex:1]];
+	return [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
+}
+
 - (int32_t)getHashCode
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetHashCode()" withNumArgs:0];

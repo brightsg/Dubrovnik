@@ -96,15 +96,18 @@ namespace Dubrovnik.Tools.Output
                 // create Obj-C representation of mono object
                 ManagedValueToObjC = n2c.ManagedValueToObjc(ManagedVariableName, facet);
 
-                if (!facet.IsStatic) {
-                    if (!facet.IsGenericMethodDefinition) {
-                        objCMethodInvokeFormat = "[self invokeMonoMethod:\"{0}({1})\" withNumArgs:{2}]";
-                    } else {
-                        objCMethodPrepareFormat = "DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:\"{0}({1})\" typeParameters:typeParameter]";
-                        objCMethodInvokeFormat = "[self invokeMethod:method withNumArgs:{2}]";
-                    }
+                if (facet.IsGenericMethodDefinition) {
+                    // allocate and invoke the DBManagedMethod
+                    objCMethodPrepareFormat = "DBManagedMethod *method = [DBGenericTypeHelper.sharedHelper methodWithMonoMethodNamed:\"{0}({1})\" typeParameters:typeParameter]";
+                    objCMethodInvokeFormat = "[self invokeMethod:method withNumArgs:{2}]";
                 } else {
-                    objCMethodInvokeFormat = "[self invokeMonoClassMethod:\"{0}({1})\" withNumArgs:{2}]";
+                    if (facet.IsStatic) {
+                        // invoke mono class method
+                        objCMethodInvokeFormat = "[self invokeMonoClassMethod:\"{0}({1})\" withNumArgs:{2}]";
+                    } else {
+                        // invoke mono method
+                        objCMethodInvokeFormat = "[self invokeMonoMethod:\"{0}({1})\" withNumArgs:{2}]";
+                    }
                 }
             } else {
                 // this looks like a default constructor

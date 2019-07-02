@@ -597,7 +597,7 @@ namespace Dubrovnik.UnitTests {
 		}
 
 		//
-		// Generic methods
+		// Generic instance methods
 		//
 		public string GenericMethod0<T>() {
 			return typeof(T).FullName;
@@ -619,10 +619,15 @@ namespace Dubrovnik.UnitTests {
 			return value.FirstOrDefault();
 		}
 
-		//
-		// Generic parameter methods
-		//
-		public bool ReverseList(List<string> list) {
+        public static Dictionary<T, U> GenericMethodStatic2<T, U>(T key, U value)
+        {
+            return new Dictionary<T, U>() { { key, value } };
+        }
+
+        //
+        //  List parameter methods
+        //
+        public bool ReverseList(List<string> list) {
 			list.Reverse();
 			return true;
 		}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Assembly Name="Dubrovnik.UnitTests" FullName="Dubrovnik.UnitTests, Version=1.0.7120.36510, Culture=neutral, PublicKeyToken=null" Path="C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe">
+<Assembly Name="Dubrovnik.UnitTests" FullName="Dubrovnik.UnitTests, Version=1.0.7122.20785, Culture=neutral, PublicKeyToken=null" Path="C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe">
   <Reference Name="mscorlib" FullName="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <Reference Name="System" FullName="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <Reference Name="System.Core" FullName="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
@@ -299,6 +299,14 @@
       <Method Name="GenericMethodList1" Type="Dubrovnik.UnitTests.ReferenceObject+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
         <GenericMethodDefinitionGenericTypeArgument Type="Dubrovnik.UnitTests.ReferenceObject+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
         <Parameter Name="value" Type="System.Collections.Generic.List`1&lt;Dubrovnik.UnitTests.ReferenceObject+T&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
+      </Method>
+      <Method Name="GenericMethodStatic2" Type="System.Collections.Generic.Dictionary`2&lt;Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
+        <GenericTypeArgument Type="Dubrovnik.UnitTests.ReferenceObject+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <GenericTypeArgument Type="Dubrovnik.UnitTests.ReferenceObject+U" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" DeclaredByMethod="True" />
+        <GenericMethodDefinitionGenericTypeArgument Type="Dubrovnik.UnitTests.ReferenceObject+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <GenericMethodDefinitionGenericTypeArgument Type="Dubrovnik.UnitTests.ReferenceObject+U" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" DeclaredByMethod="True" />
+        <Parameter Name="key" Type="Dubrovnik.UnitTests.ReferenceObject+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <Parameter Name="value" Type="Dubrovnik.UnitTests.ReferenceObject+U" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" DeclaredByMethod="True" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="initWithString" Type="System.String" BaseName="Object" BaseType="System.Object">

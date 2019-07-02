@@ -1053,6 +1053,25 @@ typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(Sy
  Managed method.
  @textblock
  Name
+   GenericMethodStatic2
+
+ Params
+   <Dubrovnik.UnitTests.ReferenceObject+T>
+   <Dubrovnik.UnitTests.ReferenceObject+U>
+
+ Generics
+   <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
+
+ Return
+   System.Collections.Generic.Dictionary`2<Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U>
+ @/textblock
+*/
++ (System_Collections_Generic_DictionaryA2 *)genericMethodStatic2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
    GetHashCode
 
  Params
