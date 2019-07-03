@@ -13,16 +13,6 @@
 #import "DBInvoke.h"
 #import "DBBoxing.h"
 
-
-inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, int numArgs) {
-    if(numArgs > 0) {
-        int i;
-        for(i = 0; i < numArgs; i++) {
-            args[i] = va_arg(va_args, void *);
-        }
-    }
-}
-
 BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
 {
     return DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "IsGenericMethod"));
@@ -158,13 +148,6 @@ BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
         monoMethod = GetMonoObjectMethod(monoObject, self.methodName, YES);
     }
     else {
-        // The first argument must be the represented mono object in the case of an extension method.
-        // It would be possible to insert this if not supplied but then there would be an apparent mismatch between the
-        // method signature and the argument count at the call site.
-#warning UPDATE
-        /*if (monoArgs[0] != monoObject) {
-         [NSException raise:@"DBInvokeException" format: @"Invalid first argument to extension method implementation."];
-         }*/
         
         // get the extension assembly
         MonoAssembly *monoAssembly = [DBManagedEnvironment.currentEnvironment openAssemblyWithName:self.assemblyName];
@@ -328,7 +311,7 @@ MonoType *DBMonoMethodSignatureParams(MonoMethod *meth, uint32_t *paramCount)
     // invoke the generic helper method to assign specific types to the type parameters in the generic method definition
     // see http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.makegenericmethod.aspx
     MonoReflectionType* parameterType = mono_type_get_object([DBManagedEnvironment currentDomain], genericParameterType);
-    MonoObject *boxedPtr = DBMonoClassInvokeMethod(helperMethod, 2, methodInfo, parameterType);
+    MonoObject *boxedPtr = DBMonoMethodInvoke(helperMethod, NULL, 2, methodInfo, parameterType);
     MonoMethod *genericMethod = (MonoMethod *)DB_UNBOX_PTR(boxedPtr);
     if (!genericMethod) {
         [NSException raise:@"DBMakeGenericMethodException" format: @"Generic method not found."];
@@ -344,7 +327,7 @@ MonoType *DBMonoMethodSignatureParams(MonoMethod *meth, uint32_t *paramCount)
     
     // get intPtr to methodHandle from MethodBase.MethodHandle.Value
     // typeParameters is a MonoArray * of MonoReflectionType *
-    MonoObject *boxedPtr = DBMonoClassInvokeMethod(helperMethod, 2, methodInfo, typeParameters);
+    MonoObject *boxedPtr = DBMonoMethodInvoke(helperMethod, NULL, 2, methodInfo, typeParameters);
     MonoMethod *genericMethod = (MonoMethod *)DB_UNBOX_PTR(boxedPtr);
     if (!genericMethod) {
         [NSException raise:@"DBMakeGenericMethodException" format: @"Generic method not found."];
@@ -357,20 +340,18 @@ MonoType *DBMonoMethodSignatureParams(MonoMethod *meth, uint32_t *paramCount)
 
 - (MonoObject *)invokeMethodWithNumArgs:(int)numArgs, ...
 {
-    // invoke
-    va_list va_args;
-    va_start(va_args, numArgs);
-    MonoObject *invokeResult = [self invokeMethodWithNumArgs:numArgs varArgList:va_args];
-    va_end(va_args);
-    
-    return invokeResult;
-}
-
-- (MonoObject *)invokeMethodWithNumArgs:(int)numArgs varArgList:(va_list)va_args
-{
-    // prepare arguments
+    // get arguments
     void *monoArgs[numArgs];
-    DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
+    DBPopulateMethodArgs(monoArgs, numArgs);
+    
+    // The first argument must be the represented mono object in the case of an extension method.
+    // It would be possible to insert this if not supplied but then there would be an apparent mismatch between the
+    // method signature and the argument count at the call site.
+    if (self.monoClassName != NULL) {
+        if (monoArgs[0] != self.monoObject) {
+            [NSException raise:@"DBInvokeException" format: @"Invalid first argument to extension method implementation."];
+        }
+    }
     
     // get mono method
     MonoMethod *monoMethod = self.monoMethod;
@@ -387,21 +368,10 @@ MonoType *DBMonoMethodSignatureParams(MonoMethod *meth, uint32_t *paramCount)
 
 - (MonoObject *)invokeClassMethodWithNumArgs:(int)numArgs, ...
 {
-    // invoke
-    va_list va_args;
-    va_start(va_args, numArgs);
-    MonoObject *invokeResult = [self invokeClassMethodWithNumArgs:numArgs varArgList:va_args];
-    va_end(va_args);
-    
-    return invokeResult;
-}
-
-- (MonoObject *)invokeClassMethodWithNumArgs:(int)numArgs varArgList:(va_list)va_args
-{
-    // prepare arguments
+    // get arguments
     void *monoArgs[numArgs];
-    DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
-    
+    DBPopulateMethodArgs(monoArgs, numArgs);
+
     // get mono method
     MonoMethod *monoMethod = self.monoClassMethod;
     

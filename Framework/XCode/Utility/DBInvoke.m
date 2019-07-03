@@ -25,7 +25,8 @@ void (^DBOnManagedExceptionWillRaise)(MonoObject *) = nil;
 
 char *DBFormatPropertyName(const char * propertyName, const char* fmt);
 
-inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, unsigned int numArgs) {
+inline void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, unsigned int numArgs)
+{
 	if (numArgs > 0) {
 		for(unsigned int i = 0; i < numArgs; i++) {
 			args[i] = va_arg(va_args, void *);
@@ -33,7 +34,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 	}
 }
 
-/*inline */ static void DBValidateMethodSignature(const char *methodName)
+static void DBValidateMethodSignature(const char *methodName)
 {
     // If method name does not specify an exact signature by includng matching parenthesis
     // then exact method name matching may not occur.
@@ -70,7 +71,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 
 /*
  
- For an overview of Mono exceptiopn handling and generation see:
+ For an overview of Mono exception handling and generation see:
  
  http://www.mono-project.com/docs/advanced/runtime/docs/exception-handling/
  
@@ -319,7 +320,7 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, B
     
 	pthread_mutex_unlock(&methodCacheMutex);
 
-	if(meth == NULL) {
+	if (meth == NULL) {
 		NSException *e = [NSException exceptionWithName:@"DBManagedClassMethodNotFoundException" reason:[NSString stringWithFormat:@"Dubrovnik could not find the method %s%s", mono_class_get_name(monoClass), inMethodName] userInfo:nil];
         
         [e raise];
@@ -511,21 +512,18 @@ __attribute__((always_inline)) inline char *DBFormatPropertyName(const char * pr
 #pragma mark -
 #pragma mark Method Invocation
 
-MonoObject *DBMonoClassInvokeMethod(MonoMethod *method, unsigned int numArgs, ...) {
+MonoObject *DBMonoMethodInvoke(MonoMethod *method, MonoObject *monoObject, unsigned int numArgs, ...)
+{
+    NSCAssert(method != NULL, @"MonoMethod is NULL");
+    
+    // get arguments
+    void *monoArgs[numArgs];
+    DBPopulateMethodArgs(monoArgs, numArgs);
+    
+    // invoke
+    // if method represents a static method then monoObject must be NULL
     MonoObject *monoException = NULL;
-    MonoObject *monoResult = NULL;
-
-    va_list va_args;
-    va_start(va_args, numArgs);
-    
-    if (method != NULL) {
-        void *monoArgs[numArgs];
-        DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);    // this assumes that all args are void *
-        monoResult = mono_runtime_invoke(method, NULL, monoArgs, &monoException);
-    }
-    
-    va_end(va_args);
-    
+    MonoObject *monoResult = mono_runtime_invoke(method, monoObject, monoArgs, &monoException);
     if (monoException != NULL) {
         @throw(NSExceptionFromMonoException(monoException, @{}));
     }
@@ -533,36 +531,36 @@ MonoObject *DBMonoClassInvokeMethod(MonoMethod *method, unsigned int numArgs, ..
     return monoResult;
 }
 
-MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, unsigned int numArgs, va_list va_args) {
-	MonoObject *monoException = NULL;
-	MonoObject *retval = NULL;
-	MonoMethod *meth = GetMonoClassMethod(monoClass, methodName, YES);
-	
-	if (meth != NULL) {
-		void *monoArgs[numArgs];
-		DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
+MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, unsigned int numArgs, va_list va_args)
+{
+    // get arguments
+    void *monoArgs[numArgs];
+    DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
 
-		retval = mono_runtime_invoke(meth, NULL, monoArgs, &monoException);
-	}
-	
+    // get method
+	MonoMethod *meth = GetMonoClassMethod(monoClass, methodName, YES);
+
+    // invoke
+    MonoObject *monoException = NULL;
+    MonoObject *monoResult = mono_runtime_invoke(meth, NULL, monoArgs, &monoException);
     if (monoException != NULL) {
         @throw(NSExceptionFromMonoException(monoException, @{@"DBClassInvokeException" : @(methodName)}));
     }
     
-	return(retval);	
+	return monoResult;
 }
 
 MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, unsigned int numArgs, va_list va_args)
 {
+    // get arguments
+    void *monoArgs[numArgs];
+    DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
+    
     // get method
 	MonoMethod *monoMethod = GetMonoObjectMethod(monoObject, methodName, YES);
     if (!monoMethod) {
         [NSException raise:@"DBMethodNotFoundException" format:@"Managed object method not found: %s", methodName];
     }
-    
-    // build the argument list
-    void *monoArgs[numArgs];
-    DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
     
     // get the invocation pointer
     void *invokePtr = DBMonoInvokePtr(monoObject);

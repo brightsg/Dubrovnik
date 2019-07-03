@@ -71,7 +71,7 @@
         
         // get generic method parameter type info for the method argument.
         MonoReflectionType* parameterType = mono_type_get_object([DBManagedEnvironment currentDomain], self.monoType);
-        types = (MonoArray *)DBMonoClassInvokeMethod(helperMethod, 2, parameterType, NULL);
+        types = (MonoArray *)DBMonoMethodInvoke(helperMethod, NULL, 2, parameterType, NULL);
     
         _monoGenericTypes_gchandle = mono_gchandle_new((MonoObject *)types, NO);
     }

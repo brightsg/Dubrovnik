@@ -10,6 +10,14 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
+extern void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, unsigned int numArgs);
+
+#define DBPopulateMethodArgs(ARGS, NUM) \
+va_list va_args; \
+va_start(va_args, NUM); \
+DBPopulateMethodArgsFromVarArgs(ARGS, va_args, NUM); \
+va_end(va_args); \
+
 // Note on types to be passed to the invocation API:
 //
 // IF
@@ -54,7 +62,7 @@ extern void (^DBOnManagedExceptionWillRaise)(MonoObject *);
 void DBInvokeLogCache(BOOL freeContents);
 
 //Method Invocation
-MonoObject *DBMonoClassInvokeMethod(MonoMethod *method, unsigned int numArgs, ...);
+MonoObject *DBMonoMethodInvoke(MonoMethod *method, MonoObject *monoObject, unsigned int numArgs, ...);
 MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, unsigned int numArgs, va_list va_args);
 MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, unsigned int numArgs, va_list va_args);
 void *DBMonoInvokePtr(MonoObject *monoObject);

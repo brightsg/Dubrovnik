@@ -125,7 +125,7 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
     
     // Get internal call name - this identifies the managed static method that will call through to our iCall
     MonoMethod *method = [DBManagedEnvironment dubrovnikMonoMethodWithName:"GetInternalCallName" className:"Mono.Embedding.UniversalDelegateServices" argCount:0];
-    MonoObject *monoResult = DBMonoClassInvokeMethod(method, 0);
+    MonoObject *monoResult = DBMonoMethodInvoke(method, NULL, 0);
     NSString *callName = [NSString stringWithMonoString:DB_STRING(monoResult)];
     
     // add internal call
@@ -168,7 +168,7 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
     
     // Invoke CreateWrapper
     MonoMethod *method = [DBManagedEnvironment dubrovnikMonoMethodWithName:"CreateWrapper" className:"Mono.Embedding.UniversalDelegateServices" argCount:2];
-    MonoObject *monoResult = DBMonoClassInvokeMethod(method, 2, delegateType.monoObject, [contextPtr monoRTInvokeArg]);
+    MonoObject *monoResult = DBMonoMethodInvoke(method, NULL, 2, delegateType.monoObject, [contextPtr monoRTInvokeArg]);
     System_Delegate *delegate = [self objectWithMonoObject:monoResult];
     
     // cache the delegate info
