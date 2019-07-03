@@ -591,9 +591,6 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
     
     // get mono method
-    //method.instanceType = self.managedType;
-    //method.monoClass = self.monoClass;
-    //method.monoObject = self.monoObject;
     MonoMethod *monoMethod = method.monoMethod;
     
     // invoke the method
@@ -622,7 +619,6 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
     
     // get mono method
-    //method.monoClass = self.monoClass;
     MonoMethod *monoMethod = method.monoClassMethod;
     
     // invoke
