@@ -235,13 +235,9 @@ extern char DBCacheSuffixChar;
 - (MonoAssembly *)monoAssembly;
 - (MonoImage *)monoImage;
 
-// direct method Invocation
+// method Invocation
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
 + (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
-
-// more complex invocations make use of a DBManagedMethod instance
-- (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...;
-+ (MonoObject *)invokeClassMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...;
 
 // Equality testing
 + (BOOL)object:(id)object1 isEqualToMonoObjectForObject:(id)object2;

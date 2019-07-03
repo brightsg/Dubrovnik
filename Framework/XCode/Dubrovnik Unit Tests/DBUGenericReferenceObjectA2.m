@@ -60,7 +60,7 @@
 - (System_Object *)genericMethod_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2 parameterV:(System_Object *)p3 typeParameter:(id)typeParameter
 {
     DBManagedMethod *method = [self methodWithMonoName:"GenericMethod(<_T_0>,<_T_1>,V)" typeParameters:typeParameter];
-    MonoObject *monoObject = [self invokeMethod:method withNumArgs:3, [self monoRTInvokeArg:p1 typeParameterIndex:0], [self monoRTInvokeArg:p2 typeParameterIndex:1], [method monoRTInvokeArg:p3 typeParameterIndex:0]];
+    MonoObject *monoObject = [method invokeMethodWithNumArgs:3, [self monoRTInvokeArg:p1 typeParameterIndex:0], [self monoRTInvokeArg:p2 typeParameterIndex:1], [method monoRTInvokeArg:p3 typeParameterIndex:0]];
     return [System_Object bestObjectWithMonoObject:monoObject];
 }
 

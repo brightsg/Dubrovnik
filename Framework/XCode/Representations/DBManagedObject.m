@@ -36,15 +36,6 @@ static Class m_objectArgClass;
 //#define DB_TRACE_KVO
 //#define DB_TRACE_MONO_OBJECT_ADDRESS
 
-inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, int numArgs) {
-    if(numArgs > 0) {
-        int i;
-        for(i = 0; i < numArgs; i++) {
-            args[i] = va_arg(va_args, void *);
-        }
-    }
-}
-
 /*
  
  Managed event callback functions
@@ -556,31 +547,6 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     va_list va_args;
     va_start(va_args, numArgs);
     MonoObject *invokeResult = DBMonoClassInvoke(self.class.monoClass, methodName, numArgs, va_args);
-    va_end(va_args);
-    
-    return invokeResult;
-}
-
-#pragma mark -
-#pragma mark DBManagedMethod Invocation
-
-- (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...
-{
-    // invoke
-    va_list va_args;
-    va_start(va_args, numArgs);
-    MonoObject *invokeResult = [method invokeMethodWithNumArgs:numArgs varArgList:va_args];
-    va_end(va_args);
-    
-    return invokeResult;
-}
-
-+ (MonoObject *)invokeClassMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...
-{
-    // invoke
-    va_list va_args;
-    va_start(va_args, numArgs);
-    MonoObject *invokeResult = [method invokeClassMethodWithNumArgs:numArgs varArgList:va_args];
     va_end(va_args);
     
     return invokeResult;

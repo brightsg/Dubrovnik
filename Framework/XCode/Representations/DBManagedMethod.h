@@ -48,8 +48,13 @@
 
 - (MonoMethod *)monoClassMethod;
 - (MonoMethod *)monoMethod;
-
+;
+- (MonoObject *)invokeMethodWithNumArgs:(int)numArgs, ...;
 - (MonoObject *)invokeMethodWithNumArgs:(int)numArgs varArgList:(va_list)va_args;
+
+- (MonoObject *)invokeClassMethodWithNumArgs:(int)numArgs, ...;
+
 - (MonoObject *)invokeClassMethodWithNumArgs:(int)numArgs varArgList:(va_list)va_args;
+
 
 @end

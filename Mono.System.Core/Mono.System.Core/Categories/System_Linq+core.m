@@ -31,8 +31,7 @@
     managedMethod.genericMonoType = monoType;
     
     // Invoke the extension method passing mono object as first argument
-    // NOTE: we could invoke this as a class method but it is clean to invoke against self.
-    MonoObject *monoListObject = [managedObject invokeMethod:managedMethod withNumArgs:1, [managedObject monoObject]];
+    MonoObject *monoListObject = [managedMethod invokeMethodWithNumArgs:1, managedObject.monoObject];
     
     // Wrap the list
     System_Collections_IList *list = [System_Collections_IList listWithMonoObject:monoListObject];

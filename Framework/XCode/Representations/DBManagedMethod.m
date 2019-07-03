@@ -23,6 +23,11 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     }
 }
 
+BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
+{
+    return DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "IsGenericMethod"));
+}
+
 @interface DBManagedMethod()
 
 @property (assign, readwrite) const char *methodName;;
@@ -134,6 +139,84 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     }
 }
 
+- (MonoMethod *)monoMethod
+{
+    MonoMethod *monoMethod = nil;
+    MonoClass *monoClass = self.monoClass;
+    
+    // instance
+    MonoObject *monoObject = self.monoObject;
+    NSAssert(monoObject != nil, @"MonoObject cannot be nil.");
+    
+    // The presence of a class name indicates that the method is an extension method
+    // implemented as a static method on the indicated class
+    if (self.monoClassName == NULL) {
+        
+        self.invokePtr = DB_IS_VALUETYPE(monoClass) ? mono_object_unbox(monoObject) : monoObject;
+        
+        // get the instance method
+        monoMethod = GetMonoObjectMethod(monoObject, self.methodName, YES);
+    }
+    else {
+        // The first argument must be the represented mono object in the case of an extension method.
+        // It would be possible to insert this if not supplied but then there would be an apparent mismatch between the
+        // method signature and the argument count at the call site.
+#warning UPDATE
+        /*if (monoArgs[0] != monoObject) {
+         [NSException raise:@"DBInvokeException" format: @"Invalid first argument to extension method implementation."];
+         }*/
+        
+        // get the extension assembly
+        MonoAssembly *monoAssembly = [DBManagedEnvironment.currentEnvironment openAssemblyWithName:self.assemblyName];
+        if (!monoAssembly) {
+            [NSException raise:@"DBInvokeException" format: @"Assembly %s not found for extension method : %s.", self.assemblyName, self.methodName];
+        }
+        
+        // get the extension mono class
+        DBManagedClass *classRepresentation = [DBManagedClass classWithMonoClassNamed:self.monoClassName fromMonoAssembly:monoAssembly];
+        MonoClass *monoClass  = [classRepresentation monoClass];
+        
+        // get the class method
+        monoMethod = GetMonoClassMethod(monoClass, self.methodName, YES);
+    }
+    
+    if (!monoMethod) {
+        [NSException raise:@"DBInvokeException" format: @"Method not found : %s.", self.methodName];
+    }
+    
+    // get object representing C# MethodInfo class
+    MonoReflectionMethod* methodInfo = mono_method_get_object(self.monoDomain, monoMethod, monoClass);
+    
+    // if method is generic then inflate it
+    if (DBIsGenericMonoMethod(methodInfo)) {
+        monoMethod = [self inflateMonoMethod:monoMethod methodInfo:methodInfo];
+    }
+    
+    return monoMethod;
+}
+
+- (MonoMethod *)monoClassMethod
+{
+    MonoClass *monoClass = self.monoClass;
+    NSAssert(monoClass != nil, @"MonoClass cannot be nil.");
+    
+    // get the class method
+    MonoMethod *monoMethod = GetMonoClassMethod(monoClass, self.methodName, YES);
+    if (!monoMethod) {
+        [NSException raise:@"DBInvokeException" format: @"Method not found : %s.", self.methodName];
+    }
+    
+    // get object representing C# MethodInfo class
+    MonoReflectionMethod *methodInfo = mono_method_get_object(self.monoDomain, monoMethod, monoClass);
+    
+    // if method is generic then inflate it
+    if (DBIsGenericMonoMethod(methodInfo)) {
+        monoMethod = [self inflateMonoMethod:monoMethod methodInfo:methodInfo];
+    }
+    
+    return monoMethod;
+}
+
 #pragma mark -
 #pragma mark Parameter type info
 
@@ -145,8 +228,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     return monoType;
 }
 
-#pragma mark -
-#pragma mark Invocation Argument type info
+#pragma mark - Invocation Argument type info
 
 - (void *)monoRTInvokeArg:(id)object typeParameterIndex:(NSUInteger)idx
 {
@@ -204,88 +286,7 @@ MonoType *DBMonoMethodSignatureParams(MonoMethod *meth, uint32_t *paramCount)
 }
 */
 
-- (MonoMethod *)monoMethod
-{
-    MonoMethod *monoMethod = nil;
-    MonoClass *monoClass = self.monoClass;
-
-    // instance
-    MonoObject *monoObject = self.monoObject;
-    NSAssert(monoObject != nil, @"MonoObject cannot be nil.");
-    
-    // The presence of a class name indicates that the method is an extension method
-    // implemented as a static method on the indicated class
-    if (self.monoClassName == NULL) {
-        
-        self.invokePtr = DB_IS_VALUETYPE(monoClass) ? mono_object_unbox(monoObject) : monoObject;
-        
-        // get the instance method
-        monoMethod = GetMonoObjectMethod(monoObject, self.methodName, YES);
-    }
-    else {
-        // The first argument must be the represented mono object in the case of an extension method.
-        // It would be possible to insert this if not supplied but then there would be an apparent mismatch between the
-        // method signature and the argument count at the call site.
-#warning UPDATE
-        /*if (monoArgs[0] != monoObject) {
-            [NSException raise:@"DBInvokeException" format: @"Invalid first argument to extension method implementation."];
-        }*/
-        
-        // get the extension assembly
-        MonoAssembly *monoAssembly = [DBManagedEnvironment.currentEnvironment openAssemblyWithName:self.assemblyName];
-        if (!monoAssembly) {
-            [NSException raise:@"DBInvokeException" format: @"Assembly %s not found for extension method : %s.", self.assemblyName, self.methodName];
-        }
-        
-        // get the extension mono class
-        DBManagedClass *classRepresentation = [DBManagedClass classWithMonoClassNamed:self.monoClassName fromMonoAssembly:monoAssembly];
-        MonoClass *monoClass  = [classRepresentation monoClass];
-        
-        // get the class method
-        monoMethod = GetMonoClassMethod(monoClass, self.methodName, YES);
-    }
-    
-    if (!monoMethod) {
-        [NSException raise:@"DBInvokeException" format: @"Method not found : %s.", self.methodName];
-    }
-    
-    // get object representing C# MethodInfo class
-    MonoReflectionMethod* methodInfo = mono_method_get_object(self.monoDomain, monoMethod, monoClass);
-    
-    // if method is generic then inflate it
-    if (DBIsGenericMonoMethod(methodInfo)) {
-        monoMethod = [self inflateMonoMethod:monoMethod methodInfo:methodInfo];
-    }
-    
-    return monoMethod;
-}
-
-- (MonoMethod *)monoClassMethod
-{
-    MonoClass *monoClass = self.monoClass;
-    NSAssert(monoClass != nil, @"MonoClass cannot be nil.");
-    
-    // get the class method
-    MonoMethod *monoMethod = GetMonoClassMethod(monoClass, self.methodName, YES);
-    if (!monoMethod) {
-        [NSException raise:@"DBInvokeException" format: @"Method not found : %s.", self.methodName];
-    }
-    
-    // get object representing C# MethodInfo class
-    MonoReflectionMethod *methodInfo = mono_method_get_object(self.monoDomain, monoMethod, monoClass);
-    
-    // if method is generic then inflate it
-    if (DBIsGenericMonoMethod(methodInfo)) {
-        monoMethod = [self inflateMonoMethod:monoMethod methodInfo:methodInfo];
-    }
-    
-    return monoMethod;
-}
-
-BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
-{
-    return DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "IsGenericMethod"));
-}
+#pragma mark - Method inflation
 
 - (MonoMethod *)inflateMonoMethod:(MonoMethod *)monoMethod methodInfo:(MonoReflectionMethod*)methodInfo
 {
@@ -352,6 +353,19 @@ BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
     return genericMethod;
 }
 
+#pragma mark - Method invocation
+
+- (MonoObject *)invokeMethodWithNumArgs:(int)numArgs, ...
+{
+    // invoke
+    va_list va_args;
+    va_start(va_args, numArgs);
+    MonoObject *invokeResult = [self invokeMethodWithNumArgs:numArgs varArgList:va_args];
+    va_end(va_args);
+    
+    return invokeResult;
+}
+
 - (MonoObject *)invokeMethodWithNumArgs:(int)numArgs varArgList:(va_list)va_args
 {
     // prepare arguments
@@ -367,6 +381,17 @@ BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
     if (monoException != NULL) {
         NSRaiseExceptionFromMonoException(monoException, @{@"DBInvokeException" : @(self.methodName)});
     }
+    
+    return invokeResult;
+}
+
+- (MonoObject *)invokeClassMethodWithNumArgs:(int)numArgs, ...
+{
+    // invoke
+    va_list va_args;
+    va_start(va_args, numArgs);
+    MonoObject *invokeResult = [self invokeClassMethodWithNumArgs:numArgs varArgList:va_args];
+    va_end(va_args);
     
     return invokeResult;
 }
@@ -389,4 +414,5 @@ BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
     
     return invokeResult;
 }
+
 @end

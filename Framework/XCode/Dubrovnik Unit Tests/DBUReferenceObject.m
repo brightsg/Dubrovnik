@@ -807,15 +807,15 @@
 
 - (System_Object *)genericMethod0_withTypeParameter:(id)typeParameter
 {
-    DBManagedMethod *managedMethod = [self methodWithMonoName:"GenericMethod0()" typeParameters:typeParameter];
-    MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:0];
+    DBManagedMethod *method = [self methodWithMonoName:"GenericMethod0()" typeParameters:typeParameter];
+    MonoObject *monoObject = [method invokeMethodWithNumArgs:0];
     return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter
 {
-    DBManagedMethod *managedMethod = [self methodWithMonoName:"GenericMethod02()" typeParameters:typeParameter];
-    MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:0];
+    DBManagedMethod *method = [self methodWithMonoName:"GenericMethod02()" typeParameters:typeParameter];
+    MonoObject *monoObject = [method invokeMethodWithNumArgs:0];
 
     return [System_Object bestObjectWithMonoObject:monoObject];
 }
@@ -823,10 +823,10 @@
 - (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter
 {
     // prepare method
-    DBManagedMethod *managedMethod = [self methodWithMonoName:"GenericMethod1(T)" typeParameters:typeParameter];
+    DBManagedMethod *method = [self methodWithMonoName:"GenericMethod1(T)" typeParameters:typeParameter];
     
     // invoke
-    MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:1, [p1 monoRTInvokeArg]];
+    MonoObject *monoObject = [method invokeMethodWithNumArgs:1, [p1 monoRTInvokeArg]];
     
     // result
     return [System_Object bestObjectWithMonoObject:monoObject];
@@ -838,10 +838,10 @@
 - (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
 {
     // prepare method
-    DBManagedMethod *managedMethod = [self methodWithMonoName:"GenericMethod2(T,U)" typeParameters:typeParameter];
+    DBManagedMethod *method = [self methodWithMonoName:"GenericMethod2(T,U)" typeParameters:typeParameter];
     
     // invoke
-    MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+    MonoObject *monoObject = [method invokeMethodWithNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
     
     // result
     return [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
@@ -855,9 +855,9 @@
  */
 - (System_Object *)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter
 {
-    DBManagedMethod *managedMethod = [self methodWithMonoName:"GenericMethodList1(System.Collections.Generic.List`1<T>)" typeParameters:typeParameter];
+    DBManagedMethod *method = [self methodWithMonoName:"GenericMethodList1(System.Collections.Generic.List`1<T>)" typeParameters:typeParameter];
     
-    MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:1, [p1 monoRTInvokeArg]];
+    MonoObject *monoObject = [method invokeMethodWithNumArgs:1, [p1 monoRTInvokeArg]];
     
     return [System_Object bestObjectWithMonoObject:monoObject];
 }
