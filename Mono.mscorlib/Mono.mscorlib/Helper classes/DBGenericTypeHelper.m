@@ -155,30 +155,9 @@
     return systemTypes;
 }
 
-- (DBManagedMethod *)methodWithMonoMethodNamed:(const char *)methodName typeParameters:(id)typeParameters
-{
-    NSArray<System_Type *> *systemTypeParameters = [self systemTypesForObject:typeParameters];
-    
-    // create a MonoArray of System_Type aka MonoReflectionType
-    System_Array *typeParametersSystemArray = [systemTypeParameters managedArrayWithTypeName:@"System_Object"];
-    MonoArray *monoReflectionTypeParameters = typeParametersSystemArray.monoArray;
-    
-    // create methjod object that contains method level generic type parameter info
-    DBManagedMethod *method = [[DBManagedMethod alloc] initWithMonoMethodNamed:methodName
-                                                                     className:NULL
-                                                                  assemblyName:NULL
-                                                  monoReflectionTypeParameters:monoReflectionTypeParameters];
-    
-    return method;
-}
-
 - (DBManagedMethod *)methodWithMonoName:(const char *)methodName object:(System_Object *)object typeParameters:(id)typeParameters
 {
-    NSArray<System_Type *> *systemTypeParameters = [self systemTypesForObject:typeParameters];
-    
-    // create a MonoArray of System_Type aka MonoReflectionType
-    System_Array *typeParametersSystemArray = [systemTypeParameters managedArrayWithTypeName:@"System_Object"];
-    MonoArray *monoReflectionTypeParameters = typeParametersSystemArray.monoArray;
+    MonoArray *monoReflectionTypeParameters = [self monoReflectionTypeParameters:typeParameters];
     
     // create method object that contains method level generic type parameter info
     DBManagedMethod *method = [[DBManagedMethod alloc] initWithMonoMethodNamed:methodName
@@ -187,4 +166,25 @@
     return method;
 }
 
+- (DBManagedMethod *)methodWithMonoName:(const char *)methodName monoClass:(MonoClass *)monoClass typeParameters:(id)typeParameters
+{
+    MonoArray *monoReflectionTypeParameters = [self monoReflectionTypeParameters:typeParameters];
+    
+    // create method object that contains method level generic type parameter info
+    DBManagedMethod *method = [[DBManagedMethod alloc] initWithMonoMethodNamed:methodName
+                                                                    monoClass:monoClass
+                                                  monoReflectionTypeParameters:monoReflectionTypeParameters];
+    return method;
+}
+
+- (MonoArray *)monoReflectionTypeParameters:(id)typeParameters
+{
+    NSArray<System_Type *> *systemTypeParameters = [self systemTypesForObject:typeParameters];
+    
+    // create a MonoArray of System_Type aka MonoReflectionType
+    System_Array *typeParametersSystemArray = [systemTypeParameters managedArrayWithTypeName:@"System_Object"];
+    MonoArray *monoReflectionTypeParameters = typeParametersSystemArray.monoArray;
+    
+    return monoReflectionTypeParameters;
+}
 @end

@@ -176,4 +176,8 @@ typedef void(^EventBlock)(System_Object* sender, System_EventArgs *eventArgs);
  @return Collection of event handler delegates
  */
 - (NSArray<System_Delegate *> *)db_eventHandlersForEventName:(NSString *)eventName;
+
+- (DBManagedMethod *)methodWithMonoName:(const char *)methodName typeParameters:(id)typeParameters;
+
++ (DBManagedMethod *)methodWithMonoName:(const char *)methodName typeParameters:(id)typeParameters;
 @end

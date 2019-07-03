@@ -38,6 +38,10 @@
                        object:(DBManagedObject *)object
  monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters;
 
+- (id)initWithMonoMethodNamed:(const char *)methodName
+                    monoClass:(MonoClass *)monoClass
+ monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters;
+
 - (MonoType *)monoTypeParameterAtIndex:(NSUInteger)idx;
 
 - (void *)monoRTInvokeArg:(id)object typeParameterIndex:(NSUInteger)idx;

@@ -76,6 +76,6 @@
  
  */
 - (NSArray<System_Type *> *)systemTypesForObjects:(NSArray<id> *)typeObjects;
-- (DBManagedMethod *)methodWithMonoMethodNamed:(const char *)methodName typeParameters:(id)typeParametersObject;
 - (DBManagedMethod *)methodWithMonoName:(const char *)methodName object:(System_Object *)object typeParameters:(id)typeParameters;
+- (DBManagedMethod *)methodWithMonoName:(const char *)methodName monoClass:(MonoClass *)monoClass typeParameters:(id)typeParameters;
 @end

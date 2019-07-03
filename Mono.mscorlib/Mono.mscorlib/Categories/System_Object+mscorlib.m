@@ -76,6 +76,19 @@
 }
 
 #pragma mark -
+#pragma mark Method construction
+
+- (DBManagedMethod *)methodWithMonoName:(const char *)methodName typeParameters:(id)typeParameters
+{
+    return [DBGenericTypeHelper.sharedHelper methodWithMonoName:methodName object:self typeParameters:typeParameters];
+}
+
++ (DBManagedMethod *)methodWithMonoName:(const char *)methodName typeParameters:(id)typeParameters
+{
+    return [DBGenericTypeHelper.sharedHelper methodWithMonoName:methodName monoClass:self.monoClass typeParameters:typeParameters];
+}
+
+#pragma mark -
 #pragma mark Type construction
 
 + (System_Type *)db_constructTypeWithParameters:(NSArray <id> *)typeParameters

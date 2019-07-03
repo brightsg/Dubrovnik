@@ -77,6 +77,21 @@
         self.methodName = methodName;
         self.monoClass = object.monoClass;
         self.monoObject = object.monoObject;
+        self.instanceType = object.managedType;
+        self.monoReflectionTypeParameters = monoReflectionTypeParameters;
+    }
+    return self;
+}
+
+- (id)initWithMonoMethodNamed:(const char *)methodName
+                    monoClass:(MonoClass *)monoClass
+ monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters
+
+{
+    self = [super init];
+    if (self) {
+        self.methodName = methodName;
+        self.monoClass = monoClass;
         self.monoReflectionTypeParameters = monoReflectionTypeParameters;
     }
     return self;
@@ -140,7 +155,7 @@
         [NSException raise:@"DBManagedMethodInvokeArgException" format:@"Failed to retrieve generic method level type parameter."];
     }
     
-    // if the mnethod level type parameter is a value type then allow unboxing of the object.
+    // if the method level type parameter is a value type then allow unboxing of the object.
     MonoClass *parameterClass = mono_class_from_mono_type(parameterMonoType);
     if (mono_class_is_valuetype(parameterClass)) {
         return [object monoRTInvokeArg];

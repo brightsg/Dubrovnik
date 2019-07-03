@@ -24,6 +24,7 @@
                                       methodWithMonoMethodNamed:"ToList(System.Collections.Generic.IEnumerable`1<TSource>)"
                                       className:"System.Linq.Enumerable"
                                       assemblyName:"System.Core"];
+    managedMethod.monoObject = managedObject.monoObject;
     
     // Get the type with which to inflate the method.
     MonoType *monoType = [DBGenericTypeHelper.sharedHelper monoTypeForObject:typeParameter];
