@@ -13,6 +13,16 @@
 #import "DBInvoke.h"
 #import "DBBoxing.h"
 
+
+inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, int numArgs) {
+    if(numArgs > 0) {
+        int i;
+        for(i = 0; i < numArgs; i++) {
+            args[i] = va_arg(va_args, void *);
+        }
+    }
+}
+
 @interface DBManagedMethod()
 
 @property (assign, readwrite) const char *methodName;;
@@ -340,5 +350,43 @@ BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
     }
     
     return genericMethod;
+}
+
+- (MonoObject *)invokeMethodWithNumArgs:(int)numArgs varArgList:(va_list)va_args
+{
+    // prepare arguments
+    void *monoArgs[numArgs];
+    DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
+    
+    // get mono method
+    MonoMethod *monoMethod = self.monoMethod;
+    
+    // invoke the method
+    MonoObject *monoException = NULL;
+    MonoObject *invokeResult = mono_runtime_invoke(monoMethod, self.invokePtr, monoArgs, &monoException);
+    if (monoException != NULL) {
+        NSRaiseExceptionFromMonoException(monoException, @{@"DBInvokeException" : @(self.methodName)});
+    }
+    
+    return invokeResult;
+}
+
+- (MonoObject *)invokeClassMethodWithNumArgs:(int)numArgs varArgList:(va_list)va_args
+{
+    // prepare arguments
+    void *monoArgs[numArgs];
+    DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
+    
+    // get mono method
+    MonoMethod *monoMethod = self.monoClassMethod;
+    
+    // invoke
+    MonoObject *monoException = NULL;
+    MonoObject *invokeResult = mono_runtime_invoke(monoMethod, NULL, monoArgs, &monoException);
+    if (monoException != NULL) {
+        NSRaiseExceptionFromMonoException(monoException, @{@"DBInvokeException" : @(self.methodName)});
+    }
+    
+    return invokeResult;
 }
 @end

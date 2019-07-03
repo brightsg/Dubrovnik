@@ -236,17 +236,12 @@ extern char DBCacheSuffixChar;
 - (MonoImage *)monoImage;
 
 // direct method Invocation
-+ (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args;
-+ (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
-- (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args;
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
++ (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
 
 // more complex invocations make use of a DBManagedMethod instance
-- (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs varArgList:(va_list)va_args;
 - (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...;
-
-+ (MonoObject *)invokeMethod:(DBManagedMethod *)methodRepresentation withNumArgs:(int)numArgs varArgList:(va_list)va_args;
-+ (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...;
++ (MonoObject *)invokeClassMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...;
 
 // Equality testing
 + (BOOL)object:(id)object1 isEqualToMonoObjectForObject:(id)object2;

@@ -179,5 +179,5 @@ typedef void(^EventBlock)(System_Object* sender, System_EventArgs *eventArgs);
 
 - (DBManagedMethod *)methodWithMonoName:(const char *)methodName typeParameters:(id)typeParameters;
 
-+ (DBManagedMethod *)methodWithMonoName:(const char *)methodName typeParameters:(id)typeParameters;
++ (DBManagedMethod *)classMethodWithMonoName:(const char *)methodName typeParameters:(id)typeParameters;
 @end

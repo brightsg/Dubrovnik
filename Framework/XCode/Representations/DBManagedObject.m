@@ -528,40 +528,14 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     NSString *firstChar = [name substringToIndex:1];
     [name replaceCharactersInRange:NSMakeRange(0, 1) withString:[firstChar lowercaseString]];
     
-    
     return name;
 }
 
 #pragma mark -
-#pragma mark Method Invocation
+#pragma mark Mono method invocation
 
-+ (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args {
-    return(DBMonoClassInvoke([[self class] monoClass], methodName, numArgs, va_args));
-}
-
-+ (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs, ... {
-    va_list va_args;
-    va_start(va_args, numArgs);
-    
-    MonoObject *ret = DBMonoClassInvoke([[self class] monoClass], methodName, numArgs, va_args);
-    
-    va_end(va_args);
-    
-    return ret;
-}
-
-- (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args {
-    
-    // build method name using type parameters defined by the type
-    if (self.managedType.isGenericType) {
-        methodName = [self.managedType inflateMethodName:methodName];
-    }
-    
-    return(DBMonoObjectInvoke(self.monoObject, methodName, numArgs, va_args));
-}
-
-- (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ... {
-    
+- (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ...
+{
     // build method name using type parameters defined by the type
     if (self.managedType.isGenericType) {
         methodName = [self.managedType inflateMethodName:methodName];
@@ -570,65 +544,46 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     // invoke
     va_list va_args;
     va_start(va_args, numArgs);
-    MonoObject *ret = DBMonoObjectInvoke(self.monoObject, methodName, numArgs, va_args);
+    MonoObject *invokeResult = DBMonoObjectInvoke(self.monoObject, methodName, numArgs, va_args);
     va_end(va_args);
     
-    return ret;
+    return invokeResult;
 }
 
-- (MonoObject *)invokeMethod:(DBManagedMethod *)methodRepresentation withNumArgs:(int)numArgs, ... {
-    va_list va_args;
-    va_start(va_args, numArgs);
-    MonoObject *ret = [self invokeMethod:methodRepresentation withNumArgs:numArgs varArgList:va_args];
-    va_end(va_args);
-    return ret;
-}
-
-- (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs varArgList:(va_list)va_args
++ (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs, ...
 {
-    // prepare arguments
-    void *monoArgs[numArgs];
-    DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
-    
-    // get mono method
-    MonoMethod *monoMethod = method.monoMethod;
-    
-    // invoke the method
-    MonoObject *monoException = NULL;
-    MonoObject *retVal = mono_runtime_invoke(monoMethod, method.invokePtr, monoArgs, &monoException);
-    if (monoException != NULL) {
-        NSRaiseExceptionFromMonoException(monoException, @{@"DBInvokeException" : @(method.methodName)});
-    }
-    
-    return retVal;
-}
-
-+ (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...
-{
-    va_list va_args;
-    va_start(va_args, numArgs);
-    MonoObject *ret = [self invokeMethod:method withNumArgs:numArgs varArgList:va_args];
-    va_end(va_args);
-    return ret;
-}
-
-+ (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs varArgList:(va_list)va_args
-{
-    // prepare arguments
-    void *monoArgs[numArgs];
-    DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
-    
-    // get mono method
-    MonoMethod *monoMethod = method.monoClassMethod;
-    
     // invoke
-    MonoObject *monoException = NULL;
-    MonoObject *retVal = mono_runtime_invoke(monoMethod, NULL, monoArgs, &monoException);
-    if (monoException != NULL) {
-        NSRaiseExceptionFromMonoException(monoException, @{@"DBInvokeException" : @(method.methodName)});
-    }
+    va_list va_args;
+    va_start(va_args, numArgs);
+    MonoObject *invokeResult = DBMonoClassInvoke(self.class.monoClass, methodName, numArgs, va_args);
+    va_end(va_args);
+    
+    return invokeResult;
+}
 
-    return retVal;
+#pragma mark -
+#pragma mark DBManagedMethod Invocation
+
+- (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...
+{
+    // invoke
+    va_list va_args;
+    va_start(va_args, numArgs);
+    MonoObject *invokeResult = [method invokeMethodWithNumArgs:numArgs varArgList:va_args];
+    va_end(va_args);
+    
+    return invokeResult;
+}
+
++ (MonoObject *)invokeClassMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...
+{
+    // invoke
+    va_list va_args;
+    va_start(va_args, numArgs);
+    MonoObject *invokeResult = [method invokeClassMethodWithNumArgs:numArgs varArgList:va_args];
+    va_end(va_args);
+    
+    return invokeResult;
 }
 
 #pragma mark -
