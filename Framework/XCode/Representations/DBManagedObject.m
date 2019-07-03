@@ -873,7 +873,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return monoObject;
 }
 
-#warning TEMPORARY
+#warning This looks wrong!
 + (void *)monoRTInvokeArg:(DBManagedObject *)object typeParameterIndex:(NSUInteger)idx
 {
     MonoObject *monoObject = [object monoObject];
