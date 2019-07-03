@@ -324,8 +324,8 @@ static System_NullableA1 * m_currentId;
 
 + (System_Threading_Tasks_TaskA1 *)fromResult_withResult:(System_Object *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [self methodWithMonoName:"FromResult(TResult)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [method monoRTInvokeArg:p1 typeParameterIndex:0]];
+	DBManagedMethod *method = [self classMethodWithMonoName:"FromResult(TResult)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:1, [method monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -345,15 +345,15 @@ static System_NullableA1 * m_currentId;
 
 + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFTTTask__TResult:(System_FuncA1 *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [self methodWithMonoName:"Run(System.Func`1<System.Threading.Tasks.Task/TResult>)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
+	DBManagedMethod *method = [self classMethodWithMonoName:"Run(System.Func`1<System.Threading.Tasks.Task/TResult>)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFTTTask__TResult:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [self methodWithMonoName:"Run(System.Func`1<System.Threading.Tasks.Task/TResult>,System.Threading.CancellationToken)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg]];
+	DBManagedMethod *method = [self classMethodWithMonoName:"Run(System.Func`1<System.Threading.Tasks.Task/TResult>,System.Threading.CancellationToken)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -371,15 +371,15 @@ static System_NullableA1 * m_currentId;
 
 + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFTTTTTTask__TResult:(System_FuncA1 *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [self methodWithMonoName:"Run(System.Func`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task/TResult>>)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
+	DBManagedMethod *method = [self classMethodWithMonoName:"Run(System.Func`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task/TResult>>)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFTTTTTTask__TResult:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [self methodWithMonoName:"Run(System.Func`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task/TResult>>,System.Threading.CancellationToken)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg]];
+	DBManagedMethod *method = [self classMethodWithMonoName:"Run(System.Func`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task/TResult>>,System.Threading.CancellationToken)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -497,15 +497,15 @@ static System_NullableA1 * m_currentId;
 
 + (System_Threading_Tasks_TaskA1 *)whenAll_withTasksSCGITTTTTTask__TResult:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [self methodWithMonoName:"WhenAll(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task/TResult>>)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
+	DBManagedMethod *method = [self classMethodWithMonoName:"WhenAll(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task/TResult>>)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Threading_Tasks_TaskA1 *)whenAll_withTasksTaskA1Array:(System_Array *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [self methodWithMonoName:"WhenAll(Task`1[])" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
+	DBManagedMethod *method = [self classMethodWithMonoName:"WhenAll(Task`1[])" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -523,15 +523,15 @@ static System_NullableA1 * m_currentId;
 
 + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksTaskA1Array:(System_Array *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [self methodWithMonoName:"WhenAny(Task`1[])" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
+	DBManagedMethod *method = [self classMethodWithMonoName:"WhenAny(Task`1[])" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Threading_Tasks_TaskA1 *)whenAny_withTasksSCGITTTTTTask__TResult:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [self methodWithMonoName:"WhenAny(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task/TResult>>)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
+	DBManagedMethod *method = [self classMethodWithMonoName:"WhenAny(System.Collections.Generic.IEnumerable`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task/TResult>>)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 

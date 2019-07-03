@@ -1868,8 +1868,8 @@ static NSString * m_classStringProperty;
 
 + (System_Collections_Generic_DictionaryA2 *)genericMethodStatic2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
 {
-	DBManagedMethod *method = [self methodWithMonoName:"GenericMethodStatic2(T,U)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [method monoRTInvokeArg:p1 typeParameterIndex:0], [method monoRTInvokeArg:p2 typeParameterIndex:1]];
+	DBManagedMethod *method = [self classMethodWithMonoName:"GenericMethodStatic2(T,U)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:2, [method monoRTInvokeArg:p1 typeParameterIndex:0], [method monoRTInvokeArg:p2 typeParameterIndex:1]];
 	return [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 }
 

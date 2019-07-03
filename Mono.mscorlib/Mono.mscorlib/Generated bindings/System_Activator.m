@@ -71,8 +71,8 @@
 
 + (System_Object *)createInstance_withTypeParameter:(id)typeParameter
 {
-	DBManagedMethod *method = [self methodWithMonoName:"CreateInstance()" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:0];
+	DBManagedMethod *method = [self classMethodWithMonoName:"CreateInstance()" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 

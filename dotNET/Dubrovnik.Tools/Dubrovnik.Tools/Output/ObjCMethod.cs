@@ -97,11 +97,18 @@ namespace Dubrovnik.Tools.Output
                 // create Obj-C representation of mono object
                 ManagedValueToObjC = n2c.ManagedValueToObjc(ManagedVariableName, facet);
 
+                // invocation statement
                 if (facet.IsGenericMethodDefinition) {
                     // generic method definitions require additional type processing prior to invocation.
                     // DBManagedMethod co-ordinates this.
-                    objCMethodPrepareFormat = "DBManagedMethod *method = [self methodWithMonoName:\"{0}({1})\" typeParameters:typeParameter]";
-                    objCMethodInvokeFormat = "[self invokeMethod:method withNumArgs:{2}]";
+                    if (facet.IsStatic) {
+                        objCMethodPrepareFormat = "DBManagedMethod *method = [self classMethodWithMonoName:\"{0}({1})\" typeParameters:typeParameter]";
+                        objCMethodInvokeFormat = "[self invokeClassMethod:method withNumArgs:{2}]";
+                    }
+                    else {
+                        objCMethodPrepareFormat = "DBManagedMethod *method = [self methodWithMonoName:\"{0}({1})\" typeParameters:typeParameter]";
+                        objCMethodInvokeFormat = "[self invokeMethod:method withNumArgs:{2}]";
+                    }
                 }
                 else {
                     if (facet.IsStatic) {

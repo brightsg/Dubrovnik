@@ -180,8 +180,8 @@
 + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(System_Object **)p2 typeParameter:(id)typeParameter
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
-	DBManagedMethod *method = [self methodWithMonoName:"TryParse(string,System.Enum/TEnum&)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
+	DBManagedMethod *method = [self classMethodWithMonoName:"TryParse(string,System.Enum/TEnum&)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
 	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
@@ -189,8 +189,8 @@
 + (BOOL)tryParse_withValue:(NSString *)p1 ignoreCase:(BOOL)p2 resultRef:(System_Object **)p3 typeParameter:(id)typeParameter
 {
 	void *refPtr3 = [*p3 monoRTInvokeArg];
-	DBManagedMethod *method = [self methodWithMonoName:"TryParse(string,bool,System.Enum/TEnum&)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), &refPtr3];
+	DBManagedMethod *method = [self classMethodWithMonoName:"TryParse(string,bool,System.Enum/TEnum&)" typeParameters:typeParameter];
+	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), &refPtr3];
 	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
