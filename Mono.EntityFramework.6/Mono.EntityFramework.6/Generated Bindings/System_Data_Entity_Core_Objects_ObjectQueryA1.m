@@ -117,7 +117,7 @@
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)ofType_withTypeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"OfType()" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:0];
+	MonoObject *monoObject = [method invokeMethodWithNumArgs:0];
 	return [System_Data_Entity_Core_Objects_ObjectQueryA1 bestObjectWithMonoObject:monoObject];
 }
 

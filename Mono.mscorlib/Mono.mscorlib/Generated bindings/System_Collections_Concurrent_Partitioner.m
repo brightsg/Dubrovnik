@@ -36,28 +36,28 @@
 + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Create(System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner/TSource>)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 partitionerOptions:(enumSystem_Collections_Concurrent_EnumerablePartitionerOptions)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Create(System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner/TSource>,System.Collections.Concurrent.EnumerablePartitionerOptions)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withList:(System_Object <System_Collections_Generic_IListA1_> *)p1 loadBalance:(BOOL)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Create(System.Collections.Generic.IList`1<System.Collections.Concurrent.Partitioner/TSource>,bool)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withArray:(System_Array *)p1 loadBalance:(BOOL)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Create(TSource[],bool)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
 	return [System_Collections_Concurrent_OrderablePartitionerA1 bestObjectWithMonoObject:monoObject];
 }
 

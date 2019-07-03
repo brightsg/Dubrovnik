@@ -117,7 +117,7 @@
 - (System_Data_Entity_DbSetA1 *)set_withTypeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"Set()" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:0];
+	MonoObject *monoObject = [method invokeMethodWithNumArgs:0];
 	return [System_Data_Entity_DbSetA1 bestObjectWithMonoObject:monoObject];
 }
 

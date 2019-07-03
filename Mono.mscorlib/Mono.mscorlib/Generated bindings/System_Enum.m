@@ -181,7 +181,7 @@
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
 	DBManagedMethod *method = [self classMethodWithMonoName:"TryParse(string,System.Enum/TEnum&)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
 	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
@@ -190,7 +190,7 @@
 {
 	void *refPtr3 = [*p3 monoRTInvokeArg];
 	DBManagedMethod *method = [self classMethodWithMonoName:"TryParse(string,bool,System.Enum/TEnum&)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeClassMethod:method withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), &refPtr3];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), &refPtr3];
 	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }

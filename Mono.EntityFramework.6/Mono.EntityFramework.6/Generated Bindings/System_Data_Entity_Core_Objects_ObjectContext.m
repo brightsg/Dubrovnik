@@ -170,14 +170,14 @@
 - (System_Object *)applyCurrentValues_withEntitySetName:(NSString *)p1 currentEntity:(System_Object *)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"ApplyCurrentValues(string,TEntity)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [method monoRTInvokeArg:p2 typeParameterIndex:0]];
+	MonoObject *monoObject = [method invokeMethodWithNumArgs:2, [p1 monoRTInvokeObject], [method monoRTInvokeArg:p2 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object *)applyOriginalValues_withEntitySetName:(NSString *)p1 originalEntity:(System_Object *)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"ApplyOriginalValues(string,TEntity)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:2, [p1 monoRTInvokeObject], [method monoRTInvokeArg:p2 typeParameterIndex:0]];
+	MonoObject *monoObject = [method invokeMethodWithNumArgs:2, [p1 monoRTInvokeObject], [method monoRTInvokeArg:p2 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -209,21 +209,21 @@
 - (System_Object *)createObject_withTypeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"CreateObject()" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:0];
+	MonoObject *monoObject = [method invokeMethodWithNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Data_Entity_Core_Objects_ObjectSetA1 *)createObjectSet_withTypeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"CreateObjectSet()" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:0];
+	MonoObject *monoObject = [method invokeMethodWithNumArgs:0];
 	return [System_Data_Entity_Core_Objects_ObjectSetA1 objectSetWithMonoObject:monoObject];
 }
 
 - (System_Data_Entity_Core_Objects_ObjectSetA1 *)createObjectSet_withEntitySetName:(NSString *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"CreateObjectSet(string)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:method withNumArgs:1, [p1 monoRTInvokeObject]];
+	MonoObject *monoObject = [method invokeMethodWithNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Data_Entity_Core_Objects_ObjectSetA1 objectSetWithMonoObject:monoObject];
 }
 

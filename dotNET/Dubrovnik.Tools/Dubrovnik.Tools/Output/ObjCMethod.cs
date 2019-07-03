@@ -102,12 +102,14 @@ namespace Dubrovnik.Tools.Output
                     // generic method definitions require additional type processing prior to invocation.
                     // DBManagedMethod co-ordinates this.
                     if (facet.IsStatic) {
+                        // invoke class method
                         objCMethodPrepareFormat = "DBManagedMethod *method = [self classMethodWithMonoName:\"{0}({1})\" typeParameters:typeParameter]";
-                        objCMethodInvokeFormat = "[self invokeClassMethod:method withNumArgs:{2}]";
+                        objCMethodInvokeFormat = "[method invokeClassMethodWithNumArgs:{2}]";
                     }
                     else {
+                        // invoke instance method
                         objCMethodPrepareFormat = "DBManagedMethod *method = [self methodWithMonoName:\"{0}({1})\" typeParameters:typeParameter]";
-                        objCMethodInvokeFormat = "[self invokeMethod:method withNumArgs:{2}]";
+                        objCMethodInvokeFormat = "[method invokeMethodWithNumArgs:{2}]";
                     }
                 }
                 else {
@@ -116,7 +118,7 @@ namespace Dubrovnik.Tools.Output
                         objCMethodInvokeFormat = "[self invokeMonoClassMethod:\"{0}({1})\" withNumArgs:{2}]";
                     }
                     else {
-                        // invoke mono method
+                        // invoke mono instance method
                         objCMethodInvokeFormat = "[self invokeMonoMethod:\"{0}({1})\" withNumArgs:{2}]";
                     }
                 }
