@@ -39,7 +39,7 @@ inline void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, unsign
 
 NSString *DBClassMemberFunctionString(MonoClass *monoClass, const char *name)
 {
-    return [NSString stringWithFormat:@"Type : %s Name : %s", mono_class_get_name(monoClass), name];
+    return [NSString stringWithFormat:@"Type: %s Name: %s", mono_class_get_name(monoClass), name];
 }
 
 NSString *DBObjectMemberFunctionString(MonoObject *monoObject, const char *name)
@@ -252,54 +252,73 @@ inline static void SetCachedMonoMethod(MonoMethod *method, MonoClass *monoClass,
     MethodCacheInsert(&m_methodMap, monoClass, name, method);
 }
 
-MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, BOOL requireSignature)
+#pragma mark - Mono method lookup
+
+MonoMethod *GetMonoMethod(MonoObject *monoObject, MonoClass *monoClass, const char *inMethodName, BOOL requireSignature)
 {
+    // we only want one of the mono pointers to be defined.
+    // this is a bit odd but saves using an intermediary function.
+    NSCAssert(monoObject == NULL || monoClass == NULL, @"Only one of either monoObject or monoClass must be supplied.");
+    
+    // setup
+    if (monoObject != NULL){
+        monoClass = mono_object_get_class(monoObject);
+    }
+    
+    // validate signature
     if (requireSignature) {
         DBValidateMethodSignature(inMethodName);
     }
     
-	pthread_mutex_lock(&methodCacheMutex);
-
+    pthread_mutex_lock(&methodCacheMutex);
+    
     BOOL continueSearch = NO;
     MonoMethod *method = NULL;
     const char *methodName = inMethodName;
     
-    // iterate until method found
+    // iterate until search exhausted
     do {
         // get method from cache
         method = GetCachedMonoMethod(monoClass, methodName);
+        if (method) {
+            break;
+        }
         
         // no cached method found
-        if (method == NULL) {
-            MonoClass *klass = monoClass;
-            MonoMethodDesc *methodDesc = NULL;
-            
-            // allocate a method descriptor
-            if (strchr(methodName, ':') != NULL) {
-                methodDesc = mono_method_desc_new(methodName, YES);
-            }
-            else {
-                char rewrittenMethodName[strlen(methodName) + 2];
-                rewrittenMethodName[0] = ':';
-                strcpy(rewrittenMethodName + 1, methodName);
-                methodDesc = mono_method_desc_new(rewrittenMethodName, YES);
-            }
-            
-            // search class hierarchy for method match
-            while (klass != NULL) {
-                method = mono_method_desc_search_in_class(methodDesc, klass);
-                             
-                if (method != NULL) {
-                    SetCachedMonoMethod(method, monoClass, methodName);
-                    break;
+        MonoClass *klass = monoClass;
+        MonoMethodDesc *methodDesc = NULL;
+        
+        // allocate a method descriptor
+        if (strchr(methodName, ':') != NULL) {
+            methodDesc = mono_method_desc_new(methodName, YES);
+        }
+        else {
+            char rewrittenMethodName[strlen(methodName) + 2];
+            rewrittenMethodName[0] = ':';
+            strcpy(rewrittenMethodName + 1, methodName);
+            methodDesc = mono_method_desc_new(rewrittenMethodName, YES);
+        }
+        
+        // search class hierarchy for method match
+        while (klass != NULL) {
+            method = mono_method_desc_search_in_class(methodDesc, klass);
+            if (method != NULL) {
+                
+                // get object virtual method
+                if (monoObject != NULL) {
+                    method = mono_object_get_virtual_method(monoObject, method);
                 }
                 
-                klass = mono_class_get_parent(klass);
+                // cache the method
+                SetCachedMonoMethod(method, monoClass, methodName);
+                break;
             }
             
-            // free descriptor
-            mono_method_desc_free(methodDesc);
+            klass = mono_class_get_parent(klass);
         }
+        
+        // free descriptor
+        mono_method_desc_free(methodDesc);
         
         /*
          This may prove presumptuous. We shall see.
@@ -339,110 +358,19 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, B
         
     } while (continueSearch);
     
-	pthread_mutex_unlock(&methodCacheMutex);
-
+    pthread_mutex_unlock(&methodCacheMutex);
+    
     // raise exception if method not found
-	if (method == NULL) {
+    if (method == NULL) {
         NSException *e = [NSException exceptionWithName:DBMethodNotFoundException reason:[NSString stringWithFormat:@"Not found (cache): %@", DBClassMemberFunctionString(monoClass, inMethodName)] userInfo:nil];
         [e raise];
     }
     
-	return method;
+    return method;
+
 }
 
-MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName, BOOL requireSignature)
-{
-    if (requireSignature) {
-        DBValidateMethodSignature(inMethodName);
-    }
-    
-	MonoClass *monoClass = mono_object_get_class(monoObject);
-	
-    pthread_mutex_lock(&methodCacheMutex);
-    
-    BOOL continueSearch = NO;
-    MonoMethod *method = NULL;
-    const char *methodName = inMethodName;
-    
-    // iterate until method found
-    do {
-        // get method from cache
-        method = GetCachedMonoMethod(monoClass, methodName);
-        
-        // no cached method found
-        if (method == NULL) {
-            MonoClass *klass = monoClass;
-            MonoMethodDesc *methodDesc = NULL;
-            
-            // allocate a method descriptor
-            if (strchr(methodName, ':') != NULL) {
-                methodDesc = mono_method_desc_new(methodName, YES);
-            }
-            else {
-                char rewrittenMethodName[strlen(methodName) + 2];
-                rewrittenMethodName[0] = ':';
-                strcpy(rewrittenMethodName + 1, methodName);
-                methodDesc = mono_method_desc_new(rewrittenMethodName, YES);
-            }
-            
-            while(klass != NULL) {
-                
-                // search for method
-                method = mono_method_desc_search_in_class(methodDesc, klass);
-                if (method != NULL) {
-
-    #ifdef DB_INVOCATION_TRACE
-                    char *foundMethodName = mono_method_full_name (meth, (int32_t)1);
-                    NSLog(@"Method name query:%s Method name: %s", methodName, foundMethodName);
-    #endif
-                    method = mono_object_get_virtual_method(monoObject, method);
-                    SetCachedMonoMethod(method, monoClass, methodName);
-                    break;
-                }
-                
-                klass = mono_class_get_parent(klass);
-            }
-            
-            mono_method_desc_free(methodDesc);
-        }
-        
-        // look for implicit implementation if explicit method name found
-        if (method == NULL && !continueSearch) {
-            char *implicitNamePtr = NULL;
-            char *bracketry = strchr(methodName, '(');
-            if (bracketry) {
-                while (bracketry != methodName){
-                    if (*bracketry == '.'){
-                        implicitNamePtr = bracketry;
-                        break;
-                    }
-                    bracketry--;
-                }
-            }
-            if (implicitNamePtr == NULL)
-                implicitNamePtr = strrchr(methodName, '.');
-            
-            if (implicitNamePtr) {
-                continueSearch = YES;
-                methodName = implicitNamePtr + 1;
-            }
-            
-        }
-        else {
-            continueSearch = NO;
-        }
-        
-	} while (continueSearch);
-    
-	pthread_mutex_unlock(&methodCacheMutex);
-	
-    // raise exception if method not found
-    if (method == NULL) {
-        @throw([NSException exceptionWithName:DBMethodNotFoundException reason:[NSString stringWithFormat:@"Not found (cache): %@", DBObjectMemberFunctionString(monoObject, inMethodName)] userInfo:nil]);
-    }
-    
-	return method;
-}
+#pragma mark - Mono property method lookup
 
 inline static void SetPropertySetMethod(MonoClass *monoClass, const char *name, MonoMethod *method)
 {
@@ -711,9 +639,8 @@ void DBMonoClassSetProperty(MonoClass *monoClass, const char *propertyName, Mono
     }
 }
 
-//
-// Field Access
-//
+#pragma mark - Field access
+
 MonoObject *DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, void *valueObject)
 {
     // get field
@@ -889,7 +816,7 @@ void DBMonoObjectSetIndexedObject(MonoObject *monoObject, void *indexObject, Mon
 }
 
 #pragma mark -
-#pragma mark Constructor Access
+#pragma mark Construction
 
 MonoObject *DBMonoObjectConstruct(MonoClass *monoClass, unsigned int numArgs, ...)
 {

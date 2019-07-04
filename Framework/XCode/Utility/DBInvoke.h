@@ -78,8 +78,10 @@ MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, u
 void *DBMonoInvokePtr(MonoObject *monoObject);
 
 // Method access
-MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName, BOOL requireSignature);
-MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName, BOOL requireSignature);
+MonoMethod *GetMonoMethod(MonoObject *monoObject, MonoClass *monoClass, const char *inMethodName, BOOL requireSignature);
+#define GetMonoClassMethod(MONO_CLASS, METHOD_NAME, REQUIRE_SIG) GetMonoMethod(NULL, MONO_CLASS, METHOD_NAME, REQUIRE_SIG)
+#define GetMonoObjectMethod(MONO_OBJECT, METHOD_NAME, REQUIRE_SIG) GetMonoMethod(MONO_OBJECT, NULL, METHOD_NAME, REQUIRE_SIG)
+
 MonoMethod *GetPropertyGetMethod(MonoClass *monoClass, const char *propertyName);
 MonoMethod *GetPropertySetMethod(MonoClass *monoClass, const char *propertyName);
 
