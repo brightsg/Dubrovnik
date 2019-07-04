@@ -10,6 +10,13 @@
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
 
+// exception names
+extern NSString *DBBadMethodNameException;
+extern NSString *DBManagedCodeException;
+extern NSString *DBMethodNotFoundException;
+extern NSString *DBFieldNotFoundException;
+
+// variable argument list processing
 extern void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, unsigned int numArgs);
 
 #define DBPopulateMethodArgs(ARGS, NUM) \
@@ -55,49 +62,52 @@ va_end(va_args); \
 // The type semantic attributes specify whether an interface, class, or value type shall be defined. The interface attribute specifies an interface. If this attribute is not present and the definition extends (directly or indirectly) System.ValueType, and the definition is not for System.Enum, a value type shall be defined (§II.13). Otherwise, a class shall be defined (§II.11).
 #define DB_IS_VALUETYPE(x) (mono_class_is_valuetype(x) && !mono_class_is_enum(x))
 
-//Globalvariables
+// Global variables
 extern void (^DBOnManagedExceptionWillRaise)(MonoObject *);
 
-//Cache Debugging
+NSString *DBClassMemberFunctionString(MonoClass *monoClass, const char *name);
+NSString *DBObjectMemberFunctionString(MonoObject *monoObject, const char *name);
+
+// Cache debugging
 void DBInvokeLogCache(BOOL freeContents);
 
-//Method Invocation
+// Method invocation
 MonoObject *DBMonoMethodInvoke(MonoMethod *method, MonoObject *monoObject, unsigned int numArgs, ...);
 MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, unsigned int numArgs, va_list va_args);
 MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, unsigned int numArgs, va_list va_args);
 void *DBMonoInvokePtr(MonoObject *monoObject);
 
-//Property Access
+// Method access
+MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName, BOOL requireSignature);
+MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName, BOOL requireSignature);
+MonoMethod *GetPropertyGetMethod(MonoClass *monoClass, const char *propertyName);
+MonoMethod *GetPropertySetMethod(MonoClass *monoClass, const char *propertyName);
+
+// Property access
 MonoObject *DBMonoObjectGetProperty(MonoObject *monoObject, const char *propertyName);
 void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, MonoObject *valueObject);
 MonoObject *DBMonoClassGetProperty(MonoClass *monoClass, const char *propertyName);
 void DBMonoClassSetProperty(MonoClass *monoClass, const char *propertyName, MonoObject *valueObject);
 
-//Field Access
+// field Access
 MonoObject * DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, void *valueObject);
 void DBMonoObjectSetField(MonoObject *monoObject, const char *fieldName, MonoObject *valueObject);
 MonoObject *DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, void *valueObject);
 void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, MonoObject *valueObject);
 
-//Indexer Access
+// Indexer access
 MonoObject *DBMonoObjectGetIndexedObject(MonoObject *monoObject, void *indexObject);
 void DBMonoObjectSetIndexedObject(MonoObject *monoObject, void *indexObject, MonoObject *valueObject);
 
-//Constructor Access
+// Constructor Access
 MonoObject *DBMonoObjectConstruct(MonoClass *monoClass, unsigned int numArgs, ...);
 MonoObject *DBMonoObjectVarArgsConstruct(MonoClass *monoClass, unsigned int numArgs, va_list va_args);
 MonoObject *DBMonoObjectSignatureConstruct(MonoClass *monoClass, const char *signature, unsigned int numArgs, ...);
 MonoObject *DBMonoObjectSignatureVarArgsConstruct(MonoClass *monoClass, const char *signature, unsigned int numArgs, va_list va_args);
 
-//Nullable access
+// Nullable access
 BOOL DBMonoNullableObjectHasValue(MonoObject *monoNullable);
 MonoObject * DBMonoNullableObjectValue(MonoObject *monoNullable);
-
-//Method lookup
-MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *methodName, BOOL requireSignature);
-MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *methodName, BOOL requireSignature);
-MonoMethod *GetPropertyGetMethod(MonoClass *monoClass, const char *propertyName);
-MonoMethod *GetPropertySetMethod(MonoClass *monoClass, const char *propertyName);
 
 // Exception handling
 void NSRaiseExceptionFromMonoException(MonoObject *monoException, NSDictionary *info);

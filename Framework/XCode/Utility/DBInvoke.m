@@ -11,15 +11,18 @@
 // To enable trace uncomment this line
 //#define DB_INVOCATION_TRACE
 
+#import "DBInvoke.h"
 #import <pthread.h>
 #import "DBBoxing.h"
 #import "DBType.h"
 #import "DBTypeManager.h"
 #import "DBManagedEnvironment.h"
-
-
-#import "DBInvoke.h"
 #import "NSCategories.h"
+
+NSString *DBBadMethodNameException = @"DBBadMethodNameException";
+NSString *DBManagedCodeException = @"DBManagedCodeException";
+NSString *DBMethodNotFoundException = @"DBMethodNotFoundException";
+NSString *DBFieldNotFoundException = @"DBFieldNotFoundException";
 
 void (^DBOnManagedExceptionWillRaise)(MonoObject *) = nil;
 
@@ -32,6 +35,16 @@ inline void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, unsign
 			args[i] = va_arg(va_args, void *);
 		}
 	}
+}
+
+NSString *DBClassMemberFunctionString(MonoClass *monoClass, const char *name)
+{
+    return [NSString stringWithFormat:@"Type : %s Name : %s", mono_class_get_name(monoClass), name];
+}
+
+NSString *DBObjectMemberFunctionString(MonoObject *monoObject, const char *name)
+{
+    return DBClassMemberFunctionString(mono_object_get_class(monoObject), name);
 }
 
 static void DBValidateMethodSignature(const char *methodName)
@@ -61,7 +74,7 @@ static void DBValidateMethodSignature(const char *methodName)
 
             // Mismatched parenthesis
         default:
-            @throw([NSException exceptionWithName:@"DBBadMethodNameException" reason:[NSString stringWithFormat:@"Full signature not provided for method name : %s. Method name must include parenthesis and type names (if appropriate).", methodName] userInfo:nil]);
+            @throw([NSException exceptionWithName:DBBadMethodNameException reason:[NSString stringWithFormat:@"Full signature not provided for method name : %s. Method name must include parenthesis and type names (if appropriate).", methodName] userInfo:nil]);
             
     }
 }
@@ -169,7 +182,7 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionar
     NSMutableString *reason = [NSMutableString stringWithFormat:@"%@", message];
     
     // make it so
-    NSException *e = [NSException exceptionWithName:@"DBManagedCodeException" reason:reason userInfo:userInfo];
+    NSException *e = [NSException exceptionWithName:DBManagedCodeException reason:reason userInfo:userInfo];
     
     // call tracer
     DBManagedEnvironment *env = [DBManagedEnvironment currentEnvironment];
@@ -186,13 +199,13 @@ static pthread_mutex_t methodCacheMutex = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t propertyGetCacheMutex = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t propertySetCacheMutex = PTHREAD_MUTEX_INITIALIZER;
 
-// method cache
+// method caches
 static __strong NSMapTable *m_propertyGetMethodMap;
 static __strong NSMapTable *m_propertySetMethodMap;
 static __strong NSMapTable *m_methodMap;
 
-static void MethodCacheInsert(NSMapTable __strong **map, MonoClass *monoClass, const char *name, MonoMethod *method) {
-    
+static void MethodCacheInsert(NSMapTable __strong **map, MonoClass *monoClass, const char *name, MonoMethod *method)
+{
     // validate map
     if (*map == NULL) {
         // key : MonoClass *, value : NSMapTable *
@@ -228,18 +241,19 @@ static MonoMethod *MethodCacheGet(NSMapTable *map, MonoClass *monoClass, const c
     return method;
 }
 
-
-inline static MonoMethod *GetCachedMonoMethod(MonoClass *monoClass, const char *name) {
+inline static MonoMethod *GetCachedMonoMethod(MonoClass *monoClass, const char *name)
+{
     MonoMethod *method = MethodCacheGet(m_methodMap, monoClass, name);
 	return method;
 }
 
-inline static void SetCachedMonoMethod(MonoMethod *method, MonoClass *monoClass, const char *name) {
+inline static void SetCachedMonoMethod(MonoMethod *method, MonoClass *monoClass, const char *name)
+{
     MethodCacheInsert(&m_methodMap, monoClass, name, method);
 }
 
-MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, BOOL requireSignature) {
-
+MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, BOOL requireSignature)
+{
     if (requireSignature) {
         DBValidateMethodSignature(inMethodName);
     }
@@ -247,36 +261,43 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, B
 	pthread_mutex_lock(&methodCacheMutex);
 
     BOOL continueSearch = NO;
-    MonoMethod *meth = NULL;
+    MonoMethod *method = NULL;
     const char *methodName = inMethodName;
     
+    // iterate until method found
     do {
-        meth = GetCachedMonoMethod(monoClass, methodName);
-            
-        if(meth == NULL) {
+        // get method from cache
+        method = GetCachedMonoMethod(monoClass, methodName);
+        
+        // no cached method found
+        if (method == NULL) {
             MonoClass *klass = monoClass;
             MonoMethodDesc *methodDesc = NULL;
             
+            // allocate a method descriptor
             if (strchr(methodName, ':') != NULL) {
                 methodDesc = mono_method_desc_new(methodName, YES);
-            } else {
+            }
+            else {
                 char rewrittenMethodName[strlen(methodName) + 2];
                 rewrittenMethodName[0] = ':';
                 strcpy(rewrittenMethodName + 1, methodName);
                 methodDesc = mono_method_desc_new(rewrittenMethodName, YES);
             }
             
-            while(klass != NULL) {
-                meth = mono_method_desc_search_in_class(methodDesc, klass);
+            // search class hierarchy for method match
+            while (klass != NULL) {
+                method = mono_method_desc_search_in_class(methodDesc, klass);
                              
-                if(meth != NULL) {
-                    SetCachedMonoMethod(meth, monoClass, methodName);
+                if (method != NULL) {
+                    SetCachedMonoMethod(method, monoClass, methodName);
                     break;
                 }
                 
                 klass = mono_class_get_parent(klass);
             }
             
+            // free descriptor
             mono_method_desc_free(methodDesc);
         }
         
@@ -292,7 +313,7 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, B
          */
         
         // look for implicit implementation if explicit method name found
-        if (meth == NULL && !continueSearch) {
+        if (method == NULL && !continueSearch) {
             char *implicitNamePtr = NULL;
             char *bracketry = strchr(methodName, '(');
             if (bracketry) {
@@ -304,15 +325,15 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, B
                     bracketry--;
                 }
             }
-            if (implicitNamePtr == NULL)
+            if (implicitNamePtr == NULL) {
                 implicitNamePtr = strrchr(methodName, '.');
-            
+            }
             if (implicitNamePtr) {
                 continueSearch = YES;
                 methodName = implicitNamePtr + 1;
             }
-            
-        } else {
+        }
+        else {
             continueSearch = NO;
         }
         
@@ -320,17 +341,17 @@ MonoMethod *GetMonoClassMethod(MonoClass *monoClass, const char *inMethodName, B
     
 	pthread_mutex_unlock(&methodCacheMutex);
 
-	if (meth == NULL) {
-		NSException *e = [NSException exceptionWithName:@"DBManagedClassMethodNotFoundException" reason:[NSString stringWithFormat:@"Dubrovnik could not find the method %s%s", mono_class_get_name(monoClass), inMethodName] userInfo:nil];
-        
+    // raise exception if method not found
+	if (method == NULL) {
+        NSException *e = [NSException exceptionWithName:DBMethodNotFoundException reason:[NSString stringWithFormat:@"Not found (cache): %@", DBClassMemberFunctionString(monoClass, inMethodName)] userInfo:nil];
         [e raise];
     }
     
-	return(meth);
+	return method;
 }
 
-MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName, BOOL requireSignature) {
-    
+MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName, BOOL requireSignature)
+{
     if (requireSignature) {
         DBValidateMethodSignature(inMethodName);
     }
@@ -340,19 +361,24 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName
     pthread_mutex_lock(&methodCacheMutex);
     
     BOOL continueSearch = NO;
-    MonoMethod *meth = NULL;
+    MonoMethod *method = NULL;
     const char *methodName = inMethodName;
     
+    // iterate until method found
     do {
-        meth = GetCachedMonoMethod(monoClass, methodName);
+        // get method from cache
+        method = GetCachedMonoMethod(monoClass, methodName);
         
-        if(meth == NULL) {
+        // no cached method found
+        if (method == NULL) {
             MonoClass *klass = monoClass;
             MonoMethodDesc *methodDesc = NULL;
             
+            // allocate a method descriptor
             if (strchr(methodName, ':') != NULL) {
                 methodDesc = mono_method_desc_new(methodName, YES);
-            } else {
+            }
+            else {
                 char rewrittenMethodName[strlen(methodName) + 2];
                 rewrittenMethodName[0] = ':';
                 strcpy(rewrittenMethodName + 1, methodName);
@@ -360,16 +386,17 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName
             }
             
             while(klass != NULL) {
-                meth = mono_method_desc_search_in_class(methodDesc, klass);
                 
-                if(meth != NULL) {
+                // search for method
+                method = mono_method_desc_search_in_class(methodDesc, klass);
+                if (method != NULL) {
 
     #ifdef DB_INVOCATION_TRACE
                     char *foundMethodName = mono_method_full_name (meth, (int32_t)1);
                     NSLog(@"Method name query:%s Method name: %s", methodName, foundMethodName);
     #endif
-                    meth = mono_object_get_virtual_method(monoObject, meth);
-                    SetCachedMonoMethod(meth, monoClass, methodName);
+                    method = mono_object_get_virtual_method(monoObject, method);
+                    SetCachedMonoMethod(method, monoClass, methodName);
                     break;
                 }
                 
@@ -380,7 +407,7 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName
         }
         
         // look for implicit implementation if explicit method name found
-        if (meth == NULL && !continueSearch) {
+        if (method == NULL && !continueSearch) {
             char *implicitNamePtr = NULL;
             char *bracketry = strchr(methodName, '(');
             if (bracketry) {
@@ -400,7 +427,8 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName
                 methodName = implicitNamePtr + 1;
             }
             
-        } else {
+        }
+        else {
             continueSearch = NO;
         }
         
@@ -408,81 +436,103 @@ MonoMethod *GetMonoObjectMethod(MonoObject *monoObject, const char *inMethodName
     
 	pthread_mutex_unlock(&methodCacheMutex);
 	
-    if(meth == NULL) {
-		@throw([NSException exceptionWithName:@"DBManagedObjectMethodNotFoundException" reason:[NSString stringWithFormat:@"Dubrovnik could not find the object method %s", inMethodName] userInfo:nil]);
+    // raise exception if method not found
+    if (method == NULL) {
+        @throw([NSException exceptionWithName:DBMethodNotFoundException reason:[NSString stringWithFormat:@"Not found (cache): %@", DBObjectMemberFunctionString(monoObject, inMethodName)] userInfo:nil]);
     }
     
-	return(meth);	
+	return method;
 }
 
-inline static void SetPropertySetMethod(MonoClass *monoClass, const char *name, MonoMethod *method) {
+inline static void SetPropertySetMethod(MonoClass *monoClass, const char *name, MonoMethod *method)
+{
     MethodCacheInsert(&m_propertySetMethodMap, monoClass, name, method);
 }
 
-MonoMethod *GetPropertySetMethod(MonoClass *monoClass, const char *name) {
+MonoMethod *GetPropertySetMethod(MonoClass *monoClass, const char *inMethodName)
+{
 	pthread_mutex_lock(&propertySetCacheMutex);
 
-    MonoMethod *method = MethodCacheGet(m_propertySetMethodMap, monoClass, name);
+    // get method
+    MonoMethod *method = MethodCacheGet(m_propertySetMethodMap, monoClass, inMethodName);
     
+    // no cached method found
 	if (method == NULL) {
         
         // Get the setter method name.
         // An API exists to get property set method but it is not used here.
 		// MonoProperty *monoProperty = mono_class_get_property_from_name(monoClass, propertyName);
 		// meth = mono_property_get_set_method(monoProperty);
-        char *methodName = DBFormatPropertyName(name, ":%sset_%s");
+        char *setterMethodName = DBFormatPropertyName(inMethodName, ":%sset_%s");
         
         // Note: Exact name matching requirement is set to NO.
         // This enables searching for property setter methods by name only.
         // TODO: Require full method signature ?
-		method = GetMonoClassMethod(monoClass, methodName, NO);
-        free(methodName);
+		method = GetMonoClassMethod(monoClass, setterMethodName, NO);
+        free(setterMethodName);
         
         // update the setter cache
-		SetPropertySetMethod(monoClass, name, method);
+        if (method) {
+            SetPropertySetMethod(monoClass, inMethodName, method);
+        }
 	}
 	
 	pthread_mutex_unlock(&propertySetCacheMutex);
-	 
+    
+    // raise exception if method not found
+    if (method == NULL) {
+        @throw([NSException exceptionWithName:DBMethodNotFoundException reason:[NSString stringWithFormat:@"Not found: %@", DBClassMemberFunctionString(monoClass, inMethodName)] userInfo:nil]);
+    }
+    
 	return method;
 }
 
-inline static void SetPropertyGetMethod(MonoClass *monoClass, const char *name, MonoMethod *method) {
+inline static void SetPropertyGetMethod(MonoClass *monoClass, const char *name, MonoMethod *method)
+{
     MethodCacheInsert(&m_propertyGetMethodMap, monoClass, name, method);
 }
 
-__attribute__((always_inline)) inline MonoMethod *GetPropertyGetMethod(MonoClass *monoClass, const char *name) {
+__attribute__((always_inline)) inline MonoMethod *GetPropertyGetMethod(MonoClass *monoClass, const char *inMethodName)
+{
     pthread_mutex_lock(&propertyGetCacheMutex);
-    MonoMethod *method = MethodCacheGet(m_propertyGetMethodMap, monoClass, name);
     
+    // get method
+    MonoMethod *method = MethodCacheGet(m_propertyGetMethodMap, monoClass, inMethodName);
+    
+     // no cached method found
 	if (method == NULL) {
-        // cache miss
         
         // Get the getter method name.
         // note: an explicit API exists for this, though we do not utilise it here.
         // MonoProperty *monoProperty = mono_class_get_property_from_name(monoClass, propertyName);
         // meth = mono_property_get_get_method(monoProperty);
-        char *methodName = DBFormatPropertyName(name, ":%sget_%s");
+        char *getterMethodName = DBFormatPropertyName(inMethodName, ":%sget_%s");
         
         // Note: Exact name matching requirement is set to NO.
         // This enables searching for property getter methods by name only.
         // TODO: Require full method signature ?
-		method = GetMonoClassMethod(monoClass, methodName, NO);
-        free(methodName);
+		method = GetMonoClassMethod(monoClass, getterMethodName, NO);
+        free(getterMethodName);
         
         // update the cache
-		SetPropertyGetMethod(monoClass, name, method);
+        if (method) {
+            SetPropertyGetMethod(monoClass, inMethodName, method);
+        }
 	}
 	
 	pthread_mutex_unlock(&propertyGetCacheMutex);
 	
+    // raise exception if method not found
+    if (method == NULL) {
+        @throw([NSException exceptionWithName:DBMethodNotFoundException reason:[NSString stringWithFormat:@"Not found: %@", DBClassMemberFunctionString(monoClass, inMethodName)] userInfo:nil]);
+    }
+    
 	return method;
 }
 
 __attribute__((always_inline)) inline char *DBFormatPropertyName(const char * propertyName, const char* fmt)
 {
     // get explicit interface prefix.
-    
     char *prefix = "";
     const char *name = propertyName;
     char *delim = strrchr(propertyName, '.');
@@ -525,7 +575,7 @@ MonoObject *DBMonoMethodInvoke(MonoMethod *method, MonoObject *monoObject, unsig
     MonoObject *monoException = NULL;
     MonoObject *monoResult = mono_runtime_invoke(method, monoObject, monoArgs, &monoException);
     if (monoException != NULL) {
-        @throw(NSExceptionFromMonoException(monoException, @{}));
+        NSRaiseExceptionFromMonoException(monoException, @{});
     }
     
     return monoResult;
@@ -544,7 +594,7 @@ MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, unsi
     MonoObject *monoException = NULL;
     MonoObject *monoResult = mono_runtime_invoke(meth, NULL, monoArgs, &monoException);
     if (monoException != NULL) {
-        @throw(NSExceptionFromMonoException(monoException, @{@"DBClassInvokeException" : @(methodName)}));
+        NSRaiseExceptionFromMonoException(monoException, @{@(__func__) : DBClassMemberFunctionString(monoClass, methodName)});
     }
     
 	return monoResult;
@@ -559,22 +609,20 @@ MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, u
     // get method
 	MonoMethod *monoMethod = GetMonoObjectMethod(monoObject, methodName, YES);
     if (!monoMethod) {
-        [NSException raise:@"DBMethodNotFoundException" format:@"Managed object method not found: %s", methodName];
+        [NSException raise:DBMethodNotFoundException format:@"Not found: %@", DBObjectMemberFunctionString(monoObject, methodName)];
     }
     
     // get the invocation pointer
     void *invokePtr = DBMonoInvokePtr(monoObject);
     
-    // invoke the method
+    // invoke
     MonoObject *monoException = NULL;
-    MonoObject *retval = mono_runtime_invoke(monoMethod, invokePtr, monoArgs, &monoException);
-	
-    // handle managed exception
+    MonoObject *monoResult = mono_runtime_invoke(monoMethod, invokePtr, monoArgs, &monoException);
     if (monoException != NULL) {
-        @throw(NSExceptionFromMonoException(monoException, @{@"DBObjectInvokeException" : @(methodName)}));
+        NSRaiseExceptionFromMonoException(monoException, @{@(__func__) : DBObjectMemberFunctionString(monoObject, methodName)});
     }
     
-	return retval;
+	return monoResult;
 }
 
 void *DBMonoInvokePtr(MonoObject *monoObject)
@@ -591,115 +639,113 @@ void *DBMonoInvokePtr(MonoObject *monoObject)
 #pragma mark -
 #pragma mark Property Access
 
-MonoObject *DBMonoObjectGetProperty(MonoObject *monoObject, const char *propertyName) {
-    
+MonoObject *DBMonoObjectGetProperty(MonoObject *monoObject, const char *propertyName)
+{
     // get method
 	MonoClass *klass = mono_object_get_class(monoObject);
 	MonoMethod *monoMethod = GetPropertyGetMethod(klass, propertyName);
-    if (!monoMethod) {
-        [NSException raise:@"DBGetPropertyMethodNotFoundException" format:@"Managed object get property method not found: %s", propertyName];
-    }
     
-    // get the invocation pointer
+    // get invocation pointer
     void *invokePtr = DBMonoInvokePtr(monoObject);
     
-    // invoke the method
+    // invoke
     MonoObject *monoException = NULL;
-    MonoObject *retval= mono_runtime_invoke(monoMethod, invokePtr, NULL, &monoException);
-	
-    // handle managed exception
+    MonoObject *monoResult= mono_runtime_invoke(monoMethod, invokePtr, NULL, &monoException);
 	if (monoException != NULL) {
-        @throw(NSExceptionFromMonoException(monoException, @{@"DBObjectGetPropertyException" : @(propertyName)}));
+        NSRaiseExceptionFromMonoException(monoException, @{@(__func__) : DBObjectMemberFunctionString(monoObject, propertyName)});
     }
 	
-	return(retval);
+	return monoResult;
 }
 
-MonoObject *DBMonoClassGetProperty(MonoClass *monoClass, const char *propertyName) {
-	MonoObject *monoException = NULL;
+MonoObject *DBMonoClassGetProperty(MonoClass *monoClass, const char *propertyName)
+{
+	// get method
 	MonoMethod *monoMethod = GetPropertyGetMethod(monoClass, propertyName);
 	
-	MonoObject *retval = NULL;
-	if (monoMethod != NULL) {
-        retval = mono_runtime_invoke(monoMethod, NULL, NULL, &monoException);
-    }
-	
+    // invoke
+    MonoObject *monoException = NULL;
+    MonoObject *monoResult = mono_runtime_invoke(monoMethod, NULL, NULL, &monoException);
     if (monoException != NULL) {
-        @throw(NSExceptionFromMonoException(monoException, @{@"DBClassGetPropertyException" : @(propertyName)}));
+        NSRaiseExceptionFromMonoException(monoException, @{@(__func__) : DBClassMemberFunctionString(monoClass, propertyName)});
     }
     
-	return(retval);
+	return monoResult;
 }
 
 void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, MonoObject *valueObject)
 {
-    MonoObject *monoException = NULL;
+    // get arguments
+    void *args[1];
+    args[0] = valueObject;
+    
+    // get method
 	MonoClass *klass = mono_object_get_class(monoObject);
 	MonoMethod *monoMethod = GetPropertySetMethod(klass, propertyName);
-	void *args[1];
-	args[0] = valueObject;
-	
-	if (monoMethod != NULL) {
         
-        // get the invocation pointer
-        void *invokePtr = DBMonoInvokePtr(monoObject);
+    // get invocation pointer
+    void *invokePtr = DBMonoInvokePtr(monoObject);
 
-        // invoke the method
-		mono_runtime_invoke(monoMethod, invokePtr, args, &monoException);
-	}
-	
+    // invoke
+    MonoObject *monoException = NULL;
+    mono_runtime_invoke(monoMethod, invokePtr, args, &monoException);
 	if (monoException != NULL) {
-        @throw(NSExceptionFromMonoException(monoException, @{@"DBObjectSetPropertyException" : @(propertyName)}));
+        NSRaiseExceptionFromMonoException(monoException, @{@(__func__) : DBObjectMemberFunctionString(monoObject, propertyName)});
     }
 }
 
-void DBMonoClassSetProperty(MonoClass *monoClass, const char *propertyName, MonoObject *valueObject) {
-	MonoObject *monoException = NULL;
+void DBMonoClassSetProperty(MonoClass *monoClass, const char *propertyName, MonoObject *valueObject)
+{
+    // get arguments
+    void *args[1];
+    args[0] = valueObject;
+    
+	// get method
 	MonoMethod *monoMethod = GetPropertySetMethod(monoClass, propertyName);
-	void *args[1];
-	args[0] = valueObject;
-	
+
+    // invoke
+	MonoObject *monoException = NULL;
 	mono_runtime_invoke(monoMethod, NULL, args, &monoException);
-	
 	if (monoException != NULL) {
-        @throw(NSExceptionFromMonoException(monoException, @{@"DBClassSetPropertyException" : @(propertyName)}));
+        NSRaiseExceptionFromMonoException(monoException, @{@(__func__) : DBClassMemberFunctionString(monoClass, propertyName)});
     }
 }
 
 //
 // Field Access
 //
-MonoObject *DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, void *valueObject) {
-    
-    /*
-     
-     See note in DBMonoClassGetField
-     
-     */
-    
+MonoObject *DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, void *valueObject)
+{
+    // get field
 	MonoClass *monoClass = mono_object_get_class(monoObject);
 	MonoClassField *field = mono_class_get_field_from_name(monoClass, fieldName);
+    if (field == NULL) {
+        [NSException raise:DBFieldNotFoundException format:@"Not found: %@", DBObjectMemberFunctionString(monoObject, fieldName)];
+    }
+    
+    // get field info
     MonoType *fieldType = mono_field_get_type(field);
-    MonoClass *klass = mono_class_from_mono_type(fieldType);
+    MonoClass *fieldKlass = mono_class_from_mono_type(fieldType);
     
     // if no valueObject then use a local buffer
     void *valuebuffer = valueObject;
     BOOL localBuffer = NO;
     if (valuebuffer == NULL) {
-        int32_t size = mono_class_instance_size(klass);
+        int32_t size = mono_class_instance_size(fieldKlass);
         valuebuffer = malloc(size);
         localBuffer = YES;
     }
     
+    // get field value
 	mono_field_get_value(monoObject, field, valuebuffer);
     
-    MonoObject *monoResult = NULL;
-    
     // if a local value buffer is assigned then return a boxed object
+    MonoObject *monoResult = NULL;
     if (localBuffer) {
-        if (mono_class_is_valuetype(klass)) {
-            monoResult = mono_value_box(mono_domain_get(), klass, valuebuffer);
-        } else {
+        if (mono_class_is_valuetype(fieldKlass)) {
+            monoResult = mono_value_box(mono_domain_get(), fieldKlass, valuebuffer);
+        }
+        else {
             monoResult = *(void **)valuebuffer;
         }
         free(valuebuffer);
@@ -708,29 +754,37 @@ MonoObject *DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, 
     return monoResult;
 }
 
-void DBMonoObjectSetField(MonoObject *monoObject, const char *fieldName, MonoObject *valueObject) {
+void DBMonoObjectSetField(MonoObject *monoObject, const char *fieldName, MonoObject *valueObject)
+{
+    // get field
 	MonoClass *monoClass = mono_object_get_class(monoObject);
 	MonoClassField *field = mono_class_get_field_from_name(monoClass, fieldName);
-	
+    if (field == NULL) {
+        [NSException raise:DBFieldNotFoundException format:@"Not found: %@", DBObjectMemberFunctionString(monoObject, fieldName)];
+    }
+    
+    // set field value
 	mono_field_set_value(monoObject, field, valueObject);
 }
 
-MonoObject *DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, void *valueObject) {
-    
-    /*
-    
-     if valueObject is assigned then it will be used to hold the field value
+MonoObject *DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, void *valueObject)
+{
+    /* if valueObject is assigned then it will be used to hold the field value
      and the function return value will be NULL;
      
      if not then a boxed representation will be returned.
      
      although boxing carries an overhead it is preferred as it makes the property and field
      access APIs similar
-     
      */
     
+    // get field
 	MonoClassField *field = mono_class_get_field_from_name(monoClass, fieldName);
-	MonoVTable *vtable = mono_class_vtable(mono_domain_get(), monoClass);
+    if (field == NULL) {
+        [NSException raise:DBFieldNotFoundException format:@"Not found: %@", DBClassMemberFunctionString(monoClass, fieldName)];
+    }
+    
+    // get field info
     MonoType* fieldType = mono_field_get_type(field);
     MonoClass *klass = mono_class_from_mono_type(fieldType);
     
@@ -743,17 +797,22 @@ MonoObject *DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, voi
         localBuffer = YES;
     }
     
+    // Much like mono_runtime_object_init, mono_runtime_class_init must have been called prior
+    // to accessing a static field.
+    // the implementation checks the vtable to see if initialisation has already occurred and returns immediately in this case.
+    MonoVTable *vtable = mono_class_vtable(mono_domain_get(), monoClass);
     mono_runtime_class_init(vtable);
     
+    // get static field value
 	mono_field_static_get_value(vtable, field, valuebuffer);
     
-    MonoObject *monoResult = NULL;
-    
     // if a local value buffer is assigned then return a boxed object
+    MonoObject *monoResult = NULL;
     if (localBuffer) {
         if (mono_class_is_valuetype(klass)) {
             monoResult = mono_value_box(mono_domain_get(), klass, valuebuffer);
-        } else {
+        }
+        else {
             monoResult = *(void **)valuebuffer;
         }
         free(valuebuffer);
@@ -762,115 +821,123 @@ MonoObject *DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, voi
     return monoResult;
 }
 
-void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, MonoObject *valueObject) {
+void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, MonoObject *valueObject)
+{
+    // get field
 	MonoClassField *field = mono_class_get_field_from_name(monoClass, fieldName);
-	MonoVTable *vtable = mono_class_vtable(mono_domain_get(), monoClass);
+    if (field == NULL) {
+        [NSException raise:DBFieldNotFoundException format:@"Not found: %@", DBClassMemberFunctionString(monoClass, fieldName)];
+    }
     
     // Much like mono_runtime_object_init, mono_runtime_class_init must have been called prior
     // to accessing a static field.
-// TODO: perhaps this should be moved into a class initialise method.
+    MonoVTable *vtable = mono_class_vtable(mono_domain_get(), monoClass);
 	mono_runtime_class_init(vtable);
     
+    // set field value
 	mono_field_static_set_value(vtable, field, valueObject);
 }
 
 #pragma mark -
 #pragma mark Indexer Access
 
-MonoObject *DBMonoObjectGetIndexedObject(MonoObject *monoObject, void *indexObject) {
-	MonoObject *monoException = NULL;
+MonoObject *DBMonoObjectGetIndexedObject(MonoObject *monoObject, void *indexObject)
+{
+    // get arguments
+    void *args[1];
+    args[0] = indexObject;
+    
+    // get method
+    const char *methodName = "Item";
 	MonoClass *klass = mono_object_get_class(monoObject);
-	MonoMethod *monoMethod = GetPropertyGetMethod(klass, "Item");
-	void *args[1];
-	args[0] = indexObject;
-	
-	MonoObject *retval = NULL;
-	if(monoMethod != NULL) {
-        // get the invocation pointer
-        void *invokePtr = DBMonoInvokePtr(monoObject);
-        
-        // invoke the method
-		retval = mono_runtime_invoke(monoMethod, invokePtr, args, &monoException);
-	}
-	
-    if(monoException != NULL) {
-        @throw(NSExceptionFromMonoException(monoException, @{}));
+	MonoMethod *monoMethod = GetPropertyGetMethod(klass, methodName);
+
+    // get the invocation pointer
+    void *invokePtr = DBMonoInvokePtr(monoObject);
+
+    // invoke
+    MonoObject *monoException = NULL;
+    MonoObject *monoResult = mono_runtime_invoke(monoMethod, invokePtr, args, &monoException);
+    if (monoException != NULL) {
+        NSRaiseExceptionFromMonoException(monoException, @{@(__func__) : DBObjectMemberFunctionString(monoObject, methodName)});
     }
     
-	return(retval);
+	return monoResult;
 }
 
-void DBMonoObjectSetIndexedObject(MonoObject *monoObject, void *indexObject, MonoObject *valueObject) {
-	MonoObject *monoException = NULL;
+void DBMonoObjectSetIndexedObject(MonoObject *monoObject, void *indexObject, MonoObject *valueObject)
+{
+    // get arguments
+    void *args[2];
+    args[0] = indexObject;
+    args[1] = valueObject;
+    
+    // get method
+    const char *methodName = "Item";
 	MonoClass *klass = mono_object_get_class(monoObject);
-	MonoMethod *monoMethod = GetPropertySetMethod(klass, "Item");
-	void *args[2];
-	args[0] = indexObject;
-	args[1] = valueObject;
-	
-	if(monoMethod != NULL) {
-        // get the invocation pointer
-        void *invokePtr = DBMonoInvokePtr(monoObject);
-        
-        // invoke the method
-		mono_runtime_invoke(monoMethod, invokePtr, args, &monoException);
-	}
-	
-    if(monoException != NULL) {
-        @throw(NSExceptionFromMonoException(monoException, @{}));
+	MonoMethod *monoMethod = GetPropertySetMethod(klass, methodName);
+    
+    // get invocation pointer
+    void *invokePtr = DBMonoInvokePtr(monoObject);
+    
+    // invoke
+    MonoObject *monoException = NULL;
+    mono_runtime_invoke(monoMethod, invokePtr, args, &monoException);
+    if (monoException != NULL) {
+        NSRaiseExceptionFromMonoException(monoException, @{@(__func__) : DBObjectMemberFunctionString(monoObject, methodName)});
     }
 }
 
 #pragma mark -
 #pragma mark Constructor Access
 
-MonoObject *DBMonoObjectConstruct(MonoClass *monoClass, unsigned int numArgs, ...) {
+MonoObject *DBMonoObjectConstruct(MonoClass *monoClass, unsigned int numArgs, ...)
+{
 	MonoObject *newObject = mono_object_new(mono_domain_get(), monoClass);
-	if(newObject != NULL) {
+	if (newObject != NULL) {
 		va_list va_args;
 		va_start(va_args, numArgs);
-
 		DBMonoObjectInvoke(newObject, ".ctor", numArgs, va_args);
-		
 		va_end(va_args);
 	}
 	
-	return(newObject);
+	return newObject ;
 }
 
-MonoObject *DBMonoObjectVarArgsConstruct(MonoClass *monoClass, unsigned int numArgs, va_list va_args) {
+MonoObject *DBMonoObjectVarArgsConstruct(MonoClass *monoClass, unsigned int numArgs, va_list va_args)
+{
 	MonoObject *newObject = mono_object_new(mono_domain_get(), monoClass);
-	if(newObject != NULL) {
+	if (newObject != NULL) {
 		DBMonoObjectInvoke(newObject, ".ctor", numArgs, va_args);
 	}
 	
-	return(newObject);
+	return newObject;
 }
 
-MonoObject *DBMonoObjectSignatureConstruct(MonoClass *monoClass, const char *signature, unsigned int numArgs, ...) {
+MonoObject *DBMonoObjectSignatureConstruct(MonoClass *monoClass, const char *signature, unsigned int numArgs, ...)
+{
 	va_list va_args;
 	va_start(va_args, numArgs);
-	
 	MonoObject *newObject = DBMonoObjectSignatureVarArgsConstruct(monoClass, signature, numArgs, va_args);
-	
 	va_end(va_args);
 	
-	return(newObject);
+	return newObject;
 }
 
-MonoObject *DBMonoObjectSignatureVarArgsConstruct(MonoClass *monoClass, const char *signature, unsigned int numArgs, va_list va_args) {
+MonoObject *DBMonoObjectSignatureVarArgsConstruct(MonoClass *monoClass, const char *signature, unsigned int numArgs, va_list va_args)
+{
 	MonoObject *newObject = mono_object_new(mono_domain_get(), monoClass);
-	if(newObject != NULL) {
+	if (newObject != NULL) {
 		char *fullSig = NULL;
 		asprintf(&fullSig, ".ctor(%s)", signature);
 		
 		DBMonoObjectInvoke(newObject, fullSig, numArgs, va_args);
 		
-		if(fullSig != NULL) free(fullSig);
+		if (fullSig != NULL) free(fullSig);
 		va_end(va_args);
 	}
 	
-	return(newObject);
+	return newObject;
 }
 
 #pragma mark -
