@@ -601,11 +601,11 @@ MonoObject *DBMonoClassGetProperty(MonoClass *monoClass, const char *propertyNam
 	return monoResult;
 }
 
-void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, MonoObject *valueObject)
+void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, void *value)
 {
     // get arguments
     void *args[1];
-    args[0] = valueObject;
+    args[0] = value;
     
     // get method
 	MonoClass *klass = mono_object_get_class(monoObject);
@@ -622,11 +622,11 @@ void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, M
     }
 }
 
-void DBMonoClassSetProperty(MonoClass *monoClass, const char *propertyName, MonoObject *valueObject)
+void DBMonoClassSetProperty(MonoClass *monoClass, const char *propertyName, void *value)
 {
     // get arguments
     void *args[1];
-    args[0] = valueObject;
+    args[0] = value;
     
 	// get method
 	MonoMethod *monoMethod = GetPropertySetMethod(monoClass, propertyName);
@@ -681,7 +681,7 @@ MonoObject *DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, 
     return monoResult;
 }
 
-void DBMonoObjectSetField(MonoObject *monoObject, const char *fieldName, MonoObject *valueObject)
+void DBMonoObjectSetField(MonoObject *monoObject, const char *fieldName, void *valueObject)
 {
     // get field
 	MonoClass *monoClass = mono_object_get_class(monoObject);
@@ -748,7 +748,7 @@ MonoObject *DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, voi
     return monoResult;
 }
 
-void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, MonoObject *valueObject)
+void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, void *value)
 {
     // get field
 	MonoClassField *field = mono_class_get_field_from_name(monoClass, fieldName);
@@ -762,7 +762,7 @@ void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, MonoObject
 	mono_runtime_class_init(vtable);
     
     // set field value
-	mono_field_static_set_value(vtable, field, valueObject);
+	mono_field_static_set_value(vtable, field, value);
 }
 
 #pragma mark -
@@ -792,12 +792,12 @@ MonoObject *DBMonoObjectGetIndexedObject(MonoObject *monoObject, void *indexObje
 	return monoResult;
 }
 
-void DBMonoObjectSetIndexedObject(MonoObject *monoObject, void *indexObject, MonoObject *valueObject)
+void DBMonoObjectSetIndexedObject(MonoObject *monoObject, void *indexObject, void *value)
 {
     // get arguments
     void *args[2];
     args[0] = indexObject;
-    args[1] = valueObject;
+    args[1] = value;
     
     // get method
     const char *methodName = "Item";

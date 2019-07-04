@@ -48,7 +48,7 @@ va_end(va_args); \
 // mono object and value casting used primarily when calling runtime invoke.
 // note that when calling thunks primitive value types are passed directly rather than by pointer.
 #define DB_PTR(x) &x
-#define DB_VALUE(x) (MonoObject *)&x // value types are passed as pointers to value
+#define DB_VALUE(x) &x // value types are passed as pointers to value
 #define DB_STRING(x) (MonoString *)x
 #define DB_OBJECT(x) (MonoObject *)x
 #define DB_ARRAY(x) (MonoArray *)x
@@ -87,19 +87,19 @@ MonoMethod *GetPropertySetMethod(MonoClass *monoClass, const char *propertyName)
 
 // Property access
 MonoObject *DBMonoObjectGetProperty(MonoObject *monoObject, const char *propertyName);
-void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, MonoObject *valueObject);
+void DBMonoObjectSetProperty(MonoObject *monoObject, const char *propertyName, void *value);
 MonoObject *DBMonoClassGetProperty(MonoClass *monoClass, const char *propertyName);
-void DBMonoClassSetProperty(MonoClass *monoClass, const char *propertyName, MonoObject *valueObject);
+void DBMonoClassSetProperty(MonoClass *monoClass, const char *propertyName, void *value);
 
 // field Access
-MonoObject * DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, void *valueObject);
-void DBMonoObjectSetField(MonoObject *monoObject, const char *fieldName, MonoObject *valueObject);
-MonoObject *DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, void *valueObject);
-void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, MonoObject *valueObject);
+MonoObject * DBMonoObjectGetField(MonoObject *monoObject, const char *fieldName, void *value);
+void DBMonoObjectSetField(MonoObject *monoObject, const char *fieldName, void *value);
+MonoObject *DBMonoClassGetField(MonoClass *monoClass, const char *fieldName, void *value);
+void DBMonoClassSetField(MonoClass *monoClass, const char *fieldName, void *value);
 
 // Indexer access
 MonoObject *DBMonoObjectGetIndexedObject(MonoObject *monoObject, void *indexObject);
-void DBMonoObjectSetIndexedObject(MonoObject *monoObject, void *indexObject, MonoObject *valueObject);
+void DBMonoObjectSetIndexedObject(MonoObject *monoObject, void *indexObject, void *value);
 
 // Constructor Access
 MonoObject *DBMonoObjectConstruct(MonoClass *monoClass, unsigned int numArgs, ...);

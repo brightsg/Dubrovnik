@@ -42,26 +42,26 @@
 - (int32_t)intField
 {
     int32_t monoObject;
-    [self getMonoField:"intField" valuePtr:DB_PTR(monoObject)];
+    [self getMonoField:"intField" value:DB_PTR(monoObject)];
     return monoObject;
 }
 - (void)setIntField:(int32_t)value
 {
-    MonoObject *monoObject = DB_VALUE(value);
-    [self setMonoField:"intField" valueObject:monoObject];
+    void *monoObject = DB_VALUE(value);
+    [self setMonoField:"intField" value:monoObject];
 }
 
 // Mono type is System.String
 - (NSString *)stringField
 {
     MonoObject * monoObject;
-    [self getMonoField:"StringField" valuePtr:DB_PTR(monoObject)];
+    [self getMonoField:"StringField" value:DB_PTR(monoObject)];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 - (void)setStringField:(NSString *)value
 {
     MonoObject *monoObject = [value monoRTInvokeObject];
-    [self setMonoField:"StringField" valueObject:monoObject];
+    [self setMonoField:"StringField" value:monoObject];
 }
 
 #pragma mark -
@@ -76,7 +76,7 @@
 - (void)setStringProperty:(NSString *)value
 {
     MonoObject *monoObject = [value monoRTInvokeObject];
-    [self setMonoProperty:"StringProperty" valueObject:monoObject];
+    [self setMonoProperty:"StringProperty" value:monoObject];
 }
 
 #pragma mark -
