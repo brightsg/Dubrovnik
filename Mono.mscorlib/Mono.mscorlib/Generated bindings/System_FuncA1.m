@@ -35,7 +35,7 @@
 
 + (System_FuncA1 *)new_withObject:(System_Object *)p1 method:(void *)p2
 {
-	System_FuncA1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	System_FuncA1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return object;
 }
 

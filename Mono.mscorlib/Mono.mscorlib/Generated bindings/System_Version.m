@@ -35,19 +35,19 @@
 
 + (System_Version *)new_withMajor:(int32_t)p1 minor:(int32_t)p2 build:(int32_t)p3 revision:(int32_t)p4
 {
-	System_Version * object = [[self alloc] initWithSignature:"int,int,int,int" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+	System_Version * object = [[self alloc] initWithSignature:"int,int,int,int" withNumArgs:4, &p1, &p2, &p3, &p4];
 	return object;
 }
 
 + (System_Version *)new_withMajor:(int32_t)p1 minor:(int32_t)p2 build:(int32_t)p3
 {
-	System_Version * object = [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+	System_Version * object = [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, &p1, &p2, &p3];
 	return object;
 }
 
 + (System_Version *)new_withMajor:(int32_t)p1 minor:(int32_t)p2
 {
-	System_Version * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	System_Version * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, &p1, &p2];
 	return object;
 }
 
@@ -263,7 +263,7 @@
 
 - (NSString *)toString_withFieldCount:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ToString(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString(int)" withNumArgs:1, &p1];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 

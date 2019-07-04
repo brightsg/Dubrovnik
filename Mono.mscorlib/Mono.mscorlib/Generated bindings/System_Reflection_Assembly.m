@@ -293,7 +293,7 @@
 
 - (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string,bool)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -325,13 +325,13 @@
 
 - (System_Array *)getCustomAttributes_withInherit:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(bool)" withNumArgs:1, &p1];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (System_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
@@ -405,7 +405,7 @@
 
 - (System_Reflection_AssemblyName *)getName_withCopiedName:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetName(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetName(bool)" withNumArgs:1, &p1];
 	return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
 }
 
@@ -437,13 +437,13 @@
 
 - (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool,bool)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool,bool)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
@@ -455,7 +455,7 @@
 
 - (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

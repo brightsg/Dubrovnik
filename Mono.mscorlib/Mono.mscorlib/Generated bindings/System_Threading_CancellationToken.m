@@ -35,7 +35,7 @@
 
 + (System_Threading_CancellationToken *)new_withCanceled:(BOOL)p1
 {
-	System_Threading_CancellationToken * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+	System_Threading_CancellationToken * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, &p1];
 	return object;
 }
 

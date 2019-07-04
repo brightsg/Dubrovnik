@@ -120,12 +120,12 @@ static NSString * m_processId;
 
 + (void)configure_withFilename:(NSString *)p1 ensureSecurity:(BOOL)p2
 {
-	[self invokeMonoClassMethod:"Configure(string,bool)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	[self invokeMonoClassMethod:"Configure(string,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 }
 
 + (BOOL)customErrorsEnabled_withIsLocalRequest:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CustomErrorsEnabled(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CustomErrorsEnabled(bool)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

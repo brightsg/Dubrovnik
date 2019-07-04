@@ -35,7 +35,7 @@
 
 + (System_Collections_Generic_DictionaryA2 *)new_withCapacity:(int32_t)p1
 {
-	System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+	System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"int" withNumArgs:1, &p1];
 	return object;
 }
 

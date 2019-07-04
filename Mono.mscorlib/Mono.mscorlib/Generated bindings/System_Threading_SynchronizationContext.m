@@ -95,7 +95,7 @@ static System_Threading_SynchronizationContext * m_current;
 
 - (int32_t)wait_withWaitHandles:(System_Array *)p1 waitAll:(BOOL)p2 millisecondsTimeout:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Wait(intptr[],bool,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Wait(intptr[],bool,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return DB_UNBOX_INT32(monoObject);
 }
 

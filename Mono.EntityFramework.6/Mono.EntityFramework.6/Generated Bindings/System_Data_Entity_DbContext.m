@@ -43,7 +43,7 @@
 
 + (System_Data_Entity_DbContext *)new_withExistingConnection:(System_Data_Common_DbConnection *)p1 contextOwnsConnection:(BOOL)p2
 {
-	System_Data_Entity_DbContext * object = [[self alloc] initWithSignature:"System.Data.Common.DbConnection,bool" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	System_Data_Entity_DbContext * object = [[self alloc] initWithSignature:"System.Data.Common.DbConnection,bool" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return object;
 }
 
@@ -51,7 +51,7 @@
 
 + (System_Data_Entity_DbContext *)new_withObjectContext:(System_Data_Entity_Core_Objects_ObjectContext *)p1 dbContextOwnsObjectContext:(BOOL)p2
 {
-	System_Data_Entity_DbContext * object = [[self alloc] initWithSignature:"System.Data.Entity.Core.Objects.ObjectContext,bool" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	System_Data_Entity_DbContext * object = [[self alloc] initWithSignature:"System.Data.Entity.Core.Objects.ObjectContext,bool" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return object;
 }
 

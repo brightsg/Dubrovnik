@@ -85,7 +85,7 @@
 
 - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2
 {
-	[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 }
 
 - (void)enqueue_withItem:(System_Object *)p1

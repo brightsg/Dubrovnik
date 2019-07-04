@@ -37,7 +37,7 @@
 
 - (void *)getCOMIUnknown_withFIsMarshalled:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetCOMIUnknown(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetCOMIUnknown(bool)" withNumArgs:1, &p1];
 	return DB_UNBOX_PTR(monoObject);
 }
 
@@ -67,7 +67,7 @@
 
 - (void)setCOMIUnknown_withI:(void *)p1
 {
-	[self invokeMonoMethod:"SetCOMIUnknown(intptr)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"SetCOMIUnknown(intptr)" withNumArgs:1, &p1];
 }
 
 + (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(System_Object *)p2

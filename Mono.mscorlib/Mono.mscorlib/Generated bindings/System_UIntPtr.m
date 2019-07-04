@@ -35,13 +35,13 @@
 
 + (System_UIntPtr *)new_withValueUint:(uint32_t)p1
 {
-	System_UIntPtr * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];
+	System_UIntPtr * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, &p1];
 	return object;
 }
 
 + (System_UIntPtr *)new_withValueUlong:(uint64_t)p1
 {
-	System_UIntPtr * object = [[self alloc] initWithSignature:"ulong" withNumArgs:1, DB_VALUE(p1)];
+	System_UIntPtr * object = [[self alloc] initWithSignature:"ulong" withNumArgs:1, &p1];
 	return object;
 }
 
@@ -86,7 +86,7 @@ static int32_t m_size;
 
 + (void *)add_withPointer:(void *)p1 offset:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Add(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Add(uintptr,int)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_UPTR(monoObject);
 }
 
@@ -104,25 +104,25 @@ static int32_t m_size;
 
 + (void *)op_Addition_withPointer:(void *)p1 offset:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Addition(uintptr,int)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_UPTR(monoObject);
 }
 
 + (BOOL)op_Equality_withValue1:(void *)p1 value2:(void *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(uintptr,uintptr)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(uintptr,uintptr)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (void *)op_Explicit_withValueUint:(uint32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(uint)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(uint)" withNumArgs:1, &p1];
 	return DB_UNBOX_UPTR(monoObject);
 }
 
 + (void *)op_Explicit_withValueUlong:(uint64_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(ulong)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(ulong)" withNumArgs:1, &p1];
 	return DB_UNBOX_UPTR(monoObject);
 }
 
@@ -132,19 +132,19 @@ static int32_t m_size;
 
 + (BOOL)op_Inequality_withValue1:(void *)p1 value2:(void *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(uintptr,uintptr)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(uintptr,uintptr)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (void *)op_Subtraction_withPointer:(void *)p1 offset:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Subtraction(uintptr,int)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_UPTR(monoObject);
 }
 
 + (void *)subtract_withPointer:(void *)p1 offset:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Subtract(uintptr,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Subtract(uintptr,int)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_UPTR(monoObject);
 }
 

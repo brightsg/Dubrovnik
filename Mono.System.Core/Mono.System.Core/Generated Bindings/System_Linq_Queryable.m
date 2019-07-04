@@ -201,14 +201,14 @@
 + (System_Object *)elementAt_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 index:(int32_t)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"ElementAt(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
-	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object *)elementAtOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 index:(int32_t)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"ElementAtOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
-	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -381,7 +381,7 @@
 + (System_Object <System_Linq_IQueryableA1> *)skip_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 count:(int32_t)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Skip(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
-	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -472,7 +472,7 @@
 + (System_Object <System_Linq_IQueryableA1> *)take_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 count:(int32_t)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Take(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
-	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 

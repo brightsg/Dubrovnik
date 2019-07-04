@@ -35,19 +35,19 @@
 
 + (System_DateTime *)new_withTicks:(int64_t)p1
 {
-	System_DateTime * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
+	System_DateTime * object = [[self alloc] initWithSignature:"long" withNumArgs:1, &p1];
 	return object;
 }
 
 + (System_DateTime *)new_withTicks:(int64_t)p1 kind:(enumSystem_DateTimeKind)p2
 {
-	System_DateTime * object = [[self alloc] initWithSignature:"long,System.DateTimeKind" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	System_DateTime * object = [[self alloc] initWithSignature:"long,System.DateTimeKind" withNumArgs:2, &p1, &p2];
 	return object;
 }
 
 + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3
 {
-	System_DateTime * object = [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+	System_DateTime * object = [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, &p1, &p2, &p3];
 	return object;
 }
 
@@ -55,13 +55,13 @@
 
 + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6
 {
-	System_DateTime * object = [[self alloc] initWithSignature:"int,int,int,int,int,int" withNumArgs:6, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6)];
+	System_DateTime * object = [[self alloc] initWithSignature:"int,int,int,int,int,int" withNumArgs:6, &p1, &p2, &p3, &p4, &p5, &p6];
 	return object;
 }
 
 + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 kind:(enumSystem_DateTimeKind)p7
 {
-	System_DateTime * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,System.DateTimeKind" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7)];
+	System_DateTime * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,System.DateTimeKind" withNumArgs:7, &p1, &p2, &p3, &p4, &p5, &p6, &p7];
 	return object;
 }
 
@@ -69,13 +69,13 @@
 
 + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7
 {
-	System_DateTime * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,int" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7)];
+	System_DateTime * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,int" withNumArgs:7, &p1, &p2, &p3, &p4, &p5, &p6, &p7];
 	return object;
 }
 
 + (System_DateTime *)new_withYear:(int32_t)p1 month:(int32_t)p2 day:(int32_t)p3 hour:(int32_t)p4 minute:(int32_t)p5 second:(int32_t)p6 millisecond:(int32_t)p7 kind:(enumSystem_DateTimeKind)p8
 {
-	System_DateTime * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,int,System.DateTimeKind" withNumArgs:8, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5), DB_VALUE(p6), DB_VALUE(p7), DB_VALUE(p8)];
+	System_DateTime * object = [[self alloc] initWithSignature:"int,int,int,int,int,int,int,System.DateTimeKind" withNumArgs:8, &p1, &p2, &p3, &p4, &p5, &p6, &p7, &p8];
 	return object;
 }
 
@@ -429,49 +429,49 @@ static NSDate * m_utcNow;
 
 - (NSDate *)addDays_withValue:(double)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"AddDays(double)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"AddDays(double)" withNumArgs:1, &p1];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 - (NSDate *)addHours_withValue:(double)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"AddHours(double)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"AddHours(double)" withNumArgs:1, &p1];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 - (NSDate *)addMilliseconds_withValue:(double)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"AddMilliseconds(double)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"AddMilliseconds(double)" withNumArgs:1, &p1];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 - (NSDate *)addMinutes_withValue:(double)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"AddMinutes(double)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"AddMinutes(double)" withNumArgs:1, &p1];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 - (NSDate *)addMonths_withMonths:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"AddMonths(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"AddMonths(int)" withNumArgs:1, &p1];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 - (NSDate *)addSeconds_withValue:(double)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"AddSeconds(double)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"AddSeconds(double)" withNumArgs:1, &p1];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 - (NSDate *)addTicks_withValue:(int64_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"AddTicks(long)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"AddTicks(long)" withNumArgs:1, &p1];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 - (NSDate *)addYears_withValue:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"AddYears(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"AddYears(int)" withNumArgs:1, &p1];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
@@ -495,7 +495,7 @@ static NSDate * m_utcNow;
 
 + (int32_t)daysInMonth_withYear:(int32_t)p1 month:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"DaysInMonth(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"DaysInMonth(int,int)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -519,25 +519,25 @@ static NSDate * m_utcNow;
 
 + (NSDate *)fromBinary_withDateData:(int64_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FromBinary(long)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromBinary(long)" withNumArgs:1, &p1];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 + (NSDate *)fromFileTime_withFileTime:(int64_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FromFileTime(long)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromFileTime(long)" withNumArgs:1, &p1];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 + (NSDate *)fromFileTimeUtc_withFileTime:(int64_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FromFileTimeUtc(long)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromFileTimeUtc(long)" withNumArgs:1, &p1];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
 + (NSDate *)fromOADate_withD:(double)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FromOADate(double)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromOADate(double)" withNumArgs:1, &p1];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
@@ -551,7 +551,7 @@ static NSDate * m_utcNow;
 
 - (System_Array *)getDateTimeFormats_withFormat:(uint16_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetDateTimeFormats(char)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetDateTimeFormats(char)" withNumArgs:1, &p1];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
@@ -573,7 +573,7 @@ static NSDate * m_utcNow;
 
 + (BOOL)isLeapYear_withYear:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsLeapYear(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsLeapYear(int)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -649,7 +649,7 @@ static NSDate * m_utcNow;
 
 + (NSDate *)specifyKind_withValue:(NSDate *)p1 kind:(enumSystem_DateTimeKind)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"SpecifyKind(System.DateTime,System.DateTimeKind)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"SpecifyKind(System.DateTime,System.DateTimeKind)" withNumArgs:2, [p1 monoRTInvokeArg], &p2];
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 

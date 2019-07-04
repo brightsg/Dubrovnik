@@ -165,7 +165,7 @@
 
 - (System_Array *)getAccessors_withNonPublic:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetAccessors(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetAccessors(bool)" withNumArgs:1, &p1];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
@@ -183,7 +183,7 @@
 
 - (System_Reflection_MethodInfo *)getGetMethod_withNonPublic:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetGetMethod(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetGetMethod(bool)" withNumArgs:1, &p1];
 	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 }
 
@@ -221,7 +221,7 @@
 
 - (System_Reflection_MethodInfo *)getSetMethod_withNonPublic:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetSetMethod(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetSetMethod(bool)" withNumArgs:1, &p1];
 	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 }
 

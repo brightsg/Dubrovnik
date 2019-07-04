@@ -66,7 +66,7 @@
 
 - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2
 {
-	[self invokeMonoMethod:"CopyTo(TKey[],int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	[self invokeMonoMethod:"CopyTo(TKey[],int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 }
 
 - (System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator *)getEnumerator

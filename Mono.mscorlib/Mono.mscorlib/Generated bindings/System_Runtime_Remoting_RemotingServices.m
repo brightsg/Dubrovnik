@@ -115,7 +115,7 @@
 
 + (void)logRemotingStage_withStage:(int32_t)p1
 {
-	[self invokeMonoClassMethod:"LogRemotingStage(int)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoClassMethod:"LogRemotingStage(int)" withNumArgs:1, &p1];
 }
 
 /* Skipped method : System.Runtime.Remoting.ObjRef Marshal(System.MarshalByRefObject Obj) */

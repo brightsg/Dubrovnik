@@ -35,37 +35,37 @@
 
 + (System_Decimal *)new_withValueInt:(int32_t)p1
 {
-	System_Decimal * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+	System_Decimal * object = [[self alloc] initWithSignature:"int" withNumArgs:1, &p1];
 	return object;
 }
 
 + (System_Decimal *)new_withValueUint:(uint32_t)p1
 {
-	System_Decimal * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, DB_VALUE(p1)];
+	System_Decimal * object = [[self alloc] initWithSignature:"uint" withNumArgs:1, &p1];
 	return object;
 }
 
 + (System_Decimal *)new_withValueLong:(int64_t)p1
 {
-	System_Decimal * object = [[self alloc] initWithSignature:"long" withNumArgs:1, DB_VALUE(p1)];
+	System_Decimal * object = [[self alloc] initWithSignature:"long" withNumArgs:1, &p1];
 	return object;
 }
 
 + (System_Decimal *)new_withValueUlong:(uint64_t)p1
 {
-	System_Decimal * object = [[self alloc] initWithSignature:"ulong" withNumArgs:1, DB_VALUE(p1)];
+	System_Decimal * object = [[self alloc] initWithSignature:"ulong" withNumArgs:1, &p1];
 	return object;
 }
 
 + (System_Decimal *)new_withValueSingle:(float)p1
 {
-	System_Decimal * object = [[self alloc] initWithSignature:"single" withNumArgs:1, DB_VALUE(p1)];
+	System_Decimal * object = [[self alloc] initWithSignature:"single" withNumArgs:1, &p1];
 	return object;
 }
 
 + (System_Decimal *)new_withValueDouble:(double)p1
 {
-	System_Decimal * object = [[self alloc] initWithSignature:"double" withNumArgs:1, DB_VALUE(p1)];
+	System_Decimal * object = [[self alloc] initWithSignature:"double" withNumArgs:1, &p1];
 	return object;
 }
 
@@ -77,7 +77,7 @@
 
 + (System_Decimal *)new_withLo:(int32_t)p1 mid:(int32_t)p2 hi:(int32_t)p3 isNegative:(BOOL)p4 scale:(uint8_t)p5
 {
-	System_Decimal * object = [[self alloc] initWithSignature:"int,int,int,bool,byte" withNumArgs:5, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), DB_VALUE(p5)];
+	System_Decimal * object = [[self alloc] initWithSignature:"int,int,int,bool,byte" withNumArgs:5, &p1, &p2, &p3, &p4, &p5];
 	return object;
 }
 
@@ -199,7 +199,7 @@ static NSDecimalNumber * m_zero;
 
 + (NSDecimalNumber *)fromOACurrency_withCy:(int64_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"FromOACurrency(long)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"FromOACurrency(long)" withNumArgs:1, &p1];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
@@ -255,13 +255,13 @@ static NSDecimalNumber * m_zero;
 
 + (NSDecimalNumber *)op_Explicit_withValueSingle:(float)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(single)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(single)" withNumArgs:1, &p1];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
 + (NSDecimalNumber *)op_Explicit_withValueDouble:(double)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(double)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Explicit(double)" withNumArgs:1, &p1];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
@@ -279,55 +279,55 @@ static NSDecimalNumber * m_zero;
 
 + (NSDecimalNumber *)op_Implicit_withValueByte:(uint8_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(byte)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(byte)" withNumArgs:1, &p1];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
 + (NSDecimalNumber *)op_Implicit_withValueSbyte:(int8_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(sbyte)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(sbyte)" withNumArgs:1, &p1];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
 + (NSDecimalNumber *)op_Implicit_withValueInt16:(int16_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(int16)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(int16)" withNumArgs:1, &p1];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
 + (NSDecimalNumber *)op_Implicit_withValueUint16:(uint16_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(uint16)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(uint16)" withNumArgs:1, &p1];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
 + (NSDecimalNumber *)op_Implicit_withValueChar:(uint16_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(char)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(char)" withNumArgs:1, &p1];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
 + (NSDecimalNumber *)op_Implicit_withValueInt:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(int)" withNumArgs:1, &p1];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
 + (NSDecimalNumber *)op_Implicit_withValueUint:(uint32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(uint)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(uint)" withNumArgs:1, &p1];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
 + (NSDecimalNumber *)op_Implicit_withValueLong:(int64_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(long)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(long)" withNumArgs:1, &p1];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
 + (NSDecimalNumber *)op_Implicit_withValueUlong:(uint64_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(ulong)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Implicit(ulong)" withNumArgs:1, &p1];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
@@ -411,7 +411,7 @@ static NSDecimalNumber * m_zero;
 
 + (NSDecimalNumber *)round_withD:(NSDecimalNumber *)p1 decimals:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Round(System.Decimal,int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Round(System.Decimal,int)" withNumArgs:2, [p1 monoRTInvokeArg], &p2];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 

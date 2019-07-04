@@ -64,7 +64,7 @@ static NSString * m_trueString;
 
 - (int32_t)compareTo_withValue:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(bool)" withNumArgs:1, &p1];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -76,7 +76,7 @@ static NSString * m_trueString;
 
 - (BOOL)equals_withObjBool:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(bool)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

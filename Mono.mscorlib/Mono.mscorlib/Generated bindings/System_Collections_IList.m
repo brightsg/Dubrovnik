@@ -76,13 +76,13 @@
 
 - (System_Object *)get_Item_withIndex:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.get_Item(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.IList.get_Item(int)" withNumArgs:1, &p1];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2
 {
-	[self invokeMonoMethod:"System.Collections.IList.set_Item(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeObject]];
+	[self invokeMonoMethod:"System.Collections.IList.set_Item(int,object)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
 }
 
 - (int32_t)add_withValue:(System_Object *)p1
@@ -110,7 +110,7 @@
 
 - (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2
 {
-	[self invokeMonoMethod:"System.Collections.IList.Insert(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeObject]];
+	[self invokeMonoMethod:"System.Collections.IList.Insert(int,object)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
 }
 
 - (void)remove_withValue:(System_Object *)p1
@@ -120,7 +120,7 @@
 
 - (void)removeAt_withIndex:(int32_t)p1
 {
-	[self invokeMonoMethod:"System.Collections.IList.RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"System.Collections.IList.RemoveAt(int)" withNumArgs:1, &p1];
 }
 
 #pragma mark -

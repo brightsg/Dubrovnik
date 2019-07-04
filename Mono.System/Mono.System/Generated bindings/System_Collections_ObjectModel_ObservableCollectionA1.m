@@ -50,7 +50,7 @@
 
 - (void)move_withOldIndex:(int32_t)p1 newIndex:(int32_t)p2
 {
-	[self invokeMonoMethod:"Move(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	[self invokeMonoMethod:"Move(int,int)" withNumArgs:2, &p1, &p2];
 }
 
 #pragma mark -

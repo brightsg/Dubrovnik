@@ -62,7 +62,7 @@ static uint8_t m_minValue;
 
 - (int32_t)compareTo_withValueByte:(uint8_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(byte)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(byte)" withNumArgs:1, &p1];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -74,7 +74,7 @@ static uint8_t m_minValue;
 
 - (BOOL)equals_withObjByte:(uint8_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(byte)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(byte)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

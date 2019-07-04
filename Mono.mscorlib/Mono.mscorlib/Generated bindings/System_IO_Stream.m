@@ -248,13 +248,13 @@ static System_IO_Stream * m_null;
 
 - (System_Object <System_IAsyncResult> *)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BeginRead(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeObject], [p5 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BeginRead(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeObject], &p2, &p3, [p4 monoRTInvokeObject], [p5 monoRTInvokeObject]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Object <System_IAsyncResult> *)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BeginWrite(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeObject], [p5 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BeginWrite(byte[],int,int,System.AsyncCallback,object)" withNumArgs:5, [p1 monoRTInvokeObject], &p2, &p3, [p4 monoRTInvokeObject], [p5 monoRTInvokeObject]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
@@ -270,7 +270,7 @@ static System_IO_Stream * m_null;
 
 - (void)copyTo_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2
 {
-	[self invokeMonoMethod:"CopyTo(System.IO.Stream,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	[self invokeMonoMethod:"CopyTo(System.IO.Stream,int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 }
 
 - (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1
@@ -281,13 +281,13 @@ static System_IO_Stream * m_null;
 
 - (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CopyToAsync(System.IO.Stream,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"CopyToAsync(System.IO.Stream,int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CopyToAsync(System.IO.Stream,int,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CopyToAsync(System.IO.Stream,int,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeArg]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
@@ -326,19 +326,19 @@ static System_IO_Stream * m_null;
 
 - (int32_t)read_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Read(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Read(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ReadAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeObject], &p2, &p3, [p4 monoRTInvokeArg]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
@@ -352,7 +352,7 @@ static System_IO_Stream * m_null;
 
 - (void)setLength_withValue:(int64_t)p1
 {
-	[self invokeMonoMethod:"SetLength(long)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"SetLength(long)" withNumArgs:1, &p1];
 }
 
 + (System_IO_Stream *)synchronized_withStream:(System_IO_Stream *)p1
@@ -363,24 +363,24 @@ static System_IO_Stream * m_null;
 
 - (void)write_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
 {
-	[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"Write(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 }
 
 - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"WriteAsync(byte[],int,int,System.Threading.CancellationToken)" withNumArgs:4, [p1 monoRTInvokeObject], &p2, &p3, [p4 monoRTInvokeArg]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 - (void)writeByte_withValue:(uint8_t)p1
 {
-	[self invokeMonoMethod:"WriteByte(byte)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"WriteByte(byte)" withNumArgs:1, &p1];
 }
 
 #pragma mark -

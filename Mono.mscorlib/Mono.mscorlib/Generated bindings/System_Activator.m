@@ -65,7 +65,7 @@
 
 + (System_Object *)createInstance_withType:(System_Type *)p1 nonPublic:(BOOL)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 

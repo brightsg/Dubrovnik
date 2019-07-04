@@ -62,7 +62,7 @@ static uint16_t m_minValue;
 
 - (int32_t)compareTo_withValueUint16:(uint16_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(uint16)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(uint16)" withNumArgs:1, &p1];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -74,7 +74,7 @@ static uint16_t m_minValue;
 
 - (BOOL)equals_withObjUint16:(uint16_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(uint16)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(uint16)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

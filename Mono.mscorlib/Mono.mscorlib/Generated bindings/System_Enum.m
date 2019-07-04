@@ -103,7 +103,7 @@
 
 + (System_Object *)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2 ignoreCase:(BOOL)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(System.Type,string,bool)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(System.Type,string,bool)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &p3];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -115,49 +115,49 @@
 
 + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueSbyte:(int8_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,sbyte)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,sbyte)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt16:(int16_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,int16)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,int16)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueByte:(uint8_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,byte)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,byte)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint16:(uint16_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,uint16)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,uint16)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint:(uint32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,uint)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,uint)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueLong:(int64_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,long)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,long)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUlong:(uint64_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,ulong)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,ulong)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -190,7 +190,7 @@
 {
 	void *refPtr3 = [*p3 monoRTInvokeArg];
 	DBManagedMethod *method = [self classMethodWithMonoName:"TryParse(string,bool,System.Enum/TEnum&)" typeParameters:typeParameter];
-	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), &refPtr3];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:3, [p1 monoRTInvokeObject], &p2, &refPtr3];
 	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }

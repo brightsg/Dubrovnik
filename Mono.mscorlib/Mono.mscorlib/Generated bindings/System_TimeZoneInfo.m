@@ -260,7 +260,7 @@ static System_TimeZoneInfo * m_utc;
 
 + (System_TimeZoneInfo *)createCustomTimeZone_withId:(NSString *)p1 baseUtcOffset:(System_TimeSpan *)p2 displayName:(NSString *)p3 standardDisplayName:(NSString *)p4 daylightDisplayName:(NSString *)p5 adjustmentRules:(System_Array *)p6 disableDaylightSavingTime:(BOOL)p7
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string,string,System.TimeZoneInfo/AdjustmentRule[],bool)" withNumArgs:7, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject], [p6 monoRTInvokeObject], DB_VALUE(p7)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateCustomTimeZone(string,System.TimeSpan,string,string,string,System.TimeZoneInfo/AdjustmentRule[],bool)" withNumArgs:7, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject], [p6 monoRTInvokeObject], &p7];
 	return [System_TimeZoneInfo bestObjectWithMonoObject:monoObject];
 }
 

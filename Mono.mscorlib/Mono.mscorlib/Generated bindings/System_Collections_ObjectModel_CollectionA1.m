@@ -66,13 +66,13 @@
 
 - (System_Object *)get_Item_withIndex:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(int)" withNumArgs:1, &p1];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2
 {
-	[self invokeMonoMethod:"set_Item(int,<_T_0>)" withNumArgs:2, DB_VALUE(p1), [self monoRTInvokeArg:p2 typeParameterIndex:0]];
+	[self invokeMonoMethod:"set_Item(int,<_T_0>)" withNumArgs:2, &p1, [self monoRTInvokeArg:p2 typeParameterIndex:0]];
 }
 
 - (void)add_withItem:(System_Object *)p1
@@ -93,7 +93,7 @@
 
 - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2
 {
-	[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 }
 
 - (System_Object <System_Collections_Generic_IEnumeratorA1> *)getEnumerator
@@ -110,7 +110,7 @@
 
 - (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2
 {
-	[self invokeMonoMethod:"Insert(int,<_T_0>)" withNumArgs:2, DB_VALUE(p1), [self monoRTInvokeArg:p2 typeParameterIndex:0]];
+	[self invokeMonoMethod:"Insert(int,<_T_0>)" withNumArgs:2, &p1, [self monoRTInvokeArg:p2 typeParameterIndex:0]];
 }
 
 - (BOOL)remove_withItem:(System_Object *)p1
@@ -121,7 +121,7 @@
 
 - (void)removeAt_withIndex:(int32_t)p1
 {
-	[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, &p1];
 }
 
 #pragma mark -

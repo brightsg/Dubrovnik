@@ -35,7 +35,7 @@
 
 + (System_Collections_ArrayList *)new_withCapacity:(int32_t)p1
 {
-	System_Collections_ArrayList * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+	System_Collections_ArrayList * object = [[self alloc] initWithSignature:"int" withNumArgs:1, &p1];
 	return object;
 }
 
@@ -179,13 +179,13 @@
 
 - (System_Object *)get_Item_withIndex:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(int)" withNumArgs:1, &p1];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
 - (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2
 {
-	[self invokeMonoMethod:"set_Item(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeObject]];
+	[self invokeMonoMethod:"set_Item(int,object)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
 }
 
 + (System_Collections_ArrayList *)adapter_withList:(System_Object <System_Collections_IList_> *)p1
@@ -236,12 +236,12 @@
 
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2
 {
-	[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	[self invokeMonoMethod:"CopyTo(System.Array,int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 }
 
 - (void)copyTo_withIndex:(int32_t)p1 array:(System_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4
 {
-	[self invokeMonoMethod:"CopyTo(int,System.Array,int,int)" withNumArgs:4, DB_VALUE(p1), [p2 monoRTInvokeObject], DB_VALUE(p3), DB_VALUE(p4)];
+	[self invokeMonoMethod:"CopyTo(int,System.Array,int,int)" withNumArgs:4, &p1, [p2 monoRTInvokeObject], &p3, &p4];
 }
 
 + (System_Object <System_Collections_IList> *)fixedSize_withListSCIList:(System_Object <System_Collections_IList_> *)p1
@@ -264,13 +264,13 @@
 
 - (System_Object <System_Collections_IEnumerator> *)getEnumerator_withIndex:(int32_t)p1 count:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetEnumerator(int,int)" withNumArgs:2, &p1, &p2];
 	return [System_Collections_IEnumerator bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Collections_ArrayList *)getRange_withIndex:(int32_t)p1 count:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetRange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetRange(int,int)" withNumArgs:2, &p1, &p2];
 	return [System_Collections_ArrayList listWithMonoObject:monoObject];
 }
 
@@ -282,19 +282,19 @@
 
 - (int32_t)indexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(object,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(object,int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 - (int32_t)indexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(object,int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(object,int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 - (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2
 {
-	[self invokeMonoMethod:"Insert(int,object)" withNumArgs:2, DB_VALUE(p1), [p2 monoRTInvokeObject]];
+	[self invokeMonoMethod:"Insert(int,object)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Void InsertRange(System.Int32 index, System.Collections.ICollection c) */
@@ -307,13 +307,13 @@
 
 - (int32_t)lastIndexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(object,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(object,int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 - (int32_t)lastIndexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(object,int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(object,int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -336,17 +336,17 @@
 
 - (void)removeAt_withIndex:(int32_t)p1
 {
-	[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"RemoveAt(int)" withNumArgs:1, &p1];
 }
 
 - (void)removeRange_withIndex:(int32_t)p1 count:(int32_t)p2
 {
-	[self invokeMonoMethod:"RemoveRange(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	[self invokeMonoMethod:"RemoveRange(int,int)" withNumArgs:2, &p1, &p2];
 }
 
 + (System_Collections_ArrayList *)repeat_withValue:(System_Object *)p1 count:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Repeat(object,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Repeat(object,int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Collections_ArrayList listWithMonoObject:monoObject];
 }
 
@@ -357,7 +357,7 @@
 
 - (void)reverse_withIndex:(int32_t)p1 count:(int32_t)p2
 {
-	[self invokeMonoMethod:"Reverse(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	[self invokeMonoMethod:"Reverse(int,int)" withNumArgs:2, &p1, &p2];
 }
 
 /* Skipped method : System.Void SetRange(System.Int32 index, System.Collections.ICollection c) */

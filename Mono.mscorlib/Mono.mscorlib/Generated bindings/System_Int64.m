@@ -62,7 +62,7 @@ static int64_t m_minValue;
 
 - (int32_t)compareTo_withValueLong:(int64_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(long)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(long)" withNumArgs:1, &p1];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -74,7 +74,7 @@ static int64_t m_minValue;
 
 - (BOOL)equals_withObjLong:(int64_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(long)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(long)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

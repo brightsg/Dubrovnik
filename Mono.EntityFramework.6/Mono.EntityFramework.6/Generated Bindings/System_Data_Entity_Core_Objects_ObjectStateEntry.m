@@ -138,7 +138,7 @@
 
 - (void)changeState_withState:(enumSystem_Data_Entity_EntityState)p1
 {
-	[self invokeMonoMethod:"ChangeState(System.Data.Entity.EntityState)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"ChangeState(System.Data.Entity.EntityState)" withNumArgs:1, &p1];
 }
 
 - (void)delete

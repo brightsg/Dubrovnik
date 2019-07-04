@@ -98,7 +98,7 @@ static double m_positiveInfinity;
 
 - (int32_t)compareTo_withValueDouble:(double)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(double)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(double)" withNumArgs:1, &p1];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -110,7 +110,7 @@ static double m_positiveInfinity;
 
 - (BOOL)equals_withObjDouble:(double)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(double)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(double)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -124,61 +124,61 @@ static double m_positiveInfinity;
 
 + (BOOL)isInfinity_withD:(double)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsInfinity(double)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsInfinity(double)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)isNaN_withD:(double)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsNaN(double)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsNaN(double)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)isNegativeInfinity_withD:(double)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsNegativeInfinity(double)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsNegativeInfinity(double)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)isPositiveInfinity_withD:(double)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsPositiveInfinity(double)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsPositiveInfinity(double)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_Equality_withLeft:(double)p1 right:(double)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(double,double)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_GreaterThan_withLeft:(double)p1 right:(double)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThan(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThan(double,double)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_GreaterThanOrEqual_withLeft:(double)p1 right:(double)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThanOrEqual(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThanOrEqual(double,double)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_Inequality_withLeft:(double)p1 right:(double)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(double,double)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_LessThan_withLeft:(double)p1 right:(double)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThan(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThan(double,double)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_LessThanOrEqual_withLeft:(double)p1 right:(double)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThanOrEqual(double,double)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThanOrEqual(double,double)" withNumArgs:2, &p1, &p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

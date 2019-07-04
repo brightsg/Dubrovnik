@@ -253,12 +253,12 @@
 
 - (void)writeBase64_withBuffer:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-	[self invokeMonoMethod:"WriteBase64(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"WriteBase64(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 }
 
 - (void)writeBinHex_withBuffer:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-	[self invokeMonoMethod:"WriteBinHex(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"WriteBinHex(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 }
 
 - (void)writeCData_withText:(NSString *)p1
@@ -268,12 +268,12 @@
 
 - (void)writeCharEntity_withCh:(uint16_t)p1
 {
-	[self invokeMonoMethod:"WriteCharEntity(char)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"WriteCharEntity(char)" withNumArgs:1, &p1];
 }
 
 - (void)writeChars_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-	[self invokeMonoMethod:"WriteChars(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"WriteChars(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 }
 
 - (void)writeComment_withText:(NSString *)p1
@@ -333,7 +333,7 @@
 
 - (void)writeRaw_withBuffer:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-	[self invokeMonoMethod:"WriteRaw(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"WriteRaw(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 }
 
 - (void)writeRaw_withData:(NSString *)p1
@@ -353,7 +353,7 @@
 
 - (void)writeStartDocument_withStandalone:(BOOL)p1
 {
-	[self invokeMonoMethod:"WriteStartDocument(bool)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"WriteStartDocument(bool)" withNumArgs:1, &p1];
 }
 
 - (void)writeStartElement_withPrefix:(NSString *)p1 localName:(NSString *)p2 ns:(NSString *)p3
@@ -368,7 +368,7 @@
 
 - (void)writeSurrogateCharEntity_withLowChar:(uint16_t)p1 highChar:(uint16_t)p2
 {
-	[self invokeMonoMethod:"WriteSurrogateCharEntity(char,char)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	[self invokeMonoMethod:"WriteSurrogateCharEntity(char,char)" withNumArgs:2, &p1, &p2];
 }
 
 - (void)writeWhitespace_withWs:(NSString *)p1

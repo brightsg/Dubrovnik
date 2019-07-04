@@ -37,7 +37,7 @@
 
 + (System_Drawing_Size *)new_withWidth:(int32_t)p1 height:(int32_t)p2
 {
-	System_Drawing_Size * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	System_Drawing_Size * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, &p1, &p2];
 	return object;
 }
 
