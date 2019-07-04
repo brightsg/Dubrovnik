@@ -751,6 +751,7 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     MonoClass *klass = mono_object_get_class(monoObject);
     if (mono_class_is_valuetype(klass)) {
         // do not unbox value types whose wrapper indicates that it is to be passed as an object
+        // this is a legacy feature and should not be required when using the code generator.
         if (![self isKindOfClass:m_objectArgClass]) {
             return mono_object_unbox(monoObject);
         }

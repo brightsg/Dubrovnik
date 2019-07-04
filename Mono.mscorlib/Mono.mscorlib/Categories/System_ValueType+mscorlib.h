@@ -14,14 +14,13 @@
 /**
  Provides and object argument wrapper for a value type.
  
+ Note: this is a legacy support method.
+ 
  By default boxed manged value types are passed by value.
  However, when passing a boxed value type to a System.Object parameter
  we don't want to inbox the refrence type.
- This wrapper indicates to the method calling API taht the enclosed value type should not be unboxed.
+ This wrapper indicates to the method calling API that the enclosed value type should not be unboxed.
  And yes, this is klutzy and error prone.
-
- TODO: The method calling API needs to be extended to query the managed method info
- for the parameter types and unbox value types accordingly.
  
  @return Value type subclass wrapper
  */
