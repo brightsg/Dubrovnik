@@ -79,12 +79,11 @@
 	return(DBMonoClassInvoke(_klass, methodName, numArgs, va_args));
 }
 
-- (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ... {
+- (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ...
+{
 	va_list va_args;
 	va_start(va_args, numArgs);
-	
 	MonoObject *ret = DBMonoClassInvoke(_klass, methodName, numArgs, va_args);
-	
 	va_end(va_args);
 	
 	return ret;
@@ -92,8 +91,9 @@
 
 #pragma mark Field Access
 
-- (void)getMonoField:(const char *)fieldName valuePtr:(void *)valuePtr {
-    DBMonoClassGetField(_klass, fieldName, valuePtr);
+- (void)getMonoField:(const char *)fieldName value:(void *)value
+{
+    DBMonoClassGetField(_klass, fieldName, value);
 }
 
 - (MonoObject *)getMonoField:(const char *)fieldName
@@ -101,18 +101,21 @@
     return DBMonoClassGetField(_klass, fieldName, nil);
 }
 
-- (void)setMonoField:(const char *)fieldName valueObject:(void *)valueObject {
-	DBMonoClassSetField(_klass, fieldName, valueObject);
+- (void)setMonoField:(const char *)fieldName value:(void *)value
+{
+	DBMonoClassSetField(_klass, fieldName, value);
 }
 
 #pragma mark Property Access
 
-- (MonoObject *)getMonoProperty:(const char *)propertyName {
+- (MonoObject *)getMonoProperty:(const char *)propertyName
+{
 	return(DBMonoClassGetProperty(_klass, propertyName));
 }
 
-- (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject {
-	DBMonoClassSetProperty(_klass, propertyName, valueObject);
+- (void)setMonoProperty:(const char *)propertyName value:(void *)value
+{
+	DBMonoClassSetProperty(_klass, propertyName, value);
 }
 
 @end

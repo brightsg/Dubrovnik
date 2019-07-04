@@ -34,7 +34,7 @@
 	{
 		_stringProperty = value;
 		MonoObject *monoObject = [value monoRTInvokeObject];
-		[self setMonoProperty:"StringProperty" valueObject:monoObject];          
+		[self setMonoProperty:"StringProperty" value:monoObject];          
 	}
 
 #pragma mark -

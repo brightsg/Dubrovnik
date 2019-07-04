@@ -256,21 +256,21 @@ extern char DBCacheSuffixChar;
 - (void)setMonoObject:(MonoObject *)valueObject forIndexObject:(void *)indexObject;
 
 // Field Access
-+ (void)getMonoClassField:(const char *)fieldName valuePtr:(void *)valuePtr;
++ (void)getMonoClassField:(const char *)fieldName value:(void *)value;
 + (MonoObject *)getMonoClassField:(const char *)fieldName;
 
-+ (void)setMonoClassField:(const char *)fieldName valueObject:(MonoObject *)valueObject;
++ (void)setMonoClassField:(const char *)fieldName value:(void *)value;
 
-- (void)getMonoField:(const char *)fieldName valuePtr:(void *)valuePtr;
+- (void)getMonoField:(const char *)fieldName value:(void *)value;
 - (MonoObject *)getMonoField:(const char *)fieldName;
 
-- (void)setMonoField:(const char *)fieldName valueObject:(MonoObject *)valueObject;
+- (void)setMonoField:(const char *)fieldName value:(void *)value;
 
 // Property Access
 + (MonoObject *)getMonoClassProperty:(const char *)propertyName;
-+ (void)setMonoClassProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject;
++ (void)setMonoClassProperty:(const char *)propertyName value:(void *)value;
 - (MonoObject *)getMonoProperty:(const char *)propertyName;
-- (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject;
+- (void)setMonoProperty:(const char *)propertyName value:(void *)value;
 
 // Property names
 - (NSString *)unmanagedPropertyName:(const char *)managedPropertyName;

@@ -32,8 +32,8 @@
     - (void)setGenericPropertyWithTypeParameterT:(System_Object *)value
 	{
 		_genericPropertyWithTypeParameterT = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"GenericPropertyWithTypeParameterT" valueObject:monoObject];          
+		void *monoObject = [value monoRTInvokeArg];
+		[self setMonoProperty:"GenericPropertyWithTypeParameterT" value:monoObject];
 	}
 
 	// Managed property name : GenericPropertyWithTypeParameterU
@@ -50,8 +50,8 @@
     - (void)setGenericPropertyWithTypeParameterU:(System_Object *)value
 	{
 		_genericPropertyWithTypeParameterU = value;
-		MonoObject *monoObject = [value monoRTInvokeArg];
-		[self setMonoProperty:"GenericPropertyWithTypeParameterU" valueObject:monoObject];          
+		void *monoObject = [value monoRTInvokeArg];
+		[self setMonoProperty:"GenericPropertyWithTypeParameterU" value:monoObject];          
 	}
 
 #pragma mark -

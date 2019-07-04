@@ -58,7 +58,7 @@
 
 + (void)setClassStringField:(NSString *)value
 {
-    [[self class] setMonoClassField:"ClassStringField" valueObject:[value monoRTInvokeObject]];
+    [[self class] setMonoClassField:"ClassStringField" value:[value monoRTInvokeObject]];
 }
 
 + (int32_t)classIntField
@@ -70,30 +70,30 @@
 
 + (void)setClassIntField:(int32_t)value
 {
-    [[self class] setMonoClassField:"ClassIntField" valueObject:DB_VALUE(value)];
+    [[self class] setMonoClassField:"ClassIntField" value:DB_VALUE(value)];
 }
 
 - (int32_t)intField
 {
     int32_t value;
-    [self getMonoField:"IntField" valuePtr:&value];
+    [self getMonoField:"IntField" value:&value];
 
     return value;
 }
 - (void)setIntField:(int32_t)value
 {
-    [self setMonoField:"IntField" valueObject:DB_VALUE(value)];
+    [self setMonoField:"IntField" value:DB_VALUE(value)];
 }
 
 - (NSString *)stringField
 {
     MonoObject *monoObject = nil;
-    [self getMonoField:"StringField" valuePtr:&monoObject];
+    [self getMonoField:"StringField" value:&monoObject];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 - (void)setStringField:(NSString *)value
 {
-    [self setMonoField:"StringField" valueObject:[value monoRTInvokeObject]];
+    [self setMonoField:"StringField" value:[value monoRTInvokeObject]];
 }
 
 - (NSDate *)dateField
@@ -163,7 +163,7 @@
     _stringProperty = value;
     
     MonoObject *monoObject = [value monoRTInvokeObject];
-    [self setMonoProperty:"StringProperty" valueObject:monoObject];
+    [self setMonoProperty:"StringProperty" value:monoObject];
 }
 
 - (NSDate *)date
@@ -177,7 +177,7 @@
     // Mono DateTime is a struct and hence a value type which must be passed to the property setter as
     // a pointer to the value rather than a boxed MonoObject representation.
     // Calling - monoRTInvokeArg on an NSObject instance ensures that the correct representation is used for property values.
-    [self setMonoProperty:"Date" valueObject:[value monoRTInvokeArg]];
+    [self setMonoProperty:"Date" value:[value monoRTInvokeArg]];
 }
 
 - (NSDecimalNumber *)decimalNumber
@@ -188,7 +188,7 @@
 
 - (void)setDecimalNumber:(NSDecimalNumber *)value
 {
-    [self setMonoProperty:"DecimalNumber" valueObject:[value monoRTInvokeArg]];
+    [self setMonoProperty:"DecimalNumber" value:[value monoRTInvokeArg]];
 }
 
 - (int32_t)int32Number
@@ -198,7 +198,7 @@
 }
 - (void)setInt32Number:(int32_t)value
 {
-    [self setMonoProperty:"Int32Number" valueObject:DB_VALUE(value)];
+    [self setMonoProperty:"Int32Number" value:DB_VALUE(value)];
 }
 
 - (int64_t)int64Number
@@ -208,12 +208,12 @@
 }
 - (void)setInt64Number:(int64_t)value
 {
-    [self setMonoProperty:"Int64Number" valueObject:DB_VALUE(value)];
+    [self setMonoProperty:"Int64Number" value:DB_VALUE(value)];
 }
 
 - (void)setReferenceObjectRelative:(DBUReferenceObject *)value
 {
-    [self setMonoProperty:"ReferenceObjectRelative" valueObject:[value monoRTInvokeArg]];
+    [self setMonoProperty:"ReferenceObjectRelative" value:[value monoRTInvokeArg]];
 }
 
 - (DBUReferenceObject *)referenceObjectRelative
@@ -230,7 +230,7 @@
 
 - (void)setIntEnumeration:(eDBUIntEnum)value
 {
-    [self setMonoProperty:"IntEnumeration" valueObject:DB_VALUE(value)];
+    [self setMonoProperty:"IntEnumeration" value:DB_VALUE(value)];
 }
 
 - (eDBULongEnum)longEnumeration
@@ -241,7 +241,7 @@
 
 - (void)setLongEnumeration:(eDBULongEnum)value
 {
-    [self setMonoProperty:"LongEnumeration" valueObject:DB_VALUE(value)];    
+    [self setMonoProperty:"LongEnumeration" value:DB_VALUE(value)];
 }
 
 - (System_NullableA1 *)intEnumerationNullable
@@ -254,7 +254,7 @@
 - (void)setIntEnumerationNullable:(System_NullableA1 *)value
 {
     MonoObject *monoObject = [value monoObject];
-    [self setMonoProperty:"IntEnumerationNullable" valueObject:monoObject];
+    [self setMonoProperty:"IntEnumerationNullable" value:monoObject];
 }
 
 - (System_NullableA1 *)longEnumerationNullable
@@ -267,7 +267,7 @@
 - (void)setLongEnumerationNullable:(System_NullableA1 *)value
 {
     MonoObject *monoObject = [value monoObject];
-    [self setMonoProperty:"LongEnumerationNullable" valueObject:monoObject];
+    [self setMonoProperty:"LongEnumerationNullable" value:monoObject];
 }
 
 - (DBUIReferenceObject *)minimalReferenceObject
@@ -292,7 +292,7 @@
 {
     _notifyingProperty1 = value;
     MonoObject *monoObject = [value monoRTInvokeObject];
-    [self setMonoProperty:"NotifyingProperty1" valueObject:monoObject];
+    [self setMonoProperty:"NotifyingProperty1" value:monoObject];
 }
 
 // Managed property name : NotifyingProperty2
@@ -310,7 +310,7 @@
 {
     _notifyingProperty2 = value;
     MonoObject *monoObject = [value monoRTInvokeObject];
-    [self setMonoProperty:"NotifyingProperty2" valueObject:monoObject];
+    [self setMonoProperty:"NotifyingProperty2" value:monoObject];
 }
 
 #pragma mark -
@@ -324,8 +324,8 @@
 }
 - (void)setPointer:(void *)value
 {
-    MonoObject *monoObject = DB_VALUE(value);
-    [self setMonoProperty:"Pointer" valueObject:monoObject];
+    void *monoObject = DB_VALUE(value);
+    [self setMonoProperty:"Pointer" value:monoObject];
 }
 
 // Managed type : System.Int32*
@@ -337,8 +337,8 @@
 }
 - (void)setInt32Pointer:(int32_t *)value
 {
-    MonoObject *monoObject = DB_VALUE(value);
-    [self setMonoProperty:"Int32Pointer" valueObject:monoObject];
+    void *monoObject = DB_VALUE(value);
+    [self setMonoProperty:"Int32Pointer" value:monoObject];
 }
 
 #pragma mark -
@@ -351,7 +351,7 @@
 }
 - (void)setInt64Array:(System_Array *)array
 {
-   [self setMonoProperty:"Int64Array" valueObject:[array monoObject]];
+   [self setMonoProperty:"Int64Array" value:[array monoObject]];
 }
 
 - (System_Array *)int32Array
@@ -361,7 +361,7 @@
 }
 - (void)setInt32Array:(System_Array *)array
 {
-    [self setMonoProperty:"Int32Array" valueObject:[array monoObject]];
+    [self setMonoProperty:"Int32Array" value:[array monoObject]];
 }
 
 - (System_Array *)int16Array
@@ -377,7 +377,7 @@
 }
 - (void)setFloatArray:(System_Array *)array
 {
-    [self setMonoProperty:"FloatArray" valueObject:[array monoObject]];
+    [self setMonoProperty:"FloatArray" value:[array monoObject]];
 }
 
 - (System_Array *)doubleArray
@@ -387,7 +387,7 @@
 }
 - (void)setDoubleArray:(System_Array *)array
 {
-    [self setMonoProperty:"DoubleArray" valueObject:[array monoObject]];
+    [self setMonoProperty:"DoubleArray" value:[array monoObject]];
 }
 
 - (System_Array *)boolArray
@@ -402,7 +402,7 @@
 }
 - (void)setStringArray:(System_Array *)array
 {
-    [self setMonoProperty:"StringArray" valueObject:[array monoObject]];
+    [self setMonoProperty:"StringArray" value:[array monoObject]];
 }
 
 #pragma mark -
@@ -427,7 +427,7 @@
 }
 - (void)setExIntTestProperty:(BOOL)value
 {
-    [self setMonoProperty:"ExIntTestProperty" valueObject:DB_VALUE(value)];
+    [self setMonoProperty:"ExIntTestProperty" value:DB_VALUE(value)];
 }
 
 
@@ -438,8 +438,8 @@
 }
 - (void)setImpIntTestProperty:(int32_t)value
 {
-    MonoObject *monoObject = DB_VALUE(value);
-    [self setMonoProperty:"ImpIntTestProperty" valueObject:monoObject];
+    void *monoObject = DB_VALUE(value);
+    [self setMonoProperty:"ImpIntTestProperty" value:monoObject];
 }
 
 #pragma mark -
@@ -464,7 +464,7 @@
 - (void)setIntNullable:(System_NullableA1 *)value
 {
     MonoObject *monoObject = [value monoObject];
-    [self setMonoProperty:"IntNullable" valueObject:monoObject];
+    [self setMonoProperty:"IntNullable" value:monoObject];
 }
 
 - (System_NullableA1 *)floatNullable
@@ -478,7 +478,7 @@
 - (void)setFloatNullable:(System_NullableA1 *)value
 {
     MonoObject *monoObject = [value monoObject];
-    [self setMonoProperty:"FloatNullable" valueObject:monoObject];
+    [self setMonoProperty:"FloatNullable" value:monoObject];
 }
 
 #pragma mark -
@@ -581,7 +581,7 @@
 {
     _stringStringGenericReferenceObject = value;
     MonoObject *monoObject = [value monoObject];
-    [self setMonoProperty:"StringStringGenericReferenceObject" valueObject:monoObject];
+    [self setMonoProperty:"StringStringGenericReferenceObject" value:monoObject];
 }
 
 
@@ -1028,7 +1028,7 @@
     // invoke method
     startTime = [NSDate date];
     for (int i = 0; i < count; i++) {
-        [self setMonoProperty:"StringProperty" valueObject:stringValue.monoObject];
+        [self setMonoProperty:"StringProperty" value:stringValue.monoObject];
     }
     invokeInterval = -[startTime timeIntervalSinceNow];
     NSLog(@"Raw Invoke Set Time: %f", invokeInterval);

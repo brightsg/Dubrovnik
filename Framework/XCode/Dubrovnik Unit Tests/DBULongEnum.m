@@ -24,7 +24,7 @@
 + (int64_t)val1
 {
     int64_t value = 0;
-    [DBULongEnum getMonoClassField:"val1" valuePtr:&value];
+    [DBULongEnum getMonoClassField:"val1" value:&value];
     return value;
 }
 
@@ -37,14 +37,14 @@
 + (int64_t)val3
 {
     int64_t value = 0;
-    [DBULongEnum getMonoClassField:"val3" valuePtr:&value];
+    [DBULongEnum getMonoClassField:"val3" value:&value];
     return value;
 }
 
 + (int64_t)val4
 {
     int64_t value = 0;
-    [DBULongEnum getMonoClassField:"val4" valuePtr:&value];
+    [DBULongEnum getMonoClassField:"val4" value:&value];
     return value;
 }
 

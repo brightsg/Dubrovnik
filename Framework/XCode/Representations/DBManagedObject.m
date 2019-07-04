@@ -459,8 +459,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 #pragma mark -
 #pragma mark Field access
 
-+ (void)getMonoClassField:(const char *)fieldName valuePtr:(void *)valuePtr {
-    DBMonoClassGetField([[self class] monoClass], fieldName, valuePtr);
++ (void)getMonoClassField:(const char *)fieldName value:(void *)value {
+    DBMonoClassGetField([[self class] monoClass], fieldName, value);
 }
 
 + (MonoObject *)getMonoClassField:(const char *)fieldName
@@ -468,12 +468,12 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return DBMonoClassGetField([[self class] monoClass], fieldName, nil);
 }
 
-+ (void)setMonoClassField:(const char *)fieldName valueObject:(MonoObject *)valueObject {
-    DBMonoClassSetField([[self class] monoClass], fieldName, valueObject);
++ (void)setMonoClassField:(const char *)fieldName value:(void *)value {
+    DBMonoClassSetField([[self class] monoClass], fieldName, value);
 }
 
-- (void)getMonoField:(const char *)fieldName valuePtr:(void *)valuePtr {
-    DBMonoObjectGetField(self.monoObject, fieldName, valuePtr);
+- (void)getMonoField:(const char *)fieldName value:(void *)value {
+    DBMonoObjectGetField(self.monoObject, fieldName, value);
 }
 
 - (MonoObject *)getMonoField:(const char *)fieldName
@@ -481,8 +481,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return DBMonoObjectGetField(self.monoObject, fieldName, nil);
 }
 
-- (void)setMonoField:(const char *)fieldName valueObject:(MonoObject *)valueObject {
-    DBMonoObjectSetField(self.monoObject, fieldName, valueObject);
+- (void)setMonoField:(const char *)fieldName value:(void *)value {
+    DBMonoObjectSetField(self.monoObject, fieldName, value);
 }
 
 #pragma mark -
@@ -492,18 +492,18 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return(DBMonoClassGetProperty([[self class] monoClass], propertyName));
 }
 
-+ (void)setMonoClassProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject {
-    DBMonoClassSetProperty([[self class] monoClass], propertyName, valueObject);
++ (void)setMonoClassProperty:(const char *)propertyName value:(void *)value {
+    DBMonoClassSetProperty([[self class] monoClass], propertyName, value);
 }
 
 - (MonoObject *)getMonoProperty:(const char *)propertyName {
     return(DBMonoObjectGetProperty(self.monoObject, propertyName));
 }
 
-- (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject
+- (void)setMonoProperty:(const char *)propertyName value:(void *)value
 {
     // set the managed property
-    DBMonoObjectSetProperty(self.monoObject, propertyName, valueObject);
+    DBMonoObjectSetProperty(self.monoObject, propertyName, value);
 }
 
 - (NSString *)unmanagedPropertyName:(const char *)managedPropertyName
