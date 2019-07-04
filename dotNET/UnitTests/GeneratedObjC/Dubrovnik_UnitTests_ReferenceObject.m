@@ -146,6 +146,21 @@ static NSString * m_classStringField;
 	[self setMonoField:"IntEnumField" value:monoObject];
 }
 
+static enumDubrovnik_UnitTests_IntEnum m_intEnumFieldStatic;
++ (enumDubrovnik_UnitTests_IntEnum)intEnumFieldStatic
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"IntEnumFieldStatic"];
+	m_intEnumFieldStatic = DB_UNBOX_INT32(monoObject);
+
+	return m_intEnumFieldStatic;
+}
++ (void)setIntEnumFieldStatic:(enumDubrovnik_UnitTests_IntEnum)value
+{
+	m_intEnumFieldStatic = value;
+	void *monoObject = &value;
+	[[self class] setMonoClassField:"IntEnumFieldStatic" value:monoObject];
+}
+
 @synthesize intField = _intField;
 - (int32_t)intField
 {
@@ -174,6 +189,21 @@ static NSString * m_classStringField;
 	_longEnumField = value;
 	void *monoObject = &value;
 	[self setMonoField:"LongEnumField" value:monoObject];
+}
+
+static enumDubrovnik_UnitTests_LongEnum m_longEnumFieldStatic;
++ (enumDubrovnik_UnitTests_LongEnum)longEnumFieldStatic
+{
+	MonoObject *monoObject = [[self class] getMonoClassField:"LongEnumFieldStatic"];
+	m_longEnumFieldStatic = DB_UNBOX_INT64(monoObject);
+
+	return m_longEnumFieldStatic;
+}
++ (void)setLongEnumFieldStatic:(enumDubrovnik_UnitTests_LongEnum)value
+{
+	m_longEnumFieldStatic = value;
+	void *monoObject = &value;
+	[[self class] setMonoClassField:"LongEnumFieldStatic" value:monoObject];
 }
 
 @synthesize stringField = _stringField;
@@ -889,6 +919,75 @@ static NSString * m_classStringProperty;
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 }
 
+static System_NullableA1 * m_intEnumerationNullableStatic;
++ (System_NullableA1 *)intEnumerationNullableStatic
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IntEnumerationNullableStatic");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_intEnumerationNullableStatic isEqualToMonoObject:monoObject]) return m_intEnumerationNullableStatic;
+	m_intEnumerationNullableStatic = [System_NullableA1 bestObjectWithMonoObject:monoObject];
+
+	return m_intEnumerationNullableStatic;
+}
++ (void)setIntEnumerationNullableStatic:(System_NullableA1 *)value
+{
+	m_intEnumerationNullableStatic = value;
+	typedef void (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "IntEnumerationNullableStatic");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	thunk([value monoObject], &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
+
+static enumDubrovnik_UnitTests_IntEnum m_intEnumerationStatic;
++ (enumDubrovnik_UnitTests_IntEnum)intEnumerationStatic
+{
+	typedef enumDubrovnik_UnitTests_IntEnum (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "IntEnumerationStatic");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	enumDubrovnik_UnitTests_IntEnum monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	m_intEnumerationStatic = monoObject;
+
+	return m_intEnumerationStatic;
+}
++ (void)setIntEnumerationStatic:(enumDubrovnik_UnitTests_IntEnum)value
+{
+	m_intEnumerationStatic = value;
+	typedef void (*Thunk)(enumDubrovnik_UnitTests_IntEnum, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "IntEnumerationStatic");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	thunk(value, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
+
 @synthesize interfaceTestProperty = _interfaceTestProperty;
 - (Dubrovnik_UnitTests_ITestProperty *)interfaceTestProperty
 {
@@ -1164,6 +1263,75 @@ static NSString * m_classStringProperty;
 		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
 	}
 	thunk(self.monoObject, [value monoObject], &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
+
+static System_NullableA1 * m_longEnumerationNullableStatic;
++ (System_NullableA1 *)longEnumerationNullableStatic
+{
+	typedef MonoObject * (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "LongEnumerationNullableStatic");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	MonoObject * monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:m_longEnumerationNullableStatic isEqualToMonoObject:monoObject]) return m_longEnumerationNullableStatic;
+	m_longEnumerationNullableStatic = [System_NullableA1 bestObjectWithMonoObject:monoObject];
+
+	return m_longEnumerationNullableStatic;
+}
++ (void)setLongEnumerationNullableStatic:(System_NullableA1 *)value
+{
+	m_longEnumerationNullableStatic = value;
+	typedef void (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "LongEnumerationNullableStatic");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	thunk([value monoObject], &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+}
+
+static enumDubrovnik_UnitTests_LongEnum m_longEnumerationStatic;
++ (enumDubrovnik_UnitTests_LongEnum)longEnumerationStatic
+{
+	typedef enumDubrovnik_UnitTests_LongEnum (*Thunk)(MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "LongEnumerationStatic");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	enumDubrovnik_UnitTests_LongEnum monoObject = thunk(&monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	m_longEnumerationStatic = monoObject;
+
+	return m_longEnumerationStatic;
+}
++ (void)setLongEnumerationStatic:(enumDubrovnik_UnitTests_LongEnum)value
+{
+	m_longEnumerationStatic = value;
+	typedef void (*Thunk)(enumDubrovnik_UnitTests_LongEnum, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertySetMethod(thunkClass, "LongEnumerationStatic");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	thunk(value, &monoException);
 	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
 }
 

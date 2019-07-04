@@ -248,6 +248,19 @@ typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(Sy
  Managed field.
  @textblock
  Name
+   IntEnumFieldStatic
+
+ Type
+   Dubrovnik.UnitTests.IntEnum
+ @/textblock
+*/
++ (enumDubrovnik_UnitTests_IntEnum)intEnumFieldStatic;
++ (void)setIntEnumFieldStatic:(enumDubrovnik_UnitTests_IntEnum)value;
+
+/**
+ Managed field.
+ @textblock
+ Name
    IntField
 
  Type
@@ -267,6 +280,19 @@ typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(Sy
  @/textblock
 */
 @property (nonatomic) enumDubrovnik_UnitTests_LongEnum longEnumField;
+
+/**
+ Managed field.
+ @textblock
+ Name
+   LongEnumFieldStatic
+
+ Type
+   Dubrovnik.UnitTests.LongEnum
+ @/textblock
+*/
++ (enumDubrovnik_UnitTests_LongEnum)longEnumFieldStatic;
++ (void)setLongEnumFieldStatic:(enumDubrovnik_UnitTests_LongEnum)value;
 
 /**
  Managed field.
@@ -529,6 +555,32 @@ typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(Sy
  Managed property.
  @textblock
  Name
+   IntEnumerationNullableStatic
+
+ Type
+   System.Nullable`1<Dubrovnik.UnitTests.IntEnum>
+ @/textblock
+*/
++ (System_NullableA1 *)intEnumerationNullableStatic;
++ (void)setIntEnumerationNullableStatic:(System_NullableA1 *)value;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   IntEnumerationStatic
+
+ Type
+   Dubrovnik.UnitTests.IntEnum
+ @/textblock
+*/
++ (enumDubrovnik_UnitTests_IntEnum)intEnumerationStatic;
++ (void)setIntEnumerationStatic:(enumDubrovnik_UnitTests_IntEnum)value;
+
+/**
+ Managed property.
+ @textblock
+ Name
    InterfaceTestProperty
 
  Type
@@ -620,6 +672,32 @@ typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(Sy
  @/textblock
 */
 @property (nonatomic, strong) System_NullableA1 * longEnumerationNullable;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   LongEnumerationNullableStatic
+
+ Type
+   System.Nullable`1<Dubrovnik.UnitTests.LongEnum>
+ @/textblock
+*/
++ (System_NullableA1 *)longEnumerationNullableStatic;
++ (void)setLongEnumerationNullableStatic:(System_NullableA1 *)value;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   LongEnumerationStatic
+
+ Type
+   Dubrovnik.UnitTests.LongEnum
+ @/textblock
+*/
++ (enumDubrovnik_UnitTests_LongEnum)longEnumerationStatic;
++ (void)setLongEnumerationStatic:(enumDubrovnik_UnitTests_LongEnum)value;
 
 /**
  Managed property.
