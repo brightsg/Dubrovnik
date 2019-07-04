@@ -53,8 +53,8 @@
 - (void)setIntField:(int32_t)value
 {
 	_intField = value;
-	MonoObject *monoObject = &value;
-	[self setMonoField:"intField" valueObject:monoObject];
+	void *monoObject = &value;
+	[self setMonoField:"intField" value:monoObject];
 }
 
 @synthesize stringField = _stringField;
@@ -69,8 +69,8 @@
 - (void)setStringField:(NSString *)value
 {
 	_stringField = value;
-	MonoObject *monoObject = [value monoRTInvokeArg];
-	[self setMonoField:"StringField" valueObject:monoObject];
+	void *monoObject = [value monoRTInvokeArg];
+	[self setMonoField:"StringField" value:monoObject];
 }
 
 #pragma mark -

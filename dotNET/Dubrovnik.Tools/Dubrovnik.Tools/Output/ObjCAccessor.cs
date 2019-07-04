@@ -19,6 +19,7 @@ namespace Dubrovnik.Tools.Output
         public string ManagedValueToObjC { get; set; }
         public string MonoInvocationName { get; private set; }
         public string MonoObjectPtr { get; private set; }
+        public string VoidPtr { get; private set; }
         public bool IsObjectProperty { get; private set; }
         public string DoPropertyEqualityTest { get; private set; }
         public string ObjCValueToMono { get; private set; }
@@ -49,6 +50,7 @@ namespace Dubrovnik.Tools.Output
             ObjCTypeDecl = n2c.ObjCTypeDeclFromManagedFacet(facet);
             IsObjectProperty = n2c.ObjCRepresentationIsObject(facet);
             MonoObjectPtr = "MonoObject *";
+            VoidPtr = "void *";
 
             // some NSObject properties need a bit of TLC
             BaseProperties = new List<string> { "description" };

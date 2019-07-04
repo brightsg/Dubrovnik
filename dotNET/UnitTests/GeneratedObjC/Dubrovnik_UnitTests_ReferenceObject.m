@@ -70,8 +70,8 @@ static NSDate * m_classDateField;
 + (void)setClassDateField:(NSDate *)value
 {
 	m_classDateField = value;
-	MonoObject *monoObject = [value monoRTInvokeArg];
-	[[self class] setMonoClassField:"ClassDateField" valueObject:monoObject];
+	void *monoObject = [value monoRTInvokeArg];
+	[[self class] setMonoClassField:"ClassDateField" value:monoObject];
 }
 
 static int32_t m_classIntField;
@@ -85,8 +85,8 @@ static int32_t m_classIntField;
 + (void)setClassIntField:(int32_t)value
 {
 	m_classIntField = value;
-	MonoObject *monoObject = &value;
-	[[self class] setMonoClassField:"ClassIntField" valueObject:monoObject];
+	void *monoObject = &value;
+	[[self class] setMonoClassField:"ClassIntField" value:monoObject];
 }
 
 @synthesize classReadonlyStringField = _classReadonlyStringField;
@@ -111,8 +111,8 @@ static NSString * m_classStringField;
 + (void)setClassStringField:(NSString *)value
 {
 	m_classStringField = value;
-	MonoObject *monoObject = [value monoRTInvokeArg];
-	[[self class] setMonoClassField:"ClassStringField" valueObject:monoObject];
+	void *monoObject = [value monoRTInvokeArg];
+	[[self class] setMonoClassField:"ClassStringField" value:monoObject];
 }
 
 @synthesize dateField = _dateField;
@@ -127,8 +127,8 @@ static NSString * m_classStringField;
 - (void)setDateField:(NSDate *)value
 {
 	_dateField = value;
-	MonoObject *monoObject = [value monoRTInvokeArg];
-	[self setMonoField:"DateField" valueObject:monoObject];
+	void *monoObject = [value monoRTInvokeArg];
+	[self setMonoField:"DateField" value:monoObject];
 }
 
 @synthesize intEnumField = _intEnumField;
@@ -142,8 +142,8 @@ static NSString * m_classStringField;
 - (void)setIntEnumField:(enumDubrovnik_UnitTests_IntEnum)value
 {
 	_intEnumField = value;
-	MonoObject *monoObject = &value;
-	[self setMonoField:"IntEnumField" valueObject:monoObject];
+	void *monoObject = &value;
+	[self setMonoField:"IntEnumField" value:monoObject];
 }
 
 @synthesize intField = _intField;
@@ -157,8 +157,8 @@ static NSString * m_classStringField;
 - (void)setIntField:(int32_t)value
 {
 	_intField = value;
-	MonoObject *monoObject = &value;
-	[self setMonoField:"IntField" valueObject:monoObject];
+	void *monoObject = &value;
+	[self setMonoField:"IntField" value:monoObject];
 }
 
 @synthesize longEnumField = _longEnumField;
@@ -172,8 +172,8 @@ static NSString * m_classStringField;
 - (void)setLongEnumField:(enumDubrovnik_UnitTests_LongEnum)value
 {
 	_longEnumField = value;
-	MonoObject *monoObject = &value;
-	[self setMonoField:"LongEnumField" valueObject:monoObject];
+	void *monoObject = &value;
+	[self setMonoField:"LongEnumField" value:monoObject];
 }
 
 @synthesize stringField = _stringField;
@@ -188,8 +188,8 @@ static NSString * m_classStringField;
 - (void)setStringField:(NSString *)value
 {
 	_stringField = value;
-	MonoObject *monoObject = [value monoRTInvokeArg];
-	[self setMonoField:"StringField" valueObject:monoObject];
+	void *monoObject = [value monoRTInvokeArg];
+	[self setMonoField:"StringField" value:monoObject];
 }
 
 #pragma mark -

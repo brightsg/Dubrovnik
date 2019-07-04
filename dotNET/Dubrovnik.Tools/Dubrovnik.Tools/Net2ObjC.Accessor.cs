@@ -237,15 +237,15 @@ namespace Dubrovnik.Tools {
 					//
 					string setFormat;
 					if (!facet.IsStatic) {
-						setFormat = "[self setMonoField:\"{0}\" valueObject:{1}]";
+						setFormat = "[self setMonoField:\"{0}\" value:{1}]";
 					} else {
-						setFormat = "[[self class] setMonoClassField:\"{0}\" valueObject:{1}]";
+						setFormat = "[[self class] setMonoClassField:\"{0}\" value:{1}]";
 					}
 					string setExpression = String.Format(setFormat, accessor.MonoInvocationName, ManagedVariableName);
 					WriteLine("{");
 					PushTabIndent();
 					WriteLine($"{accessor.PropertyStorage} = {ObjCVariableName};");
-					WriteLine($"{accessor.MonoObjectPtr}{ManagedVariableName} = {accessor.ObjCValueToMono};");
+					WriteLine($"{accessor.VoidPtr}{ManagedVariableName} = {accessor.ObjCValueToMono};");
 					WriteLine($"{setExpression};");
 					PopIndent();
 					WriteLine("}");
