@@ -464,7 +464,7 @@ namespace Dubrovnik.Tools {
 				string setterFormat = objCTypeAssoc.SetterFormat;
 				if (setterFormat != null) {
 					if (managedFacet.IsPointer) {
-						setterFormat = "DB_VALUE({0}";
+						setterFormat = "&{0}";
 					}
 					exp = string.Format(setterFormat, objCVarName);
 				}
@@ -484,7 +484,7 @@ namespace Dubrovnik.Tools {
 			// generate default object representation expression.
 			if (exp == null) {
 				if (ObjCRepresentationIsPrimitive(managedFacet)) {
-					exp = string.Format("DB_VALUE({0})", objCVarName);
+					exp = string.Format("&{0}", objCVarName);
 				} else {
 					exp = string.Format("[{0} monoObject]", objCVarName);
 				}

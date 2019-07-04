@@ -53,7 +53,7 @@
 - (void)setIntField:(int32_t)value
 {
 	_intField = value;
-	MonoObject *monoObject = DB_VALUE(value);
+	MonoObject *monoObject = &value;
 	[self setMonoField:"intField" valueObject:monoObject];
 }
 

@@ -85,7 +85,7 @@ static int32_t m_classIntField;
 + (void)setClassIntField:(int32_t)value
 {
 	m_classIntField = value;
-	MonoObject *monoObject = DB_VALUE(value);
+	MonoObject *monoObject = &value;
 	[[self class] setMonoClassField:"ClassIntField" valueObject:monoObject];
 }
 
@@ -142,7 +142,7 @@ static NSString * m_classStringField;
 - (void)setIntEnumField:(enumDubrovnik_UnitTests_IntEnum)value
 {
 	_intEnumField = value;
-	MonoObject *monoObject = DB_VALUE(value);
+	MonoObject *monoObject = &value;
 	[self setMonoField:"IntEnumField" valueObject:monoObject];
 }
 
@@ -157,7 +157,7 @@ static NSString * m_classStringField;
 - (void)setIntField:(int32_t)value
 {
 	_intField = value;
-	MonoObject *monoObject = DB_VALUE(value);
+	MonoObject *monoObject = &value;
 	[self setMonoField:"IntField" valueObject:monoObject];
 }
 
@@ -172,7 +172,7 @@ static NSString * m_classStringField;
 - (void)setLongEnumField:(enumDubrovnik_UnitTests_LongEnum)value
 {
 	_longEnumField = value;
-	MonoObject *monoObject = DB_VALUE(value);
+	MonoObject *monoObject = &value;
 	[self setMonoField:"LongEnumField" valueObject:monoObject];
 }
 
@@ -1815,7 +1815,7 @@ static NSString * m_classStringProperty;
 
 - (int32_t)doubleIt_withXInt:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"DoubleIt(int)" withNumArgs:1, &p1];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -1935,7 +1935,7 @@ static NSString * m_classStringProperty;
 
 - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(Dubrovnik_UnitTests_ReferenceObject *)p7
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeObject], [p7 monoRTInvokeObject]];
+	MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, &p1, &p2, &p3, &p4, [p5 monoRTInvokeArg], [p6 monoRTInvokeObject], [p7 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -1946,12 +1946,12 @@ static NSString * m_classStringProperty;
 
 - (void)nestedTypeParameter_withP1DUReferenceObject__NestedEnum:(enumDubrovnik_UnitTests_ReferenceObject__NestedEnum)p1
 {
-	[self invokeMonoMethod:"NestedTypeParameter(Dubrovnik.UnitTests.ReferenceObject/NestedEnum)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"NestedTypeParameter(Dubrovnik.UnitTests.ReferenceObject/NestedEnum)" withNumArgs:1, &p1];
 }
 
 - (void)nestedTypeParameters_withP1:(Dubrovnik_UnitTests_ReferenceObject__NestedClass *)p1 p2:(enumDubrovnik_UnitTests_ReferenceObject__NestedEnum)p2
 {
-	[self invokeMonoMethod:"NestedTypeParameters(Dubrovnik.UnitTests.ReferenceObject/NestedClass,Dubrovnik.UnitTests.ReferenceObject/NestedEnum)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	[self invokeMonoMethod:"NestedTypeParameters(Dubrovnik.UnitTests.ReferenceObject/NestedClass,Dubrovnik.UnitTests.ReferenceObject/NestedEnum)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 }
 
 - (Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2string_int:(Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 *)p1
@@ -2043,7 +2043,7 @@ static NSString * m_classStringProperty;
 
 - (NSString *)stringMethod_withN:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(int)" withNumArgs:1, &p1];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -2055,7 +2055,7 @@ static NSString * m_classStringProperty;
 
 - (NSString *)stringMethod_withS1:(NSString *)p1 n:(int32_t)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 

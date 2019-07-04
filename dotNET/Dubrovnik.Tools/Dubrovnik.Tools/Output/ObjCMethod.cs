@@ -107,7 +107,7 @@ namespace Dubrovnik.Tools.Output
                         objCMethodInvokeFormat = "[method invokeClassMethodWithNumArgs:{2}]";
                     }
                     else {
-                        // invoke instance method
+
                         objCMethodPrepareFormat = "DBManagedMethod *method = [self methodWithMonoName:\"{0}({1})\" typeParameters:typeParameter]";
                         objCMethodInvokeFormat = "[method invokeMethodWithNumArgs:{2}]";
                     }
@@ -382,7 +382,6 @@ namespace Dubrovnik.Tools.Output
 
                 //
                 // build the mono invocation argument representation
-                // eg: DB_VALUE(p1), DB_VALUE(p2), [p3 monoRTInvokeArg]
                 //
                 string argFormat = null;
                 if (idx > 0) InvokeArgsBuilder.Append(", ");
@@ -415,7 +414,7 @@ namespace Dubrovnik.Tools.Output
                         argFormat = "p{0}"; // just pass the pointer
                     }
                     else {
-                        argFormat = "DB_VALUE(p{0})";   // DB_VALUE equates to &
+                        argFormat = "&p{0}";
                     }
                 }
                 InvokeArgsBuilder.AppendFormat(argFormat, idx + 1);
