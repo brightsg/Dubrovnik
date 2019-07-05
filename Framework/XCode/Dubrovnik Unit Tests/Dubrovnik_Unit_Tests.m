@@ -889,10 +889,20 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
     
     // class date field
-    if (YES) {
-        NSDate *classDateField = [testClass classDateField];
-        NSDate *testDate = [NSDate dateWithString:@"2014-04-06 00:00:00 +0000"];
-        XCTAssertTrue([classDateField compare:testDate] == NSOrderedSame, DBUEqualityTestFailed);
+    NSDate *classDateField = [testClass classDateField];
+    NSDate *testDate = [NSDate dateWithString:@"2014-04-06 00:00:00 +0000"];
+    XCTAssertTrue([classDateField compare:testDate] == NSOrderedSame, DBUEqualityTestFailed);
+    
+    if (m_runningAutoGenCodeTest) {
+        // int enum
+        enumDubrovnik_UnitTests_IntEnum intEnum = Dubrovnik_UnitTests_IntEnum_val4;
+        [testClass setIntEnumFieldStatic:intEnum];
+        XCTAssertTrue([testClass intEnumFieldStatic] == intEnum, DBUEqualityTestFailed);
+        
+        // long enum
+        enumDubrovnik_UnitTests_LongEnum longEnum = Dubrovnik_UnitTests_LongEnum_val3;
+        [testClass setLongEnumFieldStatic:longEnum];
+        XCTAssertTrue([testClass longEnumFieldStatic] == longEnum, DBUEqualityTestFailed);
     }
     
     //
@@ -918,9 +928,19 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([refObject intField] == intField, DBUEqualityTestFailed);
     
     // date field
-    if (YES) {
-        NSDate *dateField = [refObject dateField];
-        XCTAssertNotNil(dateField, DBUObjectIsNil);
+    NSDate *dateField = [refObject dateField];
+    XCTAssertNotNil(dateField, DBUObjectIsNil);
+    
+    if (m_runningAutoGenCodeTest) {
+        // int enum
+        enumDubrovnik_UnitTests_IntEnum intEnum = Dubrovnik_UnitTests_IntEnum_val1;
+        [refObject setIntEnumField:intEnum];
+        XCTAssertTrue([refObject intEnumField] == intEnum, DBUEqualityTestFailed);
+        
+        // long enum
+        enumDubrovnik_UnitTests_LongEnum longEnum = Dubrovnik_UnitTests_LongEnum_val2;
+        [refObject setLongEnumField:longEnum];
+        XCTAssertTrue([refObject longEnumField] == longEnum, DBUEqualityTestFailed);
     }
 }
 
@@ -2108,6 +2128,32 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([classDateProperty compare:testDate] == NSOrderedSame, DBUEqualityTestFailed);
 
     //
+    // enumeration properties
+    //
+    if (m_runningAutoGenCodeTest) {
+        // setter
+        [testClass setIntEnumerationStatic:[DBUIntEnum val4]];
+        XCTAssertTrue([testClass intEnumerationStatic] == [DBUIntEnum val4], DBUEqualityTestFailed);
+        
+        // we can set it out of range too - so be careful!
+        [testClass setIntEnumerationStatic:[DBUIntEnum val4] * 10];
+        XCTAssertTrue([testClass intEnumerationStatic] == [DBUIntEnum val4] * 10, DBUEqualityTestFailed);
+        
+        [testClass setLongEnumerationStatic:Dubrovnik_UnitTests_LongEnum_val3];
+        XCTAssertTrue([testClass longEnumerationStatic] == Dubrovnik_UnitTests_LongEnum_val3, DBUEqualityTestFailed);
+        
+        // Nullable enum properties
+        @try {
+            [testClass setIntEnumerationNullableStatic:[System_NullableA1 newNullableFromInt32:1]];
+        }
+        @catch(NSException *e) {
+            NSLog(@"Mono 5.12+ do not allow System.Nullable<System.Enum> to be created with an instance of the underlying type. Earlier Mono versions do.");
+        }
+        [testClass setIntEnumerationNullableStatic:[System_NullableA1 objectWithManagedObject:[DUIntEnum_ enumWithValue:Dubrovnik_UnitTests_IntEnum_val1]]];
+        [testClass setLongEnumerationNullableStatic:[System_NullableA1 objectWithManagedObject:[DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1]]];
+    }
+    
+    //
     // string property
     //
     NSString *stringProperty = [refObject stringProperty];
@@ -2221,6 +2267,8 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
     [refObject setIntEnumerationNullable:[System_NullableA1 objectWithManagedObject:[DUIntEnum_ enumWithValue:Dubrovnik_UnitTests_IntEnum_val1]]];
     [refObject setLongEnumerationNullable:[System_NullableA1 objectWithManagedObject:[DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1]]];
+    
+    
 }
 
 - (void)doTestReferenceClass:(Class)testClass iterations:(int)iterations
