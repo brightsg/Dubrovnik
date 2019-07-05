@@ -26,9 +26,6 @@ extern NS_ENUM(NSInteger, DBSystemNullableTypes) {
 
 @interface System_NullableA1 (mscorlib)
 
-- (BOOL)db_hasValue;
-- (DBManagedObject *)db_value;
-
 - (void *)monoRTInvokeArg;
 
 + (NSDictionary *)typeAssociations;

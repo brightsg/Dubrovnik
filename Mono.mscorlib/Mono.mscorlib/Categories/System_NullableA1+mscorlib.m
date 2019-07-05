@@ -50,27 +50,54 @@ If HasValue returns true, a value of the underlying value type T is boxed, not t
 
 - (void *)monoRTInvokeArg
 {
-    // we are a value type but we don't want unboxed
+    // querying -monoClass shows that we are not an instance of System.Nullable but a boxed value type.
     return self.monoObject;
 }
 
+#pragma mark - Overrides
 
-// Managed type : System.Boolean
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 
-- (BOOL)db_hasValue
+/*
+ This class effectively wraps a boxed value type rather than an actual instance of System.Nullable.
+ This is a consequence of the way that the runtime boxes nullables.
+ Accessing the nullable via the embedded API is equivalent to boxing.
+ So, to preserve the illusion (and in practice this all works out well) we apply specific
+ overrides here to prevent undefined selector errors from being generated against the value type.
+ */
+
+- (BOOL)hasValue
 {
-    // keep us sane
-    [NSException raise:@"Not supported" format:@"A boxed System.Nullable is just an instance of the underlying type so calling -hasValue is not possible."];
-    return NO;
+    return YES;
 }
 
-// Managed type : <T>
-- (DBManagedObject *)db_value
+- (System_Object *)value
 {
-    // keep us sane
-    [NSException raise:@"Not supported" format:@"A boxed System.Nullable is just an instance of the underlying type so calling -value is not possible."];
-    return nil;
+    return self;
 }
+
+- (System_Object *)getValueOrDefault
+{
+    return self;
+}
+
+- (System_Object *)getValueOrDefault_withDefaultValue:(System_Object *)p1
+{
+    return self;
+}
+
++ (System_Object *)op_Explicit_withValue:(System_NullableA1 *)p1
+{
+    return p1.value;
+}
+
++ (System_NullableA1 *)op_Implicit_withValue:(System_Object *)p1
+{
+    return [System_NullableA1 new_withValue:p1];
+}
+
+#pragma clang diagnostic pop
 
 #pragma mark -
 #pragma mark Methods

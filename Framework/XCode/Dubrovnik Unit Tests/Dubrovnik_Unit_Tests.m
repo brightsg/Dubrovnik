@@ -2268,7 +2268,22 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [refObject setIntEnumerationNullable:[System_NullableA1 objectWithManagedObject:[DUIntEnum_ enumWithValue:Dubrovnik_UnitTests_IntEnum_val1]]];
     [refObject setLongEnumerationNullable:[System_NullableA1 objectWithManagedObject:[DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1]]];
     
+    // nullable properties
+    System_NullableA1 *intNullableA1 = [refObject intNullable];
     
+    // when .NET boxes a system_nullable it produces a boxed version of the underlying value type.
+    // and that is what we see here - our object is not an instance of System_Nullable at all -
+    // though it is convenient to treat it as if it is.
+    MonoClass *mc = mono_object_get_class(intNullableA1.monoObject);
+    const char *name = mono_class_get_name(mc);
+    NSLog(@"We apparently have a %@ instance but its really just an instance of %s", intNullableA1.className, name);
+    XCTAssertTrue([intNullableA1 hasValue], DBUEqualityTestFailed);
+    XCTAssertTrue([(id)intNullableA1.value intValue] == intNullableA1.intValue, DBUEqualityTestFailed);
+    XCTAssertTrue(intNullableA1.intValue == 1, DBUEqualityTestFailed);
+
+    // a null containing nullable returns nil
+    System_NullableA1 *floatNullable = [refObject floatNullable];
+    XCTAssertTrue(floatNullable == nil, DBUEqualityTestFailed);
 }
 
 - (void)doTestReferenceClass:(Class)testClass iterations:(int)iterations
