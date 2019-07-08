@@ -9,8 +9,9 @@
 //
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
+#import "DBManagedObject.h"
 
-@interface NSData (Dubrovnik)
+@interface NSData (Dubrovnik) <DBMonoObject>
 
 + (id)dataWithMonoArray:(MonoArray *)monoArray;
 

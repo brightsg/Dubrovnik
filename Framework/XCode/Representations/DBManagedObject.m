@@ -789,14 +789,14 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return monoObject;
 }
 
-- (void *)monoRTInvokeArg:(DBManagedObject *)object method:(DBManagedMethod *)method typeParameterIndex:(NSUInteger)idx
+- (void *)monoRTInvokeArg:(id <DBMonoObject>)object method:(DBManagedMethod *)method typeParameterIndex:(NSUInteger)idx
 {
     MonoObject *monoObject = [method monoRTInvokeArg:object typeParameterIndex:idx];
     return monoObject;
 }
 
 #warning This looks wrong!
-+ (void *)monoRTInvokeArg:(DBManagedObject *)object typeParameterIndex:(NSUInteger)idx
++ (void *)monoRTInvokeArg:(id <DBMonoObject>)object typeParameterIndex:(NSUInteger)idx
 {
     MonoObject *monoObject = [object monoObject];
     

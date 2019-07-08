@@ -22,7 +22,7 @@
 #pragma mark -
 #pragma mark Keys and values
 
-- (id)objectForKey:(id)key
+- (id)objectForKey:(id <DBMonoObject>)key
 {
     id object = nil;
     if ([self containsKey:key]) {
@@ -49,7 +49,7 @@
     return object;
 }
 
-- (BOOL)containsKey:(id)key
+- (BOOL)containsKey:(id <DBMonoObject>)key
 {
     BOOL containsKey = NO;
     
@@ -88,7 +88,7 @@
     return containsKey;
 }
 
-- (id)valueForKey:(id)key
+- (id)valueForKey:(id <DBMonoObject>)key
 {
     return [self objectForKey:key];
 }
@@ -96,7 +96,7 @@
 #pragma mark -
 #pragma mark - Collection management
 
-- (void)addKey:(System_Object *)key value:(System_Object *)value
+- (void)addKey:(id <DBMonoObject>)key value:(id <DBMonoObject>)value
 {
     // unbox value types if generic key parameter type is value type
     MonoType *monoType = [self.managedType monoGenericTypeAtIndex:0];

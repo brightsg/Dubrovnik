@@ -14,7 +14,7 @@
  @param parameters Array of parameters passed to the delegate.
  @return Delegate return value. If the managed delegate return type is void the native block should return nil.
  */
-typedef System_Object *(^DBUniversalDelegateBlock)(NSArray *parameters);
+typedef id <DBMonoObject> (^DBUniversalDelegateBlock)(NSArray *parameters);
 
 @interface System_Delegate (mscorlib)
 

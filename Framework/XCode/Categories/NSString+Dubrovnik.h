@@ -9,10 +9,11 @@
 //
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
+#import "DBManagedObject.h"
 
 @class System_String, System_Object;
 
-@interface NSString (Dubrovnik)
+@interface NSString (Dubrovnik) <DBMonoObject>
 
 + (id)stringWithMonoString:(MonoString *)monoString;
 + (id)objectWithMonoObject:(MonoString *)monoString;

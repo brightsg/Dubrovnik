@@ -128,7 +128,7 @@
 #pragma mark -
 #pragma mark Collection management
 
-- (void)add:(System_Object *)object
+- (void)add:(id <DBMonoObject>)object
 {
     void *arg = nil;
     

@@ -69,7 +69,7 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
     }
     
     // dispatch block
-    __block System_Object *resultObject = nil;
+    __block id <DBMonoObject> resultObject = nil;
     dispatch_block_t dispatchBlk = ^{
         
         // process parameters

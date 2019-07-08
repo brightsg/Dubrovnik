@@ -44,7 +44,7 @@
 
 - (MonoType *)monoTypeParameterAtIndex:(NSUInteger)idx;
 
-- (void *)monoRTInvokeArg:(id)object typeParameterIndex:(NSUInteger)idx;
+- (void *)monoRTInvokeArg:(id <DBMonoObject>)object typeParameterIndex:(NSUInteger)idx;
 
 - (MonoMethod *)monoClassMethod;
 - (MonoMethod *)monoMethod;

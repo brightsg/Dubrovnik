@@ -94,19 +94,25 @@ static const char hasValueKey = '0';
 
 - (void *)monoRTInvokeArg
 {
-    return DB_OBJECT(mono_object_unbox([self monoDecimal]));
+    return mono_object_unbox([self monoDecimal]);
 }
 
-- (MonoObject *)nullableMonoDecimal {
+- (MonoObject *)monoRTInvokeObject
+{
+    return self.monoObject;
+}
+
+- (void *)nullableMonoDecimal
+{
     
     // TODO: handle locale
 	MonoObject *monoDecimal = NULL;
 	return(monoDecimal);
 }
 
-- (MonoObject *)nullableMonoValue
+- (void *)nullableMonoValue
 {
-    return DB_OBJECT(mono_object_unbox([self nullableMonoDecimal]));
+    return mono_object_unbox([self nullableMonoDecimal]);
 }
 
 #pragma mark -

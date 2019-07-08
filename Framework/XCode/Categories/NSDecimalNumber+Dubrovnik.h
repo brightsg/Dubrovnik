@@ -7,10 +7,11 @@
 //
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
+#import "DBManagedObject.h"
 
 @class DBManagedClass;
 
-@interface NSDecimalNumber (Dubrovnik)
+@interface NSDecimalNumber (Dubrovnik) <DBMonoObject>
 
 + (NSDecimalNumber *)decimalNumberWithMonoDecimal:(MonoObject *)monoDecimal;
 + (NSDecimalNumber *)decimalNumberWithNullableMonoDecimal:(MonoObject *)monoDecimal;
@@ -22,8 +23,8 @@
 - (MonoObject *)monoObject;
 - (MonoObject *)monoDecimal;
 - (void *)monoRTInvokeArg;
-- (MonoObject *)nullableMonoDecimal;
-- (MonoObject *)nullableMonoValue;
+- (void *)nullableMonoDecimal;
+- (void *)nullableMonoValue;
 
 - (BOOL)hasValue;
 - (DBManagedClass *)monoClassRepresentation;

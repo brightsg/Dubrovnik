@@ -213,7 +213,7 @@ BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
 
 #pragma mark - Invocation Argument type info
 
-- (void *)monoRTInvokeArg:(id)object typeParameterIndex:(NSUInteger)idx
+- (void *)monoRTInvokeArg:(id <DBMonoObject>)object typeParameterIndex:(NSUInteger)idx
 {
     if (![object respondsToSelector:@selector(monoObject)]) {
         [NSException raise:@"DBManagedMethodInvokeArgException" format:@"Failed to retrieve generic method level type parameter."];

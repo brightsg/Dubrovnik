@@ -15,19 +15,46 @@ extern char DBCacheSuffixChar;
 
 @class DBManagedEnvironment, DBManagedClass, DBManagedMethod, DBManagedObject;
 
-@protocol DBManagedObject <NSObject>
+/**
+ Defines member functions that permit an object to act as a container for an underlying managed object.
+ Objects that implement this protocol can be passed as arguments to managed member function invocations
+ and can be returned by such functions.(System_Object *)
+ */
+@protocol DBMonoObject <NSObject>
 
-@property (strong, readonly) DBManagedType *managedType;
-@property (strong, readonly) DBManagedEnvironment *monoEnvironment;
+@required
+
+// objects
 @property (assign, readonly) MonoObject *monoObject;
-@property (assign, readonly) NSUInteger monoHash;
+
 - (void *)monoRTInvokeArg;
 - (MonoObject *)monoRTInvokeObject;
-- (void *)monoRTInvokeArg:(DBManagedObject *)object typeParameterIndex:(NSUInteger)idx;
-+ (void *)monoRTInvokeArg:(DBManagedObject *)object typeParameterIndex:(NSUInteger)idx;
-- (void *)monoRTInvokeArg:(DBManagedObject *)object method:(DBManagedMethod *)method typeParameterIndex:(NSUInteger)idx;
+
+@optional
+
 @end
 
+/**
+ Member functions that permit an object to respond like a managed object.
+ */
+@protocol DBManagedObject <DBMonoObject>
+
+// objects
+@property (strong, readonly) DBManagedType *managedType;
+@property (strong, readonly) DBManagedEnvironment *monoEnvironment;
+
+// primitives
+@property (assign, readonly) NSUInteger monoHash;
+
+- (void *)monoRTInvokeArg:(id <DBMonoObject>)object typeParameterIndex:(NSUInteger)idx;
++ (void *)monoRTInvokeArg:(id <DBMonoObject>)object typeParameterIndex:(NSUInteger)idx;
+- (void *)monoRTInvokeArg:(id <DBMonoObject>)object method:(DBManagedMethod *)method typeParameterIndex:(NSUInteger)idx;
+@end
+
+
+/**
+ Optional methods.
+ */
 @protocol DBManagedObjectOptionalCategoryMethods <NSObject>
 @optional
 + (NSArray *)db_keysToIgnoreInChangeValueForKeyMethods;

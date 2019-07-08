@@ -702,6 +702,11 @@ typedef NS_ENUM(NSUInteger, DBNumberTypeID) {
     return (void *)[self valuePointer];
 }
 
+- (MonoObject *)monoRTInvokeObject
+{
+    return self.monoObject;
+}
+
 - (id)managedObject
 {
     return [DBManagedObject objectWithMonoObject:self.monoObject];

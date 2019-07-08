@@ -72,27 +72,27 @@ If HasValue returns true, a value of the underlying value type T is boxed, not t
     return YES;
 }
 
-- (System_Object *)value
+- (id <DBMonoObject>)value
 {
     return self;
 }
 
-- (System_Object *)getValueOrDefault
+- (id <DBMonoObject>)getValueOrDefault
 {
     return self;
 }
 
-- (System_Object *)getValueOrDefault_withDefaultValue:(System_Object *)p1
+- (id  <DBMonoObject>)getValueOrDefault_withDefaultValue:(id <DBMonoObject>)p1
 {
     return self;
 }
 
-+ (System_Object *)op_Explicit_withValue:(System_NullableA1 *)p1
++ (id  <DBMonoObject>)op_Explicit_withValue:(System_NullableA1 *)p1
 {
     return p1.value;
 }
 
-+ (System_NullableA1 *)op_Implicit_withValue:(System_Object *)p1
++ (System_NullableA1 *)op_Implicit_withValue:(id <DBMonoObject>)p1
 {
     return [System_NullableA1 new_withValue:p1];
 }

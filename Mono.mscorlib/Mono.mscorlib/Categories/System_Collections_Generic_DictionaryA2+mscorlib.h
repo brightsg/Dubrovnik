@@ -11,8 +11,8 @@
 @interface System_Collections_Generic_DictionaryA2 (mscorlib)
 
 + (instancetype)dictionaryWithMonoObject:(MonoObject *)monoObject;
-- (id)objectForKey:(id)key;
-- (id)valueForKey:(id)key;
+- (id)objectForKey:(id <DBMonoObject>)key;
+- (id)valueForKey:(id <DBMonoObject>)key;
 
-- (void)addKey:(System_Object *)key value:(System_Object *)value;
+- (void)addKey:(id <DBMonoObject>)key value:(id <DBMonoObject>)value;
 @end

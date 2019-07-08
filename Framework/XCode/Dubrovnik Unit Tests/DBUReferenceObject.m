@@ -819,7 +819,7 @@
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-- (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter
+- (id <DBMonoObject>)genericMethod1_withValue:(id <DBMonoObject>)p1 typeParameter:(id)typeParameter
 {
     DBManagedMethod *method = [self methodWithMonoName:"GenericMethod1(T)" typeParameters:typeParameter];
     MonoObject *monoObject = [method invokeMethodWithNumArgs:1, [method monoRTInvokeArg:p1 typeParameterIndex:0]];

@@ -9,6 +9,7 @@
 //
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
+#import "DBManagedObject.h"
 
 typedef NS_OPTIONS(NSUInteger, DBMonoDateTimeOptions) {
     DBMonoDateTimeOptionNone = 0,
@@ -19,7 +20,7 @@ typedef NS_OPTIONS(NSUInteger, DBMonoDateTimeOptions) {
     DBMonoDateTimeOptionForceNearestStartOfDay = (1 << 4), // don't use it unless you are prepared for the consequences.
 };
 
-@interface NSDate (Dubrovnik)
+@interface NSDate (Dubrovnik) <DBMonoObject>
 
 /*
  
@@ -46,8 +47,8 @@ typedef NS_OPTIONS(NSUInteger, DBMonoDateTimeOptions) {
 - (MonoObject *)monoObject;
 - (MonoObject *)monoDateTime;
 - (void *)monoRTInvokeArg;
-- (MonoObject *)nullableMonoDateTime;
-- (MonoObject *)nullableMonoValue;
+- (void *)nullableMonoDateTime;
+- (void *)nullableMonoValue;
 
 - (void)setHasValue:(BOOL)hasValue;
 - (BOOL)hasValue;
