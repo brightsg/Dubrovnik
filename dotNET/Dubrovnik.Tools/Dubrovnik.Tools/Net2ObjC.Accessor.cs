@@ -53,8 +53,11 @@ namespace Dubrovnik.Tools {
 				return;
 			}
 
-			// Interface 
-			if (OutputFileType == OutputType.Interface) {
+            // normalise the return type for use in invocation api
+            string invokeApiObjCReturnTypeDecl = NormaliseObjCTypeDecl(accessor.ObjCTypeDecl, ObjCTypeDeclNormalisation.InvokeApiReturnType);
+
+            // Interface 
+            if (OutputFileType == OutputType.Interface) {
 
 				// write accessor headerdoc info
 				string tab = " ";
@@ -85,7 +88,7 @@ namespace Dubrovnik.Tools {
 					if (accessor.BaseProperties.Contains(accessor.GetterName)) {
 						prefix = "// Avoid potential property attribute clash // ";
 					}
-					WriteLine($"{prefix}@property {accessor.PropertyAttributes}{accessor.ObjCTypeDecl} {accessor.GetterName};");
+					WriteLine($"{prefix}@property {accessor.PropertyAttributes}{invokeApiObjCReturnTypeDecl} {accessor.GetterName};");
 					return;
 				}
 			}
@@ -101,7 +104,7 @@ namespace Dubrovnik.Tools {
 					WriteLine($"@synthesize {accessor.GetterName} = {accessor.PropertyStorage};");
 				} 
 				else { // declare static property storage
-					WriteLine($"static {accessor.ObjCTypeDecl} {accessor.PropertyStorage};"); 
+					WriteLine($"static {invokeApiObjCReturnTypeDecl} {accessor.PropertyStorage};"); 
 				}
 			}
 
@@ -118,7 +121,11 @@ namespace Dubrovnik.Tools {
 
 		private void WriteGetter(CodeFacet facet, ObjCAccessor accessor) {
 
-			WriteLine($"{accessor.ObjCMethodType} ({accessor.ObjCTypeDecl}){accessor.GetterName}{LT}");
+            // normalise the return type for use in invocation api
+            string invokeApiObjCReturnTypeDecl = NormaliseObjCTypeDecl(accessor.ObjCTypeDecl, ObjCTypeDeclNormalisation.InvokeApiReturnType);
+
+            // write getter declaration
+            WriteLine($"{accessor.ObjCMethodType} ({invokeApiObjCReturnTypeDecl}){accessor.GetterName}{LT}");
 
 			if (OutputFileType == OutputType.Implementation) {
 
@@ -128,7 +135,7 @@ namespace Dubrovnik.Tools {
 					string thunkTypeDecl = null;
 					if (ObjCRepresentationIsPrimitive(facet)) {
 						accessor.ManagedValueToObjC = "monoObject";
-						thunkTypeDecl = accessor.ObjCTypeDecl;
+						thunkTypeDecl = invokeApiObjCReturnTypeDecl;
 					} else {
 						thunkTypeDecl = "MonoObject *";
 					}
@@ -188,7 +195,11 @@ namespace Dubrovnik.Tools {
 
 		private void WriteSetter(CodeFacet facet, ObjCAccessor accessor) {
 
-			WriteLine($"{accessor.ObjCMethodType} (void){accessor.SetterName}:({accessor.ObjCTypeDecl}){ObjCVariableName}{LT}");
+            // normalise the parameter type for use in invocation api
+            string invokeApiObjCParameterTypeDecl = NormaliseObjCTypeDecl(accessor.ObjCTypeDecl, ObjCTypeDeclNormalisation.InvokeApiParameterType);
+
+            // write setter declaration
+            WriteLine($"{accessor.ObjCMethodType} (void){accessor.SetterName}:({invokeApiObjCParameterTypeDecl}){ObjCVariableName}{LT}");
 
 			if (OutputFileType == OutputType.Implementation) {
 				//
@@ -197,7 +208,7 @@ namespace Dubrovnik.Tools {
 				if (facet is PropertyFacet) {
 					string thunkArgTypeDecl, thunkArg;
 					if (ObjCRepresentationIsPrimitive(facet)) {
-						thunkArgTypeDecl = accessor.ObjCTypeDecl;
+						thunkArgTypeDecl = invokeApiObjCParameterTypeDecl;
 						thunkArg = ObjCVariableName;
 					} else {
 						thunkArgTypeDecl = "MonoObject *";

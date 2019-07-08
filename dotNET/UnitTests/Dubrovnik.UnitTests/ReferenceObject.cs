@@ -226,7 +226,8 @@ namespace Dubrovnik.UnitTests {
 		public DateTime DateField = DateTime.UtcNow;
 		public IntEnum IntEnumField = IntEnum.val1;
 		public LongEnum LongEnumField = LongEnum.val1;
-
+        public object objectField;
+             
         // static fields
         public static string ClassStringField = "Dubrovnik.UnitTests class field";
         public static int ClassIntField = 1;

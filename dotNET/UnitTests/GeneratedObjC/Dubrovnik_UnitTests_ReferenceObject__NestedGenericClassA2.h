@@ -55,6 +55,6 @@
    <Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+T>
  @/textblock
 */
-- (System_Object *)genericMethodReturningParameterOfTypeT_withP1:(System_Object *)p1 u:(System_Object *)p2;
+- (id <DBMonoObject>)genericMethodReturningParameterOfTypeT_withP1:(id <DBMonoObject>)p1 u:(id <DBMonoObject>)p2;
 @end
 //--Dubrovnik.CodeGenerator

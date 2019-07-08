@@ -61,7 +61,7 @@
    System.Void
  @/textblock
 */
-+ (void)collectionChanged_withSender:(System_Object *)p1 arg:(System_EventArgs *)p2;
++ (void)collectionChanged_withSender:(id <DBMonoObject>)p1 arg:(System_EventArgs *)p2;
 
 /**
  Managed method.
@@ -79,7 +79,7 @@
    System.Void
  @/textblock
 */
-+ (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerMethodName:(NSString *)p3 attach:(BOOL)p4;
++ (void)configureStaticEventHandler_withObj:(id <DBMonoObject>)p1 objEventName:(NSString *)p2 handlerMethodName:(NSString *)p3 attach:(BOOL)p4;
 
 /**
  Managed method.
@@ -95,7 +95,7 @@
    System.Void
  @/textblock
 */
-+ (void)dubrovnikEventHandlerICall1_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
++ (void)dubrovnikEventHandlerICall1_withSender:(id <DBMonoObject>)p1 args:(System_EventArgs *)p2;
 
 /**
  Managed method.
@@ -111,7 +111,7 @@
    System.Void
  @/textblock
 */
-+ (void)dubrovnikEventHandlerICall2_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
++ (void)dubrovnikEventHandlerICall2_withSender:(id <DBMonoObject>)p1 args:(System_EventArgs *)p2;
 
 /**
  Managed method.
@@ -127,7 +127,7 @@
    System.Void
  @/textblock
 */
-+ (void)managedEvent_AppDomain_UnhandledException_withSender:(System_Object *)p1 args:(System_UnhandledExceptionEventArgs *)p2;
++ (void)managedEvent_AppDomain_UnhandledException_withSender:(id <DBMonoObject>)p1 args:(System_UnhandledExceptionEventArgs *)p2;
 
 /**
  Managed method.
@@ -143,7 +143,7 @@
    System.Void
  @/textblock
 */
-+ (void)managedEvent_ManagedObject_PropertyChanged_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
++ (void)managedEvent_ManagedObject_PropertyChanged_withSender:(id <DBMonoObject>)p1 args:(System_EventArgs *)p2;
 
 /**
  Managed method.
@@ -159,7 +159,7 @@
    System.Void
  @/textblock
 */
-+ (void)managedEvent_ManagedObject_PropertyChanging_withSender:(System_Object *)p1 args:(System_EventArgs *)p2;
++ (void)managedEvent_ManagedObject_PropertyChanging_withSender:(id <DBMonoObject>)p1 args:(System_EventArgs *)p2;
 
 /**
  Managed method.
@@ -175,6 +175,6 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)objectSupportsEvent_withObj:(System_Object *)p1 objEventName:(NSString *)p2;
++ (BOOL)objectSupportsEvent_withObj:(id <DBMonoObject>)p1 objEventName:(NSString *)p2;
 @end
 //--Dubrovnik.CodeGenerator

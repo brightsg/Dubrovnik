@@ -62,7 +62,7 @@
    System.Void
  @/textblock
 */
-- (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerMethodName:(NSString *)p3 attach:(BOOL)p4;
+- (void)configureStaticEventHandler_withObj:(id <DBMonoObject>)p1 objEventName:(NSString *)p2 handlerMethodName:(NSString *)p3 attach:(BOOL)p4;
 
 /**
  Managed method.
@@ -78,6 +78,6 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)objectSupportsEvent_withObj:(System_Object *)p1 objEventName:(NSString *)p2;
+- (BOOL)objectSupportsEvent_withObj:(id <DBMonoObject>)p1 objEventName:(NSString *)p2;
 @end
 //--Dubrovnik.CodeGenerator

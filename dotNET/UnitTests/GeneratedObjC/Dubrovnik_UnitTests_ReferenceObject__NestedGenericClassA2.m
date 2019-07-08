@@ -33,7 +33,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)genericMethodReturningParameterOfTypeT_withP1:(System_Object *)p1 u:(System_Object *)p2
+- (id <DBMonoObject>)genericMethodReturningParameterOfTypeT_withP1:(id <DBMonoObject>)p1 u:(id <DBMonoObject>)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterOfTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], [self monoRTInvokeArg:p2 typeParameterIndex:1]];
 	return [System_Object bestObjectWithMonoObject:monoObject];

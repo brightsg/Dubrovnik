@@ -33,7 +33,7 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (Dubrovnik_UnitTests_ReferenceObject__ActionDelegate *)new_withObject:(System_Object *)p1 method:(void *)p2
++ (Dubrovnik_UnitTests_ReferenceObject__ActionDelegate *)new_withObject:(id <DBMonoObject>)p1 method:(void *)p2
 {
 	Dubrovnik_UnitTests_ReferenceObject__ActionDelegate * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return object;
@@ -42,7 +42,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object <System_IAsyncResult> *)beginInvoke_withMessage:(NSString *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
+- (System_Object <System_IAsyncResult> *)beginInvoke_withMessage:(NSString *)p1 callback:(System_AsyncCallback *)p2 object:(id <DBMonoObject>)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(string,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];

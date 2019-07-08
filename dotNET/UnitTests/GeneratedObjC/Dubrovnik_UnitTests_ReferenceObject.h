@@ -298,6 +298,18 @@ typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(Sy
  Managed field.
  @textblock
  Name
+   objectField
+
+ Type
+   System.Object
+ @/textblock
+*/
+@property (nonatomic, strong) id <DBMonoObject> objectField;
+
+/**
+ Managed field.
+ @textblock
+ Name
    StringField
 
  Type
@@ -1034,7 +1046,7 @@ typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(Sy
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -1088,7 +1100,7 @@ typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(Sy
    <Dubrovnik.UnitTests.ReferenceObject+T>
  @/textblock
 */
-- (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter;
+- (id <DBMonoObject>)genericMethod1_withValue:(id <DBMonoObject>)p1 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -1107,7 +1119,7 @@ typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(Sy
    System.Collections.Generic.Dictionary`2<Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U>
  @/textblock
 */
-- (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
+- (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2 typeParameters:(NSArray<id> *)typeParameter;
 
 /**
  Managed method.
@@ -1125,7 +1137,7 @@ typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(Sy
    <Dubrovnik.UnitTests.ReferenceObject+T>
  @/textblock
 */
-- (System_Object *)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter;
+- (id <DBMonoObject>)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -1144,7 +1156,7 @@ typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(Sy
    System.Collections.Generic.Dictionary`2<Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U>
  @/textblock
 */
-+ (System_Collections_Generic_DictionaryA2 *)genericMethodStatic2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
++ (System_Collections_Generic_DictionaryA2 *)genericMethodStatic2_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2 typeParameters:(NSArray<id> *)typeParameter;
 
 /**
  Managed method.
@@ -1664,7 +1676,7 @@ typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(Sy
    System.String
  @/textblock
 */
-- (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(System_Object *)p2;
+- (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(id <DBMonoObject>)p2;
 
 /**
  Managed method.

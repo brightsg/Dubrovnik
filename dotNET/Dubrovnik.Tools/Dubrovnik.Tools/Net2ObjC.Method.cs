@@ -92,8 +92,11 @@ namespace Dubrovnik.Tools {
 				WriteLine($"");
 			}
 
-			// write method name
-			WriteLine($"{method.ObjCMethodType} ({method.ObjCTypeDecl}){method.ObjCMethodName}{method.ObjCMethodParameters}{LT}");
+            // normalise the return type for use in invocation api
+            string invokeApiObjCReturnTypeDecl = NormaliseObjCTypeDecl(method.ObjCTypeDecl, ObjCTypeDeclNormalisation.InvokeApiReturnType);
+
+            // write method declaration 
+            WriteLine($"{method.ObjCMethodType} ({invokeApiObjCReturnTypeDecl}){method.ObjCMethodName}{method.ObjCMethodParameters}{LT}");
 
 			// write method body
 			if (OutputFileType == OutputType.Implementation) {
@@ -115,7 +118,7 @@ namespace Dubrovnik.Tools {
                 // method is a constructor
 				else if (method.IsConstructorMethod) {
 					WriteNz(method.ReferencePreProcess);
-					WriteLine($"{method.ObjCTypeDecl} object = {method.GetExpression};");
+					WriteLine($"{invokeApiObjCReturnTypeDecl} object = {method.GetExpression};");
 					WriteNz(method.ReferencePostProcess);
 					WriteLine("return object;");
 				} 

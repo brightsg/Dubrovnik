@@ -378,7 +378,10 @@ namespace Dubrovnik.Tools.Output
                 else {
                     ObjCParameterBuilder.AppendFormat(" {0}", objCParamName.FirstCharacterToLower());
                 }
-                ObjCParameterBuilder.AppendFormat(":({0})p{1}", objCParamTypeDecl, idx + 1);
+
+                // normalise the obj C parameter type for use as an invocation API parameter
+                string invokeApiObjCParamTypeDecl = n2c.NormaliseObjCTypeDecl(objCParamTypeDecl, ObjCTypeDeclNormalisation.InvokeApiParameterType);
+                ObjCParameterBuilder.AppendFormat(":({0})p{1}", invokeApiObjCParamTypeDecl, idx + 1);
 
                 //
                 // build the mono invocation argument representation

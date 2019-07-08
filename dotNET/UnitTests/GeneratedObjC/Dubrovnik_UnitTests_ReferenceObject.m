@@ -206,6 +206,22 @@ static enumDubrovnik_UnitTests_LongEnum m_longEnumFieldStatic;
 	[[self class] setMonoClassField:"LongEnumFieldStatic" value:monoObject];
 }
 
+@synthesize objectField = _objectField;
+- (id <DBMonoObject>)objectField
+{
+	MonoObject *monoObject = [self getMonoField:"objectField"];
+	if ([self object:_objectField isEqualToMonoObject:monoObject]) return _objectField;
+	_objectField = [System_Object bestObjectWithMonoObject:monoObject];
+
+	return _objectField;
+}
+- (void)setObjectField:(id <DBMonoObject>)value
+{
+	_objectField = value;
+	void *monoObject = [value monoRTInvokeArg];
+	[self setMonoField:"objectField" value:monoObject];
+}
+
 @synthesize stringField = _stringField;
 - (NSString *)stringField
 {
@@ -1993,7 +2009,7 @@ static enumDubrovnik_UnitTests_LongEnum m_longEnumerationStatic;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -2013,28 +2029,28 @@ static enumDubrovnik_UnitTests_LongEnum m_longEnumerationStatic;
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-- (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter
+- (id <DBMonoObject>)genericMethod1_withValue:(id <DBMonoObject>)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"GenericMethod1(T)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeMethodWithNumArgs:1, [method monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
+- (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2 typeParameters:(NSArray<id> *)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"GenericMethod2(T,U)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeMethodWithNumArgs:2, [method monoRTInvokeArg:p1 typeParameterIndex:0], [method monoRTInvokeArg:p2 typeParameterIndex:1]];
 	return [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter
+- (id <DBMonoObject>)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"GenericMethodList1(System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject/T>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeMethodWithNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Collections_Generic_DictionaryA2 *)genericMethodStatic2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
++ (System_Collections_Generic_DictionaryA2 *)genericMethodStatic2_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2 typeParameters:(NSArray<id> *)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"GenericMethodStatic2(T,U)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [method monoRTInvokeArg:p1 typeParameterIndex:0], [method monoRTInvokeArg:p2 typeParameterIndex:1]];
@@ -2227,7 +2243,7 @@ static enumDubrovnik_UnitTests_LongEnum m_longEnumerationStatic;
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-- (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(System_Object *)p2
+- (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(id <DBMonoObject>)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];

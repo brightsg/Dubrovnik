@@ -41,6 +41,33 @@
 + (const char *)monoAssemblyName;
 
 #pragma mark -
+#pragma mark Fields
+
+/**
+ Managed field.
+ @textblock
+ Name
+   GenericFieldWithTypeParameterT
+
+ Type
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
+ @/textblock
+*/
+@property (nonatomic, strong) id <DBMonoObject> genericFieldWithTypeParameterT;
+
+/**
+ Managed field.
+ @textblock
+ Name
+   GenericFieldWithTypeParameterU
+
+ Type
+   <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
+ @/textblock
+*/
+@property (nonatomic, strong) id <DBMonoObject> genericFieldWithTypeParameterU;
+
+#pragma mark -
 #pragma mark Properties
 
 /**
@@ -53,7 +80,7 @@
    <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
  @/textblock
 */
-@property (nonatomic, strong) System_Object * genericPropertyWithTypeParameterT;
+@property (nonatomic, strong) id <DBMonoObject> genericPropertyWithTypeParameterT;
 
 /**
  Managed property.
@@ -65,7 +92,7 @@
    <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
  @/textblock
 */
-@property (nonatomic, strong) System_Object * genericPropertyWithTypeParameterU;
+@property (nonatomic, strong) id <DBMonoObject> genericPropertyWithTypeParameterU;
 
 /**
  Managed property.
@@ -124,7 +151,7 @@
    <Dubrovnik.UnitTests.GenericReferenceObject`2+V>
  @/textblock
 */
-- (System_Object *)genericMethod_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2 parameterV:(System_Object *)p3 typeParameter:(id)typeParameter;
+- (id <DBMonoObject>)genericMethod_withParameterT:(id <DBMonoObject>)p1 parameterU:(id <DBMonoObject>)p2 parameterV:(id <DBMonoObject>)p3 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -140,7 +167,7 @@
    <Dubrovnik.UnitTests.GenericReferenceObject`2+T>
  @/textblock
 */
-- (System_Object *)genericMethodReturningParameterTypeT_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2;
+- (id <DBMonoObject>)genericMethodReturningParameterTypeT_withParameterT:(id <DBMonoObject>)p1 parameterU:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -156,6 +183,6 @@
    <Dubrovnik.UnitTests.GenericReferenceObject`2+U>
  @/textblock
 */
-- (System_Object *)genericMethodReturningParameterTypeU_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2;
+- (id <DBMonoObject>)genericMethodReturningParameterTypeU_withParameterT:(id <DBMonoObject>)p1 parameterU:(id <DBMonoObject>)p2;
 @end
 //--Dubrovnik.CodeGenerator

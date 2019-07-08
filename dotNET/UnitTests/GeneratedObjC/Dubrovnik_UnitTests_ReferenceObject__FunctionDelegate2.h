@@ -64,7 +64,7 @@
    Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate2
  @/textblock
 */
-+ (Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2 *)new_withObject:(System_Object *)p1 method:(void *)p2;
++ (Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate2 *)new_withObject:(id <DBMonoObject>)p1 method:(void *)p2;
 
 #pragma mark -
 #pragma mark Methods
@@ -85,7 +85,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (System_Object <System_IAsyncResult> *)beginInvoke_withValue:(int32_t)p1 message:(NSString *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
+- (System_Object <System_IAsyncResult> *)beginInvoke_withValue:(int32_t)p1 message:(NSString *)p2 callback:(System_AsyncCallback *)p3 object:(id <DBMonoObject>)p4;
 
 /**
  Managed method.

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Assembly Name="Dubrovnik.UnitTests" FullName="Dubrovnik.UnitTests, Version=1.0.7124.37044, Culture=neutral, PublicKeyToken=null" Path="C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe">
+<Assembly Name="Dubrovnik.UnitTests" FullName="Dubrovnik.UnitTests, Version=1.0.7128.31972, Culture=neutral, PublicKeyToken=null" Path="C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe">
   <Reference Name="mscorlib" FullName="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <Reference Name="System" FullName="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <Reference Name="System.Core" FullName="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
@@ -71,6 +71,8 @@
     <Class Name="GenericReferenceObject`2&lt;T, U&gt;" Type="Dubrovnik.UnitTests.GenericReferenceObject`2&lt;Dubrovnik.UnitTests.GenericReferenceObject`2+T, Dubrovnik.UnitTests.GenericReferenceObject`2+U&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsGenericTypeDefinition="True" ContainsGenericParameters="True">
       <GenericTypeParameter Type="Dubrovnik.UnitTests.GenericReferenceObject`2+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" />
       <GenericTypeParameter Type="Dubrovnik.UnitTests.GenericReferenceObject`2+U" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" />
+      <Field Name="GenericFieldWithTypeParameterT" Type="Dubrovnik.UnitTests.GenericReferenceObject`2+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" IsReadable="True" IsWritable="True" />
+      <Field Name="GenericFieldWithTypeParameterU" Type="Dubrovnik.UnitTests.GenericReferenceObject`2+U" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" IsReadable="True" IsWritable="True" />
       <Property Name="GenericPropertyWithTypeParameterT" Type="Dubrovnik.UnitTests.GenericReferenceObject`2+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" IsReadable="True" IsWritable="True" />
       <Property Name="GenericPropertyWithTypeParameterU" Type="Dubrovnik.UnitTests.GenericReferenceObject`2+U" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" IsReadable="True" IsWritable="True" />
       <Property Name="ListOfTypeT" Type="System.Collections.Generic.List`1&lt;Dubrovnik.UnitTests.GenericReferenceObject`2+T&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsReadable="True" IsWritable="True">
@@ -164,6 +166,7 @@
       <Field Name="IntField" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Field Name="LongEnumField" Type="Dubrovnik.UnitTests.LongEnum" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
       <Field Name="LongEnumFieldStatic" Type="Dubrovnik.UnitTests.LongEnum" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsWritable="True" />
+      <Field Name="objectField" Type="System.Object" IsReadable="True" IsWritable="True" />
       <Field Name="StringField" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="BoolArray" Type="System.Boolean[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Boolean" IsReadable="True" IsWritable="True" />
       <Property Name="ClassDateProperty" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" IsStatic="True" />
