@@ -36,7 +36,7 @@
 /* Skipped property : System.Data.Entity.Core.Objects.CurrentValueRecord CurrentValues */
 
 @synthesize entity = _entity;
-- (System_Object *)entity
+- (id <DBMonoObject>)entity
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
@@ -126,12 +126,12 @@
 	[self invokeMonoMethod:"AcceptChanges()" withNumArgs:0];
 }
 
-- (void)applyCurrentValues_withCurrentEntity:(System_Object *)p1
+- (void)applyCurrentValues_withCurrentEntity:(id <DBMonoObject>)p1
 {
 	[self invokeMonoMethod:"ApplyCurrentValues(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
-- (void)applyOriginalValues_withOriginalEntity:(System_Object *)p1
+- (void)applyOriginalValues_withOriginalEntity:(id <DBMonoObject>)p1
 {
 	[self invokeMonoMethod:"ApplyOriginalValues(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }

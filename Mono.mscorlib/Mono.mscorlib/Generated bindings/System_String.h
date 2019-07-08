@@ -178,7 +178,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)clone;
+- (id <DBMonoObject>)clone;
 
 /**
  Managed method.
@@ -380,7 +380,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)compareTo_withValue:(System_Object *)p1;
+- (int32_t)compareTo_withValue:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -410,7 +410,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)concat_withArg0:(System_Object *)p1;
++ (NSString *)concat_withArg0:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -426,7 +426,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)concat_withArg0:(System_Object *)p1 arg1:(System_Object *)p2;
++ (NSString *)concat_withArg0:(id <DBMonoObject>)p1 arg1:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -443,7 +443,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)concat_withArg0:(System_Object *)p1 arg1:(System_Object *)p2 arg2:(System_Object *)p3;
++ (NSString *)concat_withArg0:(id <DBMonoObject>)p1 arg1:(id <DBMonoObject>)p2 arg2:(id <DBMonoObject>)p3;
 
 /**
  Managed method.
@@ -461,7 +461,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)concat_withArg0:(System_Object *)p1 arg1:(System_Object *)p2 arg2:(System_Object *)p3 arg3:(System_Object *)p4;
++ (NSString *)concat_withArg0:(id <DBMonoObject>)p1 arg1:(id <DBMonoObject>)p2 arg2:(id <DBMonoObject>)p3 arg3:(id <DBMonoObject>)p4;
 
 /**
  Managed method.
@@ -686,7 +686,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -766,7 +766,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)format_withFormat:(NSString *)p1 arg0:(System_Object *)p2;
++ (NSString *)format_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -783,7 +783,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)format_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3;
++ (NSString *)format_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2 arg1:(id <DBMonoObject>)p3;
 
 /**
  Managed method.
@@ -801,7 +801,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)format_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4;
++ (NSString *)format_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2 arg1:(id <DBMonoObject>)p3 arg2:(id <DBMonoObject>)p4;
 
 /**
  Managed method.

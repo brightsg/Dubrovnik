@@ -88,7 +88,7 @@
 	[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 }
 
-- (void)enqueue_withItem:(System_Object *)p1
+- (void)enqueue_withItem:(id <DBMonoObject>)p1
 {
 	[self invokeMonoMethod:"Enqueue(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }

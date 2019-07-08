@@ -33,7 +33,7 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (System_PredicateA1 *)new_withObject:(System_Object *)p1 method:(void *)p2
++ (System_PredicateA1 *)new_withObject:(id <DBMonoObject>)p1 method:(void *)p2
 {
 	System_PredicateA1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return object;
@@ -42,7 +42,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object <System_IAsyncResult> *)beginInvoke_withObj:(System_Object *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
+- (System_Object <System_IAsyncResult> *)beginInvoke_withObj:(id <DBMonoObject>)p1 callback:(System_AsyncCallback *)p2 object:(id <DBMonoObject>)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(<_T_0>,System.AsyncCallback,object)" withNumArgs:3, [self monoRTInvokeArg:p1 typeParameterIndex:0], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
@@ -54,7 +54,7 @@
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)invoke_withObj:(System_Object *)p1
+- (BOOL)invoke_withObj:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Invoke(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);

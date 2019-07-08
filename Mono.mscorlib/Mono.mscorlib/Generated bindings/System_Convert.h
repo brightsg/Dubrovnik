@@ -68,7 +68,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)dBNull;
++ (id <DBMonoObject>)dBNull;
 
 #pragma mark -
 #pragma mark Methods
@@ -91,7 +91,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)changeType_withValue:(System_Object *)p1 conversionType:(System_Type *)p2;
++ (id <DBMonoObject>)changeType_withValue:(id <DBMonoObject>)p1 conversionType:(System_Type *)p2;
 
 /* Skipped method : System.Object ChangeType(System.Object value, System.Type conversionType, System.IFormatProvider provider) */
 
@@ -142,7 +142,7 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)isDBNull_withValue:(System_Object *)p1;
++ (BOOL)isDBNull_withValue:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -214,7 +214,7 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)toBoolean_withValueObject:(System_Object *)p1;
++ (BOOL)toBoolean_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.Boolean ToBoolean(System.Object value, System.IFormatProvider provider) */
 
@@ -458,7 +458,7 @@
    System.Byte
  @/textblock
 */
-+ (uint8_t)toByte_withValueObject:(System_Object *)p1;
++ (uint8_t)toByte_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.Byte ToByte(System.Object value, System.IFormatProvider provider) */
 
@@ -718,7 +718,7 @@
    System.Char
  @/textblock
 */
-+ (uint16_t)toChar_withValueObject:(System_Object *)p1;
++ (uint16_t)toChar_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.Char ToChar(System.Object value, System.IFormatProvider provider) */
 
@@ -977,7 +977,7 @@
    System.DateTime
  @/textblock
 */
-+ (NSDate *)toDateTime_withValueObject:(System_Object *)p1;
++ (NSDate *)toDateTime_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.DateTime ToDateTime(System.Object value, System.IFormatProvider provider) */
 
@@ -1206,7 +1206,7 @@
    System.Decimal
  @/textblock
 */
-+ (NSDecimalNumber *)toDecimal_withValueObject:(System_Object *)p1;
++ (NSDecimalNumber *)toDecimal_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.Decimal ToDecimal(System.Object value, System.IFormatProvider provider) */
 
@@ -1450,7 +1450,7 @@
    System.Double
  @/textblock
 */
-+ (double)toDouble_withValueObject:(System_Object *)p1;
++ (double)toDouble_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.Double ToDouble(System.Object value, System.IFormatProvider provider) */
 
@@ -1694,7 +1694,7 @@
    System.Int16
  @/textblock
 */
-+ (int16_t)toInt16_withValueObject:(System_Object *)p1;
++ (int16_t)toInt16_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.Int16 ToInt16(System.Object value, System.IFormatProvider provider) */
 
@@ -1954,7 +1954,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)toInt32_withValueObject:(System_Object *)p1;
++ (int32_t)toInt32_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.Int32 ToInt32(System.Object value, System.IFormatProvider provider) */
 
@@ -2214,7 +2214,7 @@
    System.Int64
  @/textblock
 */
-+ (int64_t)toInt64_withValueObject:(System_Object *)p1;
++ (int64_t)toInt64_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.Int64 ToInt64(System.Object value, System.IFormatProvider provider) */
 
@@ -2474,7 +2474,7 @@
    System.SByte
  @/textblock
 */
-+ (int8_t)toSByte_withValueObject:(System_Object *)p1;
++ (int8_t)toSByte_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.SByte ToSByte(System.Object value, System.IFormatProvider provider) */
 
@@ -2734,7 +2734,7 @@
    System.Single
  @/textblock
 */
-+ (float)toSingle_withValueObject:(System_Object *)p1;
++ (float)toSingle_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.Single ToSingle(System.Object value, System.IFormatProvider provider) */
 
@@ -2978,7 +2978,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)toString_withValueObject:(System_Object *)p1;
++ (NSString *)toString_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.String ToString(System.Object value, System.IFormatProvider provider) */
 
@@ -3314,7 +3314,7 @@
    System.UInt16
  @/textblock
 */
-+ (uint16_t)toUInt16_withValueObject:(System_Object *)p1;
++ (uint16_t)toUInt16_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.UInt16 ToUInt16(System.Object value, System.IFormatProvider provider) */
 
@@ -3574,7 +3574,7 @@
    System.UInt32
  @/textblock
 */
-+ (uint32_t)toUInt32_withValueObject:(System_Object *)p1;
++ (uint32_t)toUInt32_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.UInt32 ToUInt32(System.Object value, System.IFormatProvider provider) */
 
@@ -3834,7 +3834,7 @@
    System.UInt64
  @/textblock
 */
-+ (uint64_t)toUInt64_withValueObject:(System_Object *)p1;
++ (uint64_t)toUInt64_withValueObject:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.UInt64 ToUInt64(System.Object value, System.IFormatProvider provider) */
 

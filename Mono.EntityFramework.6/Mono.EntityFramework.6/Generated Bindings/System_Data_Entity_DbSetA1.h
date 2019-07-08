@@ -84,7 +84,7 @@
    <System.Data.Entity.DbSet`1+TEntity>
  @/textblock
 */
-- (System_Object *)add_withEntity:(System_Object *)p1;
+- (id <DBMonoObject>)add_withEntity:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -114,7 +114,7 @@
    <System.Data.Entity.DbSet`1+TEntity>
  @/textblock
 */
-- (System_Object *)attach_withEntity:(System_Object *)p1;
+- (id <DBMonoObject>)attach_withEntity:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -129,7 +129,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -144,7 +144,7 @@
    <System.Data.Entity.DbSet`1+TEntity>
  @/textblock
 */
-- (System_Object *)find_withKeyValues:(System_Array *)p1;
+- (id <DBMonoObject>)find_withKeyValues:(System_Array *)p1;
 
 /**
  Managed method.
@@ -222,7 +222,7 @@
    <System.Data.Entity.DbSet`1+TEntity>
  @/textblock
 */
-- (System_Object *)remove_withEntity:(System_Object *)p1;
+- (id <DBMonoObject>)remove_withEntity:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

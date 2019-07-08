@@ -49,13 +49,13 @@
 
 /* Skipped constructor : System.Threading.Tasks.Task (System.Action action, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskCreationOptions creationOptions) */
 
-+ (System_Threading_Tasks_Task *)new_withAction:(System_ActionA1 *)p1 state:(System_Object *)p2
++ (System_Threading_Tasks_Task *)new_withAction:(System_ActionA1 *)p1 state:(id <DBMonoObject>)p2
 {
 	System_Threading_Tasks_Task * object = [[self alloc] initWithSignature:"System.Action`1<object>,object" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return object;
 }
 
-+ (System_Threading_Tasks_Task *)new_withAction:(System_ActionA1 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3
++ (System_Threading_Tasks_Task *)new_withAction:(System_ActionA1 *)p1 state:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3
 {
 	System_Threading_Tasks_Task * object = [[self alloc] initWithSignature:"System.Action`1<object>,object,System.Threading.CancellationToken" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeArg]];
 	return object;
@@ -69,7 +69,7 @@
 #pragma mark Properties
 
 @synthesize asyncState = _asyncState;
-- (System_Object *)asyncState
+- (id <DBMonoObject>)asyncState
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
@@ -235,13 +235,13 @@ static System_NullableA1 * m_currentId;
 
 /* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`1<System.Threading.Tasks.Task> continuationAction, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
 
-- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2
+- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(id <DBMonoObject>)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"ContinueWith(System.Action`2<System.Threading.Tasks.Task, object>,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3
+- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"ContinueWith(System.Action`2<System.Threading.Tasks.Task, object>,object,System.Threading.CancellationToken)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeArg]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
@@ -273,14 +273,14 @@ static System_NullableA1 * m_currentId;
 
 /* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult> ContinueWith(System.Func`2<System.Threading.Tasks.Task, System.Threading.Tasks.Task+TResult> continuationFunction, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
 
-- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 typeParameter:(id)typeParameter
+- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"ContinueWith(System.Func`3<System.Threading.Tasks.Task, object, System.Threading.Tasks.Task/TResult>,object)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeMethodWithNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter
+- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"ContinueWith(System.Func`3<System.Threading.Tasks.Task, object, System.Threading.Tasks.Task/TResult>,object,System.Threading.CancellationToken)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeMethodWithNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeArg]];
@@ -322,7 +322,7 @@ static System_NullableA1 * m_currentId;
 	[self invokeMonoMethod:"Dispose()" withNumArgs:0];
 }
 
-+ (System_Threading_Tasks_TaskA1 *)fromResult_withResult:(System_Object *)p1 typeParameter:(id)typeParameter
++ (System_Threading_Tasks_TaskA1 *)fromResult_withResult:(id <DBMonoObject>)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"FromResult(TResult)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:1, [method monoRTInvokeArg:p1 typeParameterIndex:0]];

@@ -298,7 +298,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)clone;
+- (id <DBMonoObject>)clone;
 
 /**
  Managed method.
@@ -349,7 +349,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withValue:(System_Object *)p1;
+- (BOOL)equals_withValue:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

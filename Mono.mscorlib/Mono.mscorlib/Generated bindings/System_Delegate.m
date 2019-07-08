@@ -54,7 +54,7 @@
 }
 
 @synthesize target = _target;
-- (System_Object *)target
+- (id <DBMonoObject>)target
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
@@ -76,7 +76,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)clone
+- (id <DBMonoObject>)clone
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -94,19 +94,19 @@
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3
++ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(id <DBMonoObject>)p2 methodString:(NSString *)p3
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,string)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4
++ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(id <DBMonoObject>)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,string,bool)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], &p4];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5
++ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(id <DBMonoObject>)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,string,bool,bool)" withNumArgs:5, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], &p4, &p5];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
@@ -136,13 +136,13 @@
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3
++ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(id <DBMonoObject>)p2 method:(System_Reflection_MethodInfo *)p3
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,System.Reflection.MethodInfo)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4
++ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(id <DBMonoObject>)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,System.Reflection.MethodInfo,bool)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], &p4];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
@@ -154,13 +154,13 @@
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)dynamicInvoke_withArgs:(System_Array *)p1
+- (id <DBMonoObject>)dynamicInvoke_withArgs:(System_Array *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"DynamicInvoke(object[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);

@@ -162,33 +162,33 @@
 	[self invokeMonoMethod:"AcceptAllChanges()" withNumArgs:0];
 }
 
-- (void)addObject_withEntitySetName:(NSString *)p1 entity:(System_Object *)p2
+- (void)addObject_withEntitySetName:(NSString *)p1 entity:(id <DBMonoObject>)p2
 {
 	[self invokeMonoMethod:"AddObject(string,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
-- (System_Object *)applyCurrentValues_withEntitySetName:(NSString *)p1 currentEntity:(System_Object *)p2 typeParameter:(id)typeParameter
+- (id <DBMonoObject>)applyCurrentValues_withEntitySetName:(NSString *)p1 currentEntity:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"ApplyCurrentValues(string,TEntity)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeMethodWithNumArgs:2, [p1 monoRTInvokeObject], [method monoRTInvokeArg:p2 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)applyOriginalValues_withEntitySetName:(NSString *)p1 originalEntity:(System_Object *)p2 typeParameter:(id)typeParameter
+- (id <DBMonoObject>)applyOriginalValues_withEntitySetName:(NSString *)p1 originalEntity:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"ApplyOriginalValues(string,TEntity)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeMethodWithNumArgs:2, [p1 monoRTInvokeObject], [method monoRTInvokeArg:p2 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (void)applyPropertyChanges_withEntitySetName:(NSString *)p1 changed:(System_Object *)p2
+- (void)applyPropertyChanges_withEntitySetName:(NSString *)p1 changed:(id <DBMonoObject>)p2
 {
 	[self invokeMonoMethod:"ApplyPropertyChanges(string,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Void Attach(System.Data.Entity.Core.Objects.DataClasses.IEntityWithKey entity) */
 
-- (void)attachTo_withEntitySetName:(NSString *)p1 entity:(System_Object *)p2
+- (void)attachTo_withEntitySetName:(NSString *)p1 entity:(id <DBMonoObject>)p2
 {
 	[self invokeMonoMethod:"AttachTo(string,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
@@ -206,7 +206,7 @@
 
 /* Skipped method : System.Data.Entity.Core.EntityKey CreateEntityKey(System.String entitySetName, System.Object entity) */
 
-- (System_Object *)createObject_withTypeParameter:(id)typeParameter
+- (id <DBMonoObject>)createObject_withTypeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self methodWithMonoName:"CreateObject()" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeMethodWithNumArgs:0];
@@ -245,12 +245,12 @@
 	[self invokeMonoMethod:"DeleteDatabase()" withNumArgs:0];
 }
 
-- (void)deleteObject_withEntity:(System_Object *)p1
+- (void)deleteObject_withEntity:(id <DBMonoObject>)p1
 {
 	[self invokeMonoMethod:"DeleteObject(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
-- (void)detach_withEntity:(System_Object *)p1
+- (void)detach_withEntity:(id <DBMonoObject>)p1
 {
 	[self invokeMonoMethod:"Detach(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
@@ -331,7 +331,7 @@
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
-- (void)loadProperty_withEntity:(System_Object *)p1 navigationProperty:(NSString *)p2
+- (void)loadProperty_withEntity:(id <DBMonoObject>)p1 navigationProperty:(NSString *)p2
 {
 	[self invokeMonoMethod:"LoadProperty(object,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
@@ -347,7 +347,7 @@
 	[self invokeMonoMethod:"Refresh(System.Data.Entity.Core.Objects.RefreshMode,System.Collections.IEnumerable)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
 }
 
-- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(System_Object *)p2
+- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(id <DBMonoObject>)p2
 {
 	[self invokeMonoMethod:"Refresh(System.Data.Entity.Core.Objects.RefreshMode,object)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
 }
@@ -364,13 +364,13 @@
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(System_Object *)p2
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(id <DBMonoObject>)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"RefreshAsync(System.Data.Entity.Core.Objects.RefreshMode,object)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"RefreshAsync(System.Data.Entity.Core.Objects.RefreshMode,object,System.Threading.CancellationToken)" withNumArgs:3, &p1, [p2 monoRTInvokeObject], [p3 monoRTInvokeArg]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];

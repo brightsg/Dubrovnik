@@ -412,7 +412,7 @@ static System_Text_Encoding * m_uTF8;
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)clone
+- (id <DBMonoObject>)clone
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -430,7 +430,7 @@ static System_Text_Encoding * m_uTF8;
 	return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-- (BOOL)equals_withValue:(System_Object *)p1
+- (BOOL)equals_withValue:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);

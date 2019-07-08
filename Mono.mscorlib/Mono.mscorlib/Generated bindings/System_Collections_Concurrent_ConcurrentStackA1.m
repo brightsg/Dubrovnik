@@ -99,7 +99,7 @@
 	return [System_Collections_Generic_IEnumeratorA1 bestObjectWithMonoObject:monoObject];
 }
 
-- (void)push_withItem:(System_Object *)p1
+- (void)push_withItem:(id <DBMonoObject>)p1
 {
 	[self invokeMonoMethod:"Push(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }

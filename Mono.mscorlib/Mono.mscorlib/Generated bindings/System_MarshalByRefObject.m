@@ -35,13 +35,13 @@
 
 /* Skipped method : System.Runtime.Remoting.ObjRef CreateObjRef(System.Type requestedType) */
 
-- (System_Object *)getLifetimeService
+- (id <DBMonoObject>)getLifetimeService
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetLifetimeService()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)db_initializeLifetimeService
+- (id <DBMonoObject>)db_initializeLifetimeService
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"InitializeLifetimeService()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];

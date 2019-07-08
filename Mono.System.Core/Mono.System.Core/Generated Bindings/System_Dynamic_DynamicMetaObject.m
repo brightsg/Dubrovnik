@@ -135,7 +135,7 @@ static System_Array * m_emptyMetaObjects;
 }
 
 @synthesize value = _value;
-- (System_Object *)value
+- (id <DBMonoObject>)value
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;

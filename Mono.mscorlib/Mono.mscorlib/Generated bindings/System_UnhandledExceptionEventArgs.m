@@ -33,7 +33,7 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (System_UnhandledExceptionEventArgs *)new_withException:(System_Object *)p1 isTerminating:(BOOL)p2
++ (System_UnhandledExceptionEventArgs *)new_withException:(id <DBMonoObject>)p1 isTerminating:(BOOL)p2
 {
 	System_UnhandledExceptionEventArgs * object = [[self alloc] initWithSignature:"object,bool" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return object;
@@ -43,7 +43,7 @@
 #pragma mark Properties
 
 @synthesize exceptionObject = _exceptionObject;
-- (System_Object *)exceptionObject
+- (id <DBMonoObject>)exceptionObject
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;

@@ -182,7 +182,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)clone;
+- (id <DBMonoObject>)clone;
 
 /**
  Managed method.
@@ -244,7 +244,7 @@
    System.Void
  @/textblock
 */
-- (void)onDeserialization_withSender:(System_Object *)p1;
+- (void)onDeserialization_withSender:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

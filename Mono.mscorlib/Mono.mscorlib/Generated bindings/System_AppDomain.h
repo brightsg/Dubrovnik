@@ -387,7 +387,7 @@ typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object *se
    System.Object
  @/textblock
 */
-- (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
+- (id <DBMonoObject>)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
 
 /**
  Managed method.
@@ -404,7 +404,7 @@ typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object *se
    System.Object
  @/textblock
 */
-- (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
+- (id <DBMonoObject>)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
 
 /* Skipped method : System.Object CreateInstanceAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
 
@@ -432,7 +432,7 @@ typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object *se
    System.Object
  @/textblock
 */
-- (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
+- (id <DBMonoObject>)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
 
 /**
  Managed method.
@@ -449,7 +449,7 @@ typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object *se
    System.Object
  @/textblock
 */
-- (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
+- (id <DBMonoObject>)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
 
 /* Skipped method : System.Object CreateInstanceFromAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
 
@@ -631,7 +631,7 @@ typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object *se
    System.Object
  @/textblock
 */
-- (System_Object *)getData_withName:(NSString *)p1;
+- (id <DBMonoObject>)getData_withName:(NSString *)p1;
 
 /**
  Managed method.
@@ -661,7 +661,7 @@ typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object *se
    System.Object
  @/textblock
 */
-- (System_Object *)db_initializeLifetimeService;
+- (id <DBMonoObject>)db_initializeLifetimeService;
 
 /**
  Managed method.
@@ -821,7 +821,7 @@ typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object *se
    System.Void
  @/textblock
 */
-- (void)setData_withName:(NSString *)p1 data:(System_Object *)p2;
+- (void)setData_withName:(NSString *)p1 data:(id <DBMonoObject>)p2;
 
 /* Skipped method : System.Void SetData(System.String name, System.Object data, System.Security.IPermission permission) */
 

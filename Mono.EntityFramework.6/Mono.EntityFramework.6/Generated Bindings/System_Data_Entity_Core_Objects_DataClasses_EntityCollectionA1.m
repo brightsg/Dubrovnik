@@ -74,7 +74,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (void)add_withItem:(System_Object *)p1
+- (void)add_withItem:(id <DBMonoObject>)p1
 {
 	[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
@@ -84,7 +84,7 @@
 	[self invokeMonoMethod:"Attach(System.Collections.Generic.IEnumerable`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
-- (void)attach_withEntity:(System_Object *)p1
+- (void)attach_withEntity:(id <DBMonoObject>)p1
 {
 	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
@@ -94,7 +94,7 @@
 	[self invokeMonoMethod:"Clear()" withNumArgs:0];
 }
 
-- (BOOL)contains_withItem:(System_Object *)p1
+- (BOOL)contains_withItem:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Contains(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -125,7 +125,7 @@
 
 /* Skipped method : System.Void OnSerializing(System.Runtime.Serialization.StreamingContext context) */
 
-- (BOOL)remove_withItem:(System_Object *)p1
+- (BOOL)remove_withItem:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);

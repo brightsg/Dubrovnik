@@ -33,7 +33,7 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (System_ComponentModel_RunWorkerCompletedEventArgs *)new_withResult:(System_Object *)p1 error:(System_Exception *)p2 cancelled:(BOOL)p3
++ (System_ComponentModel_RunWorkerCompletedEventArgs *)new_withResult:(id <DBMonoObject>)p1 error:(System_Exception *)p2 cancelled:(BOOL)p3
 {
 	System_ComponentModel_RunWorkerCompletedEventArgs * object = [[self alloc] initWithSignature:"object,System.Exception,bool" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &p3];
 	return object;
@@ -43,7 +43,7 @@
 #pragma mark Properties
 
 @synthesize result = _result;
-- (System_Object *)result
+- (id <DBMonoObject>)result
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
@@ -63,7 +63,7 @@
 }
 
 @synthesize userState = _userState;
-- (System_Object *)userState
+- (id <DBMonoObject>)userState
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;

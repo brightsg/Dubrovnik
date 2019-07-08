@@ -33,8 +33,8 @@
 #pragma mark -
 #pragma mark Fields
 
-static System_Object * m_dBNull;
-+ (System_Object *)dBNull
+static id <DBMonoObject> m_dBNull;
++ (id <DBMonoObject>)dBNull
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"DBNull"];
 	if ([self object:m_dBNull isEqualToMonoObject:monoObject]) return m_dBNull;
@@ -50,7 +50,7 @@ static System_Object * m_dBNull;
 
 /* Skipped method : System.Object ChangeType(System.Object value, System.TypeCode typeCode, System.IFormatProvider provider) */
 
-+ (System_Object *)changeType_withValue:(System_Object *)p1 conversionType:(System_Type *)p2
++ (id <DBMonoObject>)changeType_withValue:(id <DBMonoObject>)p1 conversionType:(System_Type *)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ChangeType(object,System.Type)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -72,7 +72,7 @@ static System_Object * m_dBNull;
 
 /* Skipped method : System.TypeCode GetTypeCode(System.Object value) */
 
-+ (BOOL)isDBNull_withValue:(System_Object *)p1
++ (BOOL)isDBNull_withValue:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"IsDBNull(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -102,7 +102,7 @@ static System_Object * m_dBNull;
 
 /* Skipped method : System.String ToBase64String(System.Byte[] inArray, System.Int32 offset, System.Int32 length, System.Base64FormattingOptions options) */
 
-+ (BOOL)toBoolean_withValueObject:(System_Object *)p1
++ (BOOL)toBoolean_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToBoolean(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -202,7 +202,7 @@ static System_Object * m_dBNull;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-+ (uint8_t)toByte_withValueObject:(System_Object *)p1
++ (uint8_t)toByte_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToByte(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_UINT8(monoObject);
@@ -308,7 +308,7 @@ static System_Object * m_dBNull;
 	return DB_UNBOX_UINT8(monoObject);
 }
 
-+ (uint16_t)toChar_withValueObject:(System_Object *)p1
++ (uint16_t)toChar_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToChar(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_UINT16(monoObject);
@@ -414,7 +414,7 @@ static System_Object * m_dBNull;
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
-+ (NSDate *)toDateTime_withValueObject:(System_Object *)p1
++ (NSDate *)toDateTime_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToDateTime(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSDate dateWithMonoDateTime:monoObject];
@@ -508,7 +508,7 @@ static System_Object * m_dBNull;
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
-+ (NSDecimalNumber *)toDecimal_withValueObject:(System_Object *)p1
++ (NSDecimalNumber *)toDecimal_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToDecimal(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
@@ -608,7 +608,7 @@ static System_Object * m_dBNull;
 	return [NSDecimalNumber decimalNumberWithMonoDecimal:monoObject];
 }
 
-+ (double)toDouble_withValueObject:(System_Object *)p1
++ (double)toDouble_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToDouble(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_DOUBLE(monoObject);
@@ -708,7 +708,7 @@ static System_Object * m_dBNull;
 	return DB_UNBOX_DOUBLE(monoObject);
 }
 
-+ (int16_t)toInt16_withValueObject:(System_Object *)p1
++ (int16_t)toInt16_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt16(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT16(monoObject);
@@ -814,7 +814,7 @@ static System_Object * m_dBNull;
 	return DB_UNBOX_INT16(monoObject);
 }
 
-+ (int32_t)toInt32_withValueObject:(System_Object *)p1
++ (int32_t)toInt32_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt32(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
@@ -920,7 +920,7 @@ static System_Object * m_dBNull;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-+ (int64_t)toInt64_withValueObject:(System_Object *)p1
++ (int64_t)toInt64_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToInt64(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT64(monoObject);
@@ -1026,7 +1026,7 @@ static System_Object * m_dBNull;
 	return DB_UNBOX_INT64(monoObject);
 }
 
-+ (int8_t)toSByte_withValueObject:(System_Object *)p1
++ (int8_t)toSByte_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToSByte(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT8(monoObject);
@@ -1132,7 +1132,7 @@ static System_Object * m_dBNull;
 	return DB_UNBOX_INT8(monoObject);
 }
 
-+ (float)toSingle_withValueObject:(System_Object *)p1
++ (float)toSingle_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToSingle(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_FLOAT(monoObject);
@@ -1232,7 +1232,7 @@ static System_Object * m_dBNull;
 	return DB_UNBOX_FLOAT(monoObject);
 }
 
-+ (NSString *)toString_withValueObject:(System_Object *)p1
++ (NSString *)toString_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -1384,7 +1384,7 @@ static System_Object * m_dBNull;
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-+ (uint16_t)toUInt16_withValueObject:(System_Object *)p1
++ (uint16_t)toUInt16_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt16(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_UINT16(monoObject);
@@ -1490,7 +1490,7 @@ static System_Object * m_dBNull;
 	return DB_UNBOX_UINT16(monoObject);
 }
 
-+ (uint32_t)toUInt32_withValueObject:(System_Object *)p1
++ (uint32_t)toUInt32_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt32(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_UINT32(monoObject);
@@ -1596,7 +1596,7 @@ static System_Object * m_dBNull;
 	return DB_UNBOX_UINT32(monoObject);
 }
 
-+ (uint64_t)toUInt64_withValueObject:(System_Object *)p1
++ (uint64_t)toUInt64_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToUInt64(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_UINT64(monoObject);

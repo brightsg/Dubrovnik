@@ -133,7 +133,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)tryAdd_withItem:(System_Object *)p1;
+- (BOOL)tryAdd_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -210,7 +210,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)tryAdd_withItem:(System_Object *)p1;
+- (BOOL)tryAdd_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

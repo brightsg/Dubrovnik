@@ -85,7 +85,7 @@
 	[self invokeMonoMethod:"Close()" withNumArgs:0];
 }
 
-- (System_Object *)db_initializeLifetimeService
+- (id <DBMonoObject>)db_initializeLifetimeService
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"InitializeLifetimeService()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];

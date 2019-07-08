@@ -143,7 +143,7 @@
    System.Object
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * value;
+@property (nonatomic, strong, readonly) id <DBMonoObject> value;
 
 #pragma mark -
 #pragma mark Methods

@@ -55,7 +55,7 @@
    <System.Data.Entity.Core.Objects.DataClasses.EntityReference`1+TEntity>
  @/textblock
 */
-@property (nonatomic, strong) System_Object * value;
+@property (nonatomic, strong) id <DBMonoObject> value;
 
 #pragma mark -
 #pragma mark Methods
@@ -73,7 +73,7 @@
    System.Void
  @/textblock
 */
-- (void)attach_withEntity:(System_Object *)p1;
+- (void)attach_withEntity:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

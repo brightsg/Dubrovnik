@@ -163,7 +163,7 @@
    System.Void
  @/textblock
 */
-- (void)push_withItem:(System_Object *)p1;
+- (void)push_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

@@ -386,13 +386,13 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
-- (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2
+- (id <DBMonoObject>)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceAndUnwrap(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3
+- (id <DBMonoObject>)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceAndUnwrap(string,string,object[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -410,13 +410,13 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.String assemblyFile, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
-- (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2
+- (id <DBMonoObject>)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceFromAndUnwrap(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3
+- (id <DBMonoObject>)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceFromAndUnwrap(string,string,object[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -513,7 +513,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (System_Object *)getData_withName:(NSString *)p1
+- (id <DBMonoObject>)getData_withName:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetData(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -525,7 +525,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)db_initializeLifetimeService
+- (id <DBMonoObject>)db_initializeLifetimeService
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"InitializeLifetimeService()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -592,7 +592,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 	[self invokeMonoMethod:"SetCachePath(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
-- (void)setData_withName:(NSString *)p1 data:(System_Object *)p2
+- (void)setData_withName:(NSString *)p1 data:(id <DBMonoObject>)p2
 {
 	[self invokeMonoMethod:"SetData(string,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }

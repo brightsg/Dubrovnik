@@ -82,8 +82,8 @@ static System_Reflection_MemberFilter * m_filterNameIgnoreCase;
 	return m_filterNameIgnoreCase;
 }
 
-static System_Object * m_missing;
-+ (System_Object *)missing
+static id <DBMonoObject> m_missing;
++ (id <DBMonoObject>)missing
 {
 	MonoObject *monoObject = [[self class] getMonoClassField:"Missing"];
 	if ([self object:m_missing isEqualToMonoObject:monoObject]) return m_missing;
@@ -1202,7 +1202,7 @@ static System_Reflection_Binder * m_defaultBinder;
 #pragma mark -
 #pragma mark Methods
 
-- (BOOL)equals_withOObject:(System_Object *)p1
+- (BOOL)equals_withOObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -1254,7 +1254,7 @@ static System_Reflection_Binder * m_defaultBinder;
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
-- (NSString *)getEnumName_withValue:(System_Object *)p1
+- (NSString *)getEnumName_withValue:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetEnumName(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -1552,7 +1552,7 @@ static System_Reflection_Binder * m_defaultBinder;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)isEnumDefined_withValue:(System_Object *)p1
+- (BOOL)isEnumDefined_withValue:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"IsEnumDefined(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -1564,7 +1564,7 @@ static System_Reflection_Binder * m_defaultBinder;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)isInstanceOfType_withO:(System_Object *)p1
+- (BOOL)isInstanceOfType_withO:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"IsInstanceOfType(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);

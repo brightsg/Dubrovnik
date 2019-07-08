@@ -41,7 +41,7 @@
 
 /* Skipped method : System.Dynamic.DynamicMetaObject GetMetaObject(System.Linq.Expressions.Expression parameter) */
 
-- (BOOL)tryBinaryOperation_withBinder:(System_Dynamic_BinaryOperationBinder *)p1 arg:(System_Object *)p2 resultRef:(System_Object **)p3
+- (BOOL)tryBinaryOperation_withBinder:(System_Dynamic_BinaryOperationBinder *)p1 arg:(id <DBMonoObject>)p2 resultRef:(System_Object **)p3
 {
 	void *refPtr3 = [*p3 monoRTInvokeArg];
 	MonoObject *monoObject = [self invokeMonoMethod:"TryBinaryOperation(System.Dynamic.BinaryOperationBinder,object,object&)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &refPtr3];
@@ -109,13 +109,13 @@
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)trySetIndex_withBinder:(System_Dynamic_SetIndexBinder *)p1 indexes:(System_Array *)p2 value:(System_Object *)p3
+- (BOOL)trySetIndex_withBinder:(System_Dynamic_SetIndexBinder *)p1 indexes:(System_Array *)p2 value:(id <DBMonoObject>)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"TrySetIndex(System.Dynamic.SetIndexBinder,object[],object)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)trySetMember_withBinder:(System_Dynamic_SetMemberBinder *)p1 value:(System_Object *)p2
+- (BOOL)trySetMember_withBinder:(System_Dynamic_SetMemberBinder *)p1 value:(id <DBMonoObject>)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"TrySetMember(System.Dynamic.SetMemberBinder,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);

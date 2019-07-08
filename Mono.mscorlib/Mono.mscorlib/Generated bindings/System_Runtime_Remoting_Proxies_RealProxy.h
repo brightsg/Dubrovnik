@@ -93,7 +93,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)getStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1;
++ (id <DBMonoObject>)getStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1;
 
 /**
  Managed method.
@@ -108,7 +108,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getTransparentProxy;
+- (id <DBMonoObject>)getTransparentProxy;
 
 /* Skipped method : System.Runtime.Remoting.Activation.IConstructionReturnMessage InitializeServerObject(System.Runtime.Remoting.Activation.IConstructionCallMessage ctorMsg) */
 
@@ -143,7 +143,7 @@
    System.Void
  @/textblock
 */
-+ (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(System_Object *)p2;
++ (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(id <DBMonoObject>)p2;
 
 /**
  Managed method.

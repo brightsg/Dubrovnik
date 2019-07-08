@@ -157,7 +157,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -175,7 +175,7 @@
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-- (System_Object *)getConstantValue
+- (id <DBMonoObject>)getConstantValue
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetConstantValue()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -207,7 +207,7 @@
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-- (System_Object *)getRawConstantValue
+- (id <DBMonoObject>)getRawConstantValue
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetRawConstantValue()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -231,13 +231,13 @@
 	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)getValue_withObj:(System_Object *)p1
+- (id <DBMonoObject>)getValue_withObj:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)getValue_withObj:(System_Object *)p1 index:(System_Array *)p2
+- (id <DBMonoObject>)getValue_withObj:(id <DBMonoObject>)p1 index:(System_Array *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object,object[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -259,12 +259,12 @@
 
 /* Skipped method : System.Void SetValue(System.Object obj, System.Object value, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) */
 
-- (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2
+- (void)setValue_withObj:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2
 {
 	[self invokeMonoMethod:"SetValue(object,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
-- (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 index:(System_Array *)p3
+- (void)setValue_withObj:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2 index:(System_Array *)p3
 {
 	[self invokeMonoMethod:"SetValue(object,object,object[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 }

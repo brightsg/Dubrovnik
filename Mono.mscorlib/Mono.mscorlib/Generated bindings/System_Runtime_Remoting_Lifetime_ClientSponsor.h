@@ -111,7 +111,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)db_initializeLifetimeService;
+- (id <DBMonoObject>)db_initializeLifetimeService;
 
 /**
  Managed method.

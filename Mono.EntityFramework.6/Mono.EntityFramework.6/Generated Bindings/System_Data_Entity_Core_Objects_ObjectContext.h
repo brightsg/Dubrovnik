@@ -204,7 +204,7 @@ typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_Event
    System.Void
  @/textblock
 */
-- (void)addObject_withEntitySetName:(NSString *)p1 entity:(System_Object *)p2;
+- (void)addObject_withEntitySetName:(NSString *)p1 entity:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -223,7 +223,7 @@ typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_Event
    <System.Data.Entity.Core.Objects.ObjectContext+TEntity>
  @/textblock
 */
-- (System_Object *)applyCurrentValues_withEntitySetName:(NSString *)p1 currentEntity:(System_Object *)p2 typeParameter:(id)typeParameter;
+- (id <DBMonoObject>)applyCurrentValues_withEntitySetName:(NSString *)p1 currentEntity:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -242,7 +242,7 @@ typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_Event
    <System.Data.Entity.Core.Objects.ObjectContext+TEntity>
  @/textblock
 */
-- (System_Object *)applyOriginalValues_withEntitySetName:(NSString *)p1 originalEntity:(System_Object *)p2 typeParameter:(id)typeParameter;
+- (id <DBMonoObject>)applyOriginalValues_withEntitySetName:(NSString *)p1 originalEntity:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -258,7 +258,7 @@ typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_Event
    System.Void
  @/textblock
 */
-- (void)applyPropertyChanges_withEntitySetName:(NSString *)p1 changed:(System_Object *)p2;
+- (void)applyPropertyChanges_withEntitySetName:(NSString *)p1 changed:(id <DBMonoObject>)p2;
 
 /* Skipped method : System.Void Attach(System.Data.Entity.Core.Objects.DataClasses.IEntityWithKey entity) */
 
@@ -276,7 +276,7 @@ typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_Event
    System.Void
  @/textblock
 */
-- (void)attachTo_withEntitySetName:(NSString *)p1 entity:(System_Object *)p2;
+- (void)attachTo_withEntitySetName:(NSString *)p1 entity:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -326,7 +326,7 @@ typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_Event
    <System.Data.Entity.Core.Objects.ObjectContext+T>
  @/textblock
 */
-- (System_Object *)createObject_withTypeParameter:(id)typeParameter;
+- (id <DBMonoObject>)createObject_withTypeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -424,7 +424,7 @@ typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_Event
    System.Void
  @/textblock
 */
-- (void)deleteObject_withEntity:(System_Object *)p1;
+- (void)deleteObject_withEntity:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -439,7 +439,7 @@ typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_Event
    System.Void
  @/textblock
 */
-- (void)detach_withEntity:(System_Object *)p1;
+- (void)detach_withEntity:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -600,7 +600,7 @@ typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_Event
    System.Void
  @/textblock
 */
-- (void)loadProperty_withEntity:(System_Object *)p1 navigationProperty:(NSString *)p2;
+- (void)loadProperty_withEntity:(id <DBMonoObject>)p1 navigationProperty:(NSString *)p2;
 
 /* Skipped method : System.Void LoadProperty(System.Object entity, System.String navigationProperty, System.Data.Entity.Core.Objects.MergeOption mergeOption) */
 
@@ -638,7 +638,7 @@ typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_Event
    System.Void
  @/textblock
 */
-- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(System_Object *)p2;
+- (void)refresh_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -687,7 +687,7 @@ typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_Event
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(System_Object *)p2;
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -704,7 +704,7 @@ typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_Event
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+- (System_Threading_Tasks_Task *)refreshAsync_withRefreshMode:(enumSystem_Data_Entity_Core_Objects_RefreshMode)p1 entity:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 /**
  Managed method.

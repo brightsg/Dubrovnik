@@ -157,7 +157,7 @@
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
-+ (BOOL)contains_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 item:(System_Object *)p2 typeParameter:(id)typeParameter
++ (BOOL)contains_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 item:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Contains(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,TSource)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], [method monoRTInvokeArg:p2 typeParameterIndex:0]];
@@ -182,7 +182,7 @@
 	return [System_Linq_IQueryableA1 bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object <System_Linq_IQueryableA1> *)defaultIfEmpty_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 defaultValue:(System_Object *)p2 typeParameter:(id)typeParameter
++ (System_Object <System_Linq_IQueryableA1> *)defaultIfEmpty_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 defaultValue:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"DefaultIfEmpty(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,TSource)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], [method monoRTInvokeArg:p2 typeParameterIndex:0]];
@@ -198,14 +198,14 @@
 
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TSource> Distinct(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TSource> comparer) */
 
-+ (System_Object *)elementAt_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 index:(int32_t)p2 typeParameter:(id)typeParameter
++ (id <DBMonoObject>)elementAt_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 index:(int32_t)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"ElementAt(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)elementAtOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 index:(int32_t)p2 typeParameter:(id)typeParameter
++ (id <DBMonoObject>)elementAtOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 index:(int32_t)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"ElementAtOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>,int)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], &p2];
@@ -221,7 +221,7 @@
 
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TSource> Except(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source1, System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource> source2, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TSource> comparer) */
 
-+ (System_Object *)first_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
++ (id <DBMonoObject>)first_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"First(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:1, [p1 monoRTInvokeObject]];
@@ -230,7 +230,7 @@
 
 /* Skipped method : System.Linq.Queryable+TSource First(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
-+ (System_Object *)firstOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
++ (id <DBMonoObject>)firstOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"FirstOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:1, [p1 monoRTInvokeObject]];
@@ -272,7 +272,7 @@
 
 /* Skipped method : System.Linq.IQueryable`1<System.Linq.Queryable+TResult> Join(System.Linq.IQueryable`1<System.Linq.Queryable+TOuter> outer, System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TInner> inner, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TOuter, System.Linq.Queryable+TKey>> outerKeySelector, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TInner, System.Linq.Queryable+TKey>> innerKeySelector, System.Linq.Expressions.Expression`1<System.Func`3<System.Linq.Queryable+TOuter, System.Linq.Queryable+TInner, System.Linq.Queryable+TResult>> resultSelector, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TKey> comparer) */
 
-+ (System_Object *)last_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
++ (id <DBMonoObject>)last_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Last(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:1, [p1 monoRTInvokeObject]];
@@ -281,7 +281,7 @@
 
 /* Skipped method : System.Linq.Queryable+TSource Last(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
-+ (System_Object *)lastOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
++ (id <DBMonoObject>)lastOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"LastOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:1, [p1 monoRTInvokeObject]];
@@ -299,7 +299,7 @@
 
 /* Skipped method : System.Int64 LongCount(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
-+ (System_Object *)max_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
++ (id <DBMonoObject>)max_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Max(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:1, [p1 monoRTInvokeObject]];
@@ -308,7 +308,7 @@
 
 /* Skipped method : System.Linq.Queryable+TResult Max(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Linq.Queryable+TResult>> selector) */
 
-+ (System_Object *)min_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
++ (id <DBMonoObject>)min_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Min(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:1, [p1 monoRTInvokeObject]];
@@ -360,7 +360,7 @@
 
 /* Skipped method : System.Boolean SequenceEqual(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source1, System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TSource> source2, System.Collections.Generic.IEqualityComparer`1<System.Linq.Queryable+TSource> comparer) */
 
-+ (System_Object *)single_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
++ (id <DBMonoObject>)single_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Single(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:1, [p1 monoRTInvokeObject]];
@@ -369,7 +369,7 @@
 
 /* Skipped method : System.Linq.Queryable+TSource Single(System.Linq.IQueryable`1<System.Linq.Queryable+TSource> source, System.Linq.Expressions.Expression`1<System.Func`2<System.Linq.Queryable+TSource, System.Boolean>> predicate) */
 
-+ (System_Object *)singleOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
++ (id <DBMonoObject>)singleOrDefault_withSource:(System_Object <System_Linq_IQueryableA1_> *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"SingleOrDefault(System.Linq.IQueryable`1<System.Linq.Queryable/TSource>)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:1, [p1 monoRTInvokeObject]];

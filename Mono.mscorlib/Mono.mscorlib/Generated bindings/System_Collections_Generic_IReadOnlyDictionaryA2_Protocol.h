@@ -129,7 +129,7 @@
    <System.Collections.Generic.IReadOnlyDictionary`2+TValue>
  @/textblock
 */
-- (System_Object *)get_Item_withKey:(System_Object *)p1;
+- (id <DBMonoObject>)get_Item_withKey:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -144,7 +144,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)containsKey_withKey:(System_Object *)p1;
+- (BOOL)containsKey_withKey:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -160,7 +160,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+- (BOOL)tryGetValue_withKey:(id <DBMonoObject>)p1 valueRef:(System_Object **)p2;
 #endif
 
 
@@ -218,7 +218,7 @@
    <System.Collections.Generic.IReadOnlyDictionary`2+TValue>
  @/textblock
 */
-- (System_Object *)get_Item_withKey:(System_Object *)p1;
+- (id <DBMonoObject>)get_Item_withKey:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -233,7 +233,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)containsKey_withKey:(System_Object *)p1;
+- (BOOL)containsKey_withKey:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -249,7 +249,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+- (BOOL)tryGetValue_withKey:(id <DBMonoObject>)p1 valueRef:(System_Object **)p2;
 
 @end
 

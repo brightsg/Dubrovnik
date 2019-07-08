@@ -111,7 +111,7 @@ static System_Threading_CancellationToken * m_none;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)equals_withOtherObject:(System_Object *)p1
+- (BOOL)equals_withOtherObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);

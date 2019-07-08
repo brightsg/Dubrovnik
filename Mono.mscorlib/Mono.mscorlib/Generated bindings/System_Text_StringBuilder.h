@@ -485,7 +485,7 @@
    System.Text.StringBuilder
  @/textblock
 */
-- (System_Text_StringBuilder *)append_withValueObject:(System_Object *)p1;
+- (System_Text_StringBuilder *)append_withValueObject:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -518,7 +518,7 @@
    System.Text.StringBuilder
  @/textblock
 */
-- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(System_Object *)p2;
+- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -535,7 +535,7 @@
    System.Text.StringBuilder
  @/textblock
 */
-- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3;
+- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2 arg1:(id <DBMonoObject>)p3;
 
 /**
  Managed method.
@@ -553,7 +553,7 @@
    System.Text.StringBuilder
  @/textblock
 */
-- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4;
+- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2 arg1:(id <DBMonoObject>)p3 arg2:(id <DBMonoObject>)p4;
 
 /**
  Managed method.
@@ -961,7 +961,7 @@
    System.Text.StringBuilder
  @/textblock
 */
-- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueObject:(System_Object *)p2;
+- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueObject:(id <DBMonoObject>)p2;
 
 /**
  Managed method.

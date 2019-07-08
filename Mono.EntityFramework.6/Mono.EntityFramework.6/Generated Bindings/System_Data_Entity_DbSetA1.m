@@ -56,7 +56,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)add_withEntity:(System_Object *)p1
+- (id <DBMonoObject>)add_withEntity:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -68,19 +68,19 @@
 	return [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)attach_withEntity:(System_Object *)p1
+- (id <DBMonoObject>)attach_withEntity:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (System_Object *)find_withKeyValues:(System_Array *)p1
+- (id <DBMonoObject>)find_withKeyValues:(System_Array *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Find(object[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -112,7 +112,7 @@
 
 /* Skipped method : System.Data.Entity.DbSet op_Implicit(System.Data.Entity.DbSet`1<System.Data.Entity.DbSet`1+TEntity> entry) */
 
-- (System_Object *)remove_withEntity:(System_Object *)p1
+- (id <DBMonoObject>)remove_withEntity:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];

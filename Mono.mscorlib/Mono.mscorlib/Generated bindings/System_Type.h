@@ -131,7 +131,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)missing;
++ (id <DBMonoObject>)missing;
 
 #pragma mark -
 #pragma mark Properties
@@ -844,7 +844,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withOObject:(System_Object *)p1;
+- (BOOL)equals_withOObject:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -959,7 +959,7 @@
    System.String
  @/textblock
 */
-- (NSString *)getEnumName_withValue:(System_Object *)p1;
+- (NSString *)getEnumName_withValue:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -1643,7 +1643,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)isEnumDefined_withValue:(System_Object *)p1;
+- (BOOL)isEnumDefined_withValue:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -1673,7 +1673,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)isInstanceOfType_withO:(System_Object *)p1;
+- (BOOL)isInstanceOfType_withO:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

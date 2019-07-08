@@ -240,7 +240,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)createInstance_withTypeName:(NSString *)p1;
+- (id <DBMonoObject>)createInstance_withTypeName:(NSString *)p1;
 
 /**
  Managed method.
@@ -256,7 +256,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2;
+- (id <DBMonoObject>)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2;
 
 /* Skipped method : System.Object CreateInstance(System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
@@ -289,7 +289,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withO:(System_Object *)p1;
+- (BOOL)equals_withO:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

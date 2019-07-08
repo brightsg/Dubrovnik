@@ -56,7 +56,7 @@ static NSString * m_trueString;
 #pragma mark -
 #pragma mark Methods
 
-- (int32_t)compareTo_withObj:(System_Object *)p1
+- (int32_t)compareTo_withObj:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
@@ -68,7 +68,7 @@ static NSString * m_trueString;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (BOOL)equals_withObjObject:(System_Object *)p1
+- (BOOL)equals_withObjObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);

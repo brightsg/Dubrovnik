@@ -65,7 +65,7 @@
    System.Threading.SendOrPostCallback
  @/textblock
 */
-+ (System_Threading_SendOrPostCallback *)new_withObject:(System_Object *)p1 method:(void *)p2;
++ (System_Threading_SendOrPostCallback *)new_withObject:(id <DBMonoObject>)p1 method:(void *)p2;
 
 #pragma mark -
 #pragma mark Methods
@@ -85,7 +85,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (System_Object <System_IAsyncResult> *)beginInvoke_withState:(System_Object *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3;
+- (System_Object <System_IAsyncResult> *)beginInvoke_withState:(id <DBMonoObject>)p1 callback:(System_AsyncCallback *)p2 object:(id <DBMonoObject>)p3;
 
 /**
  Managed method.
@@ -115,6 +115,6 @@
    System.Void
  @/textblock
 */
-- (void)invoke_withState:(System_Object *)p1;
+- (void)invoke_withState:(id <DBMonoObject>)p1;
 @end
 //--Dubrovnik.CodeGenerator

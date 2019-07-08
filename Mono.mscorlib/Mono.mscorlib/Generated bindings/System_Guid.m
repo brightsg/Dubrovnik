@@ -79,7 +79,7 @@ static System_Guid * m_empty;
 #pragma mark -
 #pragma mark Methods
 
-- (int32_t)compareTo_withValueObject:(System_Object *)p1
+- (int32_t)compareTo_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
@@ -91,7 +91,7 @@ static System_Guid * m_empty;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (BOOL)equals_withO:(System_Object *)p1
+- (BOOL)equals_withO:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);

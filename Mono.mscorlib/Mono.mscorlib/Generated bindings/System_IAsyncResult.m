@@ -34,7 +34,7 @@
 #pragma mark Properties
 
 @synthesize asyncState = _asyncState;
-- (System_Object *)asyncState
+- (id <DBMonoObject>)asyncState
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;

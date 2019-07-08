@@ -57,7 +57,7 @@
    System.Object
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * typeId;
+@property (nonatomic, strong, readonly) id <DBMonoObject> typeId;
 
 #pragma mark -
 #pragma mark Methods
@@ -75,7 +75,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -412,6 +412,6 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)match_withObj:(System_Object *)p1;
+- (BOOL)match_withObj:(id <DBMonoObject>)p1;
 @end
 //--Dubrovnik.CodeGenerator

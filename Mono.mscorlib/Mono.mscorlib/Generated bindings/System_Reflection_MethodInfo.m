@@ -68,13 +68,13 @@
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Delegate *)createDelegate_withDelegateType:(System_Type *)p1 target:(System_Object *)p2
+- (System_Delegate *)createDelegate_withDelegateType:(System_Type *)p1 target:(id <DBMonoObject>)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"CreateDelegate(System.Type,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);

@@ -362,7 +362,7 @@ static System_TimeSpan * m_zero;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)compareTo_withValueObject:(System_Object *)p1
+- (int32_t)compareTo_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
@@ -380,7 +380,7 @@ static System_TimeSpan * m_zero;
 	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
 }
 
-- (BOOL)equals_withValue:(System_Object *)p1
+- (BOOL)equals_withValue:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);

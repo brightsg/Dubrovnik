@@ -537,7 +537,7 @@ static System_Globalization_CultureInfo * m_invariantCulture;
 	[self invokeMonoMethod:"ClearCachedData()" withNumArgs:0];
 }
 
-- (System_Object *)clone
+- (id <DBMonoObject>)clone
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -549,7 +549,7 @@ static System_Globalization_CultureInfo * m_invariantCulture;
 	return [System_Globalization_CultureInfo bestObjectWithMonoObject:monoObject];
 }
 
-- (BOOL)equals_withValue:(System_Object *)p1
+- (BOOL)equals_withValue:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -587,7 +587,7 @@ static System_Globalization_CultureInfo * m_invariantCulture;
 
 /* Skipped method : System.Globalization.CultureInfo[] GetCultures(System.Globalization.CultureTypes types) */
 
-- (System_Object *)getFormat_withFormatType:(System_Type *)p1
+- (id <DBMonoObject>)getFormat_withFormatType:(System_Type *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetFormat(System.Type)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];

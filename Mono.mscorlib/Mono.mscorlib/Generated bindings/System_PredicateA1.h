@@ -65,7 +65,7 @@
    System.Predicate`1<System.Predicate`1+T>
  @/textblock
 */
-+ (System_PredicateA1 *)new_withObject:(System_Object *)p1 method:(void *)p2;
++ (System_PredicateA1 *)new_withObject:(id <DBMonoObject>)p1 method:(void *)p2;
 
 #pragma mark -
 #pragma mark Methods
@@ -85,7 +85,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (System_Object <System_IAsyncResult> *)beginInvoke_withObj:(System_Object *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3;
+- (System_Object <System_IAsyncResult> *)beginInvoke_withObj:(id <DBMonoObject>)p1 callback:(System_AsyncCallback *)p2 object:(id <DBMonoObject>)p3;
 
 /**
  Managed method.
@@ -115,6 +115,6 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)invoke_withObj:(System_Object *)p1;
+- (BOOL)invoke_withObj:(id <DBMonoObject>)p1;
 @end
 //--Dubrovnik.CodeGenerator

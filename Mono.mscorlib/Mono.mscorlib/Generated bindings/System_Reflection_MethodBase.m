@@ -405,7 +405,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -441,7 +441,7 @@
 
 /* Skipped method : System.Object Invoke(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
 
-- (System_Object *)invoke_withObj:(System_Object *)p1 parameters:(System_Array *)p2
+- (id <DBMonoObject>)invoke_withObj:(id <DBMonoObject>)p1 parameters:(System_Array *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,object[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];

@@ -33,19 +33,19 @@
 #pragma mark -
 #pragma mark Methods
 
-- (int32_t)compareTo_withTarget:(System_Object *)p1
+- (int32_t)compareTo_withTarget:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-+ (NSString *)format_withEnumType:(System_Type *)p1 value:(System_Object *)p2 format:(NSString *)p3
++ (NSString *)format_withEnumType:(System_Type *)p1 value:(id <DBMonoObject>)p2 format:(NSString *)p3
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Format(System.Type,object,string)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -57,7 +57,7 @@
 	return DB_UNBOX_INT32(monoObject);
 }
 
-+ (NSString *)getName_withEnumType:(System_Type *)p1 value:(System_Object *)p2
++ (NSString *)getName_withEnumType:(System_Type *)p1 value:(id <DBMonoObject>)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"GetName(System.Type,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
@@ -89,73 +89,73 @@
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-+ (BOOL)isDefined_withEnumType:(System_Type *)p1 value:(System_Object *)p2
++ (BOOL)isDefined_withEnumType:(System_Type *)p1 value:(id <DBMonoObject>)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"IsDefined(System.Type,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-+ (System_Object *)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2
++ (id <DBMonoObject>)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2 ignoreCase:(BOOL)p3
++ (id <DBMonoObject>)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2 ignoreCase:(BOOL)p3
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(System.Type,string,bool)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &p3];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueObject:(System_Object *)p2
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueObject:(id <DBMonoObject>)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueSbyte:(int8_t)p2
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueSbyte:(int8_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,sbyte)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt16:(int16_t)p2
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueInt16:(int16_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,int16)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt:(int32_t)p2
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueInt:(int32_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueByte:(uint8_t)p2
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueByte:(uint8_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,byte)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint16:(uint16_t)p2
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueUint16:(uint16_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,uint16)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint:(uint32_t)p2
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueUint:(uint32_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,uint)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueLong:(int64_t)p2
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueLong:(int64_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,long)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUlong:(uint64_t)p2
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueUlong:(uint64_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToObject(System.Type,ulong)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];

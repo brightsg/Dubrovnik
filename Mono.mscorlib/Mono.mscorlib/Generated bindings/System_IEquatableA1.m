@@ -33,7 +33,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (BOOL)equals_withOther:(System_Object *)p1
+- (BOOL)equals_withOther:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"System.IEquatable`1<System.IEquatable`1+T>.Equals(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);

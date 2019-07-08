@@ -131,7 +131,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withOtherObject:(System_Object *)p1;
+- (BOOL)equals_withOtherObject:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

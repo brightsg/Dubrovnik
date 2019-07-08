@@ -921,21 +921,21 @@
       <Property Name="Unique" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Constructor>
         <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="dataType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="dataType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="expr" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="dataType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="expr" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="type" Type="System.Data.MappingType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="dataType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="expr" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="SetOrdinal" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -1613,9 +1613,6 @@
         <Parameter Name="mode" Type="System.Data.XmlReadMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="ReadXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="reader" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="ReadXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Method>
       <Method Name="ReadXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -1623,6 +1620,9 @@
       </Method>
       <Method Name="ReadXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="ReadXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="reader" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="RejectChanges" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Reset" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -1868,6 +1868,33 @@
       </Method>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="writer" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Method>
+      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="writer" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="writer" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Method>
+      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="writer" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Method>
+      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Method>
       <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -1901,33 +1928,6 @@
       </Method>
       <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="writer" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Method>
-      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="writer" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="writer" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Method>
-      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="writer" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Method>
-      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
@@ -8232,12 +8232,12 @@
         <Parameter Name="x" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
+      <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="value" Type="System.Object" />
+      </Method>
       <Method Name="Equals" Type="System.Data.SqlTypes.SqlBoolean" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="x" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Floor" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="n" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />

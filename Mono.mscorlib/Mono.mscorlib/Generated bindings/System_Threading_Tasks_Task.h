@@ -114,7 +114,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-+ (System_Threading_Tasks_Task *)new_withAction:(System_ActionA1 *)p1 state:(System_Object *)p2;
++ (System_Threading_Tasks_Task *)new_withAction:(System_ActionA1 *)p1 state:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -131,7 +131,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-+ (System_Threading_Tasks_Task *)new_withAction:(System_ActionA1 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
++ (System_Threading_Tasks_Task *)new_withAction:(System_ActionA1 *)p1 state:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 /* Skipped constructor : System.Threading.Tasks.Task (System.Action`1<System.Object> action, System.Object state, System.Threading.Tasks.TaskCreationOptions creationOptions) */
 
@@ -150,7 +150,7 @@
    System.Object
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * asyncState;
+@property (nonatomic, strong, readonly) id <DBMonoObject> asyncState;
 
 /**
  Managed property.
@@ -288,7 +288,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2;
+- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -305,7 +305,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 /* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`2<System.Threading.Tasks.Task, System.Object> continuationAction, System.Object state, System.Threading.Tasks.TaskScheduler scheduler) */
 
@@ -373,7 +373,7 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
  @/textblock
 */
-- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 typeParameter:(id)typeParameter;
+- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -393,7 +393,7 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
  @/textblock
 */
-- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter;
+- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult> ContinueWith(System.Func`3<System.Threading.Tasks.Task, System.Object, System.Threading.Tasks.Task+TResult> continuationFunction, System.Object state, System.Threading.Tasks.TaskScheduler scheduler) */
 
@@ -494,7 +494,7 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task+TResult>
  @/textblock
 */
-+ (System_Threading_Tasks_TaskA1 *)fromResult_withResult:(System_Object *)p1 typeParameter:(id)typeParameter;
++ (System_Threading_Tasks_TaskA1 *)fromResult_withResult:(id <DBMonoObject>)p1 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Runtime.CompilerServices.TaskAwaiter GetAwaiter() */
 

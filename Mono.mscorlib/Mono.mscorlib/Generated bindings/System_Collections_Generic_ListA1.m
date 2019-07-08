@@ -104,18 +104,18 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)get_Item_withIndex:(int32_t)p1
+- (id <DBMonoObject>)get_Item_withIndex:(int32_t)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(int)" withNumArgs:1, &p1];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2
+- (void)set_Item_withIndex:(int32_t)p1 value:(id <DBMonoObject>)p2
 {
 	[self invokeMonoMethod:"set_Item(int,<_T_0>)" withNumArgs:2, &p1, [self monoRTInvokeArg:p2 typeParameterIndex:0]];
 }
 
-- (void)add_withItem:(System_Object *)p1
+- (void)add_withItem:(id <DBMonoObject>)p1
 {
 	[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
@@ -127,19 +127,19 @@
 
 /* Skipped method : System.Collections.ObjectModel.ReadOnlyCollection`1<System.Collections.Generic.List`1+T> AsReadOnly() */
 
-- (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(System_Object *)p3 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p4
+- (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(id <DBMonoObject>)p3 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p4
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"BinarySearch(int,int,<_T_0>,System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1/T>)" withNumArgs:4, &p1, &p2, [self monoRTInvokeArg:p3 typeParameterIndex:0], [p4 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)binarySearch_withItem:(System_Object *)p1
+- (int32_t)binarySearch_withItem:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"BinarySearch(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)binarySearch_withItem:(System_Object *)p1 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p2
+- (int32_t)binarySearch_withItem:(id <DBMonoObject>)p1 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"BinarySearch(<_T_0>,System.Collections.Generic.IComparer`1<System.Collections.Generic.List`1/T>)" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
@@ -150,7 +150,7 @@
 	[self invokeMonoMethod:"Clear()" withNumArgs:0];
 }
 
-- (BOOL)contains_withItem:(System_Object *)p1
+- (BOOL)contains_withItem:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Contains(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -179,7 +179,7 @@
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (System_Object *)find_withMatch:(System_PredicateA1 *)p1
+- (id <DBMonoObject>)find_withMatch:(System_PredicateA1 *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Find(System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -209,7 +209,7 @@
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (System_Object *)findLast_withMatch:(System_PredicateA1 *)p1
+- (id <DBMonoObject>)findLast_withMatch:(System_PredicateA1 *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"FindLast(System.Predicate`1<System.Collections.Generic.List`1/T>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -250,25 +250,25 @@
 	return [System_Collections_Generic_ListA1 bestObjectWithMonoObject:monoObject];
 }
 
-- (int32_t)indexOf_withItem:(System_Object *)p1
+- (int32_t)indexOf_withItem:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)indexOf_withItem:(System_Object *)p1 index:(int32_t)p2
+- (int32_t)indexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(<_T_0>,int)" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], &p2];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)indexOf_withItem:(System_Object *)p1 index:(int32_t)p2 count:(int32_t)p3
+- (int32_t)indexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2 count:(int32_t)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"IndexOf(<_T_0>,int,int)" withNumArgs:3, [self monoRTInvokeArg:p1 typeParameterIndex:0], &p2, &p3];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2
+- (void)insert_withIndex:(int32_t)p1 item:(id <DBMonoObject>)p2
 {
 	[self invokeMonoMethod:"Insert(int,<_T_0>)" withNumArgs:2, &p1, [self monoRTInvokeArg:p2 typeParameterIndex:0]];
 }
@@ -278,25 +278,25 @@
 	[self invokeMonoMethod:"InsertRange(int,System.Collections.Generic.IEnumerable`1<System.Collections.Generic.List`1/T>)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
 }
 
-- (int32_t)lastIndexOf_withItem:(System_Object *)p1 index:(int32_t)p2 count:(int32_t)p3
+- (int32_t)lastIndexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2 count:(int32_t)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(<_T_0>,int,int)" withNumArgs:3, [self monoRTInvokeArg:p1 typeParameterIndex:0], &p2, &p3];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)lastIndexOf_withItem:(System_Object *)p1
+- (int32_t)lastIndexOf_withItem:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)lastIndexOf_withItem:(System_Object *)p1 index:(int32_t)p2
+- (int32_t)lastIndexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"LastIndexOf(<_T_0>,int)" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], &p2];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (BOOL)remove_withItem:(System_Object *)p1
+- (BOOL)remove_withItem:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);

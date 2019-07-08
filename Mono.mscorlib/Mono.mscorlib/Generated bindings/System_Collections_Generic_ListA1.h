@@ -141,7 +141,7 @@
    <System.Collections.Generic.List`1+T>
  @/textblock
 */
-- (System_Object *)get_Item_withIndex:(int32_t)p1;
+- (id <DBMonoObject>)get_Item_withIndex:(int32_t)p1;
 
 /**
  Managed method.
@@ -157,7 +157,7 @@
    System.Void
  @/textblock
 */
-- (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
+- (void)set_Item_withIndex:(int32_t)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -172,7 +172,7 @@
    System.Void
  @/textblock
 */
-- (void)add_withItem:(System_Object *)p1;
+- (void)add_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -207,7 +207,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(System_Object *)p3 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p4;
+- (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(id <DBMonoObject>)p3 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p4;
 
 /**
  Managed method.
@@ -222,7 +222,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)binarySearch_withItem:(System_Object *)p1;
+- (int32_t)binarySearch_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -238,7 +238,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)binarySearch_withItem:(System_Object *)p1 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p2;
+- (int32_t)binarySearch_withItem:(id <DBMonoObject>)p1 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p2;
 
 /**
  Managed method.
@@ -268,7 +268,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)contains_withItem:(System_Object *)p1;
+- (BOOL)contains_withItem:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.Collections.Generic.List`1<System.Collections.Generic.List`1+TOutput> ConvertAll(System.Converter`2<System.Collections.Generic.List`1+T, System.Collections.Generic.List`1+TOutput> converter) */
 
@@ -349,7 +349,7 @@
    <System.Collections.Generic.List`1+T>
  @/textblock
 */
-- (System_Object *)find_withMatch:(System_PredicateA1 *)p1;
+- (id <DBMonoObject>)find_withMatch:(System_PredicateA1 *)p1;
 
 /**
  Managed method.
@@ -427,7 +427,7 @@
    <System.Collections.Generic.List`1+T>
  @/textblock
 */
-- (System_Object *)findLast_withMatch:(System_PredicateA1 *)p1;
+- (id <DBMonoObject>)findLast_withMatch:(System_PredicateA1 *)p1;
 
 /**
  Managed method.
@@ -536,7 +536,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withItem:(System_Object *)p1;
+- (int32_t)indexOf_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -552,7 +552,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withItem:(System_Object *)p1 index:(int32_t)p2;
+- (int32_t)indexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2;
 
 /**
  Managed method.
@@ -569,7 +569,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withItem:(System_Object *)p1 index:(int32_t)p2 count:(int32_t)p3;
+- (int32_t)indexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
  Managed method.
@@ -585,7 +585,7 @@
    System.Void
  @/textblock
 */
-- (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2;
+- (void)insert_withIndex:(int32_t)p1 item:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -618,7 +618,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)lastIndexOf_withItem:(System_Object *)p1 index:(int32_t)p2 count:(int32_t)p3;
+- (int32_t)lastIndexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
  Managed method.
@@ -633,7 +633,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)lastIndexOf_withItem:(System_Object *)p1;
+- (int32_t)lastIndexOf_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -649,7 +649,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)lastIndexOf_withItem:(System_Object *)p1 index:(int32_t)p2;
+- (int32_t)lastIndexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2;
 
 /**
  Managed method.
@@ -664,7 +664,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)remove_withItem:(System_Object *)p1;
+- (BOOL)remove_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

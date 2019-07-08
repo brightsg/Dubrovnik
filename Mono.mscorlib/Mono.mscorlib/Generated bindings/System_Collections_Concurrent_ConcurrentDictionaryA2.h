@@ -175,7 +175,7 @@
    <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
  @/textblock
 */
-- (System_Object *)get_Item_withKey:(System_Object *)p1;
+- (id <DBMonoObject>)get_Item_withKey:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -191,7 +191,7 @@
    System.Void
  @/textblock
 */
-- (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2;
+- (void)set_Item_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -208,7 +208,7 @@
    <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
  @/textblock
 */
-- (System_Object *)addOrUpdate_withKey:(System_Object *)p1 addValueFactory:(System_FuncA2 *)p2 updateValueFactory:(System_FuncA3 *)p3;
+- (id <DBMonoObject>)addOrUpdate_withKey:(id <DBMonoObject>)p1 addValueFactory:(System_FuncA2 *)p2 updateValueFactory:(System_FuncA3 *)p3;
 
 /**
  Managed method.
@@ -229,7 +229,7 @@
    <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
  @/textblock
 */
-- (System_Object *)addOrUpdate_withKey:(System_Object *)p1 addValueFactory:(System_FuncA3 *)p2 updateValueFactory:(System_FuncA4 *)p3 factoryArgument:(System_Object *)p4 typeParameter:(id)typeParameter;
+- (id <DBMonoObject>)addOrUpdate_withKey:(id <DBMonoObject>)p1 addValueFactory:(System_FuncA3 *)p2 updateValueFactory:(System_FuncA4 *)p3 factoryArgument:(id <DBMonoObject>)p4 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -246,7 +246,7 @@
    <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
  @/textblock
 */
-- (System_Object *)addOrUpdate_withKey:(System_Object *)p1 addValue:(System_Object *)p2 updateValueFactory:(System_FuncA3 *)p3;
+- (id <DBMonoObject>)addOrUpdate_withKey:(id <DBMonoObject>)p1 addValue:(id <DBMonoObject>)p2 updateValueFactory:(System_FuncA3 *)p3;
 
 /**
  Managed method.
@@ -276,7 +276,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)containsKey_withKey:(System_Object *)p1;
+- (BOOL)containsKey_withKey:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -307,7 +307,7 @@
    <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
  @/textblock
 */
-- (System_Object *)getOrAdd_withKey:(System_Object *)p1 valueFactory:(System_FuncA2 *)p2;
+- (id <DBMonoObject>)getOrAdd_withKey:(id <DBMonoObject>)p1 valueFactory:(System_FuncA2 *)p2;
 
 /**
  Managed method.
@@ -323,7 +323,7 @@
    <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
  @/textblock
 */
-- (System_Object *)getOrAdd_withKey:(System_Object *)p1 value:(System_Object *)p2;
+- (id <DBMonoObject>)getOrAdd_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -343,7 +343,7 @@
    <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
  @/textblock
 */
-- (System_Object *)getOrAdd_withKey:(System_Object *)p1 valueFactory:(System_FuncA3 *)p2 factoryArgument:(System_Object *)p3 typeParameter:(id)typeParameter;
+- (id <DBMonoObject>)getOrAdd_withKey:(id <DBMonoObject>)p1 valueFactory:(System_FuncA3 *)p2 factoryArgument:(id <DBMonoObject>)p3 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -374,7 +374,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)tryAdd_withKey:(System_Object *)p1 value:(System_Object *)p2;
+- (BOOL)tryAdd_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -390,7 +390,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+- (BOOL)tryGetValue_withKey:(id <DBMonoObject>)p1 valueRef:(System_Object **)p2;
 
 /**
  Managed method.
@@ -406,7 +406,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)tryRemove_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+- (BOOL)tryRemove_withKey:(id <DBMonoObject>)p1 valueRef:(System_Object **)p2;
 
 /**
  Managed method.
@@ -423,6 +423,6 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)tryUpdate_withKey:(System_Object *)p1 newValue:(System_Object *)p2 comparisonValue:(System_Object *)p3;
+- (BOOL)tryUpdate_withKey:(id <DBMonoObject>)p1 newValue:(id <DBMonoObject>)p2 comparisonValue:(id <DBMonoObject>)p3;
 @end
 //--Dubrovnik.CodeGenerator

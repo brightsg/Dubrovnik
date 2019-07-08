@@ -56,7 +56,7 @@
    System.Collections.Generic.KeyValuePair`2<System.Collections.Generic.KeyValuePair`2+TKey, System.Collections.Generic.KeyValuePair`2+TValue>
  @/textblock
 */
-+ (System_Collections_Generic_KeyValuePairA2 *)new_withKey:(System_Object *)p1 value:(System_Object *)p2;
++ (System_Collections_Generic_KeyValuePairA2 *)new_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -71,7 +71,7 @@
    <System.Collections.Generic.KeyValuePair`2+TKey>
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * key;
+@property (nonatomic, strong, readonly) id <DBMonoObject> key;
 
 /**
  Managed property.
@@ -83,7 +83,7 @@
    <System.Collections.Generic.KeyValuePair`2+TValue>
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * value;
+@property (nonatomic, strong, readonly) id <DBMonoObject> value;
 
 #pragma mark -
 #pragma mark Methods

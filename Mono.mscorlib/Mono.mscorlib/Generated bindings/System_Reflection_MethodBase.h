@@ -299,7 +299,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -372,7 +372,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)invoke_withObj:(System_Object *)p1 parameters:(System_Array *)p2;
+- (id <DBMonoObject>)invoke_withObj:(id <DBMonoObject>)p1 parameters:(System_Array *)p2;
 
 /**
  Managed method.

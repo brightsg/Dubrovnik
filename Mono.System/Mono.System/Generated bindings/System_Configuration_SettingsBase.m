@@ -63,13 +63,13 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)get_Item_withPropertyName:(NSString *)p1
+- (id <DBMonoObject>)get_Item_withPropertyName:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (void)set_Item_withPropertyName:(NSString *)p1 value:(System_Object *)p2
+- (void)set_Item_withPropertyName:(NSString *)p1 value:(id <DBMonoObject>)p2
 {
 	[self invokeMonoMethod:"set_Item(string,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }

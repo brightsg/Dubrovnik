@@ -63,7 +63,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2;
++ (id <DBMonoObject>)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2;
 
 /**
  Managed method.
@@ -80,7 +80,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2 data:(System_Object *)p3;
++ (id <DBMonoObject>)connect_withClassToProxy:(System_Type *)p1 url:(NSString *)p2 data:(id <DBMonoObject>)p3;
 
 /**
  Managed method.
@@ -114,7 +114,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)getLifetimeService_withObj:(System_MarshalByRefObject *)p1;
++ (id <DBMonoObject>)getLifetimeService_withObj:(System_MarshalByRefObject *)p1;
 
 /* Skipped method : System.Reflection.MethodBase GetMethodBaseFromMethodMessage(System.Runtime.Remoting.Messaging.IMethodMessage msg) */
 
@@ -150,7 +150,7 @@
    System.Runtime.Remoting.Proxies.RealProxy
  @/textblock
 */
-+ (System_Runtime_Remoting_Proxies_RealProxy *)getRealProxy_withProxy:(System_Object *)p1;
++ (System_Runtime_Remoting_Proxies_RealProxy *)getRealProxy_withProxy:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -184,7 +184,7 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)isObjectOutOfAppDomain_withTp:(System_Object *)p1;
++ (BOOL)isObjectOutOfAppDomain_withTp:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -199,7 +199,7 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)isObjectOutOfContext_withTp:(System_Object *)p1;
++ (BOOL)isObjectOutOfContext_withTp:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -229,7 +229,7 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)isTransparentProxy_withProxy:(System_Object *)p1;
++ (BOOL)isTransparentProxy_withProxy:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

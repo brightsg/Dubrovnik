@@ -272,7 +272,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)clone
+- (id <DBMonoObject>)clone
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -298,7 +298,7 @@
 	return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-- (void)onDeserialization_withSender:(System_Object *)p1
+- (void)onDeserialization_withSender:(id <DBMonoObject>)p1
 {
 	[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }

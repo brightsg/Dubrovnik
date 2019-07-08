@@ -285,13 +285,13 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)createInstance_withTypeName:(NSString *)p1
+- (id <DBMonoObject>)createInstance_withTypeName:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2
+- (id <DBMonoObject>)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -305,7 +305,7 @@
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-- (BOOL)equals_withO:(System_Object *)p1
+- (BOOL)equals_withO:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);

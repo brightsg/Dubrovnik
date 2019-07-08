@@ -307,7 +307,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)compareTo_withValueObject:(System_Object *)p1;
+- (int32_t)compareTo_withValueObject:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -353,7 +353,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withValueObject:(System_Object *)p1;
+- (BOOL)equals_withValueObject:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

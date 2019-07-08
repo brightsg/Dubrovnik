@@ -64,7 +64,7 @@
    System.Func`6
  @/textblock
 */
-+ (System_FuncA6 *)new_withObject:(System_Object *)p1 method:(void *)p2;
++ (System_FuncA6 *)new_withObject:(id <DBMonoObject>)p1 method:(void *)p2;
 
 #pragma mark -
 #pragma mark Methods
@@ -88,7 +88,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (System_Object <System_IAsyncResult> *)beginInvoke_withArg1:(System_Object *)p1 arg2:(System_Object *)p2 arg3:(System_Object *)p3 arg4:(System_Object *)p4 arg5:(System_Object *)p5 callback:(System_AsyncCallback *)p6 object:(System_Object *)p7;
+- (System_Object <System_IAsyncResult> *)beginInvoke_withArg1:(id <DBMonoObject>)p1 arg2:(id <DBMonoObject>)p2 arg3:(id <DBMonoObject>)p3 arg4:(id <DBMonoObject>)p4 arg5:(id <DBMonoObject>)p5 callback:(System_AsyncCallback *)p6 object:(id <DBMonoObject>)p7;
 
 /**
  Managed method.
@@ -103,7 +103,7 @@
    <System.Func`6+TResult>
  @/textblock
 */
-- (System_Object *)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1;
+- (id <DBMonoObject>)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1;
 
 /**
  Managed method.
@@ -122,6 +122,6 @@
    <System.Func`6+TResult>
  @/textblock
 */
-- (System_Object *)invoke_withArg1:(System_Object *)p1 arg2:(System_Object *)p2 arg3:(System_Object *)p3 arg4:(System_Object *)p4 arg5:(System_Object *)p5;
+- (id <DBMonoObject>)invoke_withArg1:(id <DBMonoObject>)p1 arg2:(id <DBMonoObject>)p2 arg3:(id <DBMonoObject>)p3 arg4:(id <DBMonoObject>)p4 arg5:(id <DBMonoObject>)p5;
 @end
 //--Dubrovnik.CodeGenerator

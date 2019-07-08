@@ -93,7 +93,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)tryBinaryOperation_withBinder:(System_Dynamic_BinaryOperationBinder *)p1 arg:(System_Object *)p2 resultRef:(System_Object **)p3;
+- (BOOL)tryBinaryOperation_withBinder:(System_Dynamic_BinaryOperationBinder *)p1 arg:(id <DBMonoObject>)p2 resultRef:(System_Object **)p3;
 
 /**
  Managed method.
@@ -241,7 +241,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)trySetIndex_withBinder:(System_Dynamic_SetIndexBinder *)p1 indexes:(System_Array *)p2 value:(System_Object *)p3;
+- (BOOL)trySetIndex_withBinder:(System_Dynamic_SetIndexBinder *)p1 indexes:(System_Array *)p2 value:(id <DBMonoObject>)p3;
 
 /**
  Managed method.
@@ -257,7 +257,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)trySetMember_withBinder:(System_Dynamic_SetMemberBinder *)p1 value:(System_Object *)p2;
+- (BOOL)trySetMember_withBinder:(System_Dynamic_SetMemberBinder *)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.

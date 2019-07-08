@@ -133,7 +133,7 @@
    System.Void
  @/textblock
 */
-- (void)enqueue_withItem:(System_Object *)p1;
+- (void)enqueue_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

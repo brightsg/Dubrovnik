@@ -136,7 +136,7 @@
    System.Void
  @/textblock
 */
-- (void)post_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2;
+- (void)post_withD:(System_Threading_SendOrPostCallback *)p1 state:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -152,7 +152,7 @@
    System.Void
  @/textblock
 */
-- (void)send_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2;
+- (void)send_withD:(System_Threading_SendOrPostCallback *)p1 state:(id <DBMonoObject>)p2;
 
 /**
  Managed method.

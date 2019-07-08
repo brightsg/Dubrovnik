@@ -101,7 +101,7 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>
  @/textblock
 */
-+ (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA2 *)p1 state:(System_Object *)p2;
++ (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA2 *)p1 state:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -118,7 +118,7 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>
  @/textblock
 */
-+ (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
++ (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA2 *)p1 state:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 /* Skipped constructor : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult> (System.Func`2<System.Object, System.Threading.Tasks.Task`1+TResult> function, System.Object state, System.Threading.Tasks.TaskCreationOptions creationOptions) */
 
@@ -139,7 +139,7 @@
    <System.Threading.Tasks.Task`1+TResult>
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * result;
+@property (nonatomic, strong, readonly) id <DBMonoObject> result;
 
 #pragma mark -
 #pragma mark Methods
@@ -197,7 +197,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2;
+- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -214,7 +214,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 /* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object> continuationAction, System.Object state, System.Threading.Tasks.TaskScheduler scheduler) */
 
@@ -282,7 +282,7 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
  @/textblock
 */
-- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 typeParameter:(id)typeParameter;
+- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -302,7 +302,7 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
  @/textblock
 */
-- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter;
+- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Object state, System.Threading.Tasks.TaskScheduler scheduler) */
 

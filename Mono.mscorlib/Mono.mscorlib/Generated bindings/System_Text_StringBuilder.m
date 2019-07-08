@@ -269,7 +269,7 @@
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Text_StringBuilder *)append_withValueObject:(System_Object *)p1
+- (System_Text_StringBuilder *)append_withValueObject:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Append(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
@@ -283,19 +283,19 @@
 
 /* Skipped method : System.Text.StringBuilder Append(System.Char* value, System.Int32 valueCount) */
 
-- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(System_Object *)p2
+- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"AppendFormat(string,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3
+- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2 arg1:(id <DBMonoObject>)p3
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"AppendFormat(string,object,object)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4
+- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2 arg1:(id <DBMonoObject>)p3 arg2:(id <DBMonoObject>)p4
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"AppendFormat(string,object,object,object)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject]];
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
@@ -452,7 +452,7 @@
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueObject:(System_Object *)p2
+- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueObject:(id <DBMonoObject>)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Insert(int,object)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];

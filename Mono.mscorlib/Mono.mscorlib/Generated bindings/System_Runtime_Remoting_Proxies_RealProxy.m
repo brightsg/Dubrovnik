@@ -49,13 +49,13 @@
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)getStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1
++ (id <DBMonoObject>)getStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"GetStubData(System.Runtime.Remoting.Proxies.RealProxy)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)getTransparentProxy
+- (id <DBMonoObject>)getTransparentProxy
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetTransparentProxy()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -70,7 +70,7 @@
 	[self invokeMonoMethod:"SetCOMIUnknown(intptr)" withNumArgs:1, &p1];
 }
 
-+ (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(System_Object *)p2
++ (void)setStubData_withRp:(System_Runtime_Remoting_Proxies_RealProxy *)p1 stubData:(id <DBMonoObject>)p2
 {
 	[self invokeMonoClassMethod:"SetStubData(System.Runtime.Remoting.Proxies.RealProxy,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }

@@ -141,7 +141,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -186,7 +186,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getConstantValue;
+- (id <DBMonoObject>)getConstantValue;
 
 /**
  Managed method.
@@ -263,7 +263,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getRawConstantValue;
+- (id <DBMonoObject>)getRawConstantValue;
 
 /**
  Managed method.
@@ -323,7 +323,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getValue_withObj:(System_Object *)p1;
+- (id <DBMonoObject>)getValue_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -339,7 +339,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getValue_withObj:(System_Object *)p1 index:(System_Array *)p2;
+- (id <DBMonoObject>)getValue_withObj:(id <DBMonoObject>)p1 index:(System_Array *)p2;
 
 /* Skipped method : System.Object GetValue(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) */
 
@@ -391,7 +391,7 @@
    System.Void
  @/textblock
 */
-- (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2;
+- (void)setValue_withObj:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -408,6 +408,6 @@
    System.Void
  @/textblock
 */
-- (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 index:(System_Array *)p3;
+- (void)setValue_withObj:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2 index:(System_Array *)p3;
 @end
 //--Dubrovnik.CodeGenerator

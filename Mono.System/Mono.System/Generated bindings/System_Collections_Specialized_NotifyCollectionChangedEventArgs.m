@@ -39,13 +39,13 @@
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(System_Object *)p2
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(id <DBMonoObject>)p2
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,object" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(System_Object *)p2 index:(int32_t)p3
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(id <DBMonoObject>)p2 index:(int32_t)p3
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,object,int" withNumArgs:3, &p1, [p2 monoRTInvokeObject], &p3];
 	return object;
@@ -63,13 +63,13 @@
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItem:(id <DBMonoObject>)p2 oldItem:(id <DBMonoObject>)p3
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,object,object" withNumArgs:3, &p1, [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3 index:(int32_t)p4
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItem:(id <DBMonoObject>)p2 oldItem:(id <DBMonoObject>)p3 index:(int32_t)p4
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,object,object,int" withNumArgs:4, &p1, [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], &p4];
 	return object;
@@ -87,7 +87,7 @@
 	return object;
 }
 
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(System_Object *)p2 index:(int32_t)p3 oldIndex:(int32_t)p4
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(id <DBMonoObject>)p2 index:(int32_t)p3 oldIndex:(int32_t)p4
 {
 	System_Collections_Specialized_NotifyCollectionChangedEventArgs * object = [[self alloc] initWithSignature:"System.Collections.Specialized.NotifyCollectionChangedAction,object,int,int" withNumArgs:4, &p1, [p2 monoRTInvokeObject], &p3, &p4];
 	return object;

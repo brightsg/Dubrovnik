@@ -78,12 +78,12 @@ static System_Threading_SynchronizationContext * m_current;
 	[self invokeMonoMethod:"OperationStarted()" withNumArgs:0];
 }
 
-- (void)post_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2
+- (void)post_withD:(System_Threading_SendOrPostCallback *)p1 state:(id <DBMonoObject>)p2
 {
 	[self invokeMonoMethod:"Post(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
-- (void)send_withD:(System_Threading_SendOrPostCallback *)p1 state:(System_Object *)p2
+- (void)send_withD:(System_Threading_SendOrPostCallback *)p1 state:(id <DBMonoObject>)p2
 {
 	[self invokeMonoMethod:"Send(System.Threading.SendOrPostCallback,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }

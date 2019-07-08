@@ -56,7 +56,7 @@
    System.UnhandledExceptionEventArgs
  @/textblock
 */
-+ (System_UnhandledExceptionEventArgs *)new_withException:(System_Object *)p1 isTerminating:(BOOL)p2;
++ (System_UnhandledExceptionEventArgs *)new_withException:(id <DBMonoObject>)p1 isTerminating:(BOOL)p2;
 
 #pragma mark -
 #pragma mark Properties
@@ -71,7 +71,7 @@
    System.Object
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * exceptionObject;
+@property (nonatomic, strong, readonly) id <DBMonoObject> exceptionObject;
 
 /**
  Managed property.

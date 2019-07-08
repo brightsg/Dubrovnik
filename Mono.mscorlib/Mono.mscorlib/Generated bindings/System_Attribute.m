@@ -34,7 +34,7 @@
 #pragma mark Properties
 
 @synthesize typeId = _typeId;
-- (System_Object *)typeId
+- (id <DBMonoObject>)typeId
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
@@ -56,7 +56,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
@@ -202,7 +202,7 @@
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)match_withObj:(System_Object *)p1
+- (BOOL)match_withObj:(id <DBMonoObject>)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Match(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);

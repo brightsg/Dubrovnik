@@ -57,7 +57,7 @@
    System.Nullable`1<System.Nullable`1+T>
  @/textblock
 */
-+ (System_NullableA1 *)new_withValue:(System_Object *)p1;
++ (System_NullableA1 *)new_withValue:(id <DBMonoObject>)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -84,7 +84,7 @@
    <System.Nullable`1+T>
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * value;
+@property (nonatomic, strong, readonly) id <DBMonoObject> value;
 
 #pragma mark -
 #pragma mark Methods
@@ -102,7 +102,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withOther:(System_Object *)p1;
+- (BOOL)equals_withOther:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -132,7 +132,7 @@
    <System.Nullable`1+T>
  @/textblock
 */
-- (System_Object *)getValueOrDefault;
+- (id <DBMonoObject>)getValueOrDefault;
 
 /**
  Managed method.
@@ -147,7 +147,7 @@
    <System.Nullable`1+T>
  @/textblock
 */
-- (System_Object *)getValueOrDefault_withDefaultValue:(System_Object *)p1;
+- (id <DBMonoObject>)getValueOrDefault_withDefaultValue:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -162,7 +162,7 @@
    <System.Nullable`1+T>
  @/textblock
 */
-+ (System_Object *)op_Explicit_withValue:(System_NullableA1 *)p1;
++ (id <DBMonoObject>)op_Explicit_withValue:(System_NullableA1 *)p1;
 
 /**
  Managed method.
@@ -177,7 +177,7 @@
    System.Nullable`1<System.Nullable`1+T>
  @/textblock
 */
-+ (System_NullableA1 *)op_Implicit_withValue:(System_Object *)p1;
++ (System_NullableA1 *)op_Implicit_withValue:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

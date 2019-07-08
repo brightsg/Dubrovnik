@@ -67,7 +67,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)changeType_withValue:(System_Object *)p1 type:(System_Type *)p2 culture:(System_Globalization_CultureInfo *)p3;
+- (id <DBMonoObject>)changeType_withValue:(id <DBMonoObject>)p1 type:(System_Type *)p2 culture:(System_Globalization_CultureInfo *)p3;
 
 /**
  Managed method.
@@ -83,7 +83,7 @@
    System.Void
  @/textblock
 */
-- (void)reorderArgumentArray_withArgsRef:(System_Object **)p1 state:(System_Object *)p2;
+- (void)reorderArgumentArray_withArgsRef:(System_Object **)p1 state:(id <DBMonoObject>)p2;
 
 /* Skipped method : System.Reflection.MethodBase SelectMethod(System.Reflection.BindingFlags bindingAttr, System.Reflection.MethodBase[] match, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
