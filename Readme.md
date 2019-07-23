@@ -33,7 +33,7 @@ TLDR
 Status
 ======
 
-Version: 1.0.0
+Version: 2.0.0
 
 **Accomplished Project Goals**
 
@@ -50,13 +50,6 @@ Version: 1.0.0
 1. Automatic support for indexers.
 1. Binding support for all types in mscorlib.dll (though see type skipping).
 1. Automatic generation of managed event support code.
-
-**Outstanding Project Goals**
-
-The following project goals are outstanding:
-
-1. Automatic generic method support in generated code. This is largely complete but a few issues remain.
-
 
 Project Map
 ================
