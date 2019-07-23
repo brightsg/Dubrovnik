@@ -20,9 +20,9 @@ BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
 
 @interface DBManagedMethod()
 
+@property (assign, readwrite) MonoClass *monoClass;
+@property (assign, readwrite) MonoObject *monoObject;
 @property (assign, readwrite) const char *methodName;;
-@property (assign, readwrite) const char *monoClassName;
-@property (assign, readwrite) const char *assemblyName;
 @property (assign, readwrite) MonoArray *monoReflectionTypeParameters;
 @property (assign, readwrite) void *invokePtr;
 @end
@@ -32,42 +32,35 @@ BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
 #pragma mark -
 #pragma mark Lifecycle
 
-+ (instancetype)methodWithMonoMethodNamed:(const char *)methodName
-{
-    return [self methodWithMonoMethodNamed:methodName className:NULL assemblyName:NULL];
-}
-
-+ (instancetype)methodWithMonoMethodNamed:(const char *)methodName
-                                className:(const char *)className
-                             assemblyName:(const char *)assemblyName
-{
-    return [[self alloc] initWithMonoMethodNamed:methodName className:className assemblyName:assemblyName];
-}
-
 - (id)initWithMonoMethodNamed:(const char *)methodName
-{
-    return [self initWithMonoMethodNamed:methodName className:NULL assemblyName:NULL];
-}
-
-- (id)initWithMonoMethodNamed:(const char *)methodName
-                    className:(const char *)className
-                 assemblyName:(const char *)assemblyName
-{
-    return [self initWithMonoMethodNamed:methodName className:className assemblyName:assemblyName monoReflectionTypeParameters:NULL];
-}
-
-- (id)initWithMonoMethodNamed:(const char *)methodName
-                    className:(const char *)className
-                 assemblyName:(const char *)assemblyName
- monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters
-
+                       object:(DBManagedObject *)object
 {
     self = [super init];
     if (self) {
         self.methodName = methodName;
-        self.monoClassName = className;
-        self.assemblyName = assemblyName;
-        self.monoReflectionTypeParameters = monoReflectionTypeParameters;
+        self.monoObject = object.monoObject;
+        self.monoClass = object.monoClass;
+    }
+    return self;
+}
+
+- (id)initWithMonoClassMethodNamed:(const char *)methodName
+                    monoClassName:(const char *)className
+                 monoAssemblyName:(const char *)assemblyName
+{
+    self = [super init];
+    if (self) {
+        self.methodName = methodName;
+        
+        // get the assembly
+        MonoAssembly *monoAssembly = [DBManagedEnvironment.currentEnvironment openAssemblyWithName:assemblyName];
+        if (!monoAssembly) {
+            [NSException raise:@"DBInvokeException" format: @"Assembly %s not found for method : %s.", assemblyName, self.methodName];
+        }
+        
+        // get the mono class
+        DBManagedClass *classRepresentation = [DBManagedClass classWithMonoClassNamed:className fromMonoAssembly:monoAssembly];
+        self.monoClass  = [classRepresentation monoClass];
     }
     return self;
 }
@@ -77,18 +70,15 @@ BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
  monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters
 
 {
-    self = [super init];
+    self = [self initWithMonoMethodNamed:methodName object:object];
     if (self) {
-        self.methodName = methodName;
-        self.monoClass = object.monoClass;
-        self.monoObject = object.monoObject;
         self.instanceType = object.managedType;
         self.monoReflectionTypeParameters = monoReflectionTypeParameters;
     }
     return self;
 }
 
-- (id)initWithMonoMethodNamed:(const char *)methodName
+- (id)initWithMonoClassMethodNamed:(const char *)methodName
                     monoClass:(MonoClass *)monoClass
  monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters
 
@@ -131,44 +121,23 @@ BOOL DBIsGenericMonoMethod(MonoReflectionMethod *methodInfo)
 
 - (MonoMethod *)monoMethod
 {
-    MonoMethod *monoMethod = nil;
+    MonoObject *monoObject = self.monoObject;
     MonoClass *monoClass = self.monoClass;
     
-    // instance
-    MonoObject *monoObject = self.monoObject;
     NSAssert(monoObject != nil, @"MonoObject cannot be nil.");
+    NSAssert(monoClass != nil, @"MonoClass cannot be nil.");
+        
+    // get invoke pointer
+    self.invokePtr = DB_IS_VALUETYPE(monoClass) ? mono_object_unbox(monoObject) : monoObject;
     
-    // The presence of a class name indicates that the method is an extension method
-    // implemented as a static method on the indicated class
-    if (self.monoClassName == NULL) {
-        
-        self.invokePtr = DB_IS_VALUETYPE(monoClass) ? mono_object_unbox(monoObject) : monoObject;
-        
-        // get the instance method
-        monoMethod = GetMonoObjectMethod(monoObject, self.methodName, YES);
-    }
-    else {
-        
-        // get the extension assembly
-        MonoAssembly *monoAssembly = [DBManagedEnvironment.currentEnvironment openAssemblyWithName:self.assemblyName];
-        if (!monoAssembly) {
-            [NSException raise:@"DBInvokeException" format: @"Assembly %s not found for extension method : %s.", self.assemblyName, self.methodName];
-        }
-        
-        // get the extension mono class
-        DBManagedClass *classRepresentation = [DBManagedClass classWithMonoClassNamed:self.monoClassName fromMonoAssembly:monoAssembly];
-        MonoClass *monoClass  = [classRepresentation monoClass];
-        
-        // get the class method
-        monoMethod = GetMonoClassMethod(monoClass, self.methodName, YES);
-    }
-    
+    // get the instance method
+    MonoMethod *monoMethod = GetMonoObjectMethod(monoObject, self.methodName, YES);
     if (!monoMethod) {
         [NSException raise:@"DBInvokeException" format: @"Method not found : %s.", self.methodName];
     }
     
     // get object representing C# MethodInfo class
-    MonoReflectionMethod* methodInfo = mono_method_get_object(self.monoDomain, monoMethod, monoClass);
+    MonoReflectionMethod *methodInfo = mono_method_get_object(self.monoDomain, monoMethod, monoClass);
     
     // if method is generic then inflate it
     if (DBIsGenericMonoMethod(methodInfo)) {
@@ -343,15 +312,6 @@ MonoType *DBMonoMethodSignatureParams(MonoMethod *meth, uint32_t *paramCount)
     // get arguments
     void *monoArgs[numArgs];
     DBPopulateMethodArgs(monoArgs, numArgs);
-    
-    // The first argument must be the represented mono object in the case of an extension method.
-    // It would be possible to insert this if not supplied but then there would be an apparent mismatch between the
-    // method signature and the argument count at the call site.
-    if (self.monoClassName != NULL) {
-        if (monoArgs[0] != self.monoObject) {
-            [NSException raise:@"DBInvokeException" format: @"Invalid first argument to extension method implementation."];
-        }
-    }
     
     // get mono method
     MonoMethod *monoMethod = self.monoMethod;

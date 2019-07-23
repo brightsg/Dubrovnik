@@ -12,33 +12,28 @@
 
 @interface DBManagedMethod : NSObject
 
-@property (assign, readonly) const char *monoClassName;
-@property (assign, readonly) const char *assemblyName;
 @property (assign, readonly) MonoArray *monoReflectionTypeParameters;
 @property (assign, readonly) void *invokePtr;
 @property (assign, readonly) const char *methodName;
+@property (assign, readonly) MonoClass *monoClass;
+@property (assign, readonly) MonoObject *monoObject;
 
 @property (assign, readwrite) MonoType *genericMonoType;
-@property (assign, readwrite) MonoClass *monoClass;
-@property (assign, readwrite) MonoObject *monoObject;
 @property (assign, readwrite, nonatomic) MonoDomain *monoDomain;
 @property (strong, readwrite, nonatomic) DBManagedType *instanceType;
 
-+ (instancetype)methodWithMonoMethodNamed:(const char *)methodName;
-+ (instancetype)methodWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName;
-
-- (id)initWithMonoMethodNamed:(const char *)methodName;
-- (id)initWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName;
 - (id)initWithMonoMethodNamed:(const char *)methodName
-                    className:(const char *)className
-                 assemblyName:(const char *)assemblyName
- monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters;
+                       object:(DBManagedObject *)object;
+
+- (id)initWithMonoClassMethodNamed:(const char *)methodName
+                    monoClassName:(const char *)className
+                 monoAssemblyName:(const char *)assemblyName;
 
 - (id)initWithMonoMethodNamed:(const char *)methodName
                        object:(DBManagedObject *)object
  monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters;
 
-- (id)initWithMonoMethodNamed:(const char *)methodName
+- (id)initWithMonoClassMethodNamed:(const char *)methodName
                     monoClass:(MonoClass *)monoClass
  monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters;
 

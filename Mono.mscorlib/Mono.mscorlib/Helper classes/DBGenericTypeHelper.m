@@ -166,12 +166,12 @@
     return method;
 }
 
-- (DBManagedMethod *)methodWithMonoName:(const char *)methodName monoClass:(MonoClass *)monoClass typeParameters:(id)typeParameters
+- (DBManagedMethod *)classMethodWithMonoName:(const char *)methodName monoClass:(MonoClass *)monoClass typeParameters:(id)typeParameters
 {
     MonoArray *monoReflectionTypeParameters = [self monoReflectionTypeParameters:typeParameters];
     
     // create method object that contains method level generic type parameter info
-    DBManagedMethod *method = [[DBManagedMethod alloc] initWithMonoMethodNamed:methodName
+    DBManagedMethod *method = [[DBManagedMethod alloc] initWithMonoClassMethodNamed:methodName
                                                                     monoClass:monoClass
                                                   monoReflectionTypeParameters:monoReflectionTypeParameters];
     return method;

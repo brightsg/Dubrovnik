@@ -85,7 +85,7 @@
 
 + (DBManagedMethod *)classMethodWithMonoName:(const char *)methodName typeParameters:(id)typeParameters
 {
-    return [DBGenericTypeHelper.sharedHelper methodWithMonoName:methodName monoClass:self.monoClass typeParameters:typeParameters];
+    return [DBGenericTypeHelper.sharedHelper classMethodWithMonoName:methodName monoClass:self.monoClass typeParameters:typeParameters];
 }
 
 #pragma mark -

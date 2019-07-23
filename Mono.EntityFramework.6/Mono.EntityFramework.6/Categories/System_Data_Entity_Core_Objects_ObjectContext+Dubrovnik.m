@@ -22,18 +22,16 @@
 {
     
     // ObjectQuery<T> CreateQuery<T>
-    DBManagedMethod *methodRep = [DBManagedMethod
-                                             methodWithMonoMethodNamed:"CreateQuery(string,System.Data.Entity.Core.Objects.ObjectParameter[])"
-                                             className:NULL
-                                             assemblyName:NULL];
-
+    DBManagedMethod *methodRep = [[DBManagedMethod alloc] initWithMonoMethodNamed:"CreateQuery(string,System.Data.Entity.Core.Objects.ObjectParameter[])"
+                                                                           object:self];
+    
     // Get the type to be returned by this query
     MonoAssembly *monoAssembly = [[DBManagedEnvironment currentEnvironment] openAssemblyWithName:assemblyName];
     DBManagedClass *classRepresentation = [DBManagedClass classWithMonoClassNamed:monoClassName fromMonoAssembly:monoAssembly];
     methodRep.genericMonoType = [classRepresentation monoType];
     
     // Invoke
-    MonoObject *monoQueryObject = [self invokeMethod:methodRep withNumArgs:2, [queryString monoString], [dbsaParameters monoArray] ];
+    MonoObject *monoQueryObject = [methodRep invokeMethodWithNumArgs:2, [queryString monoString], [dbsaParameters monoArray] ];
     
     // Wrap the query
     System_Data_Entity_Core_Objects_ObjectQueryA1 *objectQuery = [System_Data_Entity_Core_Objects_ObjectQueryA1 objectQueryWithMonoObject:monoQueryObject];
