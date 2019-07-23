@@ -446,13 +446,13 @@ from native code using Dubrovnik you could do something this:
 
 	MonoObject *monoObject = <an object you got from somewhere>;
 	DBManagedObject *someObject = [DBManagedObject representationWithMonoObject:monoObject];
-	MonoString *monoString = [someObject invokeMethod:"Blargle(string)" withNumArgs:1, [someString monoString]];
+	MonoString *monoString = [someObject invokeMonoMethod:"Blargle(string)" withNumArgs:1, [someString monoString]];
 	NSString *blargleString = [NSString stringWithMonoString:monoString];
 
 However, in general it is much nicer to subclass `DBManagedObject` and in your subclass write a method like so:
 
 	- (NSString *)blargle:(NSString *)someString {
-		MonoString *monoString = [self invokeMethod:"Blargle(string)" withNumArgs:1, [someString monoString]];
+		MonoString *monoString = [self invokeMonoMethod:"Blargle(string)" withNumArgs:1, [someString monoString]];
 
 		return([NSString stringWithMonoString:monoString]);
 	}
@@ -466,7 +466,7 @@ The Dubrovnik code generator automates the production of `DBManagedObject` subcl
 Calling Conventions
 ===================
 
-The calling conventions of invokeMethod: are so:
+The calling conventions of invokeMonoMethod: are so:
 
 1. All arguments are pointers. MonoObject* objects (and any unions of
 MonoObject* such as MonoArray* and MonoString*) are passed normally.
@@ -478,10 +478,10 @@ in DBBoxing.h.
 Example:
 int32_t integerValue = 5;
 MonoString *monoString = [@"blargle!" monoString];
-[self invokeMethod:"SomeMethod(int,string)" withNumArgs:2, &integerValue, monoString];
+[self invokeMonoMethod:"SomeMethod(int,string)" withNumArgs:2, &integerValue, monoString];
 
 MonoObject *boxedInt = DB_BOX_INT32(integerValue);
-[self invokeMethod:"ObjectMethod(object)" withNumArgs:1, boxedInt];
+[self invokeMonoMethod:"ObjectMethod(object)" withNumArgs:1, boxedInt];
 
 2. All return values are MonoObject* objects of some sort. If a managed method
 returns any kind of value type (including struct), it will be boxed. You need
@@ -489,11 +489,11 @@ to take this into account if you plan on doing anything with the value in
 native code. Again, boxing macros are provided in DBBoxing.h.
 
 Example:
-MonoObject *boxedInt = [self invokeMethod:"GiveMeANumber()" withNumArgs:0];
+MonoObject *boxedInt = [self invokeMonoMethod:"GiveMeANumber()" withNumArgs:0];
 int32_t unboxedInt = DB_UNBOX_INT32(boxedInt);
 
 3. Arguments marked with the "out" keyword will need be marked with with a
-trailing ampersand in the signature specification in your invokeMethod:
+trailing ampersand in the signature specification in your invokeMonoMethod:
 call (ie: a native "out string" becomes "string&"). MonoObject* types will need to be passed by reference (ie: MonoObject**); value types are still passed by
 reference as before.
 
@@ -503,7 +503,7 @@ There Be Dragons Here
 Watch out for these issues:
 
 1. The embedded Mono method invocation API identifies the "float" type as "single". That means that
-calls to invokeMethod: will need to specify "single" instead of "float" where
+calls to invokeMonoMethod: will need to specify "single" instead of "float" where
 appropriate.
 
 2. "long" and "int" are currently the same size on macOS. It is better to use the more explicit intXX_t types (int32_t, int64_t, etc) to specify the types for
