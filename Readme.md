@@ -33,9 +33,9 @@ TLDR
 Status
 ======
 
-Version: 2.0.0
+Version: 2.0.1
 
-**Accomplished Project Goals**
+**Capabilities**
 
 1. Obj-C code generation based on binary .NET assembly reflection.
 1. 64 bit ARC support linking to standard Mono OS X release v4.4.0 and above.
