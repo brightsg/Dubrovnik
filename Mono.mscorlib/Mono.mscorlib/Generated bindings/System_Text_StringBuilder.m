@@ -191,12 +191,6 @@
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Text_StringBuilder *)append_withValueBool:(BOOL)p1
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"Append(bool)" withNumArgs:1, &p1];
-	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
-}
-
 - (System_Text_StringBuilder *)append_withValueSbyte:(int8_t)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Append(sbyte)" withNumArgs:1, &p1];
@@ -283,6 +277,12 @@
 
 /* Skipped method : System.Text.StringBuilder Append(System.Char* value, System.Int32 valueCount) */
 
+- (System_Text_StringBuilder *)append_withValueBool:(BOOL)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Append(bool)" withNumArgs:1, &p1];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
+
 - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"AppendFormat(string,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
@@ -301,17 +301,17 @@
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 args:(System_Array *)p2
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"AppendFormat(string,object[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
-	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
-}
-
 /* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0) */
 
 /* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
 
 /* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
+
+- (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 args:(System_Array *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"AppendFormat(string,object[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
 
 /* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object[] args) */
 
@@ -359,12 +359,6 @@
 - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueString:(NSString *)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Insert(int,string)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
-	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
-}
-
-- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueBool:(BOOL)p2
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"Insert(int,bool)" withNumArgs:2, &p1, &p2];
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 
@@ -455,6 +449,12 @@
 - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueObject:(id <DBMonoObject>)p2
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Insert(int,object)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
+	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueBool:(BOOL)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Insert(int,bool)" withNumArgs:2, &p1, &p2];
 	return [System_Text_StringBuilder bestObjectWithMonoObject:monoObject];
 }
 

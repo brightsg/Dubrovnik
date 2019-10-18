@@ -163,15 +163,15 @@
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (System_Array *)getAccessors_withNonPublic:(BOOL)p1
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"GetAccessors(bool)" withNumArgs:1, &p1];
-	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
-}
-
 - (System_Array *)getAccessors
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetAccessors()" withNumArgs:0];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
+
+- (System_Array *)getAccessors_withNonPublic:(BOOL)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetAccessors(bool)" withNumArgs:1, &p1];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
@@ -181,15 +181,15 @@
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Reflection_MethodInfo *)getGetMethod_withNonPublic:(BOOL)p1
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"GetGetMethod(bool)" withNumArgs:1, &p1];
-	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
-}
-
 - (System_Reflection_MethodInfo *)getGetMethod
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetGetMethod()" withNumArgs:0];
+	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Reflection_MethodInfo *)getGetMethod_withNonPublic:(BOOL)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetGetMethod(bool)" withNumArgs:1, &p1];
 	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 }
 
@@ -219,15 +219,15 @@
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-- (System_Reflection_MethodInfo *)getSetMethod_withNonPublic:(BOOL)p1
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"GetSetMethod(bool)" withNumArgs:1, &p1];
-	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
-}
-
 - (System_Reflection_MethodInfo *)getSetMethod
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetSetMethod()" withNumArgs:0];
+	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Reflection_MethodInfo *)getSetMethod_withNonPublic:(BOOL)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetSetMethod(bool)" withNumArgs:1, &p1];
 	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 }
 
@@ -257,8 +257,6 @@
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-/* Skipped method : System.Void SetValue(System.Object obj, System.Object value, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) */
-
 - (void)setValue_withObj:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2
 {
 	[self invokeMonoMethod:"SetValue(object,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
@@ -268,6 +266,8 @@
 {
 	[self invokeMonoMethod:"SetValue(object,object,object[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 }
+
+/* Skipped method : System.Void SetValue(System.Object obj, System.Object value, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) */
 
 #pragma mark -
 #pragma mark Teardown

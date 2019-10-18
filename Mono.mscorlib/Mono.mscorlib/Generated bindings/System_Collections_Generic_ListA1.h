@@ -279,21 +279,6 @@
    CopyTo
 
  Params
-   T[]
-
- Return
-   System.Void
- @/textblock
-*/
-- (void)copyTo_withArray:(System_Array *)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   CopyTo
-
- Params
    System.Int32
    T[]
    System.Int32
@@ -320,6 +305,21 @@
  @/textblock
 */
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
+
+ Params
+   T[]
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withArray:(System_Array *)p1;
 
 /**
  Managed method.

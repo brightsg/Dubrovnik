@@ -2015,11 +2015,11 @@
       </Property>
       <Constructor>
         <Parameter Name="argCount" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="argNames" Type="System.Collections.Generic.IEnumerable`1&lt;System.String&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="argNames" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
       </Constructor>
       <Constructor>
         <Parameter Name="argCount" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="argNames" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
+        <Parameter Name="argNames" Type="System.Collections.Generic.IEnumerable`1&lt;System.String&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Constructor>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="obj" Type="System.Object" />
@@ -2174,10 +2174,10 @@
         <Parameter Name="args" Type="System.Dynamic.DynamicMetaObject[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Dynamic.DynamicMetaObject" />
       </Method>
       <Method Name="Defer" Type="System.Dynamic.DynamicMetaObject" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="target" Type="System.Dynamic.DynamicMetaObject" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="args" Type="System.Dynamic.DynamicMetaObject[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Dynamic.DynamicMetaObject" />
       </Method>
       <Method Name="Defer" Type="System.Dynamic.DynamicMetaObject" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="target" Type="System.Dynamic.DynamicMetaObject" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="args" Type="System.Dynamic.DynamicMetaObject[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Dynamic.DynamicMetaObject" />
       </Method>
       <Method Name="GetUpdateExpression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object">
@@ -3044,33 +3044,33 @@
       <Method Name="Average" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Int32&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
+      <Method Name="Average" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Int64&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Average" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Single&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Average" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Double&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Average" Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Decimal&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
       <Method Name="Average" Type="System.Nullable`1&lt;System.Double&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Int32&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Average" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Int64&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="Average" Type="System.Nullable`1&lt;System.Double&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Int64&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
-      <Method Name="Average" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Single&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
       <Method Name="Average" Type="System.Nullable`1&lt;System.Single&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Single&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
-      <Method Name="Average" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Double&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
       <Method Name="Average" Type="System.Nullable`1&lt;System.Double&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Double&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Average" Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Decimal&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="Average" Type="System.Nullable`1&lt;System.Decimal&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -3398,33 +3398,33 @@
       <Method Name="Max" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Int32&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
+      <Method Name="Max" Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Int64&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Max" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Double&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Max" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Single&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Max" Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Decimal&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
       <Method Name="Max" Type="System.Nullable`1&lt;System.Int32&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Int32&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Max" Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Int64&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="Max" Type="System.Nullable`1&lt;System.Int64&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Int64&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
-      <Method Name="Max" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Double&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
       <Method Name="Max" Type="System.Nullable`1&lt;System.Double&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Double&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
-      <Method Name="Max" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Single&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
       <Method Name="Max" Type="System.Nullable`1&lt;System.Single&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Single&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Max" Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Decimal&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="Max" Type="System.Nullable`1&lt;System.Decimal&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -3498,33 +3498,33 @@
       <Method Name="Min" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Int32&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
+      <Method Name="Min" Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Int64&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Min" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Single&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Min" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Double&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Min" Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Decimal&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
       <Method Name="Min" Type="System.Nullable`1&lt;System.Int32&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Int32&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Min" Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Int64&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="Min" Type="System.Nullable`1&lt;System.Int64&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Int64&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
-      <Method Name="Min" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Single&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
       <Method Name="Min" Type="System.Nullable`1&lt;System.Single&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Single&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
-      <Method Name="Min" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Double&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
       <Method Name="Min" Type="System.Nullable`1&lt;System.Double&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Double&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Min" Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Decimal&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="Min" Type="System.Nullable`1&lt;System.Decimal&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -3748,33 +3748,33 @@
       <Method Name="Sum" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Int32&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
+      <Method Name="Sum" Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Int64&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Sum" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Single&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Sum" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Double&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Sum" Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Decimal&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
       <Method Name="Sum" Type="System.Nullable`1&lt;System.Int32&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Int32&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Sum" Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Int64&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="Sum" Type="System.Nullable`1&lt;System.Int64&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Int64&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
-      <Method Name="Sum" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Single&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
       <Method Name="Sum" Type="System.Nullable`1&lt;System.Single&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Single&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
-      <Method Name="Sum" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Double&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
       <Method Name="Sum" Type="System.Nullable`1&lt;System.Double&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Nullable`1&lt;System.Double&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Sum" Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Decimal&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="Sum" Type="System.Nullable`1&lt;System.Decimal&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -5399,13 +5399,13 @@
         <Parameter Name="source" Type="System.Linq.IQueryable`1&lt;System.Linq.Queryable+TSource&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
         <Parameter Name="predicate" Type="System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;System.Linq.Queryable+TSource, System.Boolean&gt;&gt;" BaseName="LambdaExpression" BaseType="System.Linq.Expressions.LambdaExpression" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
       </Method>
+      <Method Name="AsQueryable" Type="System.Linq.IQueryable" IsInterface="True" IsStatic="True">
+        <Parameter Name="source" Type="System.Collections.IEnumerable" IsInterface="True" />
+      </Method>
       <Method Name="AsQueryable" Type="System.Linq.IQueryable`1&lt;System.Linq.Queryable+TElement&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
         <GenericTypeArgument Type="System.Linq.Queryable+TElement" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
         <GenericMethodDefinitionGenericTypeArgument Type="System.Linq.Queryable+TElement" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
         <Parameter Name="source" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Queryable+TElement&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
-      </Method>
-      <Method Name="AsQueryable" Type="System.Linq.IQueryable" IsInterface="True" IsStatic="True">
-        <Parameter Name="source" Type="System.Collections.IEnumerable" IsInterface="True" />
       </Method>
       <Method Name="Average" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="source" Type="System.Linq.IQueryable`1&lt;System.Int32&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
@@ -6349,13 +6349,13 @@
         <Parameter Name="array" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="indexes" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.Expression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
-      <Method Name="ArrayIndex" Type="System.Linq.Expressions.BinaryExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="array" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="index" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-      </Method>
       <Method Name="ArrayIndex" Type="System.Linq.Expressions.MethodCallExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="array" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="indexes" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
+      </Method>
+      <Method Name="ArrayIndex" Type="System.Linq.Expressions.BinaryExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="array" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="index" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="ArrayIndex" Type="System.Linq.Expressions.MethodCallExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="array" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
@@ -6369,13 +6369,33 @@
         <Parameter Name="right" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Bind" Type="System.Linq.Expressions.MemberAssignment" BaseName="MemberBinding" BaseType="System.Linq.Expressions.MemberBinding" IsStatic="True">
-        <Parameter Name="member" Type="System.Reflection.MemberInfo" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Bind" Type="System.Linq.Expressions.MemberAssignment" BaseName="MemberBinding" BaseType="System.Linq.Expressions.MemberBinding" IsStatic="True">
         <Parameter Name="propertyAccessor" Type="System.Reflection.MethodInfo" BaseName="MethodBase" BaseType="System.Reflection.MethodBase" />
         <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
       </Method>
+      <Method Name="Bind" Type="System.Linq.Expressions.MemberAssignment" BaseName="MemberBinding" BaseType="System.Linq.Expressions.MemberBinding" IsStatic="True">
+        <Parameter Name="member" Type="System.Reflection.MemberInfo" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Block" Type="System.Linq.Expressions.BlockExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="expressions" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.Expression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Block" Type="System.Linq.Expressions.BlockExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="expressions" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
+      </Method>
+      <Method Name="Block" Type="System.Linq.Expressions.BlockExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="expressions" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.Expression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Block" Type="System.Linq.Expressions.BlockExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="variables" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="expressions" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
+      </Method>
+      <Method Name="Block" Type="System.Linq.Expressions.BlockExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="variables" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="expressions" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
+      </Method>
       <Method Name="Block" Type="System.Linq.Expressions.BlockExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="arg0" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="arg1" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
@@ -6399,26 +6419,6 @@
         <Parameter Name="arg4" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Block" Type="System.Linq.Expressions.BlockExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="expressions" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
-      </Method>
-      <Method Name="Block" Type="System.Linq.Expressions.BlockExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="expressions" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.Expression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Block" Type="System.Linq.Expressions.BlockExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="expressions" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
-      </Method>
-      <Method Name="Block" Type="System.Linq.Expressions.BlockExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="expressions" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.Expression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Block" Type="System.Linq.Expressions.BlockExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="variables" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-        <Parameter Name="expressions" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
-      </Method>
-      <Method Name="Block" Type="System.Linq.Expressions.BlockExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="variables" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
         <Parameter Name="expressions" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
       </Method>
       <Method Name="Block" Type="System.Linq.Expressions.BlockExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
@@ -6508,6 +6508,11 @@
       </Method>
       <Method Name="Call" Type="System.Linq.Expressions.MethodCallExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="instance" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="method" Type="System.Reflection.MethodInfo" BaseName="MethodBase" BaseType="System.Reflection.MethodBase" />
+        <Parameter Name="arguments" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.Expression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Call" Type="System.Linq.Expressions.MethodCallExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="instance" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="methodName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="typeArguments" Type="System.Type[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Type" />
         <Parameter Name="arguments" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
@@ -6517,11 +6522,6 @@
         <Parameter Name="methodName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="typeArguments" Type="System.Type[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Type" />
         <Parameter Name="arguments" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
-      </Method>
-      <Method Name="Call" Type="System.Linq.Expressions.MethodCallExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="instance" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="method" Type="System.Reflection.MethodInfo" BaseName="MethodBase" BaseType="System.Reflection.MethodBase" />
-        <Parameter Name="arguments" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.Expression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="Catch" Type="System.Linq.Expressions.CatchBlock" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
@@ -6718,16 +6718,16 @@
       </Method>
       <Method Name="Field" Type="System.Linq.Expressions.MemberExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="field" Type="System.Reflection.FieldInfo" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-      </Method>
-      <Method Name="Field" Type="System.Linq.Expressions.MemberExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="fieldName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Field" Type="System.Linq.Expressions.MemberExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="fieldName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Field" Type="System.Linq.Expressions.MemberExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="fieldName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Field" Type="System.Linq.Expressions.MemberExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="field" Type="System.Reflection.FieldInfo" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
       </Method>
       <Method Name="GetActionType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" IsStatic="True">
         <Parameter Name="typeArgs" Type="System.Type[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Type" />
@@ -6815,10 +6815,6 @@
       <Method Name="Label" Type="System.Linq.Expressions.LabelExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="target" Type="System.Linq.Expressions.LabelTarget" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="Label" Type="System.Linq.Expressions.LabelExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="target" Type="System.Linq.Expressions.LabelTarget" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="defaultValue" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-      </Method>
       <Method Name="Label" Type="System.Linq.Expressions.LabelTarget" BaseName="Object" BaseType="System.Object" IsStatic="True" />
       <Method Name="Label" Type="System.Linq.Expressions.LabelTarget" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -6830,46 +6826,9 @@
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="Lambda" Type="System.Linq.Expressions.Expression`1&lt;System.Linq.Expressions.Expression+TDelegate&gt;" BaseName="LambdaExpression" BaseType="System.Linq.Expressions.LambdaExpression" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
-        <GenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
-        <GenericMethodDefinitionGenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
-        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="parameters" Type="System.Linq.Expressions.ParameterExpression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.ParameterExpression" />
-      </Method>
-      <Method Name="Lambda" Type="System.Linq.Expressions.Expression`1&lt;System.Linq.Expressions.Expression+TDelegate&gt;" BaseName="LambdaExpression" BaseType="System.Linq.Expressions.LambdaExpression" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
-        <GenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
-        <GenericMethodDefinitionGenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
-        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="tailCall" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="parameters" Type="System.Linq.Expressions.ParameterExpression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.ParameterExpression" />
-      </Method>
-      <Method Name="Lambda" Type="System.Linq.Expressions.Expression`1&lt;System.Linq.Expressions.Expression+TDelegate&gt;" BaseName="LambdaExpression" BaseType="System.Linq.Expressions.LambdaExpression" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
-        <GenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
-        <GenericMethodDefinitionGenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
-        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="parameters" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Lambda" Type="System.Linq.Expressions.Expression`1&lt;System.Linq.Expressions.Expression+TDelegate&gt;" BaseName="LambdaExpression" BaseType="System.Linq.Expressions.LambdaExpression" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
-        <GenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
-        <GenericMethodDefinitionGenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
-        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="tailCall" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="parameters" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Lambda" Type="System.Linq.Expressions.Expression`1&lt;System.Linq.Expressions.Expression+TDelegate&gt;" BaseName="LambdaExpression" BaseType="System.Linq.Expressions.LambdaExpression" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
-        <GenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
-        <GenericMethodDefinitionGenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
-        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="parameters" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Lambda" Type="System.Linq.Expressions.Expression`1&lt;System.Linq.Expressions.Expression+TDelegate&gt;" BaseName="LambdaExpression" BaseType="System.Linq.Expressions.LambdaExpression" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
-        <GenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
-        <GenericMethodDefinitionGenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
-        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="tailCall" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="parameters" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      <Method Name="Label" Type="System.Linq.Expressions.LabelExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="target" Type="System.Linq.Expressions.LabelTarget" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="defaultValue" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Lambda" Type="System.Linq.Expressions.LambdaExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
@@ -6917,19 +6876,60 @@
         <Parameter Name="parameters" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="Lambda" Type="System.Linq.Expressions.LambdaExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="delegateType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="parameters" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Lambda" Type="System.Linq.Expressions.LambdaExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="delegateType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="tailCall" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="parameters" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Lambda" Type="System.Linq.Expressions.Expression`1&lt;System.Linq.Expressions.Expression+TDelegate&gt;" BaseName="LambdaExpression" BaseType="System.Linq.Expressions.LambdaExpression" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
+        <GenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <GenericMethodDefinitionGenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="parameters" Type="System.Linq.Expressions.ParameterExpression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.ParameterExpression" />
+      </Method>
+      <Method Name="Lambda" Type="System.Linq.Expressions.Expression`1&lt;System.Linq.Expressions.Expression+TDelegate&gt;" BaseName="LambdaExpression" BaseType="System.Linq.Expressions.LambdaExpression" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
+        <GenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <GenericMethodDefinitionGenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="tailCall" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="parameters" Type="System.Linq.Expressions.ParameterExpression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.ParameterExpression" />
+      </Method>
+      <Method Name="Lambda" Type="System.Linq.Expressions.Expression`1&lt;System.Linq.Expressions.Expression+TDelegate&gt;" BaseName="LambdaExpression" BaseType="System.Linq.Expressions.LambdaExpression" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
+        <GenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <GenericMethodDefinitionGenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="parameters" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Lambda" Type="System.Linq.Expressions.Expression`1&lt;System.Linq.Expressions.Expression+TDelegate&gt;" BaseName="LambdaExpression" BaseType="System.Linq.Expressions.LambdaExpression" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
+        <GenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <GenericMethodDefinitionGenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="tailCall" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="parameters" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Lambda" Type="System.Linq.Expressions.Expression`1&lt;System.Linq.Expressions.Expression+TDelegate&gt;" BaseName="LambdaExpression" BaseType="System.Linq.Expressions.LambdaExpression" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
+        <GenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <GenericMethodDefinitionGenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="parameters" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Lambda" Type="System.Linq.Expressions.Expression`1&lt;System.Linq.Expressions.Expression+TDelegate&gt;" BaseName="LambdaExpression" BaseType="System.Linq.Expressions.LambdaExpression" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
+        <GenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <GenericMethodDefinitionGenericTypeArgument Type="System.Linq.Expressions.Expression+TDelegate" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
         <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="tailCall" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="parameters" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="Lambda" Type="System.Linq.Expressions.LambdaExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="delegateType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="parameters" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ParameterExpression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Lambda" Type="System.Linq.Expressions.LambdaExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="delegateType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="tailCall" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -7001,17 +7001,8 @@
       </Method>
       <Method Name="ListInit" Type="System.Linq.Expressions.ListInitExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="newExpression" Type="System.Linq.Expressions.NewExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" />
-        <Parameter Name="initializers" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.Expression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="ListInit" Type="System.Linq.Expressions.ListInitExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="newExpression" Type="System.Linq.Expressions.NewExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" />
         <Parameter Name="addMethod" Type="System.Reflection.MethodInfo" BaseName="MethodBase" BaseType="System.Reflection.MethodBase" />
         <Parameter Name="initializers" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
-      </Method>
-      <Method Name="ListInit" Type="System.Linq.Expressions.ListInitExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="newExpression" Type="System.Linq.Expressions.NewExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" />
-        <Parameter Name="addMethod" Type="System.Reflection.MethodInfo" BaseName="MethodBase" BaseType="System.Reflection.MethodBase" />
-        <Parameter Name="initializers" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.Expression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="ListInit" Type="System.Linq.Expressions.ListInitExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="newExpression" Type="System.Linq.Expressions.NewExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" />
@@ -7020,6 +7011,15 @@
       <Method Name="ListInit" Type="System.Linq.Expressions.ListInitExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="newExpression" Type="System.Linq.Expressions.NewExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" />
         <Parameter Name="initializers" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.ElementInit&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="ListInit" Type="System.Linq.Expressions.ListInitExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="newExpression" Type="System.Linq.Expressions.NewExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" />
+        <Parameter Name="initializers" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.Expression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="ListInit" Type="System.Linq.Expressions.ListInitExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="newExpression" Type="System.Linq.Expressions.NewExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" />
+        <Parameter Name="addMethod" Type="System.Reflection.MethodInfo" BaseName="MethodBase" BaseType="System.Reflection.MethodBase" />
+        <Parameter Name="initializers" Type="System.Collections.Generic.IEnumerable`1&lt;System.Linq.Expressions.Expression&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="Loop" Type="System.Linq.Expressions.LoopExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="body" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
@@ -7396,11 +7396,6 @@
       </Method>
       <Method Name="Property" Type="System.Linq.Expressions.IndexExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="instance" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="propertyName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="arguments" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
-      </Method>
-      <Method Name="Property" Type="System.Linq.Expressions.IndexExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="instance" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="indexer" Type="System.Reflection.PropertyInfo" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="arguments" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
       </Method>
@@ -7411,20 +7406,25 @@
       </Method>
       <Method Name="Property" Type="System.Linq.Expressions.MemberExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="propertyName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Property" Type="System.Linq.Expressions.MemberExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
-        <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="propertyName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Property" Type="System.Linq.Expressions.MemberExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="property" Type="System.Reflection.PropertyInfo" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="propertyAccessor" Type="System.Reflection.MethodInfo" BaseName="MethodBase" BaseType="System.Reflection.MethodBase" />
+      </Method>
+      <Method Name="Property" Type="System.Linq.Expressions.IndexExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="instance" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="propertyName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="arguments" Type="System.Linq.Expressions.Expression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Linq.Expressions.Expression" />
       </Method>
       <Method Name="Property" Type="System.Linq.Expressions.MemberExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="propertyAccessor" Type="System.Reflection.MethodInfo" BaseName="MethodBase" BaseType="System.Reflection.MethodBase" />
+        <Parameter Name="propertyName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Property" Type="System.Linq.Expressions.MemberExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
+        <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="property" Type="System.Reflection.PropertyInfo" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
       </Method>
       <Method Name="PropertyOrField" Type="System.Linq.Expressions.MemberExpression" BaseName="Expression" BaseType="System.Linq.Expressions.Expression" IsStatic="True">
         <Parameter Name="expression" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
@@ -7773,12 +7773,12 @@
       <Field Name="Unbox" Type="System.Linq.Expressions.ExpressionType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="62" />
     </Enumeration>
     <Class Name="ExpressionVisitor" Type="System.Linq.Expressions.ExpressionVisitor" BaseName="Object" BaseType="System.Object">
-      <Method Name="Visit" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="node" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
-      </Method>
       <Method Name="Visit" Type="System.Collections.ObjectModel.ReadOnlyCollection`1&lt;System.Linq.Expressions.Expression&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True">
         <GenericTypeArgument Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="nodes" Type="System.Collections.ObjectModel.ReadOnlyCollection`1&lt;System.Linq.Expressions.Expression&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Visit" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="node" Type="System.Linq.Expressions.Expression" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Visit" Type="System.Collections.ObjectModel.ReadOnlyCollection`1&lt;System.Linq.Expressions.ExpressionVisitor+T&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
         <GenericTypeArgument Type="System.Linq.Expressions.ExpressionVisitor+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />

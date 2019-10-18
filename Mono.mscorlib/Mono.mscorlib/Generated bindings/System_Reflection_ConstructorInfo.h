@@ -109,8 +109,6 @@
 */
 - (int32_t)getHashCode;
 
-/* Skipped method : System.Object Invoke(System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
-
 /**
  Managed method.
  @textblock
@@ -125,6 +123,8 @@
  @/textblock
 */
 - (id <DBMonoObject>)invoke_withParameters:(System_Array *)p1;
+
+/* Skipped method : System.Object Invoke(System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
 
 /**
  Managed method.

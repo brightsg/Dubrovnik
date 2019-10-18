@@ -158,11 +158,6 @@
 
 /* Skipped method : System.Collections.Generic.List`1<System.Collections.Generic.List`1+TOutput> ConvertAll(System.Converter`2<System.Collections.Generic.List`1+T, System.Collections.Generic.List`1+TOutput> converter) */
 
-- (void)copyTo_withArray:(System_Array *)p1
-{
-	[self invokeMonoMethod:"CopyTo(T[])" withNumArgs:1, [p1 monoRTInvokeObject]];
-}
-
 - (void)copyTo_withIndex:(int32_t)p1 array:(System_Array *)p2 arrayIndex:(int32_t)p3 count:(int32_t)p4
 {
 	[self invokeMonoMethod:"CopyTo(int,T[],int,int)" withNumArgs:4, &p1, [p2 monoRTInvokeObject], &p3, &p4];
@@ -171,6 +166,11 @@
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2
 {
 	[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
+}
+
+- (void)copyTo_withArray:(System_Array *)p1
+{
+	[self invokeMonoMethod:"CopyTo(T[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (BOOL)exists_withMatch:(System_PredicateA1 *)p1

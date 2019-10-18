@@ -536,6 +536,37 @@
    Run
 
  Params
+   System.Func`1<System.Threading.Tasks.Task>
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
++ (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Run
+
+ Params
+   System.Func`1<System.Threading.Tasks.Task>
+   System.Threading.CancellationToken
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
++ (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Run
+
+ Params
    System.Func`1<System.Threading.Tasks.Task+TResult>
 
  Generics
@@ -565,37 +596,6 @@
  @/textblock
 */
 + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFTTTask__TResult:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2 typeParameter:(id)typeParameter;
-
-/**
- Managed method.
- @textblock
- Name
-   Run
-
- Params
-   System.Func`1<System.Threading.Tasks.Task>
-
- Return
-   System.Threading.Tasks.Task
- @/textblock
-*/
-+ (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   Run
-
- Params
-   System.Func`1<System.Threading.Tasks.Task>
-   System.Threading.CancellationToken
-
- Return
-   System.Threading.Tasks.Task
- @/textblock
-*/
-+ (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2;
 
 /**
  Managed method.

@@ -1587,6 +1587,7 @@
 		<string>System.CrossAppDomainDelegate</string>
 		<string>System.DateTime</string>
 		<string>System.DateTimeKind</string>
+		<string>System.DateTimeOffset</string>
 		<string>System.DayOfWeek</string>
 		<string>System.DBNull</string>
 		<string>System.Decimal</string>

@@ -342,13 +342,13 @@
    ToString
 
  Params
-   (none)
+   System.String
 
  Return
    System.String
  @/textblock
 */
-- (NSString *)toString;
+- (NSString *)toString_withFormat:(NSString *)p1;
 
 /**
  Managed method.
@@ -357,13 +357,13 @@
    ToString
 
  Params
-   System.String
+   (none)
 
  Return
    System.String
  @/textblock
 */
-- (NSString *)toString_withFormat:(NSString *)p1;
+- (NSString *)toString;
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 

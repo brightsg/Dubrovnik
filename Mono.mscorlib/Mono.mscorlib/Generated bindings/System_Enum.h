@@ -403,6 +403,8 @@
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
+/* Skipped method : System.String ToString(System.IFormatProvider provider) */
+
 /**
  Managed method.
  @textblock
@@ -417,8 +419,6 @@
  @/textblock
 */
 - (NSString *)toString_withFormat:(NSString *)p1;
-
-/* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
 /**
  Managed method.

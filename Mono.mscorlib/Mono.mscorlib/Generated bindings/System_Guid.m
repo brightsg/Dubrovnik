@@ -145,15 +145,15 @@ static System_Guid * m_empty;
 	return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-- (NSString *)toString
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
-	return [NSString stringWithMonoString:DB_STRING(monoObject)];
-}
-
 - (NSString *)toString_withFormat:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
+- (NSString *)toString
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString()" withNumArgs:0];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 

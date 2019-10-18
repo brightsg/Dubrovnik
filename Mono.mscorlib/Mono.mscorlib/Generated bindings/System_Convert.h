@@ -2989,23 +2989,6 @@
    ToString
 
  Params
-   System.Boolean
-
- Return
-   System.String
- @/textblock
-*/
-+ (NSString *)toString_withValueBool:(BOOL)p1;
-
-/* Skipped method : System.String ToString(System.Boolean value, System.IFormatProvider provider) */
-
-/**
- Managed method.
- @textblock
- Name
-   ToString
-
- Params
    System.Char
 
  Return
@@ -3300,6 +3283,23 @@
  @/textblock
 */
 + (NSString *)toString_withValueLong:(int64_t)p1 toBaseInt:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ToString
+
+ Params
+   System.Boolean
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)toString_withValueBool:(BOOL)p1;
+
+/* Skipped method : System.String ToString(System.Boolean value, System.IFormatProvider provider) */
 
 /**
  Managed method.

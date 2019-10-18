@@ -56,13 +56,13 @@
 
  Params
    System.Int32
-   System.Collections.Generic.IEnumerable`1<System.String>
+   System.String[]
 
  Return
    System.Dynamic.CallInfo
  @/textblock
 */
-+ (System_Dynamic_CallInfo *)new_withArgCountInt:(int32_t)p1 argNamesSCGIEnumerableA1string:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2;
++ (System_Dynamic_CallInfo *)new_withArgCountInt:(int32_t)p1 argNamesStringArray:(System_Array *)p2;
 
 /**
  Managed method.
@@ -72,13 +72,13 @@
 
  Params
    System.Int32
-   System.String[]
+   System.Collections.Generic.IEnumerable`1<System.String>
 
  Return
    System.Dynamic.CallInfo
  @/textblock
 */
-+ (System_Dynamic_CallInfo *)new_withArgCountInt:(int32_t)p1 argNamesStringArray:(System_Array *)p2;
++ (System_Dynamic_CallInfo *)new_withArgCountInt:(int32_t)p1 argNamesSCGIEnumerableA1string:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2;
 
 #pragma mark -
 #pragma mark Properties

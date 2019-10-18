@@ -356,8 +356,6 @@
 
 /* Skipped method : System.Reflection.ParameterInfo[] GetParameters() */
 
-/* Skipped method : System.Object Invoke(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
-
 /**
  Managed method.
  @textblock
@@ -373,6 +371,8 @@
  @/textblock
 */
 - (id <DBMonoObject>)invoke_withObj:(id <DBMonoObject>)p1 parameters:(System_Array *)p2;
+
+/* Skipped method : System.Object Invoke(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
 
 /**
  Managed method.

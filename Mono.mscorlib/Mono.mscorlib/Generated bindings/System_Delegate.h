@@ -260,23 +260,6 @@
    System.Type
    System.Object
    System.Reflection.MethodInfo
-
- Return
-   System.Delegate
- @/textblock
-*/
-+ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(id <DBMonoObject>)p2 method:(System_Reflection_MethodInfo *)p3;
-
-/**
- Managed method.
- @textblock
- Name
-   CreateDelegate
-
- Params
-   System.Type
-   System.Object
-   System.Reflection.MethodInfo
    System.Boolean
 
  Return
@@ -300,6 +283,23 @@
  @/textblock
 */
 + (System_Delegate *)createDelegate_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateDelegate
+
+ Params
+   System.Type
+   System.Object
+   System.Reflection.MethodInfo
+
+ Return
+   System.Delegate
+ @/textblock
+*/
++ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(id <DBMonoObject>)p2 method:(System_Reflection_MethodInfo *)p3;
 
 /**
  Managed method.

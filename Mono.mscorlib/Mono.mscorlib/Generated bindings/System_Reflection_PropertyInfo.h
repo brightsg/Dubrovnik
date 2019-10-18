@@ -150,13 +150,13 @@
    GetAccessors
 
  Params
-   System.Boolean
+   (none)
 
  Return
    System.Reflection.MethodInfo[]
  @/textblock
 */
-- (System_Array *)getAccessors_withNonPublic:(BOOL)p1;
+- (System_Array *)getAccessors;
 
 /**
  Managed method.
@@ -165,13 +165,13 @@
    GetAccessors
 
  Params
-   (none)
+   System.Boolean
 
  Return
    System.Reflection.MethodInfo[]
  @/textblock
 */
-- (System_Array *)getAccessors;
+- (System_Array *)getAccessors_withNonPublic:(BOOL)p1;
 
 /**
  Managed method.
@@ -195,13 +195,13 @@
    GetGetMethod
 
  Params
-   System.Boolean
+   (none)
 
  Return
    System.Reflection.MethodInfo
  @/textblock
 */
-- (System_Reflection_MethodInfo *)getGetMethod_withNonPublic:(BOOL)p1;
+- (System_Reflection_MethodInfo *)getGetMethod;
 
 /**
  Managed method.
@@ -210,13 +210,13 @@
    GetGetMethod
 
  Params
-   (none)
+   System.Boolean
 
  Return
    System.Reflection.MethodInfo
  @/textblock
 */
-- (System_Reflection_MethodInfo *)getGetMethod;
+- (System_Reflection_MethodInfo *)getGetMethod_withNonPublic:(BOOL)p1;
 
 /**
  Managed method.
@@ -287,13 +287,13 @@
    GetSetMethod
 
  Params
-   System.Boolean
+   (none)
 
  Return
    System.Reflection.MethodInfo
  @/textblock
 */
-- (System_Reflection_MethodInfo *)getSetMethod_withNonPublic:(BOOL)p1;
+- (System_Reflection_MethodInfo *)getSetMethod;
 
 /**
  Managed method.
@@ -302,13 +302,13 @@
    GetSetMethod
 
  Params
-   (none)
+   System.Boolean
 
  Return
    System.Reflection.MethodInfo
  @/textblock
 */
-- (System_Reflection_MethodInfo *)getSetMethod;
+- (System_Reflection_MethodInfo *)getSetMethod_withNonPublic:(BOOL)p1;
 
 /**
  Managed method.
@@ -375,8 +375,6 @@
 */
 + (BOOL)op_Inequality_withLeft:(System_Reflection_PropertyInfo *)p1 right:(System_Reflection_PropertyInfo *)p2;
 
-/* Skipped method : System.Void SetValue(System.Object obj, System.Object value, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) */
-
 /**
  Managed method.
  @textblock
@@ -409,5 +407,7 @@
  @/textblock
 */
 - (void)setValue_withObj:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2 index:(System_Array *)p3;
+
+/* Skipped method : System.Void SetValue(System.Object obj, System.Object value, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) */
 @end
 //--Dubrovnik.CodeGenerator

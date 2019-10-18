@@ -198,18 +198,6 @@ static int32_t m_cacheSize;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-+ (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsMatch(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
-	return DB_UNBOX_BOOLEAN(monoObject);
-}
-
-+ (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(enumSystem_Text_RegularExpressions_RegexOptions)p3
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsMatch(string,string,System.Text.RegularExpressions.RegexOptions)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &p3];
-	return DB_UNBOX_BOOLEAN(monoObject);
-}
-
 + (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(enumSystem_Text_RegularExpressions_RegexOptions)p3 matchTimeout:(System_TimeSpan *)p4
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"IsMatch(string,string,System.Text.RegularExpressions.RegexOptions,System.TimeSpan)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &p3, [p4 monoRTInvokeArg]];
@@ -228,7 +216,17 @@ static int32_t m_cacheSize;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-/* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.String pattern) */
++ (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsMatch(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
+
++ (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(enumSystem_Text_RegularExpressions_RegexOptions)p3
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsMatch(string,string,System.Text.RegularExpressions.RegexOptions)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &p3];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
 /* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
 
@@ -240,7 +238,7 @@ static int32_t m_cacheSize;
 
 /* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.Int32 beginning, System.Int32 length) */
 
-/* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input, System.String pattern) */
+/* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.String pattern) */
 
 /* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
 
@@ -249,6 +247,8 @@ static int32_t m_cacheSize;
 /* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input) */
 
 /* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input, System.Int32 startat) */
+
+/* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input, System.String pattern) */
 
 + (NSString *)replace_withInput:(NSString *)p1 pattern:(NSString *)p2 replacement:(NSString *)p3
 {

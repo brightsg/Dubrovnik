@@ -218,6 +218,23 @@
 
  Params
    <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
+   <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
+   System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
+
+ Return
+   <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
+ @/textblock
+*/
+- (id <DBMonoObject>)addOrUpdate_withKey:(id <DBMonoObject>)p1 addValue:(id <DBMonoObject>)p2 updateValueFactory:(System_FuncA3 *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AddOrUpdate
+
+ Params
+   <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
    System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TArg, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
    System.Func`4<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue, System.Collections.Concurrent.ConcurrentDictionary`2+TArg, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
    <System.Collections.Concurrent.ConcurrentDictionary`2+TArg>
@@ -230,23 +247,6 @@
  @/textblock
 */
 - (id <DBMonoObject>)addOrUpdate_withKey:(id <DBMonoObject>)p1 addValueFactory:(System_FuncA3 *)p2 updateValueFactory:(System_FuncA4 *)p3 factoryArgument:(id <DBMonoObject>)p4 typeParameter:(id)typeParameter;
-
-/**
- Managed method.
- @textblock
- Name
-   AddOrUpdate
-
- Params
-   <System.Collections.Concurrent.ConcurrentDictionary`2+TKey>
-   <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
-   System.Func`3<System.Collections.Concurrent.ConcurrentDictionary`2+TKey, System.Collections.Concurrent.ConcurrentDictionary`2+TValue, System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
-
- Return
-   <System.Collections.Concurrent.ConcurrentDictionary`2+TValue>
- @/textblock
-*/
-- (id <DBMonoObject>)addOrUpdate_withKey:(id <DBMonoObject>)p1 addValue:(id <DBMonoObject>)p2 updateValueFactory:(System_FuncA3 *)p3;
 
 /**
  Managed method.

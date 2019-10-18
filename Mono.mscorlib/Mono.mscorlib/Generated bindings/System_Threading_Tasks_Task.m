@@ -343,6 +343,18 @@ static System_NullableA1 * m_currentId;
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
++ (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Run(System.Func`1<System.Threading.Tasks.Task>)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+}
+
++ (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Run(System.Func`1<System.Threading.Tasks.Task>,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg]];
+	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
+}
+
 + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFTTTask__TResult:(System_FuncA1 *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Run(System.Func`1<System.Threading.Tasks.Task/TResult>)" typeParameters:typeParameter];
@@ -355,18 +367,6 @@ static System_NullableA1 * m_currentId;
 	DBManagedMethod *method = [self classMethodWithMonoName:"Run(System.Func`1<System.Threading.Tasks.Task/TResult>,System.Threading.CancellationToken)" typeParameters:typeParameter];
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg]];
 	return [System_Threading_Tasks_TaskA1 bestObjectWithMonoObject:monoObject];
-}
-
-+ (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Run(System.Func`1<System.Threading.Tasks.Task>)" withNumArgs:1, [p1 monoRTInvokeObject]];
-	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
-}
-
-+ (System_Threading_Tasks_Task *)run_withFunctionSFTTTask:(System_FuncA1 *)p1 cancellationTokenSTCancellationToken:(System_Threading_CancellationToken *)p2
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Run(System.Func`1<System.Threading.Tasks.Task>,System.Threading.CancellationToken)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg]];
-	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Threading_Tasks_TaskA1 *)run_withFunctionSFTTTTTTask__TResult:(System_FuncA1 *)p1 typeParameter:(id)typeParameter

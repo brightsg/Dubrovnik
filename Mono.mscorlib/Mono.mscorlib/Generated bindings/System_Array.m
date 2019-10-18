@@ -186,8 +186,6 @@
 
 /* Skipped method : System.Int32 BinarySearch(System.Array array, System.Object value, System.Collections.IComparer comparer) */
 
-/* Skipped method : System.Int32 BinarySearch(System.Array array, System.Int32 index, System.Int32 length, System.Object value, System.Collections.IComparer comparer) */
-
 + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 valueT:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"BinarySearch(T[],T)" typeParameters:typeParameter];
@@ -215,6 +213,8 @@
 	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:5, [p1 monoRTInvokeObject], &p2, &p3, [method monoRTInvokeArg:p4 typeParameterIndex:0], [p5 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
+
+/* Skipped method : System.Int32 BinarySearch(System.Array array, System.Int32 index, System.Int32 length, System.Object value, System.Collections.IComparer comparer) */
 
 + (void)clear_withArray:(System_Array *)p1 index:(int32_t)p2 length:(int32_t)p3
 {
@@ -270,12 +270,6 @@
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-+ (System_Array *)createInstance_withElementType:(System_Type *)p1 length1:(int32_t)p2 length2:(int32_t)p3
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
-	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
-}
-
 + (System_Array *)createInstance_withElementType:(System_Type *)p1 length1:(int32_t)p2 length2:(int32_t)p3 length3:(int32_t)p4
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int,int,int)" withNumArgs:4, [p1 monoRTInvokeObject], &p2, &p3, &p4];
@@ -297,6 +291,12 @@
 + (System_Array *)createInstance_withElementType:(System_Type *)p1 lengths:(System_Array *)p2 lowerBounds:(System_Array *)p3
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int[],int[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
+
++ (System_Array *)createInstance_withElementType:(System_Type *)p1 length1:(int32_t)p2 length2:(int32_t)p3
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
@@ -622,8 +622,6 @@
 
 /* Skipped method : System.Void Sort(System.Array array, System.Int32 index, System.Int32 length, System.Collections.IComparer comparer) */
 
-/* Skipped method : System.Void Sort(System.Array keys, System.Array items, System.Int32 index, System.Int32 length, System.Collections.IComparer comparer) */
-
 + (void)sort_withArrayTArray:(System_Array *)p1 typeParameter:(id)typeParameter
 {
 	DBManagedMethod *method = [self classMethodWithMonoName:"Sort(T[])" typeParameters:typeParameter];
@@ -673,6 +671,8 @@
 }
 
 /* Skipped method : System.Void Sort(T[] array, System.Comparison`1<System.Array+T> comparison) */
+
+/* Skipped method : System.Void Sort(System.Array keys, System.Array items, System.Int32 index, System.Int32 length, System.Collections.IComparer comparer) */
 
 + (BOOL)trueForAll_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter
 {

@@ -382,9 +382,6 @@
         <Parameter Name="s" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="value" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="value" Type="System.Char" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -415,24 +412,11 @@
         <Parameter Name="value" Type="System.UInt64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="value" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="value" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="value" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="value" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="value" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="format" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="value" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="dateTimeOption" Type="System.Xml.XmlDateTimeSerializationMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="value" Type="System.DateTimeOffset" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -443,6 +427,22 @@
       </Method>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="value" Type="System.Guid" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
+        <Parameter Name="value" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
+        <Parameter Name="value" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
+        <Parameter Name="value" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
+        <Parameter Name="value" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
+        <Parameter Name="value" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="dateTimeOption" Type="System.Xml.XmlDateTimeSerializationMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="ToTimeSpan" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="s" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -578,18 +578,18 @@
       </Method>
       <Method Name="CreateNavigator" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
       <Method Name="CreateNode" Type="System.Xml.XmlNode" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="type" Type="System.Xml.XmlNodeType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="prefix" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="CreateNode" Type="System.Xml.XmlNode" BaseName="Object" BaseType="System.Object">
         <Parameter Name="nodeTypeString" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="CreateNode" Type="System.Xml.XmlNode" BaseName="Object" BaseType="System.Object">
         <Parameter Name="type" Type="System.Xml.XmlNodeType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="CreateNode" Type="System.Xml.XmlNode" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="type" Type="System.Xml.XmlNodeType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="prefix" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
@@ -1510,15 +1510,15 @@
       <Method Name="LookupNamespace" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="prefix" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
+      <Method Name="MoveToAttribute" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
       <Method Name="MoveToAttribute" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="MoveToAttribute" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="ns" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="MoveToAttribute" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="i" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="MoveToContent" Type="System.Xml.XmlNodeType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       <Method Name="MoveToContentAsync" Type="System.Threading.Tasks.Task`1&lt;System.Xml.XmlNodeType&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True">
@@ -1582,12 +1582,12 @@
       <Method Name="ReadElementContentAs" Type="System.Object">
         <Parameter Name="returnType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="namespaceResolver" Type="System.Xml.IXmlNamespaceResolver" IsInterface="True" />
+        <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="ReadElementContentAs" Type="System.Object">
         <Parameter Name="returnType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="namespaceResolver" Type="System.Xml.IXmlNamespaceResolver" IsInterface="True" />
-        <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="ReadElementContentAsAsync" Type="System.Threading.Tasks.Task`1&lt;System.Object&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True">
         <GenericTypeArgument Type="System.Object" />
@@ -1616,61 +1616,61 @@
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="count" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="ReadElementContentAsBoolean" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ReadElementContentAsBoolean" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="ReadElementContentAsDateTime" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="ReadElementContentAsBoolean" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ReadElementContentAsDateTime" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="ReadElementContentAsDecimal" Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="ReadElementContentAsDateTime" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ReadElementContentAsDecimal" Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="ReadElementContentAsDouble" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="ReadElementContentAsDecimal" Type="System.Decimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ReadElementContentAsDouble" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="ReadElementContentAsFloat" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="ReadElementContentAsDouble" Type="System.Double" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ReadElementContentAsFloat" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="ReadElementContentAsInt" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="ReadElementContentAsFloat" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ReadElementContentAsInt" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="ReadElementContentAsLong" Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="ReadElementContentAsInt" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ReadElementContentAsLong" Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="ReadElementContentAsObject" Type="System.Object" />
+      <Method Name="ReadElementContentAsLong" Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ReadElementContentAsObject" Type="System.Object">
         <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
+      <Method Name="ReadElementContentAsObject" Type="System.Object" />
       <Method Name="ReadElementContentAsObjectAsync" Type="System.Threading.Tasks.Task`1&lt;System.Object&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True">
         <GenericTypeArgument Type="System.Object" />
       </Method>
-      <Method Name="ReadElementContentAsString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       <Method Name="ReadElementContentAsString" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
+      <Method Name="ReadElementContentAsString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       <Method Name="ReadElementContentAsStringAsync" Type="System.Threading.Tasks.Task`1&lt;System.String&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True">
         <GenericTypeArgument Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="ReadElementString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       <Method Name="ReadElementString" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
+      <Method Name="ReadElementString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       <Method Name="ReadElementString" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="localname" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="ns" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -2483,11 +2483,11 @@
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="WriteNode" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="reader" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="navigator" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
         <Parameter Name="defattr" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="WriteNode" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="navigator" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
+        <Parameter Name="reader" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="defattr" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="WriteNodeAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
@@ -2535,12 +2535,12 @@
         <Parameter Name="ns" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="WriteStartAttribute" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="WriteStartAttribute" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="prefix" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="ns" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="WriteStartAttribute" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="WriteStartDocument" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="WriteStartDocument" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -2555,12 +2555,12 @@
         <Parameter Name="ns" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="WriteStartElement" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="WriteStartElement" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="prefix" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="ns" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="WriteStartElement" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="WriteStartElementAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
         <Parameter Name="prefix" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -2588,9 +2588,6 @@
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="WriteValue" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="WriteValue" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="WriteValue" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -2610,6 +2607,9 @@
       </Method>
       <Method Name="WriteValue" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="WriteValue" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="value" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="WriteWhitespace" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="ws" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -2690,11 +2690,11 @@
       </Method>
       <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="uri" Type="System.Uri" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="uri" Type="System.Uri" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="value" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Method>
       <Method Name="GetEntity" Type="System.Object">
         <Parameter Name="absoluteUri" Type="System.Uri" BaseName="Object" BaseType="System.Object" />
@@ -2797,10 +2797,10 @@
       <Property Name="Version" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Method Name="Compile" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="validationEventHandler" Type="System.Xml.Schema.ValidationEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Compile" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="validationEventHandler" Type="System.Xml.Schema.ValidationEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
-        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Read" Type="System.Xml.Schema.XmlSchema" BaseName="XmlSchemaObject" BaseType="System.Xml.Schema.XmlSchemaObject" IsStatic="True">
         <Parameter Name="reader" Type="System.IO.TextReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
@@ -3913,11 +3913,6 @@
       <Method Name="ImportMembersMapping" Type="System.Xml.Serialization.XmlMembersMapping" BaseName="XmlMapping" BaseType="System.Xml.Serialization.XmlMapping">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="ns" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="member" Type="System.Xml.Serialization.SoapSchemaMember" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="ImportMembersMapping" Type="System.Xml.Serialization.XmlMembersMapping" BaseName="XmlMapping" BaseType="System.Xml.Serialization.XmlMapping">
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="ns" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="members" Type="System.Xml.Serialization.SoapSchemaMember[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Xml.Serialization.SoapSchemaMember" />
       </Method>
       <Method Name="ImportMembersMapping" Type="System.Xml.Serialization.XmlMembersMapping" BaseName="XmlMapping" BaseType="System.Xml.Serialization.XmlMapping">
@@ -3925,6 +3920,11 @@
         <Parameter Name="ns" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="members" Type="System.Xml.Serialization.SoapSchemaMember[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Xml.Serialization.SoapSchemaMember" />
         <Parameter Name="hasWrapperElement" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="ImportMembersMapping" Type="System.Xml.Serialization.XmlMembersMapping" BaseName="XmlMapping" BaseType="System.Xml.Serialization.XmlMapping">
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="ns" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="member" Type="System.Xml.Serialization.SoapSchemaMember" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="ImportMembersMapping" Type="System.Xml.Serialization.XmlMembersMapping" BaseName="XmlMapping" BaseType="System.Xml.Serialization.XmlMapping">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -4567,14 +4567,14 @@
         <Parameter Name="names" Type="System.Xml.XmlQualifiedName[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Xml.XmlQualifiedName" />
       </Method>
       <Method Name="ImportMembersMapping" Type="System.Xml.Serialization.XmlMembersMapping" BaseName="XmlMapping" BaseType="System.Xml.Serialization.XmlMapping">
-        <Parameter Name="names" Type="System.Xml.XmlQualifiedName[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Xml.XmlQualifiedName" />
-        <Parameter Name="baseType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="baseTypeCanBeIndirect" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="ImportMembersMapping" Type="System.Xml.Serialization.XmlMembersMapping" BaseName="XmlMapping" BaseType="System.Xml.Serialization.XmlMapping">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="ns" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="members" Type="System.Xml.Serialization.SoapSchemaMember[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Xml.Serialization.SoapSchemaMember" />
+      </Method>
+      <Method Name="ImportMembersMapping" Type="System.Xml.Serialization.XmlMembersMapping" BaseName="XmlMapping" BaseType="System.Xml.Serialization.XmlMapping">
+        <Parameter Name="names" Type="System.Xml.XmlQualifiedName[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Xml.XmlQualifiedName" />
+        <Parameter Name="baseType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="baseTypeCanBeIndirect" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="ImportSchemaType" Type="System.Xml.Serialization.XmlTypeMapping" BaseName="XmlMapping" BaseType="System.Xml.Serialization.XmlMapping">
         <Parameter Name="typeName" Type="System.Xml.XmlQualifiedName" BaseName="Object" BaseType="System.Object" />
@@ -4752,25 +4752,13 @@
       </Constructor>
       <Constructor>
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="root" Type="System.Xml.Serialization.XmlRootAttribute" BaseName="Attribute" BaseType="System.Attribute" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="extraTypes" Type="System.Type[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Type" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="overrides" Type="System.Xml.Serialization.XmlAttributeOverrides" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="xmlTypeMapping" Type="System.Xml.Serialization.XmlTypeMapping" BaseName="XmlMapping" BaseType="System.Xml.Serialization.XmlMapping" />
       </Constructor>
       <Constructor>
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="defaultNamespace" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
@@ -4788,6 +4776,18 @@
         <Parameter Name="defaultNamespace" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="location" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="evidence" Type="System.Security.Policy.Evidence" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="root" Type="System.Xml.Serialization.XmlRootAttribute" BaseName="Attribute" BaseType="System.Attribute" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="overrides" Type="System.Xml.Serialization.XmlAttributeOverrides" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="defaultNamespace" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="CanDeserialize" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="xmlReader" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
@@ -4923,15 +4923,7 @@
       </Method>
       <Method Name="CreateSerializer" Type="System.Xml.Serialization.XmlSerializer" BaseName="Object" BaseType="System.Object">
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="root" Type="System.Xml.Serialization.XmlRootAttribute" BaseName="Attribute" BaseType="System.Attribute" />
-      </Method>
-      <Method Name="CreateSerializer" Type="System.Xml.Serialization.XmlSerializer" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="extraTypes" Type="System.Type[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Type" />
-      </Method>
-      <Method Name="CreateSerializer" Type="System.Xml.Serialization.XmlSerializer" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="overrides" Type="System.Xml.Serialization.XmlAttributeOverrides" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="CreateSerializer" Type="System.Xml.Serialization.XmlSerializer" BaseName="Object" BaseType="System.Object">
         <Parameter Name="xmlTypeMapping" Type="System.Xml.Serialization.XmlTypeMapping" BaseName="XmlMapping" BaseType="System.Xml.Serialization.XmlMapping" />
@@ -4959,6 +4951,14 @@
         <Parameter Name="defaultNamespace" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="location" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="evidence" Type="System.Security.Policy.Evidence" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="CreateSerializer" Type="System.Xml.Serialization.XmlSerializer" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="root" Type="System.Xml.Serialization.XmlRootAttribute" BaseName="Attribute" BaseType="System.Attribute" />
+      </Method>
+      <Method Name="CreateSerializer" Type="System.Xml.Serialization.XmlSerializer" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="overrides" Type="System.Xml.Serialization.XmlAttributeOverrides" BaseName="Object" BaseType="System.Object" />
       </Method>
     </Class>
     <Class Name="XmlSerializerImplementation" Type="System.Xml.Serialization.XmlSerializerImplementation" BaseName="Object" BaseType="System.Object">
@@ -5475,10 +5475,10 @@
       <Method Name="MoveToFirst" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="MoveToFirstAttribute" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="MoveToFirstChild" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="MoveToFirstNamespace" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="MoveToFirstNamespace" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="namespaceScope" Type="System.Xml.XPath.XPathNamespaceScope" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
-      <Method Name="MoveToFirstNamespace" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="MoveToFollowing" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -5501,7 +5501,6 @@
       <Method Name="MoveToNamespace" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="MoveToNext" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="MoveToNext" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="localName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="namespaceURI" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -5509,11 +5508,12 @@
       <Method Name="MoveToNext" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="type" Type="System.Xml.XPath.XPathNodeType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
+      <Method Name="MoveToNext" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="MoveToNextAttribute" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="MoveToNextNamespace" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="MoveToNextNamespace" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="namespaceScope" Type="System.Xml.XPath.XPathNamespaceScope" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
-      <Method Name="MoveToNextNamespace" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="MoveToParent" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="MoveToPrevious" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="MoveToRoot" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -5680,27 +5680,27 @@
       </Method>
       <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stylesheet" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="settings" Type="System.Xml.Xsl.XsltSettings" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="stylesheetResolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="stylesheet" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
+        <Parameter Name="settings" Type="System.Xml.Xsl.XsltSettings" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="stylesheetResolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="stylesheetUri" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="settings" Type="System.Xml.Xsl.XsltSettings" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="stylesheetResolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stylesheet" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="settings" Type="System.Xml.Xsl.XsltSettings" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="stylesheetResolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stylesheet" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
       </Method>
       <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="stylesheet" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
-        <Parameter Name="settings" Type="System.Xml.Xsl.XsltSettings" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="stylesheetResolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stylesheetUri" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="stylesheetUri" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="settings" Type="System.Xml.Xsl.XsltSettings" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="stylesheetResolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="compiledStylesheet" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
@@ -5906,44 +5906,44 @@
       </Method>
       <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stylesheet" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="stylesheet" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
+        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="stylesheet" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
+        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="stylesheet" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
+        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="evidence" Type="System.Security.Policy.Evidence" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stylesheet" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="evidence" Type="System.Security.Policy.Evidence" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="stylesheet" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
+        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="evidence" Type="System.Security.Policy.Evidence" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="stylesheet" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stylesheet" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
       </Method>
       <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="stylesheet" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
-        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stylesheet" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
-      </Method>
-      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="stylesheet" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
-        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="url" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="stylesheet" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
-        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="evidence" Type="System.Security.Policy.Evidence" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="stylesheet" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="evidence" Type="System.Security.Policy.Evidence" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Load" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="stylesheet" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
-        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="evidence" Type="System.Security.Policy.Evidence" BaseName="Object" BaseType="System.Object" />
-      </Method>
       <Method Name="Transform" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object">
         <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
         <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
@@ -5952,43 +5952,6 @@
       <Method Name="Transform" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object">
         <Parameter Name="input" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
         <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Transform" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
-        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
-        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="output" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
-        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="output" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
-        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="output" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
-        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="output" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-      </Method>
-      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
-        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="output" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
-        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="output" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Method>
       <Method Name="Transform" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object">
         <Parameter Name="input" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
@@ -6004,34 +5967,71 @@
       <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="input" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
         <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="output" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-      </Method>
-      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="input" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
-        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="output" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
         <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="input" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
         <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="output" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-      </Method>
-      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="input" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
-        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="output" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="input" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
-        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="output" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="inputfile" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="outputfile" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Transform" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
+        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
+        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="output" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
+        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="output" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
+        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="output" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
+        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="output" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+      </Method>
+      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
+        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="output" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="resolver" Type="System.Xml.XmlResolver" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="input" Type="System.Xml.XPath.XPathNavigator" BaseName="XPathItem" BaseType="System.Xml.XPath.XPathItem" />
+        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="output" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+      </Method>
+      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="input" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
+        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="output" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+      </Method>
+      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="input" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
+        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="output" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+      </Method>
+      <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="input" Type="System.Xml.XPath.IXPathNavigable" IsInterface="True" />
+        <Parameter Name="args" Type="System.Xml.Xsl.XsltArgumentList" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="output" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Transform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="inputfile" Type="System.String" BaseName="Object" BaseType="System.Object" />

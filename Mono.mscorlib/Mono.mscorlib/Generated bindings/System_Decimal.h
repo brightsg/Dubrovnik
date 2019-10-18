@@ -124,36 +124,6 @@
    .ctor
 
  Params
-   System.Single
-
- Return
-   System.Decimal
- @/textblock
-*/
-+ (System_Decimal *)new_withValueSingle:(float)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   .ctor
-
- Params
-   System.Double
-
- Return
-   System.Decimal
- @/textblock
-*/
-+ (System_Decimal *)new_withValueDouble:(double)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   .ctor
-
- Params
    System.Int32[]
 
  Return
@@ -180,6 +150,36 @@
  @/textblock
 */
 + (System_Decimal *)new_withLo:(int32_t)p1 mid:(int32_t)p2 hi:(int32_t)p3 isNegative:(BOOL)p4 scale:(uint8_t)p5;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Single
+
+ Return
+   System.Decimal
+ @/textblock
+*/
++ (System_Decimal *)new_withValueSingle:(float)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Double
+
+ Return
+   System.Decimal
+ @/textblock
+*/
++ (System_Decimal *)new_withValueDouble:(double)p1;
 
 #pragma mark -
 #pragma mark Fields

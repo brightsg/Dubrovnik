@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     08/07/2019 22:52:49
+// Date:     18/10/2019 09:42:40
 //
 // Assembly: System
 // Fullname: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -1344,6 +1344,7 @@
 /* Skipped type : System.Net.Configuration.WebRequestModulesSection WebRequestModulesSection */
 
 /* Skipped type : System.Net.Configuration.WebUtilityElement WebUtilityElement */
+#define SNCWindowsAuthenticationElement_ System_Net_Configuration_WindowsAuthenticationElement
 
 /* Skipped type : System.Net.Cookie Cookie */
 
@@ -2067,6 +2068,7 @@ Assembly type imports
 #import "System_Configuration_SettingsBase.h"
 #import "System_IO_ErrorEventArgs.h"
 #import "System_IO_ErrorEventHandler.h"
+#import "System_Net_Configuration_WindowsAuthenticationElement.h"
 #import "System_Net_HttpStatusCode.h"
 #import "System_Net_HttpWebRequest.h"
 #import "System_Net_HttpWebResponse.h"

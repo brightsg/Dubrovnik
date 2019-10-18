@@ -200,7 +200,11 @@ static System_TimeZoneInfo * m_utc;
 	[self invokeMonoClassMethod:"ClearCachedData()" withNumArgs:0];
 }
 
-/* Skipped method : System.DateTimeOffset ConvertTime(System.DateTimeOffset dateTimeOffset, System.TimeZoneInfo destinationTimeZone) */
++ (System_DateTimeOffset *)convertTime_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTime(System.DateTimeOffset,System.TimeZoneInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeObject]];
+	return [System_DateTimeOffset bestObjectWithMonoObject:monoObject];
+}
 
 + (NSDate *)convertTime_withDateTime:(NSDate *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2
 {
@@ -214,7 +218,11 @@ static System_TimeZoneInfo * m_utc;
 	return [NSDate dateWithMonoDateTime:monoObject];
 }
 
-/* Skipped method : System.DateTimeOffset ConvertTimeBySystemTimeZoneId(System.DateTimeOffset dateTimeOffset, System.String destinationTimeZoneId) */
++ (System_DateTimeOffset *)convertTimeBySystemTimeZoneId_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZoneId:(NSString *)p2
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ConvertTimeBySystemTimeZoneId(System.DateTimeOffset,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeObject]];
+	return [System_DateTimeOffset bestObjectWithMonoObject:monoObject];
+}
 
 + (NSDate *)convertTimeBySystemTimeZoneId_withDateTime:(NSDate *)p1 destinationTimeZoneId:(NSString *)p2
 {
@@ -294,7 +302,11 @@ static System_TimeZoneInfo * m_utc;
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-/* Skipped method : System.TimeSpan[] GetAmbiguousTimeOffsets(System.DateTimeOffset dateTimeOffset) */
+- (System_Array *)getAmbiguousTimeOffsets_withDateTimeOffset:(System_DateTimeOffset *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetAmbiguousTimeOffsets(System.DateTimeOffset)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
 
 - (System_Array *)getAmbiguousTimeOffsets_withDateTime:(NSDate *)p1
 {
@@ -310,7 +322,11 @@ static System_TimeZoneInfo * m_utc;
 
 /* Skipped method : System.Collections.ObjectModel.ReadOnlyCollection`1<System.TimeZoneInfo> GetSystemTimeZones() */
 
-/* Skipped method : System.TimeSpan GetUtcOffset(System.DateTimeOffset dateTimeOffset) */
+- (System_TimeSpan *)getUtcOffset_withDateTimeOffset:(System_DateTimeOffset *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetUtcOffset(System.DateTimeOffset)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return [System_TimeSpan bestObjectWithMonoObject:monoObject];
+}
 
 - (System_TimeSpan *)getUtcOffset_withDateTime:(NSDate *)p1
 {
@@ -324,7 +340,11 @@ static System_TimeZoneInfo * m_utc;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-/* Skipped method : System.Boolean IsAmbiguousTime(System.DateTimeOffset dateTimeOffset) */
+- (BOOL)isAmbiguousTime_withDateTimeOffset:(System_DateTimeOffset *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"IsAmbiguousTime(System.DateTimeOffset)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
 - (BOOL)isAmbiguousTime_withDateTime:(NSDate *)p1
 {
@@ -332,7 +352,11 @@ static System_TimeZoneInfo * m_utc;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-/* Skipped method : System.Boolean IsDaylightSavingTime(System.DateTimeOffset dateTimeOffset) */
+- (BOOL)isDaylightSavingTime_withDateTimeOffset:(System_DateTimeOffset *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"IsDaylightSavingTime(System.DateTimeOffset)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
 - (BOOL)isDaylightSavingTime_withDateTime:(NSDate *)p1
 {

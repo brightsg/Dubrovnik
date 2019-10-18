@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     08/07/2019 22:52:10
+// Date:     18/10/2019 09:42:15
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -281,8 +281,7 @@
 /* Skipped type : System.DataMisalignedException DataMisalignedException */
 #define SDateTime_ System_DateTime
 #define SDateTimeKind_ System_DateTimeKind
-
-/* Skipped type : System.DateTimeOffset DateTimeOffset */
+#define SDateTimeOffset_ System_DateTimeOffset
 #define SDayOfWeek_ System_DayOfWeek
 #define SDBNull_ System_DBNull
 #define SDecimal_ System_Decimal
@@ -3072,6 +3071,7 @@ Assembly type imports
 #import "System_CrossAppDomainDelegate.h"
 #import "System_DateTime.h"
 #import "System_DateTimeKind.h"
+#import "System_DateTimeOffset.h"
 #import "System_DayOfWeek.h"
 #import "System_DBNull.h"
 #import "System_Decimal.h"

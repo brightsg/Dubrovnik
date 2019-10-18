@@ -578,16 +578,6 @@
       <Property Name="Uri" Type="System.Uri" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Property Name="UserName" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Constructor>
-        <Parameter Name="uri" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="uri" Type="System.Uri" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="schemeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="hostName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="scheme" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="host" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="portNumber" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -604,6 +594,16 @@
         <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="path" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="extraValue" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="uri" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="uri" Type="System.Uri" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="schemeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="hostName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="rparam" Type="System.Object" />
@@ -2120,13 +2120,13 @@
       <Method Name="CreateEscapedIdentifier" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="CreateGenerator" Type="System.CodeDom.Compiler.ICodeGenerator" IsInterface="True" />
       <Method Name="CreateGenerator" Type="System.CodeDom.Compiler.ICodeGenerator" IsInterface="True">
         <Parameter Name="output" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Method>
       <Method Name="CreateGenerator" Type="System.CodeDom.Compiler.ICodeGenerator" IsInterface="True">
         <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
+      <Method Name="CreateGenerator" Type="System.CodeDom.Compiler.ICodeGenerator" IsInterface="True" />
       <Method Name="CreateParser" Type="System.CodeDom.Compiler.ICodeParser" IsInterface="True" />
       <Method Name="CreateProvider" Type="System.CodeDom.Compiler.CodeDomProvider" BaseName="Component" BaseType="System.ComponentModel.Component" IsStatic="True">
         <Parameter Name="language" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -3479,10 +3479,10 @@
         <Parameter Name="o" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="value" Type="System.Collections.Specialized.BitVector32" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
     </Struct>
     <Struct Name="BitVector32.Section" Type="System.Collections.Specialized.BitVector32+Section" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsNested="True">
       <Property Name="Mask" Type="System.Int16" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
@@ -3502,10 +3502,10 @@
         <Parameter Name="a" Type="System.Collections.Specialized.BitVector32+Section" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsNested="True" />
         <Parameter Name="b" Type="System.Collections.Specialized.BitVector32+Section" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsNested="True" />
       </Method>
+      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="value" Type="System.Collections.Specialized.BitVector32+Section" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsNested="True" />
       </Method>
-      <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
     </Struct>
     <Class Name="CollectionsUtil" Type="System.Collections.Specialized.CollectionsUtil" BaseName="Object" BaseType="System.Object">
       <Method Name="CreateCaseInsensitiveHashtable" Type="System.Collections.Hashtable" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -3751,18 +3751,6 @@
       <Property Name="OldStartingIndex" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Constructor>
         <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="changedItem" Type="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="changedItem" Type="System.Object" />
-        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="changedItems" Type="System.Collections.IList" IsInterface="True" />
       </Constructor>
       <Constructor>
@@ -3772,14 +3760,12 @@
       </Constructor>
       <Constructor>
         <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="newItem" Type="System.Object" />
-        <Parameter Name="oldItem" Type="System.Object" />
+        <Parameter Name="changedItem" Type="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="newItem" Type="System.Object" />
         <Parameter Name="oldItem" Type="System.Object" />
-        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
@@ -3803,6 +3789,20 @@
         <Parameter Name="changedItems" Type="System.Collections.IList" IsInterface="True" />
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="oldIndex" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="changedItem" Type="System.Object" />
+        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="newItem" Type="System.Object" />
+        <Parameter Name="oldItem" Type="System.Object" />
+        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
     </Class>
     <Class Name="NotifyCollectionChangedEventHandler" Type="System.Collections.Specialized.NotifyCollectionChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
@@ -4604,10 +4604,10 @@
       <Method Name="GetEvents" Type="System.ComponentModel.EventDescriptorCollection" BaseName="Object" BaseType="System.Object">
         <Parameter Name="attributes" Type="System.Attribute[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Attribute" />
       </Method>
-      <Method Name="GetProperties" Type="System.ComponentModel.PropertyDescriptorCollection" BaseName="Object" BaseType="System.Object" />
       <Method Name="GetProperties" Type="System.ComponentModel.PropertyDescriptorCollection" BaseName="Object" BaseType="System.Object">
         <Parameter Name="attributes" Type="System.Attribute[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Attribute" />
       </Method>
+      <Method Name="GetProperties" Type="System.ComponentModel.PropertyDescriptorCollection" BaseName="Object" BaseType="System.Object" />
       <Method Name="GetPropertyOwner" Type="System.Object">
         <Parameter Name="pd" Type="System.ComponentModel.PropertyDescriptor" BaseName="MemberDescriptor" BaseType="System.ComponentModel.MemberDescriptor" />
       </Method>
@@ -5605,13 +5605,6 @@
       <Property Name="LicensedType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" IsReadable="True" />
       <Constructor>
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="instance" Type="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="instance" Type="System.Object" />
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
@@ -5620,6 +5613,13 @@
         <Parameter Name="instance" Type="System.Object" />
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="innerException" Type="System.Exception" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="instance" Type="System.Object" />
       </Constructor>
       <Method Name="GetObjectData" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="info" Type="System.Runtime.Serialization.SerializationInfo" BaseName="Object" BaseType="System.Object" />
@@ -5632,11 +5632,11 @@
       <Method Name="CreateWithContext" Type="System.Object" IsStatic="True">
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="creationContext" Type="System.ComponentModel.LicenseContext" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="args" Type="System.Object[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Object" />
       </Method>
       <Method Name="CreateWithContext" Type="System.Object" IsStatic="True">
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="creationContext" Type="System.ComponentModel.LicenseContext" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="args" Type="System.Object[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Object" />
       </Method>
       <Method Name="IsLicensed" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
@@ -6455,10 +6455,10 @@
       </Method>
       <Constructor>
         <Parameter Name="properties" Type="System.ComponentModel.PropertyDescriptor[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.ComponentModel.PropertyDescriptor" />
+        <Parameter Name="readOnly" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="properties" Type="System.ComponentModel.PropertyDescriptor[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.ComponentModel.PropertyDescriptor" />
-        <Parameter Name="readOnly" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.ComponentModel.PropertyDescriptor" BaseName="MemberDescriptor" BaseType="System.ComponentModel.MemberDescriptor" />
@@ -6775,13 +6775,13 @@
       <Property Name="ToolboxItemType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" IsReadable="True" />
       <Property Name="ToolboxItemTypeName" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Constructor>
-        <Parameter Name="defaultType" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="toolboxItemTypeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="toolboxItemType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="defaultType" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="obj" Type="System.Object" />
@@ -6907,11 +6907,11 @@
       <Method Name="GetProperties" Type="System.ComponentModel.PropertyDescriptorCollection" BaseName="Object" BaseType="System.Object">
         <Parameter Name="context" Type="System.ComponentModel.ITypeDescriptorContext" IsInterface="True" />
         <Parameter Name="value" Type="System.Object" />
+        <Parameter Name="attributes" Type="System.Attribute[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Attribute" />
       </Method>
       <Method Name="GetProperties" Type="System.ComponentModel.PropertyDescriptorCollection" BaseName="Object" BaseType="System.Object">
         <Parameter Name="context" Type="System.ComponentModel.ITypeDescriptorContext" IsInterface="True" />
         <Parameter Name="value" Type="System.Object" />
-        <Parameter Name="attributes" Type="System.Attribute[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Attribute" />
       </Method>
       <Method Name="GetPropertiesSupported" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetPropertiesSupported" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -6999,12 +6999,12 @@
       </Method>
       <Method Name="GetTypeDescriptor" Type="System.ComponentModel.ICustomTypeDescriptor" IsInterface="True">
         <Parameter Name="objectType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-      </Method>
-      <Method Name="GetTypeDescriptor" Type="System.ComponentModel.ICustomTypeDescriptor" IsInterface="True">
         <Parameter Name="instance" Type="System.Object" />
       </Method>
       <Method Name="GetTypeDescriptor" Type="System.ComponentModel.ICustomTypeDescriptor" IsInterface="True">
         <Parameter Name="objectType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+      </Method>
+      <Method Name="GetTypeDescriptor" Type="System.ComponentModel.ICustomTypeDescriptor" IsInterface="True">
         <Parameter Name="instance" Type="System.Object" />
       </Method>
       <Method Name="IsSupportedType" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -7094,10 +7094,10 @@
         <Parameter Name="primary" Type="System.Object" />
       </Method>
       <Method Name="GetAttributes" Type="System.ComponentModel.AttributeCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="componentType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="component" Type="System.Object" />
       </Method>
       <Method Name="GetAttributes" Type="System.ComponentModel.AttributeCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="component" Type="System.Object" />
+        <Parameter Name="componentType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
       </Method>
       <Method Name="GetAttributes" Type="System.ComponentModel.AttributeCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="component" Type="System.Object" />
@@ -7131,16 +7131,13 @@
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
       </Method>
       <Method Name="GetDefaultEvent" Type="System.ComponentModel.EventDescriptor" BaseName="MemberDescriptor" BaseType="System.ComponentModel.MemberDescriptor" IsStatic="True">
-        <Parameter Name="componentType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-      </Method>
-      <Method Name="GetDefaultEvent" Type="System.ComponentModel.EventDescriptor" BaseName="MemberDescriptor" BaseType="System.ComponentModel.MemberDescriptor" IsStatic="True">
         <Parameter Name="component" Type="System.Object" />
       </Method>
       <Method Name="GetDefaultEvent" Type="System.ComponentModel.EventDescriptor" BaseName="MemberDescriptor" BaseType="System.ComponentModel.MemberDescriptor" IsStatic="True">
         <Parameter Name="component" Type="System.Object" />
         <Parameter Name="noCustomTypeDesc" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetDefaultProperty" Type="System.ComponentModel.PropertyDescriptor" BaseName="MemberDescriptor" BaseType="System.ComponentModel.MemberDescriptor" IsStatic="True">
+      <Method Name="GetDefaultEvent" Type="System.ComponentModel.EventDescriptor" BaseName="MemberDescriptor" BaseType="System.ComponentModel.MemberDescriptor" IsStatic="True">
         <Parameter Name="componentType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
       </Method>
       <Method Name="GetDefaultProperty" Type="System.ComponentModel.PropertyDescriptor" BaseName="MemberDescriptor" BaseType="System.ComponentModel.MemberDescriptor" IsStatic="True">
@@ -7149,6 +7146,9 @@
       <Method Name="GetDefaultProperty" Type="System.ComponentModel.PropertyDescriptor" BaseName="MemberDescriptor" BaseType="System.ComponentModel.MemberDescriptor" IsStatic="True">
         <Parameter Name="component" Type="System.Object" />
         <Parameter Name="noCustomTypeDesc" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="GetDefaultProperty" Type="System.ComponentModel.PropertyDescriptor" BaseName="MemberDescriptor" BaseType="System.ComponentModel.MemberDescriptor" IsStatic="True">
+        <Parameter Name="componentType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
       </Method>
       <Method Name="GetEditor" Type="System.Object" IsStatic="True">
         <Parameter Name="component" Type="System.Object" />
@@ -7164,13 +7164,6 @@
         <Parameter Name="editorBaseType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
       </Method>
       <Method Name="GetEvents" Type="System.ComponentModel.EventDescriptorCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="componentType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-      </Method>
-      <Method Name="GetEvents" Type="System.ComponentModel.EventDescriptorCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="componentType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="attributes" Type="System.Attribute[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Attribute" />
-      </Method>
-      <Method Name="GetEvents" Type="System.ComponentModel.EventDescriptorCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="component" Type="System.Object" />
       </Method>
       <Method Name="GetEvents" Type="System.ComponentModel.EventDescriptorCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -7182,21 +7175,21 @@
         <Parameter Name="attributes" Type="System.Attribute[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Attribute" />
       </Method>
       <Method Name="GetEvents" Type="System.ComponentModel.EventDescriptorCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
+        <Parameter Name="componentType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="attributes" Type="System.Attribute[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Attribute" />
+      </Method>
+      <Method Name="GetEvents" Type="System.ComponentModel.EventDescriptorCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="component" Type="System.Object" />
         <Parameter Name="attributes" Type="System.Attribute[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Attribute" />
         <Parameter Name="noCustomTypeDesc" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="GetEvents" Type="System.ComponentModel.EventDescriptorCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
+        <Parameter Name="componentType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
       </Method>
       <Method Name="GetFullComponentName" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="component" Type="System.Object" />
       </Method>
       <Method Name="GetProperties" Type="System.ComponentModel.PropertyDescriptorCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="componentType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-      </Method>
-      <Method Name="GetProperties" Type="System.ComponentModel.PropertyDescriptorCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="componentType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="attributes" Type="System.Attribute[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Attribute" />
-      </Method>
-      <Method Name="GetProperties" Type="System.ComponentModel.PropertyDescriptorCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="component" Type="System.Object" />
       </Method>
       <Method Name="GetProperties" Type="System.ComponentModel.PropertyDescriptorCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
@@ -7211,6 +7204,13 @@
         <Parameter Name="component" Type="System.Object" />
         <Parameter Name="attributes" Type="System.Attribute[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Attribute" />
         <Parameter Name="noCustomTypeDesc" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="GetProperties" Type="System.ComponentModel.PropertyDescriptorCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
+        <Parameter Name="componentType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="attributes" Type="System.Attribute[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Attribute" />
+      </Method>
+      <Method Name="GetProperties" Type="System.ComponentModel.PropertyDescriptorCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
+        <Parameter Name="componentType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
       </Method>
       <Method Name="GetProvider" Type="System.ComponentModel.TypeDescriptionProvider" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
@@ -8215,12 +8215,12 @@
       </Method>
       <Method Name="AddService" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="serviceType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="serviceInstance" Type="System.Object" />
-        <Parameter Name="promote" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="callback" Type="System.ComponentModel.Design.ServiceCreatorCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
       </Method>
       <Method Name="AddService" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="serviceType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="callback" Type="System.ComponentModel.Design.ServiceCreatorCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="serviceInstance" Type="System.Object" />
+        <Parameter Name="promote" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="AddService" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="serviceType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
@@ -8357,17 +8357,17 @@
       <Method Name="DeserializeTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="store" Type="System.ComponentModel.Design.Serialization.SerializationStore" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="container" Type="System.ComponentModel.IContainer" IsInterface="True" />
+      </Method>
+      <Method Name="DeserializeTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="store" Type="System.ComponentModel.Design.Serialization.SerializationStore" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="container" Type="System.ComponentModel.IContainer" IsInterface="True" />
+        <Parameter Name="validateRecycledTypes" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="DeserializeTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="store" Type="System.ComponentModel.Design.Serialization.SerializationStore" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="container" Type="System.ComponentModel.IContainer" IsInterface="True" />
         <Parameter Name="validateRecycledTypes" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="applyDefaults" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="DeserializeTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="store" Type="System.ComponentModel.Design.Serialization.SerializationStore" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="container" Type="System.ComponentModel.IContainer" IsInterface="True" />
-      </Method>
-      <Method Name="DeserializeTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="store" Type="System.ComponentModel.Design.Serialization.SerializationStore" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="container" Type="System.ComponentModel.IContainer" IsInterface="True" />
-        <Parameter Name="validateRecycledTypes" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="LoadStore" Type="System.ComponentModel.Design.Serialization.SerializationStore" BaseName="Object" BaseType="System.Object">
         <Parameter Name="stream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
@@ -9339,11 +9339,11 @@
       <Constructor>
         <Parameter Name="displayName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="description" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="defaultSwitchValue" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="displayName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="description" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="defaultSwitchValue" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
     </Class>
     <Class Name="ConsoleTraceListener" Type="System.Diagnostics.ConsoleTraceListener" BaseName="TextWriterTraceListener" BaseType="System.Diagnostics.TextWriterTraceListener">
@@ -9764,11 +9764,11 @@
       <Method Name="CreateEventSource" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="source" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="logName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="machineName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="CreateEventSource" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="source" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="logName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="machineName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="CreateEventSource" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="sourceData" Type="System.Diagnostics.EventSourceCreationData" BaseName="Object" BaseType="System.Object" />
@@ -9813,31 +9813,19 @@
       </Method>
       <Method Name="SourceExists" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="source" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="machineName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="SourceExists" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="source" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="machineName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="WriteEntry" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="WriteEntry" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="source" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="WriteEntry" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="type" Type="System.Diagnostics.EventLogEntryType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Method>
       <Method Name="WriteEntry" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="source" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="type" Type="System.Diagnostics.EventLogEntryType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Method>
-      <Method Name="WriteEntry" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="type" Type="System.Diagnostics.EventLogEntryType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="eventID" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="WriteEntry" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="source" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -9845,14 +9833,26 @@
         <Parameter Name="type" Type="System.Diagnostics.EventLogEntryType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="eventID" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="WriteEntry" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+      <Method Name="WriteEntry" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="source" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="type" Type="System.Diagnostics.EventLogEntryType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="eventID" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="category" Type="System.Int16" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="WriteEntry" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="source" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      <Method Name="WriteEntry" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="WriteEntry" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="type" Type="System.Diagnostics.EventLogEntryType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Method>
+      <Method Name="WriteEntry" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="type" Type="System.Diagnostics.EventLogEntryType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="eventID" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="WriteEntry" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="type" Type="System.Diagnostics.EventLogEntryType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="eventID" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -10287,6 +10287,11 @@
       <Method Name="Create" Type="System.Diagnostics.PerformanceCounterCategory" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="categoryName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="categoryHelp" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="counterData" Type="System.Diagnostics.CounterCreationDataCollection" BaseName="CollectionBase" BaseType="System.Collections.CollectionBase" />
+      </Method>
+      <Method Name="Create" Type="System.Diagnostics.PerformanceCounterCategory" BaseName="Object" BaseType="System.Object" IsStatic="True">
+        <Parameter Name="categoryName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="categoryHelp" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="counterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="counterHelp" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
@@ -10296,11 +10301,6 @@
         <Parameter Name="categoryType" Type="System.Diagnostics.PerformanceCounterCategoryType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="counterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="counterHelp" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Create" Type="System.Diagnostics.PerformanceCounterCategory" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="categoryName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="categoryHelp" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="counterData" Type="System.Diagnostics.CounterCreationDataCollection" BaseName="CollectionBase" BaseType="System.Collections.CollectionBase" />
       </Method>
       <Method Name="Create" Type="System.Diagnostics.PerformanceCounterCategory" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="categoryName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -10561,7 +10561,6 @@
       <Method Name="Kill" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="LeaveDebugMode" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True" />
       <Method Name="Refresh" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      <Method Name="Start" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Start" Type="System.Diagnostics.Process" BaseName="Component" BaseType="System.ComponentModel.Component" IsStatic="True">
         <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="userName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -10585,6 +10584,7 @@
       <Method Name="Start" Type="System.Diagnostics.Process" BaseName="Component" BaseType="System.ComponentModel.Component" IsStatic="True">
         <Parameter Name="startInfo" Type="System.Diagnostics.ProcessStartInfo" BaseName="Object" BaseType="System.Object" />
       </Method>
+      <Method Name="Start" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       <Method Name="WaitForExit" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="milliseconds" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -10773,11 +10773,11 @@
     <Class Name="SourceSwitch" Type="System.Diagnostics.SourceSwitch" BaseName="Switch" BaseType="System.Diagnostics.Switch">
       <Property Name="Level" Type="System.Diagnostics.SourceLevels" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
       <Constructor>
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="displayName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="defaultSwitchValue" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="ShouldTrace" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="eventType" Type="System.Diagnostics.TraceEventType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
@@ -11143,31 +11143,31 @@
         <Parameter Name="relatedActivityId" Type="System.Guid" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Write" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Write" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="o" Type="System.Object" />
-      </Method>
-      <Method Name="Write" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="category" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Write" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="o" Type="System.Object" />
         <Parameter Name="category" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="WriteLine" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+      <Method Name="Write" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="WriteLine" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="o" Type="System.Object" />
-      </Method>
-      <Method Name="WriteLine" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+      <Method Name="Write" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="category" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="WriteLine" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="o" Type="System.Object" />
+      </Method>
+      <Method Name="WriteLine" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="o" Type="System.Object" />
+        <Parameter Name="category" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="WriteLine" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="WriteLine" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="category" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
     </Class>
@@ -11294,11 +11294,11 @@
       <Constructor>
         <Parameter Name="displayName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="description" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="defaultSwitchValue" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="displayName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="description" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="defaultSwitchValue" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
     </Class>
     <Class Name="XmlWriterTraceListener" Type="System.Diagnostics.XmlWriterTraceListener" BaseName="TextWriterTraceListener" BaseType="System.Diagnostics.TextWriterTraceListener">
@@ -12185,9 +12185,6 @@
         <Parameter Name="maxCookieSize" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="cookie" Type="System.Net.Cookie" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="cookies" Type="System.Net.CookieCollection" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -12197,6 +12194,9 @@
       <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="uri" Type="System.Uri" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="cookies" Type="System.Net.CookieCollection" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="cookie" Type="System.Net.Cookie" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="GetCookieHeader" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="uri" Type="System.Uri" BaseName="Object" BaseType="System.Object" />
@@ -12317,10 +12317,10 @@
         <Parameter Name="hostName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="GetHostEntry" Type="System.Net.IPHostEntry" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="hostNameOrAddress" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="address" Type="System.Net.IPAddress" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="GetHostEntry" Type="System.Net.IPHostEntry" BaseName="Object" BaseType="System.Object" IsStatic="True">
-        <Parameter Name="address" Type="System.Net.IPAddress" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="hostNameOrAddress" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="GetHostEntryAsync" Type="System.Threading.Tasks.Task`1&lt;System.Net.IPHostEntry&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Net.IPHostEntry" BaseName="Object" BaseType="System.Object" />
@@ -13392,6 +13392,7 @@
       <Field Name="Tls" Type="System.Net.SecurityProtocolType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="192" />
       <Field Name="Tls11" Type="System.Net.SecurityProtocolType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="768" />
       <Field Name="Tls12" Type="System.Net.SecurityProtocolType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="3072" />
+      <Field Name="Tls13" Type="System.Net.SecurityProtocolType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="12288" />
     </Enumeration>
     <Class Name="ServicePoint" Type="System.Net.ServicePoint" BaseName="Object" BaseType="System.Object">
       <Property Name="Address" Type="System.Uri" BaseName="Object" BaseType="System.Object" IsReadable="True" />
@@ -14158,15 +14159,15 @@
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="header" Type="System.Net.HttpRequestHeader" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="header" Type="System.Net.HttpResponseHeader" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -14188,10 +14189,10 @@
         <Parameter Name="streamingContext" Type="System.Runtime.Serialization.StreamingContext" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetValues" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String">
-        <Parameter Name="header" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="GetValues" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String">
-        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="header" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="IsRestricted" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="headerName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -14217,11 +14218,11 @@
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Set" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="header" Type="System.Net.HttpResponseHeader" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Set" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="header" Type="System.Net.HttpResponseHeader" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="ToByteArray" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
@@ -14308,10 +14309,6 @@
         <Parameter Name="Credentials" Type="System.Net.ICredentials" IsInterface="True" />
       </Constructor>
       <Constructor>
-        <Parameter Name="Host" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="Port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="Address" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
@@ -14328,6 +14325,10 @@
         <Parameter Name="BypassOnLocal" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="BypassList" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
         <Parameter Name="Credentials" Type="System.Net.ICredentials" IsInterface="True" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="Host" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="Port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="GetDefaultProxy" Type="System.Net.WebProxy" BaseName="Object" BaseType="System.Object" IsStatic="True" />
       <Method Name="GetProxy" Type="System.Uri" BaseName="Object" BaseType="System.Object">
@@ -14538,6 +14539,15 @@
         <Parameter Name="level" Type="System.Net.Cache.HttpRequestCacheLevel" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
+        <Parameter Name="cacheSyncDate" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="cacheAgeControl" Type="System.Net.Cache.HttpCacheAgeControl" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="maxAge" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="freshOrStale" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="cacheSyncDate" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="cacheAgeControl" Type="System.Net.Cache.HttpCacheAgeControl" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="ageOrFreshOrStale" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
@@ -14545,15 +14555,6 @@
         <Parameter Name="cacheAgeControl" Type="System.Net.Cache.HttpCacheAgeControl" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="maxAge" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="freshOrStale" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="cacheSyncDate" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="cacheAgeControl" Type="System.Net.Cache.HttpCacheAgeControl" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="maxAge" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="freshOrStale" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="cacheSyncDate" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
     </Class>
@@ -14821,6 +14822,7 @@
       <Property Name="Socket" Type="System.Net.Configuration.SocketElement" BaseName="ConfigurationElement" BaseType="System.Configuration.ConfigurationElement" IsReadable="True" />
       <Property Name="WebProxyScript" Type="System.Net.Configuration.WebProxyScriptElement" BaseName="ConfigurationElement" BaseType="System.Configuration.ConfigurationElement" IsReadable="True" />
       <Property Name="WebUtility" Type="System.Net.Configuration.WebUtilityElement" BaseName="ConfigurationElement" BaseType="System.Configuration.ConfigurationElement" IsReadable="True" />
+      <Property Name="WindowsAuthentication" Type="System.Net.Configuration.WindowsAuthenticationElement" BaseName="ConfigurationElement" BaseType="System.Configuration.ConfigurationElement" IsReadable="True" />
     </Class>
     <Class Name="SmtpNetworkElement" Type="System.Net.Configuration.SmtpNetworkElement" BaseName="ConfigurationElement" BaseType="System.Configuration.ConfigurationElement">
       <Property Name="ClientDomain" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
@@ -14865,6 +14867,7 @@
       <Field Name="Strict" Type="System.Net.Configuration.UnicodeEncodingConformance" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="1" />
     </Enumeration>
     <Class Name="WebProxyScriptElement" Type="System.Net.Configuration.WebProxyScriptElement" BaseName="ConfigurationElement" BaseType="System.Configuration.ConfigurationElement">
+      <Property Name="AutoConfigUrlRetryInterval" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="DownloadTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
     </Class>
     <Class Name="WebRequestModuleElement" Type="System.Net.Configuration.WebRequestModuleElement" BaseName="ConfigurationElement" BaseType="System.Configuration.ConfigurationElement">
@@ -14919,6 +14922,9 @@
     <Class Name="WebUtilityElement" Type="System.Net.Configuration.WebUtilityElement" BaseName="ConfigurationElement" BaseType="System.Configuration.ConfigurationElement">
       <Property Name="UnicodeDecodingConformance" Type="System.Net.Configuration.UnicodeDecodingConformance" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
       <Property Name="UnicodeEncodingConformance" Type="System.Net.Configuration.UnicodeEncodingConformance" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
+    </Class>
+    <Class Name="WindowsAuthenticationElement" Type="System.Net.Configuration.WindowsAuthenticationElement" BaseName="ConfigurationElement" BaseType="System.Configuration.ConfigurationElement">
+      <Property Name="DefaultCredentialsHandleCacheSize" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
     </Class>
   </Namespace>
   <Namespace Name="System.Net.Mail">
@@ -15158,16 +15164,16 @@
       <Constructor>
         <Parameter Name="from" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="to" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="from" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="to" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="subject" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="body" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="from" Type="System.Net.Mail.MailAddress" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="to" Type="System.Net.Mail.MailAddress" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="from" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="to" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="Dispose" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
     </Class>
@@ -16709,11 +16715,11 @@
       </Method>
       <Method Name="AuthenticateAsClientAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
         <Parameter Name="targetHost" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="clientCertificates" Type="System.Security.Cryptography.X509Certificates.X509CertificateCollection" BaseName="CollectionBase" BaseType="System.Collections.CollectionBase" />
+        <Parameter Name="checkCertificateRevocation" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="AuthenticateAsClientAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
         <Parameter Name="targetHost" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="clientCertificates" Type="System.Security.Cryptography.X509Certificates.X509CertificateCollection" BaseName="CollectionBase" BaseType="System.Collections.CollectionBase" />
-        <Parameter Name="checkCertificateRevocation" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="AuthenticateAsClientAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
         <Parameter Name="targetHost" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -16737,11 +16743,11 @@
       </Method>
       <Method Name="AuthenticateAsServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
         <Parameter Name="serverCertificate" Type="System.Security.Cryptography.X509Certificates.X509Certificate" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="clientCertificateRequired" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="checkCertificateRevocation" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="AuthenticateAsServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
         <Parameter Name="serverCertificate" Type="System.Security.Cryptography.X509Certificates.X509Certificate" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="clientCertificateRequired" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="checkCertificateRevocation" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="AuthenticateAsServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
         <Parameter Name="serverCertificate" Type="System.Security.Cryptography.X509Certificates.X509Certificate" BaseName="Object" BaseType="System.Object" />
@@ -16831,11 +16837,11 @@
       <Method Name="ShutdownAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object" />
       <Method Name="Write" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
+        <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="count" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Write" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
-        <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="count" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
     </Class>
   </Namespace>
@@ -17190,23 +17196,23 @@
         <Parameter Name="protocolType" Type="System.Net.Sockets.ProtocolType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
+        <Parameter Name="socketInformation" Type="System.Net.Sockets.SocketInformation" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="addressFamily" Type="System.Net.Sockets.AddressFamily" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="socketType" Type="System.Net.Sockets.SocketType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="protocolType" Type="System.Net.Sockets.ProtocolType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="socketInformation" Type="System.Net.Sockets.SocketInformation" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Accept" Type="System.Net.Sockets.Socket" BaseName="Object" BaseType="System.Object" />
       <Method Name="AcceptAsync" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="e" Type="System.Net.Sockets.SocketAsyncEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
       <Method Name="BeginAccept" Type="System.IAsyncResult" IsInterface="True">
+        <Parameter Name="receiveSize" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
         <Parameter Name="state" Type="System.Object" />
       </Method>
       <Method Name="BeginAccept" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="receiveSize" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
         <Parameter Name="state" Type="System.Object" />
       </Method>
@@ -17253,22 +17259,22 @@
         <Parameter Name="state" Type="System.Object" />
       </Method>
       <Method Name="BeginReceive" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
-        <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="state" Type="System.Object" />
+      </Method>
+      <Method Name="BeginReceive" Type="System.IAsyncResult" IsInterface="True">
+        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="errorCode" Type="System.Net.Sockets.SocketError&amp;" IsByRef="True" ElementType="System.Net.Sockets.SocketError" />
         <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
         <Parameter Name="state" Type="System.Object" />
       </Method>
       <Method Name="BeginReceive" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
-        <Parameter Name="state" Type="System.Object" />
-      </Method>
-      <Method Name="BeginReceive" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
+        <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="errorCode" Type="System.Net.Sockets.SocketError&amp;" IsByRef="True" ElementType="System.Net.Sockets.SocketError" />
         <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
@@ -17301,22 +17307,22 @@
         <Parameter Name="state" Type="System.Object" />
       </Method>
       <Method Name="BeginSend" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
-        <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="state" Type="System.Object" />
+      </Method>
+      <Method Name="BeginSend" Type="System.IAsyncResult" IsInterface="True">
+        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="errorCode" Type="System.Net.Sockets.SocketError&amp;" IsByRef="True" ElementType="System.Net.Sockets.SocketError" />
         <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
         <Parameter Name="state" Type="System.Object" />
       </Method>
       <Method Name="BeginSend" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
-        <Parameter Name="state" Type="System.Object" />
-      </Method>
-      <Method Name="BeginSend" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
+        <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="errorCode" Type="System.Net.Sockets.SocketError&amp;" IsByRef="True" ElementType="System.Net.Sockets.SocketError" />
         <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
@@ -17350,10 +17356,10 @@
       <Method Name="CancelConnectAsync" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="e" Type="System.Net.Sockets.SocketAsyncEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
-      <Method Name="Close" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Close" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="timeout" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
+      <Method Name="Close" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Connect" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="remoteEP" Type="System.Net.EndPoint" BaseName="Object" BaseType="System.Object" />
       </Method>
@@ -17450,12 +17456,12 @@
         <Parameter Name="optionLength" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="IOControl" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="ioControlCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="ioControlCode" Type="System.Net.Sockets.IOControlCode" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="optionInValue" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="optionOutValue" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
       </Method>
       <Method Name="IOControl" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="ioControlCode" Type="System.Net.Sockets.IOControlCode" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="ioControlCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="optionInValue" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="optionOutValue" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
       </Method>
@@ -17485,21 +17491,21 @@
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="Receive" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
-        <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+      </Method>
+      <Method Name="Receive" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Method>
+      <Method Name="Receive" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="errorCode" Type="System.Net.Sockets.SocketError&amp;" IsByRef="True" ElementType="System.Net.Sockets.SocketError" />
       </Method>
       <Method Name="Receive" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-      </Method>
-      <Method Name="Receive" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Method>
-      <Method Name="Receive" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
+        <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="errorCode" Type="System.Net.Sockets.SocketError&amp;" IsByRef="True" ElementType="System.Net.Sockets.SocketError" />
       </Method>
@@ -17508,24 +17514,24 @@
       </Method>
       <Method Name="ReceiveFrom" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
+        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="remoteEP" Type="System.Net.EndPoint&amp;" IsByRef="True" ElementType="System.Net.EndPoint" />
+      </Method>
+      <Method Name="ReceiveFrom" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
+        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="remoteEP" Type="System.Net.EndPoint&amp;" IsByRef="True" ElementType="System.Net.EndPoint" />
+      </Method>
+      <Method Name="ReceiveFrom" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
+        <Parameter Name="remoteEP" Type="System.Net.EndPoint&amp;" IsByRef="True" ElementType="System.Net.EndPoint" />
+      </Method>
+      <Method Name="ReceiveFrom" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="remoteEP" Type="System.Net.EndPoint&amp;" IsByRef="True" ElementType="System.Net.EndPoint" />
-      </Method>
-      <Method Name="ReceiveFrom" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
-        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="remoteEP" Type="System.Net.EndPoint&amp;" IsByRef="True" ElementType="System.Net.EndPoint" />
-      </Method>
-      <Method Name="ReceiveFrom" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
-        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="remoteEP" Type="System.Net.EndPoint&amp;" IsByRef="True" ElementType="System.Net.EndPoint" />
-      </Method>
-      <Method Name="ReceiveFrom" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="remoteEP" Type="System.Net.EndPoint&amp;" IsByRef="True" ElementType="System.Net.EndPoint" />
       </Method>
       <Method Name="ReceiveFromAsync" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -17568,15 +17574,15 @@
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="Send" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
-        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="errorCode" Type="System.Net.Sockets.SocketError&amp;" IsByRef="True" ElementType="System.Net.Sockets.SocketError" />
-      </Method>
-      <Method Name="Send" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Method>
+      <Method Name="Send" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="errorCode" Type="System.Net.Sockets.SocketError&amp;" IsByRef="True" ElementType="System.Net.Sockets.SocketError" />
       </Method>
       <Method Name="Send" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
@@ -17602,24 +17608,24 @@
       </Method>
       <Method Name="SendTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
+        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="remoteEP" Type="System.Net.EndPoint" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="SendTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
+        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="remoteEP" Type="System.Net.EndPoint" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="SendTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
+        <Parameter Name="remoteEP" Type="System.Net.EndPoint" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="SendTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="offset" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="remoteEP" Type="System.Net.EndPoint" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="SendTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
-        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="remoteEP" Type="System.Net.EndPoint" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="SendTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
-        <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="remoteEP" Type="System.Net.EndPoint" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="SendTo" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="buffer" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="remoteEP" Type="System.Net.EndPoint" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="SendToAsync" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -17636,12 +17642,12 @@
       <Method Name="SetSocketOption" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="optionLevel" Type="System.Net.Sockets.SocketOptionLevel" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="optionName" Type="System.Net.Sockets.SocketOptionName" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="optionValue" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
+        <Parameter Name="optionValue" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="SetSocketOption" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="optionLevel" Type="System.Net.Sockets.SocketOptionLevel" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="optionName" Type="System.Net.Sockets.SocketOptionName" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="optionValue" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="optionValue" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
       </Method>
       <Method Name="SetSocketOption" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="optionLevel" Type="System.Net.Sockets.SocketOptionLevel" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
@@ -17914,13 +17920,13 @@
       <Method Name="ReceiveAsync" Type="System.Threading.Tasks.Task`1&lt;System.Int32&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="socket" Type="System.Net.Sockets.Socket" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="buffer" Type="System.ArraySegment`1&lt;System.Byte&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="ReceiveAsync" Type="System.Threading.Tasks.Task`1&lt;System.Int32&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="socket" Type="System.Net.Sockets.Socket" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="buffer" Type="System.ArraySegment`1&lt;System.Byte&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" />
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="ReceiveFromAsync" Type="System.Threading.Tasks.Task`1&lt;System.Net.Sockets.SocketReceiveFromResult&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
@@ -17940,13 +17946,13 @@
       <Method Name="SendAsync" Type="System.Threading.Tasks.Task`1&lt;System.Int32&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="socket" Type="System.Net.Sockets.Socket" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="buffer" Type="System.ArraySegment`1&lt;System.Byte&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="SendAsync" Type="System.Threading.Tasks.Task`1&lt;System.Int32&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
         <GenericTypeArgument Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="socket" Type="System.Net.Sockets.Socket" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="buffers" Type="System.Collections.Generic.IList`1&lt;System.ArraySegment`1&lt;System.Byte&gt;&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="buffer" Type="System.ArraySegment`1&lt;System.Byte&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" />
         <Parameter Name="socketFlags" Type="System.Net.Sockets.SocketFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="SendToAsync" Type="System.Threading.Tasks.Task`1&lt;System.Int32&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True" IsStatic="True">
@@ -18047,13 +18053,13 @@
       <Property Name="LocalEndpoint" Type="System.Net.EndPoint" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Property Name="Server" Type="System.Net.Sockets.Socket" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Constructor>
+        <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="localEP" Type="System.Net.IPEndPoint" BaseName="EndPoint" BaseType="System.Net.EndPoint" />
       </Constructor>
       <Constructor>
         <Parameter Name="localaddr" Type="System.Net.IPAddress" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="AcceptSocket" Type="System.Net.Sockets.Socket" BaseName="Object" BaseType="System.Object" />
@@ -18112,10 +18118,10 @@
       <Property Name="MulticastLoopback" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="Ttl" Type="System.Int16" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Constructor>
-        <Parameter Name="family" Type="System.Net.Sockets.AddressFamily" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
-        <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="family" Type="System.Net.Sockets.AddressFamily" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
         <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -18171,10 +18177,10 @@
       <Method Name="Dispose" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="DropMulticastGroup" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="multicastAddr" Type="System.Net.IPAddress" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="ifindex" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="DropMulticastGroup" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="multicastAddr" Type="System.Net.IPAddress" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="ifindex" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="EndReceive" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte">
         <Parameter Name="asyncResult" Type="System.IAsyncResult" IsInterface="True" />
@@ -18182,9 +18188,6 @@
       </Method>
       <Method Name="EndSend" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="asyncResult" Type="System.IAsyncResult" IsInterface="True" />
-      </Method>
-      <Method Name="JoinMulticastGroup" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="multicastAddr" Type="System.Net.IPAddress" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="JoinMulticastGroup" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="multicastAddr" Type="System.Net.IPAddress" BaseName="Object" BaseType="System.Object" />
@@ -18197,6 +18200,9 @@
       <Method Name="JoinMulticastGroup" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="multicastAddr" Type="System.Net.IPAddress" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="timeToLive" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="JoinMulticastGroup" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="multicastAddr" Type="System.Net.IPAddress" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Receive" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte">
         <Parameter Name="remoteEP" Type="System.Net.IPEndPoint&amp;" IsByRef="True" ElementType="System.Net.IPEndPoint" />
@@ -18469,10 +18475,6 @@
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
-        <Parameter Name="nativeError" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="innerException" Type="System.Exception" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="error" Type="System.Net.WebSockets.WebSocketError" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="nativeError" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
@@ -18497,6 +18499,10 @@
       </Constructor>
       <Constructor>
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="innerException" Type="System.Exception" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="nativeError" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="innerException" Type="System.Exception" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="GetObjectData" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -18934,6 +18940,7 @@
       <Field Name="Tls" Type="System.Security.Authentication.SslProtocols" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="192" />
       <Field Name="Tls11" Type="System.Security.Authentication.SslProtocols" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="768" />
       <Field Name="Tls12" Type="System.Security.Authentication.SslProtocols" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="3072" />
+      <Field Name="Tls13" Type="System.Security.Authentication.SslProtocols" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="12288" />
     </Enumeration>
   </Namespace>
   <Namespace Name="System.Security.Authentication.ExtendedProtection">
@@ -19463,12 +19470,12 @@
         <Parameter Name="rawData" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
       </Method>
       <Method Name="Import" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Import" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="rawData" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="password" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="keyStorageFlags" Type="System.Security.Cryptography.X509Certificates.X509KeyStorageFlags" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Method>
-      <Method Name="Import" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Import" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -19801,6 +19808,9 @@
         <Parameter Name="storeName" Type="System.Security.Cryptography.X509Certificates.StoreName" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
+        <Parameter Name="storeHandle" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="storeLocation" Type="System.Security.Cryptography.X509Certificates.StoreLocation" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
@@ -19810,9 +19820,6 @@
       <Constructor>
         <Parameter Name="storeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="storeLocation" Type="System.Security.Cryptography.X509Certificates.StoreLocation" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="storeHandle" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="certificate" Type="System.Security.Cryptography.X509Certificates.X509Certificate2" BaseName="X509Certificate" BaseType="System.Security.Cryptography.X509Certificates.X509Certificate" />
@@ -20165,15 +20172,6 @@
       <Method Name="IsMatch" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="input" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="pattern" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="IsMatch" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="input" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="pattern" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="options" Type="System.Text.RegularExpressions.RegexOptions" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Method>
-      <Method Name="IsMatch" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="input" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="pattern" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="options" Type="System.Text.RegularExpressions.RegexOptions" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="matchTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
@@ -20184,9 +20182,14 @@
         <Parameter Name="input" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="startat" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="Match" Type="System.Text.RegularExpressions.Match" BaseName="Group" BaseType="System.Text.RegularExpressions.Group" IsStatic="True">
+      <Method Name="IsMatch" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="input" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="pattern" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="IsMatch" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
+        <Parameter Name="input" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="pattern" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="options" Type="System.Text.RegularExpressions.RegexOptions" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="Match" Type="System.Text.RegularExpressions.Match" BaseName="Group" BaseType="System.Text.RegularExpressions.Group" IsStatic="True">
         <Parameter Name="input" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -20211,7 +20214,7 @@
         <Parameter Name="beginning" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="length" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="Matches" Type="System.Text.RegularExpressions.MatchCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
+      <Method Name="Match" Type="System.Text.RegularExpressions.Match" BaseName="Group" BaseType="System.Text.RegularExpressions.Group" IsStatic="True">
         <Parameter Name="input" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="pattern" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
@@ -20232,6 +20235,10 @@
       <Method Name="Matches" Type="System.Text.RegularExpressions.MatchCollection" BaseName="Object" BaseType="System.Object">
         <Parameter Name="input" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="startat" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="Matches" Type="System.Text.RegularExpressions.MatchCollection" BaseName="Object" BaseType="System.Object" IsStatic="True">
+        <Parameter Name="input" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="pattern" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Replace" Type="System.String" BaseName="Object" BaseType="System.Object" IsStatic="True">
         <Parameter Name="input" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -20361,16 +20368,16 @@
       <Property Name="MatchTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="Pattern" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Constructor>
-        <Parameter Name="regexInput" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="regexPattern" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="matchTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="inner" Type="System.Exception" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="regexInput" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="regexPattern" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="matchTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
     </Class>
     <Enumeration Name="RegexOptions" Type="System.Text.RegularExpressions.RegexOptions" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum">

@@ -284,21 +284,6 @@
    Append
 
  Params
-   System.Boolean
-
- Return
-   System.Text.StringBuilder
- @/textblock
-*/
-- (System_Text_StringBuilder *)append_withValueBool:(BOOL)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   Append
-
- Params
    System.SByte
 
  Return
@@ -508,6 +493,21 @@
  Managed method.
  @textblock
  Name
+   Append
+
+ Params
+   System.Boolean
+
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)append_withValueBool:(BOOL)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
    AppendFormat
 
  Params
@@ -555,6 +555,12 @@
 */
 - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2 arg1:(id <DBMonoObject>)p3 arg2:(id <DBMonoObject>)p4;
 
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0) */
+
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
+
+/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
+
 /**
  Managed method.
  @textblock
@@ -570,12 +576,6 @@
  @/textblock
 */
 - (System_Text_StringBuilder *)appendFormat_withFormat:(NSString *)p1 args:(System_Array *)p2;
-
-/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0) */
-
-/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
-
-/* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
 
 /* Skipped method : System.Text.StringBuilder AppendFormat(System.IFormatProvider provider, System.String format, System.Object[] args) */
 
@@ -704,22 +704,6 @@
  @/textblock
 */
 - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueString:(NSString *)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   Insert
-
- Params
-   System.Int32
-   System.Boolean
-
- Return
-   System.Text.StringBuilder
- @/textblock
-*/
-- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueBool:(BOOL)p2;
 
 /**
  Managed method.
@@ -962,6 +946,22 @@
  @/textblock
 */
 - (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueObject:(id <DBMonoObject>)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Insert
+
+ Params
+   System.Int32
+   System.Boolean
+
+ Return
+   System.Text.StringBuilder
+ @/textblock
+*/
+- (System_Text_StringBuilder *)insert_withIndexInt:(int32_t)p1 valueBool:(BOOL)p2;
 
 /**
  Managed method.

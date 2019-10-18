@@ -101,6 +101,21 @@
    AsQueryable
 
  Params
+   System.Collections.IEnumerable
+
+ Return
+   System.Linq.IQueryable
+ @/textblock
+*/
++ (System_Object <System_Linq_IQueryable> *)asQueryable_withSourceSCIEnumerable:(System_Object <System_Collections_IEnumerable_> *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   AsQueryable
+
+ Params
    System.Collections.Generic.IEnumerable`1<System.Linq.Queryable+TElement>
 
  Generics
@@ -111,21 +126,6 @@
  @/textblock
 */
 + (System_Object <System_Linq_IQueryableA1> *)asQueryable_withSourceSCGILQueryable__TElement:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter;
-
-/**
- Managed method.
- @textblock
- Name
-   AsQueryable
-
- Params
-   System.Collections.IEnumerable
-
- Return
-   System.Linq.IQueryable
- @/textblock
-*/
-+ (System_Object <System_Linq_IQueryable> *)asQueryable_withSourceSCIEnumerable:(System_Object <System_Collections_IEnumerable_> *)p1;
 
 /**
  Managed method.

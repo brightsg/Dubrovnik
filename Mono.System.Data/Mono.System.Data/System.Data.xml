@@ -921,21 +921,21 @@
       <Property Name="Unique" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Constructor>
         <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="dataType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="dataType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="expr" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="dataType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="expr" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="type" Type="System.Data.MappingType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="dataType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="expr" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="SetOrdinal" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -1061,12 +1061,6 @@
       </Constructor>
       <Constructor>
         <Parameter Name="relationName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="createConstraints" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="relationName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="parentColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
         <Parameter Name="childColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
       </Constructor>
@@ -1094,6 +1088,12 @@
         <Parameter Name="childColumnNames" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
         <Parameter Name="nested" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
+      <Constructor>
+        <Parameter Name="relationName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="createConstraints" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
     </Class>
     <Class Name="DataRelationCollection" Type="System.Data.DataRelationCollection" BaseName="InternalDataCollectionBase" BaseType="System.Data.InternalDataCollectionBase">
@@ -1105,38 +1105,38 @@
       <Method Name="get_Item" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
+      <Method Name="Add" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="parentColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
+        <Parameter Name="childColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
+      </Method>
+      <Method Name="Add" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="parentColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
+        <Parameter Name="childColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
+        <Parameter Name="createConstraints" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="Add" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="parentColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
+        <Parameter Name="childColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
+      </Method>
+      <Method Name="Add" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+      </Method>
+      <Method Name="Add" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="createConstraints" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="Add" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+      </Method>
       <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="relation" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Add" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="parentColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
-        <Parameter Name="childColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
-      </Method>
-      <Method Name="Add" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="parentColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
-        <Parameter Name="childColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
-        <Parameter Name="createConstraints" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="Add" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="parentColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
-        <Parameter Name="childColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
-      </Method>
-      <Method Name="Add" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-      </Method>
-      <Method Name="Add" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="createConstraints" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="Add" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
       </Method>
       <Method Name="AddRange" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="relations" Type="System.Data.DataRelation[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataRelation" />
@@ -1159,10 +1159,10 @@
         <Parameter Name="relationName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="relation" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="relation" Type="System.Data.DataRelation" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="RemoveAt" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -1613,6 +1613,9 @@
         <Parameter Name="mode" Type="System.Data.XmlReadMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="ReadXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="reader" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="ReadXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Method>
       <Method Name="ReadXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -1620,9 +1623,6 @@
       </Method>
       <Method Name="ReadXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="ReadXmlSchema" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="reader" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="RejectChanges" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Reset" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -1868,33 +1868,6 @@
       </Method>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="writer" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Method>
-      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="writer" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="writer" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Method>
-      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="writer" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Method>
-      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Method>
       <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -1928,6 +1901,33 @@
       </Method>
       <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="stream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="writer" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Method>
+      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="writer" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="writer" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Method>
+      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="writer" Type="System.Xml.XmlWriter" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Method>
+      <Method Name="WriteXml" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="mode" Type="System.Data.XmlWriteMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="writeHierarchy" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
@@ -2082,14 +2082,14 @@
         <Parameter Name="tableNamespace" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="tableNamespace" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Method>
+      <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Method>
-      <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="tableNamespace" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="RemoveAt" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -2293,19 +2293,19 @@
         <Parameter Name="key" Type="System.Object[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Object" />
       </Method>
       <Method Name="FindRows" Type="System.Data.DataRowView[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataRowView">
-        <Parameter Name="key" Type="System.Object" />
-      </Method>
-      <Method Name="FindRows" Type="System.Data.DataRowView[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataRowView">
         <Parameter Name="key" Type="System.Object[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Object" />
       </Method>
-      <Method Name="GetEnumerator" Type="System.Collections.IEnumerator" IsInterface="True" />
-      <Method Name="ToTable" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-      <Method Name="ToTable" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent">
-        <Parameter Name="tableName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      <Method Name="FindRows" Type="System.Data.DataRowView[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataRowView">
+        <Parameter Name="key" Type="System.Object" />
       </Method>
+      <Method Name="GetEnumerator" Type="System.Collections.IEnumerator" IsInterface="True" />
       <Method Name="ToTable" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent">
         <Parameter Name="distinct" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="columnNames" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
+      </Method>
+      <Method Name="ToTable" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+      <Method Name="ToTable" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent">
+        <Parameter Name="tableName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="ToTable" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent">
         <Parameter Name="tableName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -2537,11 +2537,6 @@
         <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
       </Constructor>
       <Constructor>
-        <Parameter Name="constraintName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="parentColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
         <Parameter Name="childColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
       </Constructor>
@@ -2568,6 +2563,11 @@
         <Parameter Name="acceptRejectRule" Type="System.Data.AcceptRejectRule" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="deleteRule" Type="System.Data.Rule" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="updateRule" Type="System.Data.Rule" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="constraintName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
       </Constructor>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="key" Type="System.Object" />
@@ -3209,14 +3209,14 @@
       <ImplementedInterface Type="System.Runtime.InteropServices._Exception" />
       <Property Name="ErrorList" Type="System.Collections.ArrayList" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Constructor>
+        <Parameter Name="list" Type="System.Collections.ArrayList" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="innerException" Type="System.Exception" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="list" Type="System.Collections.ArrayList" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="GetObjectData" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="info" Type="System.Runtime.Serialization.SerializationInfo" BaseName="Object" BaseType="System.Object" />
@@ -3227,13 +3227,6 @@
       <Property Name="Columns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" IsReadable="True" />
       <Property Name="IsPrimaryKey" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="Table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" IsReadable="True" />
-      <Constructor>
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-      </Constructor>
       <Constructor>
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="columns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
@@ -3248,20 +3241,27 @@
       </Constructor>
       <Constructor>
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="columns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
         <Parameter Name="isPrimaryKey" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
-        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="columns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
         <Parameter Name="isPrimaryKey" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="columns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
+        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
         <Parameter Name="isPrimaryKey" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
-        <Parameter Name="columns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
+        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
         <Parameter Name="isPrimaryKey" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -4056,27 +4056,27 @@
       <Method Name="IsDBNullAsync" Type="System.Threading.Tasks.Task`1&lt;System.Boolean&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True">
         <GenericTypeArgument Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="IsDBNullAsync" Type="System.Threading.Tasks.Task`1&lt;System.Boolean&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True">
         <GenericTypeArgument Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="NextResult" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="NextResultAsync" Type="System.Threading.Tasks.Task`1&lt;System.Boolean&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True">
         <GenericTypeArgument Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="NextResultAsync" Type="System.Threading.Tasks.Task`1&lt;System.Boolean&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True">
         <GenericTypeArgument Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="Read" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ReadAsync" Type="System.Threading.Tasks.Task`1&lt;System.Boolean&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True">
         <GenericTypeArgument Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="ReadAsync" Type="System.Threading.Tasks.Task`1&lt;System.Boolean&gt;" BaseName="Task" BaseType="System.Threading.Tasks.Task" IsGenericType="True" IsConstructedGenericType="True">
         <GenericTypeArgument Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
     </Class>
     <Class Name="DbDataReaderExtensions" Type="System.Data.Common.DbDataReaderExtensions" BaseName="Object" BaseType="System.Object">
@@ -4180,17 +4180,17 @@
       <ImplementedInterface Type="System.Collections.IEnumerator" />
       <Property Name="Current" Type="System.Object" IsReadable="True" />
       <Constructor>
-        <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
+        <Parameter Name="reader" Type="System.Data.Common.DbDataReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Constructor>
       <Constructor>
-        <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
+        <Parameter Name="reader" Type="System.Data.Common.DbDataReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
         <Parameter Name="closeReader" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
-        <Parameter Name="reader" Type="System.Data.Common.DbDataReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
       </Constructor>
       <Constructor>
-        <Parameter Name="reader" Type="System.Data.Common.DbDataReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
         <Parameter Name="closeReader" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="MoveNext" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -4944,6 +4944,9 @@
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="value" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
+      <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="value" Type="System.Object" />
+      </Method>
       <Method Name="Add" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="value" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
@@ -4966,9 +4969,6 @@
         <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="sourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" />
-      </Method>
       <Method Name="AddRange" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="values" Type="System.Data.Odbc.OdbcParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.Odbc.OdbcParameter" />
       </Method>
@@ -4984,42 +4984,42 @@
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
-      </Method>
-      <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Object" />
       </Method>
-      <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="array" Type="System.Data.Odbc.OdbcParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.Odbc.OdbcParameter" />
-        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="value" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="array" Type="System.Array" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetEnumerator" Type="System.Collections.IEnumerator" IsInterface="True" />
-      <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
+      <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="array" Type="System.Data.Odbc.OdbcParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.Odbc.OdbcParameter" />
+        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
+      <Method Name="GetEnumerator" Type="System.Collections.IEnumerator" IsInterface="True" />
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Object" />
       </Method>
-      <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="value" Type="System.Object" />
       </Method>
-      <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+      <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="value" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Object" />
+      </Method>
+      <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="value" Type="System.Data.Odbc.OdbcParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="RemoveAt" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -5670,6 +5670,9 @@
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="value" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
+      <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="value" Type="System.Object" />
+      </Method>
       <Method Name="Add" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="value" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
@@ -5692,9 +5695,6 @@
         <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="sourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" />
-      </Method>
       <Method Name="AddRange" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="values" Type="System.Data.OleDb.OleDbParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.OleDb.OleDbParameter" />
       </Method>
@@ -5710,42 +5710,42 @@
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
-      </Method>
-      <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Object" />
       </Method>
-      <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="array" Type="System.Data.OleDb.OleDbParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.OleDb.OleDbParameter" />
-        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="value" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="array" Type="System.Array" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetEnumerator" Type="System.Collections.IEnumerator" IsInterface="True" />
-      <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
+      <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="array" Type="System.Data.OleDb.OleDbParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.OleDb.OleDbParameter" />
+        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
+      <Method Name="GetEnumerator" Type="System.Collections.IEnumerator" IsInterface="True" />
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Object" />
       </Method>
-      <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="value" Type="System.Object" />
       </Method>
-      <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+      <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="value" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Object" />
+      </Method>
+      <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="value" Type="System.Data.OleDb.OleDbParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="RemoveAt" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -6054,6 +6054,10 @@
       <Property Name="EnableStreaming" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="NotifyAfter" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Constructor>
+        <Parameter Name="connectionString" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="copyOptions" Type="System.Data.SqlClient.SqlBulkCopyOptions" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="connection" Type="System.Data.SqlClient.SqlConnection" BaseName="DbConnection" BaseType="System.Data.Common.DbConnection" />
       </Constructor>
       <Constructor>
@@ -6063,10 +6067,6 @@
       </Constructor>
       <Constructor>
         <Parameter Name="connectionString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="connectionString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="copyOptions" Type="System.Data.SqlClient.SqlBulkCopyOptions" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Method Name="Close" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="WriteToServer" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -6089,37 +6089,37 @@
         <Parameter Name="rows" Type="System.Data.DataRow[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataRow" />
       </Method>
       <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="reader" Type="System.Data.Common.DbDataReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+      </Method>
+      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="reader" Type="System.Data.Common.DbDataReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
+      </Method>
+      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+      </Method>
+      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="rowState" Type="System.Data.DataRowState" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Method>
+      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
+        <Parameter Name="table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="rowState" Type="System.Data.DataRowState" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
         <Parameter Name="rows" Type="System.Data.DataRow[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataRow" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="reader" Type="System.Data.Common.DbDataReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-      </Method>
-      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="reader" Type="System.Data.Common.DbDataReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
-      </Method>
-      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-      </Method>
-      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Method>
-      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="rowState" Type="System.Data.DataRowState" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Method>
-      <Method Name="WriteToServerAsync" Type="System.Threading.Tasks.Task" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="rowState" Type="System.Data.DataRowState" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="cancellationToken" Type="System.Threading.CancellationToken" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Event Name="SqlRowsCopied" Type="System.Data.SqlClient.SqlRowsCopiedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
@@ -7234,6 +7234,9 @@
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="value" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
+      <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="value" Type="System.Object" />
+      </Method>
       <Method Name="Add" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter">
         <Parameter Name="value" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
@@ -7256,9 +7259,6 @@
         <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="sourceColumn" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
-      <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" />
-      </Method>
       <Method Name="AddRange" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="values" Type="System.Data.SqlClient.SqlParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.SqlClient.SqlParameter" />
       </Method>
@@ -7274,42 +7274,42 @@
         <Parameter Name="value" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
-      </Method>
-      <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Object" />
       </Method>
-      <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="array" Type="System.Data.SqlClient.SqlParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.SqlClient.SqlParameter" />
-        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="Contains" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="value" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="array" Type="System.Array" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="GetEnumerator" Type="System.Collections.IEnumerator" IsInterface="True" />
-      <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
+      <Method Name="CopyTo" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="array" Type="System.Data.SqlClient.SqlParameter[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.SqlClient.SqlParameter" />
+        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
+      <Method Name="GetEnumerator" Type="System.Collections.IEnumerator" IsInterface="True" />
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="parameterName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Object" />
       </Method>
-      <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="IndexOf" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="value" Type="System.Object" />
       </Method>
-      <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+      <Method Name="Insert" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="value" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.Object" />
+      </Method>
+      <Method Name="Remove" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="value" Type="System.Data.SqlClient.SqlParameter" BaseName="DbParameter" BaseType="System.Data.Common.DbParameter" />
       </Method>
       <Method Name="RemoveAt" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -8232,12 +8232,12 @@
         <Parameter Name="x" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="value" Type="System.Object" />
-      </Method>
       <Method Name="Equals" Type="System.Data.SqlTypes.SqlBoolean" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="x" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="y" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Method>
+      <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
+        <Parameter Name="value" Type="System.Object" />
       </Method>
       <Method Name="Floor" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="n" Type="System.Data.SqlTypes.SqlDecimal" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />

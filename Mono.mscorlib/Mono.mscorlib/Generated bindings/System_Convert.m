@@ -1240,14 +1240,6 @@ static id <DBMonoObject> m_dBNull;
 
 /* Skipped method : System.String ToString(System.Object value, System.IFormatProvider provider) */
 
-+ (NSString *)toString_withValueBool:(BOOL)p1
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(bool)" withNumArgs:1, &p1];
-	return [NSString stringWithMonoString:DB_STRING(monoObject)];
-}
-
-/* Skipped method : System.String ToString(System.Boolean value, System.IFormatProvider provider) */
-
 + (NSString *)toString_withValueChar:(uint16_t)p1
 {
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(char)" withNumArgs:1, &p1];
@@ -1383,6 +1375,14 @@ static id <DBMonoObject> m_dBNull;
 	MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(long,int)" withNumArgs:2, &p1, &p2];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
+
++ (NSString *)toString_withValueBool:(BOOL)p1
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ToString(bool)" withNumArgs:1, &p1];
+	return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
+/* Skipped method : System.String ToString(System.Boolean value, System.IFormatProvider provider) */
 
 + (uint16_t)toUInt16_withValueObject:(id <DBMonoObject>)p1
 {

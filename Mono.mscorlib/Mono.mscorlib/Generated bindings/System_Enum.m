@@ -169,13 +169,13 @@
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
+/* Skipped method : System.String ToString(System.IFormatProvider provider) */
+
 - (NSString *)toString_withFormat:(NSString *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
-
-/* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
 + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(System_Object **)p2 typeParameter:(id)typeParameter
 {

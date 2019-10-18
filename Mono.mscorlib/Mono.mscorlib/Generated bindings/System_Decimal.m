@@ -57,18 +57,6 @@
 	return object;
 }
 
-+ (System_Decimal *)new_withValueSingle:(float)p1
-{
-	System_Decimal * object = [[self alloc] initWithSignature:"single" withNumArgs:1, &p1];
-	return object;
-}
-
-+ (System_Decimal *)new_withValueDouble:(double)p1
-{
-	System_Decimal * object = [[self alloc] initWithSignature:"double" withNumArgs:1, &p1];
-	return object;
-}
-
 + (System_Decimal *)new_withBits:(System_Array *)p1
 {
 	System_Decimal * object = [[self alloc] initWithSignature:"int[]" withNumArgs:1, [p1 monoRTInvokeObject]];
@@ -78,6 +66,18 @@
 + (System_Decimal *)new_withLo:(int32_t)p1 mid:(int32_t)p2 hi:(int32_t)p3 isNegative:(BOOL)p4 scale:(uint8_t)p5
 {
 	System_Decimal * object = [[self alloc] initWithSignature:"int,int,int,bool,byte" withNumArgs:5, &p1, &p2, &p3, &p4, &p5];
+	return object;
+}
+
++ (System_Decimal *)new_withValueSingle:(float)p1
+{
+	System_Decimal * object = [[self alloc] initWithSignature:"single" withNumArgs:1, &p1];
+	return object;
+}
+
++ (System_Decimal *)new_withValueDouble:(double)p1
+{
+	System_Decimal * object = [[self alloc] initWithSignature:"double" withNumArgs:1, &p1];
 	return object;
 }
 

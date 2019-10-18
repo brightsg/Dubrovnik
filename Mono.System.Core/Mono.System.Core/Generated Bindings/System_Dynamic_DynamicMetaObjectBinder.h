@@ -83,14 +83,13 @@
    Defer
 
  Params
-   System.Dynamic.DynamicMetaObject
    System.Dynamic.DynamicMetaObject[]
 
  Return
    System.Dynamic.DynamicMetaObject
  @/textblock
 */
-- (System_Dynamic_DynamicMetaObject *)defer_withTarget:(System_Dynamic_DynamicMetaObject *)p1 args:(System_Array *)p2;
+- (System_Dynamic_DynamicMetaObject *)defer_withArgs:(System_Array *)p1;
 
 /**
  Managed method.
@@ -99,13 +98,14 @@
    Defer
 
  Params
+   System.Dynamic.DynamicMetaObject
    System.Dynamic.DynamicMetaObject[]
 
  Return
    System.Dynamic.DynamicMetaObject
  @/textblock
 */
-- (System_Dynamic_DynamicMetaObject *)defer_withArgs:(System_Array *)p1;
+- (System_Dynamic_DynamicMetaObject *)defer_withTarget:(System_Dynamic_DynamicMetaObject *)p1 args:(System_Array *)p2;
 
 /* Skipped method : System.Linq.Expressions.Expression GetUpdateExpression(System.Type type) */
 @end

@@ -257,39 +257,6 @@
  Params
    System.String
    System.String
-
- Return
-   System.Boolean
- @/textblock
-*/
-+ (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   IsMatch
-
- Params
-   System.String
-   System.String
-   System.Text.RegularExpressions.RegexOptions
-
- Return
-   System.Boolean
- @/textblock
-*/
-+ (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(enumSystem_Text_RegularExpressions_RegexOptions)p3;
-
-/**
- Managed method.
- @textblock
- Name
-   IsMatch
-
- Params
-   System.String
-   System.String
    System.Text.RegularExpressions.RegexOptions
    System.TimeSpan
 
@@ -330,7 +297,38 @@
 */
 - (BOOL)isMatch_withInput:(NSString *)p1 startat:(int32_t)p2;
 
-/* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.String pattern) */
+/**
+ Managed method.
+ @textblock
+ Name
+   IsMatch
+
+ Params
+   System.String
+   System.String
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IsMatch
+
+ Params
+   System.String
+   System.String
+   System.Text.RegularExpressions.RegexOptions
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)isMatch_withInput:(NSString *)p1 pattern:(NSString *)p2 options:(enumSystem_Text_RegularExpressions_RegexOptions)p3;
 
 /* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
 
@@ -342,7 +340,7 @@
 
 /* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.Int32 beginning, System.Int32 length) */
 
-/* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input, System.String pattern) */
+/* Skipped method : System.Text.RegularExpressions.Match Match(System.String input, System.String pattern) */
 
 /* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input, System.String pattern, System.Text.RegularExpressions.RegexOptions options) */
 
@@ -351,6 +349,8 @@
 /* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input) */
 
 /* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input, System.Int32 startat) */
+
+/* Skipped method : System.Text.RegularExpressions.MatchCollection Matches(System.String input, System.String pattern) */
 
 /**
  Managed method.

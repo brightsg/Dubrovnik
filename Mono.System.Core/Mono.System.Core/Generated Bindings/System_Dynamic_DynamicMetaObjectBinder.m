@@ -64,15 +64,15 @@
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Dynamic_DynamicMetaObject *)defer_withTarget:(System_Dynamic_DynamicMetaObject *)p1 args:(System_Array *)p2
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"Defer(System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
-	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
-}
-
 - (System_Dynamic_DynamicMetaObject *)defer_withArgs:(System_Array *)p1
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Defer(System.Dynamic.DynamicMetaObject[])" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Dynamic_DynamicMetaObject *)defer_withTarget:(System_Dynamic_DynamicMetaObject *)p1 args:(System_Array *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Defer(System.Dynamic.DynamicMetaObject,System.Dynamic.DynamicMetaObject[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Dynamic_DynamicMetaObject bestObjectWithMonoObject:monoObject];
 }
 

@@ -190,8 +190,6 @@
 
 /* Skipped method : System.Int32 BinarySearch(System.Array array, System.Object value, System.Collections.IComparer comparer) */
 
-/* Skipped method : System.Int32 BinarySearch(System.Array array, System.Int32 index, System.Int32 length, System.Object value, System.Collections.IComparer comparer) */
-
 /**
  Managed method.
  @textblock
@@ -273,6 +271,8 @@
  @/textblock
 */
 + (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(id <DBMonoObject>)p4 comparerSCGIArray__T:(System_Object <System_Collections_Generic_IComparerA1_> *)p5 typeParameter:(id)typeParameter;
+
+/* Skipped method : System.Int32 BinarySearch(System.Array array, System.Int32 index, System.Int32 length, System.Object value, System.Collections.IComparer comparer) */
 
 /**
  Managed method.
@@ -457,23 +457,6 @@
    System.Type
    System.Int32
    System.Int32
-
- Return
-   System.Array
- @/textblock
-*/
-+ (System_Array *)createInstance_withElementType:(System_Type *)p1 length1:(int32_t)p2 length2:(int32_t)p3;
-
-/**
- Managed method.
- @textblock
- Name
-   CreateInstance
-
- Params
-   System.Type
-   System.Int32
-   System.Int32
    System.Int32
 
  Return
@@ -530,6 +513,23 @@
  @/textblock
 */
 + (System_Array *)createInstance_withElementType:(System_Type *)p1 lengths:(System_Array *)p2 lowerBounds:(System_Array *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateInstance
+
+ Params
+   System.Type
+   System.Int32
+   System.Int32
+
+ Return
+   System.Array
+ @/textblock
+*/
++ (System_Array *)createInstance_withElementType:(System_Type *)p1 length1:(int32_t)p2 length2:(int32_t)p3;
 
 /**
  Managed method.
@@ -1442,8 +1442,6 @@
 
 /* Skipped method : System.Void Sort(System.Array array, System.Int32 index, System.Int32 length, System.Collections.IComparer comparer) */
 
-/* Skipped method : System.Void Sort(System.Array keys, System.Array items, System.Int32 index, System.Int32 length, System.Collections.IComparer comparer) */
-
 /**
  Managed method.
  @textblock
@@ -1605,6 +1603,8 @@
 + (void)sort_withKeysTKeyArray:(System_Array *)p1 itemsTValueArray:(System_Array *)p2 indexInt:(int32_t)p3 lengthInt:(int32_t)p4 comparerSCGIArray__TKey:(System_Object <System_Collections_Generic_IComparerA1_> *)p5 typeParameters:(NSArray<id> *)typeParameter;
 
 /* Skipped method : System.Void Sort(T[] array, System.Comparison`1<System.Array+T> comparison) */
+
+/* Skipped method : System.Void Sort(System.Array keys, System.Array items, System.Int32 index, System.Int32 length, System.Collections.IComparer comparer) */
 
 /**
  Managed method.

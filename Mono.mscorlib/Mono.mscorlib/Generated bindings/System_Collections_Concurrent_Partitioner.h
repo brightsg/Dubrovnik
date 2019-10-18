@@ -52,42 +52,13 @@
 #pragma mark -
 #pragma mark Methods
 
-/**
- Managed method.
- @textblock
- Name
-   Create
+/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>> Create(System.Int64 fromInclusive, System.Int64 toExclusive) */
 
- Params
-   System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>
+/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>> Create(System.Int64 fromInclusive, System.Int64 toExclusive, System.Int64 rangeSize) */
 
- Generics
-   <System.Collections.Concurrent.Partitioner+TSource>
+/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>> Create(System.Int32 fromInclusive, System.Int32 toExclusive) */
 
- Return
-   System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
- @/textblock
-*/
-+ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter;
-
-/**
- Managed method.
- @textblock
- Name
-   Create
-
- Params
-   System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>
-   System.Collections.Concurrent.EnumerablePartitionerOptions
-
- Generics
-   <System.Collections.Concurrent.Partitioner+TSource>
-
- Return
-   System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
- @/textblock
-*/
-+ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 partitionerOptions:(enumSystem_Collections_Concurrent_EnumerablePartitionerOptions)p2 typeParameter:(id)typeParameter;
+/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>> Create(System.Int32 fromInclusive, System.Int32 toExclusive, System.Int32 rangeSize) */
 
 /**
  Managed method.
@@ -127,12 +98,41 @@
 */
 + (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withArray:(System_Array *)p1 loadBalance:(BOOL)p2 typeParameter:(id)typeParameter;
 
-/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>> Create(System.Int64 fromInclusive, System.Int64 toExclusive) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Create
 
-/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>> Create(System.Int64 fromInclusive, System.Int64 toExclusive, System.Int64 rangeSize) */
+ Params
+   System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>
 
-/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>> Create(System.Int32 fromInclusive, System.Int32 toExclusive) */
+ Generics
+   <System.Collections.Concurrent.Partitioner+TSource>
 
-/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>> Create(System.Int32 fromInclusive, System.Int32 toExclusive, System.Int32 rangeSize) */
+ Return
+   System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
+ @/textblock
+*/
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Create
+
+ Params
+   System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.Partitioner+TSource>
+   System.Collections.Concurrent.EnumerablePartitionerOptions
+
+ Generics
+   <System.Collections.Concurrent.Partitioner+TSource>
+
+ Return
+   System.Collections.Concurrent.OrderablePartitioner`1<System.Collections.Concurrent.Partitioner+TSource>
+ @/textblock
+*/
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withSource:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 partitionerOptions:(enumSystem_Collections_Concurrent_EnumerablePartitionerOptions)p2 typeParameter:(id)typeParameter;
 @end
 //--Dubrovnik.CodeGenerator
