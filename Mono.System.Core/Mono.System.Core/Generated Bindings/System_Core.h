@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     18/10/2019 09:42:46
+// Date:     18/10/2019 10:14:28
 //
 // Assembly: System.Core
 // Fullname: System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089

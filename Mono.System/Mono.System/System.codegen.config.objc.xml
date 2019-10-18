@@ -644,6 +644,7 @@
   <string>System.Net.Configuration.WebRequestModuleElementCollection</string>
   <string>System.Net.Configuration.WebRequestModulesSection</string>
   <string>System.Net.Configuration.WebUtilityElement</string>
+  <string>System.Net.Configuration.WindowsAuthenticationElement</string>
   <string>System.Net.Cookie</string>
   <string>System.Net.CookieCollection</string>
   <string>System.Net.CookieContainer</string>
