@@ -346,6 +346,8 @@
 		AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB950DE9192AA6720035ABC6 /* DBNullableDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB950DE7192AA6720035ABC6 /* DBNullableDateTransformer.m */; };
 		AB950DEB192AA6C10035ABC6 /* ValueTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = AB950DEA192AA6C10035ABC6 /* ValueTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB987AFB2359B4C1007EEBCB /* System_DateTimeOffset.h in Headers */ = {isa = PBXBuildFile; fileRef = AB987AF92359B4C1007EEBCB /* System_DateTimeOffset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB987AFC2359B4C1007EEBCB /* System_DateTimeOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = AB987AFA2359B4C1007EEBCB /* System_DateTimeOffset.m */; };
 		ABA4F3E32002BEBF00D6597A /* System_Object.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3F918FF110000213B80 /* System_Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA4F3E42002BEC200D6597A /* System_Object.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3FA18FF110000213B80 /* System_Object.m */; };
 		ABB7B6C01EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB7B6BE1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -767,6 +769,8 @@
 		AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableDateTransformer.h; sourceTree = "<group>"; };
 		AB950DE7192AA6720035ABC6 /* DBNullableDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableDateTransformer.m; sourceTree = "<group>"; };
 		AB950DEA192AA6C10035ABC6 /* ValueTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueTransformers.h; sourceTree = "<group>"; };
+		AB987AF92359B4C1007EEBCB /* System_DateTimeOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_DateTimeOffset.h; sourceTree = "<group>"; };
+		AB987AFA2359B4C1007EEBCB /* System_DateTimeOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_DateTimeOffset.m; sourceTree = "<group>"; };
 		ABB7B6BE1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_Generic_KeyValuePairA2+mscorlib.h"; sourceTree = "<group>"; };
 		ABB7B6BF1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_Generic_KeyValuePairA2+mscorlib.m"; sourceTree = "<group>"; };
 		ABB8A28418FEFB0700213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -892,6 +896,8 @@
 		AB4CDBCE1FFBF4FE0096326D /* Generated bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB987AF92359B4C1007EEBCB /* System_DateTimeOffset.h */,
+				AB987AFA2359B4C1007EEBCB /* System_DateTimeOffset.m */,
 				AB748CF522A906CB00A25754 /* System_PredicateA1.h */,
 				AB748CF422A906CB00A25754 /* System_PredicateA1.m */,
 				AB10F914220B4F43007EA4CA /* System_Collections_Generic_IListA1_Protocol.h */,
@@ -1539,6 +1545,7 @@
 				AB512B4E20D062510078F747 /* System_IO_FileAttributes.h in Headers */,
 				AB512B9020D062510078F747 /* System_Runtime_InteropServices__Exception_Protocol.h in Headers */,
 				AB512B2420D062510078F747 /* System_Collections_Generic_IEnumerableA1_Protocol.h in Headers */,
+				AB987AFB2359B4C1007EEBCB /* System_DateTimeOffset.h in Headers */,
 				AB512B9A20D062510078F747 /* System_Enum.h in Headers */,
 				AB348B3221CBC5CF00F07B68 /* System_Runtime_Remoting_Proxies_RealProxy.h in Headers */,
 				AB512B4D20D062510078F747 /* System_ActionA1.h in Headers */,
@@ -1773,6 +1780,7 @@
 				AB512BE120D062520078F747 /* System_Int64.m in Sources */,
 				AB512BD420D062510078F747 /* System_NullableA1.m in Sources */,
 				AB5ABE3921C1C0B900D27EDF /* System_MarshalByRefObject.m in Sources */,
+				AB987AFC2359B4C1007EEBCB /* System_DateTimeOffset.m in Sources */,
 				AB512BB620D062510078F747 /* System_Exception.m in Sources */,
 				AB512B3A20D062510078F747 /* System_Reflection_Assembly.m in Sources */,
 				AB348B3121CBC5CF00F07B68 /* System_Runtime_Remoting_Proxies_ProxyAttribute.m in Sources */,
