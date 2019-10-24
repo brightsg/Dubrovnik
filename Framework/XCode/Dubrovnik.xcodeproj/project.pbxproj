@@ -44,6 +44,8 @@
 		AB4759761D7083D100C3319C /* DBManagedObject+Logging.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4759741D7083D100C3319C /* DBManagedObject+Logging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB4759771D7083D100C3319C /* DBManagedObject+Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4759751D7083D100C3319C /* DBManagedObject+Logging.m */; };
 		AB479B2A17B4037D000A2315 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AB48DA8A2361A1160017EE3B /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9361F26A087234A90073CD9D /* Mono.framework */; };
+		AB48DA952361A4F70017EE3B /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9361F26A087234A90073CD9D /* Mono.framework */; };
 		AB4919251CF9DA6800B4A411 /* NSThread+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4919231CF9DA6800B4A411 /* NSThread+Dubrovnik.h */; };
 		AB4919261CF9DA6800B4A411 /* NSThread+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4919241CF9DA6800B4A411 /* NSThread+Dubrovnik.m */; };
 		AB49E430178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E42E178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -101,8 +103,6 @@
 		ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FB5C417F08B3D003E5304 /* libJudy.a */; };
 		ABCF4AB8199ABD44009BE714 /* DBManagedApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCF4AB6199ABD44009BE714 /* DBManagedApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABCF4AB9199ABD44009BE714 /* DBManagedApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCF4AB7199ABD44009BE714 /* DBManagedApplication.m */; };
-		ABD02CAF183180C400885CDC /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD02CAE183180C400885CDC /* Mono64.framework */; };
-		ABD02CB01831822500885CDC /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD02CAE183180C400885CDC /* Mono64.framework */; };
 		ABD1CC2219A905FC0072F538 /* NSPointerArray+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = ABD1CC2019A905FC0072F538 /* NSPointerArray+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABD1CC2319A905FC0072F538 /* NSPointerArray+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD1CC2119A905FC0072F538 /* NSPointerArray+Dubrovnik.m */; };
 		ABD2F23518FB100C00C2B561 /* DBUReferenceObject__NestedClass.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD2F23418FB100C00C2B561 /* DBUReferenceObject__NestedClass.m */; };
@@ -334,7 +334,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABD02CAF183180C400885CDC /* Mono64.framework in Frameworks */,
+				AB48DA8A2361A1160017EE3B /* Mono.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				ABC6F96917F1C3D800506A44 /* libJudy.a in Frameworks */,
 			);
@@ -344,10 +344,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB48DA952361A4F70017EE3B /* Mono.framework in Frameworks */,
 				AB6ED4D31A9DDA8600A4F174 /* Mono.System.Core.framework in Frameworks */,
 				AB6ED4D01A9DD9F900A4F174 /* Mono.mscorlib.framework in Frameworks */,
 				ABA35A4A1A10DB3700149C00 /* Cocoa.framework in Frameworks */,
-				ABD02CB01831822500885CDC /* Mono64.framework in Frameworks */,
 				AB2CD2FD178D77910075CF6A /* Dubrovnik.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -856,6 +856,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* Dumbarton */;
@@ -1082,7 +1083,7 @@
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono64.framework/headers/mono-2.0";
+				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono.framework/headers/mono-2.0";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
@@ -1104,7 +1105,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono64.framework/headers/mono-2.0";
+				HEADER_SEARCH_PATHS = "/Library/Frameworks/Mono.framework/headers/mono-2.0";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_CFLAGS = (
 					"-Wextra",
@@ -1151,7 +1152,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Library/Frameworks/Mono64.framework/Versions/Current/lib,
+					/Library/Frameworks/Mono.framework/Versions/Current/lib,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -1192,7 +1193,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Library/Frameworks/Mono64.framework/Versions/Current/lib,
+					/Library/Frameworks/Mono.framework/Versions/Current/lib,
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(LOCAL_LIBRARY_DIR)/Frameworks/Mono.framework/Versions/3.2.0/lib\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;

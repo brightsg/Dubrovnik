@@ -11,6 +11,7 @@
 		AB178060199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */; };
 		AB178063199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB178064199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */; };
+		AB48DA922361A21F0017EE3B /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB48DA912361A21F0017EE3B /* Mono.framework */; };
 		AB6245231E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6245241E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */; };
 		AB7DF4BE1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */ = {isa = PBXBuildFile; fileRef = AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,7 +39,6 @@
 		ABDA50E51A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDA50E11A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m */; };
 		ABDA50E61A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = ABDA50E21A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABDA50E71A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDA50E31A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.m */; };
-		ABDA50E91A9D1E26009926B1 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABDA50E81A9D1E26009926B1 /* Mono64.framework */; };
 		ABF37D4E1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */ = {isa = PBXBuildFile; fileRef = ABF37D4C1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF37D4F1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF37D4D1965FAD700CC9DE9 /* System_Collections_ObjectModel_ObservableCollectionA1.m */; };
 		ABF5D28D190C58A900E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D28B190C58A900E9CFBD /* Dubrovnik.framework */; };
@@ -60,6 +60,7 @@
 		AB17805E199B761E005DC8BC /* System_ComponentModel_PropertyChangedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangedEventArgs.m; sourceTree = "<group>"; };
 		AB178061199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_PropertyChangingEventArgs.h; sourceTree = "<group>"; };
 		AB178062199B7633005DC8BC /* System_ComponentModel_PropertyChangingEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangingEventArgs.m; sourceTree = "<group>"; };
+		AB48DA912361A21F0017EE3B /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = ../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<group>"; };
 		AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.h"; sourceTree = "<group>"; };
 		AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.m"; sourceTree = "<group>"; };
 		AB7DF4BC1A2E289100C9DE72 /* System_ComponentModel_INotifyPropertyChanged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_INotifyPropertyChanged.h; sourceTree = "<group>"; };
@@ -106,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABDA50E91A9D1E26009926B1 /* Mono64.framework in Frameworks */,
+				AB48DA922361A21F0017EE3B /* Mono.framework in Frameworks */,
 				ABF5D28D190C58A900E9CFBD /* Dubrovnik.framework in Frameworks */,
 				ABF5D28E190C58A900E9CFBD /* Mono.mscorlib.framework in Frameworks */,
 				ABA397121906BA6300D5CA6E /* Cocoa.framework in Frameworks */,
@@ -155,6 +156,7 @@
 		ABA397101906BA6300D5CA6E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB48DA912361A21F0017EE3B /* Mono.framework */,
 				ABDA50E81A9D1E26009926B1 /* Mono64.framework */,
 				ABF5D28B190C58A900E9CFBD /* Dubrovnik.framework */,
 				ABF5D28C190C58A900E9CFBD /* Mono.mscorlib.framework */,
@@ -346,6 +348,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = ABA397041906BA6300D5CA6E;
@@ -470,7 +473,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+					"/Library/Frameworks/Mono.framework/headers/mono-2.0",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
@@ -508,7 +511,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+					"/Library/Frameworks/Mono.framework/headers/mono-2.0",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;

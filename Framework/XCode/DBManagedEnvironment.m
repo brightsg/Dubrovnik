@@ -28,7 +28,7 @@ NSString * const DBNoteManagedEnvironmentInitialised = @"DBNoteManagedEnvironmen
 NSString * const DBNoteManagedEnvironmentLoaded = @"DBNoteManagedEnvironmentLoaded";
 
 // static
-static NSString *m_monoFrameworkPathVersionCurrent = @"/Library/Frameworks/Mono64.framework/Versions/Current";
+static NSString *m_monoFrameworkPathVersionCurrent = @"/Library/Frameworks/Mono.framework/Versions/Current";
 static NSString *m_monoDefaultMachineConfigVersion = @"4.5";
 static NSString *m_monoAssemblyDefaultSearchPath = @"mono/4.5";
 static NSString *m_monoDefaultVersion = @"v4.0.30319";

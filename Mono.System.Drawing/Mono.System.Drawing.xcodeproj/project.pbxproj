@@ -12,6 +12,7 @@
 		AB2E74B318FFD6C90061C63E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74AE18FFD6C90061C63E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74B418FFD6C90061C63E /* HelperClasses.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74AF18FFD6C90061C63E /* HelperClasses.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74B518FFD6C90061C63E /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74B018FFD6C90061C63E /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB48DA8E2361A1AF0017EE3B /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB48DA8D2361A1AF0017EE3B /* Mono.framework */; };
 		ABB8A3AA18FF0B4900213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A3A918FF0B4900213B80 /* Cocoa.framework */; };
 		ABB8A3B418FF0B4A00213B80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB8A3B218FF0B4A00213B80 /* InfoPlist.strings */; };
 		ABB8A3C018FF0B4A00213B80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A3A918FF0B4900213B80 /* Cocoa.framework */; };
@@ -22,7 +23,6 @@
 		ABB8A3DB18FF0C4100213B80 /* DBSystem_Drawing_Size.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3D918FF0C4100213B80 /* DBSystem_Drawing_Size.m */; };
 		ABB8A46118FF28A600213B80 /* System_Drawing_Size.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A45F18FF28A600213B80 /* System_Drawing_Size.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB8A46218FF28A600213B80 /* System_Drawing_Size.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A46018FF28A600213B80 /* System_Drawing_Size.m */; };
-		ABB8A46818FF297700213B80 /* Mono64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB8A46718FF297700213B80 /* Mono64.framework */; };
 		ABF5D279190C57A400E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D277190C57A400E9CFBD /* Dubrovnik.framework */; };
 		ABF5D27A190C57A400E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D278190C57A400E9CFBD /* Mono.mscorlib.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +43,7 @@
 		AB2E74AE18FFD6C90061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		AB2E74AF18FFD6C90061C63E /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		AB2E74B018FFD6C90061C63E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		AB48DA8D2361A1AF0017EE3B /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = ../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<group>"; };
 		ABB8A3A618FF0B4900213B80 /* Mono.System.Drawing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Drawing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB8A3A918FF0B4900213B80 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABB8A3AC18FF0B4900213B80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -69,9 +70,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB48DA8E2361A1AF0017EE3B /* Mono.framework in Frameworks */,
 				ABF5D279190C57A400E9CFBD /* Dubrovnik.framework in Frameworks */,
 				ABF5D27A190C57A400E9CFBD /* Mono.mscorlib.framework in Frameworks */,
-				ABB8A46818FF297700213B80 /* Mono64.framework in Frameworks */,
 				ABB8A3AA18FF0B4900213B80 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +123,7 @@
 		ABB8A3A818FF0B4900213B80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB48DA8D2361A1AF0017EE3B /* Mono.framework */,
 				ABF5D277190C57A400E9CFBD /* Dubrovnik.framework */,
 				ABF5D278190C57A400E9CFBD /* Mono.mscorlib.framework */,
 				ABB8A46718FF297700213B80 /* Mono64.framework */,
@@ -281,6 +283,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = ABB8A39C18FF0B4900213B80;
@@ -396,7 +399,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+					"/Library/Frameworks/Mono.framework/headers/mono-2.0",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
@@ -434,7 +437,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"/Library/Frameworks/Mono64.framework/headers/mono-2.0",
+					"/Library/Frameworks/Mono.framework/headers/mono-2.0",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
