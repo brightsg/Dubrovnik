@@ -8,7 +8,6 @@
 
 #import "DBTypeManager.h"
 #import "DBNumber.h"
-#import "DBManagedObject.h"
 #import "DBBoxing.h"
 #import "DBInvoke.h"
 #import "NSString+Dubrovnik.h"
@@ -434,7 +433,7 @@ static BOOL m_useClassLookupCache = YES;
 #pragma mark -
 #pragma mark Object factory
 
-- (id)objectWithManagedObject:(DBManagedObject *)managedObject
+- (id)objectWithManagedObject:(id <DBMonoObject>)managedObject
 {
     return [self objectWithMonoObject:managedObject.monoObject];
 }
