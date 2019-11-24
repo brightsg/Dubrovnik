@@ -108,7 +108,7 @@ namespace Dubrovnik.Tools {
 							value = "[{0} monoRTInvokeArg]";
 						} else {
 							// Default setter formatter for Obj-C numeric type
-							value = "DB_VALUE({0})";
+							value = "&{0}";
 						}
 					}
 					return value;

@@ -54,54 +54,6 @@
 
  Params
    System.Collections.Specialized.NotifyCollectionChangedAction
-
- Return
-   System.Collections.Specialized.NotifyCollectionChangedEventArgs
- @/textblock
-*/
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   .ctor
-
- Params
-   System.Collections.Specialized.NotifyCollectionChangedAction
-   System.Object
-
- Return
-   System.Collections.Specialized.NotifyCollectionChangedEventArgs
- @/textblock
-*/
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(System_Object *)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   .ctor
-
- Params
-   System.Collections.Specialized.NotifyCollectionChangedAction
-   System.Object
-   System.Int32
-
- Return
-   System.Collections.Specialized.NotifyCollectionChangedEventArgs
- @/textblock
-*/
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(System_Object *)p2 index:(int32_t)p3;
-
-/**
- Managed method.
- @textblock
- Name
-   .ctor
-
- Params
-   System.Collections.Specialized.NotifyCollectionChangedAction
    System.Collections.IList
 
  Return
@@ -136,13 +88,12 @@
  Params
    System.Collections.Specialized.NotifyCollectionChangedAction
    System.Object
-   System.Object
 
  Return
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -154,13 +105,12 @@
    System.Collections.Specialized.NotifyCollectionChangedAction
    System.Object
    System.Object
-   System.Int32
 
  Return
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItem:(System_Object *)p2 oldItem:(System_Object *)p3 index:(int32_t)p4;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItem:(id <DBMonoObject>)p2 oldItem:(id <DBMonoObject>)p3;
 
 /**
  Managed method.
@@ -213,7 +163,7 @@
    System.Collections.Specialized.NotifyCollectionChangedEventArgs
  @/textblock
 */
-+ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(System_Object *)p2 index:(int32_t)p3 oldIndex:(int32_t)p4;
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(id <DBMonoObject>)p2 index:(int32_t)p3 oldIndex:(int32_t)p4;
 
 /**
  Managed method.
@@ -232,6 +182,56 @@
  @/textblock
 */
 + (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItems:(System_Object <System_Collections_IList_> *)p2 index:(int32_t)p3 oldIndex:(int32_t)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
+
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
+   System.Object
+   System.Int32
+
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 changedItem:(id <DBMonoObject>)p2 index:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.Specialized.NotifyCollectionChangedAction
+   System.Object
+   System.Object
+   System.Int32
+
+ Return
+   System.Collections.Specialized.NotifyCollectionChangedEventArgs
+ @/textblock
+*/
++ (System_Collections_Specialized_NotifyCollectionChangedEventArgs *)new_withAction:(enumSystem_Collections_Specialized_NotifyCollectionChangedAction)p1 newItem:(id <DBMonoObject>)p2 oldItem:(id <DBMonoObject>)p3 index:(int32_t)p4;
 
 #pragma mark -
 #pragma mark Properties

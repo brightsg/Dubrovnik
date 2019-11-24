@@ -93,7 +93,7 @@
    System.Void
  @/textblock
 */
-- (void)add_withItem:(System_Object *)p1;
+- (void)add_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -123,7 +123,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)contains_withItem:(System_Object *)p1;
+- (BOOL)contains_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -154,6 +154,6 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)remove_withItem:(System_Object *)p1;
+- (BOOL)remove_withItem:(id <DBMonoObject>)p1;
 @end
 //--Dubrovnik.CodeGenerator

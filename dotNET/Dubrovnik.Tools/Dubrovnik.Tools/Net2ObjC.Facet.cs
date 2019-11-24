@@ -72,5 +72,37 @@ namespace Dubrovnik.Tools {
 			return s.ToString();
 		}
 
-	}
+        /// <summary>
+        /// Write pre-declarations of defines, types etc prior to Obj-C interface declaration
+        /// </summary>
+        /// <param name="facet">Facet</param>
+        public void WriteFacetPreDeclarations(CodeFacet facet)
+        {
+            var options = new Dictionary<string, object> { { "caller", nameof(WriteFacetPreDeclarations) } };
+
+            // if facet is an enum then output C enumeration 
+            if (facet is EnumerationFacet) 
+            {
+                WriteLine("");
+                WriteLine("// C enumeration");
+                WriteFacetAsCEnumeration((EnumerationFacet)facet);
+                WriteLine("");
+            } 
+            // if facet is an interface facet (this includes class facets_
+            else if (facet is InterfaceFacet) {
+                InterfaceFacet interfaceFacet = (InterfaceFacet)facet;
+
+                // output event support definitions
+                if (interfaceFacet.Events.Count > 0) {
+                    WriteLine("// ");
+                    WriteLine("// Event support");
+                    WriteLine("// ");
+                    foreach (EventFacet eventFacet in interfaceFacet.Events) {
+                        WriteFacetAsEvent(interfaceFacet, eventFacet, options);
+                        WriteLine("");
+                    }
+                }
+            }
+        }
+    }
 }

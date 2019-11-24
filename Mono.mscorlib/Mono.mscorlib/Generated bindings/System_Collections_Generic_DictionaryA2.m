@@ -35,7 +35,7 @@
 
 + (System_Collections_Generic_DictionaryA2 *)new_withCapacity:(int32_t)p1
 {
-	System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"int" withNumArgs:1, DB_VALUE(p1)];
+	System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"int" withNumArgs:1, &p1];
 	return object;
 }
 
@@ -45,7 +45,7 @@
 
 + (System_Collections_Generic_DictionaryA2 *)new_withDictionary:(System_Object <System_Collections_Generic_IDictionaryA2_> *)p1
 {
-	System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2/TKey, System.Collections.Generic.Dictionary`2/TValue>" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Collections_Generic_DictionaryA2 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IDictionary`2<System.Collections.Generic.Dictionary`2/TKey, System.Collections.Generic.Dictionary`2/TValue>" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -118,20 +118,20 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)get_Item_withKey:(System_Object *)p1
+- (id <DBMonoObject>)get_Item_withKey:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"get_Item(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2
+- (void)set_Item_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2
 {
-	[self invokeMonoMethod:"set_Item(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"set_Item(<_T_0>,<_T_1>)" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], [self monoRTInvokeArg:p2 typeParameterIndex:1]];
 }
 
-- (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2
+- (void)add_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2
 {
-	[self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Add(<_T_0>,<_T_1>)" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], [self monoRTInvokeArg:p2 typeParameterIndex:1]];
 }
 
 - (void)clear
@@ -139,15 +139,15 @@
 	[self invokeMonoMethod:"Clear()" withNumArgs:0];
 }
 
-- (BOOL)containsKey_withKey:(System_Object *)p1
+- (BOOL)containsKey_withKey:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ContainsKey(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)containsValue_withValue:(System_Object *)p1
+- (BOOL)containsValue_withValue:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ContainsValue(<_T_1>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ContainsValue(<_T_1>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:1]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -159,21 +159,21 @@
 
 /* Skipped method : System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) */
 
-- (void)onDeserialization_withSender:(System_Object *)p1
+- (void)onDeserialization_withSender:(id <DBMonoObject>)p1
 {
-	[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"OnDeserialization(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
-- (BOOL)remove_withKey:(System_Object *)p1
+- (BOOL)remove_withKey:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
+- (BOOL)tryGetValue_withKey:(id <DBMonoObject>)p1 valueRef:(System_Object **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
-	MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,System.Collections.Generic.Dictionary`2/TValue&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryGetValue(<_T_0>,System.Collections.Generic.Dictionary`2/TValue&)" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], &refPtr2];
 	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }

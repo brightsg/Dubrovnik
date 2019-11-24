@@ -36,6 +36,27 @@
 //
 //#import "System_Xml_XmlNode.h" // class base defaults to System.Object
 
+// 
+// Event support
+// 
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeChanged */
+
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeChanging */
+
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeInserted */
+
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeInserting */
+
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeRemoved */
+
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeRemoving */
+
 @interface System_Xml_XmlDocument : System_Object <System_ICloneable_, System_Collections_IEnumerable_>
 
 #pragma mark -
@@ -195,11 +216,11 @@
 
 /* Skipped method : System.Xml.XPath.XPathNavigator CreateNavigator() */
 
-/* Skipped method : System.Xml.XmlNode CreateNode(System.Xml.XmlNodeType type, System.String prefix, System.String name, System.String namespaceURI) */
-
 /* Skipped method : System.Xml.XmlNode CreateNode(System.String nodeTypeString, System.String name, System.String namespaceURI) */
 
 /* Skipped method : System.Xml.XmlNode CreateNode(System.Xml.XmlNodeType type, System.String name, System.String namespaceURI) */
+
+/* Skipped method : System.Xml.XmlNode CreateNode(System.Xml.XmlNodeType type, System.String prefix, System.String name, System.String namespaceURI) */
 
 /* Skipped method : System.Xml.XmlProcessingInstruction CreateProcessingInstruction(System.String target, System.String data) */
 
@@ -324,5 +345,20 @@
 /* Skipped method : System.Void WriteContentTo(System.Xml.XmlWriter xw) */
 
 /* Skipped method : System.Void WriteTo(System.Xml.XmlWriter w) */
+
+#pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeChanged */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeChanging */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeInserted */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeInserting */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeRemoved */
+
+/* Skipped event : System.Xml.XmlNodeChangedEventHandler NodeRemoving */
 @end
 //--Dubrovnik.CodeGenerator

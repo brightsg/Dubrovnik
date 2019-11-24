@@ -74,9 +74,9 @@
 #pragma mark -
 #pragma mark Methods
 
-- (void)add_withItem:(System_Object *)p1
+- (void)add_withItem:(id <DBMonoObject>)p1
 {
-	[self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.Add(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 - (void)clear
@@ -84,20 +84,20 @@
 	[self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.Clear()" withNumArgs:0];
 }
 
-- (BOOL)contains_withItem:(System_Object *)p1
+- (BOOL)contains_withItem:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.Contains(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.Contains(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2
 {
-	[self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 }
 
-- (BOOL)remove_withItem:(System_Object *)p1
+- (BOOL)remove_withItem:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.ICollection`1<System.Collections.Generic.ICollection`1+T>.Remove(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

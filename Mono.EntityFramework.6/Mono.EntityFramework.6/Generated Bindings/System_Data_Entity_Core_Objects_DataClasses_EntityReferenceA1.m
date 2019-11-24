@@ -34,7 +34,7 @@
 #pragma mark Properties
 
 @synthesize value = _value;
-- (System_Object *)value
+- (id <DBMonoObject>)value
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
@@ -52,7 +52,7 @@
 
 	return _value;
 }
-- (void)setValue:(System_Object *)value
+- (void)setValue:(id <DBMonoObject>)value
 {
 	_value = value;
 	typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -71,9 +71,9 @@
 #pragma mark -
 #pragma mark Methods
 
-- (void)attach_withEntity:(System_Object *)p1
+- (void)attach_withEntity:(id <DBMonoObject>)p1
 {
-	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery

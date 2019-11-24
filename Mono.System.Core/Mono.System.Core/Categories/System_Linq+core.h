@@ -6,9 +6,11 @@
 //
 //
 
+@import Foundation;
+
+@class System_Object;
 @class DBManagedObject;
 @class System_Collections_IList;
-
 @protocol System_Collections_Generic_IEnumerableA1_;
 
 @interface DBLinq : NSObject

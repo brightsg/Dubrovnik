@@ -33,29 +33,29 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (System_ActionA1 *)new_withObject:(System_Object *)p1 method:(void *)p2
++ (System_ActionA1 *)new_withObject:(id <DBMonoObject>)p1 method:(void *)p2
 {
-	System_ActionA1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	System_ActionA1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return object;
 }
 
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object <System_IAsyncResult> *)beginInvoke_withObj:(System_Object *)p1 callback:(System_AsyncCallback *)p2 object:(System_Object *)p3
+- (System_Object <System_IAsyncResult> *)beginInvoke_withObj:(id <DBMonoObject>)p1 callback:(System_AsyncCallback *)p2 object:(id <DBMonoObject>)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(<_T_0>,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(<_T_0>,System.AsyncCallback,object)" withNumArgs:3, [self monoRTInvokeArg:p1 typeParameterIndex:0], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
 - (void)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1
 {
-	[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
-- (void)invoke_withObj:(System_Object *)p1
+- (void)invoke_withObj:(id <DBMonoObject>)p1
 {
-	[self invokeMonoMethod:"Invoke(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Invoke(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 #pragma mark -

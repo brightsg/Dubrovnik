@@ -49,6 +49,12 @@
 #import "System_Object.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
+// 
+// Event support
+// 
+
+/* Skipped event : System.Reflection.ModuleResolveEventHandler ModuleResolve */
+
 @interface System_Reflection_Assembly : System_Object <System_Runtime_Serialization_ISerializable_>
 
 #pragma mark -
@@ -234,7 +240,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)createInstance_withTypeName:(NSString *)p1;
+- (id <DBMonoObject>)createInstance_withTypeName:(NSString *)p1;
 
 /**
  Managed method.
@@ -250,7 +256,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2;
+- (id <DBMonoObject>)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2;
 
 /* Skipped method : System.Object CreateInstance(System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
@@ -283,7 +289,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withO:(System_Object *)p1;
+- (BOOL)equals_withO:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -863,5 +869,10 @@
  @/textblock
 */
 + (System_Reflection_Assembly *)unsafeLoadFrom_withAssemblyFile:(NSString *)p1;
+
+#pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Reflection.ModuleResolveEventHandler ModuleResolve */
 @end
 //--Dubrovnik.CodeGenerator

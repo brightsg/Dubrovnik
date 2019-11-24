@@ -35,13 +35,13 @@
 
 + (System_Collections_ObjectModel_ObservableCollectionA1 *)new_withList:(System_Collections_Generic_ListA1 *)p1
 {
-	System_Collections_ObjectModel_ObservableCollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.List`1<System.Collections.ObjectModel.ObservableCollection`1/T>" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Collections_ObjectModel_ObservableCollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.List`1<System.Collections.ObjectModel.ObservableCollection`1/T>" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
 + (System_Collections_ObjectModel_ObservableCollectionA1 *)new_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
-	System_Collections_ObjectModel_ObservableCollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.ObjectModel.ObservableCollection`1/T>" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Collections_ObjectModel_ObservableCollectionA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.ObjectModel.ObservableCollection`1/T>" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -50,7 +50,20 @@
 
 - (void)move_withOldIndex:(int32_t)p1 newIndex:(int32_t)p2
 {
-	[self invokeMonoMethod:"Move(int,int)" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	[self invokeMonoMethod:"Move(int,int)" withNumArgs:2, &p1, &p2];
+}
+
+#pragma mark -
+#pragma mark Events
+
++ (NSString *)collectionChangedEventName
+{
+	return @"CollectionChanged";
+}
+
+- (System_Collections_Specialized_NotifyCollectionChangedEventHandler *)collectionChanged_addEventHandlerWithBlock:(System_Collections_ObjectModel_ObservableCollectionA1_CollectionChanged_EventBlock)block
+{
+	return (System_Collections_Specialized_NotifyCollectionChangedEventHandler *)[self db_addEventHandlerWithClass:System_Collections_Specialized_NotifyCollectionChangedEventHandler.class forEventName:self.class.collectionChangedEventName block:(EventBlock)block];
 }
 
 #pragma mark -

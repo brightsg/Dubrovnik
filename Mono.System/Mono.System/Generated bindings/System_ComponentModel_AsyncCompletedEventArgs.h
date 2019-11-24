@@ -58,7 +58,7 @@
    System.ComponentModel.AsyncCompletedEventArgs
  @/textblock
 */
-+ (System_ComponentModel_AsyncCompletedEventArgs *)new_withError:(System_Exception *)p1 cancelled:(BOOL)p2 userState:(System_Object *)p3;
++ (System_ComponentModel_AsyncCompletedEventArgs *)new_withError:(System_Exception *)p1 cancelled:(BOOL)p2 userState:(id <DBMonoObject>)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -97,6 +97,6 @@
    System.Object
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * userState;
+@property (nonatomic, strong, readonly) id <DBMonoObject> userState;
 @end
 //--Dubrovnik.CodeGenerator

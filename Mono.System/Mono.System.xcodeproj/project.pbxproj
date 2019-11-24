@@ -23,8 +23,20 @@
 		AB2E64F720D311AB00582990 /* System_Net_HttpWebResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2E64ED20D311AA00582990 /* System_Net_HttpWebResponse.m */; };
 		AB2E64F820D311AB00582990 /* System_Net_HttpWebResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E64EE20D311AA00582990 /* System_Net_HttpWebResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E64FC20D31E9800582990 /* System_Net_HttpWebResponse.__Extra__.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E64FB20D31E9800582990 /* System_Net_HttpWebResponse.__Extra__.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB37108222A5B46600FAFAEA /* System_IO_ErrorEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB37108022A5B46500FAFAEA /* System_IO_ErrorEventHandler.m */; };
+		AB37108322A5B46600FAFAEA /* System_IO_ErrorEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = AB37108122A5B46500FAFAEA /* System_IO_ErrorEventHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6245231E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6245241E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */; };
+		AB813BFA22B2F62200BAE144 /* System_ComponentModel_PropertyChangedEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB813BF022B2F62200BAE144 /* System_ComponentModel_PropertyChangedEventHandler.m */; };
+		AB813BFB22B2F62200BAE144 /* System_Collections_Specialized_NotifyCollectionChangedEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = AB813BF122B2F62200BAE144 /* System_Collections_Specialized_NotifyCollectionChangedEventHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB813BFC22B2F62200BAE144 /* System_ComponentModel_AsyncCompletedEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB813BF222B2F62200BAE144 /* System_ComponentModel_AsyncCompletedEventHandler.m */; };
+		AB813BFD22B2F62200BAE144 /* System_Collections_Specialized_NotifyCollectionChangedEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB813BF322B2F62200BAE144 /* System_Collections_Specialized_NotifyCollectionChangedEventHandler.m */; };
+		AB813BFE22B2F62200BAE144 /* System_ComponentModel_PropertyChangedEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = AB813BF422B2F62200BAE144 /* System_ComponentModel_PropertyChangedEventHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB813BFF22B2F62200BAE144 /* System_ComponentModel_PropertyChangingEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = AB813BF522B2F62200BAE144 /* System_ComponentModel_PropertyChangingEventHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB813C0022B2F62200BAE144 /* System_ComponentModel_RunWorkerCompletedEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = AB813BF622B2F62200BAE144 /* System_ComponentModel_RunWorkerCompletedEventHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB813C0122B2F62200BAE144 /* System_ComponentModel_PropertyChangingEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB813BF722B2F62200BAE144 /* System_ComponentModel_PropertyChangingEventHandler.m */; };
+		AB813C0222B2F62200BAE144 /* System_ComponentModel_RunWorkerCompletedEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB813BF822B2F62200BAE144 /* System_ComponentModel_RunWorkerCompletedEventHandler.m */; };
+		AB813C0322B2F62200BAE144 /* System_ComponentModel_AsyncCompletedEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = AB813BF922B2F62200BAE144 /* System_ComponentModel_AsyncCompletedEventHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA397121906BA6300D5CA6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397111906BA6300D5CA6E /* Cocoa.framework */; };
 		ABA3971C1906BA6300D5CA6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABA3971A1906BA6300D5CA6E /* InfoPlist.strings */; };
 		ABA397281906BA6300D5CA6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA397111906BA6300D5CA6E /* Cocoa.framework */; };
@@ -108,8 +120,20 @@
 		AB2E64ED20D311AA00582990 /* System_Net_HttpWebResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_HttpWebResponse.m; sourceTree = "<group>"; };
 		AB2E64EE20D311AA00582990 /* System_Net_HttpWebResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpWebResponse.h; sourceTree = "<group>"; };
 		AB2E64FB20D31E9800582990 /* System_Net_HttpWebResponse.__Extra__.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpWebResponse.__Extra__.h; sourceTree = "<group>"; };
+		AB37108022A5B46500FAFAEA /* System_IO_ErrorEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_IO_ErrorEventHandler.m; sourceTree = "<group>"; };
+		AB37108122A5B46500FAFAEA /* System_IO_ErrorEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_IO_ErrorEventHandler.h; sourceTree = "<group>"; };
 		AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.h"; sourceTree = "<group>"; };
 		AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.m"; sourceTree = "<group>"; };
+		AB813BF022B2F62200BAE144 /* System_ComponentModel_PropertyChangedEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangedEventHandler.m; sourceTree = "<group>"; };
+		AB813BF122B2F62200BAE144 /* System_Collections_Specialized_NotifyCollectionChangedEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Specialized_NotifyCollectionChangedEventHandler.h; sourceTree = "<group>"; };
+		AB813BF222B2F62200BAE144 /* System_ComponentModel_AsyncCompletedEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_AsyncCompletedEventHandler.m; sourceTree = "<group>"; };
+		AB813BF322B2F62200BAE144 /* System_Collections_Specialized_NotifyCollectionChangedEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_Specialized_NotifyCollectionChangedEventHandler.m; sourceTree = "<group>"; };
+		AB813BF422B2F62200BAE144 /* System_ComponentModel_PropertyChangedEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_PropertyChangedEventHandler.h; sourceTree = "<group>"; };
+		AB813BF522B2F62200BAE144 /* System_ComponentModel_PropertyChangingEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_PropertyChangingEventHandler.h; sourceTree = "<group>"; };
+		AB813BF622B2F62200BAE144 /* System_ComponentModel_RunWorkerCompletedEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_RunWorkerCompletedEventHandler.h; sourceTree = "<group>"; };
+		AB813BF722B2F62200BAE144 /* System_ComponentModel_PropertyChangingEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangingEventHandler.m; sourceTree = "<group>"; };
+		AB813BF822B2F62200BAE144 /* System_ComponentModel_RunWorkerCompletedEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_RunWorkerCompletedEventHandler.m; sourceTree = "<group>"; };
+		AB813BF922B2F62200BAE144 /* System_ComponentModel_AsyncCompletedEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_AsyncCompletedEventHandler.h; sourceTree = "<group>"; };
 		ABA3970E1906BA6300D5CA6E /* Mono.System.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABA397111906BA6300D5CA6E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABA397141906BA6300D5CA6E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -311,6 +335,18 @@
 		ABB813BB20D15AB700623A23 /* Generated bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB813BF122B2F62200BAE144 /* System_Collections_Specialized_NotifyCollectionChangedEventHandler.h */,
+				AB813BF322B2F62200BAE144 /* System_Collections_Specialized_NotifyCollectionChangedEventHandler.m */,
+				AB813BF922B2F62200BAE144 /* System_ComponentModel_AsyncCompletedEventHandler.h */,
+				AB813BF222B2F62200BAE144 /* System_ComponentModel_AsyncCompletedEventHandler.m */,
+				AB813BF422B2F62200BAE144 /* System_ComponentModel_PropertyChangedEventHandler.h */,
+				AB813BF022B2F62200BAE144 /* System_ComponentModel_PropertyChangedEventHandler.m */,
+				AB813BF522B2F62200BAE144 /* System_ComponentModel_PropertyChangingEventHandler.h */,
+				AB813BF722B2F62200BAE144 /* System_ComponentModel_PropertyChangingEventHandler.m */,
+				AB813BF622B2F62200BAE144 /* System_ComponentModel_RunWorkerCompletedEventHandler.h */,
+				AB813BF822B2F62200BAE144 /* System_ComponentModel_RunWorkerCompletedEventHandler.m */,
+				AB37108122A5B46500FAFAEA /* System_IO_ErrorEventHandler.h */,
+				AB37108022A5B46500FAFAEA /* System_IO_ErrorEventHandler.m */,
 				AB2D58DE21678B44001F7D3D /* System_ComponentModel_ListSortDirection.h */,
 				AB2D58DF21678B44001F7D3D /* System_ComponentModel_ListSortDirection.m */,
 				AB2D58DB216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.h */,
@@ -379,6 +415,7 @@
 				AB2E64F220D311AB00582990 /* System_Net_HttpWebRequest.h in Headers */,
 				AB2E64F820D311AB00582990 /* System_Net_HttpWebResponse.h in Headers */,
 				AB2E64EF20D311AB00582990 /* System_Net_WebResponse.h in Headers */,
+				AB37108322A5B46600FAFAEA /* System_IO_ErrorEventHandler.h in Headers */,
 				AB2E64F320D311AB00582990 /* System_Net_WebRequest.h in Headers */,
 				AB2E64F420D311AB00582990 /* System_Net_HttpStatusCode.h in Headers */,
 				ABB8140420D15AE900623A23 /* System_UriKind.h in Headers */,
@@ -387,6 +424,7 @@
 				ABB8140120D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h in Headers */,
 				ABB8140020D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanging.h in Headers */,
 				ABB813FA20D15AE900623A23 /* System_ComponentModel_AsyncCompletedEventArgs.h in Headers */,
+				AB813C0022B2F62200BAE144 /* System_ComponentModel_RunWorkerCompletedEventHandler.h in Headers */,
 				ABB813F620D15AE900623A23 /* System_IO_ErrorEventArgs.h in Headers */,
 				ABB813E820D15AE900623A23 /* System_Uri.h in Headers */,
 				ABB813F820D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.h in Headers */,
@@ -396,10 +434,13 @@
 				ABB813E720D15AE900623A23 /* System_ComponentModel_PropertyChangedEventArgs.h in Headers */,
 				ABB813F420D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged.h in Headers */,
 				ABB813EA20D15AE900623A23 /* System_ComponentModel_RunWorkerCompletedEventArgs.h in Headers */,
+				AB813BFF22B2F62200BAE144 /* System_ComponentModel_PropertyChangingEventHandler.h in Headers */,
 				ABB813EE20D15AE900623A23 /* System.h in Headers */,
 				ABB813F220D15AE900623A23 /* System_UriPartial.h in Headers */,
 				ABB8140220D15AE900623A23 /* System_UriFormat.h in Headers */,
 				AB2D58E021678B44001F7D3D /* System_ComponentModel_ListSortDirection.h in Headers */,
+				AB813BFB22B2F62200BAE144 /* System_Collections_Specialized_NotifyCollectionChangedEventHandler.h in Headers */,
+				AB813C0322B2F62200BAE144 /* System_ComponentModel_AsyncCompletedEventHandler.h in Headers */,
 				ABB813F120D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanging_Protocol.h in Headers */,
 				ABB8140B20D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged_Protocol.h in Headers */,
 				ABB813FE20D15AE900623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.h in Headers */,
@@ -411,6 +452,7 @@
 				ABA397461906BAE600D5CA6E /* Framework.h in Headers */,
 				ABA397471906BAE600D5CA6E /* GeneratedBindings.h in Headers */,
 				AB2D58DD216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.h in Headers */,
+				AB813BFE22B2F62200BAE144 /* System_ComponentModel_PropertyChangedEventHandler.h in Headers */,
 				ABA397481906BAE600D5CA6E /* HelperClasses.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,7 +502,7 @@
 		ABA397051906BA6300D5CA6E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Thesaurus Software";
 				TargetAttributes = {
 					ABA397241906BA6300D5CA6E = {
@@ -470,10 +512,11 @@
 			};
 			buildConfigurationList = ABA397081906BA6300D5CA6E /* Build configuration list for PBXProject "Mono.System" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = ABA397041906BA6300D5CA6E;
 			productRefGroup = ABA3970F1906BA6300D5CA6E /* Products */;
@@ -515,6 +558,8 @@
 				AB6245241E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m in Sources */,
 				ABB813F320D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged.m in Sources */,
 				AB2E64F020D311AB00582990 /* System_Net_WebResponse.m in Sources */,
+				AB813C0122B2F62200BAE144 /* System_ComponentModel_PropertyChangingEventHandler.m in Sources */,
+				AB37108222A5B46600FAFAEA /* System_IO_ErrorEventHandler.m in Sources */,
 				ABB8140720D15AE900623A23 /* System_ComponentModel_RunWorkerCompletedEventArgs.m in Sources */,
 				ABB813E920D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedAction.m in Sources */,
 				AB2E64F520D311AB00582990 /* System_Net_HttpStatusCode.m in Sources */,
@@ -524,7 +569,9 @@
 				ABB813F920D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanging.m in Sources */,
 				AB2D58E121678B44001F7D3D /* System_ComponentModel_ListSortDirection.m in Sources */,
 				ABB813F020D15AE900623A23 /* System.m in Sources */,
+				AB813C0222B2F62200BAE144 /* System_ComponentModel_RunWorkerCompletedEventHandler.m in Sources */,
 				ABB8140320D15AE900623A23 /* System_UriFormat.m in Sources */,
+				AB813BFC22B2F62200BAE144 /* System_ComponentModel_AsyncCompletedEventHandler.m in Sources */,
 				AB2E64F120D311AB00582990 /* System_Net_WebRequest.m in Sources */,
 				AB2E64F720D311AB00582990 /* System_Net_HttpWebResponse.m in Sources */,
 				ABB813E620D15AE900623A23 /* System_UriKind.m in Sources */,
@@ -536,7 +583,9 @@
 				ABB813F720D15AE900623A23 /* System_Configuration_SettingsBase.m in Sources */,
 				ABB8140A20D15AE900623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.m in Sources */,
 				ABB813EC20D15AE900623A23 /* System_ComponentModel_AsyncCompletedEventArgs.m in Sources */,
+				AB813BFD22B2F62200BAE144 /* System_Collections_Specialized_NotifyCollectionChangedEventHandler.m in Sources */,
 				ABB813FC20D15AE900623A23 /* System_UriHostNameType.m in Sources */,
+				AB813BFA22B2F62200BAE144 /* System_ComponentModel_PropertyChangedEventHandler.m in Sources */,
 				ABB813EF20D15AE900623A23 /* System_IO_ErrorEventArgs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,6 +632,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -641,6 +691,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

@@ -350,10 +350,29 @@ namespace Dubrovnik.Tools {
 			return isWhiteListed;
 		}
 
-		/// <summary>
-		/// Output file generation post processing.
-		/// </summary>
-		public void DoGenerationPostProcessing(string outputPath) {
+        public bool GenerateFacetBinding(EventFacet facet)
+        {
+            bool isWhiteListed = true;
+
+            // validate event delegate type
+            if (!GenerateFacetBinding((CodeFacet)facet)) {
+                return false;
+            }
+
+            // validate event delegate parameters
+            foreach (ParameterFacet paramFacet in facet.Parameters) {
+                if (!GenerateFacetBinding(paramFacet)) {
+                    return false;
+                }
+            }
+
+            return isWhiteListed;
+        }
+
+        /// <summary>
+        /// Output file generation post processing.
+        /// </summary>
+        public void DoGenerationPostProcessing(string outputPath) {
 
 			// delete listed output files.
 			// we most likely provide a manually created custom replacement on another file path.

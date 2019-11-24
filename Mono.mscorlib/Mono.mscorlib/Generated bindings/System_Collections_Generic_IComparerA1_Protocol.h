@@ -95,7 +95,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2;
+- (int32_t)compare_withX:(id <DBMonoObject>)p1 y:(id <DBMonoObject>)p2;
 #endif
 
 
@@ -127,7 +127,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)compare_withX:(System_Object *)p1 y:(System_Object *)p2;
+- (int32_t)compare_withX:(id <DBMonoObject>)p1 y:(id <DBMonoObject>)p2;
 
 @end
 

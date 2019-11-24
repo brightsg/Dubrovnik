@@ -58,7 +58,7 @@
    System.ComponentModel.RunWorkerCompletedEventArgs
  @/textblock
 */
-+ (System_ComponentModel_RunWorkerCompletedEventArgs *)new_withResult:(System_Object *)p1 error:(System_Exception *)p2 cancelled:(BOOL)p3;
++ (System_ComponentModel_RunWorkerCompletedEventArgs *)new_withResult:(id <DBMonoObject>)p1 error:(System_Exception *)p2 cancelled:(BOOL)p3;
 
 #pragma mark -
 #pragma mark Properties
@@ -73,7 +73,7 @@
    System.Object
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * result;
+@property (nonatomic, strong, readonly) id <DBMonoObject> result;
 
 /**
  Managed property.
@@ -85,6 +85,6 @@
    System.Object
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * userState;
+@property (nonatomic, strong, readonly) id <DBMonoObject> userState;
 @end
 //--Dubrovnik.CodeGenerator

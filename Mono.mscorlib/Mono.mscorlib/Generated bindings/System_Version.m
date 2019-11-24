@@ -35,25 +35,25 @@
 
 + (System_Version *)new_withMajor:(int32_t)p1 minor:(int32_t)p2 build:(int32_t)p3 revision:(int32_t)p4
 {
-	System_Version * object = [[self alloc] initWithSignature:"int,int,int,int" withNumArgs:4, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+	System_Version * object = [[self alloc] initWithSignature:"int,int,int,int" withNumArgs:4, &p1, &p2, &p3, &p4];
 	return object;
 }
 
 + (System_Version *)new_withMajor:(int32_t)p1 minor:(int32_t)p2 build:(int32_t)p3
 {
-	System_Version * object = [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3)];
+	System_Version * object = [[self alloc] initWithSignature:"int,int,int" withNumArgs:3, &p1, &p2, &p3];
 	return object;
 }
 
 + (System_Version *)new_withMajor:(int32_t)p1 minor:(int32_t)p2
 {
-	System_Version * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	System_Version * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, &p1, &p2];
 	return object;
 }
 
 + (System_Version *)new_withVersion:(NSString *)p1
 {
-	System_Version * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Version * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -177,33 +177,33 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)clone
+- (id <DBMonoObject>)clone
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (int32_t)compareTo_withVersion:(System_Object *)p1
+- (int32_t)compareTo_withVersion:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 - (int32_t)compareTo_withValue:(System_Version *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(System.Version)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(System.Version)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (BOOL)equals_withObjObject:(System_Object *)p1
+- (BOOL)equals_withObjObject:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)equals_withObjSVersion:(System_Version *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Version)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(System.Version)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -215,43 +215,43 @@
 
 + (BOOL)op_Equality_withV1:(System_Version *)p1 v2:(System_Version *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Version,System.Version)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Version,System.Version)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_GreaterThan_withV1:(System_Version *)p1 v2:(System_Version *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThan(System.Version,System.Version)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThan(System.Version,System.Version)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_GreaterThanOrEqual_withV1:(System_Version *)p1 v2:(System_Version *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThanOrEqual(System.Version,System.Version)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_GreaterThanOrEqual(System.Version,System.Version)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_Inequality_withV1:(System_Version *)p1 v2:(System_Version *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Version,System.Version)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Version,System.Version)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_LessThan_withV1:(System_Version *)p1 v2:(System_Version *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThan(System.Version,System.Version)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThan(System.Version,System.Version)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_LessThanOrEqual_withV1:(System_Version *)p1 v2:(System_Version *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThanOrEqual(System.Version,System.Version)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_LessThanOrEqual(System.Version,System.Version)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (System_Version *)parse_withInput:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Version bestObjectWithMonoObject:monoObject];
 }
 
@@ -263,14 +263,14 @@
 
 - (NSString *)toString_withFieldCount:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ToString(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString(int)" withNumArgs:1, &p1];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 + (BOOL)tryParse_withInput:(NSString *)p1 resultRef:(System_Version **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
-	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Version&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,System.Version&)" withNumArgs:2, [p1 monoRTInvokeObject], &refPtr2];
 	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }

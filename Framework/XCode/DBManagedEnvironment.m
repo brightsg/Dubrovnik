@@ -319,7 +319,7 @@ static BOOL m_crashChaining = NO;
         }
         
         if (!have_tls_get) {
-            NSLog(@"Thread local storage detection failed. This indiates a potentially serious issue. Code may fail when debugged in Xcode based on past experience.");
+            NSLog(@"Thread local storage detection failed. This indicates a potentially serious issue. Code may fail when debugged in Xcode based on past experience.");
         }
 
         if (version != NULL) {

@@ -35,7 +35,7 @@
 
 + (System_Threading_CancellationToken *)new_withCanceled:(BOOL)p1
 {
-	System_Threading_CancellationToken * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, DB_VALUE(p1)];
+	System_Threading_CancellationToken * object = [[self alloc] initWithSignature:"bool" withNumArgs:1, &p1];
 	return object;
 }
 
@@ -111,9 +111,9 @@ static System_Threading_CancellationToken * m_none;
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)equals_withOtherObject:(System_Object *)p1
+- (BOOL)equals_withOtherObject:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

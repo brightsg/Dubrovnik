@@ -93,7 +93,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)clone;
+- (id <DBMonoObject>)clone;
 #endif
 
 
@@ -124,7 +124,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)clone;
+- (id <DBMonoObject>)clone;
 
 @end
 

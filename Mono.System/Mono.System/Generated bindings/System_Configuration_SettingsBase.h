@@ -80,7 +80,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)get_Item_withPropertyName:(NSString *)p1;
+- (id <DBMonoObject>)get_Item_withPropertyName:(NSString *)p1;
 
 /**
  Managed method.
@@ -96,7 +96,7 @@
    System.Void
  @/textblock
 */
-- (void)set_Item_withPropertyName:(NSString *)p1 value:(System_Object *)p2;
+- (void)set_Item_withPropertyName:(NSString *)p1 value:(id <DBMonoObject>)p2;
 
 /* Skipped method : System.Void Initialize(System.Configuration.SettingsContext context, System.Configuration.SettingsPropertyCollection properties, System.Configuration.SettingsProviderCollection providers) */
 

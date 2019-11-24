@@ -33,7 +33,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)clone
+- (id <DBMonoObject>)clone
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"System.ICloneable.Clone()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];

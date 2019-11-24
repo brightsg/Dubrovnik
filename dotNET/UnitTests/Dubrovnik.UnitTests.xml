@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Assembly Name="Dubrovnik.UnitTests" FullName="Dubrovnik.UnitTests, Version=1.0.6976.21332, Culture=neutral, PublicKeyToken=null" Path="C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe">
+<Assembly Name="Dubrovnik.UnitTests" FullName="Dubrovnik.UnitTests, Version=1.0.7128.31972, Culture=neutral, PublicKeyToken=null" Path="C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe">
   <Reference Name="mscorlib" FullName="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <Reference Name="System" FullName="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <Reference Name="System.Core" FullName="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
@@ -7,49 +7,49 @@
     <Class Name="EventHelper" Type="Dubrovnik.ClientApplication.EventHelper" BaseName="Object" BaseType="System.Object">
       <ImplementedInterface Type="Dubrovnik.ClientApplication.IEventHelper" />
       <Method Name="CollectionChanged" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="arg" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="ConfigureStaticEventHandler" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="obj" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="obj" Type="System.Object" />
         <Parameter Name="objEventName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="handlerMethodName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="attach" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="DubrovnikEventHandlerICall1" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="args" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="DubrovnikEventHandlerICall2" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="args" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="ManagedEvent_AppDomain_UnhandledException" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="args" Type="System.UnhandledExceptionEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
       <Method Name="ManagedEvent_ManagedObject_PropertyChanged" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="args" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="ManagedEvent_ManagedObject_PropertyChanging" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="args" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="ObjectSupportsEvent" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
-        <Parameter Name="obj" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="obj" Type="System.Object" />
         <Parameter Name="objEventName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
     </Class>
     <Interface Name="IEventHelper" Type="Dubrovnik.ClientApplication.IEventHelper" IsInterface="True">
       <Method Name="ConfigureStaticEventHandler" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="obj" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="obj" Type="System.Object" />
         <Parameter Name="objEventName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="handlerMethodName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="attach" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
       <Method Name="ObjectSupportsEvent" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="obj" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="obj" Type="System.Object" />
         <Parameter Name="objEventName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
     </Interface>
@@ -71,6 +71,8 @@
     <Class Name="GenericReferenceObject`2&lt;T, U&gt;" Type="Dubrovnik.UnitTests.GenericReferenceObject`2&lt;Dubrovnik.UnitTests.GenericReferenceObject`2+T, Dubrovnik.UnitTests.GenericReferenceObject`2+U&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsGenericTypeDefinition="True" ContainsGenericParameters="True">
       <GenericTypeParameter Type="Dubrovnik.UnitTests.GenericReferenceObject`2+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" />
       <GenericTypeParameter Type="Dubrovnik.UnitTests.GenericReferenceObject`2+U" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" />
+      <Field Name="GenericFieldWithTypeParameterT" Type="Dubrovnik.UnitTests.GenericReferenceObject`2+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" IsReadable="True" IsWritable="True" />
+      <Field Name="GenericFieldWithTypeParameterU" Type="Dubrovnik.UnitTests.GenericReferenceObject`2+U" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" IsReadable="True" IsWritable="True" />
       <Property Name="GenericPropertyWithTypeParameterT" Type="Dubrovnik.UnitTests.GenericReferenceObject`2+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" IsReadable="True" IsWritable="True" />
       <Property Name="GenericPropertyWithTypeParameterU" Type="Dubrovnik.UnitTests.GenericReferenceObject`2+U" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" IsReadable="True" IsWritable="True" />
       <Property Name="ListOfTypeT" Type="System.Collections.Generic.List`1&lt;Dubrovnik.UnitTests.GenericReferenceObject`2+T&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsReadable="True" IsWritable="True">
@@ -145,6 +147,7 @@
       <Field Name="val3" Type="Dubrovnik.UnitTests.LongEnum" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="3" />
       <Field Name="val4" Type="Dubrovnik.UnitTests.LongEnum" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="4" />
     </Enumeration>
+    <Class Name="ReferenceEventArgs" Type="Dubrovnik.UnitTests.ReferenceEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
     <Class Name="ReferenceObject" Type="Dubrovnik.UnitTests.ReferenceObject" BaseName="Object" BaseType="System.Object">
       <ImplementedInterface Type="Dubrovnik.UnitTests.IMinimalReferenceObject" />
       <ImplementedInterface Type="Dubrovnik.UnitTests.IReferenceObject1" />
@@ -159,8 +162,11 @@
       <Field Name="ClassStringField" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsStatic="True" IsWritable="True" />
       <Field Name="DateField" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Field Name="IntEnumField" Type="Dubrovnik.UnitTests.IntEnum" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
+      <Field Name="IntEnumFieldStatic" Type="Dubrovnik.UnitTests.IntEnum" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsWritable="True" />
       <Field Name="IntField" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Field Name="LongEnumField" Type="Dubrovnik.UnitTests.LongEnum" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
+      <Field Name="LongEnumFieldStatic" Type="Dubrovnik.UnitTests.LongEnum" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsWritable="True" />
+      <Field Name="objectField" Type="System.Object" IsReadable="True" IsWritable="True" />
       <Field Name="StringField" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="BoolArray" Type="System.Boolean[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Boolean" IsReadable="True" IsWritable="True" />
       <Property Name="ClassDateProperty" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" IsStatic="True" />
@@ -187,6 +193,13 @@
       <Property Name="Int64Array" Type="System.Int64[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Int64" IsReadable="True" IsWritable="True" />
       <Property Name="Int64Number" Type="System.Int64" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="IntEnumeration" Type="Dubrovnik.UnitTests.IntEnum" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
+      <Property Name="IntEnumerationNullable" Type="System.Nullable`1&lt;Dubrovnik.UnitTests.IntEnum&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsReadable="True" IsWritable="True">
+        <GenericTypeArgument Type="Dubrovnik.UnitTests.IntEnum" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Property>
+      <Property Name="IntEnumerationNullableStatic" Type="System.Nullable`1&lt;Dubrovnik.UnitTests.IntEnum&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsReadable="True" IsWritable="True" IsStatic="True">
+        <GenericTypeArgument Type="Dubrovnik.UnitTests.IntEnum" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Property>
+      <Property Name="IntEnumerationStatic" Type="Dubrovnik.UnitTests.IntEnum" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" IsStatic="True" />
       <Property Name="InterfaceTestProperty" Type="Dubrovnik.UnitTests.ITestProperty" IsInterface="True" IsReadable="True" IsWritable="True" />
       <Property Name="IntIntDictionary" Type="System.Collections.Generic.Dictionary`2&lt;System.Int32, System.Int32&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" IsReadable="True" IsWritable="True">
         <GenericTypeArgument Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -204,6 +217,13 @@
       </Property>
       <Property Name="IntNumber" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="LongEnumeration" Type="Dubrovnik.UnitTests.LongEnum" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
+      <Property Name="LongEnumerationNullable" Type="System.Nullable`1&lt;Dubrovnik.UnitTests.LongEnum&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsReadable="True" IsWritable="True">
+        <GenericTypeArgument Type="Dubrovnik.UnitTests.LongEnum" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Property>
+      <Property Name="LongEnumerationNullableStatic" Type="System.Nullable`1&lt;Dubrovnik.UnitTests.LongEnum&gt;" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsGenericType="True" IsConstructedGenericType="True" IsReadable="True" IsWritable="True" IsStatic="True">
+        <GenericTypeArgument Type="Dubrovnik.UnitTests.LongEnum" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Property>
+      <Property Name="LongEnumerationStatic" Type="Dubrovnik.UnitTests.LongEnum" IsValueType="True" UnderlyingType="System.Int64" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" IsStatic="True" />
       <Property Name="MinimalReferenceObject" Type="Dubrovnik.UnitTests.IMinimalReferenceObject" IsInterface="True" IsReadable="True" />
       <Property Name="Name" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="NestedClassList" Type="System.Collections.Generic.List`1&lt;Dubrovnik.UnitTests.ReferenceObject+NestedClass&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" IsReadable="True" IsWritable="True">
@@ -212,8 +232,8 @@
       <Property Name="NotifyingProperty1" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="NotifyingProperty2" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="ObjectObjectDictionary" Type="System.Collections.Generic.Dictionary`2&lt;System.Object, System.Object&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" IsReadable="True" IsWritable="True">
-        <GenericTypeArgument Type="System.Object" IsDelegate="True" />
-        <GenericTypeArgument Type="System.Object" IsDelegate="True" />
+        <GenericTypeArgument Type="System.Object" />
+        <GenericTypeArgument Type="System.Object" />
       </Property>
       <Property Name="Pointer" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="ReferenceObject1" Type="Dubrovnik.UnitTests.IReferenceObject1" IsInterface="True" IsReadable="True" />
@@ -229,7 +249,7 @@
       </Property>
       <Property Name="StringObjectDictionary" Type="System.Collections.Generic.Dictionary`2&lt;System.String, System.Object&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" IsReadable="True" IsWritable="True">
         <GenericTypeArgument Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <GenericTypeArgument Type="System.Object" IsDelegate="True" />
+        <GenericTypeArgument Type="System.Object" />
       </Property>
       <Property Name="StringProperty" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Property Name="StringStringDictionary" Type="System.Collections.Generic.Dictionary`2&lt;System.String, System.String&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" IsReadable="True" IsWritable="True">
@@ -268,7 +288,7 @@
         <Parameter Name="x" Type="System.Int32&amp;" IsByRef="True" ElementType="System.Int32" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="obj" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="obj" Type="System.Object" />
       </Method>
       <Method Name="GenericMethod0" Type="System.String" BaseName="Object" BaseType="System.Object" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
         <GenericMethodDefinitionGenericTypeArgument Type="Dubrovnik.UnitTests.ReferenceObject+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
@@ -293,36 +313,44 @@
         <GenericMethodDefinitionGenericTypeArgument Type="Dubrovnik.UnitTests.ReferenceObject+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
         <Parameter Name="value" Type="System.Collections.Generic.List`1&lt;Dubrovnik.UnitTests.ReferenceObject+T&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
       </Method>
+      <Method Name="GenericMethodStatic2" Type="System.Collections.Generic.Dictionary`2&lt;Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U&gt;" BaseName="Object" BaseType="System.Object" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" IsStatic="True" IsGenericMethod="True" IsGenericMethodDefinition="True" ContainsGenericMethodParameters="True">
+        <GenericTypeArgument Type="Dubrovnik.UnitTests.ReferenceObject+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <GenericTypeArgument Type="Dubrovnik.UnitTests.ReferenceObject+U" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" DeclaredByMethod="True" />
+        <GenericMethodDefinitionGenericTypeArgument Type="Dubrovnik.UnitTests.ReferenceObject+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <GenericMethodDefinitionGenericTypeArgument Type="Dubrovnik.UnitTests.ReferenceObject+U" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" DeclaredByMethod="True" />
+        <Parameter Name="key" Type="Dubrovnik.UnitTests.ReferenceObject+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" DeclaredByMethod="True" />
+        <Parameter Name="value" Type="Dubrovnik.UnitTests.ReferenceObject+U" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" DeclaredByMethod="True" />
+      </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="initWithString" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="s" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
       <Method Name="InvokeActionDelegate" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="action" Type="Dubrovnik.UnitTests.ReferenceObject+ActionDelegate" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsNested="True" />
+        <Parameter Name="action" Type="Dubrovnik.UnitTests.ReferenceObject+ActionDelegate" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsNested="True" />
       </Method>
       <Method Name="InvokeActionDelegate" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="action" Type="System.Action`1&lt;System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="action" Type="System.Action`1&lt;System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="InvokeActionDelegate" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="action" Type="System.Action`2&lt;System.String, System.Object&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="action" Type="System.Action`2&lt;System.String, System.Object&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="InvokeFunctionA1" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="func" Type="System.Func`1&lt;System.Int32&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="func" Type="System.Func`1&lt;System.Int32&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="InvokeFunctionA2" Type="System.String" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="func" Type="System.Func`2&lt;System.Int32, System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="func" Type="System.Func`2&lt;System.Int32, System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="InvokeFunctionA3" Type="System.String" BaseName="Object" BaseType="System.Object">
-        <Parameter Name="func" Type="System.Func`3&lt;System.Int32, System.Double, System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsGenericType="True" IsConstructedGenericType="True" />
+        <Parameter Name="func" Type="System.Func`3&lt;System.Int32, System.Double, System.String&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsGenericType="True" IsConstructedGenericType="True" />
       </Method>
       <Method Name="InvokeFunctionDelegate1" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="func" Type="Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate1" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsNested="True" />
+        <Parameter Name="func" Type="Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate1" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsNested="True" />
       </Method>
       <Method Name="InvokeFunctionDelegate2" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="func" Type="Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate2" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsNested="True" />
+        <Parameter Name="func" Type="Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate2" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsNested="True" />
       </Method>
       <Method Name="InvokeSimpleDelegate" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="delg" Type="Dubrovnik.UnitTests.ReferenceObject+SimpleDelegate" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsNested="True" />
+        <Parameter Name="delg" Type="Dubrovnik.UnitTests.ReferenceObject+SimpleDelegate" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsNested="True" />
       </Method>
       <Method Name="MixedMethod1" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="intarg" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -375,6 +403,7 @@
       </Method>
       <Method Name="RaiseUnitTestEvent1" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="RaiseUnitTestEvent2" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      <Method Name="RaiseUnitTestEvent3" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="ReferenceStructMethod" Type="Dubrovnik.UnitTests.ReferenceStruct" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="s1" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
@@ -401,7 +430,7 @@
       </Method>
       <Method Name="StringMethod" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="s1" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="s2" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="s2" Type="System.Object" />
       </Method>
       <Method Name="StringMethodWithStringRef" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="s1" Type="System.String&amp;" IsByRef="True" ElementType="System.String" />
@@ -443,22 +472,39 @@
         <Parameter Name="doublePtrX" Type="System.Double*" IsPointer="True" ElementType="System.Double" />
         <Parameter Name="doublePtrY" Type="System.Double*" IsPointer="True" ElementType="System.Double" />
       </Method>
-      <Event Name="PropertyChanged" HandlerType="System.ComponentModel.PropertyChangedEventHandler" />
-      <Event Name="PropertyChanging" HandlerType="System.ComponentModel.PropertyChangingEventHandler" />
-      <Event Name="UnitTestEvent1" HandlerType="System.EventHandler" />
-      <Event Name="UnitTestEvent2" HandlerType="System.EventHandler" />
+      <Event Name="PropertyChanged" Type="System.ComponentModel.PropertyChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
+        <Parameter Name="e" Type="System.ComponentModel.PropertyChangedEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="PropertyChanging" Type="System.ComponentModel.PropertyChangingEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
+        <Parameter Name="e" Type="System.ComponentModel.PropertyChangingEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
+      <Event Name="UnitTestEvent1" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="UnitTestEvent2" Type="System.EventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
+        <Parameter Name="e" Type="System.EventArgs" BaseName="Object" BaseType="System.Object" />
+      </Event>
+      <Event Name="UnitTestEvent3" Type="System.EventHandler`1&lt;Dubrovnik.UnitTests.ReferenceEventArgs&gt;" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsGenericType="True" IsConstructedGenericType="True">
+        <GenericTypeArgument Type="Dubrovnik.UnitTests.ReferenceEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+        <Parameter Name="sender" Type="System.Object" />
+        <Parameter Name="e" Type="Dubrovnik.UnitTests.ReferenceEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
-    <Class Name="ReferenceObject.ActionDelegate" Type="Dubrovnik.UnitTests.ReferenceObject+ActionDelegate" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsNested="True">
+    <Class Name="ReferenceObject.ActionDelegate" Type="Dubrovnik.UnitTests.ReferenceObject+ActionDelegate" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsNested="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
@@ -467,37 +513,37 @@
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Method>
     </Class>
-    <Class Name="ReferenceObject.FunctionDelegate1" Type="Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate1" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsNested="True">
+    <Class Name="ReferenceObject.FunctionDelegate1" Type="Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate1" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsNested="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="__object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="__object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
     </Class>
-    <Class Name="ReferenceObject.FunctionDelegate2" Type="Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate2" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsNested="True">
+    <Class Name="ReferenceObject.FunctionDelegate2" Type="Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate2" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsNested="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
         <Parameter Name="value" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
@@ -527,16 +573,16 @@
         <Parameter Name="u" Type="Dubrovnik.UnitTests.ReferenceObject+NestedGenericClass`2+U" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" />
       </Method>
     </Class>
-    <Class Name="ReferenceObject.SimpleDelegate" Type="Dubrovnik.UnitTests.ReferenceObject+SimpleDelegate" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsNested="True">
+    <Class Name="ReferenceObject.SimpleDelegate" Type="Dubrovnik.UnitTests.ReferenceObject+SimpleDelegate" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsNested="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />

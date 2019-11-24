@@ -63,12 +63,6 @@
 
 /* Skipped constructor : System.String (System.Char* value, System.Int32 startIndex, System.Int32 length) */
 
-/* Skipped constructor : System.String (System.SByte* value) */
-
-/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length) */
-
-/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length, System.Text.Encoding enc) */
-
 /**
  Managed method.
  @textblock
@@ -116,6 +110,12 @@
  @/textblock
 */
 + (System_String *)new_withC:(uint16_t)p1 count:(int32_t)p2;
+
+/* Skipped constructor : System.String (System.SByte* value) */
+
+/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length) */
+
+/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length, System.Text.Encoding enc) */
 
 #pragma mark -
 #pragma mark Fields
@@ -178,7 +178,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)clone;
+- (id <DBMonoObject>)clone;
 
 /**
  Managed method.
@@ -380,7 +380,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)compareTo_withValue:(System_Object *)p1;
+- (int32_t)compareTo_withValue:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -410,7 +410,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)concat_withArg0:(System_Object *)p1;
++ (NSString *)concat_withArg0:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -426,7 +426,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)concat_withArg0:(System_Object *)p1 arg1:(System_Object *)p2;
++ (NSString *)concat_withArg0:(id <DBMonoObject>)p1 arg1:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -443,7 +443,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)concat_withArg0:(System_Object *)p1 arg1:(System_Object *)p2 arg2:(System_Object *)p3;
++ (NSString *)concat_withArg0:(id <DBMonoObject>)p1 arg1:(id <DBMonoObject>)p2 arg2:(id <DBMonoObject>)p3;
 
 /**
  Managed method.
@@ -461,7 +461,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)concat_withArg0:(System_Object *)p1 arg1:(System_Object *)p2 arg2:(System_Object *)p3 arg3:(System_Object *)p4;
++ (NSString *)concat_withArg0:(id <DBMonoObject>)p1 arg1:(id <DBMonoObject>)p2 arg2:(id <DBMonoObject>)p3 arg3:(id <DBMonoObject>)p4;
 
 /**
  Managed method.
@@ -477,24 +477,6 @@
  @/textblock
 */
 + (NSString *)concat_withArgs:(System_Array *)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   Concat
-
- Params
-   System.Collections.Generic.IEnumerable`1<System.String+T>
-
- Generics
-   <System.String+T>
-
- Return
-   System.String
- @/textblock
-*/
-+ (NSString *)concat_withValuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -576,6 +558,24 @@
  @/textblock
 */
 + (NSString *)concat_withValuesStringArray:(System_Array *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Concat
+
+ Params
+   System.Collections.Generic.IEnumerable`1<System.String+T>
+
+ Generics
+   <System.String+T>
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)concat_withValuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -686,7 +686,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -766,7 +766,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)format_withFormat:(NSString *)p1 arg0:(System_Object *)p2;
++ (NSString *)format_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -783,7 +783,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)format_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3;
++ (NSString *)format_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2 arg1:(id <DBMonoObject>)p3;
 
 /**
  Managed method.
@@ -801,7 +801,13 @@
    System.String
  @/textblock
 */
-+ (NSString *)format_withFormat:(NSString *)p1 arg0:(System_Object *)p2 arg1:(System_Object *)p3 arg2:(System_Object *)p4;
++ (NSString *)format_withFormat:(NSString *)p1 arg0:(id <DBMonoObject>)p2 arg1:(id <DBMonoObject>)p3 arg2:(id <DBMonoObject>)p4;
+
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0) */
+
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
+
+/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
 
 /**
  Managed method.
@@ -818,12 +824,6 @@
  @/textblock
 */
 + (NSString *)format_withFormat:(NSString *)p1 args:(System_Array *)p2;
-
-/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0) */
-
-/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1) */
-
-/* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object arg0, System.Object arg1, System.Object arg2) */
 
 /* Skipped method : System.String Format(System.IFormatProvider provider, System.String format, System.Object[] args) */
 
@@ -876,23 +876,6 @@
  @/textblock
 */
 - (int32_t)indexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   IndexOf
-
- Params
-   System.Char
-   System.Int32
-   System.Int32
-
- Return
-   System.Int32
- @/textblock
-*/
-- (int32_t)indexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3;
 
 /**
  Managed method.
@@ -992,6 +975,23 @@
  @/textblock
 */
 - (int32_t)indexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(enumSystem_StringComparison)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   IndexOf
+
+ Params
+   System.Char
+   System.Int32
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)indexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3;
 
 /**
  Managed method.
@@ -1174,25 +1174,6 @@
 
  Params
    System.String
-   System.Collections.Generic.IEnumerable`1<System.String+T>
-
- Generics
-   <System.String+T>
-
- Return
-   System.String
- @/textblock
-*/
-+ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter;
-
-/**
- Managed method.
- @textblock
- Name
-   Join
-
- Params
-   System.String
    System.Collections.Generic.IEnumerable`1<System.String>
 
  Return
@@ -1218,6 +1199,25 @@
  @/textblock
 */
 + (NSString *)join_withSeparator:(NSString *)p1 value:(System_Array *)p2 startIndex:(int32_t)p3 count:(int32_t)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Join
+
+ Params
+   System.String
+   System.Collections.Generic.IEnumerable`1<System.String+T>
+
+ Generics
+   <System.String+T>
+
+ Return
+   System.String
+ @/textblock
+*/
++ (NSString *)join_withSeparatorString:(NSString *)p1 valuesSCGIEnumerableA1string__T:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -1249,23 +1249,6 @@
  @/textblock
 */
 - (int32_t)lastIndexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   LastIndexOf
-
- Params
-   System.Char
-   System.Int32
-   System.Int32
-
- Return
-   System.Int32
- @/textblock
-*/
-- (int32_t)lastIndexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3;
 
 /**
  Managed method.
@@ -1365,6 +1348,23 @@
  @/textblock
 */
 - (int32_t)lastIndexOf_withValue:(NSString *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 comparisonType:(enumSystem_StringComparison)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   LastIndexOf
+
+ Params
+   System.Char
+   System.Int32
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)lastIndexOf_withValueChar:(uint16_t)p1 startIndexInt:(int32_t)p2 countInt:(int32_t)p3;
 
 /**
  Managed method.

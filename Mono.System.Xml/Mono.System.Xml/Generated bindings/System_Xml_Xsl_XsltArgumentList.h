@@ -32,6 +32,12 @@
 //
 
 
+// 
+// Event support
+// 
+
+/* Skipped event : System.Xml.Xsl.XsltMessageEncounteredEventHandler XsltMessageEncountered */
+
 @interface System_Xml_Xsl_XsltArgumentList : System_Object
 
 #pragma mark -
@@ -57,7 +63,7 @@
    System.Void
  @/textblock
 */
-- (void)addExtensionObject_withNamespaceUri:(NSString *)p1 extension:(System_Object *)p2;
+- (void)addExtensionObject_withNamespaceUri:(NSString *)p1 extension:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -74,7 +80,7 @@
    System.Void
  @/textblock
 */
-- (void)addParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2 parameter:(System_Object *)p3;
+- (void)addParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2 parameter:(id <DBMonoObject>)p3;
 
 /**
  Managed method.
@@ -104,7 +110,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getExtensionObject_withNamespaceUri:(NSString *)p1;
+- (id <DBMonoObject>)getExtensionObject_withNamespaceUri:(NSString *)p1;
 
 /**
  Managed method.
@@ -120,7 +126,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2;
+- (id <DBMonoObject>)getParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2;
 
 /**
  Managed method.
@@ -135,7 +141,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)removeExtensionObject_withNamespaceUri:(NSString *)p1;
+- (id <DBMonoObject>)removeExtensionObject_withNamespaceUri:(NSString *)p1;
 
 /**
  Managed method.
@@ -151,6 +157,11 @@
    System.Object
  @/textblock
 */
-- (System_Object *)removeParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2;
+- (id <DBMonoObject>)removeParam_withName:(NSString *)p1 namespaceUri:(NSString *)p2;
+
+#pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Xml.Xsl.XsltMessageEncounteredEventHandler XsltMessageEncountered */
 @end
 //--Dubrovnik.CodeGenerator

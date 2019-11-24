@@ -18,6 +18,9 @@
 // Forward class and protocol declarations
 //
 @class System_ComponentModel_INotifyPropertyChanged;
+@class System_ComponentModel_PropertyChangedEventArgs;
+@class System_ComponentModel_PropertyChangedEventHandler;
+@class System_Object;
 @protocol System_ComponentModel_INotifyPropertyChanged;
 @protocol System_ComponentModel_INotifyPropertyChanged_;
 
@@ -31,6 +34,12 @@
 //
 #import "System_ComponentModel_INotifyPropertyChanged_Protocol.h"
 
+// 
+// Event support
+// 
+#define SCINotifyPropertyChanged_PropertyChanged_EventBlock System_ComponentModel_INotifyPropertyChanged_PropertyChanged_EventBlock
+typedef void (^System_ComponentModel_INotifyPropertyChanged_PropertyChanged_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangedEventArgs *e);
+
 @interface System_ComponentModel_INotifyPropertyChanged : System_Object
 
 #pragma mark -
@@ -38,5 +47,28 @@
 
 + (const char *)monoClassName;
 + (const char *)monoAssemblyName;
+
+#pragma mark -
+#pragma mark Events
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   PropertyChanged
+
+ @/textblock
+*/
++ (NSString *)propertyChangedEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   PropertyChanged
+
+ @/textblock
+*/
+- (System_ComponentModel_PropertyChangedEventHandler *)propertyChanged_addEventHandlerWithBlock:(System_ComponentModel_INotifyPropertyChanged_PropertyChanged_EventBlock)block;
 @end
 //--Dubrovnik.CodeGenerator

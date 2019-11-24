@@ -26,7 +26,7 @@
 - (NSArray<id> *)array; // generic parameter is id as native objects may be returned eg: NSString
 - (NSArray<id> *)array:(Class)klass;
 - (NSArray<id> *)arrayExcludingNulls; // generic parameter is id as native objects mat be returned eg: NSString
-- (void)add:object;
+- (void)add:(id <DBMonoObject>)object;
 - (id)objectAtIndex:(NSUInteger)index;
 - (void)setObjectAtIndex:(int)index object:(DBManagedObject *)object;
 @end

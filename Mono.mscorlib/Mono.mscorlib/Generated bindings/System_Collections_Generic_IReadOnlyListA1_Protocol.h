@@ -100,7 +100,7 @@
    <System.Collections.Generic.IReadOnlyList`1+T>
  @/textblock
 */
-- (System_Object *)get_Item_withIndex:(int32_t)p1;
+- (id <DBMonoObject>)get_Item_withIndex:(int32_t)p1;
 #endif
 
 
@@ -131,7 +131,7 @@
    <System.Collections.Generic.IReadOnlyList`1+T>
  @/textblock
 */
-- (System_Object *)get_Item_withIndex:(int32_t)p1;
+- (id <DBMonoObject>)get_Item_withIndex:(int32_t)p1;
 
 @end
 

@@ -412,7 +412,7 @@ static System_Text_Encoding * m_uTF8;
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)clone
+- (id <DBMonoObject>)clone
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -420,69 +420,69 @@ static System_Text_Encoding * m_uTF8;
 
 + (NSData *)convert_withSrcEncoding:(System_Text_Encoding *)p1 dstEncoding:(System_Text_Encoding *)p2 bytes:(NSData *)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Convert(System.Text.Encoding,System.Text.Encoding,byte[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Convert(System.Text.Encoding,System.Text.Encoding,byte[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 + (NSData *)convert_withSrcEncoding:(System_Text_Encoding *)p1 dstEncoding:(System_Text_Encoding *)p2 bytes:(NSData *)p3 index:(int32_t)p4 count:(int32_t)p5
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Convert(System.Text.Encoding,System.Text.Encoding,byte[],int,int)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Convert(System.Text.Encoding,System.Text.Encoding,byte[],int,int)" withNumArgs:5, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], &p4, &p5];
 	return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-- (BOOL)equals_withValue:(System_Object *)p1
+- (BOOL)equals_withValue:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (int32_t)getByteCount_withChars:(System_Array *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(char[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 - (int32_t)getByteCount_withS:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
-	return DB_UNBOX_INT32(monoObject);
-}
-
-- (int32_t)getByteCount_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 /* Skipped method : System.Int32 GetByteCount(System.Char* chars, System.Int32 count) */
 
+- (int32_t)getByteCount_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetByteCount(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
+	return DB_UNBOX_INT32(monoObject);
+}
+
 - (NSData *)getBytes_withChars:(System_Array *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (NSData *)getBytes_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
-}
-
-- (int32_t)getBytes_withChars:(System_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[],int,int,byte[],int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5)];
-	return DB_UNBOX_INT32(monoObject);
 }
 
 - (NSData *)getBytes_withS:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSData dataWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (int32_t)getBytes_withS:(NSString *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(string,int,int,byte[],int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(string,int,int,byte[],int)" withNumArgs:5, [p1 monoRTInvokeObject], &p2, &p3, [p4 monoRTInvokeObject], &p5];
+	return DB_UNBOX_INT32(monoObject);
+}
+
+- (int32_t)getBytes_withChars:(System_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetBytes(char[],int,int,byte[],int)" withNumArgs:5, [p1 monoRTInvokeObject], &p2, &p3, [p4 monoRTInvokeObject], &p5];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -490,33 +490,33 @@ static System_Text_Encoding * m_uTF8;
 
 - (int32_t)getCharCount_withBytes:(NSData *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetCharCount(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
-	return DB_UNBOX_INT32(monoObject);
-}
-
-- (int32_t)getCharCount_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"GetCharCount(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetCharCount(byte[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 /* Skipped method : System.Int32 GetCharCount(System.Byte* bytes, System.Int32 count) */
 
+- (int32_t)getCharCount_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetCharCount(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
+	return DB_UNBOX_INT32(monoObject);
+}
+
 - (System_Array *)getChars_withBytes:(NSData *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (System_Array *)getChars_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (int32_t)getChars_withBytes:(NSData *)p1 byteIndex:(int32_t)p2 byteCount:(int32_t)p3 chars:(System_Array *)p4 charIndex:(int32_t)p5
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[],int,int,char[],int)" withNumArgs:5, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), [p4 monoRTInvokeArg], DB_VALUE(p5)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetChars(byte[],int,int,char[],int)" withNumArgs:5, [p1 monoRTInvokeObject], &p2, &p3, [p4 monoRTInvokeObject], &p5];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -528,7 +528,7 @@ static System_Text_Encoding * m_uTF8;
 
 + (System_Text_Encoding *)getEncoding_withCodepage:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(int)" withNumArgs:1, &p1];
 	return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 }
 
@@ -536,7 +536,7 @@ static System_Text_Encoding * m_uTF8;
 
 + (System_Text_Encoding *)getEncoding_withName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetEncoding(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Text_Encoding bestObjectWithMonoObject:monoObject];
 }
 
@@ -552,13 +552,13 @@ static System_Text_Encoding * m_uTF8;
 
 - (int32_t)getMaxByteCount_withCharCount:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetMaxByteCount(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetMaxByteCount(int)" withNumArgs:1, &p1];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 - (int32_t)getMaxCharCount_withByteCount:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetMaxCharCount(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetMaxCharCount(int)" withNumArgs:1, &p1];
 	return DB_UNBOX_INT32(monoObject);
 }
 
@@ -572,13 +572,13 @@ static System_Text_Encoding * m_uTF8;
 
 - (NSString *)getString_withBytes:(NSData *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetString(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetString(byte[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
 - (NSString *)getString_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetString(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetString(byte[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 

@@ -61,9 +61,9 @@ static NSString * m_typeConstructorName;
 #pragma mark -
 #pragma mark Methods
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -73,23 +73,23 @@ static NSString * m_typeConstructorName;
 	return DB_UNBOX_INT32(monoObject);
 }
 
-/* Skipped method : System.Object Invoke(System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
-
-- (System_Object *)invoke_withParameters:(System_Array *)p1
+- (id <DBMonoObject>)invoke_withParameters:(System_Array *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
+/* Skipped method : System.Object Invoke(System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
+
 + (BOOL)op_Equality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_Inequality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.ConstructorInfo,System.Reflection.ConstructorInfo)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

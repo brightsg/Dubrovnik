@@ -29,7 +29,6 @@
 - (id)reverseTransformedValue:(id)value
 {
     System_NullableA1 *nullableA1 = [System_NullableA1 newNullableFromObject:value withTypeArgumentName:@"NSDecimalNumber"];
-    
     return nullableA1;
 }
 

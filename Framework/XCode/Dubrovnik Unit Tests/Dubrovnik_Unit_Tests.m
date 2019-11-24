@@ -39,7 +39,7 @@ static BOOL m_runningAutoGenCodeTest = NO;
 #endif
 
 
-#define REST_EVENT_VARS(X)    self.event1Fired = X; \
+#define RESET_EVENT_VARS(X)    self.event1Fired = X; \
 self.event2Fired = X; \
 testObject.event1Fired = X; \
 testObject.event2Fired = X; \
@@ -405,7 +405,6 @@ static MonoAssembly *monoAssembly;
     
 #endif
     
-   
 }
 
 - (void)testInstanceCache
@@ -580,16 +579,14 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     System_Object *numInt = DBNumInt(51).managedObject;
     System_Object *numLongLong = DBNumLongLong(510).managedObject;
-    System_Object *numFloat = DBNumFloat(5100).managedObject;
-    System_Object *numDouble = DBNumFloat(51000).managedObject;
     
     // populate dictionary
-    [dictionaryA2 addKey:[@"name" managedObject] value:[@"bob" managedObject]];
+    [dictionaryA2 addKey:@"name" value:@"bob"];
     [dictionaryA2 addKey:[@"address" managedObject] value:[@"over here" managedObject]];
     [dictionaryA2 addKey:[@"int" managedObject] value:numInt];
-    [dictionaryA2 addKey:[@"longLong" managedObject] value:numLongLong];
-    [dictionaryA2 addKey:[@"float" managedObject] value:numFloat];
-    [dictionaryA2 addKey:[@"double" managedObject] value:numDouble];
+    [dictionaryA2 addKey:@"longLong" value:numLongLong];
+    [dictionaryA2 addKey:[@"float" managedObject] value:DBNumFloat(5100)];
+    [dictionaryA2 addKey:[@"double" managedObject] value:DBNumFloat(51000)];
     
     XCTAssertTrue([[dictionaryA2 objectForKey:@"name"] isEqualToString:@"bob"], DBUEqualityTestFailed);
     XCTAssertTrue([[dictionaryA2 objectForKey:@"address"] isEqualToString:@"over here"], DBUEqualityTestFailed);
@@ -610,7 +607,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     //
     // List<T> tests
     //
-    [listA1 add:@"bob".managedObject];
+    [listA1 add:@"bob"];
     [listA1 add:@"over here".managedString];
     [listA1 add:numInt];
     
@@ -800,6 +797,66 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [(id)object3 setStringProperty:[NSString stringWithFormat:@"+%@", eProperty]];
     XCTAssertTrue([object2 hash] != [object3 hash], DBUInequalityTestFailed);
     XCTAssertTrue(![object2 isEqual:object3], DBUInequalityTestFailed);
+    
+    //
+    // value type
+    //
+    System_Int16 *int16arg = [System_Int16 objectWithInt16:123];
+    System_Int16 *int16arg2 = [System_Int16 objectWithInt16:123];
+    System_Int16 *int16arg3 = [System_Int16 objectWithInt16:456];
+    System_Int32 *int32arg = [System_Int32 objectWithInt32:456];
+
+    // value comparison
+    XCTAssertFalse([int16arg compareTo_withValueInt16:int16arg.db_int16Value], DBUInequalityTestFailed);
+    XCTAssertTrue([int16arg compareTo_withValueObject:int16arg] == 0, DBUEqualityTestFailed);
+    XCTAssertTrue([int16arg compareTo_withValueObject:int16arg2] == 0, DBUEqualityTestFailed);
+    XCTAssertTrue([int16arg compareTo_withValueObject:int16arg3] < 0, DBUInequalityTestFailed);
+    XCTAssertTrue([int16arg3 compareTo_withValueObject:int16arg2] > 0, DBUInequalityTestFailed);
+    BOOL exceptionCaught = NO;
+    @try {
+        [int16arg3 compareTo_withValueObject:int32arg];
+    }
+    @catch (NSException *e) {
+        exceptionCaught = YES;
+    }
+    XCTAssertTrue(exceptionCaught, DBUEqualityTestFailed);
+    
+    // value equality
+    XCTAssertFalse([int16arg isEqual:@"not me"], DBUInequalityTestFailed);
+    XCTAssertTrue([int16arg isEqual:int16arg], DBUEqualityTestFailed);
+    XCTAssertTrue([int16arg equals_withObjInt16:int16arg.db_int16Value], DBUEqualityTestFailed);
+    XCTAssertFalse([int16arg equals_withObjObject:int32arg], DBUEqualityTestFailed);
+
+    //
+    // enum
+    //
+    DULongEnum_ *longEnum1 = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
+    DULongEnum_ *longEnum1a = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
+    DULongEnum_ *longEnum2 = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val2];
+    
+    // enum comparison
+    XCTAssertTrue([longEnum1 compareTo_withTarget:longEnum1] == 0, DBUEqualityTestFailed);
+    XCTAssertTrue([longEnum1 compareTo_withTarget:longEnum2] < 0, DBUInequalityTestFailed);
+    
+    // enum equality
+    XCTAssertFalse([longEnum1 isEqual:nil], DBUInequalityTestFailed);
+    XCTAssertFalse([longEnum1 isEqual:@"not me".managedString], DBUInequalityTestFailed);
+    XCTAssertTrue([longEnum1 isEqual:longEnum1], DBUEqualityTestFailed);
+    XCTAssertTrue([longEnum1 isEqual:longEnum1a], DBUEqualityTestFailed);
+    XCTAssertFalse([longEnum1 isEqual:longEnum2], DBUInequalityTestFailed);
+    
+    //
+    // nullable equality
+    //
+    SNullableA1_ *nullableInt1 = [SNullableA1_ newNullableFromInt64:122];
+    SNullableA1_ *nullableInt1a = [SNullableA1_ newNullableFromInt64:122];
+    SNullableA1_ *nullableInt2 = [SNullableA1_ newNullableFromInt64:123];
+    
+    // nullable equality
+    XCTAssertFalse([nullableInt1 isEqual:nil], DBUInequalityTestFailed);
+    XCTAssertTrue([nullableInt1 isEqual:nullableInt1], DBUEqualityTestFailed);
+    XCTAssertTrue([nullableInt1 isEqual:nullableInt1a], DBUEqualityTestFailed);
+    XCTAssertFalse([nullableInt1 isEqual:nullableInt2], DBUInequalityTestFailed);
 }
 
 - (void)doTestFields:(id)refObject class:(Class)testClass
@@ -830,10 +887,20 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
     
     // class date field
-    if (YES) {
-        NSDate *classDateField = [testClass classDateField];
-        NSDate *testDate = [NSDate dateWithString:@"2014-04-06 00:00:00 +0000"];
-        XCTAssertTrue([classDateField compare:testDate] == NSOrderedSame, DBUEqualityTestFailed);
+    NSDate *classDateField = [testClass classDateField];
+    NSDate *testDate = [NSDate dateWithString:@"2014-04-06 00:00:00 +0000"];
+    XCTAssertTrue([classDateField compare:testDate] == NSOrderedSame, DBUEqualityTestFailed);
+    
+    if (m_runningAutoGenCodeTest) {
+        // int enum
+        enumDubrovnik_UnitTests_IntEnum intEnum = Dubrovnik_UnitTests_IntEnum_val4;
+        [testClass setIntEnumFieldStatic:intEnum];
+        XCTAssertTrue([testClass intEnumFieldStatic] == intEnum, DBUEqualityTestFailed);
+        
+        // long enum
+        enumDubrovnik_UnitTests_LongEnum longEnum = Dubrovnik_UnitTests_LongEnum_val3;
+        [testClass setLongEnumFieldStatic:longEnum];
+        XCTAssertTrue([testClass longEnumFieldStatic] == longEnum, DBUEqualityTestFailed);
     }
     
     //
@@ -859,9 +926,19 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([refObject intField] == intField, DBUEqualityTestFailed);
     
     // date field
-    if (YES) {
-        NSDate *dateField = [refObject dateField];
-        XCTAssertNotNil(dateField, DBUObjectIsNil);
+    NSDate *dateField = [refObject dateField];
+    XCTAssertNotNil(dateField, DBUObjectIsNil);
+    
+    if (m_runningAutoGenCodeTest) {
+        // int enum
+        enumDubrovnik_UnitTests_IntEnum intEnum = Dubrovnik_UnitTests_IntEnum_val1;
+        [refObject setIntEnumField:intEnum];
+        XCTAssertTrue([refObject intEnumField] == intEnum, DBUEqualityTestFailed);
+        
+        // long enum
+        enumDubrovnik_UnitTests_LongEnum longEnum = Dubrovnik_UnitTests_LongEnum_val2;
+        [refObject setLongEnumField:longEnum];
+        XCTAssertTrue([refObject longEnumField] == longEnum, DBUEqualityTestFailed);
     }
 }
 
@@ -930,7 +1007,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 
     System_NullableA1 *nullableInt32 = [System_NullableA1 newNullableFromInt32:10995123];
     System_NullableA1 *nullableInt32Result = [refObject nullableInt32Method_withP1:nullableInt32];
-    XCTAssertTrue([nullableInt32Result int32Value] == 10995123, DBUEqualityTestFailed);
+    XCTAssertTrue([nullableInt32Result db_int32Value] == 10995123, DBUEqualityTestFailed);
 
     System_NullableA1 *nullableDouble = [System_NullableA1 newNullableFromDouble:33452.65672];
     System_NullableA1 *nullableDoubleResult = [refObject nullableDoubleMethod_withP1:nullableDouble];
@@ -975,167 +1052,6 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(intDoubled == intToDouble, DBUEqualityTestFailed);
 #endif
     
-    //
-    // Generic methods called on generic method definition of form Method<T>, Method<T,U> etc
-    //
-    if (!m_runningAutoGenCodeTest || YES) {
-        
-        // the object parameter can be any object that responds to -monoRTInvokeArg.
-        // the type paramter can be passed as a native class, a System_type instance, a native instance with a corresponding monoObject *,
-        // native NSValue containing a monoType *
-        
-        id genericResult = nil;
-        
-        //
-        // One type parameter
-        //
-        
-        // Method<string>()
-        genericResult = [refObject genericMethod0_withTypeParameter:[System_String db_getType]];
-        NSAssert([genericResult isKindOfClass:[NSString class]], DBUEqualityTestFailed);
-
-        // Method<object>(object)
-        // we define the generic method as <object>genericMethod1(<object>) and pass in a value type.
-        // this is a crucial test when it comes to determing how value type arguments are passed in to the managed runtime
-        // as the value type must remain boxed in this scenario.
-        // At present the API unboxes all value types.
-        // To override this behaviour when passing a boxed value type as System_Object we use the wrapper provided by
-        // System_Value objectArg
-        System_Boolean *boolObj = [System_Boolean objectWithBool:YES];
-        genericResult = [refObject genericMethod1_withValue:boolObj.objectArg typeParameter:[System_Object class]];
-        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult boolValue] == YES, DBUEqualityTestFailed);
-        
-        // Method<string>(string)
-        genericResult = [refObject genericMethod1_withValue:[DBUTestString managedObject] typeParameter:[System_String class]];
-        NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
-        
-        genericResult = [refObject genericMethod1_withValue:DBUTestString.managedString typeParameter:[System_String db_getType]];
-        NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
-        
-        genericResult = [refObject genericMethod1_withValue:DBUTestString.managedString typeParameter:@"a string"]; // get typeParameter from instance
-        NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
-        
-        MonoType *monoType = [DBType monoTypeForMonoObject:[@"a string" monoObject]];
-        genericResult = [refObject genericMethod1_withValue:DBUTestString.managedString typeParameter:[NSValue valueWithPointer:monoType]];
-        NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
-        
-        // Method<int>(int)
-        // value types will have to be unboxed for this invocation
-        DBNumber *number = [DBNumber numberWithInt:101];
-        genericResult = [refObject genericMethod1_withValue:number.managedObject typeParameter:[System_Int32 class]]; // explicit type parameter class
-        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult integerValue] == 101, DBUEqualityTestFailed);
-
-        genericResult = [refObject genericMethod1_withValue:number.managedObject typeParameter:number]; // get typeParameter from instance
-        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult integerValue] == 101, DBUEqualityTestFailed);
-        
-        // Method<long>(long)
-        number = [DBNumber numberWithLong:101];
-        genericResult = [refObject genericMethod1_withValue:number.managedObject typeParameter:number]; // get typeParameter from instance
-        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult longValue] == 101, DBUEqualityTestFailed);
-        
-        // Method<float>(float)
-        number = [DBNumber numberWithFloat:101.1f];
-        genericResult = [refObject genericMethod1_withValue:number.managedObject typeParameter:number]; // get typeParameter from instance
-        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult floatValue] == 101.1f, DBUEqualityTestFailed);
-
-        // Method<double>(double)
-        number = [DBNumber numberWithDouble:101.1];
-        genericResult = [refObject genericMethod1_withValue:number.managedObject typeParameter:number]; // get typeParameter from instance
-        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult doubleValue] == 101.1, DBUEqualityTestFailed);
-        
-        // Method<List<string>>(List<string>)
-        System_Collections_Generic_ListA1 *listA1 = [@[@"A", @"B"] managedListA1];
-        genericResult = [refObject genericMethod1_withValue:listA1 typeParameter:[listA1 db_getType]];
-        NSAssert([genericResult isKindOfClass:[System_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
-        
-        // Method<List<T>>(List<T>)
-        @try {
-            genericResult = [refObject genericMethodList1_withValue:listA1 typeParameter:[System_String db_getType]];
-            NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:@"A"], DBUEqualityTestFailed);
-        } @catch (NSException *e) {
-#warning failing for auto bindings
-        }
-        
-        //
-        // Two type parameters
-        //
-        genericResult = [refObject genericMethod02_withTypeParameters:@[[System_String db_getType], [System_String db_getType]]];
-        NSAssert([genericResult isKindOfClass:[NSString class]], DBUEqualityTestFailed);
-        
-        // Method<string,string>(string,string)
-        System_Collections_Generic_DictionaryA2 *resultA2 = [refObject genericMethod2_withKey:@"key".managedString value:DBUTestString.managedString typeParameters:@[[System_String class], [System_String class]]];
-        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
-        NSAssert([[resultA2 objectForKey:@"key"] isEqualToString:DBUTestString], DBUEqualityTestFailed);
-
-        // Method<int,string>(int,string)
-        DBNumber *numberKey = [DBNumber numberWithLong:101];
-        resultA2 = [refObject genericMethod2_withKey:numberKey.managedObject value:DBUTestString.managedString typeParameters:@[number, [System_String class]]];
-        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
-        NSAssert([[resultA2 objectForKey:numberKey] isEqualToString:DBUTestString], DBUEqualityTestFailed);
-        
-        // Method<string,int>(string,int)
-        number = [DBNumber numberWithLong:101];
-        resultA2 = [refObject genericMethod2_withKey:@"key".managedString value:number.managedObject typeParameters:@[[System_String class], number]];
-        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
-        NSAssert([[resultA2 objectForKey:@"key"] isEqualTo:number], DBUEqualityTestFailed);
-        
-        // Method<int,int>(int,int)
-        DBNumber *numberValue = [DBNumber numberWithLong:9052];
-        resultA2 = [refObject genericMethod2_withKey:numberKey.managedObject value:numberValue.managedObject typeParameters:@[number, numberValue]];
-        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
-        NSAssert([[resultA2 objectForKey:numberKey] isEqualTo:numberValue], DBUEqualityTestFailed);
-        
-        // Method<int,List<string>>(int,List<string>)
-        resultA2 = [refObject genericMethod2_withKey:numberKey.managedObject value:listA1 typeParameters:@[number, listA1]];
-        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
-        NSAssert([[resultA2 objectForKey:numberKey] isKindOfClass:[System_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
-    }
-    
-    //
-    // Generic type argument methods
-    //
-    System_Collections_Generic_ListA1 *list = [System_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
-    [refObject reverseList_withListSCGListA1string:list];
-    NSArray *revList = [list array];
-    NSAssert([revList[0] isEqualToString:@"2"], DBUEqualityTestFailed);
-    NSAssert([revList[1] isEqualToString:@"1"], DBUEqualityTestFailed);
- 
-    System_Collections_Generic_ListA1 *intList = [System_Collections_Generic_ListA1 listWithObjects:@[DBNumInt(1), DBNumInt(2)]];
-    [refObject reverseList_withListSCGListA1int:intList];
-    revList = [intList array];
-    NSAssert([revList[0] isEqualTo:@(2)], DBUEqualityTestFailed);
-    NSAssert([revList[1] isEqualTo:@(1)], DBUEqualityTestFailed);
-    
-    System_Collections_Generic_ListA1 *list1 = [System_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
-    NSString *addList = [refObject addIEnumerable_withList:(id)list1];
-    NSAssert([addList isEqualToString:@"12"], DBUEqualityTestFailed);
-    
-    //
-    // static methods
-    //
-    NSString *classDescription = (NSString *)[testClass classDescription];
-    XCTAssertTrue([classDescription dbTestString:DBUTestString], DBUSubstringTestFailed);
-    
-#if DB_RUN_AUTO_GENERATED_CODE_TEST == 1
-    //
-    // nested type parameters + overloads
-    //
-    if (m_runningAutoGenCodeTest) {
-        Dubrovnik_UnitTests_ReferenceObject__NestedClass *nestedClass = [Dubrovnik_UnitTests_ReferenceObject__NestedClass new];
-        [refObject nestedTypeParameter_withP1DUReferenceObject__NestedEnum:Dubrovnik_UnitTests_ReferenceObject__NestedEnum_val1];
-        [refObject nestedTypeParameter_withP1DUReferenceObject__NestedClass:nestedClass];
-        [refObject nestedTypeParameters_withP1:nestedClass p2:Dubrovnik_UnitTests_ReferenceObject__NestedEnum_val1];
-        
-        
-        // and again, this time with generic types
-        MonoImage *image = mono_assembly_get_image(monoAssembly);
-        id nestedGenericClassA2 = [Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 newWithTypeParameters:@[[System_String class], [System_Int32 class]] monoImage:image];
-        [refObject nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2string_int:nestedGenericClassA2];
-        
-        nestedGenericClassA2 = [Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 newWithTypeParameters:@[[System_Int32 class], [System_String class]] monoImage:image];
-        [refObject nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2int_string:nestedGenericClassA2];
-    }
-#endif
 }
 
 - (void)doTestRefMethods:(id)refObject class:(Class)testClass
@@ -1430,6 +1346,204 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
 {
 #pragma unused(refObject)
 #pragma unused(testClass)
+    
+    //
+    // Generic methods called on generic method definition of form Method<T>, Method<T,U> etc
+    //
+    if (!m_runningAutoGenCodeTest || YES) {
+        
+        // the object parameter can be any object that responds to -monoRTInvokeArg.
+        // the type paramter can be passed as a native class, a System_type instance, a native instance with a corresponding monoObject *,
+        // native NSValue containing a monoType *
+        
+        id genericResult = nil;
+        
+        //
+        // One type parameter
+        //
+        
+        // Method<string>()
+        genericResult = [refObject genericMethod0_withTypeParameter:[System_String db_getType]];
+        NSAssert([genericResult isKindOfClass:[NSString class]], DBUEqualityTestFailed);
+        
+        // Method<object>(object)
+        // we define the generic method as <object>genericMethod1(<object>) and pass in a value type.
+        // this is a crucial test when it comes to determing how value type arguments are passed in to the managed runtime
+        // as the value type must remain boxed in this scenario.
+        
+        // System_Value
+        System_Boolean *boolObj = [System_Boolean objectWithBool:YES];
+        genericResult = [refObject genericMethod1_withValue:boolObj typeParameter:[System_Object class]];
+        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult boolValue] == YES, DBUEqualityTestFailed);
+        
+        // Method<string>(string)
+        genericResult = [refObject genericMethod1_withValue:[DBUTestString managedObject] typeParameter:[System_String class]];
+        NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        genericResult = [refObject genericMethod1_withValue:DBUTestString typeParameter:[System_String db_getType]];
+        NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        genericResult = [refObject genericMethod1_withValue:DBUTestString typeParameter:@"a string"]; // get typeParameter from instance
+        NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        MonoType *monoType = [DBType monoTypeForMonoObject:[@"a string" monoObject]];
+        genericResult = [refObject genericMethod1_withValue:DBUTestString typeParameter:[NSValue valueWithPointer:monoType]];
+        NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        // Method<int>(int)
+        // value types will have to be unboxed for this invocation
+        DBNumber *number = [DBNumber numberWithInt:101];
+        genericResult = [refObject genericMethod1_withValue:number typeParameter:[System_Int32 class]]; // explicit type parameter class
+        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult integerValue] == 101, DBUEqualityTestFailed);
+        
+        genericResult = [refObject genericMethod1_withValue:number typeParameter:number]; // get typeParameter from instance
+        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult integerValue] == 101, DBUEqualityTestFailed);
+        
+        // Method<long>(long)
+        number = [DBNumber numberWithLong:101];
+        genericResult = [refObject genericMethod1_withValue:number typeParameter:number]; // get typeParameter from instance
+        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult longValue] == 101, DBUEqualityTestFailed);
+        
+        // Method<float>(float)
+        number = [DBNumber numberWithFloat:101.1f];
+        genericResult = [refObject genericMethod1_withValue:number typeParameter:number]; // get typeParameter from instance
+        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult floatValue] == 101.1f, DBUEqualityTestFailed);
+        
+        // Method<double>(double)
+        number = [DBNumber numberWithDouble:101.1];
+        genericResult = [refObject genericMethod1_withValue:number typeParameter:number]; // get typeParameter from instance
+        NSAssert([genericResult isKindOfClass:[DBNumber class]] && [(DBNumber *)genericResult doubleValue] == 101.1, DBUEqualityTestFailed);
+        
+        // Method<DateTime>(DateTime)
+        NSDate *date = NSDate.date;
+        genericResult = [refObject genericMethod1_withValue:(id)date typeParameter:System_DateTime.class];
+        NSAssert([genericResult isKindOfClass:[NSDate class]], DBUEqualityTestFailed);
+        
+        // Method<List<string>>(List<string>)
+        System_Collections_Generic_ListA1 *listA1 = [@[@"A", @"B"] managedListA1];
+        genericResult = [refObject genericMethod1_withValue:listA1 typeParameter:[listA1 db_getType]];
+        NSAssert([genericResult isKindOfClass:[System_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
+        
+        // Method<List<T>>(List<T>)
+        @try {
+            genericResult = [refObject genericMethodList1_withValue:listA1 typeParameter:[System_String db_getType]];
+            NSAssert([genericResult isKindOfClass:[NSString class]] && [genericResult isEqualToString:@"A"], DBUEqualityTestFailed);
+        } @catch (NSException *e) {
+#warning failing for auto bindings
+        }
+        
+        //
+        // Two type parameters
+        //
+        genericResult = [refObject genericMethod02_withTypeParameters:@[[System_String db_getType], [System_String db_getType]]];
+        NSAssert([genericResult isKindOfClass:[NSString class]], DBUEqualityTestFailed);
+        
+        // Method<string,string>(string,string)
+        System_Collections_Generic_DictionaryA2 *resultA2 = [refObject genericMethod2_withKey:@"key" value:DBUTestString typeParameters:@[[System_String class], [System_String class]]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:@"key"] isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        // Method<int,string>(int,string)
+        DBNumber *numberKey = [DBNumber numberWithLong:101];
+        resultA2 = [refObject genericMethod2_withKey:numberKey value:DBUTestString.managedString typeParameters:@[number, [System_String class]]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:numberKey] isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        // Method<string,int>(string,int)
+        number = [DBNumber numberWithLong:101];
+        resultA2 = [refObject genericMethod2_withKey:@"key" value:number typeParameters:@[[System_String class], number]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:@"key"] isEqualTo:number], DBUEqualityTestFailed);
+        
+        // Method<int,int>(int,int)
+        DBNumber *numberValue = [DBNumber numberWithLong:9052];
+        resultA2 = [refObject genericMethod2_withKey:numberKey value:numberValue typeParameters:@[number, numberValue]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:numberKey] isEqualTo:numberValue], DBUEqualityTestFailed);
+        
+        // Method<int,List<string>>(int,List<string>)
+        resultA2 = [refObject genericMethod2_withKey:numberKey value:listA1 typeParameters:@[number, listA1]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:numberKey] isKindOfClass:[System_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
+        
+        //
+        // static methods
+        //
+        
+        // Method<string,string>(string,string)
+        resultA2 = [DUReferenceObject_ genericMethodStatic2_withKey:@"key" value:DBUTestString typeParameters:@[[System_String class], [System_String class]]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:@"key"] isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        // Method<int,string>(int,string)
+        numberKey = [DBNumber numberWithLong:101];
+        resultA2 = [DUReferenceObject_ genericMethodStatic2_withKey:numberKey value:DBUTestString typeParameters:@[number, [System_String class]]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:numberKey] isEqualToString:DBUTestString], DBUEqualityTestFailed);
+        
+        // Method<string,int>(string,int)
+        number = [DBNumber numberWithLong:101];
+        resultA2 = [DUReferenceObject_ genericMethodStatic2_withKey:@"key" value:number typeParameters:@[[System_String class], number]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:@"key"] isEqualTo:number], DBUEqualityTestFailed);
+        
+        // Method<int,int>(int,int)
+        numberValue = [DBNumber numberWithLong:9052];
+        resultA2 = [DUReferenceObject_ genericMethodStatic2_withKey:numberKey value:numberValue typeParameters:@[number, numberValue]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:numberKey] isEqualTo:numberValue], DBUEqualityTestFailed);
+        
+        // Method<int,List<string>>(int,List<string>)
+        resultA2 = [DUReferenceObject_ genericMethodStatic2_withKey:numberKey value:listA1 typeParameters:@[number, listA1]];
+        NSAssert([resultA2 isKindOfClass:[System_Collections_Generic_DictionaryA2 class]], DBUEqualityTestFailed);
+        NSAssert([[resultA2 objectForKey:numberKey] isKindOfClass:[System_Collections_Generic_ListA1 class]], DBUEqualityTestFailed);
+    }
+    
+    //
+    // Generic type argument methods
+    //
+    System_Collections_Generic_ListA1 *list = [System_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
+    [refObject reverseList_withListSCGListA1string:list];
+    NSArray *revList = [list array];
+    NSAssert([revList[0] isEqualToString:@"2"], DBUEqualityTestFailed);
+    NSAssert([revList[1] isEqualToString:@"1"], DBUEqualityTestFailed);
+    
+    System_Collections_Generic_ListA1 *intList = [System_Collections_Generic_ListA1 listWithObjects:@[DBNumInt(1), DBNumInt(2)]];
+    [refObject reverseList_withListSCGListA1int:intList];
+    revList = [intList array];
+    NSAssert([revList[0] isEqualTo:@(2)], DBUEqualityTestFailed);
+    NSAssert([revList[1] isEqualTo:@(1)], DBUEqualityTestFailed);
+    
+    System_Collections_Generic_ListA1 *list1 = [System_Collections_Generic_ListA1 listWithObjects:@[@"1", @"2"]];
+    NSString *addList = [refObject addIEnumerable_withList:(id)list1];
+    NSAssert([addList isEqualToString:@"12"], DBUEqualityTestFailed);
+    
+    //
+    // static methods
+    //
+    NSString *classDescription = (NSString *)[testClass classDescription];
+    XCTAssertTrue([classDescription dbTestString:DBUTestString], DBUSubstringTestFailed);
+    
+#if DB_RUN_AUTO_GENERATED_CODE_TEST == 1
+    //
+    // nested type parameters + overloads
+    //
+    if (m_runningAutoGenCodeTest) {
+        Dubrovnik_UnitTests_ReferenceObject__NestedClass *nestedClass = [Dubrovnik_UnitTests_ReferenceObject__NestedClass new];
+        [refObject nestedTypeParameter_withP1DUReferenceObject__NestedEnum:Dubrovnik_UnitTests_ReferenceObject__NestedEnum_val1];
+        [refObject nestedTypeParameter_withP1DUReferenceObject__NestedClass:nestedClass];
+        [refObject nestedTypeParameters_withP1:nestedClass p2:Dubrovnik_UnitTests_ReferenceObject__NestedEnum_val1];
+        
+        
+        // and again, this time with generic types
+        MonoImage *image = mono_assembly_get_image(monoAssembly);
+        id nestedGenericClassA2 = [Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 newWithTypeParameters:@[[System_String class], [System_Int32 class]] monoImage:image];
+        [refObject nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2string_int:nestedGenericClassA2];
+        
+        nestedGenericClassA2 = [Dubrovnik_UnitTests_ReferenceObject__NestedGenericClassA2 newWithTypeParameters:@[[System_Int32 class], [System_String class]] monoImage:image];
+        [refObject nestedTypeParameters_withPDUReferenceObject__NestedGenericClassA2int_string:nestedGenericClassA2];
+    }
+#endif
 }
 
 - (void)doTestGenericProperties:(id)refObject class:(Class)testClass
@@ -1551,8 +1665,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([value intValue] == 2, DBUEqualityTestFailed);
 
     // test using managed indexer exposed as get_Item_withKey:
-#warning need to look at this. it calls - (id)bestObjectWithMonoObject: so we have a method advertised as System_Object returning a DBNumber as -bestObjectWithMonoObject: prefers to package managed numerics as an NSNumber subclass as opposed to say a System_Int.
-    DBNumber *valNumber = (DBNumber *)[intIntDictA2 get_Item_withKey:[[DBNumber numberWithInt:3] managedObject]];
+    DBNumber *valNumber = (DBNumber *)[intIntDictA2 get_Item_withKey:[DBNumber numberWithInt:3]];
     XCTAssertTrue([valNumber intValue] == 6, DBUEqualityTestFailed);
     
     // key is a DBManagedObject containing a boxed int
@@ -1564,12 +1677,13 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     value = [intIntDictA2 objectForKey:[DBNumber numberWithInt:intKey]];
     XCTAssertTrue([value intValue] == 6, DBUEqualityTestFailed);
     
-    // object for key requires a type that represents a mono type
+    // object for key requires a type that represents a managed object
     BOOL numberTypeExceptionRaised = NO;
     @try {
-        value = [intIntDictA2 objectForKey:@(intKey)];
+        value = [intIntDictA2 objectForKey:(DBNumber *)@(intKey)];
     }
     @catch (NSException *e) {
+        // exception is expected
         numberTypeExceptionRaised = YES;
     }
     @finally {
@@ -1577,7 +1691,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     }
 
     // key is a literal number representing an int
-    NSNumber *literalNumberKey = [@((int)intKey) dbNumberFromIntValue];
+    DBNumber *literalNumberKey = [@((int)intKey) dbNumberFromIntValue];
     const char *typeEncoding = [literalNumberKey objCType];
     XCTAssertTrue(strcmp(typeEncoding, @encode(int)) == 0, DBUEqualityTestFailed);
     value = [intIntDictA2 objectForKey:literalNumberKey];
@@ -1793,6 +1907,10 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([[floatNullable numberValue] floatValue] == 5, DBUEqualityTestFailed);
     XCTAssertTrue(floatNullable.description != nil, DBUNotNilTestFailed);
     
+    // enum
+    // nullable enums must be created from an instance of the enum not the underlying type
+    [System_NullableA1 objectWithManagedObject:[DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1]];
+    
     //=========================================================
     // Generic reference object
     // Dubrovnik.UnitTests.GenericReferenceObject<T, U>"
@@ -1850,7 +1968,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([ms dbTestString:DBUTestString], DBUSubstringTestFailed);
 }
 
-- (void)doTestEnumderations
+- (void)doTestEnumerations
 {
 
     if (m_runningAutoGenCodeTest) {
@@ -1876,19 +1994,22 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         XCTAssertTrue(Dubrovnik_UnitTests_LongEnum_val4 == [DULongEnum_ val4], DBUEqualityTestFailed);
     
         DUByteEnum_ *byteEnum = [DUByteEnum_ enumWithValue:Dubrovnik_UnitTests_ByteEnum_val1];
-        XCTAssertTrue(byteEnum.int8Value == Dubrovnik_UnitTests_ByteEnum_val1, DBUEqualityTestFailed);
+        XCTAssertTrue(byteEnum.db_int8Value == Dubrovnik_UnitTests_ByteEnum_val1, DBUEqualityTestFailed);
         
         DUShortEnum_ *shortEnum = [DUShortEnum_ enumWithValue:Dubrovnik_UnitTests_ShortEnum_val1];
-        XCTAssertTrue(shortEnum.int16Value == Dubrovnik_UnitTests_ShortEnum_val1, DBUEqualityTestFailed);
+        XCTAssertTrue(shortEnum.db_int16Value == Dubrovnik_UnitTests_ShortEnum_val1, DBUEqualityTestFailed);
         
         DUIntEnum_ *intEnum = [DUIntEnum_ enumWithValue:Dubrovnik_UnitTests_IntEnum_val1];
-        XCTAssertTrue(intEnum.int32Value == Dubrovnik_UnitTests_IntEnum_val1, DBUEqualityTestFailed);
+        XCTAssertTrue(intEnum.db_int32Value == Dubrovnik_UnitTests_IntEnum_val1, DBUEqualityTestFailed);
         
         DULongEnum_ *longEnum = [DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1];
-        XCTAssertTrue(longEnum.int64Value == Dubrovnik_UnitTests_LongEnum_val1, DBUEqualityTestFailed);
+        XCTAssertTrue(longEnum.db_int64Value == Dubrovnik_UnitTests_LongEnum_val1, DBUEqualityTestFailed);
+        
+        NSString *stringValue = [System_Enum getName_withEnumType:[DULongEnum_ db_getType] value:longEnum];
+        XCTAssertTrue([stringValue isEqualToString:@"val1"], DBUEqualityTestFailed);
     }
-
 }
+
 - (void)doTestStructRepresentation:(id)refObject class:(Class)testClass
 {
     
@@ -2011,6 +2132,32 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([classDateProperty compare:testDate] == NSOrderedSame, DBUEqualityTestFailed);
 
     //
+    // enumeration properties
+    //
+    if (m_runningAutoGenCodeTest) {
+        // setter
+        [testClass setIntEnumerationStatic:[DBUIntEnum val4]];
+        XCTAssertTrue([testClass intEnumerationStatic] == [DBUIntEnum val4], DBUEqualityTestFailed);
+        
+        // we can set it out of range too - so be careful!
+        [testClass setIntEnumerationStatic:[DBUIntEnum val4] * 10];
+        XCTAssertTrue([testClass intEnumerationStatic] == [DBUIntEnum val4] * 10, DBUEqualityTestFailed);
+        
+        [testClass setLongEnumerationStatic:Dubrovnik_UnitTests_LongEnum_val3];
+        XCTAssertTrue([testClass longEnumerationStatic] == Dubrovnik_UnitTests_LongEnum_val3, DBUEqualityTestFailed);
+        
+        // Nullable enum properties
+        @try {
+            [testClass setIntEnumerationNullableStatic:[System_NullableA1 newNullableFromInt32:1]];
+        }
+        @catch(NSException *e) {
+            NSLog(@"Mono 5.12+ do not allow System.Nullable<System.Enum> to be created with an instance of the underlying type. Earlier Mono versions do.");
+        }
+        [testClass setIntEnumerationNullableStatic:[System_NullableA1 objectWithManagedObject:[DUIntEnum_ enumWithValue:Dubrovnik_UnitTests_IntEnum_val1]]];
+        [testClass setLongEnumerationNullableStatic:[System_NullableA1 objectWithManagedObject:[DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1]]];
+    }
+    
+    //
     // string property
     //
     NSString *stringProperty = [refObject stringProperty];
@@ -2114,7 +2261,33 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     [refObject setLongEnumeration:eDBULongEnum_Val4];
     XCTAssertTrue([refObject longEnumeration] == eDBULongEnum_Val4, DBUEqualityTestFailed);
+    
+    // Nullable enum properties
+    @try {
+        [refObject setIntEnumerationNullable:[System_NullableA1 newNullableFromInt32:1]];
+    }
+    @catch(NSException *e) {
+        NSLog(@"Mono 5.12+ do not allow System.Nullable<System.Enum> to be created with an instance of the underlying type. Earlier Mono versions do.");
+    }
+    [refObject setIntEnumerationNullable:[System_NullableA1 objectWithManagedObject:[DUIntEnum_ enumWithValue:Dubrovnik_UnitTests_IntEnum_val1]]];
+    [refObject setLongEnumerationNullable:[System_NullableA1 objectWithManagedObject:[DULongEnum_ enumWithValue:Dubrovnik_UnitTests_LongEnum_val1]]];
+    
+    // nullable properties
+    System_NullableA1 *intNullableA1 = [refObject intNullable];
+    
+    // when .NET boxes a system_nullable it produces a boxed version of the underlying value type.
+    // and that is what we see here - our object is not an instance of System_Nullable at all -
+    // though it is convenient to treat it as if it is.
+    MonoClass *mc = mono_object_get_class(intNullableA1.monoObject);
+    const char *name = mono_class_get_name(mc);
+    NSLog(@"We apparently have a %@ instance but its really just an instance of %s", intNullableA1.className, name);
+    XCTAssertTrue([intNullableA1 hasValue], DBUEqualityTestFailed);
+    XCTAssertTrue([(id)intNullableA1.value intValue] == intNullableA1.intValue, DBUEqualityTestFailed);
+    XCTAssertTrue(intNullableA1.intValue == 1, DBUEqualityTestFailed);
 
+    // a null containing nullable returns nil
+    System_NullableA1 *floatNullable = [refObject floatNullable];
+    XCTAssertTrue(floatNullable == nil, DBUEqualityTestFailed);
 }
 
 - (void)doTestReferenceClass:(Class)testClass iterations:(int)iterations
@@ -2135,68 +2308,63 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         [self doTestGenericConstructors:testClass];
 
         //==================================
-        //
         // boxing and unboxing
-        // note that when passing boxed value types to a System_Object parameter
-        // we need to use the wrapper provided by System_ValueType -objectArg in order to prevent auto unboxing of the value type.
-        // TODO: refactor the method calling API to query the method signature so that auto unboxing of value types
-        // only occurs when appropriate.
         //==================================
         // System.Bool
         System_Boolean *boxedBool = [System_Boolean objectWithBool:YES];
-        XCTAssertTrue([System_Convert toBoolean_withValueObject:boxedBool.objectArg] == YES, DBUEqualityTestFailed);
+        XCTAssertTrue([System_Convert toBoolean_withValueObject:boxedBool] == YES, DBUEqualityTestFailed);
         boxedBool = [System_Boolean objectWithBool:NO];
-        XCTAssertTrue([System_Convert toBoolean_withValueObject:boxedBool.objectArg] == NO, DBUEqualityTestFailed);
+        XCTAssertTrue([System_Convert toBoolean_withValueObject:boxedBool] == NO, DBUEqualityTestFailed);
         
         // System.Byte
         System_Byte *boxedByte = [System_Byte objectWithUInt8:233];
-        XCTAssertTrue([System_Convert toByte_withValueObject:boxedByte.objectArg] == 233, DBUEqualityTestFailed);
+        XCTAssertTrue([System_Convert toByte_withValueObject:boxedByte] == 233, DBUEqualityTestFailed);
 
         // System.SByte
         System_SByte *boxedSByte = [System_SByte objectWithInt8:-56];
-        XCTAssertTrue([System_Convert toSByte_withValueObject:boxedSByte.objectArg] == -56, DBUEqualityTestFailed);
+        XCTAssertTrue([System_Convert toSByte_withValueObject:boxedSByte] == -56, DBUEqualityTestFailed);
 
         // System.Char
         System_Char *boxedChar = [System_Char objectWithUInt16:12567];
-        XCTAssertTrue([System_Convert toChar_withValueObject:boxedChar.objectArg] == 12567, DBUEqualityTestFailed);
+        XCTAssertTrue([System_Convert toChar_withValueObject:boxedChar] == 12567, DBUEqualityTestFailed);
 
         // System.Decimal
         NSDecimalNumber *decimalValue = [NSDecimalNumber decimalNumberWithString:@"17645"];
         System_Decimal *boxedDecimal = [System_Decimal objectWithDecimal:decimalValue];
-        XCTAssertTrue([[System_Convert toDecimal_withValueObject:boxedDecimal.objectArg] isEqual:decimalValue], DBUEqualityTestFailed);
+        XCTAssertTrue([[System_Convert toDecimal_withValueObject:boxedDecimal] isEqual:decimalValue], DBUEqualityTestFailed);
 
         // System.Double
         System_Double *boxedDouble = [System_Double objectWithDouble:13.2245];
-        XCTAssertTrue([System_Convert toDouble_withValueObject:boxedDouble.objectArg] == 13.2245, DBUEqualityTestFailed);
+        XCTAssertTrue([System_Convert toDouble_withValueObject:boxedDouble] == 13.2245, DBUEqualityTestFailed);
 
         // System.Single
         System_Single *boxedSingle = [System_Single objectWithFloat:13567];
-        float resultFloat = [System_Convert toSingle_withValueObject:boxedSingle.objectArg];
+        float resultFloat = [System_Convert toSingle_withValueObject:boxedSingle];
         XCTAssertTrue(resultFloat == 13567, DBUEqualityTestFailed);
         
         // System.Int32
         System_Int32 *boxedInt32 = [System_Int32 objectWithInt32:-11234];
-        XCTAssertTrue([System_Convert toInt32_withValueObject:boxedInt32.objectArg] == -11234, DBUEqualityTestFailed);
+        XCTAssertTrue([System_Convert toInt32_withValueObject:boxedInt32] == -11234, DBUEqualityTestFailed);
         
         // System.UInt32
         System_UInt32 *boxedUInt32 = [System_UInt32 objectWithUInt32:11234];
-        XCTAssertTrue([System_Convert toUInt32_withValueObject:boxedUInt32.objectArg] == 11234, DBUEqualityTestFailed);
+        XCTAssertTrue([System_Convert toUInt32_withValueObject:boxedUInt32] == 11234, DBUEqualityTestFailed);
 
         // System.Int64
         System_Int64 *boxedInt64 = [System_Int64 objectWithInt64:-112343748];
-        XCTAssertTrue([System_Convert toInt64_withValueObject:boxedInt64.objectArg] == -112343748, DBUEqualityTestFailed);
+        XCTAssertTrue([System_Convert toInt64_withValueObject:boxedInt64] == -112343748, DBUEqualityTestFailed);
 
         // System.UInt64
         System_UInt64 *boxedUInt64 = [System_UInt64 objectWithUInt64:112343778];
-        XCTAssertTrue([System_Convert toUInt64_withValueObject:boxedUInt64.objectArg] == 112343778, DBUEqualityTestFailed);
+        XCTAssertTrue([System_Convert toUInt64_withValueObject:boxedUInt64] == 112343778, DBUEqualityTestFailed);
         
         // System.Int16
         System_Int16 *boxedInt16 = [System_Int16 objectWithInt16:-7897];
-        XCTAssertTrue([System_Convert toInt16_withValueObject:boxedInt16.objectArg] == -7897, DBUEqualityTestFailed);
+        XCTAssertTrue([System_Convert toInt16_withValueObject:boxedInt16] == -7897, DBUEqualityTestFailed);
 
         // System.UInt16
         System_UInt16 *boxedUInt16 = [System_UInt16 objectWithUInt16:7895];
-        XCTAssertTrue([System_Convert toUInt16_withValueObject:boxedUInt16.objectArg] == 7895, DBUEqualityTestFailed);
+        XCTAssertTrue([System_Convert toUInt16_withValueObject:boxedUInt16] == 7895, DBUEqualityTestFailed);
         
         //===================================
         // events
@@ -2248,7 +2416,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         [self doTestStructRepresentation:refObject class:testClass];
         [self doTestObjectRepresentation:refObject class:testClass];
         [self doTestArrayListRepresentation:refObject class:testClass];
-        [self doTestEnumderations];
+        [self doTestEnumerations];
         
         //===================================
         // Delegates
@@ -2286,7 +2454,138 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     return m_runningAutoGenCodeTest ? @"Generated code" : @"Manual code";
 }
 
-- (void)doTestEvents:(id)refObject class:(Class)testClass
+
+- (void)doTestEvents:(DUReferenceObject_ *)refObject class:(Class)testClass
+{
+    if (![refObject isKindOfClass:DUReferenceObject_.class]) {
+        XCTAssertTrue(NO, @"Invalid reference object");
+    }
+    
+    //
+    // define blocks to be called when event delegate invoked
+    //
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-parameter"
+    System_EventHandler *eh1 = [refObject unitTestEvent1_addEventHandlerWithBlock:^(System_Object *sender, System_EventArgs *e) {
+        self.event1Fired++;
+    }];
+    System_EventHandler *eh2 = [refObject unitTestEvent2_addEventHandlerWithBlock:^(System_Object *sender, System_EventArgs *e) {
+        self.event2Fired++;
+    }];
+    System_EventHandlerA1 *eh3 = [refObject unitTestEvent3_addEventHandlerWithBlock:^(System_Object *sender, Dubrovnik_UnitTests_ReferenceEventArgs *e) {
+        XCTAssertTrue([e isKindOfClass:Dubrovnik_UnitTests_ReferenceEventArgs.class], DBUEqualityTestFailed);
+        self.event1Fired++;
+        self.event2Fired++;
+    }];
+#pragma clang diagnostic pop
+    
+    self.event1Fired = 0;
+    self.event2Fired = 0;
+    
+    [refObject raiseUnitTestEvent1];
+    XCTAssertTrue(self.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    
+    [refObject raiseUnitTestEvent2];
+    XCTAssertTrue(self.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 1, DBUEqualityTestFailed);
+    
+    [refObject raiseUnitTestEvent3];
+    XCTAssertTrue(self.event1Fired == 2, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 2, DBUEqualityTestFailed);
+    
+    //
+    // define additional handlers for the same events
+    //
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-parameter"
+    System_EventHandler *eh1a = [refObject unitTestEvent1_addEventHandlerWithBlock:^(System_Object *sender, System_EventArgs *e) {
+        self.event1Fired += 2;
+    }];
+    System_EventHandler *eh2a = [refObject unitTestEvent2_addEventHandlerWithBlock:^(System_Object *sender, System_EventArgs *e) {
+        self.event2Fired += 3;
+    }];
+    System_EventHandlerA1 *eh3a = [refObject unitTestEvent3_addEventHandlerWithBlock:^(System_Object *sender, Dubrovnik_UnitTests_ReferenceEventArgs *e) {
+        XCTAssertTrue([e isKindOfClass:Dubrovnik_UnitTests_ReferenceEventArgs.class], DBUEqualityTestFailed);
+        self.event1Fired += 4;
+        self.event2Fired += 4;
+    }];
+#pragma clang diagnostic pop
+    
+    self.event1Fired = 0;
+    self.event2Fired = 0;
+    [refObject raiseUnitTestEvent1];
+    XCTAssertTrue(self.event1Fired == 3, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    
+    [refObject raiseUnitTestEvent2];
+    XCTAssertTrue(self.event1Fired == 3, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 4, DBUEqualityTestFailed);
+    
+    [refObject raiseUnitTestEvent3];
+    XCTAssertTrue(self.event1Fired == 8, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 9, DBUEqualityTestFailed);
+    
+    //
+    // now remove the additional handlers
+    //
+    [refObject db_removeEventHandler:eh1a];
+    [refObject db_removeEventHandler:eh2a];
+    [refObject db_removeEventHandler:eh3a];
+    
+    self.event1Fired = 0;
+    self.event2Fired = 0;
+    
+    [refObject raiseUnitTestEvent1];
+    XCTAssertTrue(self.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    
+    [refObject raiseUnitTestEvent2];
+    XCTAssertTrue(self.event1Fired == 1, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 1, DBUEqualityTestFailed);
+    
+    [refObject raiseUnitTestEvent3];
+    XCTAssertTrue(self.event1Fired == 2, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 2, DBUEqualityTestFailed);
+    
+    //
+    // now remove the original handlers
+    //
+    [refObject db_removeEventHandler:eh1];
+    [refObject db_removeEventHandler:eh2];
+    [refObject db_removeEventHandler:eh3];
+    
+    self.event1Fired = 0;
+    self.event2Fired = 0;
+    
+    [refObject raiseUnitTestEvent1];
+    XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    
+    [refObject raiseUnitTestEvent2];
+    XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    
+    [refObject raiseUnitTestEvent3];
+    XCTAssertTrue(self.event1Fired == 0, DBUEqualityTestFailed);
+    XCTAssertTrue(self.event2Fired == 0, DBUEqualityTestFailed);
+    
+    // test the legacy event API
+    [self doTestLegacyEvents:refObject class:testClass];
+}
+
+
+/**
+ Tests the legacy managed event API support.
+ This API works fine but requires a lot of glue code including defining
+ a managed static internal call method on a Dubrovnik.ClientApplication.EventHelper partial class.
+ Note there is no code gen support for this API.
+ The newer event API is much easier to use and is supported by the code generator.
+
+ @param refObject Reference object
+ @param testClass testClass Test class
+ */
+- (void)doTestLegacyEvents:(id)refObject class:(Class)testClass
 {
 #pragma unused(testClass)
     
@@ -2380,7 +2679,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue([targets db_indexForObjectPointer:eventTarget1] != NSUIntegerMax, DBUEqualityTestFailed);
     
     // raise events
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject1 raiseUnitTestEvent1];
@@ -2393,7 +2692,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     XCTAssertTrue(eventTarget1.event1Fired == 1, DBUEqualityTestFailed);
     XCTAssertTrue(eventTarget1.event2Fired == 0, DBUEqualityTestFailed);
     
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent2];
     [refObject1 raiseUnitTestEvent2];
@@ -2408,7 +2707,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // remove handler 1 for self
     [self removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
@@ -2421,7 +2720,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // remove handler 1 for testObject
     [testObject removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
@@ -2434,7 +2733,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // remove handler 2 for self
     [self removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
@@ -2447,7 +2746,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // remove handler 2 for testObject
     [testObject removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
@@ -2460,7 +2759,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // remove handler 1 for eventTarget
     [eventTarget removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent1" handlerMethodName:@"DubrovnikEventHandlerICall1"];
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
@@ -2473,7 +2772,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // remove handler 2 for eventTarget
     [eventTarget removeManagedEventHandlerForObject:refObject eventName:@"UnitTestEvent2" handlerMethodName:@"DubrovnikEventHandlerICall2"];
-    REST_EVENT_VARS(0);
+    RESET_EVENT_VARS(0);
     
     [refObject raiseUnitTestEvent1];
     [refObject raiseUnitTestEvent2];
@@ -2526,7 +2825,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // Generic System.Action<T>
     // in this case we need to construct the type of our delegate
-    System_Type *constructedType = [System_ActionA1 constructCoreTypeWithParameters:@[[System_String class]]];
+    System_Type *constructedType = [System_ActionA1 db_constructTypeWithParameters:@[[System_String class]]];
     System_ActionA1 *actionDelegateA1 = [System_ActionA1 universalDelegateWithConstructedType:constructedType block:delegateBlock];
     [actionDelegateA1 invoke_withObj:[@"Bingo" managedString]];
     [refObject invokeActionDelegate_withActionSActionA1string:actionDelegateA1];
@@ -2537,7 +2836,7 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
         NSAssert(parameters.count == 2 && [parameters[0] isEqualToString:@"Bingo"] && [parameters[1] isEqualToString:@"More"], @"invalid parameters");
         return NULL;
     };
-    constructedType = [System_ActionA2 constructCoreTypeWithParameters:@[[System_String class], [System_Object class]]];
+    constructedType = [System_ActionA2 db_constructTypeWithParameters:@[[System_String class], [System_Object class]]];
     System_ActionA2 *actionDelegateA2 = [System_ActionA2 universalDelegateWithConstructedType:constructedType block:delegateBlock];
     [actionDelegateA2 invoke_withArg1:@"Bingo".managedString arg2:@"More".managedString];
     
@@ -2550,9 +2849,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [refObject  invokeActionDelegate_withActionSActionA2string_object:actionDelegateA2];
     
     // func 1
-    delegateBlock = ^System_Object *(NSArray * parameters) {
+    delegateBlock = ^id <DBMonoObject>(NSArray * parameters) {
         NSAssert(parameters.count == 1 && [parameters[0] isEqualToString:@"Bullseye"], @"invalid parameters");
-        return [DBNumber numberWithInt:10245].managedObject;
+        return [DBNumber numberWithInt:10245];
     };
     DUReferenceObject_FunctionDelegate1_ *functionDelegate1 = [DUReferenceObject_FunctionDelegate1_ universalDelegateWithBlock:delegateBlock];
     delegateBlock = nil;
@@ -2561,9 +2860,9 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     [refObject invokeFunctionDelegate1_withFunc:functionDelegate1];
     
     // func 2
-    delegateBlock = ^System_Object *(NSArray * parameters) {
+    delegateBlock = ^id <DBMonoObject>(NSArray * parameters) {
         NSAssert(parameters.count == 2 && [parameters[0] isEqual:@(101)] && [parameters[1] isEqualToString:@"Birdshot"], @"invalid parameters");
-        return [DBNumber numberWithInt:17654].managedObject;
+        return [DBNumber numberWithInt:17654];
     };
     DUReferenceObject_FunctionDelegate2_ *functionDelegate2 = [DUReferenceObject_FunctionDelegate2_ universalDelegateWithBlock:delegateBlock];
     delegateBlock = nil;
@@ -2573,34 +2872,34 @@ mono_object_to_string_ex (MonoObject *obj, MonoObject **exc)
     
     // System_FuncA1<TResult>
     // in this case we need to construct the type of our delegate
-     delegateBlock = ^System_Object *(NSArray * parameters) {
+     delegateBlock = ^id <DBMonoObject>(NSArray * parameters) {
          NSAssert(parameters.count == 0, @"invalid parameters");
-         return DBNumInt(182767).managedObject;
+         return DBNumInt(182767);
      };
-    constructedType = [System_FuncA1 constructCoreTypeWithParameters:@[[System_Int32 class]]];
+    constructedType = [System_FuncA1 db_constructTypeWithParameters:@[[System_Int32 class]]];
     System_FuncA1 *funcDelegateA1 = [System_FuncA1 universalDelegateWithConstructedType:constructedType block:delegateBlock];
     int32_t intResultA1 = [refObject invokeFunctionA1_withFunc:funcDelegateA1];
     XCTAssertTrue(intResultA1 == 182767, DBUEqualityTestFailed);
     
     // System_FuncA2<TResult>
     // in this case we need to construct the type of our delegate
-    delegateBlock = ^System_Object *(NSArray * parameters) {
+    delegateBlock = ^id <DBMonoObject>(NSArray * parameters) {
         NSAssert(parameters.count == 1 && ((DBNumber *)parameters[0]).integerValue == 104, @"invalid parameters");
-        return @"Klepto".managedObject;
+        return @"Klepto";
     };
-    constructedType = [System_FuncA2 constructCoreTypeWithParameters:@[[System_Int32 class], [System_String class]]];
+    constructedType = [System_FuncA2 db_constructTypeWithParameters:@[[System_Int32 class], [System_String class]]];
     System_FuncA2 *funcDelegateA2 = [System_FuncA2 universalDelegateWithConstructedType:constructedType block:delegateBlock];
     NSString *resultFuncA2 = [refObject invokeFunctionA2_withFunc:funcDelegateA2];
     XCTAssertTrue([resultFuncA2 isEqualToString:@"Klepto"], DBUEqualityTestFailed);
     
     // System_FuncA3<TResult>
-    // in this case we need to construct the type of our delegate
-    delegateBlock = ^System_Object *(NSArray * parameters) {
+    // in this case we merely pass the delegate types into the convenience method
+    delegateBlock = ^id <DBMonoObject>(NSArray * parameters) {
         NSAssert(parameters.count == 2 && ((DBNumber *)parameters[0]).integerValue == 104 && ((DBNumber *)parameters[1]).doubleValue == 202.2, @"invalid parameters");
-        return @"Battery".managedObject;
+        return @"Battery";
     };
-    constructedType = [System_FuncA3 constructCoreTypeWithParameters:@[[System_Int32 class], [System_Double class], [System_String class]]];
-    System_FuncA3 *funcDelegateA3 = [System_FuncA3 universalDelegateWithConstructedType:constructedType block:delegateBlock];
+    NSArray<id> *delegateTypes = @[[System_Int32 class], [System_Double class], [System_String class]];
+    System_FuncA3 *funcDelegateA3 = [System_FuncA3 universalDelegate:delegateTypes block:delegateBlock];
     NSString *resultFuncA3 = [refObject invokeFunctionA3_withFunc:funcDelegateA3];
     XCTAssertTrue([resultFuncA3 isEqualToString:@"Battery"], DBUEqualityTestFailed);
 }

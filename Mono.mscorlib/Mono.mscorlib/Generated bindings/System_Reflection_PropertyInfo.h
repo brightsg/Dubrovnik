@@ -141,22 +141,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   GetAccessors
-
- Params
-   System.Boolean
-
- Return
-   System.Reflection.MethodInfo[]
- @/textblock
-*/
-- (System_Array *)getAccessors_withNonPublic:(BOOL)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -177,6 +162,21 @@
  Managed method.
  @textblock
  Name
+   GetAccessors
+
+ Params
+   System.Boolean
+
+ Return
+   System.Reflection.MethodInfo[]
+ @/textblock
+*/
+- (System_Array *)getAccessors_withNonPublic:(BOOL)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
    GetConstantValue
 
  Params
@@ -186,22 +186,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getConstantValue;
-
-/**
- Managed method.
- @textblock
- Name
-   GetGetMethod
-
- Params
-   System.Boolean
-
- Return
-   System.Reflection.MethodInfo
- @/textblock
-*/
-- (System_Reflection_MethodInfo *)getGetMethod_withNonPublic:(BOOL)p1;
+- (id <DBMonoObject>)getConstantValue;
 
 /**
  Managed method.
@@ -217,6 +202,21 @@
  @/textblock
 */
 - (System_Reflection_MethodInfo *)getGetMethod;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetGetMethod
+
+ Params
+   System.Boolean
+
+ Return
+   System.Reflection.MethodInfo
+ @/textblock
+*/
+- (System_Reflection_MethodInfo *)getGetMethod_withNonPublic:(BOOL)p1;
 
 /**
  Managed method.
@@ -263,7 +263,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getRawConstantValue;
+- (id <DBMonoObject>)getRawConstantValue;
 
 /**
  Managed method.
@@ -287,13 +287,13 @@
    GetSetMethod
 
  Params
-   System.Boolean
+   (none)
 
  Return
    System.Reflection.MethodInfo
  @/textblock
 */
-- (System_Reflection_MethodInfo *)getSetMethod_withNonPublic:(BOOL)p1;
+- (System_Reflection_MethodInfo *)getSetMethod;
 
 /**
  Managed method.
@@ -302,13 +302,13 @@
    GetSetMethod
 
  Params
-   (none)
+   System.Boolean
 
  Return
    System.Reflection.MethodInfo
  @/textblock
 */
-- (System_Reflection_MethodInfo *)getSetMethod;
+- (System_Reflection_MethodInfo *)getSetMethod_withNonPublic:(BOOL)p1;
 
 /**
  Managed method.
@@ -323,7 +323,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getValue_withObj:(System_Object *)p1;
+- (id <DBMonoObject>)getValue_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -339,7 +339,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getValue_withObj:(System_Object *)p1 index:(System_Array *)p2;
+- (id <DBMonoObject>)getValue_withObj:(id <DBMonoObject>)p1 index:(System_Array *)p2;
 
 /* Skipped method : System.Object GetValue(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) */
 
@@ -375,8 +375,6 @@
 */
 + (BOOL)op_Inequality_withLeft:(System_Reflection_PropertyInfo *)p1 right:(System_Reflection_PropertyInfo *)p2;
 
-/* Skipped method : System.Void SetValue(System.Object obj, System.Object value, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) */
-
 /**
  Managed method.
  @textblock
@@ -391,7 +389,7 @@
    System.Void
  @/textblock
 */
-- (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2;
+- (void)setValue_withObj:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -408,6 +406,8 @@
    System.Void
  @/textblock
 */
-- (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 index:(System_Array *)p3;
+- (void)setValue_withObj:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2 index:(System_Array *)p3;
+
+/* Skipped method : System.Void SetValue(System.Object obj, System.Object value, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) */
 @end
 //--Dubrovnik.CodeGenerator

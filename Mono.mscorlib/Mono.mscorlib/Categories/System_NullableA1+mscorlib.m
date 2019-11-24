@@ -8,6 +8,19 @@
 
 #import "System_NullableA1+mscorlib.h"
 
+/*
+ Regarding boxing of nullable types (ie: converting nullable type to an object.
+ see https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/nullable-types/using-nullable-types
+
+A nullable value type is boxed by the following rules:
+If HasValue returns false, the null reference is produced.
+If HasValue returns true, a value of the underlying value type T is boxed, not the instance of Nullable<T>.
+ 
+ Note that when when creating a System.Nullable<Enum> an instance of the enum must be used rather than an instance
+ of the underlying type.
+ 
+ */
+
 @implementation System_NullableA1 (mscorlib)
 
 + (NSDictionary *)typeAssociations
@@ -35,28 +48,56 @@
 }
 
 
-- (MonoObject *)monoRTInvokeArg
+- (void *)monoRTInvokeArg
 {
-    // we are a value type but we don't want unboxed
+    // querying -monoClass shows that we are not an instance of System.Nullable but a boxed value type.
     return self.monoObject;
 }
 
-// Managed type : System.Boolean
+#pragma mark - Overrides
 
-- (BOOL)db_hasValue
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
+
+/*
+ This class effectively wraps a boxed value type rather than an actual instance of System.Nullable.
+ This is a consequence of the way that the runtime boxes nullables.
+ Accessing the nullable via the embedded API is equivalent to boxing.
+ So, to preserve the illusion (and in practice this all works out well) we apply specific
+ overrides here to prevent undefined selector errors from being generated against the value type.
+ */
+
+- (BOOL)hasValue
 {
-    // keep us sane
-    [NSException raise:@"Not supported" format:@"A boxed System.Nullable is just an instance of the underlying type so calling -hasValue is not possible."];
-    return NO;
+    return YES;
 }
 
-// Managed type : <T>
-- (DBManagedObject *)db_value
+- (id <DBMonoObject>)value
 {
-    // keep us sane
-    [NSException raise:@"Not supported" format:@"A boxed System.Nullable is just an instance of the underlying type so calling -value is not possible."];
-    return nil;
+    return self;
 }
+
+- (id <DBMonoObject>)getValueOrDefault
+{
+    return self;
+}
+
+- (id  <DBMonoObject>)getValueOrDefault_withDefaultValue:(id <DBMonoObject>)p1
+{
+    return self;
+}
+
++ (id  <DBMonoObject>)op_Explicit_withValue:(System_NullableA1 *)p1
+{
+    return p1.value;
+}
+
++ (System_NullableA1 *)op_Implicit_withValue:(id <DBMonoObject>)p1
+{
+    return [System_NullableA1 new_withValue:p1];
+}
+
+#pragma clang diagnostic pop
 
 #pragma mark -
 #pragma mark Methods
@@ -379,42 +420,42 @@
 #pragma mark -
 #pragma mark Explicit width integer accessors
 
-- (int64_t)int64Value
+- (int64_t)db_int64Value
 {
     return [[self numberValue] longLongValue];
 }
 
-- (uint64_t)uint64Value
+- (uint64_t)db_uint64Value
 {
     return [[self numberValue] unsignedLongLongValue];
 }
 
-- (int32_t)int32Value
+- (int32_t)db_int32Value
 {
     return [[self numberValue] intValue];
 }
 
-- (uint32_t)uint32Value
+- (uint32_t)db_uint32Value
 {
     return [[self numberValue] unsignedIntValue];
 }
 
-- (int16_t)int16Value
+- (int16_t)db_int16Value
 {
     return [[self numberValue] shortValue];
 }
 
-- (uint16_t)uint16Value
+- (uint16_t)db_uint16Value
 {
     return [[self numberValue] unsignedShortValue];
 }
 
-- (int8_t)int8Value
+- (int8_t)db_int8Value
 {
     return [[self numberValue] charValue];
 }
 
-- (uint8_t)uint8Value
+- (uint8_t)db_uint8Value
 {
     return [[self numberValue] unsignedCharValue];
 }

@@ -56,27 +56,27 @@ static NSString * m_trueString;
 #pragma mark -
 #pragma mark Methods
 
-- (int32_t)compareTo_withObj:(System_Object *)p1
+- (int32_t)compareTo_withObj:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 - (int32_t)compareTo_withValue:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(bool)" withNumArgs:1, &p1];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (BOOL)equals_withObjObject:(System_Object *)p1
+- (BOOL)equals_withObjObject:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)equals_withObjBool:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(bool)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -90,7 +90,7 @@ static NSString * m_trueString;
 
 + (BOOL)parse_withValue:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -104,7 +104,7 @@ static NSString * m_trueString;
 
 + (BOOL)tryParse_withValue:(NSString *)p1 resultRef:(BOOL*)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,bool&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,bool&)" withNumArgs:2, [p1 monoRTInvokeObject], p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

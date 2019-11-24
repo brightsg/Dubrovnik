@@ -6,14 +6,9 @@
 //
 //
 
+#import <Mono.mscorlib/FrameWork.h>
+#import <Dubrovnik/Dubrovnik.h>
 #import "System_Linq+core.h"
-
-#import "Dubrovnik/DBManagedMethod.h"
-#import "Dubrovnik/DBManagedObject.h"
-#import "Mono.mscorlib/System_Collections_IList.h"
-#import "Mono.mscorlib/DBGenericTypeHelper.h"
-#import "Dubrovnik/DBTypeManager.h"
-#import "Dubrovnik/DBMonoIncludes.h"
 
 @implementation DBLinq
 
@@ -25,18 +20,16 @@
     // public static List<TSource> ToList<TSource>(this IEnumerable<TSource> source)
     // note that the generic parameter type must be obtained from the source.
     // the method obtained here cannot be called directly but must be inflated with a type (see below)
-    DBManagedMethod *managedMethod = [DBManagedMethod
-                                      methodWithMonoMethodNamed:"ToList(System.Collections.Generic.IEnumerable`1<TSource>)"
-                                      className:"System.Linq.Enumerable"
-                                      assemblyName:"System.Core"];
+    DBManagedMethod *managedMethod = [[DBManagedMethod alloc] initWithMonoClassMethodNamed:"ToList(System.Collections.Generic.IEnumerable`1<TSource>)"
+                                                                             monoClassName: "System.Linq.Enumerable"
+                                                                          monoAssemblyName:"System.Core"];
     
     // Get the type with which to inflate the method.
-    MonoType *monoType = [[DBGenericTypeHelper sharedHelper] monoTypeForTypeParameter:typeParameter];
+    MonoType *monoType = [DBGenericTypeHelper.sharedHelper monoTypeForObject:typeParameter];
     managedMethod.genericMonoType = monoType;
     
     // Invoke the extension method passing mono object as first argument
-    // NOTE: we could invoke this as a class method but it is clean to invoke against self.
-    MonoObject *monoListObject = [managedObject invokeMethod:managedMethod withNumArgs:1, [managedObject monoObject]];
+    MonoObject *monoListObject = [managedMethod invokeClassMethodWithNumArgs:1, managedObject.monoObject];
     
     // Wrap the list
     System_Collections_IList *list = [System_Collections_IList listWithMonoObject:monoListObject];

@@ -64,7 +64,7 @@
    System.Func`1<System.Func`1+TResult>
  @/textblock
 */
-+ (System_FuncA1 *)new_withObject:(System_Object *)p1 method:(void *)p2;
++ (System_FuncA1 *)new_withObject:(id <DBMonoObject>)p1 method:(void *)p2;
 
 #pragma mark -
 #pragma mark Methods
@@ -83,7 +83,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (System_Object <System_IAsyncResult> *)beginInvoke_withCallback:(System_AsyncCallback *)p1 object:(System_Object *)p2;
+- (System_Object <System_IAsyncResult> *)beginInvoke_withCallback:(System_AsyncCallback *)p1 object:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -98,7 +98,7 @@
    <System.Func`1+TResult>
  @/textblock
 */
-- (System_Object *)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1;
+- (id <DBMonoObject>)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1;
 
 /**
  Managed method.
@@ -113,6 +113,6 @@
    <System.Func`1+TResult>
  @/textblock
 */
-- (System_Object *)invoke;
+- (id <DBMonoObject>)invoke;
 @end
 //--Dubrovnik.CodeGenerator

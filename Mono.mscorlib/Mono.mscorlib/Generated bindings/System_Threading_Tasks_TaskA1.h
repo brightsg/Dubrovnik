@@ -101,7 +101,7 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>
  @/textblock
 */
-+ (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA2 *)p1 state:(System_Object *)p2;
++ (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA2 *)p1 state:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -118,7 +118,7 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>
  @/textblock
 */
-+ (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
++ (System_Threading_Tasks_TaskA1 *)new_withFunction:(System_FuncA2 *)p1 state:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 /* Skipped constructor : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult> (System.Func`2<System.Object, System.Threading.Tasks.Task`1+TResult> function, System.Object state, System.Threading.Tasks.TaskCreationOptions creationOptions) */
 
@@ -139,12 +139,22 @@
    <System.Threading.Tasks.Task`1+TResult>
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * result;
+@property (nonatomic, strong, readonly) id <DBMonoObject> result;
 
 #pragma mark -
 #pragma mark Methods
 
 /* Skipped method : System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Threading.Tasks.Task`1+TResult> ConfigureAwait(System.Boolean continueOnCapturedContext) */
+
+/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>> continuationAction, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
+
+/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object> continuationAction, System.Object state, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
+
+/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Threading.Tasks.TaskScheduler scheduler) */
+
+/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
+
+/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Object state, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
 
 /**
  Managed method.
@@ -181,8 +191,6 @@
 
 /* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>> continuationAction, System.Threading.Tasks.TaskContinuationOptions continuationOptions) */
 
-/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`1<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>> continuationAction, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
-
 /**
  Managed method.
  @textblock
@@ -197,7 +205,7 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2;
+- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -214,13 +222,11 @@
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+- (System_Threading_Tasks_Task *)continueWith_withContinuationAction:(System_ActionA2 *)p1 state:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 /* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object> continuationAction, System.Object state, System.Threading.Tasks.TaskScheduler scheduler) */
 
 /* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object> continuationAction, System.Object state, System.Threading.Tasks.TaskContinuationOptions continuationOptions) */
-
-/* Skipped method : System.Threading.Tasks.Task ContinueWith(System.Action`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object> continuationAction, System.Object state, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
 
 /**
  Managed method.
@@ -259,11 +265,7 @@
 */
 - (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA2 *)p1 cancellationToken:(System_Threading_CancellationToken *)p2 typeParameter:(id)typeParameter;
 
-/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Threading.Tasks.TaskScheduler scheduler) */
-
 /* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Threading.Tasks.TaskContinuationOptions continuationOptions) */
-
-/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`2<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
 
 /**
  Managed method.
@@ -282,7 +284,7 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
  @/textblock
 */
-- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 typeParameter:(id)typeParameter;
+- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -302,13 +304,11 @@
    System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult>
  @/textblock
 */
-- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(System_Object *)p2 cancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter;
+- (System_Threading_Tasks_TaskA1 *)continueWith_withContinuationFunction:(System_FuncA3 *)p1 state:(id <DBMonoObject>)p2 cancellationToken:(System_Threading_CancellationToken *)p3 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Object state, System.Threading.Tasks.TaskScheduler scheduler) */
 
 /* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Object state, System.Threading.Tasks.TaskContinuationOptions continuationOptions) */
-
-/* Skipped method : System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TNewResult> ContinueWith(System.Func`3<System.Threading.Tasks.Task`1<System.Threading.Tasks.Task`1+TResult>, System.Object, System.Threading.Tasks.Task`1+TNewResult> continuationFunction, System.Object state, System.Threading.CancellationToken cancellationToken, System.Threading.Tasks.TaskContinuationOptions continuationOptions, System.Threading.Tasks.TaskScheduler scheduler) */
 
 /* Skipped method : System.Runtime.CompilerServices.TaskAwaiter`1<System.Threading.Tasks.Task`1+TResult> GetAwaiter() */
 @end

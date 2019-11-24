@@ -65,7 +65,7 @@
    System.CrossAppDomainDelegate
  @/textblock
 */
-+ (System_CrossAppDomainDelegate *)new_withObject:(System_Object *)p1 method:(void *)p2;
++ (System_CrossAppDomainDelegate *)new_withObject:(id <DBMonoObject>)p1 method:(void *)p2;
 
 #pragma mark -
 #pragma mark Methods
@@ -84,7 +84,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (System_Object <System_IAsyncResult> *)beginInvoke_withCallback:(System_AsyncCallback *)p1 object:(System_Object *)p2;
+- (System_Object <System_IAsyncResult> *)beginInvoke_withCallback:(System_AsyncCallback *)p1 object:(id <DBMonoObject>)p2;
 
 /**
  Managed method.

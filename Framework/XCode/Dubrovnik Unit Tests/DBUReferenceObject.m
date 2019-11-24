@@ -58,7 +58,7 @@
 
 + (void)setClassStringField:(NSString *)value
 {
-    [[self class] setMonoClassField:"ClassStringField" valueObject:[value monoRTInvokeArg]];
+    [[self class] setMonoClassField:"ClassStringField" value:[value monoRTInvokeObject]];
 }
 
 + (int32_t)classIntField
@@ -70,30 +70,30 @@
 
 + (void)setClassIntField:(int32_t)value
 {
-    [[self class] setMonoClassField:"ClassIntField" valueObject:DB_VALUE(value)];
+    [[self class] setMonoClassField:"ClassIntField" value:DB_VALUE(value)];
 }
 
 - (int32_t)intField
 {
     int32_t value;
-    [self getMonoField:"IntField" valuePtr:&value];
+    [self getMonoField:"IntField" value:&value];
 
     return value;
 }
 - (void)setIntField:(int32_t)value
 {
-    [self setMonoField:"IntField" valueObject:DB_VALUE(value)];
+    [self setMonoField:"IntField" value:DB_VALUE(value)];
 }
 
 - (NSString *)stringField
 {
     MonoObject *monoObject = nil;
-    [self getMonoField:"StringField" valuePtr:&monoObject];
+    [self getMonoField:"StringField" value:&monoObject];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 - (void)setStringField:(NSString *)value
 {
-    [self setMonoField:"StringField" valueObject:[value monoRTInvokeArg]];
+    [self setMonoField:"StringField" value:[value monoRTInvokeObject]];
 }
 
 - (NSDate *)dateField
@@ -162,8 +162,8 @@
 {
     _stringProperty = value;
     
-    MonoObject *monoObject = [value monoRTInvokeArg];
-    [self setMonoProperty:"StringProperty" valueObject:monoObject];
+    MonoObject *monoObject = [value monoRTInvokeObject];
+    [self setMonoProperty:"StringProperty" value:monoObject];
 }
 
 - (NSDate *)date
@@ -177,7 +177,7 @@
     // Mono DateTime is a struct and hence a value type which must be passed to the property setter as
     // a pointer to the value rather than a boxed MonoObject representation.
     // Calling - monoRTInvokeArg on an NSObject instance ensures that the correct representation is used for property values.
-    [self setMonoProperty:"Date" valueObject:[value monoRTInvokeArg]];
+    [self setMonoProperty:"Date" value:[value monoRTInvokeArg]];
 }
 
 - (NSDecimalNumber *)decimalNumber
@@ -188,7 +188,7 @@
 
 - (void)setDecimalNumber:(NSDecimalNumber *)value
 {
-    [self setMonoProperty:"DecimalNumber" valueObject:[value monoRTInvokeArg]];
+    [self setMonoProperty:"DecimalNumber" value:[value monoRTInvokeArg]];
 }
 
 - (int32_t)int32Number
@@ -198,7 +198,7 @@
 }
 - (void)setInt32Number:(int32_t)value
 {
-    [self setMonoProperty:"Int32Number" valueObject:DB_VALUE(value)];
+    [self setMonoProperty:"Int32Number" value:DB_VALUE(value)];
 }
 
 - (int64_t)int64Number
@@ -208,12 +208,12 @@
 }
 - (void)setInt64Number:(int64_t)value
 {
-    [self setMonoProperty:"Int64Number" valueObject:DB_VALUE(value)];
+    [self setMonoProperty:"Int64Number" value:DB_VALUE(value)];
 }
 
 - (void)setReferenceObjectRelative:(DBUReferenceObject *)value
 {
-    [self setMonoProperty:"ReferenceObjectRelative" valueObject:[value monoRTInvokeArg]];
+    [self setMonoProperty:"ReferenceObjectRelative" value:[value monoRTInvokeArg]];
 }
 
 - (DBUReferenceObject *)referenceObjectRelative
@@ -230,7 +230,7 @@
 
 - (void)setIntEnumeration:(eDBUIntEnum)value
 {
-    [self setMonoProperty:"IntEnumeration" valueObject:DB_VALUE(value)];
+    [self setMonoProperty:"IntEnumeration" value:DB_VALUE(value)];
 }
 
 - (eDBULongEnum)longEnumeration
@@ -241,7 +241,33 @@
 
 - (void)setLongEnumeration:(eDBULongEnum)value
 {
-    [self setMonoProperty:"LongEnumeration" valueObject:DB_VALUE(value)];    
+    [self setMonoProperty:"LongEnumeration" value:DB_VALUE(value)];
+}
+
+- (System_NullableA1 *)intEnumerationNullable
+{
+    MonoObject *monoObject = [self getMonoProperty:"IntEnumerationNullable"];
+    System_NullableA1 *nullable = [System_NullableA1 objectWithMonoObject:monoObject];
+    return nullable;
+}
+
+- (void)setIntEnumerationNullable:(System_NullableA1 *)value
+{
+    MonoObject *monoObject = [value monoObject];
+    [self setMonoProperty:"IntEnumerationNullable" value:monoObject];
+}
+
+- (System_NullableA1 *)longEnumerationNullable
+{
+    MonoObject *monoObject = [self getMonoProperty:"LongEnumerationNullable"];
+    System_NullableA1 *nullable = [System_NullableA1 objectWithMonoObject:monoObject];
+    return nullable;
+}
+
+- (void)setLongEnumerationNullable:(System_NullableA1 *)value
+{
+    MonoObject *monoObject = [value monoObject];
+    [self setMonoProperty:"LongEnumerationNullable" value:monoObject];
 }
 
 - (DBUIReferenceObject *)minimalReferenceObject
@@ -265,8 +291,8 @@
 - (void)setNotifyingProperty1:(NSString *)value
 {
     _notifyingProperty1 = value;
-    MonoObject *monoObject = [value monoRTInvokeArg];
-    [self setMonoProperty:"NotifyingProperty1" valueObject:monoObject];
+    MonoObject *monoObject = [value monoRTInvokeObject];
+    [self setMonoProperty:"NotifyingProperty1" value:monoObject];
 }
 
 // Managed property name : NotifyingProperty2
@@ -283,8 +309,8 @@
 - (void)setNotifyingProperty2:(NSString *)value
 {
     _notifyingProperty2 = value;
-    MonoObject *monoObject = [value monoRTInvokeArg];
-    [self setMonoProperty:"NotifyingProperty2" valueObject:monoObject];
+    MonoObject *monoObject = [value monoRTInvokeObject];
+    [self setMonoProperty:"NotifyingProperty2" value:monoObject];
 }
 
 #pragma mark -
@@ -298,8 +324,8 @@
 }
 - (void)setPointer:(void *)value
 {
-    MonoObject *monoObject = DB_VALUE(value);
-    [self setMonoProperty:"Pointer" valueObject:monoObject];
+    void *monoObject = DB_VALUE(value);
+    [self setMonoProperty:"Pointer" value:monoObject];
 }
 
 // Managed type : System.Int32*
@@ -311,8 +337,8 @@
 }
 - (void)setInt32Pointer:(int32_t *)value
 {
-    MonoObject *monoObject = DB_VALUE(value);
-    [self setMonoProperty:"Int32Pointer" valueObject:monoObject];
+    void *monoObject = DB_VALUE(value);
+    [self setMonoProperty:"Int32Pointer" value:monoObject];
 }
 
 #pragma mark -
@@ -325,7 +351,7 @@
 }
 - (void)setInt64Array:(System_Array *)array
 {
-   [self setMonoProperty:"Int64Array" valueObject:[array monoObject]];
+   [self setMonoProperty:"Int64Array" value:[array monoObject]];
 }
 
 - (System_Array *)int32Array
@@ -335,7 +361,7 @@
 }
 - (void)setInt32Array:(System_Array *)array
 {
-    [self setMonoProperty:"Int32Array" valueObject:[array monoObject]];
+    [self setMonoProperty:"Int32Array" value:[array monoObject]];
 }
 
 - (System_Array *)int16Array
@@ -351,7 +377,7 @@
 }
 - (void)setFloatArray:(System_Array *)array
 {
-    [self setMonoProperty:"FloatArray" valueObject:[array monoObject]];
+    [self setMonoProperty:"FloatArray" value:[array monoObject]];
 }
 
 - (System_Array *)doubleArray
@@ -361,7 +387,7 @@
 }
 - (void)setDoubleArray:(System_Array *)array
 {
-    [self setMonoProperty:"DoubleArray" valueObject:[array monoObject]];
+    [self setMonoProperty:"DoubleArray" value:[array monoObject]];
 }
 
 - (System_Array *)boolArray
@@ -376,7 +402,7 @@
 }
 - (void)setStringArray:(System_Array *)array
 {
-    [self setMonoProperty:"StringArray" valueObject:[array monoObject]];
+    [self setMonoProperty:"StringArray" value:[array monoObject]];
 }
 
 #pragma mark -
@@ -401,7 +427,7 @@
 }
 - (void)setExIntTestProperty:(BOOL)value
 {
-    [self setMonoProperty:"ExIntTestProperty" valueObject:DB_VALUE(value)];
+    [self setMonoProperty:"ExIntTestProperty" value:DB_VALUE(value)];
 }
 
 
@@ -412,8 +438,8 @@
 }
 - (void)setImpIntTestProperty:(int32_t)value
 {
-    MonoObject *monoObject = DB_VALUE(value);
-    [self setMonoProperty:"ImpIntTestProperty" valueObject:monoObject];
+    void *monoObject = DB_VALUE(value);
+    [self setMonoProperty:"ImpIntTestProperty" value:monoObject];
 }
 
 #pragma mark -
@@ -438,7 +464,7 @@
 - (void)setIntNullable:(System_NullableA1 *)value
 {
     MonoObject *monoObject = [value monoObject];
-    [self setMonoProperty:"IntNullable" valueObject:monoObject];
+    [self setMonoProperty:"IntNullable" value:monoObject];
 }
 
 - (System_NullableA1 *)floatNullable
@@ -452,7 +478,7 @@
 - (void)setFloatNullable:(System_NullableA1 *)value
 {
     MonoObject *monoObject = [value monoObject];
-    [self setMonoProperty:"FloatNullable" valueObject:monoObject];
+    [self setMonoProperty:"FloatNullable" value:monoObject];
 }
 
 #pragma mark -
@@ -555,7 +581,7 @@
 {
     _stringStringGenericReferenceObject = value;
     MonoObject *monoObject = [value monoObject];
-    [self setMonoProperty:"StringStringGenericReferenceObject" valueObject:monoObject];
+    [self setMonoProperty:"StringStringGenericReferenceObject" value:monoObject];
 }
 
 
@@ -571,7 +597,7 @@
 }
 - (NSString *)stringMethod_withS1:(NSString *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
@@ -585,7 +611,7 @@
 
 - (NSString *)stringMethod_withS1String:(NSString *)p1 s2String:(NSString *)p2
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
@@ -593,7 +619,7 @@
 
 - (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(DBManagedObject *)p2
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeArg]];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -603,7 +629,7 @@
 // Managed param types : ref System.String&
 - (NSString *)stringMethodWithStringRef_withS1Ref:(NSString **)p1
 {
-    void *refPtr1 = [*p1 monoRTInvokeArg];
+    void *refPtr1 = [*p1 monoRTInvokeObject];
     
     MonoObject *monoObject = [self invokeMonoMethod:"StringMethodWithStringRef(string&)" withNumArgs:1, &refPtr1];
     
@@ -651,7 +677,7 @@
 - (NSString *)mixedMethod1_withIntarg:(int32_t)p1 longArg:(int64_t)p2 floatArg:(float)p3 doubleArg:(double)p4 dateArg:(NSDate *)p5 stringArg:(NSString *)p6 refObjectArg:(DBUReferenceObject *)p7
 {
     // note tha mono float is an alias for System.Single, hence the use of single in the signature below
-    MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeArg], [p7 monoRTInvokeArg]];
+    MonoObject *monoObject = [self invokeMonoMethod:"MixedMethod1(int,long,single,double,System.DateTime,string,Dubrovnik.UnitTests.ReferenceObject)" withNumArgs:7, DB_VALUE(p1), DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4), [p5 monoRTInvokeArg], [p6 monoRTInvokeObject], [p7 monoRTInvokeArg]];
     NSString *value = [NSString stringWithMonoString:DB_STRING(monoObject)];
     
     return value;
@@ -745,7 +771,7 @@
 
 - (DBUReferenceStruct *)referenceStructMethod_withS1:(NSString *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+    MonoObject *monoObject = [self invokeMonoMethod:"ReferenceStructMethod(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
     return [DBUReferenceStruct objectWithMonoObject:monoObject];
 }
 
@@ -779,61 +805,46 @@
 #pragma mark -
 #pragma mark Generic methods
 
-- (System_Object *)genericMethod0_withTypeParameter:(id)typeParameter
+- (NSString *)genericMethod0_withTypeParameter:(id)typeParameter
 {
-    DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod0()" typeParameters:typeParameter];
-    MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:0];
+    DBManagedMethod *method = [self methodWithMonoName:"GenericMethod0()" typeParameters:typeParameter];
+    MonoObject *monoObject = [method invokeMethodWithNumArgs:0];
+    return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
+- (NSString *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter
+{
+    DBManagedMethod *method = [self methodWithMonoName:"GenericMethod02()" typeParameters:typeParameter];
+    MonoObject *monoObject = [method invokeMethodWithNumArgs:0];
+    return [NSString stringWithMonoString:DB_STRING(monoObject)];
+}
+
+- (id <DBMonoObject>)genericMethod1_withValue:(id <DBMonoObject>)p1 typeParameter:(id)typeParameter
+{
+    DBManagedMethod *method = [self methodWithMonoName:"GenericMethod1(T)" typeParameters:typeParameter];
+    MonoObject *monoObject = [method invokeMethodWithNumArgs:1, [method monoRTInvokeArg:p1 typeParameterIndex:0]];
     return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter
-{
-    DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod02()" typeParameters:typeParameter];
-    MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:0];
-
-    return [System_Object bestObjectWithMonoObject:monoObject];
-}
-
-- (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter
-{
-    // prepare method
-    DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod1(T)" typeParameters:typeParameter];
-    
-    // invoke
-    MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:1, [p1 monoRTInvokeArg]];
-    
-    // result
-    return [System_Object bestObjectWithMonoObject:monoObject];
-}
-
-// Managed method name : GenericMethod2
-// Managed return type : System.Collections.Generic.Dictionary`2<Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U>
-// Managed param types : <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
 - (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
 {
-    // prepare method
-    DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod2(T,U)" typeParameters:typeParameter];
-    
-    // invoke
-    MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-    
-    // result
+    DBManagedMethod *method = [self methodWithMonoName:"GenericMethod2(T,U)" typeParameters:typeParameter];
+    MonoObject *monoObject = [method invokeMethodWithNumArgs:2, [method monoRTInvokeArg:p1 typeParameterIndex:0], [method monoRTInvokeArg:p2 typeParameterIndex:1]];
     return [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 }
 
-/*!
- Managed method name : GenericMethodList1
- Managed return type : <Dubrovnik.UnitTests.ReferenceObject+T>
- Managed param types : System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject+T>
- Generic method definition type params : <Dubrovnik.UnitTests.ReferenceObject+T>
- */
 - (System_Object *)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter
 {
-    DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethodList1(System.Collections.Generic.List`1<T>)" typeParameters:typeParameter];
-    
-    MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:1, [p1 monoRTInvokeArg]];
-    
+    DBManagedMethod *method = [self methodWithMonoName:"GenericMethodList1(System.Collections.Generic.List`1<Dubrovnik.UnitTests.ReferenceObject/T>)" typeParameters:typeParameter];
+    MonoObject *monoObject = [method invokeMethodWithNumArgs:1, [p1 monoRTInvokeObject]];
     return [System_Object bestObjectWithMonoObject:monoObject];
+}
+
++ (System_Collections_Generic_DictionaryA2 *)genericMethodStatic2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter
+{
+    DBManagedMethod *method = [self classMethodWithMonoName:"GenericMethodStatic2(T,U)" typeParameters:typeParameter];
+    MonoObject *monoObject = [method invokeClassMethodWithNumArgs:2, [method monoRTInvokeArg:p1 typeParameterIndex:0], [method monoRTInvokeArg:p2 typeParameterIndex:1]];
+    return [System_Collections_Generic_DictionaryA2 bestObjectWithMonoObject:monoObject];
 }
 
 #pragma mark -
@@ -929,7 +940,7 @@
 // Managed param types : System.Object, System.String, System.String, System.String, System.Boolean
 + (void)configureStaticEventHandler_withObj:(System_Object *)p1 objEventName:(NSString *)p2 handlerClassName:(NSString *)p3 handlerMethodName:(NSString *)p4 attach:(BOOL)p5
 {
-    [self invokeMonoClassMethod:"ConfigureStaticEventHandler(object,string,string,string,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg], DB_VALUE(p5)];
+    [self invokeMonoClassMethod:"ConfigureStaticEventHandler(object,string,string,string,bool)" withNumArgs:5, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], DB_VALUE(p5)];
 }
 
 #pragma mark -
@@ -1002,7 +1013,7 @@
     // invoke method
     startTime = [NSDate date];
     for (int i = 0; i < count; i++) {
-        [self setMonoProperty:"StringProperty" valueObject:stringValue.monoObject];
+        [self setMonoProperty:"StringProperty" value:stringValue.monoObject];
     }
     invokeInterval = -[startTime timeIntervalSinceNow];
     NSLog(@"Raw Invoke Set Time: %f", invokeInterval);

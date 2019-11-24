@@ -41,21 +41,21 @@
 
 /* Skipped method : System.Object CreateInstance(System.Type type, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
-+ (System_Object *)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2
++ (id <DBMonoObject>)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,object[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2 activationAttributes:(System_Array *)p3
++ (id <DBMonoObject>)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2 activationAttributes:(System_Array *)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,object[],object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,object[],object[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)createInstance_withType:(System_Type *)p1
++ (id <DBMonoObject>)createInstance_withType:(System_Type *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -63,15 +63,9 @@
 
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.String assemblyName, System.String typeName, System.Object[] activationAttributes) */
 
-+ (System_Object *)createInstance_withType:(System_Type *)p1 nonPublic:(BOOL)p2
++ (id <DBMonoObject>)createInstance_withType:(System_Type *)p1 nonPublic:(BOOL)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
-	return [System_Object bestObjectWithMonoObject:monoObject];
-}
-
-+ (System_Object *)createInstance_withTypeParameter:(id)typeParameter
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance()" withNumArgs:0];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -89,6 +83,13 @@
 
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.ActivationContext activationContext, System.String[] activationCustomData) */
 
++ (id <DBMonoObject>)createInstance_withTypeParameter:(id)typeParameter
+{
+	DBManagedMethod *method = [self classMethodWithMonoName:"CreateInstance()" typeParameters:typeParameter];
+	MonoObject *monoObject = [method invokeClassMethodWithNumArgs:0];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
+
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.String assemblyFile, System.String typeName) */
 
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.String assemblyFile, System.String typeName, System.Object[] activationAttributes) */
@@ -103,15 +104,15 @@
 
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.AppDomain domain, System.String assemblyFile, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
-+ (System_Object *)getObject_withType:(System_Type *)p1 url:(NSString *)p2
++ (id <DBMonoObject>)getObject_withType:(System_Type *)p1 url:(NSString *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"GetObject(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetObject(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Object *)getObject_withType:(System_Type *)p1 url:(NSString *)p2 state:(System_Object *)p3
++ (id <DBMonoObject>)getObject_withType:(System_Type *)p1 url:(NSString *)p2 state:(id <DBMonoObject>)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"GetObject(System.Type,string,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetObject(System.Type,string,object)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 

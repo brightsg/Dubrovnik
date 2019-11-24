@@ -459,8 +459,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
 #pragma mark -
 #pragma mark Field access
 
-+ (void)getMonoClassField:(const char *)fieldName valuePtr:(void *)valuePtr {
-    DBMonoClassGetField([[self class] monoClass], fieldName, valuePtr);
++ (void)getMonoClassField:(const char *)fieldName value:(void *)value {
+    DBMonoClassGetField([[self class] monoClass], fieldName, value);
 }
 
 + (MonoObject *)getMonoClassField:(const char *)fieldName
@@ -468,12 +468,12 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return DBMonoClassGetField([[self class] monoClass], fieldName, nil);
 }
 
-+ (void)setMonoClassField:(const char *)fieldName valueObject:(MonoObject *)valueObject {
-    DBMonoClassSetField([[self class] monoClass], fieldName, valueObject);
++ (void)setMonoClassField:(const char *)fieldName value:(void *)value {
+    DBMonoClassSetField([[self class] monoClass], fieldName, value);
 }
 
-- (void)getMonoField:(const char *)fieldName valuePtr:(void *)valuePtr {
-    DBMonoObjectGetField(self.monoObject, fieldName, valuePtr);
+- (void)getMonoField:(const char *)fieldName value:(void *)value {
+    DBMonoObjectGetField(self.monoObject, fieldName, value);
 }
 
 - (MonoObject *)getMonoField:(const char *)fieldName
@@ -481,8 +481,8 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return DBMonoObjectGetField(self.monoObject, fieldName, nil);
 }
 
-- (void)setMonoField:(const char *)fieldName valueObject:(MonoObject *)valueObject {
-    DBMonoObjectSetField(self.monoObject, fieldName, valueObject);
+- (void)setMonoField:(const char *)fieldName value:(void *)value {
+    DBMonoObjectSetField(self.monoObject, fieldName, value);
 }
 
 #pragma mark -
@@ -492,18 +492,18 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     return(DBMonoClassGetProperty([[self class] monoClass], propertyName));
 }
 
-+ (void)setMonoClassProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject {
-    DBMonoClassSetProperty([[self class] monoClass], propertyName, valueObject);
++ (void)setMonoClassProperty:(const char *)propertyName value:(void *)value {
+    DBMonoClassSetProperty([[self class] monoClass], propertyName, value);
 }
 
 - (MonoObject *)getMonoProperty:(const char *)propertyName {
     return(DBMonoObjectGetProperty(self.monoObject, propertyName));
 }
 
-- (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject
+- (void)setMonoProperty:(const char *)propertyName value:(void *)value
 {
     // set the managed property
-    DBMonoObjectSetProperty(self.monoObject, propertyName, valueObject);
+    DBMonoObjectSetProperty(self.monoObject, propertyName, value);
 }
 
 - (NSString *)unmanagedPropertyName:(const char *)managedPropertyName
@@ -519,40 +519,14 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     NSString *firstChar = [name substringToIndex:1];
     [name replaceCharactersInRange:NSMakeRange(0, 1) withString:[firstChar lowercaseString]];
     
-    
     return name;
 }
 
 #pragma mark -
-#pragma mark Method Invocation
+#pragma mark Mono method invocation
 
-+ (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args {
-    return(DBMonoClassInvoke([[self class] monoClass], methodName, numArgs, va_args));
-}
-
-+ (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs, ... {
-    va_list va_args;
-    va_start(va_args, numArgs);
-    
-    MonoObject *ret = DBMonoClassInvoke([[self class] monoClass], methodName, numArgs, va_args);
-    
-    va_end(va_args);
-    
-    return ret;
-}
-
-- (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args {
-    
-    // build method name using type parameters defined by the type
-    if (self.managedType.isGenericType) {
-        methodName = [self.managedType inflateMethodName:methodName];
-    }
-    
-    return(DBMonoObjectInvoke(self.monoObject, methodName, numArgs, va_args));
-}
-
-- (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ... {
-    
+- (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ...
+{
     // build method name using type parameters defined by the type
     if (self.managedType.isGenericType) {
         methodName = [self.managedType inflateMethodName:methodName];
@@ -561,170 +535,21 @@ static void ManagedEvent_ManagedObject_PropertyChanging(MonoObject* monoSender, 
     // invoke
     va_list va_args;
     va_start(va_args, numArgs);
-    MonoObject *ret = DBMonoObjectInvoke(self.monoObject, methodName, numArgs, va_args);
+    MonoObject *invokeResult = DBMonoObjectInvoke(self.monoObject, methodName, numArgs, va_args);
     va_end(va_args);
     
-    return ret;
+    return invokeResult;
 }
 
-inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args, int numArgs) {
-    if(numArgs > 0) {
-        int i;
-        for(i = 0; i < numArgs; i++) {
-            args[i] = va_arg(va_args, void *);
-        }
-    }
-}
-
-- (MonoObject *)invokeMethod:(DBManagedMethod *)methodRepresentation withNumArgs:(int)numArgs, ... {
++ (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs, ...
+{
+    // invoke
     va_list va_args;
     va_start(va_args, numArgs);
-    
-    MonoObject *ret = [self invokeMethod:methodRepresentation withNumArgs:numArgs varArgList:va_args];
-    
+    MonoObject *invokeResult = DBMonoClassInvoke(self.class.monoClass, methodName, numArgs, va_args);
     va_end(va_args);
     
-    return ret;
-}
-
-- (MonoObject *)invokeMethod:(DBManagedMethod *)methodRepresentation withNumArgs:(int)numArgs varArgList:(va_list)va_args
-{
-    MonoMethod *monoMethod = NULL;
-    MonoClass *monoClass = NULL;
-    void *invokeObj = NULL;
-    
-    DBManagedEnvironment *monoEnv = [DBManagedEnvironment currentEnvironment];
-    
-    const char *methodName = methodRepresentation.methodName;
-
-    // build method name using type parameters defined by the type
-    if (self.managedType.isGenericType) {
-        methodName = [self.managedType inflateMethodName:methodName];
-    }
-    
-    void *monoArgs[numArgs];
-    DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
-    
-    // The presence of a class name indicates that the method is an extension method
-    // implemented as a static method on the indicated class
-    if (methodRepresentation.monoClassName == NULL) {
-        
-        // instance
-        monoClass = self.monoClass;
-        MonoObject *monoObject = self.monoObject;
-        invokeObj = mono_class_is_valuetype(monoClass) ? mono_object_unbox(monoObject) : monoObject;
-        
-        // get the instance method
-        monoMethod = GetMonoObjectMethod(monoObject, methodName, YES);
-    }
-    else {
-        // The first argument must be the represented mono object in the case of an extension method.
-        // It would be possible to insert this if not supplied but then there would be an apparent mismatch between the
-        // method signature and the argument count at the call site.
-        if (monoArgs[0] != [self monoObject]) {
-            [NSException raise:@"DBInvokeMonoMethodException" format: @"Invalid first argument to extension method implementation."];
-        }
-        
-        // get the extension assembly
-        MonoAssembly *monoAssembly = [monoEnv openAssemblyWithName:methodRepresentation.assemblyName];
-        if (!monoAssembly) {
-            [NSException raise:@"DBInvokeMonoMethodException" format: @"Assembly %s not found for extension method : %s.", methodRepresentation.assemblyName, methodName];
-        }
-        
-        // get the extension mono class
-        DBManagedClass *classRepresentation = [DBManagedClass classWithMonoClassNamed:methodRepresentation.monoClassName fromMonoAssembly:monoAssembly];
-        monoClass  = [classRepresentation monoClass];
-        
-        // get the class method
-        monoMethod = GetMonoClassMethod(monoClass, methodName, YES);
-    }
-    
-    if (!monoMethod) {
-        [NSException raise:@"DBInvokeMonoMethodException" format: @"Method not found : %s.", methodName];
-    }
-    
-    // Get object representing C# MethodInfo class
-    MonoReflectionMethod* methodInfo = mono_method_get_object(monoEnv.monoDomain, monoMethod, monoClass);
-    
-    // Is the method generic?
-    //
-    // For insight into various properties used in this statement see the remarks here
-    // http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.isgenericmethod(v=vs.85).aspx
-    //
-    // Perhaps checkout https://gist.github.com/gedim21/8d86ba8e59ac5d8ed0ee for more insight here.
-    //
-    BOOL isGenericMethod = DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "IsGenericMethod"));
-    if (isGenericMethod) {
-        
-        // If generic method has unassigned generic parameters then the method needs to be
-        // inflated with real types instead of generic type placeholders.
-        BOOL containsGenericParameters = DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "ContainsGenericParameters"));
-        BOOL isGenericMethodDefinition = DB_UNBOX_BOOLEAN(DBMonoObjectGetProperty((MonoObject *)methodInfo, "IsGenericMethodDefinition"));
-        
-        // If method is a generic method definition then we inflate the method so that from say
-        // T Method<T>(T) we make say String Method(String)
-        if (isGenericMethodDefinition) {
-            
-            // A generic type definition contains type information about the type parameters defined by the definition
-            if (methodRepresentation.typeParameters) {
-                monoMethod = [self makeGenericMethod:methodInfo typeParameters:methodRepresentation.monoReflectionTypeParameters];
-            }
-            else {
-                monoMethod = [self makeGenericMethod:methodInfo genericParameterType:methodRepresentation.genericMonoType];
-            }
-        } else if (containsGenericParameters) {
-            NSAssert(NO, @"Cannot invoke a method that contains unassigned generic type parameters");
-        }
-    }
-    
-    // invoke the method
-    MonoObject *monoException = NULL;
-    MonoObject *retVal = mono_runtime_invoke(monoMethod, invokeObj, monoArgs, &monoException);
-    if (monoException != NULL) {
-        NSRaiseExceptionFromMonoException(monoException, @{@"DBInvokeException" : @(methodRepresentation.methodName)});
-    }
-    
-#ifdef TRACE
-    MonoClass *resultMonoClass = mono_object_get_class(retVal);
-    MonoType *resultTypeName = mono_class_get_type(resultMonoClass);
-    NSLog(@"Result type name : %s", mono_type_get_name(resultTypeName));
-#endif
-    
-    return retVal;
-}
-
-#warning Perhaps best to remove this method in preference of -makeGenericMethod:typeParameters:
-- (MonoMethod *)makeGenericMethod:(MonoReflectionMethod*)methodInfo genericParameterType:(MonoType *)genericParameterType
-{
-    // get the generic method helper method
-    MonoMethod *helperMethod = [DBManagedEnvironment dubrovnikMonoMethodWithName:"MakeGenericMethod_1" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:2];
-    
-    // invoke the generic helper method to assign specific types to the type parameters in the generic method definition
-    // see http://msdn.microsoft.com/en-us/library/system.reflection.methodinfo.makegenericmethod.aspx
-    MonoReflectionType* parameterType = mono_type_get_object([DBManagedEnvironment currentDomain], genericParameterType);
-    MonoObject *boxedPtr = DBMonoClassInvokeMethod(helperMethod, 2, methodInfo, parameterType);
-    MonoMethod *genericMethod = (MonoMethod *)DB_UNBOX_PTR(boxedPtr);
-    if (!genericMethod) {
-        [NSException raise:@"DBMakeGenericMethodException" format: @"Generic method not found."];
-    }
-    
-    return genericMethod;
-}
-
-- (MonoMethod *)makeGenericMethod:(MonoReflectionMethod*)methodInfo typeParameters:(MonoArray *)typeParameters
-{
-    // get the generic method helper method
-    MonoMethod *helperMethod = [DBManagedEnvironment dubrovnikMonoMethodWithName:"MakeGenericMethod" className:"Dubrovnik.FrameworkHelper.GenericHelper" argCount:2];
-    
-    // get intPtr to methodHandle from MethodBase.MethodHandle.Value
-    // typeParameters is a MonoArray * of MonoReflectionType *
-    MonoObject *boxedPtr = DBMonoClassInvokeMethod(helperMethod, 2, methodInfo, typeParameters);
-    MonoMethod *genericMethod = (MonoMethod *)DB_UNBOX_PTR(boxedPtr);
-    if (!genericMethod) {
-        [NSException raise:@"DBMakeGenericMethodException" format: @"Generic method not found."];
-    }
-    
-    return genericMethod;
+    return invokeResult;
 }
 
 #pragma mark -
@@ -914,23 +739,67 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     return monoObject;
 }
 
-- (MonoObject *)monoRTInvokeArg
+- (void *)monoRTInvokeArg
 {
     // returns a pointer to an object that can be used as an argument in a
     // call to mono_runtime_invoke()
-    MonoObject *monoObject = self.monoObject;
+    void *monoObject = self.monoObject;
     
     // in general value types must be unboxed.
-    // there are some exceptions to this rule, such as System.Nullable and System.Enum,
+    // there are some exceptions to this rule, such as System.Nullable,
     // but in such cases the obj-C class must override this method as appropriate.
     MonoClass *klass = mono_object_get_class(monoObject);
     if (mono_class_is_valuetype(klass)) {
-        
-        // do not unbox value types whose wrapper indictaes that it is to be passed as an object
+        // do not unbox value types whose wrapper indicates that it is to be passed as an object
+        // this is a legacy feature and should not be required when using the code generator.
         if (![self isKindOfClass:m_objectArgClass]) {
             return mono_object_unbox(monoObject);
         }
     }
+    return monoObject;
+}
+
+- (MonoObject *)monoRTInvokeObject
+{
+    // returns a pointer to an object that can be used as an argument in a
+    // call to mono_runtime_invoke()
+    return self.monoObject;
+}
+
+- (void *)monoRTInvokeArg:(DBManagedObject *)object typeParameterIndex:(NSUInteger)idx
+{
+    // it is only valid to retrieve class level type parameters on a generic type
+    if (!self.managedType.isGenericType) {
+        [NSException raise:@"DBManagedObjectInvokeException" format:@"Requesting class level type parameters on a non generic type class."];
+    }
+    
+    MonoObject *monoObject = [object monoObject];
+    
+    // if the class level type parameter is a value type then allow unboxing of the object.
+    MonoType *parameterMonoType = [self.managedType monoGenericTypeAtIndex:idx];
+    if (!parameterMonoType) {
+        [NSException raise:@"DBManagedObjectInvokeException" format:@"Failed to retrieve generic class level type parameter."];
+    }
+    
+    MonoClass *parameterClass = mono_class_from_mono_type(parameterMonoType);
+    if (mono_class_is_valuetype(parameterClass)) {
+        return [object monoRTInvokeArg];
+    }
+    
+    return monoObject;
+}
+
+- (void *)monoRTInvokeArg:(id <DBMonoObject>)object method:(DBManagedMethod *)method typeParameterIndex:(NSUInteger)idx
+{
+    MonoObject *monoObject = [method monoRTInvokeArg:object typeParameterIndex:idx];
+    return monoObject;
+}
+
+#warning This looks wrong!
++ (void *)monoRTInvokeArg:(id <DBMonoObject>)object typeParameterIndex:(NSUInteger)idx
+{
+    MonoObject *monoObject = [object monoObject];
+    
     return monoObject;
 }
 
@@ -1351,7 +1220,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
     MonoObject* monoType = [self invokeMonoMethod:"GetType()" withNumArgs:0];
     DBManagedObject* dbType = [DBManagedObject objectWithMonoObject:monoType];
     
-    MonoObject* monoEventInfo = [dbType invokeMonoMethod:"System.Reflection.GetEvent(string)" withNumArgs:1, eventName.monoRTInvokeArg];
+    MonoObject* monoEventInfo = [dbType invokeMonoMethod:"System.Reflection.GetEvent(string)" withNumArgs:1, eventName.monoRTInvokeObject];
     DBManagedObject* eventInfo = [DBManagedObject objectWithMonoObject:monoEventInfo];
     [eventInfo invokeMonoMethod:"System.Reflection.EventInfo.AddEventHandler(object,System.Delegate)" withNumArgs:2, self.monoObject, eventHandler];
 }
@@ -1360,7 +1229,7 @@ inline static void DBPopulateMethodArgsFromVarArgs(void **args, va_list va_args,
 {
     MonoObject* monoType = [self invokeMonoMethod:"GetType()" withNumArgs:0];
     DBManagedObject* dbType = [DBManagedObject objectWithMonoObject:monoType];
-    MonoObject* monoEventInfo = [dbType invokeMonoMethod:"System.Reflection.GetEvent(string)" withNumArgs:1, eventName.monoRTInvokeArg];
+    MonoObject* monoEventInfo = [dbType invokeMonoMethod:"System.Reflection.GetEvent(string)" withNumArgs:1, eventName.monoRTInvokeObject];
     DBManagedObject* eventInfo = [DBManagedObject objectWithMonoObject:monoEventInfo];
     [eventInfo invokeMonoMethod:"System.Reflection.EventInfo.RemoveEventHandler(object,System.Delegate)" withNumArgs:2, self.monoObject, eventHandler];
 }

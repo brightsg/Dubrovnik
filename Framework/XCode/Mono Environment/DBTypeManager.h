@@ -7,8 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 #import "DBType.h"
-
-@class DBManagedObject;
+#import "DBManagedObject.h"
 
 extern NSString * DBType_System_Object;
 extern NSString * DBType_System_Byte;
@@ -143,10 +142,10 @@ typedef NS_ENUM(NSUInteger, DBTypeId) {
  
  An object representing a managed object.
  This may be called when a managed object subclass is required 
- to be generated from a DBManagedObject instance.
+ to be generated from a id <DBMonoObject> instance.
  
  */
-- (id)objectWithManagedObject:(DBManagedObject *)managedObject;
+- (id)objectWithManagedObject:(id <DBMonoObject>)managedObject;
 
 /**
  

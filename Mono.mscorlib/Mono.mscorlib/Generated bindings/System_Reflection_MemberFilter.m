@@ -33,30 +33,30 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (System_Reflection_MemberFilter *)new_withObject:(System_Object *)p1 method:(void *)p2
++ (System_Reflection_MemberFilter *)new_withObject:(id <DBMonoObject>)p1 method:(void *)p2
 {
-	System_Reflection_MemberFilter * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	System_Reflection_MemberFilter * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return object;
 }
 
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object <System_IAsyncResult> *)beginInvoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(System_Object *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4
+- (System_Object <System_IAsyncResult> *)beginInvoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(id <DBMonoObject>)p2 callback:(System_AsyncCallback *)p3 object:(id <DBMonoObject>)p4
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.Reflection.MemberInfo,object,System.AsyncCallback,object)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], [p4 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(System.Reflection.MemberInfo,object,System.AsyncCallback,object)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
 - (BOOL)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)invoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(System_Object *)p2
+- (BOOL)invoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(id <DBMonoObject>)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.Reflection.MemberInfo,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.Reflection.MemberInfo,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

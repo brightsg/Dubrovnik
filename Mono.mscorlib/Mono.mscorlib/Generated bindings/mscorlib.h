@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     2/6/2019 5:13:08 PM
+// Date:     18/10/2019 10:13:57
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -281,8 +281,7 @@
 /* Skipped type : System.DataMisalignedException DataMisalignedException */
 #define SDateTime_ System_DateTime
 #define SDateTimeKind_ System_DateTimeKind
-
-/* Skipped type : System.DateTimeOffset DateTimeOffset */
+#define SDateTimeOffset_ System_DateTimeOffset
 #define SDayOfWeek_ System_DayOfWeek
 #define SDBNull_ System_DBNull
 #define SDecimal_ System_Decimal
@@ -750,8 +749,7 @@
 /* Skipped type : System.PlatformID PlatformID */
 
 /* Skipped type : System.PlatformNotSupportedException PlatformNotSupportedException */
-
-/* Skipped type : System.Predicate`1<System.Predicate`1+T> Predicate`1<T> */
+#define SPredicateA1_ System_PredicateA1
 
 /* Skipped type : System.Progress`1<System.Progress`1+T> Progress`1<T> */
 
@@ -3073,6 +3071,7 @@ Assembly type imports
 #import "System_CrossAppDomainDelegate.h"
 #import "System_DateTime.h"
 #import "System_DateTimeKind.h"
+#import "System_DateTimeOffset.h"
 #import "System_DayOfWeek.h"
 #import "System_DBNull.h"
 #import "System_Decimal.h"
@@ -3120,6 +3119,7 @@ Assembly type imports
 #import "System_MulticastDelegate.h"
 #import "System_NullableA1.h"
 #import "System_Object.h"
+#import "System_PredicateA1.h"
 #import "System_Reflection_Assembly.h"
 #import "System_Reflection_AssemblyName.h"
 #import "System_Reflection_Binder.h"

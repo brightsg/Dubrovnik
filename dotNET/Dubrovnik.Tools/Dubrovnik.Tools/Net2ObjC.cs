@@ -16,6 +16,7 @@ namespace Dubrovnik.Tools
     using System.Reflection;
     using Dubrovnik.Tools;
     using Dubrovnik.Tools.Facets;
+    using Dubrovnik.Tools.Output;
     using System;
     
     /// <summary>
@@ -33,13 +34,12 @@ namespace Dubrovnik.Tools
         public virtual string TransformText()
         {
             this.Write("\r\n");
-            this.Write("\r\n");
             
             #line 12 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 
 //     .Net to Objective-C code generator
 //
-//     This template will generate Objective-C bindings  for each class
+//     This template will generate Objective-C bindings for each type
 //     defined in the input assembly file.
 //
 //     The wrapper files will generate references to the mono Dubrovnik project to provide
@@ -838,8 +838,10 @@ public void WriteProtocolStart(InterfaceFacet facet, string module, bool writeIm
 	if (!writeImplementation) {
 		WriteModuleBanner(facet, module);
    }
+
+	WriteFacetPreDeclarations(facet);
 	
-	Net2ObjC.Protocol protocol = new Net2ObjC.Protocol(this, facet, writeImplementation);
+	ObjCProtocol protocol = new ObjCProtocol(this, facet, writeImplementation);
 
 	if (!writeImplementation) {
 
@@ -847,7 +849,7 @@ public void WriteProtocolStart(InterfaceFacet facet, string module, bool writeIm
         #line default
         #line hidden
         
-        #line 278 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 280 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n/*\r\n A managed interface is represented as follows:\r\n\r\n 1. An adoption protocol" +
         " that advertises that a class has adopted a given protocol. For the reasons \r\n g" +
         "iven in the notes below this protocol by default declares no members. The code g" +
@@ -876,49 +878,49 @@ this.Write("\r\n/*\r\n A managed interface is represented as follows:\r\n\r\n 1.
         #line default
         #line hidden
         
-        #line 317 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 319 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(protocol.ProtocolName));
 
         
         #line default
         #line hidden
         
-        #line 317 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 319 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(" <");
 
         
         #line default
         #line hidden
         
-        #line 317 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 319 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(protocol.BaseProtocols));
 
         
         #line default
         #line hidden
         
-        #line 317 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 319 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(">\r\n\r\n@optional\r\n\r\n#ifdef  DEF_P_AND_M_");
 
         
         #line default
         #line hidden
         
-        #line 321 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 323 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(protocol.ProtocolName.ToUpper()));
 
         
         #line default
         #line hidden
         
-        #line 321 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 323 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n");
 
         
         #line default
         #line hidden
         
-        #line 322 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 324 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 	
     } else {
 
@@ -926,42 +928,42 @@ this.Write("\r\n");
         #line default
         #line hidden
         
-        #line 324 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 326 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write("\r\n//\r\n// Implementation protocol\r\n//\r\n@protocol ");
 
         
         #line default
         #line hidden
         
-        #line 329 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 331 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(protocol.ProtocolName));
 
         
         #line default
         #line hidden
         
-        #line 329 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 331 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(" <");
 
         
         #line default
         #line hidden
         
-        #line 329 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 331 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(protocol.BaseProtocols));
 
         
         #line default
         #line hidden
         
-        #line 329 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 331 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 this.Write(">\r\n\r\n@optional\r\n\r\n");
 
         
         #line default
         #line hidden
         
-        #line 333 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
+        #line 335 "C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\Dubrovnik.Tools\Dubrovnik.Tools\Net2ObjC.tt"
 		
 	}// if !writeAux
 }

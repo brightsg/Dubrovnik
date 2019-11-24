@@ -63,7 +63,7 @@
 
 - (System_Object <System_Collections_Generic_IListA1> *)getPartitions_withPartitionCount:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetPartitions(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetPartitions(int)" withNumArgs:1, &p1];
 	return [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
 }
 

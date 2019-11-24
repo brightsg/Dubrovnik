@@ -59,7 +59,7 @@
    <System.Collections.Generic.List`1+Enumerator+T>
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * current;
+@property (nonatomic, strong, readonly) id <DBMonoObject> current;
 
 #pragma mark -
 #pragma mark Methods

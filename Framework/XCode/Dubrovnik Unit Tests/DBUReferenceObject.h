@@ -155,7 +155,7 @@
 // generic methods
 - (System_Object *)genericMethod0_withTypeParameter:(id)typeParameter;
 - (System_Object *)genericMethod02_withTypeParameters:(NSArray<id> *)typeParameter;
-- (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter;
+- (id <DBMonoObject>)genericMethod1_withValue:(id <DBMonoObject>)p1 typeParameter:(id)typeParameter;
 - (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
 - (System_Object *)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter;
 

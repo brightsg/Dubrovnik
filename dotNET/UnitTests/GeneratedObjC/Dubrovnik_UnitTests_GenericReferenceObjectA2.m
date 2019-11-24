@@ -31,10 +31,45 @@
 }
 
 #pragma mark -
+#pragma mark Fields
+
+@synthesize genericFieldWithTypeParameterT = _genericFieldWithTypeParameterT;
+- (id <DBMonoObject>)genericFieldWithTypeParameterT
+{
+	MonoObject *monoObject = [self getMonoField:"GenericFieldWithTypeParameterT"];
+	if ([self object:_genericFieldWithTypeParameterT isEqualToMonoObject:monoObject]) return _genericFieldWithTypeParameterT;
+	_genericFieldWithTypeParameterT = [System_Object bestObjectWithMonoObject:monoObject];
+
+	return _genericFieldWithTypeParameterT;
+}
+- (void)setGenericFieldWithTypeParameterT:(id <DBMonoObject>)value
+{
+	_genericFieldWithTypeParameterT = value;
+	void *monoObject = [value monoRTInvokeArg];
+	[self setMonoField:"GenericFieldWithTypeParameterT" value:monoObject];
+}
+
+@synthesize genericFieldWithTypeParameterU = _genericFieldWithTypeParameterU;
+- (id <DBMonoObject>)genericFieldWithTypeParameterU
+{
+	MonoObject *monoObject = [self getMonoField:"GenericFieldWithTypeParameterU"];
+	if ([self object:_genericFieldWithTypeParameterU isEqualToMonoObject:monoObject]) return _genericFieldWithTypeParameterU;
+	_genericFieldWithTypeParameterU = [System_Object bestObjectWithMonoObject:monoObject];
+
+	return _genericFieldWithTypeParameterU;
+}
+- (void)setGenericFieldWithTypeParameterU:(id <DBMonoObject>)value
+{
+	_genericFieldWithTypeParameterU = value;
+	void *monoObject = [value monoRTInvokeArg];
+	[self setMonoField:"GenericFieldWithTypeParameterU" value:monoObject];
+}
+
+#pragma mark -
 #pragma mark Properties
 
 @synthesize genericPropertyWithTypeParameterT = _genericPropertyWithTypeParameterT;
-- (System_Object *)genericPropertyWithTypeParameterT
+- (id <DBMonoObject>)genericPropertyWithTypeParameterT
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
@@ -52,7 +87,7 @@
 
 	return _genericPropertyWithTypeParameterT;
 }
-- (void)setGenericPropertyWithTypeParameterT:(System_Object *)value
+- (void)setGenericPropertyWithTypeParameterT:(id <DBMonoObject>)value
 {
 	_genericPropertyWithTypeParameterT = value;
 	typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -69,7 +104,7 @@
 }
 
 @synthesize genericPropertyWithTypeParameterU = _genericPropertyWithTypeParameterU;
-- (System_Object *)genericPropertyWithTypeParameterU
+- (id <DBMonoObject>)genericPropertyWithTypeParameterU
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
@@ -87,7 +122,7 @@
 
 	return _genericPropertyWithTypeParameterU;
 }
-- (void)setGenericPropertyWithTypeParameterU:(System_Object *)value
+- (void)setGenericPropertyWithTypeParameterU:(id <DBMonoObject>)value
 {
 	_genericPropertyWithTypeParameterU = value;
 	typedef void (*Thunk)(MonoObject *, MonoObject *, MonoObject**);
@@ -211,22 +246,22 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)genericMethod_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2 parameterV:(System_Object *)p3 typeParameter:(id)typeParameter
+- (id <DBMonoObject>)genericMethod_withParameterT:(id <DBMonoObject>)p1 parameterU:(id <DBMonoObject>)p2 parameterV:(id <DBMonoObject>)p3 typeParameter:(id)typeParameter
 {
-	DBManagedMethod *managedMethod = [[DBGenericTypeHelper sharedHelper] methodWithMonoMethodNamed:"GenericMethod(<_T_0>,<_T_1>,V)" typeParameters:typeParameter];
-	MonoObject *monoObject = [self invokeMethod:managedMethod withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	DBManagedMethod *method = [self methodWithMonoName:"GenericMethod(<_T_0>,<_T_1>,V)" typeParameters:typeParameter];
+	MonoObject *monoObject = [method invokeMethodWithNumArgs:3, [self monoRTInvokeArg:p1 typeParameterIndex:0], [self monoRTInvokeArg:p2 typeParameterIndex:1], [method monoRTInvokeArg:p3 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)genericMethodReturningParameterTypeT_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
+- (id <DBMonoObject>)genericMethodReturningParameterTypeT_withParameterT:(id <DBMonoObject>)p1 parameterU:(id <DBMonoObject>)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeT(<_T_0>,<_T_1>)" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], [self monoRTInvokeArg:p2 typeParameterIndex:1]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)genericMethodReturningParameterTypeU_withParameterT:(System_Object *)p1 parameterU:(System_Object *)p2
+- (id <DBMonoObject>)genericMethodReturningParameterTypeU_withParameterT:(id <DBMonoObject>)p1 parameterU:(id <DBMonoObject>)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(<_T_0>,<_T_1>)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GenericMethodReturningParameterTypeU(<_T_0>,<_T_1>)" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], [self monoRTInvokeArg:p2 typeParameterIndex:1]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 

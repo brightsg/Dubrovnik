@@ -35,7 +35,7 @@
 
 + (System_Collections_Concurrent_ConcurrentStackA1 *)new_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
-	System_Collections_Concurrent_ConcurrentStackA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentStack`1/T>" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_Collections_Concurrent_ConcurrentStackA1 * object = [[self alloc] initWithSignature:"System.Collections.Generic.IEnumerable`1<System.Collections.Concurrent.ConcurrentStack`1/T>" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -90,7 +90,7 @@
 
 - (void)copyTo_withArray:(System_Array *)p1 index:(int32_t)p2
 {
-	[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"CopyTo(T[],int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 }
 
 - (System_Object <System_Collections_Generic_IEnumeratorA1> *)getEnumerator
@@ -99,19 +99,19 @@
 	return [System_Collections_Generic_IEnumeratorA1 bestObjectWithMonoObject:monoObject];
 }
 
-- (void)push_withItem:(System_Object *)p1
+- (void)push_withItem:(id <DBMonoObject>)p1
 {
-	[self invokeMonoMethod:"Push(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Push(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 - (void)pushRange_withItems:(System_Array *)p1
 {
-	[self invokeMonoMethod:"PushRange(T[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"PushRange(T[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)pushRange_withItems:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3
 {
-	[self invokeMonoMethod:"PushRange(T[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	[self invokeMonoMethod:"PushRange(T[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 }
 
 - (System_Array *)toArray
@@ -138,13 +138,13 @@
 
 - (int32_t)tryPopRange_withItems:(System_Array *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"TryPopRange(T[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryPopRange(T[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 - (int32_t)tryPopRange_withItems:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"TryPopRange(T[],int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"TryPopRange(T[],int,int)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return DB_UNBOX_INT32(monoObject);
 }
 

@@ -94,7 +94,7 @@
    <System.Collections.Generic.IEnumerator`1+T>
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * current;
+@property (nonatomic, strong, readonly) id <DBMonoObject> current;
 #endif
 
 
@@ -122,7 +122,7 @@
    <System.Collections.Generic.IEnumerator`1+T>
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * current;
+@property (nonatomic, strong, readonly) id <DBMonoObject> current;
 
 @end
 

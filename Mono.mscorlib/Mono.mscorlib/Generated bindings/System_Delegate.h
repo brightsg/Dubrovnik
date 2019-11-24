@@ -74,7 +74,7 @@
    System.Object
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * target;
+@property (nonatomic, strong, readonly) id <DBMonoObject> target;
 
 #pragma mark -
 #pragma mark Methods
@@ -92,7 +92,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)clone;
+- (id <DBMonoObject>)clone;
 
 /**
  Managed method.
@@ -140,7 +140,7 @@
    System.Delegate
  @/textblock
 */
-+ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3;
++ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(id <DBMonoObject>)p2 methodString:(NSString *)p3;
 
 /**
  Managed method.
@@ -158,7 +158,7 @@
    System.Delegate
  @/textblock
 */
-+ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4;
++ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(id <DBMonoObject>)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4;
 
 /**
  Managed method.
@@ -177,7 +177,7 @@
    System.Delegate
  @/textblock
 */
-+ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5;
++ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(id <DBMonoObject>)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5;
 
 /**
  Managed method.
@@ -260,30 +260,13 @@
    System.Type
    System.Object
    System.Reflection.MethodInfo
-
- Return
-   System.Delegate
- @/textblock
-*/
-+ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3;
-
-/**
- Managed method.
- @textblock
- Name
-   CreateDelegate
-
- Params
-   System.Type
-   System.Object
-   System.Reflection.MethodInfo
    System.Boolean
 
  Return
    System.Delegate
  @/textblock
 */
-+ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4;
++ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(id <DBMonoObject>)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4;
 
 /**
  Managed method.
@@ -305,6 +288,23 @@
  Managed method.
  @textblock
  Name
+   CreateDelegate
+
+ Params
+   System.Type
+   System.Object
+   System.Reflection.MethodInfo
+
+ Return
+   System.Delegate
+ @/textblock
+*/
++ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(id <DBMonoObject>)p2 method:(System_Reflection_MethodInfo *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
    DynamicInvoke
 
  Params
@@ -314,7 +314,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)dynamicInvoke_withArgs:(System_Array *)p1;
+- (id <DBMonoObject>)dynamicInvoke_withArgs:(System_Array *)p1;
 
 /**
  Managed method.
@@ -329,7 +329,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

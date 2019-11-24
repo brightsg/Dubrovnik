@@ -193,7 +193,7 @@
     return isValueType;
 }
 
-+ (NSString *)managedClassNameFromMonoClassName:(NSString *)monoClassName
++ (NSString *)nativeClassNameFromMonoClassName:(NSString *)monoClassName
 {
     NSMutableString *managedClassName = [NSMutableString stringWithString:monoClassName];
     

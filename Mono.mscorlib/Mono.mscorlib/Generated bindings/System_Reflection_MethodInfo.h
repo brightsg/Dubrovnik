@@ -96,7 +96,7 @@
    System.Delegate
  @/textblock
 */
-- (System_Delegate *)createDelegate_withDelegateType:(System_Type *)p1 target:(System_Object *)p2;
+- (System_Delegate *)createDelegate_withDelegateType:(System_Type *)p1 target:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -111,7 +111,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

@@ -18,6 +18,7 @@
   <string>Dubrovnik.UnitTests.IReferenceObjectBase1</string>
   <string>Dubrovnik.UnitTests.ITestProperty</string>
   <string>Dubrovnik.UnitTests.LongEnum</string>
+  <string>Dubrovnik.UnitTests.ReferenceEventArgs</string>
   <string>Dubrovnik.UnitTests.ReferenceObject</string>
   <string>Dubrovnik.UnitTests.ReferenceObject+ActionDelegate</string>
   <string>Dubrovnik.UnitTests.ReferenceObject+FunctionDelegate1</string>

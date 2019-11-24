@@ -36,7 +36,7 @@
 /* Skipped property : System.Data.Entity.Core.Objects.CurrentValueRecord CurrentValues */
 
 @synthesize entity = _entity;
-- (System_Object *)entity
+- (id <DBMonoObject>)entity
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
@@ -126,19 +126,19 @@
 	[self invokeMonoMethod:"AcceptChanges()" withNumArgs:0];
 }
 
-- (void)applyCurrentValues_withCurrentEntity:(System_Object *)p1
+- (void)applyCurrentValues_withCurrentEntity:(id <DBMonoObject>)p1
 {
-	[self invokeMonoMethod:"ApplyCurrentValues(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"ApplyCurrentValues(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
-- (void)applyOriginalValues_withOriginalEntity:(System_Object *)p1
+- (void)applyOriginalValues_withOriginalEntity:(id <DBMonoObject>)p1
 {
-	[self invokeMonoMethod:"ApplyOriginalValues(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"ApplyOriginalValues(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)changeState_withState:(enumSystem_Data_Entity_EntityState)p1
 {
-	[self invokeMonoMethod:"ChangeState(System.Data.Entity.EntityState)" withNumArgs:1, DB_VALUE(p1)];
+	[self invokeMonoMethod:"ChangeState(System.Data.Entity.EntityState)" withNumArgs:1, &p1];
 }
 
 - (void)delete
@@ -156,13 +156,13 @@
 
 - (BOOL)isPropertyChanged_withPropertyName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"IsPropertyChanged(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"IsPropertyChanged(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (void)rejectPropertyChanges_withPropertyName:(NSString *)p1
 {
-	[self invokeMonoMethod:"RejectPropertyChanges(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"RejectPropertyChanges(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)setModified
@@ -172,7 +172,7 @@
 
 - (void)setModifiedProperty_withPropertyName:(NSString *)p1
 {
-	[self invokeMonoMethod:"SetModifiedProperty(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"SetModifiedProperty(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 #pragma mark -

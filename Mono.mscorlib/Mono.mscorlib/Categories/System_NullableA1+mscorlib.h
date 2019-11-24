@@ -26,10 +26,7 @@ extern NS_ENUM(NSInteger, DBSystemNullableTypes) {
 
 @interface System_NullableA1 (mscorlib)
 
-- (BOOL)db_hasValue;
-- (DBManagedObject *)db_value;
-
-- (MonoObject *)monoRTInvokeArg;
+- (void *)monoRTInvokeArg;
 
 + (NSDictionary *)typeAssociations;
 
@@ -102,14 +99,14 @@ extern NS_ENUM(NSInteger, DBSystemNullableTypes) {
 #pragma mark -
 #pragma mark Explicit width integer accessors
 
-- (int64_t)int64Value;
-- (uint64_t)uint64Value;
-- (int32_t)int32Value;
-- (uint32_t)uint32Value;
-- (int16_t)int16Value;
-- (uint16_t)uint16Value;
-- (int8_t)int8Value;
-- (uint8_t)uint8Value;
+- (int64_t)db_int64Value;
+- (uint64_t)db_uint64Value;
+- (int32_t)db_int32Value;
+- (uint32_t)db_uint32Value;
+- (int16_t)db_int16Value;
+- (uint16_t)db_uint16Value;
+- (int8_t)db_int8Value;
+- (uint8_t)db_uint8Value;
 
 /*!
  

@@ -25,6 +25,7 @@
 @class Dubrovnik_UnitTests_IReferenceObjectBase;
 @class Dubrovnik_UnitTests_ITestProperty;
 @class Dubrovnik_UnitTests_LongEnum;
+@class Dubrovnik_UnitTests_ReferenceEventArgs;
 @class Dubrovnik_UnitTests_ReferenceObject;
 @class Dubrovnik_UnitTests_ReferenceObject__ActionDelegate;
 @class Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1;
@@ -45,9 +46,16 @@
 @class System_Collections_Generic_ListA1;
 @class System_ComponentModel_INotifyPropertyChanged;
 @class System_ComponentModel_INotifyPropertyChanging;
+@class System_ComponentModel_PropertyChangedEventArgs;
+@class System_ComponentModel_PropertyChangedEventHandler;
+@class System_ComponentModel_PropertyChangingEventArgs;
+@class System_ComponentModel_PropertyChangingEventHandler;
 @class System_DateTime;
 @class System_Decimal;
 @class System_Double;
+@class System_EventArgs;
+@class System_EventHandler;
+@class System_EventHandlerA1;
 @class System_FuncA1;
 @class System_FuncA2;
 @class System_FuncA3;
@@ -85,6 +93,24 @@
 #import "Dubrovnik_UnitTests_IReferenceObject1_Protocol.h"
 #import "Dubrovnik_UnitTests_IReferenceObject2_Protocol.h"
 #import "Dubrovnik_UnitTests_IReferenceObjectBase_Protocol.h"
+
+// 
+// Event support
+// 
+#define DUReferenceObject_PropertyChanged_EventBlock Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangedEventArgs *e);
+
+#define DUReferenceObject_PropertyChanging_EventBlock Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangingEventArgs *e);
+
+#define DUReferenceObject_UnitTestEvent1_EventBlock Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock)(System_Object *sender, System_EventArgs *e);
+
+#define DUReferenceObject_UnitTestEvent2_EventBlock Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock)(System_Object *sender, System_EventArgs *e);
+
+#define DUReferenceObject_UnitTestEvent3_EventBlock Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(System_Object *sender, Dubrovnik_UnitTests_ReferenceEventArgs *e);
 
 @interface Dubrovnik_UnitTests_ReferenceObject : System_Object <Dubrovnik_UnitTests_IMinimalReferenceObject_, Dubrovnik_UnitTests_IReferenceObject1_, Dubrovnik_UnitTests_IReferenceObjectBase_, Dubrovnik_UnitTests_IReferenceObject2_>
 
@@ -222,6 +248,19 @@
  Managed field.
  @textblock
  Name
+   IntEnumFieldStatic
+
+ Type
+   Dubrovnik.UnitTests.IntEnum
+ @/textblock
+*/
++ (enumDubrovnik_UnitTests_IntEnum)intEnumFieldStatic;
++ (void)setIntEnumFieldStatic:(enumDubrovnik_UnitTests_IntEnum)value;
+
+/**
+ Managed field.
+ @textblock
+ Name
    IntField
 
  Type
@@ -241,6 +280,31 @@
  @/textblock
 */
 @property (nonatomic) enumDubrovnik_UnitTests_LongEnum longEnumField;
+
+/**
+ Managed field.
+ @textblock
+ Name
+   LongEnumFieldStatic
+
+ Type
+   Dubrovnik.UnitTests.LongEnum
+ @/textblock
+*/
++ (enumDubrovnik_UnitTests_LongEnum)longEnumFieldStatic;
++ (void)setLongEnumFieldStatic:(enumDubrovnik_UnitTests_LongEnum)value;
+
+/**
+ Managed field.
+ @textblock
+ Name
+   objectField
+
+ Type
+   System.Object
+ @/textblock
+*/
+@property (nonatomic, strong) id <DBMonoObject> objectField;
 
 /**
  Managed field.
@@ -491,6 +555,44 @@
  Managed property.
  @textblock
  Name
+   IntEnumerationNullable
+
+ Type
+   System.Nullable`1<Dubrovnik.UnitTests.IntEnum>
+ @/textblock
+*/
+@property (nonatomic, strong) System_NullableA1 * intEnumerationNullable;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   IntEnumerationNullableStatic
+
+ Type
+   System.Nullable`1<Dubrovnik.UnitTests.IntEnum>
+ @/textblock
+*/
++ (System_NullableA1 *)intEnumerationNullableStatic;
++ (void)setIntEnumerationNullableStatic:(System_NullableA1 *)value;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   IntEnumerationStatic
+
+ Type
+   Dubrovnik.UnitTests.IntEnum
+ @/textblock
+*/
++ (enumDubrovnik_UnitTests_IntEnum)intEnumerationStatic;
++ (void)setIntEnumerationStatic:(enumDubrovnik_UnitTests_IntEnum)value;
+
+/**
+ Managed property.
+ @textblock
+ Name
    InterfaceTestProperty
 
  Type
@@ -570,6 +672,44 @@
  @/textblock
 */
 @property (nonatomic) enumDubrovnik_UnitTests_LongEnum longEnumeration;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   LongEnumerationNullable
+
+ Type
+   System.Nullable`1<Dubrovnik.UnitTests.LongEnum>
+ @/textblock
+*/
+@property (nonatomic, strong) System_NullableA1 * longEnumerationNullable;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   LongEnumerationNullableStatic
+
+ Type
+   System.Nullable`1<Dubrovnik.UnitTests.LongEnum>
+ @/textblock
+*/
++ (System_NullableA1 *)longEnumerationNullableStatic;
++ (void)setLongEnumerationNullableStatic:(System_NullableA1 *)value;
+
+/**
+ Managed property.
+ @textblock
+ Name
+   LongEnumerationStatic
+
+ Type
+   Dubrovnik.UnitTests.LongEnum
+ @/textblock
+*/
++ (enumDubrovnik_UnitTests_LongEnum)longEnumerationStatic;
++ (void)setLongEnumerationStatic:(enumDubrovnik_UnitTests_LongEnum)value;
 
 /**
  Managed property.
@@ -906,7 +1046,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -960,7 +1100,7 @@
    <Dubrovnik.UnitTests.ReferenceObject+T>
  @/textblock
 */
-- (System_Object *)genericMethod1_withValue:(System_Object *)p1 typeParameter:(id)typeParameter;
+- (id <DBMonoObject>)genericMethod1_withValue:(id <DBMonoObject>)p1 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -979,7 +1119,7 @@
    System.Collections.Generic.Dictionary`2<Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U>
  @/textblock
 */
-- (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(System_Object *)p1 value:(System_Object *)p2 typeParameters:(NSArray<id> *)typeParameter;
+- (System_Collections_Generic_DictionaryA2 *)genericMethod2_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2 typeParameters:(NSArray<id> *)typeParameter;
 
 /**
  Managed method.
@@ -997,7 +1137,26 @@
    <Dubrovnik.UnitTests.ReferenceObject+T>
  @/textblock
 */
-- (System_Object *)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter;
+- (id <DBMonoObject>)genericMethodList1_withValue:(System_Collections_Generic_ListA1 *)p1 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GenericMethodStatic2
+
+ Params
+   <Dubrovnik.UnitTests.ReferenceObject+T>
+   <Dubrovnik.UnitTests.ReferenceObject+U>
+
+ Generics
+   <Dubrovnik.UnitTests.ReferenceObject+T>, <Dubrovnik.UnitTests.ReferenceObject+U>
+
+ Return
+   System.Collections.Generic.Dictionary`2<Dubrovnik.UnitTests.ReferenceObject+T, Dubrovnik.UnitTests.ReferenceObject+U>
+ @/textblock
+*/
++ (System_Collections_Generic_DictionaryA2 *)genericMethodStatic2_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2 typeParameters:(NSArray<id> *)typeParameter;
 
 /**
  Managed method.
@@ -1370,6 +1529,21 @@
  Managed method.
  @textblock
  Name
+   RaiseUnitTestEvent3
+
+ Params
+   (none)
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)raiseUnitTestEvent3;
+
+/**
+ Managed method.
+ @textblock
+ Name
    ReferenceStructMethod
 
  Params
@@ -1502,7 +1676,7 @@
    System.String
  @/textblock
 */
-- (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(System_Object *)p2;
+- (NSString *)stringMethod_withS1String:(NSString *)p1 s2Object:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -1687,5 +1861,108 @@
  @/textblock
 */
 - (double)sumAndSwitch_withDoublePtrX:(double*)p1 doublePtrY:(double*)p2;
+
+#pragma mark -
+#pragma mark Events
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   PropertyChanged
+
+ @/textblock
+*/
++ (NSString *)propertyChangedEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   PropertyChanged
+
+ @/textblock
+*/
+- (System_ComponentModel_PropertyChangedEventHandler *)propertyChanged_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock)block;
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   PropertyChanging
+
+ @/textblock
+*/
++ (NSString *)propertyChangingEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   PropertyChanging
+
+ @/textblock
+*/
+- (System_ComponentModel_PropertyChangingEventHandler *)propertyChanging_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock)block;
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   UnitTestEvent1
+
+ @/textblock
+*/
++ (NSString *)unitTestEvent1EventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   UnitTestEvent1
+
+ @/textblock
+*/
+- (System_EventHandler *)unitTestEvent1_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock)block;
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   UnitTestEvent2
+
+ @/textblock
+*/
++ (NSString *)unitTestEvent2EventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   UnitTestEvent2
+
+ @/textblock
+*/
+- (System_EventHandler *)unitTestEvent2_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock)block;
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   UnitTestEvent3
+
+ @/textblock
+*/
++ (NSString *)unitTestEvent3EventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   UnitTestEvent3
+
+ @/textblock
+*/
+- (System_EventHandlerA1 *)unitTestEvent3_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)block;
 @end
 //--Dubrovnik.CodeGenerator

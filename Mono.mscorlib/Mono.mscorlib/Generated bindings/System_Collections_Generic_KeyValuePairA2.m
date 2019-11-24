@@ -33,9 +33,9 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (System_Collections_Generic_KeyValuePairA2 *)new_withKey:(System_Object *)p1 value:(System_Object *)p2
++ (System_Collections_Generic_KeyValuePairA2 *)new_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2
 {
-	System_Collections_Generic_KeyValuePairA2 * object = [[self alloc] initWithSignature:"<_T_0>,<_T_1>" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	System_Collections_Generic_KeyValuePairA2 * object = [[self alloc] initWithSignature:"<_T_0>,<_T_1>" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], [self monoRTInvokeArg:p2 typeParameterIndex:1]];
 	return object;
 }
 
@@ -43,7 +43,7 @@
 #pragma mark Properties
 
 @synthesize key = _key;
-- (System_Object *)key
+- (id <DBMonoObject>)key
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
@@ -63,7 +63,7 @@
 }
 
 @synthesize value = _value;
-- (System_Object *)value
+- (id <DBMonoObject>)value
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;

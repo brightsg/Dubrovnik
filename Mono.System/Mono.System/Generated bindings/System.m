@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     2/6/2019 5:13:33 PM
+// Date:     18/10/2019 10:14:22
 //
 // Assembly: System
 // Fullname: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -51,15 +51,21 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Collections_ObjectModel_ObservableCollectionA1.m
 // Dubrovnik.CodeGenerator made System_Collections_Specialized_NotifyCollectionChangedAction.m
 // Dubrovnik.CodeGenerator made System_Collections_Specialized_NotifyCollectionChangedEventArgs.m
+// Dubrovnik.CodeGenerator made System_Collections_Specialized_NotifyCollectionChangedEventHandler.m
 // Dubrovnik.CodeGenerator made System_ComponentModel_AsyncCompletedEventArgs.m
+// Dubrovnik.CodeGenerator made System_ComponentModel_AsyncCompletedEventHandler.m
 // Dubrovnik.CodeGenerator made System_ComponentModel_INotifyPropertyChanged.m
 // Dubrovnik.CodeGenerator made System_ComponentModel_INotifyPropertyChanging.m
 // Dubrovnik.CodeGenerator made System_ComponentModel_ListSortDirection.m
 // Dubrovnik.CodeGenerator made System_ComponentModel_PropertyChangedEventArgs.m
+// Dubrovnik.CodeGenerator made System_ComponentModel_PropertyChangedEventHandler.m
 // Dubrovnik.CodeGenerator made System_ComponentModel_PropertyChangingEventArgs.m
+// Dubrovnik.CodeGenerator made System_ComponentModel_PropertyChangingEventHandler.m
 // Dubrovnik.CodeGenerator made System_ComponentModel_RunWorkerCompletedEventArgs.m
+// Dubrovnik.CodeGenerator made System_ComponentModel_RunWorkerCompletedEventHandler.m
 // Dubrovnik.CodeGenerator made System_Configuration_SettingsBase.m
 // Dubrovnik.CodeGenerator made System_IO_ErrorEventArgs.m
+// Dubrovnik.CodeGenerator made System_IO_ErrorEventHandler.m
 // Dubrovnik.CodeGenerator made System_Net_HttpStatusCode.m
 // Dubrovnik.CodeGenerator made System_Net_HttpWebRequest.m
 // Dubrovnik.CodeGenerator made System_Net_HttpWebResponse.m

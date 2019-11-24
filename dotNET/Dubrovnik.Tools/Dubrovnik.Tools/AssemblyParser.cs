@@ -77,7 +77,7 @@ namespace Dubrovnik.Tools
 			if (type.IsInterface) xtw.WriteAttributeString("IsInterface", Boolean.TrueString);
 
 			// Delegate
-			if (type.IsAssignableFrom(typeof(Delegate))) xtw.WriteAttributeString("IsDelegate", Boolean.TrueString);
+			if (type.IsSubclassOf(typeof(Delegate))) xtw.WriteAttributeString("IsDelegate", Boolean.TrueString);
 
 			// Nested
 			if (type.IsNested) xtw.WriteAttributeString("IsNested", Boolean.TrueString);
@@ -449,11 +449,21 @@ namespace Dubrovnik.Tools
 							//
 							foreach (EventInfo eventInfo in type.GetEvents(bindingFlags).OrderBy(e => e.Name))
 							{
-								xtw.WriteStartElement("Event");
-								xtw.WriteAttributeString("Name", eventInfo.Name);
-								xtw.WriteAttributeString("HandlerType", eventInfo.EventHandlerType.GetFriendlyFullName());
-								xtw.WriteEndElement();
+                                Type eventType = eventInfo.EventHandlerType;
 
+                                xtw.WriteStartElement("Event");
+								xtw.WriteAttributeString("Name", eventInfo.Name);
+                                WriteTypeAttributes(xtw, eventType);
+                                WriteGenericTypeElements(xtw, eventType);
+
+                                // write delegate invocation parameters
+                                foreach (var parameterInfo in GetDelegateParameterInfo(eventType)) {
+                                    WriteParameterInfoElement(xtw, parameterInfo);
+                                }
+
+                                // the return type for an event delegate is void by definition
+
+                                xtw.WriteEndElement();
 							}
 
 							xtw.WriteEndElement(); // Class, Interface, Struct, Enumeration
@@ -509,5 +519,43 @@ namespace Dubrovnik.Tools
 			return xml;
 
 		}
-	}
+
+        /// <summary>
+        /// Get parameter info for a delegate type.
+        /// </summary>
+        /// <param name="d">The delegate type</param>
+        /// <returns>Array of ParameterInfo objects.</returns>
+        private ParameterInfo[] GetDelegateParameterInfo(Type d)
+        {
+            if (d.BaseType != typeof(MulticastDelegate))
+                throw new ApplicationException("Not a delegate.");
+
+            // we get the type info from the invoke method
+            MethodInfo invoke = d.GetMethod("Invoke");
+            if (invoke == null)
+                throw new ApplicationException("Not a delegate.");
+
+            ParameterInfo[] parameters = invoke.GetParameters();
+            return parameters;
+        }
+
+        /// <summary>
+        /// Get return type for delegate type.
+        /// </summary>
+        /// <param name="d">The delegate type</param>
+        /// <returns>Return type.</returns>
+        private Type GetDelegateReturnType(Type d)
+        {
+            if (d.BaseType != typeof(MulticastDelegate))
+                throw new ApplicationException("Not a delegate.");
+
+            // we get the type info from the invoke method
+            MethodInfo invoke = d.GetMethod("Invoke");
+            if (invoke == null)
+                throw new ApplicationException("Not a delegate.");
+
+            return invoke.ReturnType;
+        }
+
+    }
 }

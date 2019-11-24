@@ -186,9 +186,9 @@
 #pragma mark -
 #pragma mark Methods
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Exception.Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Runtime.InteropServices._Exception.Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

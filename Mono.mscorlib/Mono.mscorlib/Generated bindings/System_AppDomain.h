@@ -22,6 +22,8 @@
 @class System_Boolean;
 @class System_Byte;
 @class System_CrossAppDomainDelegate;
+@class System_EventArgs;
+@class System_EventHandler;
 @class System_Globalization_CultureInfo;
 @class System_Int32;
 @class System_Int64;
@@ -33,6 +35,8 @@
 @class System_String;
 @class System_TimeSpan;
 @class System_Type;
+@class System_UnhandledExceptionEventArgs;
+@class System_UnhandledExceptionEventHandler;
 @class System_Void;
 
 //
@@ -44,6 +48,36 @@
 // Import superclass and adopted protocols
 //
 #import "System_MarshalByRefObject.h"
+
+// 
+// Event support
+// 
+
+/* Skipped event : System.AssemblyLoadEventHandler AssemblyLoad */
+
+
+/* Skipped event : System.ResolveEventHandler AssemblyResolve */
+
+#define SAppDomain_DomainUnload_EventBlock System_AppDomain_DomainUnload_EventBlock
+typedef void (^System_AppDomain_DomainUnload_EventBlock)(System_Object *sender, System_EventArgs *e);
+
+
+/* Skipped event : System.EventHandler`1<System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs> FirstChanceException */
+
+#define SAppDomain_ProcessExit_EventBlock System_AppDomain_ProcessExit_EventBlock
+typedef void (^System_AppDomain_ProcessExit_EventBlock)(System_Object *sender, System_EventArgs *e);
+
+
+/* Skipped event : System.ResolveEventHandler ReflectionOnlyAssemblyResolve */
+
+
+/* Skipped event : System.ResolveEventHandler ResourceResolve */
+
+
+/* Skipped event : System.ResolveEventHandler TypeResolve */
+
+#define SAppDomain_UnhandledException_EventBlock System_AppDomain_UnhandledException_EventBlock
+typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object *sender, System_UnhandledExceptionEventArgs *e);
 
 @interface System_AppDomain : System_MarshalByRefObject
 
@@ -308,8 +342,6 @@
 
 /* Skipped method : System.AppDomain CreateDomain(System.String friendlyName, System.Security.Policy.Evidence securityInfo) */
 
-/* Skipped method : System.AppDomain CreateDomain(System.String friendlyName, System.Security.Policy.Evidence securityInfo, System.String appBasePath, System.String appRelativeSearchPath, System.Boolean shadowCopyFiles) */
-
 /**
  Managed method.
  @textblock
@@ -328,6 +360,8 @@
 /* Skipped method : System.AppDomain CreateDomain(System.String friendlyName, System.Security.Policy.Evidence securityInfo, System.AppDomainSetup info) */
 
 /* Skipped method : System.AppDomain CreateDomain(System.String friendlyName, System.Security.Policy.Evidence securityInfo, System.AppDomainSetup info, System.Security.PermissionSet grantSet, System.Security.Policy.StrongName[] fullTrustAssemblies) */
+
+/* Skipped method : System.AppDomain CreateDomain(System.String friendlyName, System.Security.Policy.Evidence securityInfo, System.String appBasePath, System.String appRelativeSearchPath, System.Boolean shadowCopyFiles) */
 
 /* Skipped method : System.AppDomain CreateDomain(System.String friendlyName, System.Security.Policy.Evidence securityInfo, System.String appBasePath, System.String appRelativeSearchPath, System.Boolean shadowCopyFiles, System.AppDomainInitializer adInit, System.String[] adInitArgs) */
 
@@ -353,7 +387,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
+- (id <DBMonoObject>)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
 
 /**
  Managed method.
@@ -370,7 +404,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
+- (id <DBMonoObject>)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
 
 /* Skipped method : System.Object CreateInstanceAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
 
@@ -398,7 +432,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
+- (id <DBMonoObject>)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2;
 
 /**
  Managed method.
@@ -415,17 +449,13 @@
    System.Object
  @/textblock
 */
-- (System_Object *)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
+- (id <DBMonoObject>)createInstanceFromAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 activationAttributes:(System_Array *)p3;
 
 /* Skipped method : System.Object CreateInstanceFromAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
 
 /* Skipped method : System.Object CreateInstanceFromAndUnwrap(System.String assemblyFile, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
 
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access) */
-
-/* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes) */
-
-/* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes, System.Security.SecurityContextSource securityContextSource) */
 
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir) */
 
@@ -442,6 +472,10 @@
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Security.Policy.Evidence evidence, System.Security.PermissionSet requiredPermissions, System.Security.PermissionSet optionalPermissions, System.Security.PermissionSet refusedPermissions) */
 
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Security.Policy.Evidence evidence, System.Security.PermissionSet requiredPermissions, System.Security.PermissionSet optionalPermissions, System.Security.PermissionSet refusedPermissions, System.Boolean isSynchronized) */
+
+/* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes) */
+
+/* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes, System.Security.SecurityContextSource securityContextSource) */
 
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access, System.String dir, System.Security.Policy.Evidence evidence, System.Security.PermissionSet requiredPermissions, System.Security.PermissionSet optionalPermissions, System.Security.PermissionSet refusedPermissions, System.Boolean isSynchronized, System.Collections.Generic.IEnumerable`1<System.Reflection.Emit.CustomAttributeBuilder> assemblyAttributes) */
 
@@ -597,7 +631,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getData_withName:(NSString *)p1;
+- (id <DBMonoObject>)getData_withName:(NSString *)p1;
 
 /**
  Managed method.
@@ -627,7 +661,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)db_initializeLifetimeService;
+- (id <DBMonoObject>)db_initializeLifetimeService;
 
 /**
  Managed method.
@@ -787,7 +821,7 @@
    System.Void
  @/textblock
 */
-- (void)setData_withName:(NSString *)p1 data:(System_Object *)p2;
+- (void)setData_withName:(NSString *)p1 data:(id <DBMonoObject>)p2;
 
 /* Skipped method : System.Void SetData(System.String name, System.Object data, System.Security.IPermission permission) */
 
@@ -869,5 +903,80 @@
  @/textblock
 */
 + (void)unload_withDomain:(System_AppDomain *)p1;
+
+#pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.AssemblyLoadEventHandler AssemblyLoad */
+
+/* Skipped event : System.ResolveEventHandler AssemblyResolve */
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   DomainUnload
+
+ @/textblock
+*/
++ (NSString *)domainUnloadEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   DomainUnload
+
+ @/textblock
+*/
+- (System_EventHandler *)domainUnload_addEventHandlerWithBlock:(System_AppDomain_DomainUnload_EventBlock)block;
+
+/* Skipped event : System.EventHandler`1<System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs> FirstChanceException */
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   ProcessExit
+
+ @/textblock
+*/
++ (NSString *)processExitEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   ProcessExit
+
+ @/textblock
+*/
+- (System_EventHandler *)processExit_addEventHandlerWithBlock:(System_AppDomain_ProcessExit_EventBlock)block;
+
+/* Skipped event : System.ResolveEventHandler ReflectionOnlyAssemblyResolve */
+
+/* Skipped event : System.ResolveEventHandler ResourceResolve */
+
+/* Skipped event : System.ResolveEventHandler TypeResolve */
+
+/**
+ Managed event name.
+ @textblock
+ Name
+   UnhandledException
+
+ @/textblock
+*/
++ (NSString *)unhandledExceptionEventName;
+
+/**
+ Managed event handler add method.
+ @textblock
+ Event Name
+   UnhandledException
+
+ @/textblock
+*/
+- (System_UnhandledExceptionEventHandler *)unhandledException_addEventHandlerWithBlock:(System_AppDomain_UnhandledException_EventBlock)block;
 @end
 //--Dubrovnik.CodeGenerator

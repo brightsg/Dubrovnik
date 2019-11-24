@@ -33,30 +33,30 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1 *)new_withObject:(System_Object *)p1 method:(void *)p2
++ (Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1 *)new_withObject:(id <DBMonoObject>)p1 method:(void *)p2
 {
-	Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1 * object = [[self alloc] initWithSignature:"object,intptr" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return object;
 }
 
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object <System_IAsyncResult> *)beginInvoke_withObject:(System_Object *)p1 callback:(System_AsyncCallback *)p2 __object:(System_Object *)p3
+- (System_Object <System_IAsyncResult> *)beginInvoke_withObject:(id <DBMonoObject>)p1 callback:(System_AsyncCallback *)p2 __object:(id <DBMonoObject>)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"BeginInvoke(object,System.AsyncCallback,object)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_IAsyncResult bestObjectWithMonoObject:monoObject];
 }
 
 - (int32_t)endInvoke_withResult:(System_Object <System_IAsyncResult_> *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"EndInvoke(System.IAsyncResult)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (int32_t)invoke_withObject:(System_Object *)p1
+- (int32_t)invoke_withObject:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 

@@ -7,23 +7,44 @@
 //
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
+#import "DBManagedType.h"
+#import "DBManagedObject.h"
 
 @interface DBManagedMethod : NSObject
 
-@property (assign, readonly) const char *methodName;
-@property (assign, readonly) const char *monoClassName;
-@property (assign, readonly) const char *assemblyName;
-@property (assign, readwrite) MonoType *genericMonoType;
 @property (assign, readonly) MonoArray *monoReflectionTypeParameters;
+@property (assign, readonly) void *invokePtr;
+@property (assign, readonly) const char *methodName;
+@property (assign, readonly) MonoClass *monoClass;
+@property (assign, readonly) MonoObject *monoObject;
 
-/*! typeParameter may be a type defining object or an array of such objects
- */
-@property (strong, nonatomic) id typeParameters; // System_Type[] - will respond to -monoArray
+@property (assign, readwrite) MonoType *genericMonoType;
+@property (assign, readwrite, nonatomic) MonoDomain *monoDomain;
+@property (strong, readwrite, nonatomic) DBManagedType *instanceType;
 
-+ (instancetype)methodWithMonoMethodNamed:(const char *)methodName;
-+ (instancetype)methodWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName;
+- (id)initWithMonoMethodNamed:(const char *)methodName
+                       object:(DBManagedObject *)object;
 
-- (id)initWithMonoMethodNamed:(const char *)methodName;
-- (id)initWithMonoMethodNamed:(const char *)methodName className:(const char *)className assemblyName:(const char *)assemblyName;
+- (id)initWithMonoClassMethodNamed:(const char *)methodName
+                    monoClassName:(const char *)className
+                 monoAssemblyName:(const char *)assemblyName;
+
+- (id)initWithMonoMethodNamed:(const char *)methodName
+                       object:(DBManagedObject *)object
+ monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters;
+
+- (id)initWithMonoClassMethodNamed:(const char *)methodName
+                    monoClass:(MonoClass *)monoClass
+ monoReflectionTypeParameters:(MonoArray *)monoReflectionTypeParameters;
+
+- (MonoType *)monoTypeParameterAtIndex:(NSUInteger)idx;
+
+- (void *)monoRTInvokeArg:(id <DBMonoObject>)object typeParameterIndex:(NSUInteger)idx;
+
+- (MonoMethod *)monoClassMethod;
+- (MonoMethod *)monoMethod;
+
+- (MonoObject *)invokeMethodWithNumArgs:(int)numArgs, ...;
+- (MonoObject *)invokeClassMethodWithNumArgs:(int)numArgs, ...;
 
 @end

@@ -9,10 +9,10 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     2/6/2019 11:51:06 AM
+// Date:     08/07/2019 17:45:46
 //
 // Assembly: Dubrovnik.UnitTests
-// Fullname: Dubrovnik.UnitTests, Version=1.0.6976.21332, Culture=neutral, PublicKeyToken=null
+// Fullname: Dubrovnik.UnitTests, Version=1.0.7128.31972, Culture=neutral, PublicKeyToken=null
 // Path:     C:\Users\Jonathan Mitchell\Documents\Dubrovnik\dotNET\UnitTests\Dubrovnik.UnitTests\bin\Debug\Dubrovnik.UnitTests.exe
 //
 // Platform: Microsoft Windows NT 6.2.9200.0
@@ -83,6 +83,7 @@
 #define DUIReferenceObjectBase1_ Dubrovnik_UnitTests_IReferenceObjectBase1
 #define DUITestProperty_ Dubrovnik_UnitTests_ITestProperty
 #define DULongEnum_ Dubrovnik_UnitTests_LongEnum
+#define DUReferenceEventArgs_ Dubrovnik_UnitTests_ReferenceEventArgs
 #define DUReferenceObject_ Dubrovnik_UnitTests_ReferenceObject
 #define DUReferenceObject_ActionDelegate_ Dubrovnik_UnitTests_ReferenceObject__ActionDelegate
 #define DUReferenceObject_FunctionDelegate1_ Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1
@@ -135,6 +136,7 @@ Assembly type imports
 #import "Dubrovnik_UnitTests_ITestProperty.h"
 #import "Dubrovnik_UnitTests_ITestProperty_Protocol.h"
 #import "Dubrovnik_UnitTests_LongEnum.h"
+#import "Dubrovnik_UnitTests_ReferenceEventArgs.h"
 #import "Dubrovnik_UnitTests_ReferenceObject.h"
 #import "Dubrovnik_UnitTests_ReferenceObject__ActionDelegate.h"
 #import "Dubrovnik_UnitTests_ReferenceObject__FunctionDelegate1.h"

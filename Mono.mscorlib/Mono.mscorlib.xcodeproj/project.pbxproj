@@ -335,6 +335,8 @@
 		AB6752C520F40CC20040CAEF /* System_ValueType_ObjectArg__.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6752C320F40CC20040CAEF /* System_ValueType_ObjectArg__.m */; };
 		AB6752C820F40F840040CAEF /* System_ValueType+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6752C620F40F840040CAEF /* System_ValueType+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB6752C920F40F840040CAEF /* System_ValueType+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6752C720F40F840040CAEF /* System_ValueType+mscorlib.m */; };
+		AB748CF622A906CB00A25754 /* System_PredicateA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB748CF422A906CB00A25754 /* System_PredicateA1.m */; };
+		AB748CF722A906CB00A25754 /* System_PredicateA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB748CF522A906CB00A25754 /* System_PredicateA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB8EE9FB21539EA1005C2E19 /* System_EventHandlerA1.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EE9F721539EA0005C2E19 /* System_EventHandlerA1.m */; };
 		AB8EE9FC21539EA1005C2E19 /* System_EventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8EE9F821539EA0005C2E19 /* System_EventHandler.m */; };
 		AB8EE9FD21539EA1005C2E19 /* System_EventHandlerA1.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8EE9F921539EA0005C2E19 /* System_EventHandlerA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -344,6 +346,8 @@
 		AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB950DE9192AA6720035ABC6 /* DBNullableDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AB950DE7192AA6720035ABC6 /* DBNullableDateTransformer.m */; };
 		AB950DEB192AA6C10035ABC6 /* ValueTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = AB950DEA192AA6C10035ABC6 /* ValueTransformers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB987AFB2359B4C1007EEBCB /* System_DateTimeOffset.h in Headers */ = {isa = PBXBuildFile; fileRef = AB987AF92359B4C1007EEBCB /* System_DateTimeOffset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB987AFC2359B4C1007EEBCB /* System_DateTimeOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = AB987AFA2359B4C1007EEBCB /* System_DateTimeOffset.m */; };
 		ABA4F3E32002BEBF00D6597A /* System_Object.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB8A3F918FF110000213B80 /* System_Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABA4F3E42002BEC200D6597A /* System_Object.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A3FA18FF110000213B80 /* System_Object.m */; };
 		ABB7B6C01EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB7B6BE1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -471,6 +475,9 @@
 		AB2E74C618FFDB0D0061C63E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
 		AB2F9E2221DBE34A00A28C5C /* NSDecimalNumber+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDecimalNumber+mscorlib.h"; path = "Categories/NSDecimalNumber+mscorlib.h"; sourceTree = "<group>"; };
 		AB2F9E2321DBE34A00A28C5C /* NSDecimalNumber+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDecimalNumber+mscorlib.m"; path = "Categories/NSDecimalNumber+mscorlib.m"; sourceTree = "<group>"; };
+		AB324CB922C5622B00561E32 /* mscorlib.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mscorlib.xml; sourceTree = "<group>"; };
+		AB324CBA22C5622B00561E32 /* mscorlib.codegen.config.objc.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mscorlib.codegen.config.objc.xml; sourceTree = "<group>"; };
+		AB324CBB22C5622B00561E32 /* mscorlib.types.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mscorlib.types.xml; sourceTree = "<group>"; };
 		AB342C0D20E67A0700CA1659 /* System_Boolean+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Boolean+mscorlib.h"; sourceTree = "<group>"; };
 		AB342C0E20E67A0700CA1659 /* System_Boolean+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Boolean+mscorlib.m"; sourceTree = "<group>"; };
 		AB348B2521CBC5CD00F07B68 /* System_Runtime_Remoting_Proxies_ProxyAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Runtime_Remoting_Proxies_ProxyAttribute.m; sourceTree = "<group>"; };
@@ -751,6 +758,8 @@
 		AB6752C320F40CC20040CAEF /* System_ValueType_ObjectArg__.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = System_ValueType_ObjectArg__.m; sourceTree = "<group>"; };
 		AB6752C620F40F840040CAEF /* System_ValueType+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_ValueType+mscorlib.h"; sourceTree = "<group>"; };
 		AB6752C720F40F840040CAEF /* System_ValueType+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_ValueType+mscorlib.m"; sourceTree = "<group>"; };
+		AB748CF422A906CB00A25754 /* System_PredicateA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_PredicateA1.m; sourceTree = "<group>"; };
+		AB748CF522A906CB00A25754 /* System_PredicateA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_PredicateA1.h; sourceTree = "<group>"; };
 		AB8EE9F721539EA0005C2E19 /* System_EventHandlerA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_EventHandlerA1.m; sourceTree = "<group>"; };
 		AB8EE9F821539EA0005C2E19 /* System_EventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_EventHandler.m; sourceTree = "<group>"; };
 		AB8EE9F921539EA0005C2E19 /* System_EventHandlerA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_EventHandlerA1.h; sourceTree = "<group>"; };
@@ -760,6 +769,8 @@
 		AB950DE6192AA6720035ABC6 /* DBNullableDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNullableDateTransformer.h; sourceTree = "<group>"; };
 		AB950DE7192AA6720035ABC6 /* DBNullableDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableDateTransformer.m; sourceTree = "<group>"; };
 		AB950DEA192AA6C10035ABC6 /* ValueTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueTransformers.h; sourceTree = "<group>"; };
+		AB987AF92359B4C1007EEBCB /* System_DateTimeOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_DateTimeOffset.h; sourceTree = "<group>"; };
+		AB987AFA2359B4C1007EEBCB /* System_DateTimeOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_DateTimeOffset.m; sourceTree = "<group>"; };
 		ABB7B6BE1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_Generic_KeyValuePairA2+mscorlib.h"; sourceTree = "<group>"; };
 		ABB7B6BF1EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_Generic_KeyValuePairA2+mscorlib.m"; sourceTree = "<group>"; };
 		ABB8A28418FEFB0700213B80 /* Mono.mscorlib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -885,6 +896,10 @@
 		AB4CDBCE1FFBF4FE0096326D /* Generated bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB987AF92359B4C1007EEBCB /* System_DateTimeOffset.h */,
+				AB987AFA2359B4C1007EEBCB /* System_DateTimeOffset.m */,
+				AB748CF522A906CB00A25754 /* System_PredicateA1.h */,
+				AB748CF422A906CB00A25754 /* System_PredicateA1.m */,
 				AB10F914220B4F43007EA4CA /* System_Collections_Generic_IListA1_Protocol.h */,
 				AB10F918220B4F43007EA4CA /* System_Collections_Generic_IListA1.h */,
 				AB10F917220B4F43007EA4CA /* System_Collections_Generic_IListA1.m */,
@@ -1265,6 +1280,9 @@
 		ABB8A28E18FEFB0700213B80 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AB324CBA22C5622B00561E32 /* mscorlib.codegen.config.objc.xml */,
+				AB324CBB22C5622B00561E32 /* mscorlib.types.xml */,
+				AB324CB922C5622B00561E32 /* mscorlib.xml */,
 				ABB8A28F18FEFB0700213B80 /* Mono.mscorlib-Info.plist */,
 				ABB8A29018FEFB0700213B80 /* InfoPlist.strings */,
 			);
@@ -1527,6 +1545,7 @@
 				AB512B4E20D062510078F747 /* System_IO_FileAttributes.h in Headers */,
 				AB512B9020D062510078F747 /* System_Runtime_InteropServices__Exception_Protocol.h in Headers */,
 				AB512B2420D062510078F747 /* System_Collections_Generic_IEnumerableA1_Protocol.h in Headers */,
+				AB987AFB2359B4C1007EEBCB /* System_DateTimeOffset.h in Headers */,
 				AB512B9A20D062510078F747 /* System_Enum.h in Headers */,
 				AB348B3221CBC5CF00F07B68 /* System_Runtime_Remoting_Proxies_RealProxy.h in Headers */,
 				AB512B4D20D062510078F747 /* System_ActionA1.h in Headers */,
@@ -1568,6 +1587,7 @@
 				ABE1354D192AAEED000689BC /* DBNullableDecimalTransformer.h in Headers */,
 				AB950DE8192AA6720035ABC6 /* DBNullableDateTransformer.h in Headers */,
 				AB10F926220B4F44007EA4CA /* System_Collections_Generic_IReadOnlyDictionaryA2_Protocol.h in Headers */,
+				AB748CF722A906CB00A25754 /* System_PredicateA1.h in Headers */,
 				AB10F924220B4F44007EA4CA /* System_Collections_Generic_IListA1.h in Headers */,
 				AB950DEB192AA6C10035ABC6 /* ValueTransformers.h in Headers */,
 				AB35EBFC21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_ISponsor_Protocol.h in Headers */,
@@ -1653,7 +1673,7 @@
 		ABB8A27B18FEFB0700213B80 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Thesaurus Software";
 				TargetAttributes = {
 					ABB8A29A18FEFB0700213B80 = {
@@ -1663,10 +1683,11 @@
 			};
 			buildConfigurationList = ABB8A27E18FEFB0700213B80 /* Build configuration list for PBXProject "Mono.mscorlib" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = ABB8A27A18FEFB0700213B80;
 			productRefGroup = ABB8A28518FEFB0700213B80 /* Products */;
@@ -1759,6 +1780,7 @@
 				AB512BE120D062520078F747 /* System_Int64.m in Sources */,
 				AB512BD420D062510078F747 /* System_NullableA1.m in Sources */,
 				AB5ABE3921C1C0B900D27EDF /* System_MarshalByRefObject.m in Sources */,
+				AB987AFC2359B4C1007EEBCB /* System_DateTimeOffset.m in Sources */,
 				AB512BB620D062510078F747 /* System_Exception.m in Sources */,
 				AB512B3A20D062510078F747 /* System_Reflection_Assembly.m in Sources */,
 				AB348B3121CBC5CF00F07B68 /* System_Runtime_Remoting_Proxies_ProxyAttribute.m in Sources */,
@@ -1885,6 +1907,7 @@
 				AB512BE520D070860078F747 /* System_FuncA3.m in Sources */,
 				AB512B6520D062510078F747 /* System_Collections_Generic_DictionaryA2__KeyCollection.m in Sources */,
 				AB512B3820D062510078F747 /* System_Enum.m in Sources */,
+				AB748CF622A906CB00A25754 /* System_PredicateA1.m in Sources */,
 				E74BA74921F8C2FB0067C99F /* System_Collections_Concurrent_OrderablePartitionerA1.m in Sources */,
 				AB512B3420D062510078F747 /* System_Collections_IEnumerable.m in Sources */,
 				AB24601820F4F94100D1C09E /* System_Double+mscorlib.m in Sources */,
@@ -1947,6 +1970,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2004,6 +2028,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

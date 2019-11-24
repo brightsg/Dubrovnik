@@ -5,14 +5,13 @@
 //  Created by Jonathan Mitchell on 21/03/2014.
 //  Copyright (c) 2014 Thesaurus Software Limited. All rights reserved.
 //
+@import ObjectiveC;
 
 #import "NSObject+DBManagedEvent.h"
-#import <objc/runtime.h>
 #import "DBManagedObject.h"
 #import "DBManagedEvent.h"
 
 @implementation NSObject (DBManagedEvent)
-
 
 - (void)addManagedEventHandlerForClass:(Class)managedClass
                               eventName:(NSString *)eventName

@@ -299,7 +299,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -356,8 +356,6 @@
 
 /* Skipped method : System.Reflection.ParameterInfo[] GetParameters() */
 
-/* Skipped method : System.Object Invoke(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
-
 /**
  Managed method.
  @textblock
@@ -372,7 +370,9 @@
    System.Object
  @/textblock
 */
-- (System_Object *)invoke_withObj:(System_Object *)p1 parameters:(System_Array *)p2;
+- (id <DBMonoObject>)invoke_withObj:(id <DBMonoObject>)p1 parameters:(System_Array *)p2;
+
+/* Skipped method : System.Object Invoke(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
 
 /**
  Managed method.

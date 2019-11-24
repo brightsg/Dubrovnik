@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     2/6/2019 5:13:39 PM
+// Date:     18/10/2019 10:14:28
 //
 // Assembly: System.Core
 // Fullname: System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -54,6 +54,26 @@
 Assembly type imports
 
 */
+// Dubrovnik.CodeGenerator made System_Dynamic_BinaryOperationBinder.m
+// Dubrovnik.CodeGenerator made System_Dynamic_BindingRestrictions.m
+// Dubrovnik.CodeGenerator made System_Dynamic_CallInfo.m
+// Dubrovnik.CodeGenerator made System_Dynamic_ConvertBinder.m
+// Dubrovnik.CodeGenerator made System_Dynamic_CreateInstanceBinder.m
+// Dubrovnik.CodeGenerator made System_Dynamic_DeleteIndexBinder.m
+// Dubrovnik.CodeGenerator made System_Dynamic_DeleteMemberBinder.m
+// Dubrovnik.CodeGenerator made System_Dynamic_DynamicMetaObject.m
+// Dubrovnik.CodeGenerator made System_Dynamic_DynamicMetaObjectBinder.m
+// Dubrovnik.CodeGenerator made System_Dynamic_DynamicObject.m
+// Dubrovnik.CodeGenerator made System_Dynamic_ExpandoObject.m
+// Dubrovnik.CodeGenerator made System_Dynamic_GetIndexBinder.m
+// Dubrovnik.CodeGenerator made System_Dynamic_GetMemberBinder.m
+// Dubrovnik.CodeGenerator made System_Dynamic_IDynamicMetaObjectProvider.m
+// Dubrovnik.CodeGenerator made System_Dynamic_IInvokeOnGetBinder.m
+// Dubrovnik.CodeGenerator made System_Dynamic_InvokeBinder.m
+// Dubrovnik.CodeGenerator made System_Dynamic_InvokeMemberBinder.m
+// Dubrovnik.CodeGenerator made System_Dynamic_SetIndexBinder.m
+// Dubrovnik.CodeGenerator made System_Dynamic_SetMemberBinder.m
+// Dubrovnik.CodeGenerator made System_Dynamic_UnaryOperationBinder.m
 // Dubrovnik.CodeGenerator made System_Linq_IOrderedEnumerableA1.m
 // Dubrovnik.CodeGenerator made System_Linq_IOrderedQueryable.m
 // Dubrovnik.CodeGenerator made System_Linq_IOrderedQueryableA1.m

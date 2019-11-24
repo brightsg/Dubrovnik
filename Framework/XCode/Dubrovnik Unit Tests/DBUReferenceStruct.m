@@ -32,7 +32,7 @@
 // Mono type is Dubrovnik.UnitTests.ReferenceStruct
 + (DBUReferenceStruct *)newWithS:(NSString *)p1
 {
-    return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+    return [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 #pragma mark -
@@ -42,26 +42,26 @@
 - (int32_t)intField
 {
     int32_t monoObject;
-    [self getMonoField:"intField" valuePtr:DB_PTR(monoObject)];
+    [self getMonoField:"intField" value:DB_PTR(monoObject)];
     return monoObject;
 }
 - (void)setIntField:(int32_t)value
 {
-    MonoObject *monoObject = DB_VALUE(value);
-    [self setMonoField:"intField" valueObject:monoObject];
+    void *monoObject = DB_VALUE(value);
+    [self setMonoField:"intField" value:monoObject];
 }
 
 // Mono type is System.String
 - (NSString *)stringField
 {
     MonoObject * monoObject;
-    [self getMonoField:"StringField" valuePtr:DB_PTR(monoObject)];
+    [self getMonoField:"StringField" value:DB_PTR(monoObject)];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 - (void)setStringField:(NSString *)value
 {
-    MonoObject *monoObject = [value monoRTInvokeArg];
-    [self setMonoField:"StringField" valueObject:monoObject];
+    MonoObject *monoObject = [value monoRTInvokeObject];
+    [self setMonoField:"StringField" value:monoObject];
 }
 
 #pragma mark -
@@ -75,8 +75,8 @@
 }
 - (void)setStringProperty:(NSString *)value
 {
-    MonoObject *monoObject = [value monoRTInvokeArg];
-    [self setMonoProperty:"StringProperty" valueObject:monoObject];
+    MonoObject *monoObject = [value monoRTInvokeObject];
+    [self setMonoProperty:"StringProperty" value:monoObject];
 }
 
 #pragma mark -
@@ -85,7 +85,7 @@
 // Mono type is System.String
 - (NSString *)stringMethod_withS1:(NSString *)p1
 {
-    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+    MonoObject *monoObject = [self invokeMonoMethod:"StringMethod(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
     return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 @end

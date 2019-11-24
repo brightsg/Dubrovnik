@@ -52,6 +52,14 @@ namespace Dubrovnik.UnitTests {
 	//==============================
 	// classes
 	//==============================
+    public class ReferenceEventArgs : EventArgs
+    {
+        public ReferenceEventArgs() : base()
+        {
+
+        }
+    }
+
 	public class ReferenceObject : IMinimalReferenceObject, IReferenceObject1, IReferenceObject2, INotifyPropertyChanged, INotifyPropertyChanging {
 
 		//==============================
@@ -59,7 +67,9 @@ namespace Dubrovnik.UnitTests {
 		//==============================
 		public event EventHandler UnitTestEvent1;
 		public event EventHandler UnitTestEvent2;
-		public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler<ReferenceEventArgs> UnitTestEvent3;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 		public event PropertyChangingEventHandler PropertyChanging;
 
 		//==============================
@@ -70,36 +80,10 @@ namespace Dubrovnik.UnitTests {
 		public delegate int FunctionDelegate1(System.Object @object); // @object will appear as __object Obj-C named parameter
 		public delegate int FunctionDelegate2(int value, string message);
 
-		//==============================
-		// statics
-		//==============================
-
-		// static methods
-		public static string ClassDescription() {
-			return "Dubrovnik.UnitTests static method";
-		}
-
-		// static properties
-		public static string ClassStringProperty { get; set; }
-		public static DateTime ClassDateProperty { get; set; }
-
-		// static constructor
-		static ReferenceObject() {
-			ClassStringProperty = "Dubrovnik.UnitTests static property";
-			ClassDateProperty = new DateTime(2014, 4, 6, 0, 0, 0, DateTimeKind.Utc);
-		}
-
-		// static fields
-		public static string ClassStringField = "Dubrovnik.UnitTests class field";
-		public static int ClassIntField = 1;
-		public const string ClassConstStringField = "Dubrovnik.UnitTests const field";
-		public readonly string ClassReadonlyStringField = "Dubrovnik.UnitTests readonly field";
-		public static DateTime ClassDateField = new DateTime(2014, 4, 6, 0, 0, 0, DateTimeKind.Utc);
-
-		//==============================
-		// nested types
-		//==============================
-		public class NestedClass {
+        //==============================
+        // nested types
+        //==============================
+        public class NestedClass {
 			public string StringProperty { get; set; }
 
 			public NestedClass() {
@@ -227,21 +211,38 @@ namespace Dubrovnik.UnitTests {
 			StringProperty = value1 + value2;
 		}
 
-		//==============================
-		// fields
-		//==============================
-		public string StringField = "Dubrovnik.UnitTests public string StringField";
+        // static constructor
+        static ReferenceObject()
+        {
+            ClassStringProperty = "Dubrovnik.UnitTests static property";
+            ClassDateProperty = new DateTime(2014, 4, 6, 0, 0, 0, DateTimeKind.Utc);
+        }
+
+        //==============================
+        // fields
+        //==============================
+        public string StringField = "Dubrovnik.UnitTests public string StringField";
 		public int IntField = 1;
 		public DateTime DateField = DateTime.UtcNow;
 		public IntEnum IntEnumField = IntEnum.val1;
 		public LongEnum LongEnumField = LongEnum.val1;
+        public object objectField;
+             
+        // static fields
+        public static string ClassStringField = "Dubrovnik.UnitTests class field";
+        public static int ClassIntField = 1;
+        public const string ClassConstStringField = "Dubrovnik.UnitTests const field";
+        public readonly string ClassReadonlyStringField = "Dubrovnik.UnitTests readonly field";
+        public static DateTime ClassDateField = new DateTime(2014, 4, 6, 0, 0, 0, DateTimeKind.Utc);
+        public static IntEnum IntEnumFieldStatic = IntEnum.val1;
+        public static LongEnum LongEnumFieldStatic = LongEnum.val1;
 
-		//==============================
-		// properties
-		//==============================
+        //==============================
+        // properties
+        //==============================
 
-		// interface
-		public ITestProperty InterfaceTestProperty { get; set; }
+        // interface
+        public ITestProperty InterfaceTestProperty { get; set; }
 
 		// implicit property defined in interface.
 		// this should be accessible on the native object and on the interface object
@@ -298,9 +299,11 @@ namespace Dubrovnik.UnitTests {
 		// enumeration properties
 		public IntEnum IntEnumeration { get; set; }
 		public LongEnum LongEnumeration { get; set; }
+        public IntEnum? IntEnumerationNullable { get; set; }
+        public LongEnum? LongEnumerationNullable { get; set; }
 
-		// array properties
-		public double[] DoubleArray { get; set; }
+        // array properties
+        public double[] DoubleArray { get; set; }
 		public float[] FloatArray { get; set; }
 		public Int64[] Int64Array { get; set; }
 		public Int32[] Int32Array { get; set; }
@@ -358,12 +361,20 @@ namespace Dubrovnik.UnitTests {
 			}
 		}
 
-		//==============================
-		// methods
-		//==============================
+        // static properties
+        public static string ClassStringProperty { get; set; }
+        public static DateTime ClassDateProperty { get; set; }
+        public static IntEnum IntEnumerationStatic { get; set; }
+        public static LongEnum LongEnumerationStatic { get; set; }
+        public static IntEnum? IntEnumerationNullableStatic { get; set; }
+        public static LongEnum? LongEnumerationNullableStatic { get; set; }
 
-		// ARC semantics will require that methods beginning with init return type related to receiver.
-		public string initWithString(string s) {
+        //==============================
+        // methods
+        //==============================
+
+        // ARC semantics will require that methods beginning with init return type related to receiver.
+        public string initWithString(string s) {
 			return s;
 		}
 
@@ -585,7 +596,7 @@ namespace Dubrovnik.UnitTests {
 		}
 
 		//
-		// Generic methods
+		// Generic instance methods
 		//
 		public string GenericMethod0<T>() {
 			return typeof(T).FullName;
@@ -607,10 +618,10 @@ namespace Dubrovnik.UnitTests {
 			return value.FirstOrDefault();
 		}
 
-		//
-		// Generic parameter methods
-		//
-		public bool ReverseList(List<string> list) {
+        //
+        //  List parameter methods
+        //
+        public bool ReverseList(List<string> list) {
 			list.Reverse();
 			return true;
 		}
@@ -727,25 +738,48 @@ namespace Dubrovnik.UnitTests {
 			return func(104, 202.2);
 		}
 
-		//=========================
-		// Event generation
-		//=========================
-		public void RaiseUnitTestEvent1() {
+        //
+        // static methods
+        //
+        public static string ClassDescription()
+        {
+            return "Dubrovnik.UnitTests static method";
+        }
+
+        //
+        // static generic methods
+        //
+        public static Dictionary<T, U> GenericMethodStatic2<T, U>(T key, U value)
+        {
+            return new Dictionary<T, U>() { { key, value } };
+        }
+
+        //=========================
+        // Event generation
+        //=========================
+        public void RaiseUnitTestEvent1() {
 			if (UnitTestEvent1 != null) {
-				UnitTestEvent1(this, null);
+				UnitTestEvent1(this, EventArgs.Empty);
 			}
 		}
 
 		public void RaiseUnitTestEvent2() {
 			if (UnitTestEvent2 != null) {
-				UnitTestEvent2(this, null);
+				UnitTestEvent2(this, new EventArgs());
 			}
 		}
 
-		//=====================
-		// Equality
-		//=====================
-		public override bool Equals(Object obj) {
+        public void RaiseUnitTestEvent3()
+        {
+            if (UnitTestEvent3 != null) {
+                UnitTestEvent3(this, new ReferenceEventArgs());
+            }
+        }
+
+        //=====================
+        // Equality
+        //=====================
+        public override bool Equals(Object obj) {
 			//Check for null and compare run-time types. 
 			if ((obj == null) || !this.GetType().Equals(obj.GetType())) {
 				return false;

@@ -158,7 +158,7 @@
 
 - (void)changeDatabase_withDatabaseName:(NSString *)p1
 {
-	[self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"ChangeDatabase(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 - (void)close
@@ -192,6 +192,11 @@
 	MonoObject *monoObject = [self invokeMonoMethod:"OpenAsync(System.Threading.CancellationToken)" withNumArgs:1, [p1 monoRTInvokeArg]];
 	return [System_Threading_Tasks_Task bestObjectWithMonoObject:monoObject];
 }
+
+#pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Data.StateChangeEventHandler StateChange */
 
 #pragma mark -
 #pragma mark Teardown

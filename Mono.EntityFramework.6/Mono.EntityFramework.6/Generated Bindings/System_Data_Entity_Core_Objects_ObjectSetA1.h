@@ -66,7 +66,7 @@
    System.Void
  @/textblock
 */
-- (void)addObject_withEntity:(System_Object *)p1;
+- (void)addObject_withEntity:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -81,7 +81,7 @@
    <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
  @/textblock
 */
-- (System_Object *)applyCurrentValues_withCurrentEntity:(System_Object *)p1;
+- (id <DBMonoObject>)applyCurrentValues_withCurrentEntity:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -96,7 +96,7 @@
    <System.Data.Entity.Core.Objects.ObjectSet`1+TEntity>
  @/textblock
 */
-- (System_Object *)applyOriginalValues_withOriginalEntity:(System_Object *)p1;
+- (id <DBMonoObject>)applyOriginalValues_withOriginalEntity:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -111,7 +111,7 @@
    System.Void
  @/textblock
 */
-- (void)attach_withEntity:(System_Object *)p1;
+- (void)attach_withEntity:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -126,7 +126,7 @@
    System.Void
  @/textblock
 */
-- (void)deleteObject_withEntity:(System_Object *)p1;
+- (void)deleteObject_withEntity:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -141,6 +141,6 @@
    System.Void
  @/textblock
 */
-- (void)detach_withEntity:(System_Object *)p1;
+- (void)detach_withEntity:(id <DBMonoObject>)p1;
 @end
 //--Dubrovnik.CodeGenerator

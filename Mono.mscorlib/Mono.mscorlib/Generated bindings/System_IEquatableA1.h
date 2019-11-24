@@ -58,6 +58,6 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withOther:(System_Object *)p1;
+- (BOOL)equals_withOther:(id <DBMonoObject>)p1;
 @end
 //--Dubrovnik.CodeGenerator

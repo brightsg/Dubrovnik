@@ -130,7 +130,7 @@
    <System.Collections.Generic.IDictionary`2+TValue>
  @/textblock
 */
-- (System_Object *)get_Item_withKey:(System_Object *)p1;
+- (id <DBMonoObject>)get_Item_withKey:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -146,7 +146,7 @@
    System.Void
  @/textblock
 */
-- (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2;
+- (void)set_Item_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -162,7 +162,7 @@
    System.Void
  @/textblock
 */
-- (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2;
+- (void)add_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -177,7 +177,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)containsKey_withKey:(System_Object *)p1;
+- (BOOL)containsKey_withKey:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -192,7 +192,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)remove_withKey:(System_Object *)p1;
+- (BOOL)remove_withKey:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -208,7 +208,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+- (BOOL)tryGetValue_withKey:(id <DBMonoObject>)p1 valueRef:(System_Object **)p2;
 #endif
 
 
@@ -266,7 +266,7 @@
    <System.Collections.Generic.IDictionary`2+TValue>
  @/textblock
 */
-- (System_Object *)get_Item_withKey:(System_Object *)p1;
+- (id <DBMonoObject>)get_Item_withKey:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -282,7 +282,7 @@
    System.Void
  @/textblock
 */
-- (void)set_Item_withKey:(System_Object *)p1 value:(System_Object *)p2;
+- (void)set_Item_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -298,7 +298,7 @@
    System.Void
  @/textblock
 */
-- (void)add_withKey:(System_Object *)p1 value:(System_Object *)p2;
+- (void)add_withKey:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -313,7 +313,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)containsKey_withKey:(System_Object *)p1;
+- (BOOL)containsKey_withKey:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -328,7 +328,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)remove_withKey:(System_Object *)p1;
+- (BOOL)remove_withKey:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -344,7 +344,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2;
+- (BOOL)tryGetValue_withKey:(id <DBMonoObject>)p1 valueRef:(System_Object **)p2;
 
 @end
 

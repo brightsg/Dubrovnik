@@ -157,16 +157,10 @@
 #pragma mark -
 #pragma mark Methods
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
-}
-
-- (System_Array *)getAccessors_withNonPublic:(BOOL)p1
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"GetAccessors(bool)" withNumArgs:1, DB_VALUE(p1)];
-	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (System_Array *)getAccessors
@@ -175,21 +169,27 @@
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-- (System_Object *)getConstantValue
+- (System_Array *)getAccessors_withNonPublic:(BOOL)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetAccessors(bool)" withNumArgs:1, &p1];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
+
+- (id <DBMonoObject>)getConstantValue
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetConstantValue()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Reflection_MethodInfo *)getGetMethod_withNonPublic:(BOOL)p1
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"GetGetMethod(bool)" withNumArgs:1, DB_VALUE(p1)];
-	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
-}
-
 - (System_Reflection_MethodInfo *)getGetMethod
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetGetMethod()" withNumArgs:0];
+	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
+}
+
+- (System_Reflection_MethodInfo *)getGetMethod_withNonPublic:(BOOL)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetGetMethod(bool)" withNumArgs:1, &p1];
 	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 }
 
@@ -207,7 +207,7 @@
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-- (System_Object *)getRawConstantValue
+- (id <DBMonoObject>)getRawConstantValue
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetRawConstantValue()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -219,27 +219,27 @@
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-- (System_Reflection_MethodInfo *)getSetMethod_withNonPublic:(BOOL)p1
-{
-	MonoObject *monoObject = [self invokeMonoMethod:"GetSetMethod(bool)" withNumArgs:1, DB_VALUE(p1)];
-	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
-}
-
 - (System_Reflection_MethodInfo *)getSetMethod
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"GetSetMethod()" withNumArgs:0];
 	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)getValue_withObj:(System_Object *)p1
+- (System_Reflection_MethodInfo *)getSetMethod_withNonPublic:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetSetMethod(bool)" withNumArgs:1, &p1];
+	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
+}
+
+- (id <DBMonoObject>)getValue_withObj:(id <DBMonoObject>)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)getValue_withObj:(System_Object *)p1 index:(System_Array *)p2
+- (id <DBMonoObject>)getValue_withObj:(id <DBMonoObject>)p1 index:(System_Array *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object,object[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetValue(object,object[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -247,27 +247,27 @@
 
 + (BOOL)op_Equality_withLeft:(System_Reflection_PropertyInfo *)p1 right:(System_Reflection_PropertyInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_Inequality_withLeft:(System_Reflection_PropertyInfo *)p1 right:(System_Reflection_PropertyInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.PropertyInfo,System.Reflection.PropertyInfo)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
+- (void)setValue_withObj:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2
+{
+	[self invokeMonoMethod:"SetValue(object,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+}
+
+- (void)setValue_withObj:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2 index:(System_Array *)p3
+{
+	[self invokeMonoMethod:"SetValue(object,object,object[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
+}
+
 /* Skipped method : System.Void SetValue(System.Object obj, System.Object value, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) */
-
-- (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2
-{
-	[self invokeMonoMethod:"SetValue(object,object)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
-}
-
-- (void)setValue_withObj:(System_Object *)p1 value:(System_Object *)p2 index:(System_Array *)p3
-{
-	[self invokeMonoMethod:"SetValue(object,object,object[])" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-}
 
 #pragma mark -
 #pragma mark Teardown

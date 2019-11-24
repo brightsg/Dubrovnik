@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     2/6/2019 5:13:08 PM
+// Date:     18/10/2019 10:13:57
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -91,6 +91,7 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_CrossAppDomainDelegate.m
 // Dubrovnik.CodeGenerator made System_DateTime.m
 // Dubrovnik.CodeGenerator made System_DateTimeKind.m
+// Dubrovnik.CodeGenerator made System_DateTimeOffset.m
 // Dubrovnik.CodeGenerator made System_DayOfWeek.m
 // Dubrovnik.CodeGenerator made System_DBNull.m
 // Dubrovnik.CodeGenerator made System_Decimal.m
@@ -130,6 +131,7 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_MulticastDelegate.m
 // Dubrovnik.CodeGenerator made System_NullableA1.m
 // Dubrovnik.CodeGenerator made System_Object.m
+// Dubrovnik.CodeGenerator made System_PredicateA1.m
 // Dubrovnik.CodeGenerator made System_Reflection_Assembly.m
 // Dubrovnik.CodeGenerator made System_Reflection_AssemblyName.m
 // Dubrovnik.CodeGenerator made System_Reflection_Binder.m

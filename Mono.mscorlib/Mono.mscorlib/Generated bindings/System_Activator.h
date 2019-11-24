@@ -69,7 +69,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2;
++ (id <DBMonoObject>)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2;
 
 /**
  Managed method.
@@ -86,7 +86,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2 activationAttributes:(System_Array *)p3;
++ (id <DBMonoObject>)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2 activationAttributes:(System_Array *)p3;
 
 /**
  Managed method.
@@ -101,7 +101,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)createInstance_withType:(System_Type *)p1;
++ (id <DBMonoObject>)createInstance_withType:(System_Type *)p1;
 
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.String assemblyName, System.String typeName) */
 
@@ -121,7 +121,21 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)createInstance_withType:(System_Type *)p1 nonPublic:(BOOL)p2;
++ (id <DBMonoObject>)createInstance_withType:(System_Type *)p1 nonPublic:(BOOL)p2;
+
+/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityInfo) */
+
+/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
+
+/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.AppDomain domain, System.String assemblyName, System.String typeName) */
+
+/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.AppDomain domain, System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
+
+/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.AppDomain domain, System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
+
+/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.ActivationContext activationContext) */
+
+/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.ActivationContext activationContext, System.String[] activationCustomData) */
 
 /**
  Managed method.
@@ -139,21 +153,7 @@
    <System.Activator+T>
  @/textblock
 */
-+ (System_Object *)createInstance_withTypeParameter:(id)typeParameter;
-
-/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityInfo) */
-
-/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
-
-/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.AppDomain domain, System.String assemblyName, System.String typeName) */
-
-/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.AppDomain domain, System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
-
-/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.AppDomain domain, System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
-
-/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.ActivationContext activationContext) */
-
-/* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstance(System.ActivationContext activationContext, System.String[] activationCustomData) */
++ (id <DBMonoObject>)createInstance_withTypeParameter:(id)typeParameter;
 
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.String assemblyFile, System.String typeName) */
 
@@ -183,7 +183,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)getObject_withType:(System_Type *)p1 url:(NSString *)p2;
++ (id <DBMonoObject>)getObject_withType:(System_Type *)p1 url:(NSString *)p2;
 
 /**
  Managed method.
@@ -200,6 +200,6 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)getObject_withType:(System_Type *)p1 url:(NSString *)p2 state:(System_Object *)p3;
++ (id <DBMonoObject>)getObject_withType:(System_Type *)p1 url:(NSString *)p2 state:(id <DBMonoObject>)p3;
 @end
 //--Dubrovnik.CodeGenerator

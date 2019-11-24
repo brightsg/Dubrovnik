@@ -202,7 +202,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (System_Object <System_IAsyncResult> *)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
+- (System_Object <System_IAsyncResult> *)beginGetRequestStream_withCallback:(System_AsyncCallback *)p1 state:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -218,7 +218,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (System_Object <System_IAsyncResult> *)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(System_Object *)p2;
+- (System_Object <System_IAsyncResult> *)beginGetResponse_withCallback:(System_AsyncCallback *)p1 state:(id <DBMonoObject>)p2;
 
 /**
  Managed method.

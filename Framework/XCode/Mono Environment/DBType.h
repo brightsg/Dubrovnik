@@ -46,6 +46,6 @@
 + (NSString *)monoClassNameForMonoObject:(MonoObject *)monoObject;
 + (BOOL)monoObjectContainsValueType:(MonoObject *)monoObject;
 
-// Managed class name methods
-+ (NSString *)managedClassNameFromMonoClassName:(NSString *)monoClassName;
+// Native class (i.e Obj-c) name methods
++ (NSString *)nativeClassNameFromMonoClassName:(NSString *)monoClassName;
 @end

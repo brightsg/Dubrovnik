@@ -63,13 +63,13 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
         
         // a cache miss should likely only occur then native wrapper has been deallocated but the managed delegate lives on
         if (!delegateInfo) {
-            NSLog(@"No native delegateInfo found for UniversalDelegate invocation.");
+            NSLog(@"No native delegateInfo found for UniversalDelegate invocation. It may well be that the native wrapper for the delegate has been delallocated.");
             return nil;
         }
     }
     
     // dispatch block
-    __block System_Object *resultObject = nil;
+    __block id <DBMonoObject> resultObject = nil;
     dispatch_block_t dispatchBlk = ^{
         
         // process parameters
@@ -125,7 +125,7 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
     
     // Get internal call name - this identifies the managed static method that will call through to our iCall
     MonoMethod *method = [DBManagedEnvironment dubrovnikMonoMethodWithName:"GetInternalCallName" className:"Mono.Embedding.UniversalDelegateServices" argCount:0];
-    MonoObject *monoResult = DBMonoClassInvokeMethod(method, 0);
+    MonoObject *monoResult = DBMonoMethodInvoke(method, NULL, 0);
     NSString *callName = [NSString stringWithMonoString:DB_STRING(monoResult)];
     
     // add internal call
@@ -140,8 +140,15 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
 {
     // get delegate type
     System_Type *delegateType = [self.class db_getType]; // in a class method self.class === self
-
     return [self universalDelegateWithConstructedType:delegateType block:block];
+}
+
++ (instancetype)universalDelegate:(NSArray <id> *)typeParameters block:(DBUniversalDelegateBlock)block
+{
+    System_Type *constructedType = [self db_constructTypeWithParameters:typeParameters];
+    System_Delegate *delegate = [self universalDelegateWithConstructedType:constructedType block:block];
+    
+    return delegate;
 }
 
 + (instancetype)universalDelegateWithConstructedType:(System_Type *)delegateType block:(DBUniversalDelegateBlock)block
@@ -161,7 +168,7 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
     
     // Invoke CreateWrapper
     MonoMethod *method = [DBManagedEnvironment dubrovnikMonoMethodWithName:"CreateWrapper" className:"Mono.Embedding.UniversalDelegateServices" argCount:2];
-    MonoObject *monoResult = DBMonoClassInvokeMethod(method, 2, delegateType.monoObject, [contextPtr monoRTInvokeArg]);
+    MonoObject *monoResult = DBMonoMethodInvoke(method, NULL, 2, delegateType.monoObject, [contextPtr monoRTInvokeArg]);
     System_Delegate *delegate = [self objectWithMonoObject:monoResult];
     
     // cache the delegate info
@@ -207,4 +214,13 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
     objc_setAssociatedObject(self, @selector(db_delegateInfo), info, OBJC_ASSOCIATION_RETAIN);
 }
 
+- (NSString *)db_identifier
+{
+    return objc_getAssociatedObject(self, @selector(db_identifier));
+}
+
+- (void)setDb_identifier:(NSString *)identifier
+{
+    objc_setAssociatedObject(self, @selector(db_identifier), identifier, OBJC_ASSOCIATION_RETAIN);
+}
 @end

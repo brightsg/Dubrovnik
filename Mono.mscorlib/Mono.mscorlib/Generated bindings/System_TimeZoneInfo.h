@@ -20,6 +20,7 @@
 @class System_Array;
 @class System_Boolean;
 @class System_DateTime;
+@class System_DateTimeOffset;
 @class System_IEquatableA1;
 @class System_Int32;
 @class System_Object;
@@ -167,7 +168,21 @@
 */
 + (void)clearCachedData;
 
-/* Skipped method : System.DateTimeOffset ConvertTime(System.DateTimeOffset dateTimeOffset, System.TimeZoneInfo destinationTimeZone) */
+/**
+ Managed method.
+ @textblock
+ Name
+   ConvertTime
+
+ Params
+   System.DateTimeOffset
+   System.TimeZoneInfo
+
+ Return
+   System.DateTimeOffset
+ @/textblock
+*/
++ (System_DateTimeOffset *)convertTime_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZone:(System_TimeZoneInfo *)p2;
 
 /**
  Managed method.
@@ -202,7 +217,21 @@
 */
 + (NSDate *)convertTime_withDateTime:(NSDate *)p1 sourceTimeZone:(System_TimeZoneInfo *)p2 destinationTimeZone:(System_TimeZoneInfo *)p3;
 
-/* Skipped method : System.DateTimeOffset ConvertTimeBySystemTimeZoneId(System.DateTimeOffset dateTimeOffset, System.String destinationTimeZoneId) */
+/**
+ Managed method.
+ @textblock
+ Name
+   ConvertTimeBySystemTimeZoneId
+
+ Params
+   System.DateTimeOffset
+   System.String
+
+ Return
+   System.DateTimeOffset
+ @/textblock
+*/
++ (System_DateTimeOffset *)convertTimeBySystemTimeZoneId_withDateTimeOffset:(System_DateTimeOffset *)p1 destinationTimeZoneId:(NSString *)p2;
 
 /**
  Managed method.
@@ -371,7 +400,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -418,7 +447,20 @@
 */
 - (System_Array *)getAdjustmentRules;
 
-/* Skipped method : System.TimeSpan[] GetAmbiguousTimeOffsets(System.DateTimeOffset dateTimeOffset) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetAmbiguousTimeOffsets
+
+ Params
+   System.DateTimeOffset
+
+ Return
+   System.TimeSpan[]
+ @/textblock
+*/
+- (System_Array *)getAmbiguousTimeOffsets_withDateTimeOffset:(System_DateTimeOffset *)p1;
 
 /**
  Managed method.
@@ -452,7 +494,20 @@
 
 /* Skipped method : System.Collections.ObjectModel.ReadOnlyCollection`1<System.TimeZoneInfo> GetSystemTimeZones() */
 
-/* Skipped method : System.TimeSpan GetUtcOffset(System.DateTimeOffset dateTimeOffset) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetUtcOffset
+
+ Params
+   System.DateTimeOffset
+
+ Return
+   System.TimeSpan
+ @/textblock
+*/
+- (System_TimeSpan *)getUtcOffset_withDateTimeOffset:(System_DateTimeOffset *)p1;
 
 /**
  Managed method.
@@ -484,7 +539,20 @@
 */
 - (BOOL)hasSameRules_withOther:(System_TimeZoneInfo *)p1;
 
-/* Skipped method : System.Boolean IsAmbiguousTime(System.DateTimeOffset dateTimeOffset) */
+/**
+ Managed method.
+ @textblock
+ Name
+   IsAmbiguousTime
+
+ Params
+   System.DateTimeOffset
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isAmbiguousTime_withDateTimeOffset:(System_DateTimeOffset *)p1;
 
 /**
  Managed method.
@@ -501,7 +569,20 @@
 */
 - (BOOL)isAmbiguousTime_withDateTime:(NSDate *)p1;
 
-/* Skipped method : System.Boolean IsDaylightSavingTime(System.DateTimeOffset dateTimeOffset) */
+/**
+ Managed method.
+ @textblock
+ Name
+   IsDaylightSavingTime
+
+ Params
+   System.DateTimeOffset
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)isDaylightSavingTime_withDateTimeOffset:(System_DateTimeOffset *)p1;
 
 /**
  Managed method.

@@ -13,17 +13,48 @@ extern char DBCacheSuffixChar;
 #import "DBMonoIncludes.h"
 #import "DBManagedType.h"
 
-@class DBManagedEnvironment, DBManagedClass, DBManagedMethod;
+@class DBManagedEnvironment, DBManagedClass, DBManagedMethod, DBManagedObject;
 
-@protocol DBManagedObject <NSObject>
+/**
+ Defines member functions that permit an object to act as a container for an underlying managed object.
+ Objects that implement this protocol can be passed as arguments to managed member function invocations
+ and can be returned by such functions.(System_Object *)
+ */
+@protocol DBMonoObject <NSObject>
 
-@property (strong, readonly) DBManagedType *managedType;
-@property (strong, readonly) DBManagedEnvironment *monoEnvironment;
+@required
+
+// objects
 @property (assign, readonly) MonoObject *monoObject;
-@property (assign, readonly) NSUInteger monoHash;
-- (MonoObject *)monoRTInvokeArg;
+
+- (void *)monoRTInvokeArg;
+- (MonoObject *)monoRTInvokeObject;
+
+@optional
+
 @end
 
+/**
+ Member functions that permit an object to respond like a managed object.
+ */
+@protocol DBManagedObject <DBMonoObject>
+
+// objects
+@property (strong, readonly) DBManagedType *managedType;
+@property (strong, readonly) DBManagedEnvironment *monoEnvironment;
+
+// primitives
+@property (assign, readonly) NSUInteger monoHash;
+
+- (void *)monoRTInvokeArg:(id <DBMonoObject>)object typeParameterIndex:(NSUInteger)idx;
++ (void *)monoRTInvokeArg:(id <DBMonoObject>)object typeParameterIndex:(NSUInteger)idx;
+- (void *)monoRTInvokeArg:(id <DBMonoObject>)object method:(DBManagedMethod *)method typeParameterIndex:(NSUInteger)idx;
+@end
+
+
+/**
+ Optional methods.
+ */
 @protocol DBManagedObjectOptionalCategoryMethods <NSObject>
 @optional
 + (NSArray *)db_keysToIgnoreInChangeValueForKeyMethods;
@@ -170,8 +201,8 @@ extern char DBCacheSuffixChar;
 
 /*!
  
- Returns an instance of the receiver class representing the monoObject * refrence returned by the parameter.
- The parameter must conform to a protocol representing a managed explcit interface derived from the reciver's classname.
+ Returns an instance of the receiver class representing the monoObject * reference returned by the parameter.
+ The parameter must conform to a protocol representing a managed explcit interface derived from the receiver's classname.
  This is method is used to obtain exlpicit interfaces of obj.
  
  */
@@ -226,19 +257,14 @@ extern char DBCacheSuffixChar;
  This method is generally used when passing arguments to managed methods.
  
  */
-- (MonoObject *)monoRTInvokeArg;
+- (void *)monoRTInvokeArg;
+- (MonoObject *)monoRTInvokeObject;
 - (MonoAssembly *)monoAssembly;
 - (MonoImage *)monoImage;
 
-// direct method Invocation
-+ (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args;
-+ (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
-- (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs varArgList:(va_list)va_args;
+// method Invocation
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
-
-// more complex invocations make use of a DBManagedMethod instance
-- (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs varArgList:(va_list)va_args;
-- (MonoObject *)invokeMethod:(DBManagedMethod *)method withNumArgs:(int)numArgs, ...;
++ (MonoObject *)invokeMonoClassMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
 
 // Equality testing
 + (BOOL)object:(id)object1 isEqualToMonoObjectForObject:(id)object2;
@@ -257,21 +283,21 @@ extern char DBCacheSuffixChar;
 - (void)setMonoObject:(MonoObject *)valueObject forIndexObject:(void *)indexObject;
 
 // Field Access
-+ (void)getMonoClassField:(const char *)fieldName valuePtr:(void *)valuePtr;
++ (void)getMonoClassField:(const char *)fieldName value:(void *)value;
 + (MonoObject *)getMonoClassField:(const char *)fieldName;
 
-+ (void)setMonoClassField:(const char *)fieldName valueObject:(MonoObject *)valueObject;
++ (void)setMonoClassField:(const char *)fieldName value:(void *)value;
 
-- (void)getMonoField:(const char *)fieldName valuePtr:(void *)valuePtr;
+- (void)getMonoField:(const char *)fieldName value:(void *)value;
 - (MonoObject *)getMonoField:(const char *)fieldName;
 
-- (void)setMonoField:(const char *)fieldName valueObject:(MonoObject *)valueObject;
+- (void)setMonoField:(const char *)fieldName value:(void *)value;
 
 // Property Access
 + (MonoObject *)getMonoClassProperty:(const char *)propertyName;
-+ (void)setMonoClassProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject;
++ (void)setMonoClassProperty:(const char *)propertyName value:(void *)value;
 - (MonoObject *)getMonoProperty:(const char *)propertyName;
-- (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject;
+- (void)setMonoProperty:(const char *)propertyName value:(void *)value;
 
 // Property names
 - (NSString *)unmanagedPropertyName:(const char *)managedPropertyName;

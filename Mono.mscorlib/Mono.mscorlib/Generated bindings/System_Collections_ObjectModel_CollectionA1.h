@@ -111,7 +111,7 @@
    <System.Collections.ObjectModel.Collection`1+T>
  @/textblock
 */
-- (System_Object *)get_Item_withIndex:(int32_t)p1;
+- (id <DBMonoObject>)get_Item_withIndex:(int32_t)p1;
 
 /**
  Managed method.
@@ -127,7 +127,7 @@
    System.Void
  @/textblock
 */
-- (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
+- (void)set_Item_withIndex:(int32_t)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -142,7 +142,7 @@
    System.Void
  @/textblock
 */
-- (void)add_withItem:(System_Object *)p1;
+- (void)add_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -172,7 +172,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)contains_withItem:(System_Object *)p1;
+- (BOOL)contains_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -218,7 +218,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withItem:(System_Object *)p1;
+- (int32_t)indexOf_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -234,7 +234,7 @@
    System.Void
  @/textblock
 */
-- (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2;
+- (void)insert_withIndex:(int32_t)p1 item:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -249,7 +249,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)remove_withItem:(System_Object *)p1;
+- (BOOL)remove_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

@@ -66,7 +66,7 @@
    System.EventHandler
  @/textblock
 */
-+ (System_EventHandler *)new_withObject:(System_Object *)p1 method:(void *)p2;
++ (System_EventHandler *)new_withObject:(id <DBMonoObject>)p1 method:(void *)p2;
 
 #pragma mark -
 #pragma mark Methods
@@ -87,7 +87,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (System_Object <System_IAsyncResult> *)beginInvoke_withSender:(System_Object *)p1 e:(System_EventArgs *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
+- (System_Object <System_IAsyncResult> *)beginInvoke_withSender:(id <DBMonoObject>)p1 e:(System_EventArgs *)p2 callback:(System_AsyncCallback *)p3 object:(id <DBMonoObject>)p4;
 
 /**
  Managed method.
@@ -118,6 +118,6 @@
    System.Void
  @/textblock
 */
-- (void)invoke_withSender:(System_Object *)p1 e:(System_EventArgs *)p2;
+- (void)invoke_withSender:(id <DBMonoObject>)p1 e:(System_EventArgs *)p2;
 @end
 //--Dubrovnik.CodeGenerator

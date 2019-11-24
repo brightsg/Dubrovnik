@@ -23,28 +23,28 @@
 + (int32_t)val1
 {
     int32_t value = 0;
-    [DBUIntEnum getMonoClassField:"val1" valuePtr:&value];
+    [DBUIntEnum getMonoClassField:"val1" value:&value];
     return value;
 }
 
 + (int32_t)val2
 {
     int32_t value = 0;
-    [DBUIntEnum getMonoClassField:"val2" valuePtr:&value];
+    [DBUIntEnum getMonoClassField:"val2" value:&value];
     return value;
 }
 
 + (eDBUIntEnum)val3
 {
     int32_t value = 0;
-    [DBUIntEnum getMonoClassField:"val3" valuePtr:&value];
+    [DBUIntEnum getMonoClassField:"val3" value:&value];
     return value;
 }
 
 + (eDBUIntEnum)val4
 {
     int32_t value = 0;
-    [DBUIntEnum getMonoClassField:"val4" valuePtr:&value];
+    [DBUIntEnum getMonoClassField:"val4" value:&value];
     return value;
 }
 

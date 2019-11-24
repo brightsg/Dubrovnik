@@ -279,6 +279,26 @@
         <string>System.Threading.Tasks.TaskExtensions</string>
 	</TypeNameSkipList>
 	<TypeNameWhiteList>
+        <string>System.Dynamic.BinaryOperationBinder</string>
+        <string>System.Dynamic.BindingRestrictions</string>
+        <string>System.Dynamic.CallInfo</string>
+        <string>System.Dynamic.ConvertBinder</string>
+        <string>System.Dynamic.CreateInstanceBinder</string>
+        <string>System.Dynamic.DeleteIndexBinder</string>
+        <string>System.Dynamic.DeleteMemberBinder</string>
+        <string>System.Dynamic.DynamicMetaObject</string>
+        <string>System.Dynamic.DynamicMetaObjectBinder</string>
+        <string>System.Dynamic.DynamicObject</string>
+        <string>System.Dynamic.ExpandoObject</string>
+        <string>System.Dynamic.GetIndexBinder</string>
+        <string>System.Dynamic.GetMemberBinder</string>
+        <string>System.Dynamic.IDynamicMetaObjectProvider</string>
+        <string>System.Dynamic.IInvokeOnGetBinder</string>
+        <string>System.Dynamic.InvokeBinder</string>
+        <string>System.Dynamic.InvokeMemberBinder</string>
+        <string>System.Dynamic.SetIndexBinder</string>
+        <string>System.Dynamic.SetMemberBinder</string>
+        <string>System.Dynamic.UnaryOperationBinder</string>
         <string>System.Linq.IOrderedEnumerable`1</string>
         <string>System.Linq.IOrderedQueryable</string>
         <string>System.Linq.IOrderedQueryable`1</string>

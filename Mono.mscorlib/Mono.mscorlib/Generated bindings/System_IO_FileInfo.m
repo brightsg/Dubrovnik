@@ -35,7 +35,7 @@
 
 + (System_IO_FileInfo *)new_withFileName:(NSString *)p1
 {
-	System_IO_FileInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeArg]];
+	System_IO_FileInfo * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return object;
 }
 
@@ -163,13 +163,13 @@
 
 - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
 }
 
 - (System_IO_FileInfo *)copyTo_withDestFileName:(NSString *)p1 overwrite:(BOOL)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"CopyTo(string,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
 }
 
@@ -198,7 +198,7 @@
 
 - (void)moveTo_withDestFileName:(NSString *)p1
 {
-	[self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"MoveTo(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.IO.FileStream Open(System.IO.FileMode mode) */
@@ -215,13 +215,13 @@
 
 - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
 }
 
 - (System_IO_FileInfo *)replace_withDestinationFileName:(NSString *)p1 destinationBackupFileName:(NSString *)p2 ignoreMetadataErrors:(BOOL)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Replace(string,string,bool)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &p3];
 	return [System_IO_FileInfo bestObjectWithMonoObject:monoObject];
 }
 

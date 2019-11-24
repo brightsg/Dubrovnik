@@ -147,7 +147,7 @@
    System.Object
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * syncRoot;
+@property (nonatomic, strong, readonly) id <DBMonoObject> syncRoot;
 
 #pragma mark -
 #pragma mark Methods
@@ -165,7 +165,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)get_Item_withIndex:(int32_t)p1;
+- (id <DBMonoObject>)get_Item_withIndex:(int32_t)p1;
 
 /**
  Managed method.
@@ -181,7 +181,7 @@
    System.Void
  @/textblock
 */
-- (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
+- (void)set_Item_withIndex:(int32_t)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -211,7 +211,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)add_withValue:(System_Object *)p1;
+- (int32_t)add_withValue:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.Void AddRange(System.Collections.ICollection c) */
 
@@ -230,7 +230,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)binarySearch_withValue:(System_Object *)p1;
+- (int32_t)binarySearch_withValue:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.Int32 BinarySearch(System.Object value, System.Collections.IComparer comparer) */
 
@@ -262,7 +262,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)clone;
+- (id <DBMonoObject>)clone;
 
 /**
  Managed method.
@@ -277,7 +277,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)contains_withItem:(System_Object *)p1;
+- (BOOL)contains_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -418,7 +418,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withValue:(System_Object *)p1;
+- (int32_t)indexOf_withValue:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -434,7 +434,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2;
+- (int32_t)indexOf_withValue:(id <DBMonoObject>)p1 startIndex:(int32_t)p2;
 
 /**
  Managed method.
@@ -451,7 +451,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
+- (int32_t)indexOf_withValue:(id <DBMonoObject>)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
 
 /**
  Managed method.
@@ -467,7 +467,7 @@
    System.Void
  @/textblock
 */
-- (void)insert_withIndex:(int32_t)p1 value:(System_Object *)p2;
+- (void)insert_withIndex:(int32_t)p1 value:(id <DBMonoObject>)p2;
 
 /* Skipped method : System.Void InsertRange(System.Int32 index, System.Collections.ICollection c) */
 
@@ -484,7 +484,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)lastIndexOf_withValue:(System_Object *)p1;
+- (int32_t)lastIndexOf_withValue:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -500,7 +500,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)lastIndexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2;
+- (int32_t)lastIndexOf_withValue:(id <DBMonoObject>)p1 startIndex:(int32_t)p2;
 
 /**
  Managed method.
@@ -517,7 +517,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)lastIndexOf_withValue:(System_Object *)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
+- (int32_t)lastIndexOf_withValue:(id <DBMonoObject>)p1 startIndex:(int32_t)p2 count:(int32_t)p3;
 
 /**
  Managed method.
@@ -562,7 +562,7 @@
    System.Void
  @/textblock
 */
-- (void)remove_withObj:(System_Object *)p1;
+- (void)remove_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -609,7 +609,7 @@
    System.Collections.ArrayList
  @/textblock
 */
-+ (System_Collections_ArrayList *)repeat_withValue:(System_Object *)p1 count:(int32_t)p2;
++ (System_Collections_ArrayList *)repeat_withValue:(id <DBMonoObject>)p1 count:(int32_t)p2;
 
 /**
  Managed method.

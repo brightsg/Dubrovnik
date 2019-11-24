@@ -76,22 +76,22 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)get_Item_withKey:(System_Object *)p1
+- (id <DBMonoObject>)get_Item_withKey:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.get_Item(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.get_Item(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (BOOL)containsKey_withKey:(System_Object *)p1
+- (BOOL)containsKey_withKey:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.ContainsKey(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.ContainsKey(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
-- (BOOL)tryGetValue_withKey:(System_Object *)p1 valueRef:(System_Object **)p2
+- (BOOL)tryGetValue_withKey:(id <DBMonoObject>)p1 valueRef:(System_Object **)p2
 {
 	void *refPtr2 = [*p2 monoRTInvokeArg];
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.TryGetValue(<_T_0>,System.Collections.Generic.IReadOnlyDictionary`2/TValue&)" withNumArgs:2, [p1 monoRTInvokeArg], &refPtr2];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyDictionary`2<System.Collections.Generic.IReadOnlyDictionary`2+TKey, System.Collections.Generic.IReadOnlyDictionary`2+TValue>.TryGetValue(<_T_0>,System.Collections.Generic.IReadOnlyDictionary`2/TValue&)" withNumArgs:2, [self monoRTInvokeArg:p1 typeParameterIndex:0], &refPtr2];
 	*p2 = [System_Object bestObjectWithMonoObject:refPtr2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }

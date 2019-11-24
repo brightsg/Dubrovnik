@@ -285,15 +285,15 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)createInstance_withTypeName:(NSString *)p1
+- (id <DBMonoObject>)createInstance_withTypeName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2
+- (id <DBMonoObject>)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstance(string,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
@@ -301,19 +301,19 @@
 
 + (NSString *)createQualifiedName_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateQualifiedName(string,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateQualifiedName(string,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
-- (BOOL)equals_withO:(System_Object *)p1
+- (BOOL)equals_withO:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (System_Reflection_Assembly *)getAssembly_withType:(System_Type *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssembly(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"GetAssembly(System.Type)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
@@ -325,13 +325,13 @@
 
 - (System_Array *)getCustomAttributes_withInherit:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(bool)" withNumArgs:1, &p1];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
 - (System_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributes(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
@@ -381,13 +381,13 @@
 
 - (System_IO_Stream *)getManifestResourceStream_withType:(System_Type *)p1 name:(NSString *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceStream(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceStream(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_IO_Stream bestObjectWithMonoObject:monoObject];
 }
 
 - (System_IO_Stream *)getManifestResourceStream_withName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceStream(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetManifestResourceStream(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_IO_Stream bestObjectWithMonoObject:monoObject];
 }
 
@@ -405,7 +405,7 @@
 
 - (System_Reflection_AssemblyName *)getName_withCopiedName:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetName(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetName(bool)" withNumArgs:1, &p1];
 	return [System_Reflection_AssemblyName bestObjectWithMonoObject:monoObject];
 }
 
@@ -419,31 +419,31 @@
 
 - (System_Reflection_Assembly *)getSatelliteAssembly_withCulture:(System_Globalization_CultureInfo *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetSatelliteAssembly(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetSatelliteAssembly(System.Globalization.CultureInfo)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Reflection_Assembly *)getSatelliteAssembly_withCulture:(System_Globalization_CultureInfo *)p1 version:(System_Version *)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetSatelliteAssembly(System.Globalization.CultureInfo,System.Version)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetSatelliteAssembly(System.Globalization.CultureInfo,System.Version)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Type *)getType_withName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetType(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetType(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
 - (System_Type *)getType_withName:(NSString *)p1 throwOnError:(BOOL)p2 ignoreCase:(BOOL)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool,bool)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetType(string,bool,bool)" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
@@ -455,13 +455,13 @@
 
 - (BOOL)isDefined_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	MonoObject *monoObject = [self invokeMonoMethod:"IsDefined(System.Type,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (System_Reflection_Assembly *)load_withAssemblyString:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Load(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Load(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
@@ -469,7 +469,7 @@
 
 + (System_Reflection_Assembly *)load_withAssemblyRef:(System_Reflection_AssemblyName *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Load(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Load(System.Reflection.AssemblyName)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
@@ -477,13 +477,13 @@
 
 + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Load(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Load(byte[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Reflection_Assembly *)load_withRawAssembly:(NSData *)p1 rawSymbolStore:(NSData *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Load(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Load(byte[],byte[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
@@ -493,7 +493,7 @@
 
 + (System_Reflection_Assembly *)loadFile_withPath:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFile(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFile(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
@@ -501,7 +501,7 @@
 
 + (System_Reflection_Assembly *)loadFrom_withAssemblyFile:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFrom(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"LoadFrom(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
@@ -517,7 +517,7 @@
 
 + (System_Reflection_Assembly *)loadWithPartialName_withPartialName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"LoadWithPartialName(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"LoadWithPartialName(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
@@ -525,31 +525,31 @@
 
 + (BOOL)op_Equality_withLeft:(System_Reflection_Assembly *)p1 right:(System_Reflection_Assembly *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.Assembly,System.Reflection.Assembly)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Reflection.Assembly,System.Reflection.Assembly)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_Inequality_withLeft:(System_Reflection_Assembly *)p1 right:(System_Reflection_Assembly *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.Assembly,System.Reflection.Assembly)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Reflection.Assembly,System.Reflection.Assembly)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (System_Reflection_Assembly *)reflectionOnlyLoad_withAssemblyString:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoad(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoad(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Reflection_Assembly *)reflectionOnlyLoad_withRawAssembly:(NSData *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoad(byte[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoad(byte[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Reflection_Assembly *)reflectionOnlyLoadFrom_withAssemblyFile:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoadFrom(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"ReflectionOnlyLoadFrom(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
 
@@ -561,9 +561,14 @@
 
 + (System_Reflection_Assembly *)unsafeLoadFrom_withAssemblyFile:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeLoadFrom(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"UnsafeLoadFrom(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Reflection_Assembly bestObjectWithMonoObject:monoObject];
 }
+
+#pragma mark -
+#pragma mark Events
+
+/* Skipped event : System.Reflection.ModuleResolveEventHandler ModuleResolve */
 
 #pragma mark -
 #pragma mark Teardown

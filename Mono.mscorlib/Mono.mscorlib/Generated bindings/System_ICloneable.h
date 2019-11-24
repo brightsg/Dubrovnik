@@ -57,6 +57,6 @@
    System.Object
  @/textblock
 */
-- (System_Object *)clone;
+- (id <DBMonoObject>)clone;
 @end
 //--Dubrovnik.CodeGenerator

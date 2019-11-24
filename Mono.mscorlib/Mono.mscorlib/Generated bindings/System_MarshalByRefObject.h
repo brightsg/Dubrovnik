@@ -56,7 +56,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getLifetimeService;
+- (id <DBMonoObject>)getLifetimeService;
 
 /**
  Managed method.
@@ -71,6 +71,6 @@
    System.Object
  @/textblock
 */
-- (System_Object *)db_initializeLifetimeService;
+- (id <DBMonoObject>)db_initializeLifetimeService;
 @end
 //--Dubrovnik.CodeGenerator

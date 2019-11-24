@@ -37,7 +37,7 @@
 
 + (System_Drawing_Size *)new_withWidth:(int32_t)p1 height:(int32_t)p2
 {
-	System_Drawing_Size * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, DB_VALUE(p1), DB_VALUE(p2)];
+	System_Drawing_Size * object = [[self alloc] initWithSignature:"int,int" withNumArgs:2, &p1, &p2];
 	return object;
 }
 
@@ -155,9 +155,9 @@ static System_Drawing_Size * m_empty;
 
 /* Skipped method : System.Drawing.Size Ceiling(System.Drawing.SizeF value) */
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

@@ -131,7 +131,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)missing;
++ (id <DBMonoObject>)missing;
 
 #pragma mark -
 #pragma mark Properties
@@ -844,7 +844,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withOObject:(System_Object *)p1;
+- (BOOL)equals_withOObject:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -959,7 +959,7 @@
    System.String
  @/textblock
 */
-- (NSString *)getEnumName_withValue:(System_Object *)p1;
+- (NSString *)getEnumName_withValue:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -1014,9 +1014,9 @@
 
 /* Skipped method : System.Reflection.EventInfo[] GetEvents(System.Reflection.BindingFlags bindingAttr) */
 
-/* Skipped method : System.Reflection.FieldInfo GetField(System.String name, System.Reflection.BindingFlags bindingAttr) */
-
 /* Skipped method : System.Reflection.FieldInfo GetField(System.String name) */
+
+/* Skipped method : System.Reflection.FieldInfo GetField(System.String name, System.Reflection.BindingFlags bindingAttr) */
 
 /* Skipped method : System.Reflection.FieldInfo[] GetFields() */
 
@@ -1256,8 +1256,6 @@
 
 /* Skipped method : System.Type[] GetNestedTypes(System.Reflection.BindingFlags bindingAttr) */
 
-/* Skipped method : System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags bindingAttr) */
-
 /**
  Managed method.
  @textblock
@@ -1272,6 +1270,8 @@
  @/textblock
 */
 - (System_Array *)getProperties;
+
+/* Skipped method : System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags bindingAttr) */
 
 /* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
@@ -1609,11 +1609,11 @@
 
 /* Skipped method : System.RuntimeTypeHandle GetTypeHandle(System.Object o) */
 
-/* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] namedParameters) */
-
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Globalization.CultureInfo culture) */
 
 /* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args) */
+
+/* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] namedParameters) */
 
 /**
  Managed method.
@@ -1643,7 +1643,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)isEnumDefined_withValue:(System_Object *)p1;
+- (BOOL)isEnumDefined_withValue:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -1673,7 +1673,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)isInstanceOfType_withO:(System_Object *)p1;
+- (BOOL)isInstanceOfType_withO:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

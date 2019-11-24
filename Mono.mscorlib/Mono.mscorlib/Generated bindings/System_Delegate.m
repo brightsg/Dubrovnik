@@ -54,7 +54,7 @@
 }
 
 @synthesize target = _target;
-- (System_Object *)target
+- (id <DBMonoObject>)target
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;
@@ -76,7 +76,7 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)clone
+- (id <DBMonoObject>)clone
 {
 	MonoObject *monoObject = [self invokeMonoMethod:"Clone()" withNumArgs:0];
 	return [System_Object bestObjectWithMonoObject:monoObject];
@@ -84,85 +84,85 @@
 
 + (System_Delegate *)combine_withA:(System_Delegate *)p1 b:(System_Delegate *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Delegate *)combine_withDelegates:(System_Array *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(System.Delegate[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Combine(System.Delegate[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3
++ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(id <DBMonoObject>)p2 methodString:(NSString *)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,string)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4
++ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(id <DBMonoObject>)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,string,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,string,bool)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], &p4];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(System_Object *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5
++ (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetObject:(id <DBMonoObject>)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,string,bool,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,string,bool,bool)" withNumArgs:5, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], &p4, &p5];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetSType:(System_Type *)p2 methodString:(NSString *)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Type,string)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Type,string)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetSType:(System_Type *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Type,string,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Type,string,bool)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], &p4];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Delegate *)createDelegate_withTypeSType:(System_Type *)p1 targetSType:(System_Type *)p2 methodString:(NSString *)p3 ignoreCaseBool:(BOOL)p4 throwOnBindFailureBool:(BOOL)p5
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Type,string,bool,bool)" withNumArgs:5, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4), DB_VALUE(p5)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Type,string,bool,bool)" withNumArgs:5, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], &p4, &p5];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Delegate *)createDelegate_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2 throwOnBindFailure:(BOOL)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Reflection.MethodInfo,bool)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Reflection.MethodInfo,bool)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &p3];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
-+ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3
++ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(id <DBMonoObject>)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,System.Reflection.MethodInfo)" withNumArgs:3, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg]];
-	return [System_Delegate bestObjectWithMonoObject:monoObject];
-}
-
-+ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(System_Object *)p2 method:(System_Reflection_MethodInfo *)p3 throwOnBindFailure:(BOOL)p4
-{
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,System.Reflection.MethodInfo,bool)" withNumArgs:4, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg], [p3 monoRTInvokeArg], DB_VALUE(p4)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,System.Reflection.MethodInfo,bool)" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], &p4];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Delegate *)createDelegate_withType:(System_Type *)p1 method:(System_Reflection_MethodInfo *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Reflection.MethodInfo)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,System.Reflection.MethodInfo)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
-- (System_Object *)dynamicInvoke_withArgs:(System_Array *)p1
++ (System_Delegate *)createDelegate_withType:(System_Type *)p1 firstArgument:(id <DBMonoObject>)p2 method:(System_Reflection_MethodInfo *)p3
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"DynamicInvoke(object[])" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateDelegate(System.Type,object,System.Reflection.MethodInfo)" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
+	return [System_Delegate bestObjectWithMonoObject:monoObject];
+}
+
+- (id <DBMonoObject>)dynamicInvoke_withArgs:(System_Array *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"DynamicInvoke(object[])" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -182,25 +182,25 @@
 
 + (BOOL)op_Equality_withD1:(System_Delegate *)p1 d2:(System_Delegate *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Equality(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (BOOL)op_Inequality_withD1:(System_Delegate *)p1 d2:(System_Delegate *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"op_Inequality(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 + (System_Delegate *)remove_withSource:(System_Delegate *)p1 value:(System_Delegate *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Remove(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Remove(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 
 + (System_Delegate *)removeAll_withSource:(System_Delegate *)p1 value:(System_Delegate *)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"RemoveAll(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"RemoveAll(System.Delegate,System.Delegate)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return [System_Delegate bestObjectWithMonoObject:monoObject];
 }
 

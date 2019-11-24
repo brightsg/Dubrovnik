@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DBMonoIncludes.h"
+#import "DBManagedObject.h"
 
 #define DBNumChar(X) [DBNumber numberWithChar:(X)]
 #define DBNumShort(X) [DBNumber numberWithShort:(X)]
@@ -25,7 +26,7 @@
 #define DBNumFloat_(X,Y) [DBNumber numberWithFloat:(X) monoClass:(Y)]
 #define DBNumDouble_(X,Y) [DBNumber numberWithDouble:(X) monoClass:(Y)]
 
-@interface DBNumber : NSNumber
+@interface DBNumber : NSNumber <DBMonoObject>
 
 /*!
  

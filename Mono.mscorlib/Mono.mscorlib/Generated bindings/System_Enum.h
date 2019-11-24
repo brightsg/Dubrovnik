@@ -66,7 +66,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)compareTo_withTarget:(System_Object *)p1;
+- (int32_t)compareTo_withTarget:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -81,7 +81,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withObj:(System_Object *)p1;
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -98,7 +98,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)format_withEnumType:(System_Type *)p1 value:(System_Object *)p2 format:(NSString *)p3;
++ (NSString *)format_withEnumType:(System_Type *)p1 value:(id <DBMonoObject>)p2 format:(NSString *)p3;
 
 /**
  Managed method.
@@ -129,7 +129,7 @@
    System.String
  @/textblock
 */
-+ (NSString *)getName_withEnumType:(System_Type *)p1 value:(System_Object *)p2;
++ (NSString *)getName_withEnumType:(System_Type *)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -207,7 +207,7 @@
    System.Boolean
  @/textblock
 */
-+ (BOOL)isDefined_withEnumType:(System_Type *)p1 value:(System_Object *)p2;
++ (BOOL)isDefined_withEnumType:(System_Type *)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -223,7 +223,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2;
++ (id <DBMonoObject>)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2;
 
 /**
  Managed method.
@@ -240,7 +240,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2 ignoreCase:(BOOL)p3;
++ (id <DBMonoObject>)parse_withEnumType:(System_Type *)p1 value:(NSString *)p2 ignoreCase:(BOOL)p3;
 
 /**
  Managed method.
@@ -256,7 +256,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueObject:(System_Object *)p2;
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueObject:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -272,7 +272,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueSbyte:(int8_t)p2;
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueSbyte:(int8_t)p2;
 
 /**
  Managed method.
@@ -288,7 +288,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt16:(int16_t)p2;
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueInt16:(int16_t)p2;
 
 /**
  Managed method.
@@ -304,7 +304,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueInt:(int32_t)p2;
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueInt:(int32_t)p2;
 
 /**
  Managed method.
@@ -320,7 +320,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueByte:(uint8_t)p2;
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueByte:(uint8_t)p2;
 
 /**
  Managed method.
@@ -336,7 +336,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint16:(uint16_t)p2;
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueUint16:(uint16_t)p2;
 
 /**
  Managed method.
@@ -352,7 +352,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUint:(uint32_t)p2;
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueUint:(uint32_t)p2;
 
 /**
  Managed method.
@@ -368,7 +368,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueLong:(int64_t)p2;
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueLong:(int64_t)p2;
 
 /**
  Managed method.
@@ -384,7 +384,7 @@
    System.Object
  @/textblock
 */
-+ (System_Object *)toObject_withEnumTypeSType:(System_Type *)p1 valueUlong:(uint64_t)p2;
++ (id <DBMonoObject>)toObject_withEnumTypeSType:(System_Type *)p1 valueUlong:(uint64_t)p2;
 
 /**
  Managed method.
@@ -403,6 +403,8 @@
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 
+/* Skipped method : System.String ToString(System.IFormatProvider provider) */
+
 /**
  Managed method.
  @textblock
@@ -417,8 +419,6 @@
  @/textblock
 */
 - (NSString *)toString_withFormat:(NSString *)p1;
-
-/* Skipped method : System.String ToString(System.IFormatProvider provider) */
 
 /**
  Managed method.

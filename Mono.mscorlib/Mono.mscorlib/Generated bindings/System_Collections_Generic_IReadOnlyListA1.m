@@ -33,9 +33,9 @@
 #pragma mark -
 #pragma mark Methods
 
-- (System_Object *)get_Item_withIndex:(int32_t)p1
+- (id <DBMonoObject>)get_Item_withIndex:(int32_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyList`1<System.Collections.Generic.IReadOnlyList`1+T>.get_Item(int)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Collections.Generic.IReadOnlyList`1<System.Collections.Generic.IReadOnlyList`1+T>.get_Item(int)" withNumArgs:1, &p1];
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 

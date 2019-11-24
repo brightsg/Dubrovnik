@@ -5,14 +5,13 @@
 //  Created by Jonathan Mitchell on 16/04/2014.
 //  Copyright (c) 2014 Thesaurus Software. All rights reserved.
 //
+#import <Dubrovnik/Dubrovnik.h>
+#import <Mono.mscorlib/Framework.h>
 
 typedef NS_ENUM(NSInteger, DBObjectRepresentation) {
     DBObjectRepresentationShallow,
     DBObjectRepresentationDeep
 };
-
-@class DBMutableOrderedDictionary;
-@class DBOrderedDictionary;
 
 @interface System_Collections_Generic_DictionaryA2 (Linq)
 - (NSArray *)allKeys;

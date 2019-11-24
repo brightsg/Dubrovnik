@@ -303,7 +303,7 @@
 
 - (NSString *)getResponseHeader_withHeaderName:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"GetResponseHeader(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"GetResponseHeader(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 

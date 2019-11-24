@@ -180,7 +180,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)compareTo_withValueObject:(System_Object *)p1;
+- (int32_t)compareTo_withValueObject:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -210,7 +210,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withO:(System_Object *)p1;
+- (BOOL)equals_withO:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -342,13 +342,13 @@
    ToString
 
  Params
-   (none)
+   System.String
 
  Return
    System.String
  @/textblock
 */
-- (NSString *)toString;
+- (NSString *)toString_withFormat:(NSString *)p1;
 
 /**
  Managed method.
@@ -357,13 +357,13 @@
    ToString
 
  Params
-   System.String
+   (none)
 
  Return
    System.String
  @/textblock
 */
-- (NSString *)toString_withFormat:(NSString *)p1;
+- (NSString *)toString;
 
 /* Skipped method : System.String ToString(System.String format, System.IFormatProvider provider) */
 

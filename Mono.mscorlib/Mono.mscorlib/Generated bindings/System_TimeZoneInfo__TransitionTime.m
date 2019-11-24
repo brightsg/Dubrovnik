@@ -153,19 +153,19 @@
 
 + (System_TimeZoneInfo__TransitionTime *)createFixedDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 day:(int32_t)p3
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFixedDateRule(System.DateTime,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFixedDateRule(System.DateTime,int,int)" withNumArgs:3, [p1 monoRTInvokeArg], &p2, &p3];
 	return [System_TimeZoneInfo__TransitionTime bestObjectWithMonoObject:monoObject];
 }
 
 + (System_TimeZoneInfo__TransitionTime *)createFloatingDateRule_withTimeOfDay:(NSDate *)p1 month:(int32_t)p2 week:(int32_t)p3 dayOfWeek:(enumSystem_DayOfWeek)p4
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFloatingDateRule(System.DateTime,int,int,System.DayOfWeek)" withNumArgs:4, [p1 monoRTInvokeArg], DB_VALUE(p2), DB_VALUE(p3), DB_VALUE(p4)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateFloatingDateRule(System.DateTime,int,int,System.DayOfWeek)" withNumArgs:4, [p1 monoRTInvokeArg], &p2, &p3, &p4];
 	return [System_TimeZoneInfo__TransitionTime bestObjectWithMonoObject:monoObject];
 }
 
-- (BOOL)equals_withObj:(System_Object *)p1
+- (BOOL)equals_withObj:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

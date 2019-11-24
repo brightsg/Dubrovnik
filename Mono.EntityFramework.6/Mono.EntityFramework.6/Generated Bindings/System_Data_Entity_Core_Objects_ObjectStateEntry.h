@@ -60,7 +60,7 @@
    System.Object
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * entity;
+@property (nonatomic, strong, readonly) id <DBMonoObject> entity;
 
 /* Skipped property : System.Data.Entity.Core.EntityKey EntityKey */
 
@@ -127,7 +127,7 @@
    System.Void
  @/textblock
 */
-- (void)applyCurrentValues_withCurrentEntity:(System_Object *)p1;
+- (void)applyCurrentValues_withCurrentEntity:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -142,7 +142,7 @@
    System.Void
  @/textblock
 */
-- (void)applyOriginalValues_withOriginalEntity:(System_Object *)p1;
+- (void)applyOriginalValues_withOriginalEntity:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

@@ -17,9 +17,9 @@ namespace Dubrovnik.Tools {
 		}
 
 		//
-		// WriteFacetAsEnumeration
+		// WriteFacetAsCEnumeration
 		//
-		public void WriteFacetAsEnumeration(EnumerationFacet enumeration) {
+		public void WriteFacetAsCEnumeration(EnumerationFacet enumeration) {
 			string objCEnumType = ObjCTypeNameFromManagedTypeName(enumeration.UnderlyingType);
 			string objCType = ObjCTypeNameFromManagedTypeName(enumeration.Type);
 

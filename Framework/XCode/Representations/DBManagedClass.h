@@ -30,12 +30,12 @@
 - (MonoObject *)invokeMonoMethod:(const char *)methodName withNumArgs:(int)numArgs, ...;
 
 //Field Access
-- (void)getMonoField:(const char *)fieldName valuePtr:(void *)valuePtr;
+- (void)getMonoField:(const char *)fieldName value:(void *)value;
 - (MonoObject *)getMonoField:(const char *)fieldName;
-- (void)setMonoField:(const char *)fieldName valueObject:(void *)valueObject;
+- (void)setMonoField:(const char *)fieldName value:(void *)value;
 
 //Property Access
 - (MonoObject *)getMonoProperty:(const char *)propertyName;
-- (void)setMonoProperty:(const char *)propertyName valueObject:(MonoObject *)valueObject;
+- (void)setMonoProperty:(const char *)propertyName value:(void *)value;
 
 @end

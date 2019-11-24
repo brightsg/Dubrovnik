@@ -68,13 +68,14 @@
  4. DBManagedType instance.
  
  */
-- (MonoType *)monoTypeForTypeParameter:(id)typeParameter;
+- (MonoType *)monoTypeForObject:(id)typeObject;
 
 /**
  
  Returns an array of System_Type * for an array of generic type parameters.
  
  */
-- (NSArray<System_Type *> *)systemTypesForTypeParameters:(NSArray<id> *)typeParameters;
-- (DBManagedMethod *)methodWithMonoMethodNamed:(const char *)methodName typeParameters:(id)typeParametersObject;
+- (NSArray<System_Type *> *)systemTypesForObjects:(NSArray<id> *)typeObjects;
+- (DBManagedMethod *)methodWithMonoName:(const char *)methodName object:(System_Object *)object typeParameters:(id)typeParameters;
+- (DBManagedMethod *)classMethodWithMonoName:(const char *)methodName monoClass:(MonoClass *)monoClass typeParameters:(id)typeParameters;
 @end

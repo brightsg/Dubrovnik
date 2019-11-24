@@ -14,11 +14,16 @@ namespace Dubrovnik.UnitTests
     // http://msdn.microsoft.com/en-us/library/ms172334.aspx
     public class GenericReferenceObject<T, U>
     {
+        // properties
         public T GenericPropertyWithTypeParameterT { get; set; }
         public U GenericPropertyWithTypeParameterU { get; set; }
 		public List<T> ListOfTypeT { get; set; }
 		public List<U> ListOfTypeU { get; set; }
 		public NestedClass Nested { get; set; }
+
+        // field
+        public T GenericFieldWithTypeParameterT;
+        public U GenericFieldWithTypeParameterU;
 
         public T GenericMethodReturningParameterTypeT(T parameterT, U parameterU)
         {

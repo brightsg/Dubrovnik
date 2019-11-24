@@ -298,7 +298,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)clone;
+- (id <DBMonoObject>)clone;
 
 /**
  Managed method.
@@ -349,7 +349,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withValue:(System_Object *)p1;
+- (BOOL)equals_withValue:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -381,6 +381,8 @@
 */
 - (int32_t)getByteCount_withS:(NSString *)p1;
 
+/* Skipped method : System.Int32 GetByteCount(System.Char* chars, System.Int32 count) */
+
 /**
  Managed method.
  @textblock
@@ -397,8 +399,6 @@
  @/textblock
 */
 - (int32_t)getByteCount_withChars:(System_Array *)p1 index:(int32_t)p2 count:(int32_t)p3;
-
-/* Skipped method : System.Int32 GetByteCount(System.Char* chars, System.Int32 count) */
 
 /**
  Managed method.
@@ -439,25 +439,6 @@
    GetBytes
 
  Params
-   System.Char[]
-   System.Int32
-   System.Int32
-   System.Byte[]
-   System.Int32
-
- Return
-   System.Int32
- @/textblock
-*/
-- (int32_t)getBytes_withChars:(System_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5;
-
-/**
- Managed method.
- @textblock
- Name
-   GetBytes
-
- Params
    System.String
 
  Return
@@ -485,6 +466,25 @@
 */
 - (int32_t)getBytes_withS:(NSString *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5;
 
+/**
+ Managed method.
+ @textblock
+ Name
+   GetBytes
+
+ Params
+   System.Char[]
+   System.Int32
+   System.Int32
+   System.Byte[]
+   System.Int32
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)getBytes_withChars:(System_Array *)p1 charIndex:(int32_t)p2 charCount:(int32_t)p3 bytes:(NSData *)p4 byteIndex:(int32_t)p5;
+
 /* Skipped method : System.Int32 GetBytes(System.Char* chars, System.Int32 charCount, System.Byte* bytes, System.Int32 byteCount) */
 
 /**
@@ -502,6 +502,8 @@
 */
 - (int32_t)getCharCount_withBytes:(NSData *)p1;
 
+/* Skipped method : System.Int32 GetCharCount(System.Byte* bytes, System.Int32 count) */
+
 /**
  Managed method.
  @textblock
@@ -518,8 +520,6 @@
  @/textblock
 */
 - (int32_t)getCharCount_withBytes:(NSData *)p1 index:(int32_t)p2 count:(int32_t)p3;
-
-/* Skipped method : System.Int32 GetCharCount(System.Byte* bytes, System.Int32 count) */
 
 /**
  Managed method.

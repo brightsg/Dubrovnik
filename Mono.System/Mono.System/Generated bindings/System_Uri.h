@@ -620,7 +620,7 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)equals_withComparand:(System_Object *)p1;
+- (BOOL)equals_withComparand:(id <DBMonoObject>)p1;
 
 /**
  Managed method.

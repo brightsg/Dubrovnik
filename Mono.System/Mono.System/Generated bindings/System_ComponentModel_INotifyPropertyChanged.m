@@ -31,6 +31,19 @@
 }
 
 #pragma mark -
+#pragma mark Events
+
++ (NSString *)propertyChangedEventName
+{
+	return @"PropertyChanged";
+}
+
+- (System_ComponentModel_PropertyChangedEventHandler *)propertyChanged_addEventHandlerWithBlock:(System_ComponentModel_INotifyPropertyChanged_PropertyChanged_EventBlock)block
+{
+	return (System_ComponentModel_PropertyChangedEventHandler *)[self db_addEventHandlerWithClass:System_ComponentModel_PropertyChangedEventHandler.class forEventName:self.class.propertyChangedEventName block:(EventBlock)block];
+}
+
+#pragma mark -
 #pragma mark Teardown
 
 - (void)dealloc

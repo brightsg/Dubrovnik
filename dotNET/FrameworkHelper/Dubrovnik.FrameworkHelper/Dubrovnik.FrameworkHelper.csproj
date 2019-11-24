@@ -28,6 +28,12 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>FrameworkHelper.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
@@ -59,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Mono.Embedding\Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FrameworkHelper.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

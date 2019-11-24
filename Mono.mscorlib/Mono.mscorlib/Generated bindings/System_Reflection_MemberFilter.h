@@ -66,7 +66,7 @@
    System.Reflection.MemberFilter
  @/textblock
 */
-+ (System_Reflection_MemberFilter *)new_withObject:(System_Object *)p1 method:(void *)p2;
++ (System_Reflection_MemberFilter *)new_withObject:(id <DBMonoObject>)p1 method:(void *)p2;
 
 #pragma mark -
 #pragma mark Methods
@@ -87,7 +87,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (System_Object <System_IAsyncResult> *)beginInvoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(System_Object *)p2 callback:(System_AsyncCallback *)p3 object:(System_Object *)p4;
+- (System_Object <System_IAsyncResult> *)beginInvoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(id <DBMonoObject>)p2 callback:(System_AsyncCallback *)p3 object:(id <DBMonoObject>)p4;
 
 /**
  Managed method.
@@ -118,6 +118,6 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)invoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(System_Object *)p2;
+- (BOOL)invoke_withM:(System_Reflection_MemberInfo *)p1 filterCriteria:(id <DBMonoObject>)p2;
 @end
 //--Dubrovnik.CodeGenerator

@@ -115,17 +115,17 @@ static NSString * m_processId;
 
 + (void)configure_withFilename:(NSString *)p1
 {
-	[self invokeMonoClassMethod:"Configure(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"Configure(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 + (void)configure_withFilename:(NSString *)p1 ensureSecurity:(BOOL)p2
 {
-	[self invokeMonoClassMethod:"Configure(string,bool)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoClassMethod:"Configure(string,bool)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 }
 
 + (BOOL)customErrorsEnabled_withIsLocalRequest:(BOOL)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"CustomErrorsEnabled(bool)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CustomErrorsEnabled(bool)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -139,7 +139,7 @@ static NSString * m_processId;
 
 + (BOOL)isActivationAllowed_withSvrType:(System_Type *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"IsActivationAllowed(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"IsActivationAllowed(System.Type)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -153,21 +153,21 @@ static NSString * m_processId;
 
 + (void)registerActivatedClientType_withType:(System_Type *)p1 appUrl:(NSString *)p2
 {
-	[self invokeMonoClassMethod:"RegisterActivatedClientType(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"RegisterActivatedClientType(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Void RegisterActivatedClientType(System.Runtime.Remoting.ActivatedClientTypeEntry entry) */
 
 + (void)registerActivatedServiceType_withType:(System_Type *)p1
 {
-	[self invokeMonoClassMethod:"RegisterActivatedServiceType(System.Type)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"RegisterActivatedServiceType(System.Type)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Void RegisterActivatedServiceType(System.Runtime.Remoting.ActivatedServiceTypeEntry entry) */
 
 + (void)registerWellKnownClientType_withType:(System_Type *)p1 objectUrl:(NSString *)p2
 {
-	[self invokeMonoClassMethod:"RegisterWellKnownClientType(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeArg], [p2 monoRTInvokeArg]];
+	[self invokeMonoClassMethod:"RegisterWellKnownClientType(System.Type,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 }
 
 /* Skipped method : System.Void RegisterWellKnownClientType(System.Runtime.Remoting.WellKnownClientTypeEntry entry) */

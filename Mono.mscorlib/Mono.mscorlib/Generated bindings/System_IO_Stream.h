@@ -187,7 +187,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (System_Object <System_IAsyncResult> *)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
+- (System_Object <System_IAsyncResult> *)beginRead_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(id <DBMonoObject>)p5;
 
 /**
  Managed method.
@@ -206,7 +206,7 @@
    System.IAsyncResult
  @/textblock
 */
-- (System_Object <System_IAsyncResult> *)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(System_Object *)p5;
+- (System_Object <System_IAsyncResult> *)beginWrite_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 callback:(System_AsyncCallback *)p4 state:(id <DBMonoObject>)p5;
 
 /**
  Managed method.
@@ -262,6 +262,23 @@
 
  Params
    System.IO.Stream
+   System.Int32
+   System.Threading.CancellationToken
+
+ Return
+   System.Threading.Tasks.Task
+ @/textblock
+*/
+- (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyToAsync
+
+ Params
+   System.IO.Stream
 
  Return
    System.Threading.Tasks.Task
@@ -284,23 +301,6 @@
  @/textblock
 */
 - (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2;
-
-/**
- Managed method.
- @textblock
- Name
-   CopyToAsync
-
- Params
-   System.IO.Stream
-   System.Int32
-   System.Threading.CancellationToken
-
- Return
-   System.Threading.Tasks.Task
- @/textblock
-*/
-- (System_Threading_Tasks_Task *)copyToAsync_withDestination:(System_IO_Stream *)p1 bufferSize:(int32_t)p2 cancellationToken:(System_Threading_CancellationToken *)p3;
 
 /**
  Managed method.
@@ -419,12 +419,13 @@
    System.Byte[]
    System.Int32
    System.Int32
+   System.Threading.CancellationToken
 
  Return
    System.Threading.Tasks.Task`1<System.Int32>
  @/textblock
 */
-- (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+- (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
 
 /**
  Managed method.
@@ -436,13 +437,12 @@
    System.Byte[]
    System.Int32
    System.Int32
-   System.Threading.CancellationToken
 
  Return
    System.Threading.Tasks.Task`1<System.Int32>
  @/textblock
 */
-- (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
+- (System_Threading_Tasks_TaskA1 *)readAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
 
 /**
  Managed method.
@@ -518,12 +518,13 @@
    System.Byte[]
    System.Int32
    System.Int32
+   System.Threading.CancellationToken
 
  Return
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
+- (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
 
 /**
  Managed method.
@@ -535,13 +536,12 @@
    System.Byte[]
    System.Int32
    System.Int32
-   System.Threading.CancellationToken
 
  Return
    System.Threading.Tasks.Task
  @/textblock
 */
-- (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3 cancellationToken:(System_Threading_CancellationToken *)p4;
+- (System_Threading_Tasks_Task *)writeAsync_withBuffer:(NSData *)p1 offset:(int32_t)p2 count:(int32_t)p3;
 
 /**
  Managed method.

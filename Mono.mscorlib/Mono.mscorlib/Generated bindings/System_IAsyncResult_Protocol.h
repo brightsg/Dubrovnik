@@ -91,7 +91,7 @@
    System.Object
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * asyncState;
+@property (nonatomic, strong, readonly) id <DBMonoObject> asyncState;
 
 /* Skipped property : System.Threading.WaitHandle AsyncWaitHandle */
 
@@ -145,7 +145,7 @@
    System.Object
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * asyncState;
+@property (nonatomic, strong, readonly) id <DBMonoObject> asyncState;
 
 /* Skipped property : System.Threading.WaitHandle AsyncWaitHandle */
 

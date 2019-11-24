@@ -34,7 +34,7 @@
 #pragma mark Properties
 
 @synthesize current = _current;
-- (System_Object *)current
+- (id <DBMonoObject>)current
 {
 	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
 	static Thunk thunk;

@@ -7,7 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Dubrovnik.Tools {
-	public partial class Net2ObjC {
+
+    public enum ObjCTypeDeclNormalisation { None, InvokeApiParameterType, InvokeApiReturnType, };
+
+    public partial class Net2ObjC {
 		//
 		// ObjCMinimalIdentifierFromManagedIdentifier()
 		//
@@ -57,7 +60,7 @@ namespace Dubrovnik.Tools {
 									};
 		}
 
-		List<string> UnsafeObjCMethodNames() {
+		public List<string> UnsafeObjCMethodNames() {
 			return new List<string> {
 									"init" // methods beginning with init are expected to return a type related to the receiver
 			};
@@ -134,10 +137,35 @@ namespace Dubrovnik.Tools {
 			return decl;
 		}
 
-		//
-		// ObjCConformingTypeDeclFromObjCTypeDecl
-		//
-		string ObjCConformingTypeFromObjCTypeDecl(string objCTypeDecl, bool writeImplementation) {
+        /// <summary>
+        /// Normalises an Obj-C type declaration string according to the normalisation parameter.
+        /// </summary>
+        /// <param name="objCTypeDecl">Type declaration string to be normalised.</param>
+        /// <param name="normalisation">Normalisation required.</param>
+        /// <returns></returns>
+        public string NormaliseObjCTypeDecl(string objCTypeDecl, ObjCTypeDeclNormalisation normalisation)
+        {
+            switch (normalisation) {
+                case ObjCTypeDeclNormalisation.None:
+                    break;
+
+                // the invoke API will return types that implement DBMOnoObject.
+                case ObjCTypeDeclNormalisation.InvokeApiReturnType:
+
+                // the invoke API will accept a parameter that implements DBMOnoObject.
+                case ObjCTypeDeclNormalisation.InvokeApiParameterType:
+                    if (objCTypeDecl == "System_Object *") {
+                        objCTypeDecl = "id <DBMonoObject>";
+                    }
+                    break;
+            }
+            return objCTypeDecl;
+        }
+
+        //
+        // ObjCConformingTypeDeclFromObjCTypeDecl
+        //
+        public string ObjCConformingTypeFromObjCTypeDecl(string objCTypeDecl, bool writeImplementation) {
 			string objCType = ObjCTypeFromObjCTypeDecl(objCTypeDecl);
 			string result = ObjCConformingTypeFromObjCType(objCType, writeImplementation);
 
@@ -464,7 +492,7 @@ namespace Dubrovnik.Tools {
 				string setterFormat = objCTypeAssoc.SetterFormat;
 				if (setterFormat != null) {
 					if (managedFacet.IsPointer) {
-						setterFormat = "DB_VALUE({0}";
+						setterFormat = "&{0}";
 					}
 					exp = string.Format(setterFormat, objCVarName);
 				}
@@ -484,7 +512,7 @@ namespace Dubrovnik.Tools {
 			// generate default object representation expression.
 			if (exp == null) {
 				if (ObjCRepresentationIsPrimitive(managedFacet)) {
-					exp = string.Format("DB_VALUE({0})", objCVarName);
+					exp = string.Format("&{0}", objCVarName);
 				} else {
 					exp = string.Format("[{0} monoObject]", objCVarName);
 				}
@@ -568,7 +596,7 @@ namespace Dubrovnik.Tools {
 		//
 		// ObjCTypeAssociate()
 		//
-		ObjCTypeAssociation ObjCTypeAssociate(string managedType) {
+		public ObjCTypeAssociation ObjCTypeAssociate(string managedType) {
 			ObjCTypeAssociation typeAssoc = null;
 
 			// look for literal association
@@ -578,6 +606,16 @@ namespace Dubrovnik.Tools {
 
 			return typeAssoc;
 		}
+
+        /// <summary>
+        /// Convert string to an Obj-C string literal.
+        /// </summary>
+        /// <param name="s">String to be literalised.</param>
+        /// <returns>Obj-C string literal</returns>
+        string ObjCStringLiteral(string s)
+        {
+            return $"@\"{s}\"";
+        }
 
 	}
 }

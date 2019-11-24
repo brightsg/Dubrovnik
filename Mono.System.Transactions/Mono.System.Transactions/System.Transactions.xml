@@ -17,8 +17,8 @@
         <Parameter Name="options" Type="System.Transactions.TransactionOptions" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginCommit" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="asyncCallback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="asyncState" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="asyncCallback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="asyncState" Type="System.Object" />
       </Method>
       <Method Name="Commit" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="EndCommit" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -87,16 +87,16 @@
       <Field Name="Full" Type="System.Transactions.EnterpriseServicesInteropOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="2" />
       <Field Name="None" Type="System.Transactions.EnterpriseServicesInteropOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="0" />
     </Enumeration>
-    <Class Name="HostCurrentTransactionCallback" Type="System.Transactions.HostCurrentTransactionCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="HostCurrentTransactionCallback" Type="System.Transactions.HostCurrentTransactionCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Transactions.Transaction" BaseName="Object" BaseType="System.Object">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
@@ -232,7 +232,7 @@
         <Parameter Name="enlistmentOptions" Type="System.Transactions.EnlistmentOptions" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Method>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="obj" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="obj" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="GetPromotedToken" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
@@ -258,7 +258,10 @@
         <Parameter Name="promotableNotification" Type="System.Transactions.IPromotableSinglePhaseNotification" IsInterface="True" />
         <Parameter Name="distributedTransactionIdentifier" Type="System.Guid" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Method>
-      <Event Name="TransactionCompleted" HandlerType="System.Transactions.TransactionCompletedEventHandler" />
+      <Event Name="TransactionCompleted" Type="System.Transactions.TransactionCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
+        <Parameter Name="e" Type="System.Transactions.TransactionEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="TransactionAbortedException" Type="System.Transactions.TransactionAbortedException" BaseName="TransactionException" BaseType="System.Transactions.TransactionException">
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
@@ -271,24 +274,24 @@
         <Parameter Name="innerException" Type="System.Exception" BaseName="Object" BaseType="System.Object" />
       </Constructor>
     </Class>
-    <Class Name="TransactionCompletedEventHandler" Type="System.Transactions.TransactionCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="TransactionCompletedEventHandler" Type="System.Transactions.TransactionCompletedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Transactions.TransactionEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Transactions.TransactionEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>
@@ -348,7 +351,7 @@
     </Class>
     <Class Name="TransactionManager" Type="System.Transactions.TransactionManager" BaseName="Object" BaseType="System.Object">
       <Property Name="DefaultTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsStatic="True" />
-      <Property Name="HostCurrentCallback" Type="System.Transactions.HostCurrentTransactionCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsReadable="True" IsWritable="True" IsStatic="True" />
+      <Property Name="HostCurrentCallback" Type="System.Transactions.HostCurrentTransactionCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" IsReadable="True" IsWritable="True" IsStatic="True" />
       <Property Name="MaximumTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsStatic="True" />
       <Method Name="RecoveryComplete" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
         <Parameter Name="resourceManagerIdentifier" Type="System.Guid" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -358,7 +361,10 @@
         <Parameter Name="recoveryInformation" Type="System.Byte[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Byte" />
         <Parameter Name="enlistmentNotification" Type="System.Transactions.IEnlistmentNotification" IsInterface="True" />
       </Method>
-      <Event Name="DistributedTransactionStarted" HandlerType="System.Transactions.TransactionStartedEventHandler" />
+      <Event Name="DistributedTransactionStarted" Type="System.Transactions.TransactionStartedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
+        <Parameter Name="sender" Type="System.Object" />
+        <Parameter Name="e" Type="System.Transactions.TransactionEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
+      </Event>
     </Class>
     <Class Name="TransactionManagerCommunicationException" Type="System.Transactions.TransactionManagerCommunicationException" BaseName="TransactionException" BaseType="System.Transactions.TransactionException">
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
@@ -375,7 +381,7 @@
       <Property Name="IsolationLevel" Type="System.Transactions.IsolationLevel" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
       <Property Name="Timeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="obj" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="obj" Type="System.Object" />
       </Method>
       <Method Name="GetHashCode" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="op_Equality" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsStatic="True">
@@ -408,20 +414,27 @@
       </Constructor>
       <Constructor>
         <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="asyncFlowOption" Type="System.Transactions.TransactionScopeAsyncFlowOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="scopeTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="scopeTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="asyncFlowOption" Type="System.Transactions.TransactionScopeAsyncFlowOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
         <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="transactionOptions" Type="System.Transactions.TransactionOptions" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="transactionToUse" Type="System.Transactions.Transaction" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="transactionToUse" Type="System.Transactions.Transaction" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="scopeTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="asyncFlowOption" Type="System.Transactions.TransactionScopeAsyncFlowOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="scopeTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="asyncFlowOption" Type="System.Transactions.TransactionScopeAsyncFlowOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
         <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
@@ -435,14 +448,7 @@
       </Constructor>
       <Constructor>
         <Parameter Name="transactionToUse" Type="System.Transactions.Transaction" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="transactionToUse" Type="System.Transactions.Transaction" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="asyncFlowOption" Type="System.Transactions.TransactionScopeAsyncFlowOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="transactionToUse" Type="System.Transactions.Transaction" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="scopeTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="transactionToUse" Type="System.Transactions.Transaction" BaseName="Object" BaseType="System.Object" />
@@ -472,24 +478,24 @@
       <Field Name="RequiresNew" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="1" />
       <Field Name="Suppress" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsStatic="True" IsConstant="True" ConstantValue="2" />
     </Enumeration>
-    <Class Name="TransactionStartedEventHandler" Type="System.Transactions.TransactionStartedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate">
+    <Class Name="TransactionStartedEventHandler" Type="System.Transactions.TransactionStartedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
       <ImplementedInterface Type="System.ICloneable" />
       <ImplementedInterface Type="System.Runtime.Serialization.ISerializable" />
       <Constructor>
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
         <Parameter Name="method" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="BeginInvoke" Type="System.IAsyncResult" IsInterface="True">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Transactions.TransactionEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
-        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" />
-        <Parameter Name="object" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="callback" Type="System.AsyncCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+        <Parameter Name="object" Type="System.Object" />
       </Method>
       <Method Name="EndInvoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="result" Type="System.IAsyncResult" IsInterface="True" />
       </Method>
       <Method Name="Invoke" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
-        <Parameter Name="sender" Type="System.Object" IsDelegate="True" />
+        <Parameter Name="sender" Type="System.Object" />
         <Parameter Name="e" Type="System.Transactions.TransactionEventArgs" BaseName="EventArgs" BaseType="System.EventArgs" />
       </Method>
     </Class>

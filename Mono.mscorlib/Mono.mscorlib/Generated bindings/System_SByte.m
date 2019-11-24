@@ -54,27 +54,27 @@ static int8_t m_minValue;
 #pragma mark -
 #pragma mark Methods
 
-- (int32_t)compareTo_withObj:(System_Object *)p1
+- (int32_t)compareTo_withObj:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT32(monoObject);
 }
 
 - (int32_t)compareTo_withValue:(int8_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(sbyte)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"CompareTo(sbyte)" withNumArgs:1, &p1];
 	return DB_UNBOX_INT32(monoObject);
 }
 
-- (BOOL)equals_withObjObject:(System_Object *)p1
+- (BOOL)equals_withObjObject:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(object)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (BOOL)equals_withObjSbyte:(int8_t)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Equals(sbyte)" withNumArgs:1, DB_VALUE(p1)];
+	MonoObject *monoObject = [self invokeMonoMethod:"Equals(sbyte)" withNumArgs:1, &p1];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
@@ -88,7 +88,7 @@ static int8_t m_minValue;
 
 + (int8_t)parse_withS:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"Parse(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return DB_UNBOX_INT8(monoObject);
 }
 
@@ -108,7 +108,7 @@ static int8_t m_minValue;
 
 - (NSString *)toString_withFormat:(NSString *)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"ToString(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
 	return [NSString stringWithMonoString:DB_STRING(monoObject)];
 }
 
@@ -116,7 +116,7 @@ static int8_t m_minValue;
 
 + (BOOL)tryParse_withS:(NSString *)p1 resultRef:(int8_t*)p2
 {
-	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,sbyte&)" withNumArgs:2, [p1 monoRTInvokeArg], p2];
+	MonoObject *monoObject = [self invokeMonoClassMethod:"TryParse(string,sbyte&)" withNumArgs:2, [p1 monoRTInvokeObject], p2];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

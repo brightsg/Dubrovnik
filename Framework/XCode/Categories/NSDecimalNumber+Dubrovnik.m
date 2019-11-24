@@ -82,7 +82,7 @@ static const char hasValueKey = '0';
 - (MonoObject *)monoObject
 {
     // TODO: handle locale
-    MonoObject *monoObject = [[self stringValue] monoRTInvokeArg];
+    MonoObject *monoObject = [self.stringValue monoObject];
     MonoObject *monoDecimal = [[self monoClassRepresentation] invokeMonoMethod:"Parse(string)" withNumArgs:1, monoObject];
     return(monoDecimal);
 }
@@ -92,21 +92,27 @@ static const char hasValueKey = '0';
     return [self monoObject];
 }
 
-- (MonoObject *)monoRTInvokeArg
+- (void *)monoRTInvokeArg
 {
-    return DB_OBJECT(mono_object_unbox([self monoDecimal]));
+    return mono_object_unbox([self monoDecimal]);
 }
 
-- (MonoObject *)nullableMonoDecimal {
+- (MonoObject *)monoRTInvokeObject
+{
+    return self.monoObject;
+}
+
+- (void *)nullableMonoDecimal
+{
     
     // TODO: handle locale
 	MonoObject *monoDecimal = NULL;
 	return(monoDecimal);
 }
 
-- (MonoObject *)nullableMonoValue
+- (void *)nullableMonoValue
 {
-    return DB_OBJECT(mono_object_unbox([self nullableMonoDecimal]));
+    return mono_object_unbox([self nullableMonoDecimal]);
 }
 
 #pragma mark -

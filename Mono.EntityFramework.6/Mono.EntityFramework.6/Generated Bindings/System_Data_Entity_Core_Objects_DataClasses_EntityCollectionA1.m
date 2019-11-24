@@ -74,19 +74,19 @@
 #pragma mark -
 #pragma mark Methods
 
-- (void)add_withItem:(System_Object *)p1
+- (void)add_withItem:(id <DBMonoObject>)p1
 {
-	[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Add(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 - (void)attach_withEntities:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
 {
-	[self invokeMonoMethod:"Attach(System.Collections.Generic.IEnumerable`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Attach(System.Collections.Generic.IEnumerable`1<System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1/TEntity>)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
-- (void)attach_withEntity:(System_Object *)p1
+- (void)attach_withEntity:(id <DBMonoObject>)p1
 {
-	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	[self invokeMonoMethod:"Attach(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 }
 
 - (void)clear
@@ -94,15 +94,15 @@
 	[self invokeMonoMethod:"Clear()" withNumArgs:0];
 }
 
-- (BOOL)contains_withItem:(System_Object *)p1
+- (BOOL)contains_withItem:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Contains(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Contains(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2
 {
-	[self invokeMonoMethod:"CopyTo(TEntity[],int)" withNumArgs:2, [p1 monoRTInvokeArg], DB_VALUE(p2)];
+	[self invokeMonoMethod:"CopyTo(TEntity[],int)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
 }
 
 - (System_Data_Entity_Core_Objects_ObjectQueryA1 *)createSourceQuery
@@ -125,9 +125,9 @@
 
 /* Skipped method : System.Void OnSerializing(System.Runtime.Serialization.StreamingContext context) */
 
-- (BOOL)remove_withItem:(System_Object *)p1
+- (BOOL)remove_withItem:(id <DBMonoObject>)p1
 {
-	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [p1 monoRTInvokeArg]];
+	MonoObject *monoObject = [self invokeMonoMethod:"Remove(<_T_0>)" withNumArgs:1, [self monoRTInvokeArg:p1 typeParameterIndex:0]];
 	return DB_UNBOX_BOOLEAN(monoObject);
 }
 

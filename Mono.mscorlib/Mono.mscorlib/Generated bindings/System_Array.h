@@ -28,6 +28,7 @@
 @class System_Int32;
 @class System_Int64;
 @class System_Object;
+@class System_PredicateA1;
 @class System_Type;
 @class System_Void;
 @class T;
@@ -146,7 +147,7 @@
    System.Object
  @/textblock
 */
-@property (nonatomic, strong, readonly) System_Object * syncRoot;
+@property (nonatomic, strong, readonly) id <DBMonoObject> syncRoot;
 
 #pragma mark -
 #pragma mark Methods
@@ -167,7 +168,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)binarySearch_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2;
++ (int32_t)binarySearch_withArraySArray:(System_Array *)p1 valueObject:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -185,93 +186,93 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)binarySearch_withArraySArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueObject:(System_Object *)p4;
++ (int32_t)binarySearch_withArraySArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueObject:(id <DBMonoObject>)p4;
 
 /* Skipped method : System.Int32 BinarySearch(System.Array array, System.Object value, System.Collections.IComparer comparer) */
 
+/**
+ Managed method.
+ @textblock
+ Name
+   BinarySearch
+
+ Params
+   T[]
+   <System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 valueT:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   BinarySearch
+
+ Params
+   T[]
+   <System.Array+T>
+   System.Collections.Generic.IComparer`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 valueT:(id <DBMonoObject>)p2 comparerSCGIArray__T:(System_Object <System_Collections_Generic_IComparerA1_> *)p3 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   BinarySearch
+
+ Params
+   T[]
+   System.Int32
+   System.Int32
+   <System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(id <DBMonoObject>)p4 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   BinarySearch
+
+ Params
+   T[]
+   System.Int32
+   System.Int32
+   <System.Array+T>
+   System.Collections.Generic.IComparer`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(id <DBMonoObject>)p4 comparerSCGIArray__T:(System_Object <System_Collections_Generic_IComparerA1_> *)p5 typeParameter:(id)typeParameter;
+
 /* Skipped method : System.Int32 BinarySearch(System.Array array, System.Int32 index, System.Int32 length, System.Object value, System.Collections.IComparer comparer) */
-
-/**
- Managed method.
- @textblock
- Name
-   BinarySearch
-
- Params
-   T[]
-   <System.Array+T>
-
- Generics
-   <System.Array+T>
-
- Return
-   System.Int32
- @/textblock
-*/
-+ (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter;
-
-/**
- Managed method.
- @textblock
- Name
-   BinarySearch
-
- Params
-   T[]
-   <System.Array+T>
-   System.Collections.Generic.IComparer`1<System.Array+T>
-
- Generics
-   <System.Array+T>
-
- Return
-   System.Int32
- @/textblock
-*/
-+ (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 comparerSCGIArray__T:(System_Object <System_Collections_Generic_IComparerA1_> *)p3 typeParameter:(id)typeParameter;
-
-/**
- Managed method.
- @textblock
- Name
-   BinarySearch
-
- Params
-   T[]
-   System.Int32
-   System.Int32
-   <System.Array+T>
-
- Generics
-   <System.Array+T>
-
- Return
-   System.Int32
- @/textblock
-*/
-+ (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(System_Object *)p4 typeParameter:(id)typeParameter;
-
-/**
- Managed method.
- @textblock
- Name
-   BinarySearch
-
- Params
-   T[]
-   System.Int32
-   System.Int32
-   <System.Array+T>
-   System.Collections.Generic.IComparer`1<System.Array+T>
-
- Generics
-   <System.Array+T>
-
- Return
-   System.Int32
- @/textblock
-*/
-+ (int32_t)binarySearch_withArrayTArray:(System_Array *)p1 indexInt:(int32_t)p2 lengthInt:(int32_t)p3 valueT:(System_Object *)p4 comparerSCGIArray__T:(System_Object <System_Collections_Generic_IComparerA1_> *)p5 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -303,7 +304,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)clone;
+- (id <DBMonoObject>)clone;
 
 /**
  Managed method.
@@ -456,23 +457,6 @@
    System.Type
    System.Int32
    System.Int32
-
- Return
-   System.Array
- @/textblock
-*/
-+ (System_Array *)createInstance_withElementType:(System_Type *)p1 length1:(int32_t)p2 length2:(int32_t)p3;
-
-/**
- Managed method.
- @textblock
- Name
-   CreateInstance
-
- Params
-   System.Type
-   System.Int32
-   System.Int32
    System.Int32
 
  Return
@@ -534,6 +518,23 @@
  Managed method.
  @textblock
  Name
+   CreateInstance
+
+ Params
+   System.Type
+   System.Int32
+   System.Int32
+
+ Return
+   System.Array
+ @/textblock
+*/
++ (System_Array *)createInstance_withElementType:(System_Type *)p1 length1:(int32_t)p2 length2:(int32_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
    Empty
 
  Params
@@ -548,25 +549,201 @@
 */
 + (System_Array *)empty_withTypeParameter:(id)typeParameter;
 
-/* Skipped method : System.Boolean Exists(T[] array, System.Predicate`1<System.Array+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Exists
 
-/* Skipped method : System.Array+T Find(T[] array, System.Predicate`1<System.Array+T> match) */
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
 
-/* Skipped method : T[] FindAll(T[] array, System.Predicate`1<System.Array+T> match) */
+ Generics
+   <System.Array+T>
 
-/* Skipped method : System.Int32 FindIndex(T[] array, System.Predicate`1<System.Array+T> match) */
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)exists_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
 
-/* Skipped method : System.Int32 FindIndex(T[] array, System.Int32 startIndex, System.Predicate`1<System.Array+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Find
 
-/* Skipped method : System.Int32 FindIndex(T[] array, System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Array+T> match) */
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
 
-/* Skipped method : System.Array+T FindLast(T[] array, System.Predicate`1<System.Array+T> match) */
+ Generics
+   <System.Array+T>
 
-/* Skipped method : System.Int32 FindLastIndex(T[] array, System.Predicate`1<System.Array+T> match) */
+ Return
+   <System.Array+T>
+ @/textblock
+*/
++ (id <DBMonoObject>)find_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
 
-/* Skipped method : System.Int32 FindLastIndex(T[] array, System.Int32 startIndex, System.Predicate`1<System.Array+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   FindAll
 
-/* Skipped method : System.Int32 FindLastIndex(T[] array, System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Array+T> match) */
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   T[]
+ @/textblock
+*/
++ (System_Array *)findAll_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindIndex
+
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)findIndex_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindIndex
+
+ Params
+   T[]
+   System.Int32
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)findIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindIndex
+
+ Params
+   T[]
+   System.Int32
+   System.Int32
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)findIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLast
+
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   <System.Array+T>
+ @/textblock
+*/
++ (id <DBMonoObject>)findLast_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLastIndex
+
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)findLastIndex_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLastIndex
+
+ Params
+   T[]
+   System.Int32
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)findLastIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 match:(System_PredicateA1 *)p3 typeParameter:(id)typeParameter;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLastIndex
+
+ Params
+   T[]
+   System.Int32
+   System.Int32
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
++ (int32_t)findLastIndex_withArray:(System_Array *)p1 startIndex:(int32_t)p2 count:(int32_t)p3 match:(System_PredicateA1 *)p4 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -675,7 +852,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getValue_withIndicesIntArray:(System_Array *)p1;
+- (id <DBMonoObject>)getValue_withIndicesIntArray:(System_Array *)p1;
 
 /**
  Managed method.
@@ -690,7 +867,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getValue_withIndexInt:(int32_t)p1;
+- (id <DBMonoObject>)getValue_withIndexInt:(int32_t)p1;
 
 /**
  Managed method.
@@ -706,7 +883,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getValue_withIndex1Int:(int32_t)p1 index2Int:(int32_t)p2;
+- (id <DBMonoObject>)getValue_withIndex1Int:(int32_t)p1 index2Int:(int32_t)p2;
 
 /**
  Managed method.
@@ -723,7 +900,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getValue_withIndex1Int:(int32_t)p1 index2Int:(int32_t)p2 index3Int:(int32_t)p3;
+- (id <DBMonoObject>)getValue_withIndex1Int:(int32_t)p1 index2Int:(int32_t)p2 index3Int:(int32_t)p3;
 
 /**
  Managed method.
@@ -738,7 +915,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getValue_withIndexLong:(int64_t)p1;
+- (id <DBMonoObject>)getValue_withIndexLong:(int64_t)p1;
 
 /**
  Managed method.
@@ -754,7 +931,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getValue_withIndex1Long:(int64_t)p1 index2Long:(int64_t)p2;
+- (id <DBMonoObject>)getValue_withIndex1Long:(int64_t)p1 index2Long:(int64_t)p2;
 
 /**
  Managed method.
@@ -771,7 +948,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getValue_withIndex1Long:(int64_t)p1 index2Long:(int64_t)p2 index3Long:(int64_t)p3;
+- (id <DBMonoObject>)getValue_withIndex1Long:(int64_t)p1 index2Long:(int64_t)p2 index3Long:(int64_t)p3;
 
 /**
  Managed method.
@@ -786,7 +963,7 @@
    System.Object
  @/textblock
 */
-- (System_Object *)getValue_withIndicesLongArray:(System_Array *)p1;
+- (id <DBMonoObject>)getValue_withIndicesLongArray:(System_Array *)p1;
 
 /**
  Managed method.
@@ -802,7 +979,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)indexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2;
++ (int32_t)indexOf_withArraySArray:(System_Array *)p1 valueObject:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -819,7 +996,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)indexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3;
++ (int32_t)indexOf_withArraySArray:(System_Array *)p1 valueObject:(id <DBMonoObject>)p2 startIndexInt:(int32_t)p3;
 
 /**
  Managed method.
@@ -837,7 +1014,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)indexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
++ (int32_t)indexOf_withArraySArray:(System_Array *)p1 valueObject:(id <DBMonoObject>)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
 
 /**
  Managed method.
@@ -856,7 +1033,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter;
++ (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -876,7 +1053,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 typeParameter:(id)typeParameter;
++ (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(id <DBMonoObject>)p2 startIndexInt:(int32_t)p3 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -897,7 +1074,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4 typeParameter:(id)typeParameter;
++ (int32_t)indexOf_withArrayTArray:(System_Array *)p1 valueT:(id <DBMonoObject>)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -928,7 +1105,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)lastIndexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2;
++ (int32_t)lastIndexOf_withArraySArray:(System_Array *)p1 valueObject:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -945,7 +1122,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)lastIndexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3;
++ (int32_t)lastIndexOf_withArraySArray:(System_Array *)p1 valueObject:(id <DBMonoObject>)p2 startIndexInt:(int32_t)p3;
 
 /**
  Managed method.
@@ -963,7 +1140,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)lastIndexOf_withArraySArray:(System_Array *)p1 valueObject:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
++ (int32_t)lastIndexOf_withArraySArray:(System_Array *)p1 valueObject:(id <DBMonoObject>)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4;
 
 /**
  Managed method.
@@ -982,7 +1159,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 typeParameter:(id)typeParameter;
++ (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(id <DBMonoObject>)p2 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -1002,7 +1179,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 typeParameter:(id)typeParameter;
++ (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(id <DBMonoObject>)p2 startIndexInt:(int32_t)p3 typeParameter:(id)typeParameter;
 
 /**
  Managed method.
@@ -1023,7 +1200,7 @@
    System.Int32
  @/textblock
 */
-+ (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(System_Object *)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4 typeParameter:(id)typeParameter;
++ (int32_t)lastIndexOf_withArrayTArray:(System_Array *)p1 valueT:(id <DBMonoObject>)p2 startIndexInt:(int32_t)p3 countInt:(int32_t)p4 typeParameter:(id)typeParameter;
 
 /* Skipped method : System.Void Resize(T[]& array, System.Int32 newSize) */
 
@@ -1073,7 +1250,7 @@
    System.Void
  @/textblock
 */
-- (void)setValue_withValueObject:(System_Object *)p1 indexInt:(int32_t)p2;
+- (void)setValue_withValueObject:(id <DBMonoObject>)p1 indexInt:(int32_t)p2;
 
 /**
  Managed method.
@@ -1090,7 +1267,7 @@
    System.Void
  @/textblock
 */
-- (void)setValue_withValueObject:(System_Object *)p1 index1Int:(int32_t)p2 index2Int:(int32_t)p3;
+- (void)setValue_withValueObject:(id <DBMonoObject>)p1 index1Int:(int32_t)p2 index2Int:(int32_t)p3;
 
 /**
  Managed method.
@@ -1108,7 +1285,7 @@
    System.Void
  @/textblock
 */
-- (void)setValue_withValueObject:(System_Object *)p1 index1Int:(int32_t)p2 index2Int:(int32_t)p3 index3Int:(int32_t)p4;
+- (void)setValue_withValueObject:(id <DBMonoObject>)p1 index1Int:(int32_t)p2 index2Int:(int32_t)p3 index3Int:(int32_t)p4;
 
 /**
  Managed method.
@@ -1124,7 +1301,7 @@
    System.Void
  @/textblock
 */
-- (void)setValue_withValueObject:(System_Object *)p1 indicesIntArray:(System_Array *)p2;
+- (void)setValue_withValueObject:(id <DBMonoObject>)p1 indicesIntArray:(System_Array *)p2;
 
 /**
  Managed method.
@@ -1140,7 +1317,7 @@
    System.Void
  @/textblock
 */
-- (void)setValue_withValueObject:(System_Object *)p1 indexLong:(int64_t)p2;
+- (void)setValue_withValueObject:(id <DBMonoObject>)p1 indexLong:(int64_t)p2;
 
 /**
  Managed method.
@@ -1157,7 +1334,7 @@
    System.Void
  @/textblock
 */
-- (void)setValue_withValueObject:(System_Object *)p1 index1Long:(int64_t)p2 index2Long:(int64_t)p3;
+- (void)setValue_withValueObject:(id <DBMonoObject>)p1 index1Long:(int64_t)p2 index2Long:(int64_t)p3;
 
 /**
  Managed method.
@@ -1175,7 +1352,7 @@
    System.Void
  @/textblock
 */
-- (void)setValue_withValueObject:(System_Object *)p1 index1Long:(int64_t)p2 index2Long:(int64_t)p3 index3Long:(int64_t)p4;
+- (void)setValue_withValueObject:(id <DBMonoObject>)p1 index1Long:(int64_t)p2 index2Long:(int64_t)p3 index3Long:(int64_t)p4;
 
 /**
  Managed method.
@@ -1191,7 +1368,7 @@
    System.Void
  @/textblock
 */
-- (void)setValue_withValueObject:(System_Object *)p1 indicesLongArray:(System_Array *)p2;
+- (void)setValue_withValueObject:(id <DBMonoObject>)p1 indicesLongArray:(System_Array *)p2;
 
 /**
  Managed method.
@@ -1264,8 +1441,6 @@
 /* Skipped method : System.Void Sort(System.Array keys, System.Array items, System.Collections.IComparer comparer) */
 
 /* Skipped method : System.Void Sort(System.Array array, System.Int32 index, System.Int32 length, System.Collections.IComparer comparer) */
-
-/* Skipped method : System.Void Sort(System.Array keys, System.Array items, System.Int32 index, System.Int32 length, System.Collections.IComparer comparer) */
 
 /**
  Managed method.
@@ -1429,6 +1604,25 @@
 
 /* Skipped method : System.Void Sort(T[] array, System.Comparison`1<System.Array+T> comparison) */
 
-/* Skipped method : System.Boolean TrueForAll(T[] array, System.Predicate`1<System.Array+T> match) */
+/* Skipped method : System.Void Sort(System.Array keys, System.Array items, System.Int32 index, System.Int32 length, System.Collections.IComparer comparer) */
+
+/**
+ Managed method.
+ @textblock
+ Name
+   TrueForAll
+
+ Params
+   T[]
+   System.Predicate`1<System.Array+T>
+
+ Generics
+   <System.Array+T>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
++ (BOOL)trueForAll_withArray:(System_Array *)p1 match:(System_PredicateA1 *)p2 typeParameter:(id)typeParameter;
 @end
 //--Dubrovnik.CodeGenerator

@@ -32,6 +32,7 @@
 @class System_Collections_IList;
 @class System_Int32;
 @class System_Object;
+@class System_PredicateA1;
 @class System_Void;
 @class T;
 @protocol System_Collections_Generic_IComparerA1;
@@ -140,7 +141,7 @@
    <System.Collections.Generic.List`1+T>
  @/textblock
 */
-- (System_Object *)get_Item_withIndex:(int32_t)p1;
+- (id <DBMonoObject>)get_Item_withIndex:(int32_t)p1;
 
 /**
  Managed method.
@@ -156,7 +157,7 @@
    System.Void
  @/textblock
 */
-- (void)set_Item_withIndex:(int32_t)p1 value:(System_Object *)p2;
+- (void)set_Item_withIndex:(int32_t)p1 value:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -171,7 +172,7 @@
    System.Void
  @/textblock
 */
-- (void)add_withItem:(System_Object *)p1;
+- (void)add_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -206,7 +207,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(System_Object *)p3 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p4;
+- (int32_t)binarySearch_withIndex:(int32_t)p1 count:(int32_t)p2 item:(id <DBMonoObject>)p3 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p4;
 
 /**
  Managed method.
@@ -221,7 +222,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)binarySearch_withItem:(System_Object *)p1;
+- (int32_t)binarySearch_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -237,7 +238,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)binarySearch_withItem:(System_Object *)p1 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p2;
+- (int32_t)binarySearch_withItem:(id <DBMonoObject>)p1 comparer:(System_Object <System_Collections_Generic_IComparerA1_> *)p2;
 
 /**
  Managed method.
@@ -267,24 +268,9 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)contains_withItem:(System_Object *)p1;
+- (BOOL)contains_withItem:(id <DBMonoObject>)p1;
 
 /* Skipped method : System.Collections.Generic.List`1<System.Collections.Generic.List`1+TOutput> ConvertAll(System.Converter`2<System.Collections.Generic.List`1+T, System.Collections.Generic.List`1+TOutput> converter) */
-
-/**
- Managed method.
- @textblock
- Name
-   CopyTo
-
- Params
-   T[]
-
- Return
-   System.Void
- @/textblock
-*/
-- (void)copyTo_withArray:(System_Array *)p1;
 
 /**
  Managed method.
@@ -320,25 +306,176 @@
 */
 - (void)copyTo_withArray:(System_Array *)p1 arrayIndex:(int32_t)p2;
 
-/* Skipped method : System.Boolean Exists(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   CopyTo
 
-/* Skipped method : System.Collections.Generic.List`1+T Find(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+ Params
+   T[]
 
-/* Skipped method : System.Collections.Generic.List`1<System.Collections.Generic.List`1+T> FindAll(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)copyTo_withArray:(System_Array *)p1;
 
-/* Skipped method : System.Int32 FindIndex(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Exists
 
-/* Skipped method : System.Int32 FindIndex(System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
 
-/* Skipped method : System.Int32 FindIndex(System.Int32 startIndex, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)exists_withMatch:(System_PredicateA1 *)p1;
 
-/* Skipped method : System.Collections.Generic.List`1+T FindLast(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Find
 
-/* Skipped method : System.Int32 FindLastIndex(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
 
-/* Skipped method : System.Int32 FindLastIndex(System.Int32 startIndex, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+ Return
+   <System.Collections.Generic.List`1+T>
+ @/textblock
+*/
+- (id <DBMonoObject>)find_withMatch:(System_PredicateA1 *)p1;
 
-/* Skipped method : System.Int32 FindLastIndex(System.Int32 startIndex, System.Int32 count, System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   FindAll
+
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Collections.Generic.List`1<System.Collections.Generic.List`1+T>
+ @/textblock
+*/
+- (System_Collections_Generic_ListA1 *)findAll_withMatch:(System_PredicateA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindIndex
+
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)findIndex_withMatch:(System_PredicateA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindIndex
+
+ Params
+   System.Int32
+   System.Int32
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)findIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindIndex
+
+ Params
+   System.Int32
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)findIndex_withStartIndex:(int32_t)p1 match:(System_PredicateA1 *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLast
+
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   <System.Collections.Generic.List`1+T>
+ @/textblock
+*/
+- (id <DBMonoObject>)findLast_withMatch:(System_PredicateA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLastIndex
+
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)findLastIndex_withMatch:(System_PredicateA1 *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLastIndex
+
+ Params
+   System.Int32
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)findLastIndex_withStartIndex:(int32_t)p1 match:(System_PredicateA1 *)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   FindLastIndex
+
+ Params
+   System.Int32
+   System.Int32
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)findLastIndex_withStartIndex:(int32_t)p1 count:(int32_t)p2 match:(System_PredicateA1 *)p3;
 
 /**
  Managed method.
@@ -399,7 +536,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withItem:(System_Object *)p1;
+- (int32_t)indexOf_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -415,7 +552,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withItem:(System_Object *)p1 index:(int32_t)p2;
+- (int32_t)indexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2;
 
 /**
  Managed method.
@@ -432,7 +569,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)indexOf_withItem:(System_Object *)p1 index:(int32_t)p2 count:(int32_t)p3;
+- (int32_t)indexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
  Managed method.
@@ -448,7 +585,7 @@
    System.Void
  @/textblock
 */
-- (void)insert_withIndex:(int32_t)p1 item:(System_Object *)p2;
+- (void)insert_withIndex:(int32_t)p1 item:(id <DBMonoObject>)p2;
 
 /**
  Managed method.
@@ -481,7 +618,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)lastIndexOf_withItem:(System_Object *)p1 index:(int32_t)p2 count:(int32_t)p3;
+- (int32_t)lastIndexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2 count:(int32_t)p3;
 
 /**
  Managed method.
@@ -496,7 +633,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)lastIndexOf_withItem:(System_Object *)p1;
+- (int32_t)lastIndexOf_withItem:(id <DBMonoObject>)p1;
 
 /**
  Managed method.
@@ -512,7 +649,7 @@
    System.Int32
  @/textblock
 */
-- (int32_t)lastIndexOf_withItem:(System_Object *)p1 index:(int32_t)p2;
+- (int32_t)lastIndexOf_withItem:(id <DBMonoObject>)p1 index:(int32_t)p2;
 
 /**
  Managed method.
@@ -527,9 +664,22 @@
    System.Boolean
  @/textblock
 */
-- (BOOL)remove_withItem:(System_Object *)p1;
+- (BOOL)remove_withItem:(id <DBMonoObject>)p1;
 
-/* Skipped method : System.Int32 RemoveAll(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   RemoveAll
+
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Int32
+ @/textblock
+*/
+- (int32_t)removeAll_withMatch:(System_PredicateA1 *)p1;
 
 /**
  Managed method.
@@ -672,6 +822,19 @@
 */
 - (void)trimExcess;
 
-/* Skipped method : System.Boolean TrueForAll(System.Predicate`1<System.Collections.Generic.List`1+T> match) */
+/**
+ Managed method.
+ @textblock
+ Name
+   TrueForAll
+
+ Params
+   System.Predicate`1<System.Collections.Generic.List`1+T>
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)trueForAll_withMatch:(System_PredicateA1 *)p1;
 @end
 //--Dubrovnik.CodeGenerator
