@@ -181,6 +181,7 @@ extern NSString * const DBNoteManagedEnvironmentLoaded;
 + (MonoThread *)attachCurrentThreadForMonoDomain:(MonoDomain *)monoDomain;
 - (void)detachMonoThread:(MonoThread *)monoThread;
 + (void)detachMonoThread:(MonoThread *)monoThread;
+- (void)runAttachedToMonoThread:(void(^)(void))block;
 
 /*!
  
