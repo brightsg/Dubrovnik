@@ -9,15 +9,15 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     18/10/2019 10:14:28
+// Date:     11/25/2019 3:13:55 PM
 //
 // Assembly: System.Core
 // Fullname: System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Path:     C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Core.dll
 //
-// Platform: Microsoft Windows NT 6.2.9200.0
+// Platform: Unix 19.0.0.0
 // OS Arch:  64 bit
-// Process:  32 bit
+// Process:  64 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Runtime:  4.0.30319.42000
 //
@@ -54,6 +54,8 @@
 Assembly type imports
 
 */
+// Dubrovnik.CodeGenerator made System_Collections_Generic_HashSetA1__Enumerator.m
+// Dubrovnik.CodeGenerator made System_Collections_Generic_HashSetA1.m
 // Dubrovnik.CodeGenerator made System_Dynamic_BinaryOperationBinder.m
 // Dubrovnik.CodeGenerator made System_Dynamic_BindingRestrictions.m
 // Dubrovnik.CodeGenerator made System_Dynamic_CallInfo.m
