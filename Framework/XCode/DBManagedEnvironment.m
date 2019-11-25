@@ -652,6 +652,19 @@ static BOOL m_crashChaining = NO;
     mono_thread_detach(monoThread);
 }
 
+- (void)runAttachedToMonoThread:(void(^)(void))block
+{
+    MonoThread *monoThread = [self attachCurrentThread];
+    
+    @try {
+        block();
+    } @catch (NSException *exception) {
+        @throw exception;
+    } @finally {
+        [self detachMonoThread:monoThread];
+    }
+}
+
 //this thread is launched just to force cocoa into multithreaded mode.
 - (void)nothingThread:(id)arg {
 #pragma unused(arg)    
