@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     11/25/2019 10:03:38 AM
+// Date:     11/25/2019 3:01:33 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -563,10 +563,8 @@
 /* Skipped type : System.IAppDomainSetup IAppDomainSetup */
 #define SIAsyncResult_ System_IAsyncResult
 #define SICloneable_ System_ICloneable
-
-/* Skipped type : System.IComparable IComparable */
-
-/* Skipped type : System.IComparable`1<System.IComparable`1+T> IComparable`1<T> */
+#define SIComparable_ System_IComparable
+#define SIComparableA1_ System_IComparableA1
 
 /* Skipped type : System.IConvertible IConvertible */
 
@@ -2917,26 +2915,16 @@
 #define STimeZoneInfo_TransitionTime_ System_TimeZoneInfo__TransitionTime
 
 /* Skipped type : System.TimeZoneNotFoundException TimeZoneNotFoundException */
-
-/* Skipped type : System.Tuple Tuple */
-
-/* Skipped type : System.Tuple`1<System.Tuple`1+T1> Tuple`1<T1> */
-
-/* Skipped type : System.Tuple`2<System.Tuple`2+T1, System.Tuple`2+T2> Tuple`2<T1, T2> */
-
-/* Skipped type : System.Tuple`3<System.Tuple`3+T1, System.Tuple`3+T2, System.Tuple`3+T3> Tuple`3<T1, T2, T3> */
-
-/* Skipped type : System.Tuple`4<System.Tuple`4+T1, System.Tuple`4+T2, System.Tuple`4+T3, System.Tuple`4+T4> Tuple`4<T1, T2, T3, T4> */
-
-/* Skipped type : System.Tuple`5 Tuple`5 */
-
-/* Skipped type : System.Tuple`6 Tuple`6 */
-
-/* Skipped type : System.Tuple`7 Tuple`7 */
-
-/* Skipped type : System.Tuple`8 Tuple`8 */
-
-/* Skipped type : System.TupleExtensions TupleExtensions */
+#define STuple_ System_Tuple
+#define STupleA1_ System_TupleA1
+#define STupleA2_ System_TupleA2
+#define STupleA3_ System_TupleA3
+#define STupleA4_ System_TupleA4
+#define STupleA5_ System_TupleA5
+#define STupleA6_ System_TupleA6
+#define STupleA7_ System_TupleA7
+#define STupleA8_ System_TupleA8
+#define STupleExtensions_ System_TupleExtensions
 #define SType_ System_Type
 
 /* Skipped type : System.TypeAccessException TypeAccessException */
@@ -3101,6 +3089,12 @@ Assembly type imports
 #import "System_ICloneable.h"
 #import "System_ICloneable.h"
 #import "System_ICloneable_Protocol.h"
+#import "System_IComparable.h"
+#import "System_IComparable.h"
+#import "System_IComparable_Protocol.h"
+#import "System_IComparableA1.h"
+#import "System_IComparableA1.h"
+#import "System_IComparableA1_Protocol.h"
 #import "System_IDisposable.h"
 #import "System_IDisposable.h"
 #import "System_IDisposable_Protocol.h"
@@ -3175,6 +3169,16 @@ Assembly type imports
 #import "System_TimeZoneInfo.h"
 #import "System_TimeZoneInfo__AdjustmentRule.h"
 #import "System_TimeZoneInfo__TransitionTime.h"
+#import "System_Tuple.h"
+#import "System_TupleA1.h"
+#import "System_TupleA2.h"
+#import "System_TupleA3.h"
+#import "System_TupleA4.h"
+#import "System_TupleA5.h"
+#import "System_TupleA6.h"
+#import "System_TupleA7.h"
+#import "System_TupleA8.h"
+#import "System_TupleExtensions.h"
 #import "System_Type.h"
 #import "System_UInt16.h"
 #import "System_UInt32.h"

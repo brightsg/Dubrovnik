@@ -293,8 +293,6 @@
 		<string>System.IAppDomainSetup</string>
 		<string>System.IAsyncResult</string>
 		<string>System.ICloneable</string>
-		<string>System.IComparable</string>
-		<string>System.IComparable`1</string>
 		<string>System.IConvertible</string>
 		<string>System.ICustomFormatter</string>
 		<string>System.IDisposable</string>
@@ -1495,16 +1493,6 @@
 		<string>System.TimeZoneInfo+AdjustmentRule</string>
 		<string>System.TimeZoneInfo+TransitionTime</string>
 		<string>System.TimeZoneNotFoundException</string>
-		<string>System.Tuple</string>
-		<string>System.Tuple`1</string>
-		<string>System.Tuple`2</string>
-		<string>System.Tuple`3</string>
-		<string>System.Tuple`4</string>
-		<string>System.Tuple`5</string>
-		<string>System.Tuple`6</string>
-		<string>System.Tuple`7</string>
-		<string>System.Tuple`8</string>
-		<string>System.TupleExtensions</string>
 		<string>System.Type</string>
 		<string>System.TypeAccessException</string>
 		<string>System.TypeCode</string>

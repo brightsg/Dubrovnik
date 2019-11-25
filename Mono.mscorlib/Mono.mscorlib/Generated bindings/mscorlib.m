@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     11/25/2019 10:03:38 AM
+// Date:     11/25/2019 3:01:33 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -117,6 +117,8 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Guid.m
 // Dubrovnik.CodeGenerator made System_IAsyncResult.m
 // Dubrovnik.CodeGenerator made System_ICloneable.m
+// Dubrovnik.CodeGenerator made System_IComparable.m
+// Dubrovnik.CodeGenerator made System_IComparableA1.m
 // Dubrovnik.CodeGenerator made System_IDisposable.m
 // Dubrovnik.CodeGenerator made System_IEquatableA1.m
 // Dubrovnik.CodeGenerator made System_Int16.m
@@ -175,6 +177,16 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_TimeZoneInfo.m
 // Dubrovnik.CodeGenerator made System_TimeZoneInfo__AdjustmentRule.m
 // Dubrovnik.CodeGenerator made System_TimeZoneInfo__TransitionTime.m
+// Dubrovnik.CodeGenerator made System_Tuple.m
+// Dubrovnik.CodeGenerator made System_TupleA1.m
+// Dubrovnik.CodeGenerator made System_TupleA2.m
+// Dubrovnik.CodeGenerator made System_TupleA3.m
+// Dubrovnik.CodeGenerator made System_TupleA4.m
+// Dubrovnik.CodeGenerator made System_TupleA5.m
+// Dubrovnik.CodeGenerator made System_TupleA6.m
+// Dubrovnik.CodeGenerator made System_TupleA7.m
+// Dubrovnik.CodeGenerator made System_TupleA8.m
+// Dubrovnik.CodeGenerator made System_TupleExtensions.m
 // Dubrovnik.CodeGenerator made System_Type.m
 // Dubrovnik.CodeGenerator made System_UInt16.m
 // Dubrovnik.CodeGenerator made System_UInt32.m
