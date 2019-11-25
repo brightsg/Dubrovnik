@@ -9,15 +9,15 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     18/10/2019 10:13:57
+// Date:     11/25/2019 10:03:38 AM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Path:     C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll
 //
-// Platform: Microsoft Windows NT 6.2.9200.0
+// Platform: Unix 19.0.0.0
 // OS Arch:  64 bit
-// Process:  32 bit
+// Process:  64 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Runtime:  4.0.30319.42000
 //
@@ -83,6 +83,8 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Collections_Generic_KeyValuePairA2.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_ListA1__Enumerator.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_ListA1.m
+// Dubrovnik.CodeGenerator made System_Collections_ICollection.m
+// Dubrovnik.CodeGenerator made System_Collections_IDictionary.m
 // Dubrovnik.CodeGenerator made System_Collections_IEnumerable.m
 // Dubrovnik.CodeGenerator made System_Collections_IEnumerator.m
 // Dubrovnik.CodeGenerator made System_Collections_IList.m
@@ -143,6 +145,7 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Reflection_MethodInfo.m
 // Dubrovnik.CodeGenerator made System_Reflection_PropertyInfo.m
 // Dubrovnik.CodeGenerator made System_Reflection_TypeAttributes.m
+// Dubrovnik.CodeGenerator made System_Runtime_InteropServices__Attribute.m
 // Dubrovnik.CodeGenerator made System_Runtime_InteropServices__Exception.m
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_Lifetime_ClientSponsor.m
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_Lifetime_ILease.m
@@ -155,6 +158,7 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_RemotingException.m
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_RemotingServices.m
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_RemotingTimeoutException.m
+// Dubrovnik.CodeGenerator made System_Runtime_Serialization_IDeserializationCallback.m
 // Dubrovnik.CodeGenerator made System_Runtime_Serialization_ISerializable.m
 // Dubrovnik.CodeGenerator made System_SByte.m
 // Dubrovnik.CodeGenerator made System_Single.m

@@ -22,7 +22,6 @@
         <string>System.Xml.Schema.ValidationEventArgs</string>
         <string>System.Xml.Schema.ValidationEventHandler</string>
         <string>System.Xml.Schema.XmlAtomicValue</string>
-        <string>System.Xml.Schema.XmlSchema</string>
         <string>System.Xml.Schema.XmlSchemaAll</string>
         <string>System.Xml.Schema.XmlSchemaAnnotated</string>
         <string>System.Xml.Schema.XmlSchemaAnnotation</string>
@@ -121,7 +120,6 @@
         <string>System.Xml.Serialization.Configuration.SerializationSectionGroup</string>
         <string>System.Xml.Serialization.Configuration.XmlSerializerSection</string>
         <string>System.Xml.Serialization.ImportContext</string>
-        <string>System.Xml.Serialization.IXmlSerializable</string>
         <string>System.Xml.Serialization.IXmlTextParser</string>
         <string>System.Xml.Serialization.SchemaImporter</string>
         <string>System.Xml.Serialization.SoapAttributeAttribute</string>
@@ -182,7 +180,6 @@
         <string>System.Xml.Serialization.XmlSerializationReader</string>
         <string>System.Xml.Serialization.XmlSerializationWriteCallback</string>
         <string>System.Xml.Serialization.XmlSerializationWriter</string>
-        <string>System.Xml.Serialization.XmlSerializer</string>
         <string>System.Xml.Serialization.XmlSerializerAssemblyAttribute</string>
         <string>System.Xml.Serialization.XmlSerializerFactory</string>
         <string>System.Xml.Serialization.XmlSerializerImplementation</string>
@@ -230,8 +227,6 @@
         <string>System.Xml.XmlParserContext</string>
         <string>System.Xml.XmlProcessingInstruction</string>
         <string>System.Xml.XmlQualifiedName</string>
-        <string>System.Xml.XmlReader</string>
-        <string>System.Xml.XmlReaderSettings</string>
         <string>System.Xml.XmlResolver</string>
         <string>System.Xml.XmlSecureResolver</string>
         <string>System.Xml.XmlSignificantWhitespace</string>
@@ -243,8 +238,6 @@
         <string>System.Xml.XmlUrlResolver</string>
         <string>System.Xml.XmlValidatingReader</string>
         <string>System.Xml.XmlWhitespace</string>
-        <string>System.Xml.XmlWriter</string>
-        <string>System.Xml.XmlWriterSettings</string>
         <string>System.Xml.XmlXapResolver</string>
         <string>System.Xml.XPath.IXPathNavigable</string>
         <string>System.Xml.XPath.XmlCaseOrder</string>

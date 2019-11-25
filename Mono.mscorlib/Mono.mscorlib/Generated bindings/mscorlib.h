@@ -9,15 +9,15 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     18/10/2019 10:13:57
+// Date:     11/25/2019 10:03:38 AM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Path:     C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll
 //
-// Platform: Microsoft Windows NT 6.2.9200.0
+// Platform: Unix 19.0.0.0
 // OS Arch:  64 bit
-// Process:  32 bit
+// Process:  64 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Runtime:  4.0.30319.42000
 //
@@ -203,12 +203,10 @@
 #define SCGListA1_ System_Collections_Generic_ListA1
 
 /* Skipped type : System.Collections.Hashtable Hashtable */
-
-/* Skipped type : System.Collections.ICollection ICollection */
+#define SCICollection_ System_Collections_ICollection
 
 /* Skipped type : System.Collections.IComparer IComparer */
-
-/* Skipped type : System.Collections.IDictionary IDictionary */
+#define SCIDictionary_ System_Collections_IDictionary
 
 /* Skipped type : System.Collections.IDictionaryEnumerator IDictionaryEnumerator */
 #define SCIEnumerable_ System_Collections_IEnumerable
@@ -1225,8 +1223,7 @@
 /* Skipped type : System.Runtime.InteropServices._AssemblyBuilder _AssemblyBuilder */
 
 /* Skipped type : System.Runtime.InteropServices._AssemblyName _AssemblyName */
-
-/* Skipped type : System.Runtime.InteropServices._Attribute _Attribute */
+#define SRI_Attribute_ System_Runtime_InteropServices__Attribute
 
 /* Skipped type : System.Runtime.InteropServices._ConstructorBuilder _ConstructorBuilder */
 
@@ -2003,8 +2000,7 @@
 /* Skipped type : System.Runtime.Serialization.Formatters.TypeFilterLevel TypeFilterLevel */
 
 /* Skipped type : System.Runtime.Serialization.FormatterServices FormatterServices */
-
-/* Skipped type : System.Runtime.Serialization.IDeserializationCallback IDeserializationCallback */
+#define SRSIDeserializationCallback_ System_Runtime_Serialization_IDeserializationCallback
 
 /* Skipped type : System.Runtime.Serialization.IFormatter IFormatter */
 
@@ -3057,6 +3053,12 @@ Assembly type imports
 #import "System_Collections_Generic_KeyValuePairA2.h"
 #import "System_Collections_Generic_ListA1__Enumerator.h"
 #import "System_Collections_Generic_ListA1.h"
+#import "System_Collections_ICollection.h"
+#import "System_Collections_ICollection.h"
+#import "System_Collections_ICollection_Protocol.h"
+#import "System_Collections_IDictionary.h"
+#import "System_Collections_IDictionary.h"
+#import "System_Collections_IDictionary_Protocol.h"
 #import "System_Collections_IEnumerable.h"
 #import "System_Collections_IEnumerable.h"
 #import "System_Collections_IEnumerable_Protocol.h"
@@ -3131,6 +3133,9 @@ Assembly type imports
 #import "System_Reflection_MethodInfo.h"
 #import "System_Reflection_PropertyInfo.h"
 #import "System_Reflection_TypeAttributes.h"
+#import "System_Runtime_InteropServices__Attribute.h"
+#import "System_Runtime_InteropServices__Attribute.h"
+#import "System_Runtime_InteropServices__Attribute_Protocol.h"
 #import "System_Runtime_InteropServices__Exception.h"
 #import "System_Runtime_InteropServices__Exception.h"
 #import "System_Runtime_InteropServices__Exception_Protocol.h"
@@ -3149,6 +3154,9 @@ Assembly type imports
 #import "System_Runtime_Remoting_RemotingException.h"
 #import "System_Runtime_Remoting_RemotingServices.h"
 #import "System_Runtime_Remoting_RemotingTimeoutException.h"
+#import "System_Runtime_Serialization_IDeserializationCallback.h"
+#import "System_Runtime_Serialization_IDeserializationCallback.h"
+#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable.h"
 #import "System_Runtime_Serialization_ISerializable.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"

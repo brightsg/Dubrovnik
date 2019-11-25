@@ -9,15 +9,15 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     18/10/2019 10:14:33
+// Date:     11/25/2019 10:23:31 AM
 //
 // Assembly: System.Xml
 // Fullname: System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Path:     C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Xml.dll
 //
-// Platform: Microsoft Windows NT 6.2.9200.0
+// Platform: Unix 19.0.0.0
 // OS Arch:  64 bit
-// Process:  32 bit
+// Process:  64 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Runtime:  4.0.30319.42000
 //
@@ -107,8 +107,7 @@
 /* Skipped type : System.Xml.Schema.ValidationEventHandler ValidationEventHandler */
 
 /* Skipped type : System.Xml.Schema.XmlAtomicValue XmlAtomicValue */
-
-/* Skipped type : System.Xml.Schema.XmlSchema XmlSchema */
+#define SXSXmlSchema_ System_Xml_Schema_XmlSchema
 
 /* Skipped type : System.Xml.Schema.XmlSchemaAll XmlSchemaAll */
 
@@ -305,8 +304,7 @@
 /* Skipped type : System.Xml.Serialization.Configuration.XmlSerializerSection XmlSerializerSection */
 
 /* Skipped type : System.Xml.Serialization.ImportContext ImportContext */
-
-/* Skipped type : System.Xml.Serialization.IXmlSerializable IXmlSerializable */
+#define SXSIXmlSerializable_ System_Xml_Serialization_IXmlSerializable
 
 /* Skipped type : System.Xml.Serialization.IXmlTextParser IXmlTextParser */
 
@@ -427,8 +425,7 @@
 /* Skipped type : System.Xml.Serialization.XmlSerializationWriteCallback XmlSerializationWriteCallback */
 
 /* Skipped type : System.Xml.Serialization.XmlSerializationWriter XmlSerializationWriter */
-
-/* Skipped type : System.Xml.Serialization.XmlSerializer XmlSerializer */
+#define SXSXmlSerializer_ System_Xml_Serialization_XmlSerializer
 
 /* Skipped type : System.Xml.Serialization.XmlSerializerAssemblyAttribute XmlSerializerAssemblyAttribute */
 
@@ -522,10 +519,8 @@
 /* Skipped type : System.Xml.XmlProcessingInstruction XmlProcessingInstruction */
 
 /* Skipped type : System.Xml.XmlQualifiedName XmlQualifiedName */
-
-/* Skipped type : System.Xml.XmlReader XmlReader */
-
-/* Skipped type : System.Xml.XmlReaderSettings XmlReaderSettings */
+#define SXXmlReader_ System_Xml_XmlReader
+#define SXXmlReaderSettings_ System_Xml_XmlReaderSettings
 
 /* Skipped type : System.Xml.XmlResolver XmlResolver */
 
@@ -547,10 +542,8 @@
 /* Skipped type : System.Xml.XmlValidatingReader XmlValidatingReader */
 
 /* Skipped type : System.Xml.XmlWhitespace XmlWhitespace */
-
-/* Skipped type : System.Xml.XmlWriter XmlWriter */
-
-/* Skipped type : System.Xml.XmlWriterSettings XmlWriterSettings */
+#define SXXmlWriter_ System_Xml_XmlWriter
+#define SXXmlWriterSettings_ System_Xml_XmlWriterSettings
 
 /* Skipped type : System.Xml.XmlXapResolver XmlXapResolver */
 
@@ -606,6 +599,15 @@
 Assembly type imports
 
 */
+#import "System_Xml_Schema_XmlSchema.h"
+#import "System_Xml_Serialization_IXmlSerializable.h"
+#import "System_Xml_Serialization_IXmlSerializable.h"
+#import "System_Xml_Serialization_IXmlSerializable_Protocol.h"
+#import "System_Xml_Serialization_XmlSerializer.h"
 #import "System_Xml_XmlDocument.h"
+#import "System_Xml_XmlReader.h"
+#import "System_Xml_XmlReaderSettings.h"
 #import "System_Xml_XmlTextWriter.h"
+#import "System_Xml_XmlWriter.h"
+#import "System_Xml_XmlWriterSettings.h"
 #import "System_Xml_Xsl_XsltArgumentList.h"

@@ -55,7 +55,6 @@
 		<string>System.AssemblyLoadEventArgs</string>
 		<string>System.AssemblyLoadEventHandler</string>
 		<string>System.AsyncCallback</string>
-		<string>System.Attribute</string>
 		<string>System.AttributeTargets</string>
 		<string>System.AttributeUsageAttribute</string>
 		<string>System.BadImageFormatException</string>
@@ -101,9 +100,7 @@
 		<string>System.Collections.Generic.KeyValuePair`2</string>
 		<string>System.Collections.Generic.List`1</string>
 		<string>System.Collections.Hashtable</string>
-		<string>System.Collections.ICollection</string>
 		<string>System.Collections.IComparer</string>
-		<string>System.Collections.IDictionary</string>
 		<string>System.Collections.IDictionaryEnumerator</string>
 		<string>System.Collections.IEnumerable</string>
 		<string>System.Collections.IEnumerator</string>
@@ -638,7 +635,6 @@
 		<string>System.Runtime.InteropServices._Assembly</string>
 		<string>System.Runtime.InteropServices._AssemblyBuilder</string>
 		<string>System.Runtime.InteropServices._AssemblyName</string>
-		<string>System.Runtime.InteropServices._Attribute</string>
 		<string>System.Runtime.InteropServices._ConstructorBuilder</string>
 		<string>System.Runtime.InteropServices._ConstructorInfo</string>
 		<string>System.Runtime.InteropServices._CustomAttributeBuilder</string>
@@ -1033,7 +1029,6 @@
 		<string>System.Runtime.Serialization.Formatters.SoapMessage</string>
 		<string>System.Runtime.Serialization.Formatters.TypeFilterLevel</string>
 		<string>System.Runtime.Serialization.FormatterServices</string>
-		<string>System.Runtime.Serialization.IDeserializationCallback</string>
 		<string>System.Runtime.Serialization.IFormatter</string>
 		<string>System.Runtime.Serialization.IFormatterConverter</string>
 		<string>System.Runtime.Serialization.IObjectReference</string>
