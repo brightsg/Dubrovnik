@@ -13,7 +13,9 @@ namespace Dubrovnik.Tools.Output
         public string ObjCEventBlockTypeName { get; private set; }
         public string ObjCEventBlockTypeMinimalName { get; private set; }
         public string ObjCEventBlockParameters { get; private set; }
-        public string ObjCTypeDecl { get; private set; }
+		public string[] ObjCEventBlockParametersUnboxingCalls { get; private set; }
+		public int ObjCEventBlockParameterCount { get; private set; }
+		public string ObjCTypeDecl { get; private set; }
         public string ObjCType { get; private set; }
         public string ObjCGenericTypeArgument { get; private set; }
 
@@ -48,9 +50,11 @@ namespace Dubrovnik.Tools.Output
             string eventBlockName = $"_{ MonoEventName}_EventBlock";
             ObjCEventBlockTypeName = $"{interfaceFacet.ObjCFacet.Type}{eventBlockName}";
             ObjCEventBlockTypeMinimalName = $"{n2c.ObjCMinimalIdentifierFromManagedIdentifier(interfaceFacet.Type)}{eventBlockName}";
+			ObjCEventBlockParameterCount = eventFacet.Parameters.Count;
+			ObjCEventBlockParametersUnboxingCalls = new string[ObjCEventBlockParameterCount];
 
-            // process the parameters
-            ProcessParameters(n2c, eventFacet, options);
+			// process the parameters
+			ProcessParameters(n2c, eventFacet, options);
 
             // finalize argument list representations
             ObjCEventBlockParameters = CParameterBuilder.ToString();
@@ -121,13 +125,15 @@ namespace Dubrovnik.Tools.Output
                     objCParameterIsObject = n2c.ObjCRepresentationIsObject(parameter);
                 }
 
+				ObjCEventBlockParametersUnboxingCalls[idx] = objCTypeAssociate?.ObjCUnboxingMethodCallFormat() ?? string.Empty;
+
                 // if parameter is an interface then use adoption conforming type ie: id <typename>
                 if (parameter.IsInterface) {
                     objCParamTypeDecl = n2c.ObjCConformingTypeFromObjCTypeDecl(objCParamTypeDecl, false);
                 }
-                if (parameter.IsByRef || parameter.IsPointer) {
-                    objCParamTypeDecl += "*";   // add additional indirection
-                }
+				if (parameter.IsByRef || parameter.IsPointer) {
+					objCParamTypeDecl += "*";   // add additional indirection
+				}
 
                 //
                 // Build the mono method argument invocation signature
@@ -252,7 +258,7 @@ namespace Dubrovnik.Tools.Output
 
                 // build C parameter list
                 string cParamDelim = idxMax > 0 && idx < idxMax ? ", " : "";
-                CParameterBuilder.AppendFormat($"{objCParamTypeDecl}{objCParamName.FirstCharacterToLower()}{cParamDelim}");
+                CParameterBuilder.AppendFormat($"{objCParamTypeDecl} {objCParamName.FirstCharacterToLower()}{cParamDelim}");
 
                 idx++;
             }

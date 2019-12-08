@@ -150,13 +150,45 @@ namespace Dubrovnik.Tools
                 WriteLine("{");
                 PushTabIndent();
 
-                // non generic and generic event handlers require separate calls
-                if (event_.ObjCGenericTypeArgument == null) {
-                    WriteLine($"return ({event_.ObjCTypeDecl})[self db_addEventHandlerWithClass:{event_.ObjCType}.class forEventName:self.class.{event_.ObjCEventName}EventName block:(EventBlock)block];");
-                }
-                else {
-                    WriteLine($"return ({event_.ObjCTypeDecl})[self db_addEventHandlerWithClass:{event_.ObjCType}.class forEventName:self.class.{event_.ObjCEventName}EventName typeParameter:{event_.ObjCGenericTypeArgument}.class block:(EventBlock)block];");
-                }
+				// non generic and generic event handlers require separate calls
+				if (event_.ObjCGenericTypeArgument == null) {
+					WriteLine($"System_Delegate *eventHandler = [{event_.ObjCType}.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {{");
+				} else {
+					WriteLine($"System_Delegate *eventHandler = [{event_.ObjCType}.class universalDelegate:@[{event_.ObjCGenericTypeArgument}.class] block:^System_Object *(NSArray<id> *parameters) {{");
+				}
+
+				PushTabIndent();
+
+				// Build block call
+				Write("block(");
+
+				for (int idx = 0; idx < event_.ObjCEventBlockParameterCount; idx++) {
+					string parameterGetter = $"parameters[{idx}]";
+
+					string unboxingCallFormat = event_.ObjCEventBlockParametersUnboxingCalls[idx];
+
+					if (!string.IsNullOrEmpty(unboxingCallFormat)) {
+						parameterGetter = string.Format(unboxingCallFormat, parameterGetter);
+					}
+
+					Write(parameterGetter);
+
+					if (idx + 1 < event_.ObjCEventBlockParameterCount) {
+						Write(", ");
+					}
+				}
+
+				Write(");");
+				WriteLine(string.Empty);
+
+				WriteLine("return nil;");
+				PopIndent();
+				WriteLine("}];");
+
+				WriteLine($"[self db_addEventHandler:eventHandler eventName:self.class.{event_.ObjCEventName}EventName];");
+
+				WriteLine($"return ({event_.ObjCTypeDecl})eventHandler;");
+
                 PopIndent();
                 WriteLine("}");
             }
