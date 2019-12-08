@@ -29,6 +29,21 @@
 		ABBD3C14190015C000DB59AF /* ManualBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBD3C0F190015C000DB59AF /* ManualBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABF5D283190C584C00E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D281190C584C00E9CFBD /* Dubrovnik.framework */; };
 		ABF5D284190C584C00E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D282190C584C00E9CFBD /* Mono.mscorlib.framework */; };
+		E7A2A453238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable_Protocol.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A450238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable_Protocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A454238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A451238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A455238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A452238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable.m */; };
+		E7A2A458238BD457007D0919 /* System_Xml_Serialization_XmlSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A456238BD457007D0919 /* System_Xml_Serialization_XmlSerializer.m */; };
+		E7A2A459238BD457007D0919 /* System_Xml_Serialization_XmlSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A457238BD457007D0919 /* System_Xml_Serialization_XmlSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A45C238BD556007D0919 /* System_Xml_Schema_XmlSchema.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A45A238BD556007D0919 /* System_Xml_Schema_XmlSchema.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A45D238BD556007D0919 /* System_Xml_Schema_XmlSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A45B238BD556007D0919 /* System_Xml_Schema_XmlSchema.m */; };
+		E7A2A462238BD566007D0919 /* System_Xml_XmlReader.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A45E238BD566007D0919 /* System_Xml_XmlReader.m */; };
+		E7A2A463238BD566007D0919 /* System_Xml_XmlReader.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A45F238BD566007D0919 /* System_Xml_XmlReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A464238BD566007D0919 /* System_Xml_XmlReaderSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A460238BD566007D0919 /* System_Xml_XmlReaderSettings.m */; };
+		E7A2A465238BD566007D0919 /* System_Xml_XmlReaderSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A461238BD566007D0919 /* System_Xml_XmlReaderSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A46A238BD572007D0919 /* System_Xml_XmlWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A466238BD572007D0919 /* System_Xml_XmlWriter.m */; };
+		E7A2A46B238BD572007D0919 /* System_Xml_XmlWriterSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A467238BD572007D0919 /* System_Xml_XmlWriterSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A46C238BD572007D0919 /* System_Xml_XmlWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A468238BD572007D0919 /* System_Xml_XmlWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A46D238BD572007D0919 /* System_Xml_XmlWriterSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A469238BD572007D0919 /* System_Xml_XmlWriterSettings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +85,21 @@
 		ABBD3C0F190015C000DB59AF /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
 		ABF5D281190C584C00E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D282190C584C00E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7A2A450238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_Serialization_IXmlSerializable_Protocol.h; sourceTree = "<group>"; };
+		E7A2A451238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_Serialization_IXmlSerializable.h; sourceTree = "<group>"; };
+		E7A2A452238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_Serialization_IXmlSerializable.m; sourceTree = "<group>"; };
+		E7A2A456238BD457007D0919 /* System_Xml_Serialization_XmlSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_Serialization_XmlSerializer.m; sourceTree = "<group>"; };
+		E7A2A457238BD457007D0919 /* System_Xml_Serialization_XmlSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_Serialization_XmlSerializer.h; sourceTree = "<group>"; };
+		E7A2A45A238BD556007D0919 /* System_Xml_Schema_XmlSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_Schema_XmlSchema.h; sourceTree = "<group>"; };
+		E7A2A45B238BD556007D0919 /* System_Xml_Schema_XmlSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_Schema_XmlSchema.m; sourceTree = "<group>"; };
+		E7A2A45E238BD566007D0919 /* System_Xml_XmlReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_XmlReader.m; sourceTree = "<group>"; };
+		E7A2A45F238BD566007D0919 /* System_Xml_XmlReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_XmlReader.h; sourceTree = "<group>"; };
+		E7A2A460238BD566007D0919 /* System_Xml_XmlReaderSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_XmlReaderSettings.m; sourceTree = "<group>"; };
+		E7A2A461238BD566007D0919 /* System_Xml_XmlReaderSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_XmlReaderSettings.h; sourceTree = "<group>"; };
+		E7A2A466238BD572007D0919 /* System_Xml_XmlWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_XmlWriter.m; sourceTree = "<group>"; };
+		E7A2A467238BD572007D0919 /* System_Xml_XmlWriterSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_XmlWriterSettings.h; sourceTree = "<group>"; };
+		E7A2A468238BD572007D0919 /* System_Xml_XmlWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_XmlWriter.h; sourceTree = "<group>"; };
+		E7A2A469238BD572007D0919 /* System_Xml_XmlWriterSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Xml_XmlWriterSettings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +129,21 @@
 		AB05394D20D28465005B7E66 /* Generated bindings */ = {
 			isa = PBXGroup;
 			children = (
+				E7A2A45A238BD556007D0919 /* System_Xml_Schema_XmlSchema.h */,
+				E7A2A45B238BD556007D0919 /* System_Xml_Schema_XmlSchema.m */,
+				E7A2A45F238BD566007D0919 /* System_Xml_XmlReader.h */,
+				E7A2A45E238BD566007D0919 /* System_Xml_XmlReader.m */,
+				E7A2A461238BD566007D0919 /* System_Xml_XmlReaderSettings.h */,
+				E7A2A460238BD566007D0919 /* System_Xml_XmlReaderSettings.m */,
+				E7A2A468238BD572007D0919 /* System_Xml_XmlWriter.h */,
+				E7A2A466238BD572007D0919 /* System_Xml_XmlWriter.m */,
+				E7A2A467238BD572007D0919 /* System_Xml_XmlWriterSettings.h */,
+				E7A2A469238BD572007D0919 /* System_Xml_XmlWriterSettings.m */,
+				E7A2A450238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable_Protocol.h */,
+				E7A2A451238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable.h */,
+				E7A2A452238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable.m */,
+				E7A2A457238BD457007D0919 /* System_Xml_Serialization_XmlSerializer.h */,
+				E7A2A456238BD457007D0919 /* System_Xml_Serialization_XmlSerializer.m */,
 				AB05394E20D28465005B7E66 /* System_Xml.h */,
 				AB05394F20D28465005B7E66 /* System_Xml_XmlTextWriter.m */,
 				AB05395020D28465005B7E66 /* System_Xml_XmlDocument.m */,
@@ -209,15 +254,23 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7A2A463238BD566007D0919 /* System_Xml_XmlReader.h in Headers */,
 				AB05395C20D28465005B7E66 /* System_Xml_Xsl_XsltArgumentList.h in Headers */,
+				E7A2A454238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable.h in Headers */,
 				AB05395620D28465005B7E66 /* System_Xml.h in Headers */,
 				AB05395B20D28465005B7E66 /* System_Xml_XmlTextWriter.h in Headers */,
+				E7A2A453238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable_Protocol.h in Headers */,
 				AB05395D20D28465005B7E66 /* System_Xml_XmlDocument.h in Headers */,
+				E7A2A46B238BD572007D0919 /* System_Xml_XmlWriterSettings.h in Headers */,
 				ABBD3C14190015C000DB59AF /* ManualBindings.h in Headers */,
 				ABBD3C11190015C000DB59AF /* Framework.h in Headers */,
+				E7A2A465238BD566007D0919 /* System_Xml_XmlReaderSettings.h in Headers */,
 				ABBD3C10190015C000DB59AF /* Categories.h in Headers */,
+				E7A2A46C238BD572007D0919 /* System_Xml_XmlWriter.h in Headers */,
 				ABBD3C12190015C000DB59AF /* GeneratedBindings.h in Headers */,
+				E7A2A459238BD457007D0919 /* System_Xml_Serialization_XmlSerializer.h in Headers */,
 				ABBD3C13190015C000DB59AF /* HelperClasses.h in Headers */,
+				E7A2A45C238BD556007D0919 /* System_Xml_Schema_XmlSchema.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,9 +371,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB05395A20D28465005B7E66 /* System_Xml.m in Sources */,
+				E7A2A46D238BD572007D0919 /* System_Xml_XmlWriterSettings.m in Sources */,
+				E7A2A462238BD566007D0919 /* System_Xml_XmlReader.m in Sources */,
 				AB05395720D28465005B7E66 /* System_Xml_XmlTextWriter.m in Sources */,
 				AB05395920D28465005B7E66 /* System_Xml_Xsl_XsltArgumentList.m in Sources */,
 				AB05395820D28465005B7E66 /* System_Xml_XmlDocument.m in Sources */,
+				E7A2A455238BD2DC007D0919 /* System_Xml_Serialization_IXmlSerializable.m in Sources */,
+				E7A2A458238BD457007D0919 /* System_Xml_Serialization_XmlSerializer.m in Sources */,
+				E7A2A464238BD566007D0919 /* System_Xml_XmlReaderSettings.m in Sources */,
+				E7A2A45D238BD556007D0919 /* System_Xml_Schema_XmlSchema.m in Sources */,
+				E7A2A46A238BD572007D0919 /* System_Xml_XmlWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

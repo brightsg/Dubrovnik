@@ -68,38 +68,6 @@
                 <string>System.Data.Constraint</string>
                 <string>System.Data.ConstraintCollection</string>
                 <string>System.Data.ConstraintException</string>
-                <string>System.Data.DataColumn</string>
-                <string>System.Data.DataColumnChangeEventArgs</string>
-                <string>System.Data.DataColumnChangeEventHandler</string>
-                <string>System.Data.DataColumnCollection</string>
-                <string>System.Data.DataException</string>
-                <string>System.Data.DataRelation</string>
-                <string>System.Data.DataRelationCollection</string>
-                <string>System.Data.DataRow</string>
-                <string>System.Data.DataRowAction</string>
-                <string>System.Data.DataRowBuilder</string>
-                <string>System.Data.DataRowChangeEventArgs</string>
-                <string>System.Data.DataRowChangeEventHandler</string>
-                <string>System.Data.DataRowCollection</string>
-                <string>System.Data.DataRowState</string>
-                <string>System.Data.DataRowVersion</string>
-                <string>System.Data.DataRowView</string>
-                <string>System.Data.DataSet</string>
-                <string>System.Data.DataSetDateTime</string>
-                <string>System.Data.DataSetSchemaImporterExtension</string>
-                <string>System.Data.DataSysDescriptionAttribute</string>
-                <string>System.Data.DataTable</string>
-                <string>System.Data.DataTableClearEventArgs</string>
-                <string>System.Data.DataTableClearEventHandler</string>
-                <string>System.Data.DataTableCollection</string>
-                <string>System.Data.DataTableNewRowEventArgs</string>
-                <string>System.Data.DataTableNewRowEventHandler</string>
-                <string>System.Data.DataTableReader</string>
-                <string>System.Data.DataView</string>
-                <string>System.Data.DataViewManager</string>
-                <string>System.Data.DataViewRowState</string>
-                <string>System.Data.DataViewSetting</string>
-                <string>System.Data.DataViewSettingCollection</string>
                 <string>System.Data.DBConcurrencyException</string>
                 <string>System.Data.DbType</string>
                 <string>System.Data.DeletedRowInaccessibleException</string>
