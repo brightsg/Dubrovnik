@@ -50,14 +50,25 @@ namespace Dubrovnik.Tools {
 		//
 		public class ObjCTypeAssociation {
 			private string _SetterFormat = null;
-			private string[] _NumericTypes = {  "void",
-												"char", "unichar",
-												"int8_t", "int16_t", "int32_t", "int64_t",
-												"uint8_t", "uint16_t", "uint32_t", "uint64_t",
-												"short", "long",
-												"double", "float",
-												"BOOL",
-											 };
+			private static string[] _NumericTypes = {
+				"void",
+				"char", "unichar",
+				"int8_t", "int16_t", "int32_t", "int64_t",
+				"uint8_t", "uint16_t", "uint32_t", "uint64_t",
+				"short", "long",
+				"double", "float",
+				"BOOL"
+			};
+
+			private static readonly Dictionary<string, string> _UnboxingMethods = new Dictionary<string, string>() {
+				{ "char", "charValue" }, { "unichar", "unsignedCharValue" },
+				{ "int8_t", "charValue" }, { "int16_t", "shortValue" }, { "int32_t", "intValue" }, { "int64_t", "longValue" },
+				{ "uint8_t", "unsignedCharValue" }, { "uint16_t", "unsignedShortValue" }, { "uint32_t", "unsignedIntValue" }, { "uint64_t", "unsignedLongValue" },
+				{ "short", "shortValue" }, { "long", "longValue" },
+				{ "double", "doubleValue" }, { "float", "floatValue" },
+				{ "BOOL", "boolValue" },
+			};
+
 			public ManagedTypeAssociation ManagedTypeAssociate { get; set; }
 			public string ObjCType { get; set; }
 			public string GetterFormat { get; set; }
@@ -66,12 +77,16 @@ namespace Dubrovnik.Tools {
 			{
 				get
 				{
-					// get element type for pointers
-					string elementType = ObjCType.Replace("*", "");
-					elementType = elementType.Replace(" ", "");
-
-					return !(_NumericTypes.Contains<string>(elementType));
+					return !IsNumericType(ObjCType);
 				}
+			}
+
+			public static bool IsNumericType(string objcType)
+			{
+				string elementType = objcType.Replace("*", "");
+				elementType = elementType.Replace(" ", "");
+
+				return _NumericTypes.Contains<string>(elementType);
 			}
 
 			public static string UniqueTypeName(string objCDecl, string managedType) {
@@ -119,6 +134,25 @@ namespace Dubrovnik.Tools {
 				}
 			}
 			public string SetterMethod { get; set; }
+
+			public static string ObjCUnboxingMethodCallFormat(string objcType)
+			{
+				if (!IsNumericType(objcType)) {
+					return string.Empty;
+				}
+
+				if (_UnboxingMethods.TryGetValue(objcType, out string unboxingMethodCall) &&
+					!string.IsNullOrEmpty(unboxingMethodCall)) {
+					return "[{0} " + unboxingMethodCall + "]";
+				}
+
+				return string.Empty;
+			}
+
+			public string ObjCUnboxingMethodCallFormat()
+			{
+				return ObjCUnboxingMethodCallFormat(ObjCType);
+			}
 		}
 
 		//
