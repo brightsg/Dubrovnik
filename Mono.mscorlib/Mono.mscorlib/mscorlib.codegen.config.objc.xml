@@ -55,7 +55,6 @@
 		<string>System.AssemblyLoadEventArgs</string>
 		<string>System.AssemblyLoadEventHandler</string>
 		<string>System.AsyncCallback</string>
-		<string>System.Attribute</string>
 		<string>System.AttributeTargets</string>
 		<string>System.AttributeUsageAttribute</string>
 		<string>System.BadImageFormatException</string>
@@ -101,9 +100,7 @@
 		<string>System.Collections.Generic.KeyValuePair`2</string>
 		<string>System.Collections.Generic.List`1</string>
 		<string>System.Collections.Hashtable</string>
-		<string>System.Collections.ICollection</string>
 		<string>System.Collections.IComparer</string>
-		<string>System.Collections.IDictionary</string>
 		<string>System.Collections.IDictionaryEnumerator</string>
 		<string>System.Collections.IEnumerable</string>
 		<string>System.Collections.IEnumerator</string>
@@ -296,8 +293,6 @@
 		<string>System.IAppDomainSetup</string>
 		<string>System.IAsyncResult</string>
 		<string>System.ICloneable</string>
-		<string>System.IComparable</string>
-		<string>System.IComparable`1</string>
 		<string>System.IConvertible</string>
 		<string>System.ICustomFormatter</string>
 		<string>System.IDisposable</string>
@@ -638,7 +633,6 @@
 		<string>System.Runtime.InteropServices._Assembly</string>
 		<string>System.Runtime.InteropServices._AssemblyBuilder</string>
 		<string>System.Runtime.InteropServices._AssemblyName</string>
-		<string>System.Runtime.InteropServices._Attribute</string>
 		<string>System.Runtime.InteropServices._ConstructorBuilder</string>
 		<string>System.Runtime.InteropServices._ConstructorInfo</string>
 		<string>System.Runtime.InteropServices._CustomAttributeBuilder</string>
@@ -1033,7 +1027,6 @@
 		<string>System.Runtime.Serialization.Formatters.SoapMessage</string>
 		<string>System.Runtime.Serialization.Formatters.TypeFilterLevel</string>
 		<string>System.Runtime.Serialization.FormatterServices</string>
-		<string>System.Runtime.Serialization.IDeserializationCallback</string>
 		<string>System.Runtime.Serialization.IFormatter</string>
 		<string>System.Runtime.Serialization.IFormatterConverter</string>
 		<string>System.Runtime.Serialization.IObjectReference</string>
@@ -1500,16 +1493,6 @@
 		<string>System.TimeZoneInfo+AdjustmentRule</string>
 		<string>System.TimeZoneInfo+TransitionTime</string>
 		<string>System.TimeZoneNotFoundException</string>
-		<string>System.Tuple</string>
-		<string>System.Tuple`1</string>
-		<string>System.Tuple`2</string>
-		<string>System.Tuple`3</string>
-		<string>System.Tuple`4</string>
-		<string>System.Tuple`5</string>
-		<string>System.Tuple`6</string>
-		<string>System.Tuple`7</string>
-		<string>System.Tuple`8</string>
-		<string>System.TupleExtensions</string>
 		<string>System.Type</string>
 		<string>System.TypeAccessException</string>
 		<string>System.TypeCode</string>

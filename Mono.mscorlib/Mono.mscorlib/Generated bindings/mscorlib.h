@@ -9,15 +9,15 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     18/10/2019 10:13:57
+// Date:     11/25/2019 3:01:33 PM
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Path:     C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll
 //
-// Platform: Microsoft Windows NT 6.2.9200.0
+// Platform: Unix 19.0.0.0
 // OS Arch:  64 bit
-// Process:  32 bit
+// Process:  64 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Runtime:  4.0.30319.42000
 //
@@ -203,12 +203,10 @@
 #define SCGListA1_ System_Collections_Generic_ListA1
 
 /* Skipped type : System.Collections.Hashtable Hashtable */
-
-/* Skipped type : System.Collections.ICollection ICollection */
+#define SCICollection_ System_Collections_ICollection
 
 /* Skipped type : System.Collections.IComparer IComparer */
-
-/* Skipped type : System.Collections.IDictionary IDictionary */
+#define SCIDictionary_ System_Collections_IDictionary
 
 /* Skipped type : System.Collections.IDictionaryEnumerator IDictionaryEnumerator */
 #define SCIEnumerable_ System_Collections_IEnumerable
@@ -565,10 +563,8 @@
 /* Skipped type : System.IAppDomainSetup IAppDomainSetup */
 #define SIAsyncResult_ System_IAsyncResult
 #define SICloneable_ System_ICloneable
-
-/* Skipped type : System.IComparable IComparable */
-
-/* Skipped type : System.IComparable`1<System.IComparable`1+T> IComparable`1<T> */
+#define SIComparable_ System_IComparable
+#define SIComparableA1_ System_IComparableA1
 
 /* Skipped type : System.IConvertible IConvertible */
 
@@ -1225,8 +1221,7 @@
 /* Skipped type : System.Runtime.InteropServices._AssemblyBuilder _AssemblyBuilder */
 
 /* Skipped type : System.Runtime.InteropServices._AssemblyName _AssemblyName */
-
-/* Skipped type : System.Runtime.InteropServices._Attribute _Attribute */
+#define SRI_Attribute_ System_Runtime_InteropServices__Attribute
 
 /* Skipped type : System.Runtime.InteropServices._ConstructorBuilder _ConstructorBuilder */
 
@@ -2003,8 +1998,7 @@
 /* Skipped type : System.Runtime.Serialization.Formatters.TypeFilterLevel TypeFilterLevel */
 
 /* Skipped type : System.Runtime.Serialization.FormatterServices FormatterServices */
-
-/* Skipped type : System.Runtime.Serialization.IDeserializationCallback IDeserializationCallback */
+#define SRSIDeserializationCallback_ System_Runtime_Serialization_IDeserializationCallback
 
 /* Skipped type : System.Runtime.Serialization.IFormatter IFormatter */
 
@@ -2921,26 +2915,16 @@
 #define STimeZoneInfo_TransitionTime_ System_TimeZoneInfo__TransitionTime
 
 /* Skipped type : System.TimeZoneNotFoundException TimeZoneNotFoundException */
-
-/* Skipped type : System.Tuple Tuple */
-
-/* Skipped type : System.Tuple`1<System.Tuple`1+T1> Tuple`1<T1> */
-
-/* Skipped type : System.Tuple`2<System.Tuple`2+T1, System.Tuple`2+T2> Tuple`2<T1, T2> */
-
-/* Skipped type : System.Tuple`3<System.Tuple`3+T1, System.Tuple`3+T2, System.Tuple`3+T3> Tuple`3<T1, T2, T3> */
-
-/* Skipped type : System.Tuple`4<System.Tuple`4+T1, System.Tuple`4+T2, System.Tuple`4+T3, System.Tuple`4+T4> Tuple`4<T1, T2, T3, T4> */
-
-/* Skipped type : System.Tuple`5 Tuple`5 */
-
-/* Skipped type : System.Tuple`6 Tuple`6 */
-
-/* Skipped type : System.Tuple`7 Tuple`7 */
-
-/* Skipped type : System.Tuple`8 Tuple`8 */
-
-/* Skipped type : System.TupleExtensions TupleExtensions */
+#define STuple_ System_Tuple
+#define STupleA1_ System_TupleA1
+#define STupleA2_ System_TupleA2
+#define STupleA3_ System_TupleA3
+#define STupleA4_ System_TupleA4
+#define STupleA5_ System_TupleA5
+#define STupleA6_ System_TupleA6
+#define STupleA7_ System_TupleA7
+#define STupleA8_ System_TupleA8
+#define STupleExtensions_ System_TupleExtensions
 #define SType_ System_Type
 
 /* Skipped type : System.TypeAccessException TypeAccessException */
@@ -3057,6 +3041,12 @@ Assembly type imports
 #import "System_Collections_Generic_KeyValuePairA2.h"
 #import "System_Collections_Generic_ListA1__Enumerator.h"
 #import "System_Collections_Generic_ListA1.h"
+#import "System_Collections_ICollection.h"
+#import "System_Collections_ICollection.h"
+#import "System_Collections_ICollection_Protocol.h"
+#import "System_Collections_IDictionary.h"
+#import "System_Collections_IDictionary.h"
+#import "System_Collections_IDictionary_Protocol.h"
 #import "System_Collections_IEnumerable.h"
 #import "System_Collections_IEnumerable.h"
 #import "System_Collections_IEnumerable_Protocol.h"
@@ -3099,6 +3089,12 @@ Assembly type imports
 #import "System_ICloneable.h"
 #import "System_ICloneable.h"
 #import "System_ICloneable_Protocol.h"
+#import "System_IComparable.h"
+#import "System_IComparable.h"
+#import "System_IComparable_Protocol.h"
+#import "System_IComparableA1.h"
+#import "System_IComparableA1.h"
+#import "System_IComparableA1_Protocol.h"
 #import "System_IDisposable.h"
 #import "System_IDisposable.h"
 #import "System_IDisposable_Protocol.h"
@@ -3131,6 +3127,9 @@ Assembly type imports
 #import "System_Reflection_MethodInfo.h"
 #import "System_Reflection_PropertyInfo.h"
 #import "System_Reflection_TypeAttributes.h"
+#import "System_Runtime_InteropServices__Attribute.h"
+#import "System_Runtime_InteropServices__Attribute.h"
+#import "System_Runtime_InteropServices__Attribute_Protocol.h"
 #import "System_Runtime_InteropServices__Exception.h"
 #import "System_Runtime_InteropServices__Exception.h"
 #import "System_Runtime_InteropServices__Exception_Protocol.h"
@@ -3149,6 +3148,9 @@ Assembly type imports
 #import "System_Runtime_Remoting_RemotingException.h"
 #import "System_Runtime_Remoting_RemotingServices.h"
 #import "System_Runtime_Remoting_RemotingTimeoutException.h"
+#import "System_Runtime_Serialization_IDeserializationCallback.h"
+#import "System_Runtime_Serialization_IDeserializationCallback.h"
+#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable.h"
 #import "System_Runtime_Serialization_ISerializable.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
@@ -3167,6 +3169,16 @@ Assembly type imports
 #import "System_TimeZoneInfo.h"
 #import "System_TimeZoneInfo__AdjustmentRule.h"
 #import "System_TimeZoneInfo__TransitionTime.h"
+#import "System_Tuple.h"
+#import "System_TupleA1.h"
+#import "System_TupleA2.h"
+#import "System_TupleA3.h"
+#import "System_TupleA4.h"
+#import "System_TupleA5.h"
+#import "System_TupleA6.h"
+#import "System_TupleA7.h"
+#import "System_TupleA8.h"
+#import "System_TupleExtensions.h"
 #import "System_Type.h"
 #import "System_UInt16.h"
 #import "System_UInt32.h"

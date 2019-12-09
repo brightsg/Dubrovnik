@@ -93,6 +93,10 @@
 		ABB8A44018FF246000213B80 /* System_Linq+core.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A43E18FF246000213B80 /* System_Linq+core.m */; };
 		ABF5D275190C577200E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D273190C577200E9CFBD /* Dubrovnik.framework */; };
 		ABF5D276190C577200E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D274190C577200E9CFBD /* Mono.mscorlib.framework */; };
+		E7A2A6B6238C1961007D0919 /* System_Collections_Generic_HashSetA1__Enumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A6B2238C1960007D0919 /* System_Collections_Generic_HashSetA1__Enumerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A6B7238C1961007D0919 /* System_Collections_Generic_HashSetA1.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A6B3238C1960007D0919 /* System_Collections_Generic_HashSetA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A6B8238C1961007D0919 /* System_Collections_Generic_HashSetA1__Enumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A6B4238C1961007D0919 /* System_Collections_Generic_HashSetA1__Enumerator.m */; };
+		E7A2A6B9238C1961007D0919 /* System_Collections_Generic_HashSetA1.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A6B5238C1961007D0919 /* System_Collections_Generic_HashSetA1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +203,10 @@
 		ABB8A43E18FF246000213B80 /* System_Linq+core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Linq+core.m"; sourceTree = "<group>"; };
 		ABF5D273190C577200E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D274190C577200E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7A2A6B2238C1960007D0919 /* System_Collections_Generic_HashSetA1__Enumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_HashSetA1__Enumerator.h; sourceTree = "<group>"; };
+		E7A2A6B3238C1960007D0919 /* System_Collections_Generic_HashSetA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Generic_HashSetA1.h; sourceTree = "<group>"; };
+		E7A2A6B4238C1961007D0919 /* System_Collections_Generic_HashSetA1__Enumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_Generic_HashSetA1__Enumerator.m; sourceTree = "<group>"; };
+		E7A2A6B5238C1961007D0919 /* System_Collections_Generic_HashSetA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_Generic_HashSetA1.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +249,10 @@
 		AB41D60820D1C485009B8274 /* Generated Bindings */ = {
 			isa = PBXGroup;
 			children = (
+				E7A2A6B2238C1960007D0919 /* System_Collections_Generic_HashSetA1__Enumerator.h */,
+				E7A2A6B4238C1961007D0919 /* System_Collections_Generic_HashSetA1__Enumerator.m */,
+				E7A2A6B3238C1960007D0919 /* System_Collections_Generic_HashSetA1.h */,
+				E7A2A6B5238C1961007D0919 /* System_Collections_Generic_HashSetA1.m */,
 				AB95ED58223434EF0054926F /* System_Dynamic_BinaryOperationBinder.h */,
 				AB95ED4A223434EE0054926F /* System_Dynamic_BinaryOperationBinder.m */,
 				AB95ED4D223434EE0054926F /* System_Dynamic_BindingRestrictions.h */,
@@ -430,6 +442,7 @@
 				AB95ED82223434F30054926F /* System_Dynamic_DeleteIndexBinder.h in Headers */,
 				AB63A0AF20D1C57900F697CE /* System_Linq_IQueryableA1_Protocol.h in Headers */,
 				AB63A0A420D1C57900F697CE /* System_Linq_IOrderedEnumerableA1_Protocol.h in Headers */,
+				E7A2A6B7238C1961007D0919 /* System_Collections_Generic_HashSetA1.h in Headers */,
 				AB4842022235001B00BD952D /* System_Core.__Extra__.h in Headers */,
 				AB95ED79223434F30054926F /* System_Dynamic_IDynamicMetaObjectProvider_Protocol.h in Headers */,
 				AB63A0A320D1C57900F697CE /* System_Linq_IQueryable.h in Headers */,
@@ -442,6 +455,7 @@
 				AB63A0AD20D1C57900F697CE /* System_Linq_IOrderedQueryable.h in Headers */,
 				AB63A09D20D1C57900F697CE /* System_Linq_IOrderedQueryableA1.h in Headers */,
 				AB95ED8D223434F30054926F /* System_Dynamic_CreateInstanceBinder.h in Headers */,
+				E7A2A6B6238C1961007D0919 /* System_Collections_Generic_HashSetA1__Enumerator.h in Headers */,
 				AB63A0AA20D1C57900F697CE /* System_Linq_Queryable.h in Headers */,
 				AB95ED7D223434F30054926F /* System_Dynamic_GetIndexBinder.h in Headers */,
 				AB95ED86223434F30054926F /* System_Dynamic_IDynamicMetaObjectProvider.h in Headers */,
@@ -576,7 +590,9 @@
 				AB95ED93223434F30054926F /* System_Dynamic_DynamicMetaObject.m in Sources */,
 				AB95ED72223434F30054926F /* System_Dynamic_BinaryOperationBinder.m in Sources */,
 				ABB8A43A18FF21AA00213B80 /* System_Collections_Generic_DictionaryA2+Linq.m in Sources */,
+				E7A2A6B9238C1961007D0919 /* System_Collections_Generic_HashSetA1.m in Sources */,
 				AB63A09E20D1C57900F697CE /* System_Linq_IQueryable.m in Sources */,
+				E7A2A6B8238C1961007D0919 /* System_Collections_Generic_HashSetA1__Enumerator.m in Sources */,
 				AB63A0A120D1C57900F697CE /* System_Linq_IOrderedEnumerableA1.m in Sources */,
 				ABB009A31B00F9DD00EF538F /* System_Collections_Generic_IEnumerableA1+Linq.m in Sources */,
 				AB95ED84223434F30054926F /* System_Dynamic_InvokeBinder.m in Sources */,

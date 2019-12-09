@@ -1,11 +1,18 @@
 //
-//  Prefix header
+//  Mono.System.Data-Prefix.pch
+//  Mono.System.Data
 //
-//  The contents of this file are implicitly included at the beginning of every source file.
+//  Created by Jonathan Mitchell on 18/02/2016.
+//  Copyright © 2016 Thesaurus Software Limited. All rights reserved.
 //
 
 #ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-    #import <Dubrovnik/Dubrovnik.h>
-    #import <Mono.mscorlib/Framework.h>
+
+#import <Foundation/Foundation.h>
+#import <Dubrovnik/Dubrovnik.h>
+#import <Mono.mscorlib/Framework.h>
+#import <Mono.System/Framework.h>
+#import <Mono.System.Xml/Framework.h>
+
 #endif
+
