@@ -140,8 +140,8 @@ namespace Dubrovnik.Tools {
 				if (!IsNumericType(objcType)) {
 					return string.Empty;
 				}
-
-				if (_UnboxingMethods.TryGetValue(objcType, out string unboxingMethodCall) &&
+                string unboxingMethodCall = null;
+                if (_UnboxingMethods.TryGetValue(objcType, out unboxingMethodCall) &&
 					!string.IsNullOrEmpty(unboxingMethodCall)) {
 					return "[{0} " + unboxingMethodCall + "]";
 				}
