@@ -128,18 +128,30 @@ namespace Dubrovnik.Tools {
 
 			AssemblyFolder = System.IO.Path.GetDirectoryName(xmlPath);
 
+			const char nixDirSeparator = '/';
+			const char winDirSeparator = '\\';
+
+			char currentDirSeparator = Path.DirectorySeparatorChar;
+
+			// If we're running on Windows, replace all occurences of the *NIX dir separator (slash) with the Windows dir separator (bashslash)
+			// On the other hand, if we're running on *NIX, replace all occurrences of the Windows dir separator (backslash) with the *NIX dir separator (slash)
+			char dirSeparatorToReplace = currentDirSeparator == winDirSeparator ? nixDirSeparator : winDirSeparator;
+
 			// Process the reference list
 			// and load other xml config data to be merged into the current configuration.
 			// This process educates the current object about the types in 
 			// referenced assemblies eg: type skipping info.
 			foreach (string refPath in ReferenceList) {
-				string path = refPath;
+				string path = refPath.Replace(dirSeparatorToReplace, currentDirSeparator);
+
+				string fullPath = path;
+
 				// fix up relative reference path
-				if (!Path.IsPathRooted(refPath)) {
-					path = Path.Combine(AssemblyFolder, refPath);
-					path = Path.GetFullPath(path);
+				if (!Path.IsPathRooted(path)) {
+					fullPath = Path.Combine(AssemblyFolder, path);
+					fullPath = Path.GetFullPath(fullPath);
 				}
-				ConfigObjC config = ConfigObjCForAssembly(path);
+				ConfigObjC config = ConfigObjCForAssembly(fullPath);
 				Merge(config);
 			}
 		}
