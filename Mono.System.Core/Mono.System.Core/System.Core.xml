@@ -933,17 +933,17 @@
       </Property>
       <Property Name="Count" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Constructor>
-        <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer`1&lt;System.Collections.Generic.HashSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="collection" Type="System.Collections.Generic.IEnumerable`1&lt;System.Collections.Generic.HashSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="collection" Type="System.Collections.Generic.IEnumerable`1&lt;System.Collections.Generic.HashSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
-        <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer`1&lt;System.Collections.Generic.HashSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="capacity" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer`1&lt;System.Collections.Generic.HashSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="collection" Type="System.Collections.Generic.IEnumerable`1&lt;System.Collections.Generic.HashSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="collection" Type="System.Collections.Generic.IEnumerable`1&lt;System.Collections.Generic.HashSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
+        <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer`1&lt;System.Collections.Generic.HashSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
       </Constructor>
       <Constructor>
         <Parameter Name="capacity" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />

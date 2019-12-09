@@ -20,6 +20,7 @@
 @class System_Array;
 @class System_Boolean;
 @class System_Collections_ArrayList;
+@class System_Collections_ICollection;
 @class System_Collections_IEnumerable;
 @class System_Collections_IEnumerator;
 @class System_Collections_IList;
@@ -28,6 +29,8 @@
 @class System_Object;
 @class System_Type;
 @class System_Void;
+@protocol System_Collections_ICollection;
+@protocol System_Collections_ICollection_;
 @protocol System_Collections_IEnumerator;
 @protocol System_Collections_IEnumerator_;
 @protocol System_Collections_IList;
@@ -41,12 +44,13 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_Collections_ICollection_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Collections_IList_Protocol.h"
 #import "System_ICloneable_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Collections_ArrayList : System_Object <System_Collections_IList_, System_Collections_IEnumerable_, System_ICloneable_>
+@interface System_Collections_ArrayList : System_Object <System_Collections_IList_, System_Collections_ICollection_, System_Collections_IEnumerable_, System_ICloneable_>
 
 #pragma mark -
 #pragma mark Setup
@@ -72,7 +76,20 @@
 */
 + (System_Collections_ArrayList *)new_withCapacity:(int32_t)p1;
 
-/* Skipped constructor : System.Collections.ArrayList (System.Collections.ICollection c) */
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Collections.ICollection
+
+ Return
+   System.Collections.ArrayList
+ @/textblock
+*/
++ (System_Collections_ArrayList *)new_withC:(System_Object <System_Collections_ICollection_> *)p1;
 
 #pragma mark -
 #pragma mark Properties
@@ -213,7 +230,20 @@
 */
 - (int32_t)add_withValue:(id <DBMonoObject>)p1;
 
-/* Skipped method : System.Void AddRange(System.Collections.ICollection c) */
+/**
+ Managed method.
+ @textblock
+ Name
+   AddRange
+
+ Params
+   System.Collections.ICollection
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)addRange_withC:(System_Object <System_Collections_ICollection_> *)p1;
 
 /* Skipped method : System.Int32 BinarySearch(System.Int32 index, System.Int32 count, System.Object value, System.Collections.IComparer comparer) */
 
@@ -469,7 +499,21 @@
 */
 - (void)insert_withIndex:(int32_t)p1 value:(id <DBMonoObject>)p2;
 
-/* Skipped method : System.Void InsertRange(System.Int32 index, System.Collections.ICollection c) */
+/**
+ Managed method.
+ @textblock
+ Name
+   InsertRange
+
+ Params
+   System.Int32
+   System.Collections.ICollection
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)insertRange_withIndex:(int32_t)p1 c:(System_Object <System_Collections_ICollection_> *)p2;
 
 /**
  Managed method.
@@ -642,7 +686,21 @@
 */
 - (void)reverse_withIndex:(int32_t)p1 count:(int32_t)p2;
 
-/* Skipped method : System.Void SetRange(System.Int32 index, System.Collections.ICollection c) */
+/**
+ Managed method.
+ @textblock
+ Name
+   SetRange
+
+ Params
+   System.Int32
+   System.Collections.ICollection
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)setRange_withIndex:(int32_t)p1 c:(System_Object <System_Collections_ICollection_> *)p2;
 
 /**
  Managed method.

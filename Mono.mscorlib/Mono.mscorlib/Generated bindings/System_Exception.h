@@ -17,6 +17,7 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Collections_IDictionary;
 @class System_Exception;
 @class System_Int32;
 @class System_Reflection_MethodBase;
@@ -25,6 +26,8 @@
 @class System_String;
 @class System_Type;
 @class System_Void;
+@protocol System_Collections_IDictionary;
+@protocol System_Collections_IDictionary_;
 
 //
 // Local assembly imports
@@ -83,7 +86,17 @@
 #pragma mark -
 #pragma mark Properties
 
-/* Skipped property : System.Collections.IDictionary Data */
+/**
+ Managed property.
+ @textblock
+ Name
+   Data
+
+ Type
+   System.Collections.IDictionary
+ @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Collections_IDictionary * data;
 
 /**
  Managed property.

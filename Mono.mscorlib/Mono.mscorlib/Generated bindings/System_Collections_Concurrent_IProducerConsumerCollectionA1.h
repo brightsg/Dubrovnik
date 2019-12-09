@@ -21,6 +21,7 @@
 @class System_Boolean;
 @class System_Collections_Concurrent_IProducerConsumerCollectionA1;
 @class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_ICollection;
 @class System_Collections_IEnumerable;
 @class System_Int32;
 @class System_Object;
@@ -39,10 +40,11 @@
 //
 #import "System_Collections_Concurrent_IProducerConsumerCollectionA1_Protocol.h"
 #import "System_Collections_Generic_IEnumerableA1_Protocol.h"
+#import "System_Collections_ICollection_Protocol.h"
 #import "System_Collections_IEnumerable_Protocol.h"
 #import "System_Object.h"
 
-@interface System_Collections_Concurrent_IProducerConsumerCollectionA1 : System_Object <System_Collections_Concurrent_IProducerConsumerCollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_>
+@interface System_Collections_Concurrent_IProducerConsumerCollectionA1 : System_Object <System_Collections_Concurrent_IProducerConsumerCollectionA1_, System_Collections_Generic_IEnumerableA1_, System_Collections_IEnumerable_, System_Collections_ICollection_>
 
 #pragma mark -
 #pragma mark Setup

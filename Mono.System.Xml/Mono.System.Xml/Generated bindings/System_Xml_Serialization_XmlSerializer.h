@@ -27,6 +27,8 @@
 @class System_Type;
 @class System_Void;
 @class System_Xml_Serialization_XmlSerializer;
+@class System_Xml_XmlReader;
+@class System_Xml_XmlWriter;
 
 //
 // Local assembly imports
@@ -66,6 +68,8 @@
 
 /* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides, System.Type[] extraTypes, System.Xml.Serialization.XmlRootAttribute root, System.String defaultNamespace) */
 
+/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlRootAttribute root) */
+
 /**
  Managed method.
  @textblock
@@ -81,6 +85,8 @@
  @/textblock
 */
 + (System_Xml_Serialization_XmlSerializer *)new_withType:(System_Type *)p1 extraTypes:(System_Array *)p2;
+
+/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides) */
 
 /* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Xml.Serialization.XmlTypeMapping xmlTypeMapping) */
 
@@ -99,14 +105,6 @@
 */
 + (System_Xml_Serialization_XmlSerializer *)new_withType:(System_Type *)p1;
 
-/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides, System.Type[] extraTypes, System.Xml.Serialization.XmlRootAttribute root, System.String defaultNamespace, System.String location) */
-
-/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides, System.Type[] extraTypes, System.Xml.Serialization.XmlRootAttribute root, System.String defaultNamespace, System.String location, System.Security.Policy.Evidence evidence) */
-
-/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlRootAttribute root) */
-
-/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides) */
-
 /**
  Managed method.
  @textblock
@@ -123,10 +121,27 @@
 */
 + (System_Xml_Serialization_XmlSerializer *)new_withType:(System_Type *)p1 defaultNamespace:(NSString *)p2;
 
+/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides, System.Type[] extraTypes, System.Xml.Serialization.XmlRootAttribute root, System.String defaultNamespace, System.String location) */
+
+/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides, System.Type[] extraTypes, System.Xml.Serialization.XmlRootAttribute root, System.String defaultNamespace, System.String location, System.Security.Policy.Evidence evidence) */
+
 #pragma mark -
 #pragma mark Methods
 
-/* Skipped method : System.Boolean CanDeserialize(System.Xml.XmlReader xmlReader) */
+/**
+ Managed method.
+ @textblock
+ Name
+   CanDeserialize
+
+ Params
+   System.Xml.XmlReader
+
+ Return
+   System.Boolean
+ @/textblock
+*/
+- (BOOL)canDeserialize_withXmlReader:(System_Xml_XmlReader *)p1;
 
 /**
  Managed method.
@@ -158,11 +173,38 @@
 */
 - (id <DBMonoObject>)deserialize_withTextReader:(System_IO_TextReader *)p1;
 
-/* Skipped method : System.Object Deserialize(System.Xml.XmlReader xmlReader) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Deserialize
+
+ Params
+   System.Xml.XmlReader
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (id <DBMonoObject>)deserialize_withXmlReader:(System_Xml_XmlReader *)p1;
 
 /* Skipped method : System.Object Deserialize(System.Xml.XmlReader xmlReader, System.Xml.Serialization.XmlDeserializationEvents events) */
 
-/* Skipped method : System.Object Deserialize(System.Xml.XmlReader xmlReader, System.String encodingStyle) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Deserialize
+
+ Params
+   System.Xml.XmlReader
+   System.String
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (id <DBMonoObject>)deserialize_withXmlReader:(System_Xml_XmlReader *)p1 encodingStyle:(NSString *)p2;
 
 /* Skipped method : System.Object Deserialize(System.Xml.XmlReader xmlReader, System.String encodingStyle, System.Xml.Serialization.XmlDeserializationEvents events) */
 
@@ -244,7 +286,21 @@
 
 /* Skipped method : System.Void Serialize(System.IO.Stream stream, System.Object o, System.Xml.Serialization.XmlSerializerNamespaces namespaces) */
 
-/* Skipped method : System.Void Serialize(System.Xml.XmlWriter xmlWriter, System.Object o) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Serialize
+
+ Params
+   System.Xml.XmlWriter
+   System.Object
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)serialize_withXmlWriter:(System_Xml_XmlWriter *)p1 o:(id <DBMonoObject>)p2;
 
 /* Skipped method : System.Void Serialize(System.Xml.XmlWriter xmlWriter, System.Object o, System.Xml.Serialization.XmlSerializerNamespaces namespaces) */
 

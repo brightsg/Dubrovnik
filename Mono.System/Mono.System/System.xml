@@ -578,6 +578,16 @@
       <Property Name="Uri" Type="System.Uri" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Property Name="UserName" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Constructor>
+        <Parameter Name="uri" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="uri" Type="System.Uri" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="schemeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="hostName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="scheme" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="host" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="portNumber" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -594,16 +604,6 @@
         <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="path" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="extraValue" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="uri" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="uri" Type="System.Uri" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="schemeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="hostName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="rparam" Type="System.Object" />
@@ -736,10 +736,6 @@
       <Property Name="Size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="SizeExpression" Type="System.CodeDom.CodeExpression" BaseName="CodeObject" BaseType="System.CodeDom.CodeObject" IsReadable="True" IsWritable="True" />
       <Constructor>
-        <Parameter Name="createType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="createType" Type="System.CodeDom.CodeTypeReference" BaseName="CodeObject" BaseType="System.CodeDom.CodeObject" />
         <Parameter Name="initializers" Type="System.CodeDom.CodeExpression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.CodeDom.CodeExpression" />
       </Constructor>
@@ -757,6 +753,10 @@
       </Constructor>
       <Constructor>
         <Parameter Name="createType" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="createType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
@@ -861,10 +861,6 @@
       <Property Name="AttributeType" Type="System.CodeDom.CodeTypeReference" BaseName="CodeObject" BaseType="System.CodeDom.CodeObject" IsReadable="True" />
       <Property Name="Name" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Constructor>
-        <Parameter Name="attributeType" Type="System.CodeDom.CodeTypeReference" BaseName="CodeObject" BaseType="System.CodeDom.CodeObject" />
-        <Parameter Name="arguments" Type="System.CodeDom.CodeAttributeArgument[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.CodeDom.CodeAttributeArgument" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
@@ -873,6 +869,10 @@
       </Constructor>
       <Constructor>
         <Parameter Name="attributeType" Type="System.CodeDom.CodeTypeReference" BaseName="CodeObject" BaseType="System.CodeDom.CodeObject" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="attributeType" Type="System.CodeDom.CodeTypeReference" BaseName="CodeObject" BaseType="System.CodeDom.CodeObject" />
+        <Parameter Name="arguments" Type="System.CodeDom.CodeAttributeArgument[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.CodeDom.CodeAttributeArgument" />
       </Constructor>
     </Class>
     <Class Name="CodeAttributeDeclarationCollection" Type="System.CodeDom.CodeAttributeDeclarationCollection" BaseName="CollectionBase" BaseType="System.Collections.CollectionBase">
@@ -1381,12 +1381,12 @@
       <Property Name="Method" Type="System.CodeDom.CodeMethodReferenceExpression" BaseName="CodeExpression" BaseType="System.CodeDom.CodeExpression" IsReadable="True" IsWritable="True" />
       <Property Name="Parameters" Type="System.CodeDom.CodeExpressionCollection" BaseName="CollectionBase" BaseType="System.Collections.CollectionBase" IsReadable="True" />
       <Constructor>
-        <Parameter Name="targetObject" Type="System.CodeDom.CodeExpression" BaseName="CodeObject" BaseType="System.CodeDom.CodeObject" />
-        <Parameter Name="methodName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="method" Type="System.CodeDom.CodeMethodReferenceExpression" BaseName="CodeExpression" BaseType="System.CodeDom.CodeExpression" />
         <Parameter Name="parameters" Type="System.CodeDom.CodeExpression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.CodeDom.CodeExpression" />
       </Constructor>
       <Constructor>
-        <Parameter Name="method" Type="System.CodeDom.CodeMethodReferenceExpression" BaseName="CodeExpression" BaseType="System.CodeDom.CodeExpression" />
+        <Parameter Name="targetObject" Type="System.CodeDom.CodeExpression" BaseName="CodeObject" BaseType="System.CodeDom.CodeObject" />
+        <Parameter Name="methodName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="parameters" Type="System.CodeDom.CodeExpression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.CodeDom.CodeExpression" />
       </Constructor>
     </Class>
@@ -1510,11 +1510,11 @@
       <Property Name="CreateType" Type="System.CodeDom.CodeTypeReference" BaseName="CodeObject" BaseType="System.CodeDom.CodeObject" IsReadable="True" IsWritable="True" />
       <Property Name="Parameters" Type="System.CodeDom.CodeExpressionCollection" BaseName="CollectionBase" BaseType="System.Collections.CollectionBase" IsReadable="True" />
       <Constructor>
-        <Parameter Name="createType" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="createType" Type="System.CodeDom.CodeTypeReference" BaseName="CodeObject" BaseType="System.CodeDom.CodeObject" />
         <Parameter Name="parameters" Type="System.CodeDom.CodeExpression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.CodeDom.CodeExpression" />
       </Constructor>
       <Constructor>
-        <Parameter Name="createType" Type="System.CodeDom.CodeTypeReference" BaseName="CodeObject" BaseType="System.CodeDom.CodeObject" />
+        <Parameter Name="createType" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="parameters" Type="System.CodeDom.CodeExpression[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.CodeDom.CodeExpression" />
       </Constructor>
       <Constructor>
@@ -2327,15 +2327,15 @@
       <Property Name="Win32Resource" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Constructor>
         <Parameter Name="assemblyNames" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="assemblyNames" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
+        <Parameter Name="outputName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="assemblyNames" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
         <Parameter Name="outputName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="includeDebugInformation" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="assemblyNames" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="assemblyNames" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
-        <Parameter Name="outputName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
     </Class>
     <Class Name="CompilerResults" Type="System.CodeDom.Compiler.CompilerResults" BaseName="Object" BaseType="System.Object">
@@ -2509,10 +2509,10 @@
       <Property Name="NewLine" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" IsWritable="True" />
       <Constructor>
         <Parameter Name="writer" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="tabString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="writer" Type="System.IO.TextWriter" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="tabString" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="Close" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="Flush" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -2631,10 +2631,10 @@
       <Property Name="TempDir" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Constructor>
         <Parameter Name="tempDir" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="keepFiles" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="tempDir" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="keepFiles" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="AddExtension" Type="System.String" BaseName="Object" BaseType="System.Object">
         <Parameter Name="fileExtension" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -3049,13 +3049,13 @@
         <Parameter Name="value" Type="System.Collections.Generic.SortedDictionary`2+TValue" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="1" />
       </Method>
       <Constructor>
+        <Parameter Name="dictionary" Type="System.Collections.Generic.IDictionary`2&lt;System.Collections.Generic.SortedDictionary`2+TKey, System.Collections.Generic.SortedDictionary`2+TValue&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="dictionary" Type="System.Collections.Generic.IDictionary`2&lt;System.Collections.Generic.SortedDictionary`2+TKey, System.Collections.Generic.SortedDictionary`2+TValue&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
         <Parameter Name="comparer" Type="System.Collections.Generic.IComparer`1&lt;System.Collections.Generic.SortedDictionary`2+TKey&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
       </Constructor>
       <Constructor>
-        <Parameter Name="dictionary" Type="System.Collections.Generic.IDictionary`2&lt;System.Collections.Generic.SortedDictionary`2+TKey, System.Collections.Generic.SortedDictionary`2+TValue&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="dictionary" Type="System.Collections.Generic.IDictionary`2&lt;System.Collections.Generic.SortedDictionary`2+TKey, System.Collections.Generic.SortedDictionary`2+TValue&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
         <Parameter Name="comparer" Type="System.Collections.Generic.IComparer`1&lt;System.Collections.Generic.SortedDictionary`2+TKey&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
       </Constructor>
       <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" ContainsGenericMethodParameters="True">
@@ -3256,13 +3256,13 @@
       <Property Name="Max" Type="System.Collections.Generic.SortedSet`1+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" IsReadable="True" />
       <Property Name="Min" Type="System.Collections.Generic.SortedSet`1+T" BaseName="Object" BaseType="System.Object" IsNested="True" ContainsGenericParameters="True" IsGenericParameter="True" GenericParameterPosition="0" IsReadable="True" />
       <Constructor>
-        <Parameter Name="collection" Type="System.Collections.Generic.IEnumerable`1&lt;System.Collections.Generic.SortedSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="collection" Type="System.Collections.Generic.IEnumerable`1&lt;System.Collections.Generic.SortedSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
         <Parameter Name="comparer" Type="System.Collections.Generic.IComparer`1&lt;System.Collections.Generic.SortedSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
       </Constructor>
       <Constructor>
+        <Parameter Name="collection" Type="System.Collections.Generic.IEnumerable`1&lt;System.Collections.Generic.SortedSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="collection" Type="System.Collections.Generic.IEnumerable`1&lt;System.Collections.Generic.SortedSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
         <Parameter Name="comparer" Type="System.Collections.Generic.IComparer`1&lt;System.Collections.Generic.SortedSet`1+T&gt;" IsInterface="True" IsGenericType="True" IsConstructedGenericType="True" ContainsGenericParameters="True" />
       </Constructor>
       <Method Name="Add" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" ContainsGenericMethodParameters="True">
@@ -3751,6 +3751,18 @@
       <Property Name="OldStartingIndex" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Constructor>
         <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="changedItem" Type="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="changedItem" Type="System.Object" />
+        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="changedItems" Type="System.Collections.IList" IsInterface="True" />
       </Constructor>
       <Constructor>
@@ -3760,12 +3772,14 @@
       </Constructor>
       <Constructor>
         <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="changedItem" Type="System.Object" />
+        <Parameter Name="newItem" Type="System.Object" />
+        <Parameter Name="oldItem" Type="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="newItem" Type="System.Object" />
         <Parameter Name="oldItem" Type="System.Object" />
+        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
@@ -3789,20 +3803,6 @@
         <Parameter Name="changedItems" Type="System.Collections.IList" IsInterface="True" />
         <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="oldIndex" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="changedItem" Type="System.Object" />
-        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="action" Type="System.Collections.Specialized.NotifyCollectionChangedAction" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="newItem" Type="System.Object" />
-        <Parameter Name="oldItem" Type="System.Object" />
-        <Parameter Name="index" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
     </Class>
     <Class Name="NotifyCollectionChangedEventHandler" Type="System.Collections.Specialized.NotifyCollectionChangedEventHandler" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True">
@@ -5605,6 +5605,13 @@
       <Property Name="LicensedType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" IsReadable="True" />
       <Constructor>
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="instance" Type="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="instance" Type="System.Object" />
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
@@ -5613,13 +5620,6 @@
         <Parameter Name="instance" Type="System.Object" />
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="innerException" Type="System.Exception" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="instance" Type="System.Object" />
       </Constructor>
       <Method Name="GetObjectData" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="info" Type="System.Runtime.Serialization.SerializationInfo" BaseName="Object" BaseType="System.Object" />
@@ -6455,10 +6455,10 @@
       </Method>
       <Constructor>
         <Parameter Name="properties" Type="System.ComponentModel.PropertyDescriptor[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.ComponentModel.PropertyDescriptor" />
-        <Parameter Name="readOnly" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="properties" Type="System.ComponentModel.PropertyDescriptor[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.ComponentModel.PropertyDescriptor" />
+        <Parameter Name="readOnly" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Add" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="value" Type="System.ComponentModel.PropertyDescriptor" BaseName="MemberDescriptor" BaseType="System.ComponentModel.MemberDescriptor" />
@@ -6775,13 +6775,13 @@
       <Property Name="ToolboxItemType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" IsReadable="True" />
       <Property Name="ToolboxItemTypeName" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Constructor>
+        <Parameter Name="defaultType" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="toolboxItemTypeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="toolboxItemType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="defaultType" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="obj" Type="System.Object" />
@@ -8550,11 +8550,11 @@
       <Constructor>
         <Parameter Name="member" Type="System.Reflection.MemberInfo" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="arguments" Type="System.Collections.ICollection" IsInterface="True" />
-        <Parameter Name="isComplete" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="member" Type="System.Reflection.MemberInfo" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="arguments" Type="System.Collections.ICollection" IsInterface="True" />
+        <Parameter Name="isComplete" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Invoke" Type="System.Object" />
     </Class>
@@ -8637,11 +8637,6 @@
       <Property Name="SerializerTypeName" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Property Name="TypeId" Type="System.Object" IsReadable="True" />
       <Constructor>
-        <Parameter Name="serializerTypeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="baseSerializerTypeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="reloadable" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="serializerType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="baseSerializerType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="reloadable" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -8649,6 +8644,11 @@
       <Constructor>
         <Parameter Name="serializerTypeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="baseSerializerType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="reloadable" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="serializerTypeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="baseSerializerTypeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="reloadable" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
     </Class>
@@ -9339,11 +9339,11 @@
       <Constructor>
         <Parameter Name="displayName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="description" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="defaultSwitchValue" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="displayName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="description" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="defaultSwitchValue" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
     </Class>
     <Class Name="ConsoleTraceListener" Type="System.Diagnostics.ConsoleTraceListener" BaseName="TextWriterTraceListener" BaseType="System.Diagnostics.TextWriterTraceListener">
@@ -10773,11 +10773,11 @@
     <Class Name="SourceSwitch" Type="System.Diagnostics.SourceSwitch" BaseName="Switch" BaseType="System.Diagnostics.Switch">
       <Property Name="Level" Type="System.Diagnostics.SourceLevels" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
       <Constructor>
-        <Parameter Name="displayName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="defaultSwitchValue" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="displayName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="defaultSwitchValue" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="ShouldTrace" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="eventType" Type="System.Diagnostics.TraceEventType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
@@ -11294,11 +11294,11 @@
       <Constructor>
         <Parameter Name="displayName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="description" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="defaultSwitchValue" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="displayName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="description" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="defaultSwitchValue" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
     </Class>
     <Class Name="XmlWriterTraceListener" Type="System.Diagnostics.XmlWriterTraceListener" BaseName="TextWriterTraceListener" BaseType="System.Diagnostics.TextWriterTraceListener">
@@ -13464,10 +13464,10 @@
       </Method>
       <Constructor>
         <Parameter Name="family" Type="System.Net.Sockets.AddressFamily" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="family" Type="System.Net.Sockets.AddressFamily" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="size" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="comparand" Type="System.Object" />
@@ -14309,6 +14309,10 @@
         <Parameter Name="Credentials" Type="System.Net.ICredentials" IsInterface="True" />
       </Constructor>
       <Constructor>
+        <Parameter Name="Host" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="Port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="Address" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
@@ -14325,10 +14329,6 @@
         <Parameter Name="BypassOnLocal" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="BypassList" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
         <Parameter Name="Credentials" Type="System.Net.ICredentials" IsInterface="True" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="Host" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="Port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="GetDefaultProxy" Type="System.Net.WebProxy" BaseName="Object" BaseType="System.Object" IsStatic="True" />
       <Method Name="GetProxy" Type="System.Uri" BaseName="Object" BaseType="System.Object">
@@ -14539,15 +14539,6 @@
         <Parameter Name="level" Type="System.Net.Cache.HttpRequestCacheLevel" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
-        <Parameter Name="cacheSyncDate" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="cacheAgeControl" Type="System.Net.Cache.HttpCacheAgeControl" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="maxAge" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="freshOrStale" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="cacheSyncDate" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="cacheAgeControl" Type="System.Net.Cache.HttpCacheAgeControl" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="ageOrFreshOrStale" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
@@ -14555,6 +14546,15 @@
         <Parameter Name="cacheAgeControl" Type="System.Net.Cache.HttpCacheAgeControl" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="maxAge" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="freshOrStale" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="cacheSyncDate" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="cacheAgeControl" Type="System.Net.Cache.HttpCacheAgeControl" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="maxAge" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="freshOrStale" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="cacheSyncDate" Type="System.DateTime" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
     </Class>
@@ -15164,16 +15164,16 @@
       <Constructor>
         <Parameter Name="from" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="to" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="from" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="to" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="subject" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="body" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="from" Type="System.Net.Mail.MailAddress" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="to" Type="System.Net.Mail.MailAddress" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="from" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="to" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="Dispose" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
     </Class>
@@ -16676,6 +16676,18 @@
       <Property Name="WriteTimeout" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Constructor>
         <Parameter Name="innerStream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="innerStream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="leaveInnerStreamOpen" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="innerStream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="leaveInnerStreamOpen" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="userCertificateValidationCallback" Type="System.Net.Security.RemoteCertificateValidationCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="innerStream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
         <Parameter Name="leaveInnerStreamOpen" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="userCertificateValidationCallback" Type="System.Net.Security.RemoteCertificateValidationCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
         <Parameter Name="userCertificateSelectionCallback" Type="System.Net.Security.LocalCertificateSelectionCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
@@ -16686,18 +16698,6 @@
         <Parameter Name="userCertificateValidationCallback" Type="System.Net.Security.RemoteCertificateValidationCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
         <Parameter Name="userCertificateSelectionCallback" Type="System.Net.Security.LocalCertificateSelectionCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
         <Parameter Name="encryptionPolicy" Type="System.Net.Security.EncryptionPolicy" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="innerStream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="innerStream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="leaveInnerStreamOpen" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="innerStream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="leaveInnerStreamOpen" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="userCertificateValidationCallback" Type="System.Net.Security.RemoteCertificateValidationCallback" BaseName="MulticastDelegate" BaseType="System.MulticastDelegate" IsDelegate="True" />
       </Constructor>
       <Method Name="AuthenticateAsClient" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="targetHost" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -17196,12 +17196,12 @@
         <Parameter Name="protocolType" Type="System.Net.Sockets.ProtocolType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
-        <Parameter Name="socketInformation" Type="System.Net.Sockets.SocketInformation" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="addressFamily" Type="System.Net.Sockets.AddressFamily" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="socketType" Type="System.Net.Sockets.SocketType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="protocolType" Type="System.Net.Sockets.ProtocolType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="socketInformation" Type="System.Net.Sockets.SocketInformation" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Accept" Type="System.Net.Sockets.Socket" BaseName="Object" BaseType="System.Object" />
       <Method Name="AcceptAsync" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -18053,13 +18053,13 @@
       <Property Name="LocalEndpoint" Type="System.Net.EndPoint" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Property Name="Server" Type="System.Net.Sockets.Socket" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Constructor>
-        <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="localEP" Type="System.Net.IPEndPoint" BaseName="EndPoint" BaseType="System.Net.EndPoint" />
       </Constructor>
       <Constructor>
         <Parameter Name="localaddr" Type="System.Net.IPAddress" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="AcceptSocket" Type="System.Net.Sockets.Socket" BaseName="Object" BaseType="System.Object" />
@@ -18118,10 +18118,10 @@
       <Property Name="MulticastLoopback" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="Ttl" Type="System.Int16" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Constructor>
-        <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="family" Type="System.Net.Sockets.AddressFamily" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
-        <Parameter Name="family" Type="System.Net.Sockets.AddressFamily" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="port" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -18475,6 +18475,10 @@
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
+        <Parameter Name="nativeError" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="innerException" Type="System.Exception" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="error" Type="System.Net.WebSockets.WebSocketError" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="nativeError" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
@@ -18499,10 +18503,6 @@
       </Constructor>
       <Constructor>
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="innerException" Type="System.Exception" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="nativeError" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="innerException" Type="System.Exception" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="GetObjectData" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -19808,9 +19808,6 @@
         <Parameter Name="storeName" Type="System.Security.Cryptography.X509Certificates.StoreName" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
-        <Parameter Name="storeHandle" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="storeLocation" Type="System.Security.Cryptography.X509Certificates.StoreLocation" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
@@ -19820,6 +19817,9 @@
       <Constructor>
         <Parameter Name="storeName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="storeLocation" Type="System.Security.Cryptography.X509Certificates.StoreLocation" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="storeHandle" Type="System.IntPtr" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Add" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="certificate" Type="System.Security.Cryptography.X509Certificates.X509Certificate2" BaseName="X509Certificate" BaseType="System.Security.Cryptography.X509Certificates.X509Certificate" />
@@ -20368,16 +20368,16 @@
       <Property Name="MatchTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="Pattern" Type="System.String" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Constructor>
+        <Parameter Name="regexInput" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="regexPattern" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="matchTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="inner" Type="System.Exception" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="regexInput" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="regexPattern" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="matchTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
     </Class>
     <Enumeration Name="RegexOptions" Type="System.Text.RegularExpressions.RegexOptions" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum">

@@ -25,6 +25,8 @@
 @class System_String;
 @class System_Void;
 @class System_Xml_XmlDocument;
+@class System_Xml_XmlReader;
+@class System_Xml_XmlWriter;
 
 //
 // Local assembly imports
@@ -285,7 +287,20 @@
 */
 - (void)load_withTxtReader:(System_IO_TextReader *)p1;
 
-/* Skipped method : System.Void Load(System.Xml.XmlReader reader) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Load
+
+ Params
+   System.Xml.XmlReader
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)load_withReader:(System_Xml_XmlReader *)p1;
 
 /**
  Managed method.
@@ -336,15 +351,54 @@
 
 /* Skipped method : System.Void Save(System.IO.TextWriter writer) */
 
-/* Skipped method : System.Void Save(System.Xml.XmlWriter w) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Save
+
+ Params
+   System.Xml.XmlWriter
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)save_withW:(System_Xml_XmlWriter *)p1;
 
 /* Skipped method : System.Void Validate(System.Xml.Schema.ValidationEventHandler validationEventHandler) */
 
 /* Skipped method : System.Void Validate(System.Xml.Schema.ValidationEventHandler validationEventHandler, System.Xml.XmlNode nodeToValidate) */
 
-/* Skipped method : System.Void WriteContentTo(System.Xml.XmlWriter xw) */
+/**
+ Managed method.
+ @textblock
+ Name
+   WriteContentTo
 
-/* Skipped method : System.Void WriteTo(System.Xml.XmlWriter w) */
+ Params
+   System.Xml.XmlWriter
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)writeContentTo_withXw:(System_Xml_XmlWriter *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   WriteTo
+
+ Params
+   System.Xml.XmlWriter
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)writeTo_withW:(System_Xml_XmlWriter *)p1;
 
 #pragma mark -
 #pragma mark Events

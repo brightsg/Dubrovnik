@@ -33,11 +33,21 @@
 #pragma mark -
 #pragma mark Methods
 
-/* Skipped method : System.Xml.Schema.XmlSchema GetSchema() */
+- (System_Xml_Schema_XmlSchema *)getSchema
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Xml.Serialization.IXmlSerializable.GetSchema()" withNumArgs:0];
+	return [System_Xml_Schema_XmlSchema bestObjectWithMonoObject:monoObject];
+}
 
-/* Skipped method : System.Void ReadXml(System.Xml.XmlReader reader) */
+- (void)readXml_withReader:(System_Xml_XmlReader *)p1
+{
+	[self invokeMonoMethod:"System.Xml.Serialization.IXmlSerializable.ReadXml(System.Xml.XmlReader)" withNumArgs:1, [p1 monoRTInvokeObject]];
+}
 
-/* Skipped method : System.Void WriteXml(System.Xml.XmlWriter writer) */
+- (void)writeXml_withWriter:(System_Xml_XmlWriter *)p1
+{
+	[self invokeMonoMethod:"System.Xml.Serialization.IXmlSerializable.WriteXml(System.Xml.XmlWriter)" withNumArgs:1, [p1 monoRTInvokeObject]];
+}
 
 #pragma mark -
 #pragma mark Teardown

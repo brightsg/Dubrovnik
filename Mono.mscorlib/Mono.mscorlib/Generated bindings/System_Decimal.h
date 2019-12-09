@@ -23,11 +23,14 @@
 @class System_Char;
 @class System_Decimal;
 @class System_Double;
+@class System_IComparable;
+@class System_IComparableA1;
 @class System_IEquatableA1;
 @class System_Int16;
 @class System_Int32;
 @class System_Int64;
 @class System_Object;
+@class System_Runtime_Serialization_IDeserializationCallback;
 @class System_SByte;
 @class System_Single;
 @class System_String;
@@ -43,10 +46,13 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IComparable_Protocol.h"
+#import "System_IComparableA1_Protocol.h"
 #import "System_IEquatableA1_Protocol.h"
+#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_Decimal : System_ValueType <System_IEquatableA1_>
+@interface System_Decimal : System_ValueType <System_IComparable_, System_Runtime_Serialization_IDeserializationCallback_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup
@@ -124,6 +130,36 @@
    .ctor
 
  Params
+   System.Single
+
+ Return
+   System.Decimal
+ @/textblock
+*/
++ (System_Decimal *)new_withValueSingle:(float)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.Double
+
+ Return
+   System.Decimal
+ @/textblock
+*/
++ (System_Decimal *)new_withValueDouble:(double)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
    System.Int32[]
 
  Return
@@ -150,36 +186,6 @@
  @/textblock
 */
 + (System_Decimal *)new_withLo:(int32_t)p1 mid:(int32_t)p2 hi:(int32_t)p3 isNegative:(BOOL)p4 scale:(uint8_t)p5;
-
-/**
- Managed method.
- @textblock
- Name
-   .ctor
-
- Params
-   System.Single
-
- Return
-   System.Decimal
- @/textblock
-*/
-+ (System_Decimal *)new_withValueSingle:(float)p1;
-
-/**
- Managed method.
- @textblock
- Name
-   .ctor
-
- Params
-   System.Double
-
- Return
-   System.Decimal
- @/textblock
-*/
-+ (System_Decimal *)new_withValueDouble:(double)p1;
 
 #pragma mark -
 #pragma mark Fields

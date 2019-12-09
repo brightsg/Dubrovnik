@@ -58,15 +58,12 @@
 
  Params
    System.String
-   System.Type
 
  Return
    System.Data.DataColumn
  @/textblock
 */
-+ (System_Data_DataColumn *)new_withColumnName:(NSString *)p1 dataType:(System_Type *)p2;
-
-/* Skipped constructor : System.Data.DataColumn (System.String columnName, System.Type dataType, System.String expr, System.Data.MappingType type) */
++ (System_Data_DataColumn *)new_withColumnName:(NSString *)p1;
 
 /**
  Managed method.
@@ -76,12 +73,13 @@
 
  Params
    System.String
+   System.Type
 
  Return
    System.Data.DataColumn
  @/textblock
 */
-+ (System_Data_DataColumn *)new_withColumnName:(NSString *)p1;
++ (System_Data_DataColumn *)new_withColumnName:(NSString *)p1 dataType:(System_Type *)p2;
 
 /**
  Managed method.
@@ -99,6 +97,8 @@
  @/textblock
 */
 + (System_Data_DataColumn *)new_withColumnName:(NSString *)p1 dataType:(System_Type *)p2 expr:(NSString *)p3;
+
+/* Skipped constructor : System.Data.DataColumn (System.String columnName, System.Type dataType, System.String expr, System.Data.MappingType type) */
 
 #pragma mark -
 #pragma mark Properties

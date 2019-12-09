@@ -71,6 +71,24 @@
 
  Params
    System.String
+   System.Data.DataColumn
+   System.Data.DataColumn
+   System.Boolean
+
+ Return
+   System.Data.DataRelation
+ @/textblock
+*/
++ (System_Data_DataRelation *)new_withRelationName:(NSString *)p1 parentColumn:(System_Data_DataColumn *)p2 childColumn:(System_Data_DataColumn *)p3 createConstraints:(BOOL)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   .ctor
+
+ Params
+   System.String
    System.Data.DataColumn[]
    System.Data.DataColumn[]
 
@@ -139,24 +157,6 @@
  @/textblock
 */
 + (System_Data_DataRelation *)new_withRelationName:(NSString *)p1 parentTableName:(NSString *)p2 parentTableNamespace:(NSString *)p3 childTableName:(NSString *)p4 childTableNamespace:(NSString *)p5 parentColumnNames:(System_Array *)p6 childColumnNames:(System_Array *)p7 nested:(BOOL)p8;
-
-/**
- Managed method.
- @textblock
- Name
-   .ctor
-
- Params
-   System.String
-   System.Data.DataColumn
-   System.Data.DataColumn
-   System.Boolean
-
- Return
-   System.Data.DataRelation
- @/textblock
-*/
-+ (System_Data_DataRelation *)new_withRelationName:(NSString *)p1 parentColumn:(System_Data_DataColumn *)p2 childColumn:(System_Data_DataColumn *)p3 createConstraints:(BOOL)p4;
 
 #pragma mark -
 #pragma mark Properties

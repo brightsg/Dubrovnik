@@ -18,7 +18,10 @@
 // Forward class and protocol declarations
 //
 @class System_Void;
+@class System_Xml_Schema_XmlSchema;
 @class System_Xml_Serialization_IXmlSerializable;
+@class System_Xml_XmlReader;
+@class System_Xml_XmlWriter;
 @protocol System_Xml_Serialization_IXmlSerializable;
 @protocol System_Xml_Serialization_IXmlSerializable_;
 
@@ -43,10 +46,49 @@
 #pragma mark -
 #pragma mark Methods
 
-/* Skipped method : System.Xml.Schema.XmlSchema GetSchema() */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetSchema
 
-/* Skipped method : System.Void ReadXml(System.Xml.XmlReader reader) */
+ Params
+   (none)
 
-/* Skipped method : System.Void WriteXml(System.Xml.XmlWriter writer) */
+ Return
+   System.Xml.Schema.XmlSchema
+ @/textblock
+*/
+- (System_Xml_Schema_XmlSchema *)getSchema;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   ReadXml
+
+ Params
+   System.Xml.XmlReader
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)readXml_withReader:(System_Xml_XmlReader *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   WriteXml
+
+ Params
+   System.Xml.XmlWriter
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)writeXml_withWriter:(System_Xml_XmlWriter *)p1;
 @end
 //--Dubrovnik.CodeGenerator

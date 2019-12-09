@@ -39,6 +39,12 @@
 	return object;
 }
 
++ (System_Data_DataRelation *)new_withRelationName:(NSString *)p1 parentColumn:(System_Data_DataColumn *)p2 childColumn:(System_Data_DataColumn *)p3 createConstraints:(BOOL)p4
+{
+	System_Data_DataRelation * object = [[self alloc] initWithSignature:"string,System.Data.DataColumn,System.Data.DataColumn,bool" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], &p4];
+	return object;
+}
+
 + (System_Data_DataRelation *)new_withRelationName:(NSString *)p1 parentColumns:(System_Array *)p2 childColumns:(System_Array *)p3
 {
 	System_Data_DataRelation * object = [[self alloc] initWithSignature:"string,System.Data.DataColumn[],System.Data.DataColumn[]" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
@@ -60,12 +66,6 @@
 + (System_Data_DataRelation *)new_withRelationName:(NSString *)p1 parentTableName:(NSString *)p2 parentTableNamespace:(NSString *)p3 childTableName:(NSString *)p4 childTableNamespace:(NSString *)p5 parentColumnNames:(System_Array *)p6 childColumnNames:(System_Array *)p7 nested:(BOOL)p8
 {
 	System_Data_DataRelation * object = [[self alloc] initWithSignature:"string,string,string,string,string,string[],string[],bool" withNumArgs:8, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject], [p6 monoRTInvokeObject], [p7 monoRTInvokeObject], &p8];
-	return object;
-}
-
-+ (System_Data_DataRelation *)new_withRelationName:(NSString *)p1 parentColumn:(System_Data_DataColumn *)p2 childColumn:(System_Data_DataColumn *)p3 createConstraints:(BOOL)p4
-{
-	System_Data_DataRelation * object = [[self alloc] initWithSignature:"string,System.Data.DataColumn,System.Data.DataColumn,bool" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], &p4];
 	return object;
 }
 

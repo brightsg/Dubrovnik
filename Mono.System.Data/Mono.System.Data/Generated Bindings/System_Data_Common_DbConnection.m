@@ -170,11 +170,23 @@
 
 /* Skipped method : System.Void EnlistTransaction(System.Transactions.Transaction transaction) */
 
-/* Skipped method : System.Data.DataTable GetSchema() */
+- (System_Data_DataTable *)getSchema
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetSchema()" withNumArgs:0];
+	return [System_Data_DataTable bestObjectWithMonoObject:monoObject];
+}
 
-/* Skipped method : System.Data.DataTable GetSchema(System.String collectionName) */
+- (System_Data_DataTable *)getSchema_withCollectionName:(NSString *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetSchema(string)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [System_Data_DataTable bestObjectWithMonoObject:monoObject];
+}
 
-/* Skipped method : System.Data.DataTable GetSchema(System.String collectionName, System.String[] restrictionValues) */
+- (System_Data_DataTable *)getSchema_withCollectionName:(NSString *)p1 restrictionValues:(System_Array *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetSchema(string,string[])" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+	return [System_Data_DataTable bestObjectWithMonoObject:monoObject];
+}
 
 - (void)open
 {

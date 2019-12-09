@@ -33,17 +33,15 @@
 #pragma mark -
 #pragma mark Constructors
 
-+ (System_Data_DataColumn *)new_withColumnName:(NSString *)p1 dataType:(System_Type *)p2
-{
-	System_Data_DataColumn * object = [[self alloc] initWithSignature:"string,System.Type" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
-	return object;
-}
-
-/* Skipped constructor : System.Data.DataColumn (System.String columnName, System.Type dataType, System.String expr, System.Data.MappingType type) */
-
 + (System_Data_DataColumn *)new_withColumnName:(NSString *)p1
 {
 	System_Data_DataColumn * object = [[self alloc] initWithSignature:"string" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return object;
+}
+
++ (System_Data_DataColumn *)new_withColumnName:(NSString *)p1 dataType:(System_Type *)p2
+{
+	System_Data_DataColumn * object = [[self alloc] initWithSignature:"string,System.Type" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return object;
 }
 
@@ -52,6 +50,8 @@
 	System_Data_DataColumn * object = [[self alloc] initWithSignature:"string,System.Type,string" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
 	return object;
 }
+
+/* Skipped constructor : System.Data.DataColumn (System.String columnName, System.Type dataType, System.String expr, System.Data.MappingType type) */
 
 #pragma mark -
 #pragma mark Properties

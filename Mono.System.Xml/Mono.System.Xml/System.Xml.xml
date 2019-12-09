@@ -4752,13 +4752,25 @@
       </Constructor>
       <Constructor>
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="root" Type="System.Xml.Serialization.XmlRootAttribute" BaseName="Attribute" BaseType="System.Attribute" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="extraTypes" Type="System.Type[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Type" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="overrides" Type="System.Xml.Serialization.XmlAttributeOverrides" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="xmlTypeMapping" Type="System.Xml.Serialization.XmlTypeMapping" BaseName="XmlMapping" BaseType="System.Xml.Serialization.XmlMapping" />
       </Constructor>
       <Constructor>
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="defaultNamespace" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
@@ -4776,18 +4788,6 @@
         <Parameter Name="defaultNamespace" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="location" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="evidence" Type="System.Security.Policy.Evidence" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="root" Type="System.Xml.Serialization.XmlRootAttribute" BaseName="Attribute" BaseType="System.Attribute" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="overrides" Type="System.Xml.Serialization.XmlAttributeOverrides" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="type" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="defaultNamespace" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="CanDeserialize" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="xmlReader" Type="System.Xml.XmlReader" BaseName="Object" BaseType="System.Object" />
