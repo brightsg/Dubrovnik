@@ -24,6 +24,7 @@
 @class System_Object;
 @class System_Reflection_Assembly;
 @class System_Reflection_MemberInfo;
+@class System_Runtime_InteropServices__Attribute;
 @class System_Type;
 
 //
@@ -35,8 +36,9 @@
 // Import superclass and adopted protocols
 //
 #import "System_Object.h"
+#import "System_Runtime_InteropServices__Attribute_Protocol.h"
 
-@interface System_Attribute : System_Object
+@interface System_Attribute : System_Object <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

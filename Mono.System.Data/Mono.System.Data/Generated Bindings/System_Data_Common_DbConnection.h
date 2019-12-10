@@ -17,7 +17,9 @@
 //
 // Forward class and protocol declarations
 //
+@class System_Array;
 @class System_Data_Common_DbConnection;
+@class System_Data_DataTable;
 @class System_Data_IDbConnection;
 @class System_IDisposable;
 @class System_Int32;
@@ -156,11 +158,51 @@
 
 /* Skipped method : System.Void EnlistTransaction(System.Transactions.Transaction transaction) */
 
-/* Skipped method : System.Data.DataTable GetSchema() */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetSchema
 
-/* Skipped method : System.Data.DataTable GetSchema(System.String collectionName) */
+ Params
+   (none)
 
-/* Skipped method : System.Data.DataTable GetSchema(System.String collectionName, System.String[] restrictionValues) */
+ Return
+   System.Data.DataTable
+ @/textblock
+*/
+- (System_Data_DataTable *)getSchema;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetSchema
+
+ Params
+   System.String
+
+ Return
+   System.Data.DataTable
+ @/textblock
+*/
+- (System_Data_DataTable *)getSchema_withCollectionName:(NSString *)p1;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetSchema
+
+ Params
+   System.String
+   System.String[]
+
+ Return
+   System.Data.DataTable
+ @/textblock
+*/
+- (System_Data_DataTable *)getSchema_withCollectionName:(NSString *)p1 restrictionValues:(System_Array *)p2;
 
 /**
  Managed method.

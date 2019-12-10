@@ -414,27 +414,20 @@
       </Constructor>
       <Constructor>
         <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="asyncFlowOption" Type="System.Transactions.TransactionScopeAsyncFlowOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="scopeTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="scopeTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="asyncFlowOption" Type="System.Transactions.TransactionScopeAsyncFlowOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
         <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="transactionOptions" Type="System.Transactions.TransactionOptions" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="transactionToUse" Type="System.Transactions.Transaction" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="transactionToUse" Type="System.Transactions.Transaction" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="scopeTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="asyncFlowOption" Type="System.Transactions.TransactionScopeAsyncFlowOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="scopeTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="asyncFlowOption" Type="System.Transactions.TransactionScopeAsyncFlowOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
         <Parameter Name="scopeOption" Type="System.Transactions.TransactionScopeOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
@@ -448,7 +441,14 @@
       </Constructor>
       <Constructor>
         <Parameter Name="transactionToUse" Type="System.Transactions.Transaction" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="transactionToUse" Type="System.Transactions.Transaction" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="asyncFlowOption" Type="System.Transactions.TransactionScopeAsyncFlowOption" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="transactionToUse" Type="System.Transactions.Transaction" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="scopeTimeout" Type="System.TimeSpan" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="transactionToUse" Type="System.Transactions.Transaction" BaseName="Object" BaseType="System.Object" />

@@ -21,6 +21,7 @@
 @class System_DateTime;
 @class System_IEquatableA1;
 @class System_Int32;
+@class System_Runtime_Serialization_IDeserializationCallback;
 @class System_Runtime_Serialization_ISerializable;
 @class System_TimeSpan;
 @class System_TimeZoneInfo__AdjustmentRule;
@@ -36,9 +37,10 @@
 //
 #import "System_IEquatableA1_Protocol.h"
 #import "System_Object.h"
+#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
-@interface System_TimeZoneInfo__AdjustmentRule : System_Object <System_IEquatableA1_, System_Runtime_Serialization_ISerializable_>
+@interface System_TimeZoneInfo__AdjustmentRule : System_Object <System_IEquatableA1_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -
 #pragma mark Setup

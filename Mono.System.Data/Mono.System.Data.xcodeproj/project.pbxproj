@@ -26,6 +26,72 @@
 		AB3FD5031C76331F0037899F /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5021C76331F0037899F /* Dubrovnik.framework */; };
 		AB3FD5051C76334D0037899F /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5041C76334D0037899F /* Mono.mscorlib.framework */; };
 		AB3FD5071C76335D0037899F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5061C76335D0037899F /* Cocoa.framework */; };
+		E7A2A4AE238BFBC8007D0919 /* System_Data_DataColumnCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A46E238BFBC4007D0919 /* System_Data_DataColumnCollection.m */; };
+		E7A2A4AF238BFBC8007D0919 /* System_Data_DataSet.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A46F238BFBC4007D0919 /* System_Data_DataSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4B0238BFBC8007D0919 /* System_Data_DataRowVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A470238BFBC4007D0919 /* System_Data_DataRowVersion.m */; };
+		E7A2A4B1238BFBC8007D0919 /* System_Data_DataTableNewRowEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A471238BFBC4007D0919 /* System_Data_DataTableNewRowEventHandler.m */; };
+		E7A2A4B2238BFBC8007D0919 /* System_Data_DataViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A472238BFBC4007D0919 /* System_Data_DataViewManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4B3238BFBC8007D0919 /* System_Data_DataViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A473238BFBC4007D0919 /* System_Data_DataViewManager.m */; };
+		E7A2A4B4238BFBC8007D0919 /* System_Data_DataTableClearEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A474238BFBC4007D0919 /* System_Data_DataTableClearEventHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4B5238BFBC8007D0919 /* System_Data_DataTable.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A475238BFBC4007D0919 /* System_Data_DataTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4B6238BFBC8007D0919 /* System_Data_DataViewRowState.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A476238BFBC4007D0919 /* System_Data_DataViewRowState.m */; };
+		E7A2A4B7238BFBC8007D0919 /* System_Data_DataRowVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A477238BFBC5007D0919 /* System_Data_DataRowVersion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4B8238BFBC8007D0919 /* System_Data_DataViewSettingCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A478238BFBC5007D0919 /* System_Data_DataViewSettingCollection.m */; };
+		E7A2A4B9238BFBC8007D0919 /* System_Data_DataRelation.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A479238BFBC5007D0919 /* System_Data_DataRelation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4BA238BFBC8007D0919 /* System_Data_DataRowAction.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A47A238BFBC5007D0919 /* System_Data_DataRowAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4BB238BFBC8007D0919 /* System_Data_DataSetDateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A47B238BFBC5007D0919 /* System_Data_DataSetDateTime.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4BC238BFBC8007D0919 /* System_Data_DataRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A47C238BFBC5007D0919 /* System_Data_DataRowView.m */; };
+		E7A2A4BD238BFBC8007D0919 /* System_Data_DataColumnChangeEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A47D238BFBC5007D0919 /* System_Data_DataColumnChangeEventHandler.m */; };
+		E7A2A4BE238BFBC8007D0919 /* System_Data_DataRow.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A47E238BFBC5007D0919 /* System_Data_DataRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4BF238BFBC8007D0919 /* System_Data_DataTableClearEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A47F238BFBC5007D0919 /* System_Data_DataTableClearEventArgs.m */; };
+		E7A2A4C0238BFBC8007D0919 /* System_Data_DataException.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A480238BFBC5007D0919 /* System_Data_DataException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4C1238BFBC8007D0919 /* System_Data_DataViewSettingCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A481238BFBC5007D0919 /* System_Data_DataViewSettingCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4C2238BFBC8007D0919 /* System_Data_DataSysDescriptionAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A482238BFBC5007D0919 /* System_Data_DataSysDescriptionAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4C3238BFBC8007D0919 /* System_Data_DataTableReader.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A483238BFBC5007D0919 /* System_Data_DataTableReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4C4238BFBC8007D0919 /* System_Data_DataColumnChangeEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A484238BFBC5007D0919 /* System_Data_DataColumnChangeEventArgs.m */; };
+		E7A2A4C5238BFBC8007D0919 /* System_Data_DataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A485238BFBC5007D0919 /* System_Data_DataSet.m */; };
+		E7A2A4C6238BFBC8007D0919 /* System_Data_DataRowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A486238BFBC5007D0919 /* System_Data_DataRowAction.m */; };
+		E7A2A4C7238BFBC8007D0919 /* System_Data_DataTableCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A487238BFBC5007D0919 /* System_Data_DataTableCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4C8238BFBC8007D0919 /* System_Data_DataColumnCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A488238BFBC5007D0919 /* System_Data_DataColumnCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4C9238BFBC8007D0919 /* System_Data_DataRowChangeEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A489238BFBC5007D0919 /* System_Data_DataRowChangeEventHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4CA238BFBC8007D0919 /* System_Data_DataColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A48A238BFBC6007D0919 /* System_Data_DataColumn.m */; };
+		E7A2A4CB238BFBC8007D0919 /* System_Data_DataRowBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A48B238BFBC6007D0919 /* System_Data_DataRowBuilder.m */; };
+		E7A2A4CC238BFBC8007D0919 /* System_Data_DataRowChangeEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A48C238BFBC6007D0919 /* System_Data_DataRowChangeEventArgs.m */; };
+		E7A2A4CD238BFBC8007D0919 /* System_Data_DataRelationCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A48D238BFBC6007D0919 /* System_Data_DataRelationCollection.m */; };
+		E7A2A4CE238BFBC8007D0919 /* System_Data_DataRowChangeEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A48E238BFBC6007D0919 /* System_Data_DataRowChangeEventHandler.m */; };
+		E7A2A4CF238BFBC8007D0919 /* System_Data_DataRowState.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A48F238BFBC6007D0919 /* System_Data_DataRowState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4D0238BFBC8007D0919 /* System_Data_DataRowCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A490238BFBC6007D0919 /* System_Data_DataRowCollection.m */; };
+		E7A2A4D1238BFBC8007D0919 /* System_Data_DataViewRowState.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A491238BFBC6007D0919 /* System_Data_DataViewRowState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4D2238BFBC8007D0919 /* System_Data_DataTableClearEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A492238BFBC6007D0919 /* System_Data_DataTableClearEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4D3238BFBC8007D0919 /* System_Data_DataTableReader.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A493238BFBC6007D0919 /* System_Data_DataTableReader.m */; };
+		E7A2A4D4238BFBC8007D0919 /* System_Data_DataView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A494238BFBC6007D0919 /* System_Data_DataView.m */; };
+		E7A2A4D5238BFBC8007D0919 /* System_Data_DataView.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A495238BFBC6007D0919 /* System_Data_DataView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4D6238BFBC8007D0919 /* System_Data_DataRowChangeEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A496238BFBC6007D0919 /* System_Data_DataRowChangeEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4D7238BFBC8007D0919 /* System_Data_DataTableClearEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A497238BFBC7007D0919 /* System_Data_DataTableClearEventHandler.m */; };
+		E7A2A4D8238BFBC8007D0919 /* System_Data_DataTableNewRowEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A498238BFBC7007D0919 /* System_Data_DataTableNewRowEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4D9238BFBC8007D0919 /* System_Data_DataColumnChangeEventArgs.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A499238BFBC7007D0919 /* System_Data_DataColumnChangeEventArgs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4DA238BFBC8007D0919 /* System_Data_DataRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A49A238BFBC7007D0919 /* System_Data_DataRelation.m */; };
+		E7A2A4DB238BFBC8007D0919 /* System_Data_DataRowState.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A49B238BFBC7007D0919 /* System_Data_DataRowState.m */; };
+		E7A2A4DC238BFBC8007D0919 /* System_Data_DataTableCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A49C238BFBC7007D0919 /* System_Data_DataTableCollection.m */; };
+		E7A2A4DD238BFBC8007D0919 /* System_Data_DataViewSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A49D238BFBC7007D0919 /* System_Data_DataViewSetting.m */; };
+		E7A2A4DE238BFBC8007D0919 /* System_Data_DataSetSchemaImporterExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A49E238BFBC7007D0919 /* System_Data_DataSetSchemaImporterExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4DF238BFBC8007D0919 /* System_Data_DataSysDescriptionAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A49F238BFBC7007D0919 /* System_Data_DataSysDescriptionAttribute.m */; };
+		E7A2A4E0238BFBC8007D0919 /* System_Data_DataRowBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A4A0238BFBC7007D0919 /* System_Data_DataRowBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4E1238BFBC8007D0919 /* System_Data_DataColumnChangeEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A4A1238BFBC7007D0919 /* System_Data_DataColumnChangeEventHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4E2238BFBC8007D0919 /* System_Data_DataTableNewRowEventArgs.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A4A2238BFBC7007D0919 /* System_Data_DataTableNewRowEventArgs.m */; };
+		E7A2A4E3238BFBC8007D0919 /* System_Data_DataRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A4A3238BFBC7007D0919 /* System_Data_DataRowView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4E4238BFBC8007D0919 /* System_Data_DataViewSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A4A4238BFBC7007D0919 /* System_Data_DataViewSetting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4E5238BFBC8007D0919 /* System_Data_DataSetSchemaImporterExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A4A5238BFBC8007D0919 /* System_Data_DataSetSchemaImporterExtension.m */; };
+		E7A2A4E6238BFBC8007D0919 /* System_Data_DataTableNewRowEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A4A6238BFBC8007D0919 /* System_Data_DataTableNewRowEventHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4E7238BFBC8007D0919 /* System_Data_DataColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A4A7238BFBC8007D0919 /* System_Data_DataColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4E8238BFBC8007D0919 /* System_Data_DataRelationCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A4A8238BFBC8007D0919 /* System_Data_DataRelationCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4E9238BFBC8007D0919 /* System_Data_DataTable.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A4A9238BFBC8007D0919 /* System_Data_DataTable.m */; };
+		E7A2A4EA238BFBC8007D0919 /* System_Data_DataSetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A4AA238BFBC8007D0919 /* System_Data_DataSetDateTime.m */; };
+		E7A2A4EB238BFBC8007D0919 /* System_Data_DataException.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A4AB238BFBC8007D0919 /* System_Data_DataException.m */; };
+		E7A2A4EC238BFBC8007D0919 /* System_Data_DataRowCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A4AC238BFBC8007D0919 /* System_Data_DataRowCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7A2A4ED238BFBC8007D0919 /* System_Data_DataRow.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A4AD238BFBC8007D0919 /* System_Data_DataRow.m */; };
+		E7A2A4EF238BFCAA007D0919 /* Mono.System.Xml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A2A4EE238BFCAA007D0919 /* Mono.System.Xml.framework */; };
+		E7A2A4F3238BFD3B007D0919 /* Mono.System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A2A4F2238BFD3B007D0919 /* Mono.System.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +116,73 @@
 		AB3FD5021C76331F0037899F /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3FD5041C76334D0037899F /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3FD5061C76335D0037899F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		AB3FD50F1C7635570037899F /* Mono.System.Data-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.System.Data-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		E7A2A46E238BFBC4007D0919 /* System_Data_DataColumnCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataColumnCollection.m; sourceTree = "<group>"; };
+		E7A2A46F238BFBC4007D0919 /* System_Data_DataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataSet.h; sourceTree = "<group>"; };
+		E7A2A470238BFBC4007D0919 /* System_Data_DataRowVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataRowVersion.m; sourceTree = "<group>"; };
+		E7A2A471238BFBC4007D0919 /* System_Data_DataTableNewRowEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataTableNewRowEventHandler.m; sourceTree = "<group>"; };
+		E7A2A472238BFBC4007D0919 /* System_Data_DataViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataViewManager.h; sourceTree = "<group>"; };
+		E7A2A473238BFBC4007D0919 /* System_Data_DataViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataViewManager.m; sourceTree = "<group>"; };
+		E7A2A474238BFBC4007D0919 /* System_Data_DataTableClearEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataTableClearEventHandler.h; sourceTree = "<group>"; };
+		E7A2A475238BFBC4007D0919 /* System_Data_DataTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataTable.h; sourceTree = "<group>"; };
+		E7A2A476238BFBC4007D0919 /* System_Data_DataViewRowState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataViewRowState.m; sourceTree = "<group>"; };
+		E7A2A477238BFBC5007D0919 /* System_Data_DataRowVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataRowVersion.h; sourceTree = "<group>"; };
+		E7A2A478238BFBC5007D0919 /* System_Data_DataViewSettingCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataViewSettingCollection.m; sourceTree = "<group>"; };
+		E7A2A479238BFBC5007D0919 /* System_Data_DataRelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataRelation.h; sourceTree = "<group>"; };
+		E7A2A47A238BFBC5007D0919 /* System_Data_DataRowAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataRowAction.h; sourceTree = "<group>"; };
+		E7A2A47B238BFBC5007D0919 /* System_Data_DataSetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataSetDateTime.h; sourceTree = "<group>"; };
+		E7A2A47C238BFBC5007D0919 /* System_Data_DataRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataRowView.m; sourceTree = "<group>"; };
+		E7A2A47D238BFBC5007D0919 /* System_Data_DataColumnChangeEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataColumnChangeEventHandler.m; sourceTree = "<group>"; };
+		E7A2A47E238BFBC5007D0919 /* System_Data_DataRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataRow.h; sourceTree = "<group>"; };
+		E7A2A47F238BFBC5007D0919 /* System_Data_DataTableClearEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataTableClearEventArgs.m; sourceTree = "<group>"; };
+		E7A2A480238BFBC5007D0919 /* System_Data_DataException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataException.h; sourceTree = "<group>"; };
+		E7A2A481238BFBC5007D0919 /* System_Data_DataViewSettingCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataViewSettingCollection.h; sourceTree = "<group>"; };
+		E7A2A482238BFBC5007D0919 /* System_Data_DataSysDescriptionAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataSysDescriptionAttribute.h; sourceTree = "<group>"; };
+		E7A2A483238BFBC5007D0919 /* System_Data_DataTableReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataTableReader.h; sourceTree = "<group>"; };
+		E7A2A484238BFBC5007D0919 /* System_Data_DataColumnChangeEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataColumnChangeEventArgs.m; sourceTree = "<group>"; };
+		E7A2A485238BFBC5007D0919 /* System_Data_DataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataSet.m; sourceTree = "<group>"; };
+		E7A2A486238BFBC5007D0919 /* System_Data_DataRowAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataRowAction.m; sourceTree = "<group>"; };
+		E7A2A487238BFBC5007D0919 /* System_Data_DataTableCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataTableCollection.h; sourceTree = "<group>"; };
+		E7A2A488238BFBC5007D0919 /* System_Data_DataColumnCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataColumnCollection.h; sourceTree = "<group>"; };
+		E7A2A489238BFBC5007D0919 /* System_Data_DataRowChangeEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataRowChangeEventHandler.h; sourceTree = "<group>"; };
+		E7A2A48A238BFBC6007D0919 /* System_Data_DataColumn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataColumn.m; sourceTree = "<group>"; };
+		E7A2A48B238BFBC6007D0919 /* System_Data_DataRowBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataRowBuilder.m; sourceTree = "<group>"; };
+		E7A2A48C238BFBC6007D0919 /* System_Data_DataRowChangeEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataRowChangeEventArgs.m; sourceTree = "<group>"; };
+		E7A2A48D238BFBC6007D0919 /* System_Data_DataRelationCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataRelationCollection.m; sourceTree = "<group>"; };
+		E7A2A48E238BFBC6007D0919 /* System_Data_DataRowChangeEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataRowChangeEventHandler.m; sourceTree = "<group>"; };
+		E7A2A48F238BFBC6007D0919 /* System_Data_DataRowState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataRowState.h; sourceTree = "<group>"; };
+		E7A2A490238BFBC6007D0919 /* System_Data_DataRowCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataRowCollection.m; sourceTree = "<group>"; };
+		E7A2A491238BFBC6007D0919 /* System_Data_DataViewRowState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataViewRowState.h; sourceTree = "<group>"; };
+		E7A2A492238BFBC6007D0919 /* System_Data_DataTableClearEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataTableClearEventArgs.h; sourceTree = "<group>"; };
+		E7A2A493238BFBC6007D0919 /* System_Data_DataTableReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataTableReader.m; sourceTree = "<group>"; };
+		E7A2A494238BFBC6007D0919 /* System_Data_DataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataView.m; sourceTree = "<group>"; };
+		E7A2A495238BFBC6007D0919 /* System_Data_DataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataView.h; sourceTree = "<group>"; };
+		E7A2A496238BFBC6007D0919 /* System_Data_DataRowChangeEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataRowChangeEventArgs.h; sourceTree = "<group>"; };
+		E7A2A497238BFBC7007D0919 /* System_Data_DataTableClearEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataTableClearEventHandler.m; sourceTree = "<group>"; };
+		E7A2A498238BFBC7007D0919 /* System_Data_DataTableNewRowEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataTableNewRowEventArgs.h; sourceTree = "<group>"; };
+		E7A2A499238BFBC7007D0919 /* System_Data_DataColumnChangeEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataColumnChangeEventArgs.h; sourceTree = "<group>"; };
+		E7A2A49A238BFBC7007D0919 /* System_Data_DataRelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataRelation.m; sourceTree = "<group>"; };
+		E7A2A49B238BFBC7007D0919 /* System_Data_DataRowState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataRowState.m; sourceTree = "<group>"; };
+		E7A2A49C238BFBC7007D0919 /* System_Data_DataTableCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataTableCollection.m; sourceTree = "<group>"; };
+		E7A2A49D238BFBC7007D0919 /* System_Data_DataViewSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataViewSetting.m; sourceTree = "<group>"; };
+		E7A2A49E238BFBC7007D0919 /* System_Data_DataSetSchemaImporterExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataSetSchemaImporterExtension.h; sourceTree = "<group>"; };
+		E7A2A49F238BFBC7007D0919 /* System_Data_DataSysDescriptionAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataSysDescriptionAttribute.m; sourceTree = "<group>"; };
+		E7A2A4A0238BFBC7007D0919 /* System_Data_DataRowBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataRowBuilder.h; sourceTree = "<group>"; };
+		E7A2A4A1238BFBC7007D0919 /* System_Data_DataColumnChangeEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataColumnChangeEventHandler.h; sourceTree = "<group>"; };
+		E7A2A4A2238BFBC7007D0919 /* System_Data_DataTableNewRowEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataTableNewRowEventArgs.m; sourceTree = "<group>"; };
+		E7A2A4A3238BFBC7007D0919 /* System_Data_DataRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataRowView.h; sourceTree = "<group>"; };
+		E7A2A4A4238BFBC7007D0919 /* System_Data_DataViewSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataViewSetting.h; sourceTree = "<group>"; };
+		E7A2A4A5238BFBC8007D0919 /* System_Data_DataSetSchemaImporterExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataSetSchemaImporterExtension.m; sourceTree = "<group>"; };
+		E7A2A4A6238BFBC8007D0919 /* System_Data_DataTableNewRowEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataTableNewRowEventHandler.h; sourceTree = "<group>"; };
+		E7A2A4A7238BFBC8007D0919 /* System_Data_DataColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataColumn.h; sourceTree = "<group>"; };
+		E7A2A4A8238BFBC8007D0919 /* System_Data_DataRelationCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataRelationCollection.h; sourceTree = "<group>"; };
+		E7A2A4A9238BFBC8007D0919 /* System_Data_DataTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataTable.m; sourceTree = "<group>"; };
+		E7A2A4AA238BFBC8007D0919 /* System_Data_DataSetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataSetDateTime.m; sourceTree = "<group>"; };
+		E7A2A4AB238BFBC8007D0919 /* System_Data_DataException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataException.m; sourceTree = "<group>"; };
+		E7A2A4AC238BFBC8007D0919 /* System_Data_DataRowCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataRowCollection.h; sourceTree = "<group>"; };
+		E7A2A4AD238BFBC8007D0919 /* System_Data_DataRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataRow.m; sourceTree = "<group>"; };
+		E7A2A4EE238BFCAA007D0919 /* Mono.System.Xml.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mono.System.Xml.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7A2A4F2238BFD3B007D0919 /* Mono.System.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mono.System.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7A2A4F4238C009A007D0919 /* Mono.System.Data-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mono.System.Data-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +190,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7A2A4F3238BFD3B007D0919 /* Mono.System.framework in Frameworks */,
 				AB26E0A91E4A151A004876FE /* Mono.framework in Frameworks */,
 				AB3FD5071C76335D0037899F /* Cocoa.framework in Frameworks */,
+				E7A2A4EF238BFCAA007D0919 /* Mono.System.Xml.framework in Frameworks */,
 				AB3FD5031C76331F0037899F /* Dubrovnik.framework in Frameworks */,
 				AB3FD5051C76334D0037899F /* Mono.mscorlib.framework in Frameworks */,
 			);
@@ -72,6 +206,70 @@
 			isa = PBXGroup;
 			children = (
 				AB05396120D28CC9005B7E66 /* System_Data_Common_DbConnection.h */,
+				E7A2A4A7238BFBC8007D0919 /* System_Data_DataColumn.h */,
+				E7A2A48A238BFBC6007D0919 /* System_Data_DataColumn.m */,
+				E7A2A499238BFBC7007D0919 /* System_Data_DataColumnChangeEventArgs.h */,
+				E7A2A484238BFBC5007D0919 /* System_Data_DataColumnChangeEventArgs.m */,
+				E7A2A4A1238BFBC7007D0919 /* System_Data_DataColumnChangeEventHandler.h */,
+				E7A2A47D238BFBC5007D0919 /* System_Data_DataColumnChangeEventHandler.m */,
+				E7A2A488238BFBC5007D0919 /* System_Data_DataColumnCollection.h */,
+				E7A2A46E238BFBC4007D0919 /* System_Data_DataColumnCollection.m */,
+				E7A2A480238BFBC5007D0919 /* System_Data_DataException.h */,
+				E7A2A4AB238BFBC8007D0919 /* System_Data_DataException.m */,
+				E7A2A479238BFBC5007D0919 /* System_Data_DataRelation.h */,
+				E7A2A49A238BFBC7007D0919 /* System_Data_DataRelation.m */,
+				E7A2A4A8238BFBC8007D0919 /* System_Data_DataRelationCollection.h */,
+				E7A2A48D238BFBC6007D0919 /* System_Data_DataRelationCollection.m */,
+				E7A2A47E238BFBC5007D0919 /* System_Data_DataRow.h */,
+				E7A2A4AD238BFBC8007D0919 /* System_Data_DataRow.m */,
+				E7A2A47A238BFBC5007D0919 /* System_Data_DataRowAction.h */,
+				E7A2A486238BFBC5007D0919 /* System_Data_DataRowAction.m */,
+				E7A2A4A0238BFBC7007D0919 /* System_Data_DataRowBuilder.h */,
+				E7A2A48B238BFBC6007D0919 /* System_Data_DataRowBuilder.m */,
+				E7A2A496238BFBC6007D0919 /* System_Data_DataRowChangeEventArgs.h */,
+				E7A2A48C238BFBC6007D0919 /* System_Data_DataRowChangeEventArgs.m */,
+				E7A2A489238BFBC5007D0919 /* System_Data_DataRowChangeEventHandler.h */,
+				E7A2A48E238BFBC6007D0919 /* System_Data_DataRowChangeEventHandler.m */,
+				E7A2A4AC238BFBC8007D0919 /* System_Data_DataRowCollection.h */,
+				E7A2A490238BFBC6007D0919 /* System_Data_DataRowCollection.m */,
+				E7A2A48F238BFBC6007D0919 /* System_Data_DataRowState.h */,
+				E7A2A49B238BFBC7007D0919 /* System_Data_DataRowState.m */,
+				E7A2A477238BFBC5007D0919 /* System_Data_DataRowVersion.h */,
+				E7A2A470238BFBC4007D0919 /* System_Data_DataRowVersion.m */,
+				E7A2A4A3238BFBC7007D0919 /* System_Data_DataRowView.h */,
+				E7A2A47C238BFBC5007D0919 /* System_Data_DataRowView.m */,
+				E7A2A46F238BFBC4007D0919 /* System_Data_DataSet.h */,
+				E7A2A485238BFBC5007D0919 /* System_Data_DataSet.m */,
+				E7A2A47B238BFBC5007D0919 /* System_Data_DataSetDateTime.h */,
+				E7A2A4AA238BFBC8007D0919 /* System_Data_DataSetDateTime.m */,
+				E7A2A49E238BFBC7007D0919 /* System_Data_DataSetSchemaImporterExtension.h */,
+				E7A2A4A5238BFBC8007D0919 /* System_Data_DataSetSchemaImporterExtension.m */,
+				E7A2A482238BFBC5007D0919 /* System_Data_DataSysDescriptionAttribute.h */,
+				E7A2A49F238BFBC7007D0919 /* System_Data_DataSysDescriptionAttribute.m */,
+				E7A2A475238BFBC4007D0919 /* System_Data_DataTable.h */,
+				E7A2A4A9238BFBC8007D0919 /* System_Data_DataTable.m */,
+				E7A2A492238BFBC6007D0919 /* System_Data_DataTableClearEventArgs.h */,
+				E7A2A47F238BFBC5007D0919 /* System_Data_DataTableClearEventArgs.m */,
+				E7A2A474238BFBC4007D0919 /* System_Data_DataTableClearEventHandler.h */,
+				E7A2A497238BFBC7007D0919 /* System_Data_DataTableClearEventHandler.m */,
+				E7A2A487238BFBC5007D0919 /* System_Data_DataTableCollection.h */,
+				E7A2A49C238BFBC7007D0919 /* System_Data_DataTableCollection.m */,
+				E7A2A498238BFBC7007D0919 /* System_Data_DataTableNewRowEventArgs.h */,
+				E7A2A4A2238BFBC7007D0919 /* System_Data_DataTableNewRowEventArgs.m */,
+				E7A2A4A6238BFBC8007D0919 /* System_Data_DataTableNewRowEventHandler.h */,
+				E7A2A471238BFBC4007D0919 /* System_Data_DataTableNewRowEventHandler.m */,
+				E7A2A483238BFBC5007D0919 /* System_Data_DataTableReader.h */,
+				E7A2A493238BFBC6007D0919 /* System_Data_DataTableReader.m */,
+				E7A2A495238BFBC6007D0919 /* System_Data_DataView.h */,
+				E7A2A494238BFBC6007D0919 /* System_Data_DataView.m */,
+				E7A2A472238BFBC4007D0919 /* System_Data_DataViewManager.h */,
+				E7A2A473238BFBC4007D0919 /* System_Data_DataViewManager.m */,
+				E7A2A491238BFBC6007D0919 /* System_Data_DataViewRowState.h */,
+				E7A2A476238BFBC4007D0919 /* System_Data_DataViewRowState.m */,
+				E7A2A4A4238BFBC7007D0919 /* System_Data_DataViewSetting.h */,
+				E7A2A49D238BFBC7007D0919 /* System_Data_DataViewSetting.m */,
+				E7A2A481238BFBC5007D0919 /* System_Data_DataViewSettingCollection.h */,
+				E7A2A478238BFBC5007D0919 /* System_Data_DataViewSettingCollection.m */,
 				AB05396220D28CC9005B7E66 /* System_Data_IDataReader.h */,
 				AB05396320D28CC9005B7E66 /* System_Data.h */,
 				AB05396420D28CC9005B7E66 /* System_Data_IDbConnection.h */,
@@ -135,6 +333,8 @@
 		AB3FD50A1C7634C80037899F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E7A2A4F2238BFD3B007D0919 /* Mono.System.framework */,
+				E7A2A4EE238BFCAA007D0919 /* Mono.System.Xml.framework */,
 				AB26E0A81E4A151A004876FE /* Mono.framework */,
 				AB3FD5061C76335D0037899F /* Cocoa.framework */,
 				AB3FD5041C76334D0037899F /* Mono.mscorlib.framework */,
@@ -147,7 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				AB3FD4DD1C7605740037899F /* Info.plist */,
-				AB3FD50F1C7635570037899F /* Mono.System.Data-Prefix.pch */,
+				E7A2A4F4238C009A007D0919 /* Mono.System.Data-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -159,7 +359,39 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7A2A4BA238BFBC8007D0919 /* System_Data_DataRowAction.h in Headers */,
 				AB05396B20D28CCA005B7E66 /* System_Data_Common_DbConnection.h in Headers */,
+				E7A2A4C0238BFBC8007D0919 /* System_Data_DataException.h in Headers */,
+				E7A2A4B4238BFBC8007D0919 /* System_Data_DataTableClearEventHandler.h in Headers */,
+				E7A2A4C3238BFBC8007D0919 /* System_Data_DataTableReader.h in Headers */,
+				E7A2A4CF238BFBC8007D0919 /* System_Data_DataRowState.h in Headers */,
+				E7A2A4C9238BFBC8007D0919 /* System_Data_DataRowChangeEventHandler.h in Headers */,
+				E7A2A4C1238BFBC8007D0919 /* System_Data_DataViewSettingCollection.h in Headers */,
+				E7A2A4E3238BFBC8007D0919 /* System_Data_DataRowView.h in Headers */,
+				E7A2A4BB238BFBC8007D0919 /* System_Data_DataSetDateTime.h in Headers */,
+				E7A2A4B7238BFBC8007D0919 /* System_Data_DataRowVersion.h in Headers */,
+				E7A2A4E6238BFBC8007D0919 /* System_Data_DataTableNewRowEventHandler.h in Headers */,
+				E7A2A4AF238BFBC8007D0919 /* System_Data_DataSet.h in Headers */,
+				E7A2A4B2238BFBC8007D0919 /* System_Data_DataViewManager.h in Headers */,
+				E7A2A4C7238BFBC8007D0919 /* System_Data_DataTableCollection.h in Headers */,
+				E7A2A4E1238BFBC8007D0919 /* System_Data_DataColumnChangeEventHandler.h in Headers */,
+				E7A2A4C2238BFBC8007D0919 /* System_Data_DataSysDescriptionAttribute.h in Headers */,
+				E7A2A4E4238BFBC8007D0919 /* System_Data_DataViewSetting.h in Headers */,
+				E7A2A4D9238BFBC8007D0919 /* System_Data_DataColumnChangeEventArgs.h in Headers */,
+				E7A2A4DE238BFBC8007D0919 /* System_Data_DataSetSchemaImporterExtension.h in Headers */,
+				E7A2A4B9238BFBC8007D0919 /* System_Data_DataRelation.h in Headers */,
+				E7A2A4D8238BFBC8007D0919 /* System_Data_DataTableNewRowEventArgs.h in Headers */,
+				E7A2A4D2238BFBC8007D0919 /* System_Data_DataTableClearEventArgs.h in Headers */,
+				E7A2A4EC238BFBC8007D0919 /* System_Data_DataRowCollection.h in Headers */,
+				E7A2A4E7238BFBC8007D0919 /* System_Data_DataColumn.h in Headers */,
+				E7A2A4D1238BFBC8007D0919 /* System_Data_DataViewRowState.h in Headers */,
+				E7A2A4D5238BFBC8007D0919 /* System_Data_DataView.h in Headers */,
+				E7A2A4C8238BFBC8007D0919 /* System_Data_DataColumnCollection.h in Headers */,
+				E7A2A4E0238BFBC8007D0919 /* System_Data_DataRowBuilder.h in Headers */,
+				E7A2A4BE238BFBC8007D0919 /* System_Data_DataRow.h in Headers */,
+				E7A2A4E8238BFBC8007D0919 /* System_Data_DataRelationCollection.h in Headers */,
+				E7A2A4D6238BFBC8007D0919 /* System_Data_DataRowChangeEventArgs.h in Headers */,
+				E7A2A4B5238BFBC8007D0919 /* System_Data_DataTable.h in Headers */,
 				AB05396E20D28CCA005B7E66 /* System_Data_IDbConnection.h in Headers */,
 				AB05397420D28CCA005B7E66 /* System_Data_IDataReader_Protocol.h in Headers */,
 				AB05396D20D28CCA005B7E66 /* System_Data.h in Headers */,
@@ -241,9 +473,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7A2A4DA238BFBC8007D0919 /* System_Data_DataRelation.m in Sources */,
+				E7A2A4DB238BFBC8007D0919 /* System_Data_DataRowState.m in Sources */,
+				E7A2A4C5238BFBC8007D0919 /* System_Data_DataSet.m in Sources */,
+				E7A2A4ED238BFBC8007D0919 /* System_Data_DataRow.m in Sources */,
+				E7A2A4B0238BFBC8007D0919 /* System_Data_DataRowVersion.m in Sources */,
+				E7A2A4B6238BFBC8007D0919 /* System_Data_DataViewRowState.m in Sources */,
+				E7A2A4EB238BFBC8007D0919 /* System_Data_DataException.m in Sources */,
+				E7A2A4D4238BFBC8007D0919 /* System_Data_DataView.m in Sources */,
+				E7A2A4DF238BFBC8007D0919 /* System_Data_DataSysDescriptionAttribute.m in Sources */,
+				E7A2A4C6238BFBC8007D0919 /* System_Data_DataRowAction.m in Sources */,
+				E7A2A4E2238BFBC8007D0919 /* System_Data_DataTableNewRowEventArgs.m in Sources */,
+				E7A2A4DD238BFBC8007D0919 /* System_Data_DataViewSetting.m in Sources */,
+				E7A2A4E5238BFBC8007D0919 /* System_Data_DataSetSchemaImporterExtension.m in Sources */,
+				E7A2A4CD238BFBC8007D0919 /* System_Data_DataRelationCollection.m in Sources */,
+				E7A2A4BF238BFBC8007D0919 /* System_Data_DataTableClearEventArgs.m in Sources */,
 				AB05397020D28CCA005B7E66 /* System_Data.m in Sources */,
+				E7A2A4C4238BFBC8007D0919 /* System_Data_DataColumnChangeEventArgs.m in Sources */,
+				E7A2A4CC238BFBC8007D0919 /* System_Data_DataRowChangeEventArgs.m in Sources */,
 				AB05397120D28CCA005B7E66 /* System_Data_IDataReader.m in Sources */,
+				E7A2A4D7238BFBC8007D0919 /* System_Data_DataTableClearEventHandler.m in Sources */,
+				E7A2A4CA238BFBC8007D0919 /* System_Data_DataColumn.m in Sources */,
+				E7A2A4D3238BFBC8007D0919 /* System_Data_DataTableReader.m in Sources */,
+				E7A2A4CE238BFBC8007D0919 /* System_Data_DataRowChangeEventHandler.m in Sources */,
+				E7A2A4CB238BFBC8007D0919 /* System_Data_DataRowBuilder.m in Sources */,
+				E7A2A4BD238BFBC8007D0919 /* System_Data_DataColumnChangeEventHandler.m in Sources */,
+				E7A2A4B1238BFBC8007D0919 /* System_Data_DataTableNewRowEventHandler.m in Sources */,
+				E7A2A4D0238BFBC8007D0919 /* System_Data_DataRowCollection.m in Sources */,
 				AB05397220D28CCA005B7E66 /* System_Data_IDbConnection.m in Sources */,
+				E7A2A4E9238BFBC8007D0919 /* System_Data_DataTable.m in Sources */,
+				E7A2A4BC238BFBC8007D0919 /* System_Data_DataRowView.m in Sources */,
+				E7A2A4EA238BFBC8007D0919 /* System_Data_DataSetDateTime.m in Sources */,
+				E7A2A4B3238BFBC8007D0919 /* System_Data_DataViewManager.m in Sources */,
+				E7A2A4AE238BFBC8007D0919 /* System_Data_DataColumnCollection.m in Sources */,
+				E7A2A4DC238BFBC8007D0919 /* System_Data_DataTableCollection.m in Sources */,
+				E7A2A4B8238BFBC8007D0919 /* System_Data_DataViewSettingCollection.m in Sources */,
 				AB05396F20D28CCA005B7E66 /* System_Data_Common_DbConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +643,7 @@
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Data/Mono.System.Data-Prefix.pch";
 				INFOPLIST_FILE = Mono.System.Data/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -403,6 +668,7 @@
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
 				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mono.System.Data/Mono.System.Data-Prefix.pch";
 				INFOPLIST_FILE = Mono.System.Data/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

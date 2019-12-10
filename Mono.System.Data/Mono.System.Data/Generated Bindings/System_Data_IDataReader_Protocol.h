@@ -18,6 +18,7 @@
 // Forward class and protocol declarations
 //
 @class System_Boolean;
+@class System_Data_DataTable;
 @class System_Data_IDataReader;
 @class System_IDisposable;
 @class System_Int32;
@@ -136,7 +137,20 @@
 */
 - (void)close;
 
-/* Skipped method : System.Data.DataTable GetSchemaTable() */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetSchemaTable
+
+ Params
+   (none)
+
+ Return
+   System.Data.DataTable
+ @/textblock
+*/
+- (System_Data_DataTable *)getSchemaTable;
 
 /**
  Managed method.
@@ -238,7 +252,20 @@
 */
 - (void)close;
 
-/* Skipped method : System.Data.DataTable GetSchemaTable() */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetSchemaTable
+
+ Params
+   (none)
+
+ Return
+   System.Data.DataTable
+ @/textblock
+*/
+- (System_Data_DataTable *)getSchemaTable;
 
 /**
  Managed method.

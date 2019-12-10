@@ -37,9 +37,9 @@
 //
 // Import superclass and adopted protocols
 //
-//#import "System_Xml_XmlWriter.h" // class base defaults to System.Object
+#import "System_Xml_XmlWriter.h"
 
-@interface System_Xml_XmlTextWriter : System_Object <System_IDisposable_>
+@interface System_Xml_XmlTextWriter : System_Xml_XmlWriter <System_IDisposable_>
 
 #pragma mark -
 #pragma mark Setup

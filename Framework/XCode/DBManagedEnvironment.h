@@ -156,6 +156,7 @@ extern NSString * const DBNoteManagedEnvironmentLoaded;
 + (NSString *)monoConfigFolder;
 + (void)setAssemblyRoot:(NSString *)assemblyRoot;
 + (void)setConfigDir:(NSString *)configDir;
++ (void)registerBundledAssemblies:(NSDictionary<NSString*, NSData*>*)bundledAssemblies;
 + (void)mapDLL:(const char *)dllName dllPath:(NSString *)dllPath;
 + (void)registerInternalCall:(const char *)callName callPointer:(const void *)callPointer;
 
@@ -181,6 +182,7 @@ extern NSString * const DBNoteManagedEnvironmentLoaded;
 + (MonoThread *)attachCurrentThreadForMonoDomain:(MonoDomain *)monoDomain;
 - (void)detachMonoThread:(MonoThread *)monoThread;
 + (void)detachMonoThread:(MonoThread *)monoThread;
+- (void)runAttachedToMonoThread:(void(^)(void))block;
 
 /*!
  

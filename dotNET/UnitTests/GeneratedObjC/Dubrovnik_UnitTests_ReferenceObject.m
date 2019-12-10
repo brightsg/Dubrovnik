@@ -2333,7 +2333,12 @@ static enumDubrovnik_UnitTests_LongEnum m_longEnumerationStatic;
 
 - (System_ComponentModel_PropertyChangedEventHandler *)propertyChanged_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock)block
 {
-	return (System_ComponentModel_PropertyChangedEventHandler *)[self db_addEventHandlerWithClass:System_ComponentModel_PropertyChangedEventHandler.class forEventName:self.class.propertyChangedEventName block:(EventBlock)block];
+	System_Delegate *eventHandler = [System_ComponentModel_PropertyChangedEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
+		block(parameters[0], parameters[1]);
+		return nil;
+	}];
+	[self db_addEventHandler:eventHandler eventName:self.class.propertyChangedEventName];
+	return (System_ComponentModel_PropertyChangedEventHandler *)eventHandler;
 }
 
 + (NSString *)propertyChangingEventName
@@ -2343,7 +2348,12 @@ static enumDubrovnik_UnitTests_LongEnum m_longEnumerationStatic;
 
 - (System_ComponentModel_PropertyChangingEventHandler *)propertyChanging_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock)block
 {
-	return (System_ComponentModel_PropertyChangingEventHandler *)[self db_addEventHandlerWithClass:System_ComponentModel_PropertyChangingEventHandler.class forEventName:self.class.propertyChangingEventName block:(EventBlock)block];
+	System_Delegate *eventHandler = [System_ComponentModel_PropertyChangingEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
+		block(parameters[0], parameters[1]);
+		return nil;
+	}];
+	[self db_addEventHandler:eventHandler eventName:self.class.propertyChangingEventName];
+	return (System_ComponentModel_PropertyChangingEventHandler *)eventHandler;
 }
 
 + (NSString *)unitTestEvent1EventName
@@ -2353,7 +2363,12 @@ static enumDubrovnik_UnitTests_LongEnum m_longEnumerationStatic;
 
 - (System_EventHandler *)unitTestEvent1_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock)block
 {
-	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler.class forEventName:self.class.unitTestEvent1EventName block:(EventBlock)block];
+	System_Delegate *eventHandler = [System_EventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
+		block(parameters[0], parameters[1]);
+		return nil;
+	}];
+	[self db_addEventHandler:eventHandler eventName:self.class.unitTestEvent1EventName];
+	return (System_EventHandler *)eventHandler;
 }
 
 + (NSString *)unitTestEvent2EventName
@@ -2363,7 +2378,12 @@ static enumDubrovnik_UnitTests_LongEnum m_longEnumerationStatic;
 
 - (System_EventHandler *)unitTestEvent2_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock)block
 {
-	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler.class forEventName:self.class.unitTestEvent2EventName block:(EventBlock)block];
+	System_Delegate *eventHandler = [System_EventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
+		block(parameters[0], parameters[1]);
+		return nil;
+	}];
+	[self db_addEventHandler:eventHandler eventName:self.class.unitTestEvent2EventName];
+	return (System_EventHandler *)eventHandler;
 }
 
 + (NSString *)unitTestEvent3EventName
@@ -2373,7 +2393,12 @@ static enumDubrovnik_UnitTests_LongEnum m_longEnumerationStatic;
 
 - (System_EventHandlerA1 *)unitTestEvent3_addEventHandlerWithBlock:(Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)block
 {
-	return (System_EventHandlerA1 *)[self db_addEventHandlerWithClass:System_EventHandlerA1.class forEventName:self.class.unitTestEvent3EventName typeParameter:Dubrovnik_UnitTests_ReferenceEventArgs.class block:(EventBlock)block];
+	System_Delegate *eventHandler = [System_EventHandlerA1.class universalDelegate:@[Dubrovnik_UnitTests_ReferenceEventArgs.class] block:^System_Object *(NSArray<id> *parameters) {
+		block(parameters[0], parameters[1]);
+		return nil;
+	}];
+	[self db_addEventHandler:eventHandler eventName:self.class.unitTestEvent3EventName];
+	return (System_EventHandlerA1 *)eventHandler;
 }
 
 #pragma mark -

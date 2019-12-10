@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     18/10/2019 10:14:35
+// Date:     09/12/2019 23:15:07
 //
 // Assembly: System.Data
 // Fullname: System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -67,5 +67,37 @@ Assembly type imports
 
 */
 // Dubrovnik.CodeGenerator made System_Data_Common_DbConnection.m
+// Dubrovnik.CodeGenerator made System_Data_DataColumn.m
+// Dubrovnik.CodeGenerator made System_Data_DataColumnChangeEventArgs.m
+// Dubrovnik.CodeGenerator made System_Data_DataColumnChangeEventHandler.m
+// Dubrovnik.CodeGenerator made System_Data_DataColumnCollection.m
+// Dubrovnik.CodeGenerator made System_Data_DataException.m
+// Dubrovnik.CodeGenerator made System_Data_DataRelation.m
+// Dubrovnik.CodeGenerator made System_Data_DataRelationCollection.m
+// Dubrovnik.CodeGenerator made System_Data_DataRow.m
+// Dubrovnik.CodeGenerator made System_Data_DataRowAction.m
+// Dubrovnik.CodeGenerator made System_Data_DataRowBuilder.m
+// Dubrovnik.CodeGenerator made System_Data_DataRowChangeEventArgs.m
+// Dubrovnik.CodeGenerator made System_Data_DataRowChangeEventHandler.m
+// Dubrovnik.CodeGenerator made System_Data_DataRowCollection.m
+// Dubrovnik.CodeGenerator made System_Data_DataRowState.m
+// Dubrovnik.CodeGenerator made System_Data_DataRowVersion.m
+// Dubrovnik.CodeGenerator made System_Data_DataRowView.m
+// Dubrovnik.CodeGenerator made System_Data_DataSet.m
+// Dubrovnik.CodeGenerator made System_Data_DataSetDateTime.m
+// Dubrovnik.CodeGenerator made System_Data_DataSetSchemaImporterExtension.m
+// Dubrovnik.CodeGenerator made System_Data_DataSysDescriptionAttribute.m
+// Dubrovnik.CodeGenerator made System_Data_DataTable.m
+// Dubrovnik.CodeGenerator made System_Data_DataTableClearEventArgs.m
+// Dubrovnik.CodeGenerator made System_Data_DataTableClearEventHandler.m
+// Dubrovnik.CodeGenerator made System_Data_DataTableCollection.m
+// Dubrovnik.CodeGenerator made System_Data_DataTableNewRowEventArgs.m
+// Dubrovnik.CodeGenerator made System_Data_DataTableNewRowEventHandler.m
+// Dubrovnik.CodeGenerator made System_Data_DataTableReader.m
+// Dubrovnik.CodeGenerator made System_Data_DataView.m
+// Dubrovnik.CodeGenerator made System_Data_DataViewManager.m
+// Dubrovnik.CodeGenerator made System_Data_DataViewRowState.m
+// Dubrovnik.CodeGenerator made System_Data_DataViewSetting.m
+// Dubrovnik.CodeGenerator made System_Data_DataViewSettingCollection.m
 // Dubrovnik.CodeGenerator made System_Data_IDataReader.m
 // Dubrovnik.CodeGenerator made System_Data_IDbConnection.m

@@ -203,6 +203,36 @@ static BOOL m_crashChaining = NO;
     mono_set_config_dir([configDir fileSystemRepresentation]);
 }
 
++ (void)registerBundledAssemblies:(NSDictionary<NSString*, NSData*>*)bundledAssemblies {
+    MonoBundledAssembly** bundled = (MonoBundledAssembly**)malloc(sizeof(MonoBundledAssembly*) * (bundledAssemblies.count + 1));
+    
+    NSInteger idx = 0;
+    
+    for (NSString* name in bundledAssemblies) {
+        NSData* data = bundledAssemblies[name];
+        
+        NSUInteger nameLength = [name lengthOfBytesUsingEncoding:NSUTF8StringEncoding] + 1;
+        char cName[nameLength];
+        [name getCString:cName maxLength:nameLength encoding:NSUTF8StringEncoding];
+        
+        const unsigned int cSize = (unsigned int)data.length;
+        unsigned char* cData = (unsigned char*)malloc(cSize);
+        memcpy(cData, data.bytes, cSize);
+        
+        MonoBundledAssembly* b = (MonoBundledAssembly*)malloc(sizeof(MonoBundledAssembly));
+        
+        b->name = cName;
+        b->data = cData;
+        b->size = cSize;
+        
+        bundled[idx] = b;
+        
+        idx++;
+    }
+    
+    mono_register_bundled_assemblies((const MonoBundledAssembly **)bundled);
+}
+
 #pragma mark -
 #pragma mark Environment
 
@@ -650,6 +680,19 @@ static BOOL m_crashChaining = NO;
 + (void)detachMonoThread:(MonoThread *)monoThread
 {
     mono_thread_detach(monoThread);
+}
+
+- (void)runAttachedToMonoThread:(void(^)(void))block
+{
+    MonoThread *monoThread = [self attachCurrentThread];
+    
+    @try {
+        block();
+    } @catch (NSException *exception) {
+        @throw exception;
+    } @finally {
+        [self detachMonoThread:monoThread];
+    }
 }
 
 //this thread is launched just to force cocoa into multithreaded mode.

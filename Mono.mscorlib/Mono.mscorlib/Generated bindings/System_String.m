@@ -37,6 +37,12 @@
 
 /* Skipped constructor : System.String (System.Char* value, System.Int32 startIndex, System.Int32 length) */
 
+/* Skipped constructor : System.String (System.SByte* value) */
+
+/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length) */
+
+/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length, System.Text.Encoding enc) */
+
 + (System_String *)new_withValueCharArray:(System_Array *)p1 startIndexInt:(int32_t)p2 lengthInt:(int32_t)p3
 {
 	System_String * object = [[self alloc] initWithSignature:"char[],int,int" withNumArgs:3, [p1 monoRTInvokeObject], &p2, &p3];
@@ -54,12 +60,6 @@
 	System_String * object = [[self alloc] initWithSignature:"char,int" withNumArgs:2, &p1, &p2];
 	return object;
 }
-
-/* Skipped constructor : System.String (System.SByte* value) */
-
-/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length) */
-
-/* Skipped constructor : System.String (System.SByte* value, System.Int32 startIndex, System.Int32 length, System.Text.Encoding enc) */
 
 #pragma mark -
 #pragma mark Fields

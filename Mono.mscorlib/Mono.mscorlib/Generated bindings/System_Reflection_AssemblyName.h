@@ -24,6 +24,7 @@
 @class System_ICloneable;
 @class System_Object;
 @class System_Reflection_AssemblyName;
+@class System_Runtime_Serialization_IDeserializationCallback;
 @class System_Runtime_Serialization_ISerializable;
 @class System_String;
 @class System_Version;
@@ -39,9 +40,10 @@
 //
 #import "System_ICloneable_Protocol.h"
 #import "System_Object.h"
+#import "System_Runtime_Serialization_IDeserializationCallback_Protocol.h"
 #import "System_Runtime_Serialization_ISerializable_Protocol.h"
 
-@interface System_Reflection_AssemblyName : System_Object <System_ICloneable_, System_Runtime_Serialization_ISerializable_>
+@interface System_Reflection_AssemblyName : System_Object <System_ICloneable_, System_Runtime_Serialization_ISerializable_, System_Runtime_Serialization_IDeserializationCallback_>
 
 #pragma mark -
 #pragma mark Setup

@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     18/10/2019 10:14:35
+// Date:     09/12/2019 23:15:07
 //
 // Assembly: System.Data
 // Fullname: System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -233,70 +233,38 @@
 /* Skipped type : System.Data.ConstraintCollection ConstraintCollection */
 
 /* Skipped type : System.Data.ConstraintException ConstraintException */
-
-/* Skipped type : System.Data.DataColumn DataColumn */
-
-/* Skipped type : System.Data.DataColumnChangeEventArgs DataColumnChangeEventArgs */
-
-/* Skipped type : System.Data.DataColumnChangeEventHandler DataColumnChangeEventHandler */
-
-/* Skipped type : System.Data.DataColumnCollection DataColumnCollection */
-
-/* Skipped type : System.Data.DataException DataException */
-
-/* Skipped type : System.Data.DataRelation DataRelation */
-
-/* Skipped type : System.Data.DataRelationCollection DataRelationCollection */
-
-/* Skipped type : System.Data.DataRow DataRow */
-
-/* Skipped type : System.Data.DataRowAction DataRowAction */
-
-/* Skipped type : System.Data.DataRowBuilder DataRowBuilder */
-
-/* Skipped type : System.Data.DataRowChangeEventArgs DataRowChangeEventArgs */
-
-/* Skipped type : System.Data.DataRowChangeEventHandler DataRowChangeEventHandler */
-
-/* Skipped type : System.Data.DataRowCollection DataRowCollection */
-
-/* Skipped type : System.Data.DataRowState DataRowState */
-
-/* Skipped type : System.Data.DataRowVersion DataRowVersion */
-
-/* Skipped type : System.Data.DataRowView DataRowView */
-
-/* Skipped type : System.Data.DataSet DataSet */
-
-/* Skipped type : System.Data.DataSetDateTime DataSetDateTime */
-
-/* Skipped type : System.Data.DataSetSchemaImporterExtension DataSetSchemaImporterExtension */
-
-/* Skipped type : System.Data.DataSysDescriptionAttribute DataSysDescriptionAttribute */
-
-/* Skipped type : System.Data.DataTable DataTable */
-
-/* Skipped type : System.Data.DataTableClearEventArgs DataTableClearEventArgs */
-
-/* Skipped type : System.Data.DataTableClearEventHandler DataTableClearEventHandler */
-
-/* Skipped type : System.Data.DataTableCollection DataTableCollection */
-
-/* Skipped type : System.Data.DataTableNewRowEventArgs DataTableNewRowEventArgs */
-
-/* Skipped type : System.Data.DataTableNewRowEventHandler DataTableNewRowEventHandler */
-
-/* Skipped type : System.Data.DataTableReader DataTableReader */
-
-/* Skipped type : System.Data.DataView DataView */
-
-/* Skipped type : System.Data.DataViewManager DataViewManager */
-
-/* Skipped type : System.Data.DataViewRowState DataViewRowState */
-
-/* Skipped type : System.Data.DataViewSetting DataViewSetting */
-
-/* Skipped type : System.Data.DataViewSettingCollection DataViewSettingCollection */
+#define SDDataColumn_ System_Data_DataColumn
+#define SDDataColumnChangeEventArgs_ System_Data_DataColumnChangeEventArgs
+#define SDDataColumnChangeEventHandler_ System_Data_DataColumnChangeEventHandler
+#define SDDataColumnCollection_ System_Data_DataColumnCollection
+#define SDDataException_ System_Data_DataException
+#define SDDataRelation_ System_Data_DataRelation
+#define SDDataRelationCollection_ System_Data_DataRelationCollection
+#define SDDataRow_ System_Data_DataRow
+#define SDDataRowAction_ System_Data_DataRowAction
+#define SDDataRowBuilder_ System_Data_DataRowBuilder
+#define SDDataRowChangeEventArgs_ System_Data_DataRowChangeEventArgs
+#define SDDataRowChangeEventHandler_ System_Data_DataRowChangeEventHandler
+#define SDDataRowCollection_ System_Data_DataRowCollection
+#define SDDataRowState_ System_Data_DataRowState
+#define SDDataRowVersion_ System_Data_DataRowVersion
+#define SDDataRowView_ System_Data_DataRowView
+#define SDDataSet_ System_Data_DataSet
+#define SDDataSetDateTime_ System_Data_DataSetDateTime
+#define SDDataSetSchemaImporterExtension_ System_Data_DataSetSchemaImporterExtension
+#define SDDataSysDescriptionAttribute_ System_Data_DataSysDescriptionAttribute
+#define SDDataTable_ System_Data_DataTable
+#define SDDataTableClearEventArgs_ System_Data_DataTableClearEventArgs
+#define SDDataTableClearEventHandler_ System_Data_DataTableClearEventHandler
+#define SDDataTableCollection_ System_Data_DataTableCollection
+#define SDDataTableNewRowEventArgs_ System_Data_DataTableNewRowEventArgs
+#define SDDataTableNewRowEventHandler_ System_Data_DataTableNewRowEventHandler
+#define SDDataTableReader_ System_Data_DataTableReader
+#define SDDataView_ System_Data_DataView
+#define SDDataViewManager_ System_Data_DataViewManager
+#define SDDataViewRowState_ System_Data_DataViewRowState
+#define SDDataViewSetting_ System_Data_DataViewSetting
+#define SDDataViewSettingCollection_ System_Data_DataViewSettingCollection
 
 /* Skipped type : System.Data.DBConcurrencyException DBConcurrencyException */
 
@@ -740,6 +708,38 @@ Assembly type imports
 
 */
 #import "System_Data_Common_DbConnection.h"
+#import "System_Data_DataColumn.h"
+#import "System_Data_DataColumnChangeEventArgs.h"
+#import "System_Data_DataColumnChangeEventHandler.h"
+#import "System_Data_DataColumnCollection.h"
+#import "System_Data_DataException.h"
+#import "System_Data_DataRelation.h"
+#import "System_Data_DataRelationCollection.h"
+#import "System_Data_DataRow.h"
+#import "System_Data_DataRowAction.h"
+#import "System_Data_DataRowBuilder.h"
+#import "System_Data_DataRowChangeEventArgs.h"
+#import "System_Data_DataRowChangeEventHandler.h"
+#import "System_Data_DataRowCollection.h"
+#import "System_Data_DataRowState.h"
+#import "System_Data_DataRowVersion.h"
+#import "System_Data_DataRowView.h"
+#import "System_Data_DataSet.h"
+#import "System_Data_DataSetDateTime.h"
+#import "System_Data_DataSetSchemaImporterExtension.h"
+#import "System_Data_DataSysDescriptionAttribute.h"
+#import "System_Data_DataTable.h"
+#import "System_Data_DataTableClearEventArgs.h"
+#import "System_Data_DataTableClearEventHandler.h"
+#import "System_Data_DataTableCollection.h"
+#import "System_Data_DataTableNewRowEventArgs.h"
+#import "System_Data_DataTableNewRowEventHandler.h"
+#import "System_Data_DataTableReader.h"
+#import "System_Data_DataView.h"
+#import "System_Data_DataViewManager.h"
+#import "System_Data_DataViewRowState.h"
+#import "System_Data_DataViewSetting.h"
+#import "System_Data_DataViewSettingCollection.h"
 #import "System_Data_IDataReader.h"
 #import "System_Data_IDataReader.h"
 #import "System_Data_IDataReader_Protocol.h"

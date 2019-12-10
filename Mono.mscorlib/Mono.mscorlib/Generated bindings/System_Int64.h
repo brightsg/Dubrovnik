@@ -18,6 +18,8 @@
 // Forward class and protocol declarations
 //
 @class System_Boolean;
+@class System_IComparable;
+@class System_IComparableA1;
 @class System_IEquatableA1;
 @class System_Int32;
 @class System_Int64;
@@ -32,10 +34,12 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IComparable_Protocol.h"
+#import "System_IComparableA1_Protocol.h"
 #import "System_IEquatableA1_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_Int64 : System_ValueType <System_IEquatableA1_>
+@interface System_Int64 : System_ValueType <System_IComparable_, System_IComparableA1_, System_IEquatableA1_>
 
 #pragma mark -
 #pragma mark Setup

@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     18/10/2019 10:13:57
+// Date:     09/12/2019 23:14:23
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -83,6 +83,8 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Collections_Generic_KeyValuePairA2.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_ListA1__Enumerator.m
 // Dubrovnik.CodeGenerator made System_Collections_Generic_ListA1.m
+// Dubrovnik.CodeGenerator made System_Collections_ICollection.m
+// Dubrovnik.CodeGenerator made System_Collections_IDictionary.m
 // Dubrovnik.CodeGenerator made System_Collections_IEnumerable.m
 // Dubrovnik.CodeGenerator made System_Collections_IEnumerator.m
 // Dubrovnik.CodeGenerator made System_Collections_IList.m
@@ -115,6 +117,8 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Guid.m
 // Dubrovnik.CodeGenerator made System_IAsyncResult.m
 // Dubrovnik.CodeGenerator made System_ICloneable.m
+// Dubrovnik.CodeGenerator made System_IComparable.m
+// Dubrovnik.CodeGenerator made System_IComparableA1.m
 // Dubrovnik.CodeGenerator made System_IDisposable.m
 // Dubrovnik.CodeGenerator made System_IEquatableA1.m
 // Dubrovnik.CodeGenerator made System_Int16.m
@@ -143,6 +147,7 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Reflection_MethodInfo.m
 // Dubrovnik.CodeGenerator made System_Reflection_PropertyInfo.m
 // Dubrovnik.CodeGenerator made System_Reflection_TypeAttributes.m
+// Dubrovnik.CodeGenerator made System_Runtime_InteropServices__Attribute.m
 // Dubrovnik.CodeGenerator made System_Runtime_InteropServices__Exception.m
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_Lifetime_ClientSponsor.m
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_Lifetime_ILease.m
@@ -155,6 +160,7 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_RemotingException.m
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_RemotingServices.m
 // Dubrovnik.CodeGenerator made System_Runtime_Remoting_RemotingTimeoutException.m
+// Dubrovnik.CodeGenerator made System_Runtime_Serialization_IDeserializationCallback.m
 // Dubrovnik.CodeGenerator made System_Runtime_Serialization_ISerializable.m
 // Dubrovnik.CodeGenerator made System_SByte.m
 // Dubrovnik.CodeGenerator made System_Single.m
@@ -171,6 +177,16 @@ Assembly type imports
 // Dubrovnik.CodeGenerator made System_TimeZoneInfo.m
 // Dubrovnik.CodeGenerator made System_TimeZoneInfo__AdjustmentRule.m
 // Dubrovnik.CodeGenerator made System_TimeZoneInfo__TransitionTime.m
+// Dubrovnik.CodeGenerator made System_Tuple.m
+// Dubrovnik.CodeGenerator made System_TupleA1.m
+// Dubrovnik.CodeGenerator made System_TupleA2.m
+// Dubrovnik.CodeGenerator made System_TupleA3.m
+// Dubrovnik.CodeGenerator made System_TupleA4.m
+// Dubrovnik.CodeGenerator made System_TupleA5.m
+// Dubrovnik.CodeGenerator made System_TupleA6.m
+// Dubrovnik.CodeGenerator made System_TupleA7.m
+// Dubrovnik.CodeGenerator made System_TupleA8.m
+// Dubrovnik.CodeGenerator made System_TupleExtensions.m
 // Dubrovnik.CodeGenerator made System_Type.m
 // Dubrovnik.CodeGenerator made System_UInt16.m
 // Dubrovnik.CodeGenerator made System_UInt32.m

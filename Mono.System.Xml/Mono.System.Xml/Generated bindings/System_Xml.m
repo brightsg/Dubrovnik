@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     18/10/2019 10:14:33
+// Date:     09/12/2019 23:15:03
 //
 // Assembly: System.Xml
 // Fullname: System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -51,6 +51,13 @@
 Assembly type imports
 
 */
+// Dubrovnik.CodeGenerator made System_Xml_Schema_XmlSchema.m
+// Dubrovnik.CodeGenerator made System_Xml_Serialization_IXmlSerializable.m
+// Dubrovnik.CodeGenerator made System_Xml_Serialization_XmlSerializer.m
 // Dubrovnik.CodeGenerator made System_Xml_XmlDocument.m
+// Dubrovnik.CodeGenerator made System_Xml_XmlReader.m
+// Dubrovnik.CodeGenerator made System_Xml_XmlReaderSettings.m
 // Dubrovnik.CodeGenerator made System_Xml_XmlTextWriter.m
+// Dubrovnik.CodeGenerator made System_Xml_XmlWriter.m
+// Dubrovnik.CodeGenerator made System_Xml_XmlWriterSettings.m
 // Dubrovnik.CodeGenerator made System_Xml_Xsl_XsltArgumentList.m

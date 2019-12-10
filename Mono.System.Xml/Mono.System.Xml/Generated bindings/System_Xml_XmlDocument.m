@@ -309,7 +309,10 @@
 	[self invokeMonoMethod:"Load(System.IO.TextReader)" withNumArgs:1, [p1 monoRTInvokeObject]];
 }
 
-/* Skipped method : System.Void Load(System.Xml.XmlReader reader) */
+- (void)load_withReader:(System_Xml_XmlReader *)p1
+{
+	[self invokeMonoMethod:"Load(System.Xml.XmlReader)" withNumArgs:1, [p1 monoRTInvokeObject]];
+}
 
 - (void)loadXml_withXml:(NSString *)p1
 {
@@ -330,15 +333,24 @@
 
 /* Skipped method : System.Void Save(System.IO.TextWriter writer) */
 
-/* Skipped method : System.Void Save(System.Xml.XmlWriter w) */
+- (void)save_withW:(System_Xml_XmlWriter *)p1
+{
+	[self invokeMonoMethod:"Save(System.Xml.XmlWriter)" withNumArgs:1, [p1 monoRTInvokeObject]];
+}
 
 /* Skipped method : System.Void Validate(System.Xml.Schema.ValidationEventHandler validationEventHandler) */
 
 /* Skipped method : System.Void Validate(System.Xml.Schema.ValidationEventHandler validationEventHandler, System.Xml.XmlNode nodeToValidate) */
 
-/* Skipped method : System.Void WriteContentTo(System.Xml.XmlWriter xw) */
+- (void)writeContentTo_withXw:(System_Xml_XmlWriter *)p1
+{
+	[self invokeMonoMethod:"WriteContentTo(System.Xml.XmlWriter)" withNumArgs:1, [p1 monoRTInvokeObject]];
+}
 
-/* Skipped method : System.Void WriteTo(System.Xml.XmlWriter w) */
+- (void)writeTo_withW:(System_Xml_XmlWriter *)p1
+{
+	[self invokeMonoMethod:"WriteTo(System.Xml.XmlWriter)" withNumArgs:1, [p1 monoRTInvokeObject]];
+}
 
 #pragma mark -
 #pragma mark Events

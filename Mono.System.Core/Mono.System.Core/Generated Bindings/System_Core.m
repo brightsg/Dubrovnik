@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     18/10/2019 10:14:28
+// Date:     09/12/2019 23:14:56
 //
 // Assembly: System.Core
 // Fullname: System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -54,6 +54,8 @@
 Assembly type imports
 
 */
+// Dubrovnik.CodeGenerator made System_Collections_Generic_HashSetA1__Enumerator.m
+// Dubrovnik.CodeGenerator made System_Collections_Generic_HashSetA1.m
 // Dubrovnik.CodeGenerator made System_Dynamic_BinaryOperationBinder.m
 // Dubrovnik.CodeGenerator made System_Dynamic_BindingRestrictions.m
 // Dubrovnik.CodeGenerator made System_Dynamic_CallInfo.m
