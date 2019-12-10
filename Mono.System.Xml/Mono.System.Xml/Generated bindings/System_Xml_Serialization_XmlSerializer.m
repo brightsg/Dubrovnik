@@ -35,11 +35,15 @@
 
 /* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides, System.Type[] extraTypes, System.Xml.Serialization.XmlRootAttribute root, System.String defaultNamespace) */
 
+/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlRootAttribute root) */
+
 + (System_Xml_Serialization_XmlSerializer *)new_withType:(System_Type *)p1 extraTypes:(System_Array *)p2
 {
 	System_Xml_Serialization_XmlSerializer * object = [[self alloc] initWithSignature:"System.Type,System.Type[]" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return object;
 }
+
+/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides) */
 
 /* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Xml.Serialization.XmlTypeMapping xmlTypeMapping) */
 
@@ -49,24 +53,24 @@
 	return object;
 }
 
-/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides, System.Type[] extraTypes, System.Xml.Serialization.XmlRootAttribute root, System.String defaultNamespace, System.String location) */
-
-/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides, System.Type[] extraTypes, System.Xml.Serialization.XmlRootAttribute root, System.String defaultNamespace, System.String location, System.Security.Policy.Evidence evidence) */
-
-/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlRootAttribute root) */
-
-/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides) */
-
 + (System_Xml_Serialization_XmlSerializer *)new_withType:(System_Type *)p1 defaultNamespace:(NSString *)p2
 {
 	System_Xml_Serialization_XmlSerializer * object = [[self alloc] initWithSignature:"System.Type,string" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
 	return object;
 }
 
+/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides, System.Type[] extraTypes, System.Xml.Serialization.XmlRootAttribute root, System.String defaultNamespace, System.String location) */
+
+/* Skipped constructor : System.Xml.Serialization.XmlSerializer (System.Type type, System.Xml.Serialization.XmlAttributeOverrides overrides, System.Type[] extraTypes, System.Xml.Serialization.XmlRootAttribute root, System.String defaultNamespace, System.String location, System.Security.Policy.Evidence evidence) */
+
 #pragma mark -
 #pragma mark Methods
 
-/* Skipped method : System.Boolean CanDeserialize(System.Xml.XmlReader xmlReader) */
+- (BOOL)canDeserialize_withXmlReader:(System_Xml_XmlReader *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"CanDeserialize(System.Xml.XmlReader)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return DB_UNBOX_BOOLEAN(monoObject);
+}
 
 - (id <DBMonoObject>)deserialize_withStream:(System_IO_Stream *)p1
 {
@@ -80,11 +84,19 @@
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-/* Skipped method : System.Object Deserialize(System.Xml.XmlReader xmlReader) */
+- (id <DBMonoObject>)deserialize_withXmlReader:(System_Xml_XmlReader *)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Deserialize(System.Xml.XmlReader)" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
 /* Skipped method : System.Object Deserialize(System.Xml.XmlReader xmlReader, System.Xml.Serialization.XmlDeserializationEvents events) */
 
-/* Skipped method : System.Object Deserialize(System.Xml.XmlReader xmlReader, System.String encodingStyle) */
+- (id <DBMonoObject>)deserialize_withXmlReader:(System_Xml_XmlReader *)p1 encodingStyle:(NSString *)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Deserialize(System.Xml.XmlReader,string)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
 /* Skipped method : System.Object Deserialize(System.Xml.XmlReader xmlReader, System.String encodingStyle, System.Xml.Serialization.XmlDeserializationEvents events) */
 
@@ -127,7 +139,10 @@
 
 /* Skipped method : System.Void Serialize(System.IO.Stream stream, System.Object o, System.Xml.Serialization.XmlSerializerNamespaces namespaces) */
 
-/* Skipped method : System.Void Serialize(System.Xml.XmlWriter xmlWriter, System.Object o) */
+- (void)serialize_withXmlWriter:(System_Xml_XmlWriter *)p1 o:(id <DBMonoObject>)p2
+{
+	[self invokeMonoMethod:"Serialize(System.Xml.XmlWriter,object)" withNumArgs:2, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject]];
+}
 
 /* Skipped method : System.Void Serialize(System.Xml.XmlWriter xmlWriter, System.Object o, System.Xml.Serialization.XmlSerializerNamespaces namespaces) */
 

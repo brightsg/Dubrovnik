@@ -39,7 +39,11 @@
 	return object;
 }
 
-/* Skipped constructor : System.Collections.ArrayList (System.Collections.ICollection c) */
++ (System_Collections_ArrayList *)new_withC:(System_Object <System_Collections_ICollection_> *)p1
+{
+	System_Collections_ArrayList * object = [[self alloc] initWithSignature:"System.Collections.ICollection" withNumArgs:1, [p1 monoRTInvokeObject]];
+	return object;
+}
 
 #pragma mark -
 #pragma mark Properties
@@ -200,7 +204,10 @@
 	return DB_UNBOX_INT32(monoObject);
 }
 
-/* Skipped method : System.Void AddRange(System.Collections.ICollection c) */
+- (void)addRange_withC:(System_Object <System_Collections_ICollection_> *)p1
+{
+	[self invokeMonoMethod:"AddRange(System.Collections.ICollection)" withNumArgs:1, [p1 monoRTInvokeObject]];
+}
 
 /* Skipped method : System.Int32 BinarySearch(System.Int32 index, System.Int32 count, System.Object value, System.Collections.IComparer comparer) */
 
@@ -297,7 +304,10 @@
 	[self invokeMonoMethod:"Insert(int,object)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
 }
 
-/* Skipped method : System.Void InsertRange(System.Int32 index, System.Collections.ICollection c) */
+- (void)insertRange_withIndex:(int32_t)p1 c:(System_Object <System_Collections_ICollection_> *)p2
+{
+	[self invokeMonoMethod:"InsertRange(int,System.Collections.ICollection)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
+}
 
 - (int32_t)lastIndexOf_withValue:(id <DBMonoObject>)p1
 {
@@ -360,7 +370,10 @@
 	[self invokeMonoMethod:"Reverse(int,int)" withNumArgs:2, &p1, &p2];
 }
 
-/* Skipped method : System.Void SetRange(System.Int32 index, System.Collections.ICollection c) */
+- (void)setRange_withIndex:(int32_t)p1 c:(System_Object <System_Collections_ICollection_> *)p2
+{
+	[self invokeMonoMethod:"SetRange(int,System.Collections.ICollection)" withNumArgs:2, &p1, [p2 monoRTInvokeObject]];
+}
 
 - (void)sort
 {

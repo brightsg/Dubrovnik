@@ -21,6 +21,7 @@
 @class System_Boolean;
 @class System_Byte;
 @class System_Enum;
+@class System_IComparable;
 @class System_Int16;
 @class System_Int32;
 @class System_Int64;
@@ -40,9 +41,10 @@
 //
 // Import superclass and adopted protocols
 //
+#import "System_IComparable_Protocol.h"
 #import "System_ValueType.h"
 
-@interface System_Enum : System_ValueType
+@interface System_Enum : System_ValueType <System_IComparable_>
 
 #pragma mark -
 #pragma mark Setup

@@ -622,30 +622,21 @@
         <Parameter Name="emSize" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="style" Type="System.Drawing.FontStyle" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="unit" Type="System.Drawing.GraphicsUnit" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="family" Type="System.Drawing.FontFamily" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="emSize" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="style" Type="System.Drawing.FontStyle" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="unit" Type="System.Drawing.GraphicsUnit" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="gdiCharSet" Type="System.Byte" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="family" Type="System.Drawing.FontFamily" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="emSize" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="style" Type="System.Drawing.FontStyle" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+        <Parameter Name="unit" Type="System.Drawing.GraphicsUnit" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="gdiCharSet" Type="System.Byte" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="gdiVerticalFont" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="family" Type="System.Drawing.FontFamily" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="emSize" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="style" Type="System.Drawing.FontStyle" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="familyName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="emSize" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="family" Type="System.Drawing.FontFamily" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="emSize" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="style" Type="System.Drawing.FontStyle" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="unit" Type="System.Drawing.GraphicsUnit" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="family" Type="System.Drawing.FontFamily" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="emSize" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="style" Type="System.Drawing.FontStyle" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="unit" Type="System.Drawing.GraphicsUnit" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-        <Parameter Name="gdiCharSet" Type="System.Byte" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="familyName" Type="System.String" BaseName="Object" BaseType="System.Object" />
@@ -665,6 +656,11 @@
       <Constructor>
         <Parameter Name="family" Type="System.Drawing.FontFamily" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
         <Parameter Name="emSize" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="style" Type="System.Drawing.FontStyle" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="family" Type="System.Drawing.FontFamily" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="emSize" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="unit" Type="System.Drawing.GraphicsUnit" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
@@ -686,6 +682,10 @@
         <Parameter Name="familyName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="emSize" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="unit" Type="System.Drawing.GraphicsUnit" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="familyName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="emSize" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Clone" Type="System.Object" />
       <Method Name="Dispose" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -2116,6 +2116,18 @@
       <Property Name="Size" Type="System.Drawing.Size" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="Width" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Constructor>
+        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="size" Type="System.Drawing.Size" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="width" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="height" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="original" Type="System.Drawing.Icon" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
         <Parameter Name="size" Type="System.Drawing.Size" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
@@ -2133,24 +2145,12 @@
       </Constructor>
       <Constructor>
         <Parameter Name="stream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="width" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="height" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="size" Type="System.Drawing.Size" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="fileName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="width" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="height" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="stream" Type="System.IO.Stream" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-        <Parameter Name="size" Type="System.Drawing.Size" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="width" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="height" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Clone" Type="System.Object" />
       <Method Name="Dispose" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -3177,13 +3177,13 @@
     <Class Name="Region" Type="System.Drawing.Region" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject">
       <ImplementedInterface Type="System.IDisposable" />
       <Constructor>
+        <Parameter Name="rect" Type="System.Drawing.RectangleF" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="rect" Type="System.Drawing.Rectangle" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="path" Type="System.Drawing.Drawing2D.GraphicsPath" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="rect" Type="System.Drawing.RectangleF" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="rgnData" Type="System.Drawing.Drawing2D.RegionData" BaseName="Object" BaseType="System.Object" />
@@ -4891,11 +4891,11 @@
       <Constructor>
         <Parameter Name="hatchstyle" Type="System.Drawing.Drawing2D.HatchStyle" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="foreColor" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="backColor" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="hatchstyle" Type="System.Drawing.Drawing2D.HatchStyle" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="foreColor" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="backColor" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Clone" Type="System.Object" />
     </Class>
@@ -4985,19 +4985,6 @@
       <Property Name="Transform" Type="System.Drawing.Drawing2D.Matrix" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" IsReadable="True" IsWritable="True" />
       <Property Name="WrapMode" Type="System.Drawing.Drawing2D.WrapMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" IsReadable="True" IsWritable="True" />
       <Constructor>
-        <Parameter Name="rect" Type="System.Drawing.Rectangle" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="color1" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="color2" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="linearGradientMode" Type="System.Drawing.Drawing2D.LinearGradientMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="rect" Type="System.Drawing.Rectangle" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="color1" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="color2" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="angle" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-        <Parameter Name="isAngleScaleable" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="point1" Type="System.Drawing.PointF" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="point2" Type="System.Drawing.PointF" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="color1" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -5016,6 +5003,12 @@
         <Parameter Name="linearGradientMode" Type="System.Drawing.Drawing2D.LinearGradientMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Constructor>
+        <Parameter Name="rect" Type="System.Drawing.Rectangle" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="color1" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="color2" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="linearGradientMode" Type="System.Drawing.Drawing2D.LinearGradientMode" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="rect" Type="System.Drawing.RectangleF" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="color1" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="color2" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -5033,6 +5026,13 @@
         <Parameter Name="color1" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="color2" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
         <Parameter Name="angle" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="rect" Type="System.Drawing.Rectangle" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="color1" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="color2" Type="System.Drawing.Color" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="angle" Type="System.Single" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+        <Parameter Name="isAngleScaleable" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Clone" Type="System.Object" />
       <Method Name="MultiplyTransform" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">

@@ -48,7 +48,25 @@
 #pragma mark -
 #pragma mark Properties
 
-/* Skipped property : System.Collections.IDictionary Data */
+@synthesize data = _data;
+- (System_Collections_IDictionary *)data
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "Data");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_data isEqualToMonoObject:monoObject]) return _data;
+	_data = [System_Collections_IDictionary bestObjectWithMonoObject:monoObject];
+
+	return _data;
+}
 
 @synthesize helpLink = _helpLink;
 - (NSString *)helpLink

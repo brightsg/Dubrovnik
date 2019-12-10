@@ -9,15 +9,15 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     11/25/2019 1:06:32 PM
+// Date:     09/12/2019 23:15:07
 //
 // Assembly: System.Data
 // Fullname: System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Path:     C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Data.dll
 //
-// Platform: Unix 19.0.0.0
+// Platform: Microsoft Windows NT 6.2.9200.0
 // OS Arch:  64 bit
-// Process:  64 bit
+// Process:  32 bit
 // Target:   mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
 // Runtime:  4.0.30319.42000
 //

@@ -24,7 +24,10 @@
 @class System_Collections_Concurrent_Partitioner;
 @class System_Collections_Generic_IEnumerableA1;
 @class System_Collections_Generic_IListA1;
+@class System_Int32;
+@class System_Int64;
 @class System_Object;
+@class System_TupleA2;
 @class TSource;
 @protocol System_Collections_Generic_IEnumerableA1;
 @protocol System_Collections_Generic_IEnumerableA1_;
@@ -52,13 +55,71 @@
 #pragma mark -
 #pragma mark Methods
 
-/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>> Create(System.Int64 fromInclusive, System.Int64 toExclusive) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Create
 
-/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>> Create(System.Int64 fromInclusive, System.Int64 toExclusive, System.Int64 rangeSize) */
+ Params
+   System.Int64
+   System.Int64
 
-/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>> Create(System.Int32 fromInclusive, System.Int32 toExclusive) */
+ Return
+   System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>>
+ @/textblock
+*/
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2;
 
-/* Skipped method : System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>> Create(System.Int32 fromInclusive, System.Int32 toExclusive, System.Int32 rangeSize) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Create
+
+ Params
+   System.Int64
+   System.Int64
+   System.Int64
+
+ Return
+   System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int64, System.Int64>>
+ @/textblock
+*/
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveLong:(int64_t)p1 toExclusiveLong:(int64_t)p2 rangeSizeLong:(int64_t)p3;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Create
+
+ Params
+   System.Int32
+   System.Int32
+
+ Return
+   System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>>
+ @/textblock
+*/
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   Create
+
+ Params
+   System.Int32
+   System.Int32
+   System.Int32
+
+ Return
+   System.Collections.Concurrent.OrderablePartitioner`1<System.Tuple`2<System.Int32, System.Int32>>
+ @/textblock
+*/
++ (System_Collections_Concurrent_OrderablePartitionerA1 *)create_withFromInclusiveInt:(int32_t)p1 toExclusiveInt:(int32_t)p2 rangeSizeInt:(int32_t)p3;
 
 /**
  Managed method.

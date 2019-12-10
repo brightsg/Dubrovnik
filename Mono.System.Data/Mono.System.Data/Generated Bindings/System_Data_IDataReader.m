@@ -98,7 +98,11 @@
 	[self invokeMonoMethod:"System.Data.IDataReader.Close()" withNumArgs:0];
 }
 
-/* Skipped method : System.Data.DataTable GetSchemaTable() */
+- (System_Data_DataTable *)getSchemaTable
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"System.Data.IDataReader.GetSchemaTable()" withNumArgs:0];
+	return [System_Data_DataTable bestObjectWithMonoObject:monoObject];
+}
 
 - (BOOL)nextResult
 {

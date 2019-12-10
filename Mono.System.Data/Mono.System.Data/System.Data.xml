@@ -921,21 +921,21 @@
       <Property Name="Unique" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Constructor>
         <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="dataType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="dataType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
+        <Parameter Name="expr" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="dataType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
         <Parameter Name="expr" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="type" Type="System.Data.MappingType" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="columnName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="dataType" Type="System.Type" BaseName="MemberInfo" BaseType="System.Reflection.MemberInfo" />
-        <Parameter Name="expr" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="SetOrdinal" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="ordinal" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -1061,6 +1061,12 @@
       </Constructor>
       <Constructor>
         <Parameter Name="relationName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="createConstraints" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="relationName" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="parentColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
         <Parameter Name="childColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
       </Constructor>
@@ -1087,12 +1093,6 @@
         <Parameter Name="parentColumnNames" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
         <Parameter Name="childColumnNames" Type="System.String[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.String" />
         <Parameter Name="nested" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="relationName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="createConstraints" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="ToString" Type="System.String" BaseName="Object" BaseType="System.Object" />
     </Class>
@@ -2537,6 +2537,11 @@
         <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
       </Constructor>
       <Constructor>
+        <Parameter Name="constraintName" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+      </Constructor>
+      <Constructor>
         <Parameter Name="parentColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
         <Parameter Name="childColumns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
       </Constructor>
@@ -2563,11 +2568,6 @@
         <Parameter Name="acceptRejectRule" Type="System.Data.AcceptRejectRule" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="deleteRule" Type="System.Data.Rule" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
         <Parameter Name="updateRule" Type="System.Data.Rule" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="constraintName" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="parentColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="childColumn" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
       </Constructor>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="key" Type="System.Object" />
@@ -3209,14 +3209,14 @@
       <ImplementedInterface Type="System.Runtime.InteropServices._Exception" />
       <Property Name="ErrorList" Type="System.Collections.ArrayList" BaseName="Object" BaseType="System.Object" IsReadable="True" />
       <Constructor>
-        <Parameter Name="list" Type="System.Collections.ArrayList" BaseName="Object" BaseType="System.Object" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Constructor>
         <Parameter Name="message" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="innerException" Type="System.Exception" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="list" Type="System.Collections.ArrayList" BaseName="Object" BaseType="System.Object" />
       </Constructor>
       <Method Name="GetObjectData" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">
         <Parameter Name="info" Type="System.Runtime.Serialization.SerializationInfo" BaseName="Object" BaseType="System.Object" />
@@ -3227,6 +3227,13 @@
       <Property Name="Columns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" IsReadable="True" />
       <Property Name="IsPrimaryKey" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" />
       <Property Name="Table" Type="System.Data.DataTable" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" IsReadable="True" />
+      <Constructor>
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+      </Constructor>
       <Constructor>
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="columns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
@@ -3241,27 +3248,20 @@
       </Constructor>
       <Constructor>
         <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="isPrimaryKey" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
+        <Parameter Name="isPrimaryKey" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
         <Parameter Name="columns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
         <Parameter Name="isPrimaryKey" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
         <Parameter Name="columns" Type="System.Data.DataColumn[]" BaseName="Array" BaseType="System.Array" IsArray="True" ArrayRank="1" ElementType="System.Data.DataColumn" />
-        <Parameter Name="isPrimaryKey" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="name" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
-        <Parameter Name="isPrimaryKey" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
-      </Constructor>
-      <Constructor>
-        <Parameter Name="column" Type="System.Data.DataColumn" BaseName="MarshalByValueComponent" BaseType="System.ComponentModel.MarshalByValueComponent" />
         <Parameter Name="isPrimaryKey" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="Equals" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType">
@@ -4180,17 +4180,17 @@
       <ImplementedInterface Type="System.Collections.IEnumerator" />
       <Property Name="Current" Type="System.Object" IsReadable="True" />
       <Constructor>
-        <Parameter Name="reader" Type="System.Data.Common.DbDataReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
       </Constructor>
       <Constructor>
-        <Parameter Name="reader" Type="System.Data.Common.DbDataReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
+        <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
         <Parameter Name="closeReader" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Constructor>
-        <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
+        <Parameter Name="reader" Type="System.Data.Common.DbDataReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
       </Constructor>
       <Constructor>
-        <Parameter Name="reader" Type="System.Data.IDataReader" IsInterface="True" />
+        <Parameter Name="reader" Type="System.Data.Common.DbDataReader" BaseName="MarshalByRefObject" BaseType="System.MarshalByRefObject" />
         <Parameter Name="closeReader" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
       </Constructor>
       <Method Name="MoveNext" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" />
@@ -6054,10 +6054,6 @@
       <Property Name="EnableStreaming" Type="System.Boolean" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Property Name="NotifyAfter" Type="System.Int32" IsValueType="True" IsPrimitive="True" BaseName="ValueType" BaseType="System.ValueType" IsReadable="True" IsWritable="True" />
       <Constructor>
-        <Parameter Name="connectionString" Type="System.String" BaseName="Object" BaseType="System.Object" />
-        <Parameter Name="copyOptions" Type="System.Data.SqlClient.SqlBulkCopyOptions" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
-      </Constructor>
-      <Constructor>
         <Parameter Name="connection" Type="System.Data.SqlClient.SqlConnection" BaseName="DbConnection" BaseType="System.Data.Common.DbConnection" />
       </Constructor>
       <Constructor>
@@ -6067,6 +6063,10 @@
       </Constructor>
       <Constructor>
         <Parameter Name="connectionString" Type="System.String" BaseName="Object" BaseType="System.Object" />
+      </Constructor>
+      <Constructor>
+        <Parameter Name="connectionString" Type="System.String" BaseName="Object" BaseType="System.Object" />
+        <Parameter Name="copyOptions" Type="System.Data.SqlClient.SqlBulkCopyOptions" IsValueType="True" UnderlyingType="System.Int32" IsEnum="True" BaseName="Enum" BaseType="System.Enum" />
       </Constructor>
       <Method Name="Close" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType" />
       <Method Name="WriteToServer" Type="System.Void" IsValueType="True" BaseName="ValueType" BaseType="System.ValueType">

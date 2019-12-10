@@ -20,6 +20,7 @@
 @class System_Boolean;
 @class System_MarshalByRefObject;
 @class System_Object;
+@class System_Runtime_InteropServices__Attribute;
 @class System_Runtime_Remoting_Proxies_ProxyAttribute;
 @class System_Runtime_Remoting_Proxies_RealProxy;
 @class System_Type;
@@ -34,8 +35,9 @@
 // Import superclass and adopted protocols
 //
 #import "System_Attribute.h"
+#import "System_Runtime_InteropServices__Attribute_Protocol.h"
 
-@interface System_Runtime_Remoting_Proxies_ProxyAttribute : System_Attribute
+@interface System_Runtime_Remoting_Proxies_ProxyAttribute : System_Attribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

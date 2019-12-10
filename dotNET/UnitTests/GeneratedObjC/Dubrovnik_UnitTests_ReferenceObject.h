@@ -98,19 +98,19 @@
 // Event support
 // 
 #define DUReferenceObject_PropertyChanged_EventBlock Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock
-typedef void (^Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangedEventArgs *e);
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_PropertyChanged_EventBlock)(System_Object * sender, System_ComponentModel_PropertyChangedEventArgs * e);
 
 #define DUReferenceObject_PropertyChanging_EventBlock Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock
-typedef void (^Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangingEventArgs *e);
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_PropertyChanging_EventBlock)(System_Object * sender, System_ComponentModel_PropertyChangingEventArgs * e);
 
 #define DUReferenceObject_UnitTestEvent1_EventBlock Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock
-typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock)(System_Object *sender, System_EventArgs *e);
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent1_EventBlock)(System_Object * sender, System_EventArgs * e);
 
 #define DUReferenceObject_UnitTestEvent2_EventBlock Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock
-typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock)(System_Object *sender, System_EventArgs *e);
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent2_EventBlock)(System_Object * sender, System_EventArgs * e);
 
 #define DUReferenceObject_UnitTestEvent3_EventBlock Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock
-typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(System_Object *sender, Dubrovnik_UnitTests_ReferenceEventArgs *e);
+typedef void (^Dubrovnik_UnitTests_ReferenceObject_UnitTestEvent3_EventBlock)(System_Object * sender, Dubrovnik_UnitTests_ReferenceEventArgs * e);
 
 @interface Dubrovnik_UnitTests_ReferenceObject : System_Object <Dubrovnik_UnitTests_IMinimalReferenceObject_, Dubrovnik_UnitTests_IReferenceObject1_, Dubrovnik_UnitTests_IReferenceObjectBase_, Dubrovnik_UnitTests_IReferenceObject2_>
 

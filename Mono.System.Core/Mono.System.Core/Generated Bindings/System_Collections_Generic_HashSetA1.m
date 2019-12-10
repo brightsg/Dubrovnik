@@ -33,6 +33,12 @@
 #pragma mark -
 #pragma mark Constructors
 
++ (System_Collections_Generic_HashSetA1 *)new_withCapacity:(int32_t)p1
+{
+	System_Collections_Generic_HashSetA1 * object = [[self alloc] initWithSignature:"int" withNumArgs:1, &p1];
+	return object;
+}
+
 /* Skipped constructor : System.Collections.Generic.HashSet`1<System.Collections.Generic.HashSet`1+T> (System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.HashSet`1+T> comparer) */
 
 + (System_Collections_Generic_HashSetA1 *)new_withCollection:(System_Object <System_Collections_Generic_IEnumerableA1_> *)p1
@@ -42,12 +48,6 @@
 }
 
 /* Skipped constructor : System.Collections.Generic.HashSet`1<System.Collections.Generic.HashSet`1+T> (System.Collections.Generic.IEnumerable`1<System.Collections.Generic.HashSet`1+T> collection, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.HashSet`1+T> comparer) */
-
-+ (System_Collections_Generic_HashSetA1 *)new_withCapacity:(int32_t)p1
-{
-	System_Collections_Generic_HashSetA1 * object = [[self alloc] initWithSignature:"int" withNumArgs:1, &p1];
-	return object;
-}
 
 /* Skipped constructor : System.Collections.Generic.HashSet`1<System.Collections.Generic.HashSet`1+T> (System.Int32 capacity, System.Collections.Generic.IEqualityComparer`1<System.Collections.Generic.HashSet`1+T> comparer) */
 
