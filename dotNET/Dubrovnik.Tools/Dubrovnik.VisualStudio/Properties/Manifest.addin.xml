@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionModel>
+	 <Extension path="/MonoDevelop/Debugging/DebuggerEngines">
+        <DebuggerEngine
+            id="MonoDevelop.Debugger.Soft.Dubrovnik"
+            name="Dubrovnik Debugger"
+            features="Breakpoints, Pause, Stepping, DebugFile, ConditionalBreakpoints, Tracepoints, Catchpoints, Attaching"
+            type="Dubrovnik.VisualStudio.Debugger.DubrovnikDebugger" />
+    </Extension>
+</ExtensionModel>
