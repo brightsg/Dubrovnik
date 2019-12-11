@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dubrovnik.Generator.UI", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dubrovnik.Generator", "Dubrovnik.Generator\Dubrovnik.Generator.csproj", "{2D4EE69B-8F8B-4374-88BD-E5A01E7A2C73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dubrovnik.VisualStudio", "Dubrovnik.VisualStudio\Dubrovnik.VisualStudio.csproj", "{0D808378-F8EC-4322-A4D0-684FD3057278}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{2D4EE69B-8F8B-4374-88BD-E5A01E7A2C73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D4EE69B-8F8B-4374-88BD-E5A01E7A2C73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D4EE69B-8F8B-4374-88BD-E5A01E7A2C73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D808378-F8EC-4322-A4D0-684FD3057278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D808378-F8EC-4322-A4D0-684FD3057278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D808378-F8EC-4322-A4D0-684FD3057278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D808378-F8EC-4322-A4D0-684FD3057278}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
