@@ -25,6 +25,7 @@ static NSString *m_monoAssemblyRootFolder = nil;
 static NSString *m_monoConfigFolder = nil;
 static NSString *m_localEventLogPath = nil;
 static DBManagedEnvironment *_defaultEnvironment = nil;
+static DBManagedEnvironment *_existingEnvironment = nil;
 static DBManagedEnvironment *_currentEnvironment = nil;
 static BOOL m_signalChaining = NO;
 static BOOL m_crashChaining = NO;
@@ -252,6 +253,14 @@ static BOOL m_crashChaining = NO;
 	return(_defaultEnvironment);
 }
 
++ (DBManagedEnvironment *)existingEnvironment {
+	if(!_existingEnvironment) {
+		_existingEnvironment = [[DBManagedEnvironment alloc] initWithDomainName:"" version:"" options:@{} initJIT:NO];
+	}
+		
+	return(_existingEnvironment);
+}
+
 + (DBManagedEnvironment *)currentEnvironment
 {
     if (!_currentEnvironment) {
@@ -311,6 +320,11 @@ static BOOL m_crashChaining = NO;
 
 - (id)initWithDomainName:(const char *)domainName version:(const char *)version options:(NSDictionary <NSString *, id> *)options
 {
+	return [self initWithDomainName:domainName version:version options:options initJIT:YES];
+}
+
+- (id)initWithDomainName:(const char *)domainName version:(const char *)version options:(NSDictionary <NSString *, id> *)options initJIT:(BOOL)initJIT
+{
 #pragma unused(options)
 	self = [super init];
 	
@@ -352,13 +366,19 @@ static BOOL m_crashChaining = NO;
             NSLog(@"Thread local storage detection failed. This indicates a potentially serious issue. Code may fail when debugged in Xcode based on past experience.");
         }
 
-        if (version != NULL) {
-            _monoDomain = mono_jit_init_version(domainName, version);
-        } else {
-            _monoDomain = mono_jit_init(domainName);
-        }
-        NSAssert(_monoDomain, @"Cannot initialise application domain : %s %s", domainName, version);
-
+		if (initJIT) {
+			if (version != NULL) {
+				_monoDomain = mono_jit_init_version(domainName, version);
+			} else {
+				_monoDomain = mono_jit_init(domainName);
+			}
+			NSAssert(_monoDomain, @"Cannot initialise application domain : %s %s", domainName, version);
+		} else {
+			_monoDomain = mono_domain_get();
+			
+			NSAssert(_monoDomain, @"Cannot get application domain");
+		}
+		
         _loadedAssemblies = [NSMutableDictionary dictionaryWithCapacity:10];
         
         self.tracer = [DBEnvironmentTracer new];
