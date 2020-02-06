@@ -165,10 +165,10 @@ namespace Dubrovnik.Tools
 				for (int idx = 0; idx < event_.ObjCEventBlockParameterCount; idx++) {
 					string parameterGetter = $"parameters[{idx}]";
 
-					string unboxingCallFormat = event_.ObjCEventBlockParametersUnboxingCalls[idx];
+					string getterFormat = event_.ObjCEventBlockParameterGetters[idx];
 
-					if (!string.IsNullOrEmpty(unboxingCallFormat)) {
-						parameterGetter = string.Format(unboxingCallFormat, parameterGetter);
+					if (!string.IsNullOrEmpty(getterFormat)) {
+						parameterGetter = string.Format(getterFormat, "[" + parameterGetter + " monoObject]");
 					}
 
 					Write(parameterGetter);

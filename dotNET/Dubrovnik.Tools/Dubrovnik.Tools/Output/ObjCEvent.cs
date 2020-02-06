@@ -13,7 +13,7 @@ namespace Dubrovnik.Tools.Output
         public string ObjCEventBlockTypeName { get; private set; }
         public string ObjCEventBlockTypeMinimalName { get; private set; }
         public string ObjCEventBlockParameters { get; private set; }
-		public string[] ObjCEventBlockParametersUnboxingCalls { get; private set; }
+		public string[] ObjCEventBlockParameterGetters { get; private set; }
 		public int ObjCEventBlockParameterCount { get; private set; }
 		public string ObjCTypeDecl { get; private set; }
         public string ObjCType { get; private set; }
@@ -51,7 +51,7 @@ namespace Dubrovnik.Tools.Output
             ObjCEventBlockTypeName = $"{interfaceFacet.ObjCFacet.Type}{eventBlockName}";
             ObjCEventBlockTypeMinimalName = $"{n2c.ObjCMinimalIdentifierFromManagedIdentifier(interfaceFacet.Type)}{eventBlockName}";
 			ObjCEventBlockParameterCount = eventFacet.Parameters.Count;
-			ObjCEventBlockParametersUnboxingCalls = new string[ObjCEventBlockParameterCount];
+			ObjCEventBlockParameterGetters = new string[ObjCEventBlockParameterCount];
 
 			// process the parameters
 			ProcessParameters(n2c, eventFacet, options);
@@ -125,7 +125,7 @@ namespace Dubrovnik.Tools.Output
                     objCParameterIsObject = n2c.ObjCRepresentationIsObject(parameter);
                 }
 
-				ObjCEventBlockParametersUnboxingCalls[idx] = objCTypeAssociate?.ObjCUnboxingMethodCallFormat() ?? string.Empty;
+				ObjCEventBlockParameterGetters[idx] = objCTypeAssociate?.GetterFormat ?? string.Empty;
 
                 // if parameter is an interface then use adoption conforming type ie: id <typename>
                 if (parameter.IsInterface) {
