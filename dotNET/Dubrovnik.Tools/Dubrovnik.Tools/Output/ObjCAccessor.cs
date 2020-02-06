@@ -38,7 +38,7 @@ namespace Dubrovnik.Tools.Output
                 ObjCMethodType = "+";
 
                 // decorate class accessor method names known to be unsafe
-                if (n2c.UnsafeObjCClassMethodNames().Contains(GetterName)) {
+                if (n2c.UnsafeObjCClassMethodNames.Contains(GetterName)) {
                     GetterName += "_";
                     SetterName += "_";
                 }

@@ -49,16 +49,16 @@ namespace Dubrovnik.Tools {
 			return acronym;
 		}
 
-		public List<string> UnsafeObjCClassMethodNames() {
-			return new List<string> {
-									"load",	// +load will get called when the unmanaged framework loads. The managed code will likely not expect this.
-									"initialize",
-									"alloc",
-									"new",
-									"class",
-									"superclass"
-									};
-		}
+		public readonly List<string> UnsafeObjCClassMethodNames = new List<string>() {
+			"load",	// +load will get called when the unmanaged framework loads. The managed code will likely not expect this.
+			"initialize",
+			"alloc",
+			"new",
+			"class",
+			"superclass",
+			"false",
+			"true",
+		};
 
 		public List<string> UnsafeObjCMethodNames() {
 			return new List<string> {
