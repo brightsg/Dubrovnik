@@ -100,6 +100,8 @@ extern NSString * const DBNoteManagedEnvironmentLoaded;
 
 + (DBManagedEnvironment *)defaultEnvironmentWithName:(const char *)domainName;
 
++ (DBManagedEnvironment *)existingEnvironment;
+
 - (id)initWithDomainName:(const char *)domainName;
 
 /*!

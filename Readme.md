@@ -197,7 +197,55 @@ The Dubrovnik code generator operates on a compiled .NET assembly and emits Obje
 
 The unit test setup function illustrates how simple it is to load up a managed assembly and make it accessible within a Cocoa environment.
 
+Debugging Managed Code
+======================
 
+We can debug our native code in XCode but ideally we want to be able to debug the managed code too and set breakpoints etc. For detail see below.
+
+When debugging managed code and launching the client app from XCode its best not to engage the native debugger as well as the managed debuggees signals needed to be intercepted by the relevant debugger.
+
+Debugging Managed Code with Visual Studio for Mac Addin
+==========================================
+
+The Add-In adds support for the Visual Studio debugger to listen on a specified port or attach to an already running debugger-agent via Run - Attach to Process... - Dubrovnik Debugger.
+
+Here's how to build the extension:
+
+* Open Dubrovnik.Tools.sln in Visual Studio for Mac.
+* Build the Dubrovnik.VisualStudio project.
+* Restart Visual Studio for Mac.
+* The extension should now be listed under Visual Studio - Extensions... -  Installed - IDE Extensions - Dubrovnik Visual Studio.
+
+Prepare the native app for debugging:
+
+* On the native side, make sure you call +[DBManagedEnvironment setRuntimeOptions:] and either configure the port manually or use the provided default of 10000.
+* By default the debugger-agent is configured to act as the client.
+
+To start debugging managed code:
+
+* Open the .NET solution/project that contains the code that you want to debug in Visual Studio for Mac.
+* In Visual Studio for Mac, select Run - Attach to Process....
+* In the dialog set the Debugger to Dubrovnik Debugger.
+* Select the entry matching the port you started the debuggee with (default is 10000).
+* If your native app's debugger agent is configured to run as a client, select Listen on Port X, click Attach and start the native app.
+* If your app's debugger agent is configured to act as a server, first start the native app, then select Attach to Port X and click Attach.
+
+Note that it's unfortunately not possible to redirect stdout and stderr as in both configurations, the app has already started and it's not possible to attach the output streams afterwards.
+
+A future improvement could however add support for starting the native app right from VS4Mac in which case it would be possible to also redirect stdout/err.
+
+Debugging Managed Code with Visual Studio for Mac
+====================================
+
+If environment variable `MONODEVELOP_SDB_TEST=1` is defined prior to launching VS4Mac then the built in soft debugger can be accessed.
+
+In VS4Mac select menu items:
+
+`Run - Run With - Custom Configuration...`
+
+In the Custom Parameters sheet Run Action: drop down select `Debug - Custom Command Mono Soft Debugger`
+
+Note that the above debugging approach also works for legacy versions of Xamarin Studio on Windows.
 
 Mono Documentation
 ==================
