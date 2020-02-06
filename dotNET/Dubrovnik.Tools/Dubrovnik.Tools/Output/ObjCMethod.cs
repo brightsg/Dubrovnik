@@ -65,7 +65,7 @@ namespace Dubrovnik.Tools.Output
                 ObjCMethodType = "+";
                 if (facet.Parameters.Count == 0) {
                     // decorate class method names known to be unsafe
-                    if (n2c.UnsafeObjCClassMethodNames().Contains(ObjCMethodName)) {
+                    if (n2c.UnsafeObjCClassMethodNames.Contains(ObjCMethodName)) {
                         ObjCMethodName += "_";
                     }
                 }
