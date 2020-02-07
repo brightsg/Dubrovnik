@@ -61,7 +61,6 @@ namespace Dubrovnik.Tools {
 		};
 
 		public readonly List<string> UnsafeObjCMethodNames = new List<string>() {
-			"init", // methods beginning with init are expected to return a type related to the receiver
 			"release"
 		};
 
