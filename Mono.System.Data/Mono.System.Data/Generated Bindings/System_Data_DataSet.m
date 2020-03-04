@@ -601,7 +601,12 @@
 
 - (System_EventHandler *)initialized_addEventHandlerWithBlock:(System_Data_DataSet_Initialized_EventBlock)block
 {
-	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler.class forEventName:self.class.initializedEventName block:(EventBlock)block];
+	System_Delegate *eventHandler = [System_EventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
+		block(parameters[0], parameters[1]);
+		return nil;
+	}];
+	[self db_addEventHandler:eventHandler eventName:self.class.initializedEventName];
+	return (System_EventHandler *)eventHandler;
 }
 
 /* Skipped event : System.Data.MergeFailedEventHandler MergeFailed */

@@ -643,7 +643,12 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (System_EventHandler *)domainUnload_addEventHandlerWithBlock:(System_AppDomain_DomainUnload_EventBlock)block
 {
-	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler.class forEventName:self.class.domainUnloadEventName block:(EventBlock)block];
+	System_Delegate *eventHandler = [System_EventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
+		block(parameters[0], parameters[1]);
+		return nil;
+	}];
+	[self db_addEventHandler:eventHandler eventName:self.class.domainUnloadEventName];
+	return (System_EventHandler *)eventHandler;
 }
 
 /* Skipped event : System.EventHandler`1<System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs> FirstChanceException */
@@ -655,7 +660,12 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (System_EventHandler *)processExit_addEventHandlerWithBlock:(System_AppDomain_ProcessExit_EventBlock)block
 {
-	return (System_EventHandler *)[self db_addEventHandlerWithClass:System_EventHandler.class forEventName:self.class.processExitEventName block:(EventBlock)block];
+	System_Delegate *eventHandler = [System_EventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
+		block(parameters[0], parameters[1]);
+		return nil;
+	}];
+	[self db_addEventHandler:eventHandler eventName:self.class.processExitEventName];
+	return (System_EventHandler *)eventHandler;
 }
 
 /* Skipped event : System.ResolveEventHandler ReflectionOnlyAssemblyResolve */
@@ -671,7 +681,12 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 - (System_UnhandledExceptionEventHandler *)unhandledException_addEventHandlerWithBlock:(System_AppDomain_UnhandledException_EventBlock)block
 {
-	return (System_UnhandledExceptionEventHandler *)[self db_addEventHandlerWithClass:System_UnhandledExceptionEventHandler.class forEventName:self.class.unhandledExceptionEventName block:(EventBlock)block];
+	System_Delegate *eventHandler = [System_UnhandledExceptionEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
+		block(parameters[0], parameters[1]);
+		return nil;
+	}];
+	[self db_addEventHandler:eventHandler eventName:self.class.unhandledExceptionEventName];
+	return (System_UnhandledExceptionEventHandler *)eventHandler;
 }
 
 #pragma mark -

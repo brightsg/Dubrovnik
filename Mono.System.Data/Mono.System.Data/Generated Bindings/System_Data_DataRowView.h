@@ -45,7 +45,7 @@
 // Event support
 // 
 #define SDDataRowView_PropertyChanged_EventBlock System_Data_DataRowView_PropertyChanged_EventBlock
-typedef void (^System_Data_DataRowView_PropertyChanged_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangedEventArgs *e);
+typedef void (^System_Data_DataRowView_PropertyChanged_EventBlock)(System_Object * sender, System_ComponentModel_PropertyChangedEventArgs * e);
 
 @interface System_Data_DataRowView : System_Object <System_ComponentModel_INotifyPropertyChanged_>
 

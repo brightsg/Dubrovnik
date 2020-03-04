@@ -59,13 +59,13 @@
 /* Skipped event : System.ResolveEventHandler AssemblyResolve */
 
 #define SAppDomain_DomainUnload_EventBlock System_AppDomain_DomainUnload_EventBlock
-typedef void (^System_AppDomain_DomainUnload_EventBlock)(System_Object *sender, System_EventArgs *e);
+typedef void (^System_AppDomain_DomainUnload_EventBlock)(System_Object * sender, System_EventArgs * e);
 
 
 /* Skipped event : System.EventHandler`1<System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs> FirstChanceException */
 
 #define SAppDomain_ProcessExit_EventBlock System_AppDomain_ProcessExit_EventBlock
-typedef void (^System_AppDomain_ProcessExit_EventBlock)(System_Object *sender, System_EventArgs *e);
+typedef void (^System_AppDomain_ProcessExit_EventBlock)(System_Object * sender, System_EventArgs * e);
 
 
 /* Skipped event : System.ResolveEventHandler ReflectionOnlyAssemblyResolve */
@@ -77,7 +77,7 @@ typedef void (^System_AppDomain_ProcessExit_EventBlock)(System_Object *sender, S
 /* Skipped event : System.ResolveEventHandler TypeResolve */
 
 #define SAppDomain_UnhandledException_EventBlock System_AppDomain_UnhandledException_EventBlock
-typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object *sender, System_UnhandledExceptionEventArgs *e);
+typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object * sender, System_UnhandledExceptionEventArgs * e);
 
 @interface System_AppDomain : System_MarshalByRefObject
 

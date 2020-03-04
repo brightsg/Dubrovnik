@@ -38,7 +38,7 @@
 // Event support
 // 
 #define SCINotifyPropertyChanging_PropertyChanging_EventBlock System_ComponentModel_INotifyPropertyChanging_PropertyChanging_EventBlock
-typedef void (^System_ComponentModel_INotifyPropertyChanging_PropertyChanging_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangingEventArgs *e);
+typedef void (^System_ComponentModel_INotifyPropertyChanging_PropertyChanging_EventBlock)(System_Object * sender, System_ComponentModel_PropertyChangingEventArgs * e);
 
 
 /*
@@ -115,7 +115,7 @@ typedef void (^System_ComponentModel_INotifyPropertyChanging_PropertyChanging_Ev
 // Event support
 // 
 #define SCINotifyPropertyChanging_PropertyChanging_EventBlock System_ComponentModel_INotifyPropertyChanging_PropertyChanging_EventBlock
-typedef void (^System_ComponentModel_INotifyPropertyChanging_PropertyChanging_EventBlock)(System_Object *sender, System_ComponentModel_PropertyChangingEventArgs *e);
+typedef void (^System_ComponentModel_INotifyPropertyChanging_PropertyChanging_EventBlock)(System_Object * sender, System_ComponentModel_PropertyChangingEventArgs * e);
 
 
 //

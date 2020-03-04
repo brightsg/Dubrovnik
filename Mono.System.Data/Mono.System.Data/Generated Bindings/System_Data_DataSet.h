@@ -58,7 +58,7 @@
 // Event support
 // 
 #define SDDataSet_Initialized_EventBlock System_Data_DataSet_Initialized_EventBlock
-typedef void (^System_Data_DataSet_Initialized_EventBlock)(System_Object *sender, System_EventArgs *e);
+typedef void (^System_Data_DataSet_Initialized_EventBlock)(System_Object * sender, System_EventArgs * e);
 
 
 /* Skipped event : System.Data.MergeFailedEventHandler MergeFailed */

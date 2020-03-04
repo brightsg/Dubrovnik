@@ -40,7 +40,12 @@
 
 - (System_ComponentModel_PropertyChangedEventHandler *)propertyChanged_addEventHandlerWithBlock:(System_ComponentModel_INotifyPropertyChanged_PropertyChanged_EventBlock)block
 {
-	return (System_ComponentModel_PropertyChangedEventHandler *)[self db_addEventHandlerWithClass:System_ComponentModel_PropertyChangedEventHandler.class forEventName:self.class.propertyChangedEventName block:(EventBlock)block];
+	System_Delegate *eventHandler = [System_ComponentModel_PropertyChangedEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
+		block(parameters[0], parameters[1]);
+		return nil;
+	}];
+	[self db_addEventHandler:eventHandler eventName:self.class.propertyChangedEventName];
+	return (System_ComponentModel_PropertyChangedEventHandler *)eventHandler;
 }
 
 #pragma mark -

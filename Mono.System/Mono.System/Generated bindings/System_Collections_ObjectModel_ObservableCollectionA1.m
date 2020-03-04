@@ -63,7 +63,12 @@
 
 - (System_Collections_Specialized_NotifyCollectionChangedEventHandler *)collectionChanged_addEventHandlerWithBlock:(System_Collections_ObjectModel_ObservableCollectionA1_CollectionChanged_EventBlock)block
 {
-	return (System_Collections_Specialized_NotifyCollectionChangedEventHandler *)[self db_addEventHandlerWithClass:System_Collections_Specialized_NotifyCollectionChangedEventHandler.class forEventName:self.class.collectionChangedEventName block:(EventBlock)block];
+	System_Delegate *eventHandler = [System_Collections_Specialized_NotifyCollectionChangedEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
+		block(parameters[0], parameters[1]);
+		return nil;
+	}];
+	[self db_addEventHandler:eventHandler eventName:self.class.collectionChangedEventName];
+	return (System_Collections_Specialized_NotifyCollectionChangedEventHandler *)eventHandler;
 }
 
 #pragma mark -

@@ -71,34 +71,34 @@
 // Event support
 // 
 #define SDDataTable_ColumnChanged_EventBlock System_Data_DataTable_ColumnChanged_EventBlock
-typedef void (^System_Data_DataTable_ColumnChanged_EventBlock)(System_Object *sender, System_Data_DataColumnChangeEventArgs *e);
+typedef void (^System_Data_DataTable_ColumnChanged_EventBlock)(System_Object * sender, System_Data_DataColumnChangeEventArgs * e);
 
 #define SDDataTable_ColumnChanging_EventBlock System_Data_DataTable_ColumnChanging_EventBlock
-typedef void (^System_Data_DataTable_ColumnChanging_EventBlock)(System_Object *sender, System_Data_DataColumnChangeEventArgs *e);
+typedef void (^System_Data_DataTable_ColumnChanging_EventBlock)(System_Object * sender, System_Data_DataColumnChangeEventArgs * e);
 
 #define SDDataTable_Initialized_EventBlock System_Data_DataTable_Initialized_EventBlock
-typedef void (^System_Data_DataTable_Initialized_EventBlock)(System_Object *sender, System_EventArgs *e);
+typedef void (^System_Data_DataTable_Initialized_EventBlock)(System_Object * sender, System_EventArgs * e);
 
 #define SDDataTable_RowChanged_EventBlock System_Data_DataTable_RowChanged_EventBlock
-typedef void (^System_Data_DataTable_RowChanged_EventBlock)(System_Object *sender, System_Data_DataRowChangeEventArgs *e);
+typedef void (^System_Data_DataTable_RowChanged_EventBlock)(System_Object * sender, System_Data_DataRowChangeEventArgs * e);
 
 #define SDDataTable_RowChanging_EventBlock System_Data_DataTable_RowChanging_EventBlock
-typedef void (^System_Data_DataTable_RowChanging_EventBlock)(System_Object *sender, System_Data_DataRowChangeEventArgs *e);
+typedef void (^System_Data_DataTable_RowChanging_EventBlock)(System_Object * sender, System_Data_DataRowChangeEventArgs * e);
 
 #define SDDataTable_RowDeleted_EventBlock System_Data_DataTable_RowDeleted_EventBlock
-typedef void (^System_Data_DataTable_RowDeleted_EventBlock)(System_Object *sender, System_Data_DataRowChangeEventArgs *e);
+typedef void (^System_Data_DataTable_RowDeleted_EventBlock)(System_Object * sender, System_Data_DataRowChangeEventArgs * e);
 
 #define SDDataTable_RowDeleting_EventBlock System_Data_DataTable_RowDeleting_EventBlock
-typedef void (^System_Data_DataTable_RowDeleting_EventBlock)(System_Object *sender, System_Data_DataRowChangeEventArgs *e);
+typedef void (^System_Data_DataTable_RowDeleting_EventBlock)(System_Object * sender, System_Data_DataRowChangeEventArgs * e);
 
 #define SDDataTable_TableCleared_EventBlock System_Data_DataTable_TableCleared_EventBlock
-typedef void (^System_Data_DataTable_TableCleared_EventBlock)(System_Object *sender, System_Data_DataTableClearEventArgs *e);
+typedef void (^System_Data_DataTable_TableCleared_EventBlock)(System_Object * sender, System_Data_DataTableClearEventArgs * e);
 
 #define SDDataTable_TableClearing_EventBlock System_Data_DataTable_TableClearing_EventBlock
-typedef void (^System_Data_DataTable_TableClearing_EventBlock)(System_Object *sender, System_Data_DataTableClearEventArgs *e);
+typedef void (^System_Data_DataTable_TableClearing_EventBlock)(System_Object * sender, System_Data_DataTableClearEventArgs * e);
 
 #define SDDataTable_TableNewRow_EventBlock System_Data_DataTable_TableNewRow_EventBlock
-typedef void (^System_Data_DataTable_TableNewRow_EventBlock)(System_Object *sender, System_Data_DataTableNewRowEventArgs *e);
+typedef void (^System_Data_DataTable_TableNewRow_EventBlock)(System_Object * sender, System_Data_DataTableNewRowEventArgs * e);
 
 @interface System_Data_DataTable : System_Object <System_IDisposable_, System_Runtime_Serialization_ISerializable_, System_Xml_Serialization_IXmlSerializable_>
 

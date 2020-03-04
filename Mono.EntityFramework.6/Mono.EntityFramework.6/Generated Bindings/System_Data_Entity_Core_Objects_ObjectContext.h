@@ -64,7 +64,7 @@
 /* Skipped event : System.Data.Entity.Core.Objects.ObjectMaterializedEventHandler ObjectMaterialized */
 
 #define SDECOObjectContext_SavingChanges_EventBlock System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_EventBlock
-typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_EventBlock)(System_Object *sender, System_EventArgs *e);
+typedef void (^System_Data_Entity_Core_Objects_ObjectContext_SavingChanges_EventBlock)(System_Object * sender, System_EventArgs * e);
 
 @interface System_Data_Entity_Core_Objects_ObjectContext : System_Object <System_IDisposable_, System_Data_Entity_Infrastructure_IObjectContextAdapter_>
 
