@@ -29,7 +29,7 @@ static DBManagedEnvironment *_existingEnvironment = nil;
 static DBManagedEnvironment *_currentEnvironment = nil;
 static BOOL m_signalChaining = NO;
 static BOOL m_crashChaining = NO;
-
+static BOOL m_configurationSet = NO;
 
 @interface DBManagedEnvironment()
 @property (readwrite) MonoAssembly *DubrovnikAssembly;
@@ -200,6 +200,8 @@ static BOOL m_crashChaining = NO;
     // mono_set_dirs calls mono_assembly_setrootdir() and mono_set_config_dir()
     mono_set_dirs(rootFolder, configFolder);
     mono_config_parse(NULL);
+    
+    m_configurationSet = YES;
 }
 
 + (void)setAssemblyRoot:(NSString *)assemblyRoot {
@@ -337,6 +339,10 @@ static BOOL m_crashChaining = NO;
 	
 	if (self) {
 
+        if (!m_configurationSet) {
+            [NSException raise:@"Invalid Mono configuration" format:@"Call %@ prior to creating environment.", NSStringFromSelector(@selector(configureAssemblyRootPath:configRootFolder:))];
+        }
+        
         // This is lifted verbatim from mono/mini/mini-amd64.c/mono_amd64_have_tls_get ().
         // failure in this code leads to failure when running Xcode.
         // see this thread http://prod.lists.apple.com/archives/xcode-users/2015/Nov/msg00000.html
