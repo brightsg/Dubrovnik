@@ -74,7 +74,8 @@ namespace Dubrovnik.Tools.Output
                 ObjCMethodType = "-";
 
                 // decorate instance method names known to be unsafe
-                if (facet.Type != "System.Void" && n2c.UnsafeObjCMethodNames().Any(p => ObjCMethodName.StartsWith(p, false, null))) {
+                if (n2c.UnsafeObjCMethodNames.Any(p => ObjCMethodName.StartsWith(p, false, null)) ||
+                    (facet.Type != "System.Void" && ObjCMethodName.StartsWith("init", false, null))) { // methods beginning with init are expected to return a type related to the receiver
                     ObjCMethodName = "db_" + ObjCMethodName;
                 }
             }

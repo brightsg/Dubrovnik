@@ -60,15 +60,6 @@ namespace Dubrovnik.Tools {
 				"BOOL"
 			};
 
-			private static readonly Dictionary<string, string> _UnboxingMethods = new Dictionary<string, string>() {
-				{ "char", "charValue" }, { "unichar", "unsignedCharValue" },
-				{ "int8_t", "charValue" }, { "int16_t", "shortValue" }, { "int32_t", "intValue" }, { "int64_t", "longValue" },
-				{ "uint8_t", "unsignedCharValue" }, { "uint16_t", "unsignedShortValue" }, { "uint32_t", "unsignedIntValue" }, { "uint64_t", "unsignedLongValue" },
-				{ "short", "shortValue" }, { "long", "longValue" },
-				{ "double", "doubleValue" }, { "float", "floatValue" },
-				{ "BOOL", "boolValue" },
-			};
-
 			public ManagedTypeAssociation ManagedTypeAssociate { get; set; }
 			public string ObjCType { get; set; }
 			public string GetterFormat { get; set; }
@@ -134,25 +125,6 @@ namespace Dubrovnik.Tools {
 				}
 			}
 			public string SetterMethod { get; set; }
-
-			public static string ObjCUnboxingMethodCallFormat(string objcType)
-			{
-				if (!IsNumericType(objcType)) {
-					return string.Empty;
-				}
-                string unboxingMethodCall = null;
-                if (_UnboxingMethods.TryGetValue(objcType, out unboxingMethodCall) &&
-					!string.IsNullOrEmpty(unboxingMethodCall)) {
-					return "[{0} " + unboxingMethodCall + "]";
-				}
-
-				return string.Empty;
-			}
-
-			public string ObjCUnboxingMethodCallFormat()
-			{
-				return ObjCUnboxingMethodCallFormat(ObjCType);
-			}
 		}
 
 		//
