@@ -172,6 +172,13 @@ static BOOL m_crashChaining = NO;
 
 + (void)configureAssemblyRootPath:(NSString *)monoAssemblyRootFolder configRootFolder:(NSString *)monoConfigFolder
 {
+    /* Since Mono 5.16.0 GC collection model has changed with respect to threads:
+     https://www.mono-project.com/docs/about-mono/releases/5.16.0/
+     this may cause threading issues on macOS
+     see https://github.com/mono/mono/issues/11168
+     */
+    setenv("MONO_THREADS_SUSPEND", "preemptive", 1);
+    
     m_monoAssemblyRootFolder = [monoAssemblyRootFolder stringByResolvingSymlinksInPath];
     m_monoConfigFolder = [monoConfigFolder stringByResolvingSymlinksInPath];
     
