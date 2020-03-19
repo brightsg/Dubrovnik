@@ -30,6 +30,12 @@ static void OpenURL(MonoObject* thisObject, MonoString* monoURLString) {
 
 int main (int argc, char * argv[]) {
 
+    // setup mono config
+    NSString *monoInstallationPath = @"/Library/Frameworks/Mono.framework/Versions/current";
+    NSString *monoAssemblyRootFolder = [monoInstallationPath stringByAppendingPathComponent:@"lib"] ;
+    NSString *monoConfigFolder = [monoInstallationPath stringByAppendingPathComponent:@"etc"];
+    [DBManagedEnvironment configureAssemblyRootPath:monoAssemblyRootFolder configRootFolder:monoConfigFolder];
+    
 	// Initialize the mono env
 	DBManagedEnvironment *monoEnvironment = [DBManagedEnvironment defaultEnvironment];
 

@@ -65,17 +65,17 @@ extern MonoAssembly* sampleAssembly;
 }
 
 - (void)setMagicNumberProperty:(int32_t)magicNumber {
-	[self setMonoProperty:"MagicNumberProperty" valueObject:(MonoObject*)&magicNumber];
+	[self setMonoProperty:"MagicNumberProperty" value:(MonoObject*)&magicNumber];
 }
 
 - (int32_t)magicNumberField {
 	int32_t magicNumber;
-	[self getMonoField:"MagicNumber" valuePtr:&magicNumber];
+	[self getMonoField:"MagicNumber" value:&magicNumber];
 	return magicNumber;
 }
 
 - (void)setMagicNumberField:(int32_t)magicNumber {
-	[self setMonoField:"MagicNumber" valueObject:(MonoObject*)&magicNumber];
+	[self setMonoField:"MagicNumber" value:(MonoObject*)&magicNumber];
 }
 
 - (void)printMagicMultiple:(int32_t)multiple prefix:(NSString*)prefix {

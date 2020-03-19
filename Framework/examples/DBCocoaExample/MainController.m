@@ -24,8 +24,6 @@
 
 #import "MainController.h"
 
-static MonoAssembly *_sampleAssembly = NULL;
-
 // define static managed event handler function
 DBDefineEventHandler(Converting, @"Converting", @"eventSender:converting:", nil);
 
@@ -53,12 +51,19 @@ DBDefineEventHandler(Converting, @"Converting", @"eventSender:converting:", nil)
 	NSString *libraryPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Contents/Mono"];
 	NSString *sampleAssemblyPath = [libraryPath stringByAppendingPathComponent:@"DBCocoaExample.dll"];
     
+    // setup mono config
+    NSString *monoInstallationPath = @"/Library/Frameworks/Mono.framework/Versions/current";
+    NSString *monoAssemblyRootFolder = [monoInstallationPath stringByAppendingPathComponent:@"lib"] ;
+    NSString *monoConfigFolder = [monoInstallationPath stringByAppendingPathComponent:@"etc"];
+    [DBManagedEnvironment configureAssemblyRootPath:monoAssemblyRootFolder configRootFolder:monoConfigFolder];
+    
     // load the managed assembly
     // This method will open the assembly and cache it using the given name.
     // A DBMonoObjectRepresentation subclass can target this assembly by returning the assembly name from + monoAssemblyName.
     // If the target assembly has not been already loaded then the DBManagedEnvironment instance delegate will be queried for the assembly path.
     DBManagedEnvironment *monoEnvironment = [DBManagedEnvironment defaultEnvironment];
 	MonoAssembly *sampleAssembly = [monoEnvironment openAssembly:@"DBCocoaExample" path:sampleAssemblyPath];
+    (void)sampleAssembly;
     
     // Register event handler so that Converting events get sent to static handler defined above.
     // This only needs to be done once for the event regardless of how many objects or classes raise the event.

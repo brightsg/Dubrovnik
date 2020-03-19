@@ -40,7 +40,7 @@ static BOOL m_configurationSet = NO;
 @implementation DBManagedEnvironment
 
 #pragma mark -
-#pragma mark Detection, tracing abd chaining
+#pragma mark Detection, tracing and chaining
 
 + (BOOL)monoIsAvailable
 {
