@@ -177,6 +177,9 @@ static BOOL m_configurationSet = NO;
      this may cause threading issues on macOS
      see https://github.com/mono/mono/issues/11168
      */
+    
+    // a possible fix for one crash seen when hybrind suspend enabled is at
+    // https://github.com/dotnet/runtime/pull/33754
     setenv("MONO_THREADS_SUSPEND", "preemptive", 1);
     
     m_monoAssemblyRootFolder = [monoAssemblyRootFolder stringByResolvingSymlinksInPath];
