@@ -18,7 +18,7 @@ int main(int argc, const char * argv[]) {
     /*
     
      This example does not use the Dubrovnik bridge.
-     It exists merely to confirm that we have a working Mono installstion.
+     It exists merely to confirm that we have a working Mono installation.
      
      */
     

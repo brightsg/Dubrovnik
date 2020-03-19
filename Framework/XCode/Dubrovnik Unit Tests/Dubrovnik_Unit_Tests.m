@@ -112,11 +112,15 @@ static MonoAssembly *monoAssembly;
 - (void)setUp
 {
     if (_setup) return;
-    
+        
     _setup = YES;
     _verbose = YES;
     
     [super setUp];
+    
+    // trace it
+    [DBManagedEnvironment setTraceLevelString:@"debug"]; // @"error", @"critical", @"warning", @"message", @"info", @"debug"
+    [DBManagedEnvironment setTraceMaskString:@"all"];
     
     // the unit test assembly exe is in the OCUnit test bundle resource folder.
     // if it is missing then make sure to build the dotNet unit test solution.
@@ -130,9 +134,15 @@ static MonoAssembly *monoAssembly;
         abort();
     }
     
+    // setup mono config
+    NSString *monoInstallationPath = @"/Library/Frameworks/Mono.framework/Versions/current";
+    NSString *monoAssemblyRootFolder = [monoInstallationPath stringByAppendingPathComponent:@"lib"] ;
+    NSString *monoConfigFolder = [monoInstallationPath stringByAppendingPathComponent:@"etc"];
+    [DBManagedEnvironment configureAssemblyRootPath:monoAssemblyRootFolder configRootFolder:monoConfigFolder];
+    
     // use the default mono environment
     DBManagedEnvironment *monoEnv = [DBManagedEnvironment defaultEnvironment];
-
+    
     // the environment delegate must be able to load assemblies on demand
     [monoEnv setDelegate:self];
          
