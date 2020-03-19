@@ -222,7 +222,7 @@
 - (System_ComponentModel_PropertyChangedEventHandler *)propertyChanged_addEventHandlerWithBlock:(System_Data_DataRowView_PropertyChanged_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_ComponentModel_PropertyChangedEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.propertyChangedEventName];

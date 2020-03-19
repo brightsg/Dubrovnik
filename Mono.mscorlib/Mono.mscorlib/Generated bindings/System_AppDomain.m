@@ -644,7 +644,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 - (System_EventHandler *)domainUnload_addEventHandlerWithBlock:(System_AppDomain_DomainUnload_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_EventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.domainUnloadEventName];
@@ -661,7 +661,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 - (System_EventHandler *)processExit_addEventHandlerWithBlock:(System_AppDomain_ProcessExit_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_EventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.processExitEventName];
@@ -682,7 +682,7 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 - (System_UnhandledExceptionEventHandler *)unhandledException_addEventHandlerWithBlock:(System_AppDomain_UnhandledException_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_UnhandledExceptionEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.unhandledExceptionEventName];

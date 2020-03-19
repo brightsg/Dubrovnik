@@ -41,7 +41,7 @@
 - (System_ComponentModel_PropertyChangingEventHandler *)propertyChanging_addEventHandlerWithBlock:(System_ComponentModel_INotifyPropertyChanging_PropertyChanging_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_ComponentModel_PropertyChangingEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.propertyChangingEventName];

@@ -64,7 +64,7 @@
 - (System_Collections_Specialized_NotifyCollectionChangedEventHandler *)collectionChanged_addEventHandlerWithBlock:(System_Collections_ObjectModel_ObservableCollectionA1_CollectionChanged_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_Collections_Specialized_NotifyCollectionChangedEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.collectionChangedEventName];

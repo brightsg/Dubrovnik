@@ -774,7 +774,7 @@
 - (System_Data_DataColumnChangeEventHandler *)columnChanged_addEventHandlerWithBlock:(System_Data_DataTable_ColumnChanged_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_Data_DataColumnChangeEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.columnChangedEventName];
@@ -789,7 +789,7 @@
 - (System_Data_DataColumnChangeEventHandler *)columnChanging_addEventHandlerWithBlock:(System_Data_DataTable_ColumnChanging_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_Data_DataColumnChangeEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.columnChangingEventName];
@@ -804,7 +804,7 @@
 - (System_EventHandler *)initialized_addEventHandlerWithBlock:(System_Data_DataTable_Initialized_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_EventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.initializedEventName];
@@ -819,7 +819,7 @@
 - (System_Data_DataRowChangeEventHandler *)rowChanged_addEventHandlerWithBlock:(System_Data_DataTable_RowChanged_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_Data_DataRowChangeEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.rowChangedEventName];
@@ -834,7 +834,7 @@
 - (System_Data_DataRowChangeEventHandler *)rowChanging_addEventHandlerWithBlock:(System_Data_DataTable_RowChanging_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_Data_DataRowChangeEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.rowChangingEventName];
@@ -849,7 +849,7 @@
 - (System_Data_DataRowChangeEventHandler *)rowDeleted_addEventHandlerWithBlock:(System_Data_DataTable_RowDeleted_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_Data_DataRowChangeEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.rowDeletedEventName];
@@ -864,7 +864,7 @@
 - (System_Data_DataRowChangeEventHandler *)rowDeleting_addEventHandlerWithBlock:(System_Data_DataTable_RowDeleting_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_Data_DataRowChangeEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.rowDeletingEventName];
@@ -879,7 +879,7 @@
 - (System_Data_DataTableClearEventHandler *)tableCleared_addEventHandlerWithBlock:(System_Data_DataTable_TableCleared_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_Data_DataTableClearEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.tableClearedEventName];
@@ -894,7 +894,7 @@
 - (System_Data_DataTableClearEventHandler *)tableClearing_addEventHandlerWithBlock:(System_Data_DataTable_TableClearing_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_Data_DataTableClearEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.tableClearingEventName];
@@ -909,7 +909,7 @@
 - (System_Data_DataTableNewRowEventHandler *)tableNewRow_addEventHandlerWithBlock:(System_Data_DataTable_TableNewRow_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_Data_DataTableNewRowEventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.tableNewRowEventName];

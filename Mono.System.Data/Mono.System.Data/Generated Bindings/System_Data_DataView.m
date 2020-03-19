@@ -487,7 +487,7 @@
 - (System_EventHandler *)initialized_addEventHandlerWithBlock:(System_Data_DataView_Initialized_EventBlock)block
 {
 	System_Delegate *eventHandler = [System_EventHandler.class universalDelegateWithBlock:^System_Object *(NSArray<id> *parameters) {
-		block(parameters[0], parameters[1]);
+		block([System_Object bestObjectWithMonoObject:[parameters[0] monoObject]], parameters[1]);
 		return nil;
 	}];
 	[self db_addEventHandler:eventHandler eventName:self.class.initializedEventName];
