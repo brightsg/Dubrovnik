@@ -12,6 +12,7 @@
 #import "System_Array+mscorlib.h"
 #import "System_IntPtr.h"
 #import <objc/runtime.h>
+#import <Dubrovnik/NSThread+Dubrovnik.h>
 
 @class DBDelegateInfo;
 
@@ -27,7 +28,6 @@ static NSMutableDictionary<NSNumber *, DBDelegateInfo *> *m_universalDelegateInf
 
 @interface  DBDelegateInfo : NSObject
 @property (strong) DBUniversalDelegateBlock block;
-@property (assign) BOOL executeBlockOnMainThread;
 @end
 
 @implementation DBDelegateInfo
@@ -38,7 +38,6 @@ static NSMutableDictionary<NSNumber *, DBDelegateInfo *> *m_universalDelegateInf
 - (id)init {
     self = [super init];
     if (self) {
-        _executeBlockOnMainThread = YES;
     }
     return self;
 }
@@ -85,16 +84,7 @@ static MonoObject *UniversalDelegateServices_NativeHandler_DelegateInfoContext(v
         resultObject = delegateInfo.block(parameters);
     };
     
-    // execute dispatch block on required thread
-    if ([NSThread currentThread] == [NSThread mainThread] || !delegateInfo.executeBlockOnMainThread) {
-        dispatchBlk();
-    }
-    else {
-        // note that thread calls should be avoided!
-        // https://developer.apple.com/library/ios/documentation/General/Conceptual/ConcurrencyProgrammingGuide/ThreadMigration/ThreadMigration.html#//apple_ref/doc/uid/TP40008091-CH105-SW1
-        // if this becomes a problem use a category to explicitly execute the block on the main thread.
-        dispatch_sync(dispatch_get_main_queue(), dispatchBlk);
-    }
+    [NSThread.currentThread db_performSyncBlockOnMainThread:dispatchBlk];
     
     return resultObject.monoObject;
 }

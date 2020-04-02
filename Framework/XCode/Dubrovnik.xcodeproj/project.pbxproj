@@ -53,7 +53,7 @@
 		AB4759761D7083D100C3319C /* DBManagedObject+Logging.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4759741D7083D100C3319C /* DBManagedObject+Logging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB4759771D7083D100C3319C /* DBManagedObject+Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4759751D7083D100C3319C /* DBManagedObject+Logging.m */; };
 		AB479B2A17B4037D000A2315 /* Dubrovnik.framework in Copy frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Dubrovnik.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		AB4919251CF9DA6800B4A411 /* NSThread+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4919231CF9DA6800B4A411 /* NSThread+Dubrovnik.h */; };
+		AB4919251CF9DA6800B4A411 /* NSThread+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB4919231CF9DA6800B4A411 /* NSThread+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB4919261CF9DA6800B4A411 /* NSThread+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4919241CF9DA6800B4A411 /* NSThread+Dubrovnik.m */; };
 		AB49E430178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h in Headers */ = {isa = PBXBuildFile; fileRef = AB49E42E178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB49E431178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.m in Sources */ = {isa = PBXBuildFile; fileRef = AB49E42F178A06AC00D01244 /* NSDecimalNumber+Dubrovnik.m */; };

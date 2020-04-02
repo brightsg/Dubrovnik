@@ -238,15 +238,12 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
                  targetSelectorName:(NSString *)targetSelectorName
                       options:(NSDictionary *)options
 {
-    BOOL isBackgroundThreadEvent = NO;
-    
     // determine if event thread raised on the main thread
     if ([NSThread currentThread] != [NSThread mainThread]) {
         
 #ifdef DB_TRACE
         NSLog(@"BACKGROUND thread event");
 #endif
-        isBackgroundThreadEvent = YES;
     } 
 
 #ifdef DB_TRACE
@@ -261,25 +258,10 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
                            targetSelectorName:targetSelectorName
                                       options:options];
     };
-                  
-    if (isBackgroundThreadEvent) {
-        // we want a synchronous operation here to keep event
-        // processing kosher so dispatch on the main queue.
-        // http://stackoverflow.com/questions/10984732/why-cant-we-use-a-dispatch-sync-on-the-current-queue
-        //
-        // note that thread calls should be avoided!
-        // https://developer.apple.com/library/ios/documentation/General/Conceptual/ConcurrencyProgrammingGuide/ThreadMigration/ThreadMigration.html#//apple_ref/doc/uid/TP40008091-CH105-SW1
-        // if this becomes a problem use a category to explicitly execute the block on the main thread.
-        BOOL useQueue = YES;
-        if (useQueue) {
-            dispatch_sync(dispatch_get_main_queue(), dispatchEventBlk);
-        }
-        else {
-            [[NSThread currentThread] db_performBlockOnMainThread:dispatchEventBlk waitUntilDone:YES];
-        }
-    } else {
-        dispatchEventBlk();
-    }
+          
+    // we want a synchronous operation here to keep event
+    // processing kosher so perform on the main theead.
+    [NSThread.currentThread db_performSyncBlockOnMainThread:dispatchEventBlk];
 }
 
 + (void)_dispatchEventFromMonoSender:(MonoObject *)monoObject

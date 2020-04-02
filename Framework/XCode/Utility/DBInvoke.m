@@ -18,6 +18,7 @@
 #import "DBTypeManager.h"
 #import "DBManagedEnvironment.h"
 #import "NSCategories.h"
+#import "NSThread+Dubrovnik.h"
 
 NSString *DBBadMethodNameException = @"DBBadMethodNameException";
 NSString *DBManagedCodeException = @"DBManagedCodeException";
@@ -110,7 +111,7 @@ NSException *NSExceptionFromMonoException(MonoObject *monoException, NSDictionar
             DBOnManagedExceptionWillRaise(monoException);
         }
         else {
-            dispatch_sync(dispatch_get_main_queue(), ^{DBOnManagedExceptionWillRaise(monoException);});
+            [NSThread.currentThread db_performSyncBlockOnMainThread:^{DBOnManagedExceptionWillRaise(monoException);}];
         }
     }
     
