@@ -16,7 +16,7 @@
 #import "NSPointerArray+Dubrovnik.h"
 #import "NSThread+Dubrovnik.h"
 
-//#define DB_TRACE
+#define DB_TRACE
 //#define DB_TRACE_STATIC_EVENT_HANDLER
 
 @implementation DBManagedEvent
@@ -238,30 +238,46 @@ static NSString *_eventHelperClassName = @"Dubrovnik_ClientApplication_EventHelp
                  targetSelectorName:(NSString *)targetSelectorName
                       options:(NSDictionary *)options
 {
-    // determine if event thread raised on the main thread
-    if ([NSThread currentThread] != [NSThread mainThread]) {
-        
-#ifdef DB_TRACE
-        NSLog(@"BACKGROUND thread event");
-#endif
-    } 
+    BOOL isMainThread = [NSThread currentThread] == [NSThread mainThread];
 
-#ifdef DB_TRACE
-    NSLog(@"Managed event: %@ selector:%@", eventName, targetSelectorName);
-#endif
+
+    uint32_t senderhandle = 0;
+    uint32_t evtArgsHandle = 0;
     
-    // the block
+    if (!isMainThread) {
+        senderhandle = mono_gchandle_new(monoSender, NO);
+        evtArgsHandle = mono_gchandle_new(monoEventArgs, NO);
+    }
+    
     dispatch_block_t dispatchEventBlk = ^{
-        [self _dispatchEventFromMonoSender:monoSender
-                                    eventArgs:monoEventArgs
+        
+        #ifdef DB_TRACE
+            // we could call this outside the block, potentially on a background thread.
+            // and that would be okay if the tracer is thread safe.
+            // there is advantage toca lling outdie the block in that we get logged notification of the events delivery
+            // even if the main thread gets fatally blocked.
+            [[DBManagedEnvironment currentEnvironment].tracer callTrace:[NSString stringWithFormat:@"Managed event: %@ selector:%@ mainThread: %@", eventName, targetSelectorName, isMainThread ? @"YES" : @"NO"]
+               level:DBTraceLavelInfo
+            function:__FUNCTION__];
+        #endif
+        
+        MonoObject *_monoSender = isMainThread ? monoSender : mono_gchandle_get_target(senderhandle);
+        MonoObject *_monoEventArgs = isMainThread ? monoEventArgs : mono_gchandle_get_target(evtArgsHandle);
+        
+        [self _dispatchEventFromMonoSender:_monoSender
+                                    eventArgs:_monoEventArgs
                                     eventName:eventName
                            targetSelectorName:targetSelectorName
                                       options:options];
+        
+        if (!isMainThread) {
+            mono_gchandle_free(senderhandle);
+            mono_gchandle_free(evtArgsHandle);
+        }
     };
-          
-    // we want a synchronous operation here to keep event
-    // processing kosher so perform on the main theead.
-    [NSThread.currentThread db_performSyncBlockOnMainThread:dispatchEventBlk];
+    
+    // if event is raised off the main thread then we do not wait.
+    [NSThread.currentThread db_performBlockOnMainThread:dispatchEventBlk waitUntilDone:isMainThread];
 }
 
 + (void)_dispatchEventFromMonoSender:(MonoObject *)monoObject
