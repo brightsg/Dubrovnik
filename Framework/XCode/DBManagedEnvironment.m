@@ -216,6 +216,7 @@ static BOOL m_configurationSet = NO;
     mono_set_config_dir([configDir fileSystemRepresentation]);
 }
 
+/*
 + (void)registerBundledAssemblies:(NSDictionary<NSString*, NSData*>*)bundledAssemblies {
     MonoBundledAssembly** bundled = (MonoBundledAssembly**)malloc(sizeof(MonoBundledAssembly*) * (bundledAssemblies.count + 1));
     
@@ -245,6 +246,7 @@ static BOOL m_configurationSet = NO;
     
     mono_register_bundled_assemblies((const MonoBundledAssembly **)bundled);
 }
+*/
 
 #pragma mark -
 #pragma mark Environment
