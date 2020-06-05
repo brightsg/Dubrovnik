@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     19/03/2020 11:35:35
+// Date:     05/06/2020 17:11:32
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -2769,8 +2769,7 @@
 #define STCancellationToken_ System_Threading_CancellationToken
 
 /* Skipped type : System.Threading.CancellationTokenRegistration CancellationTokenRegistration */
-
-/* Skipped type : System.Threading.CancellationTokenSource CancellationTokenSource */
+#define STCancellationTokenSource_ System_Threading_CancellationTokenSource
 
 /* Skipped type : System.Threading.CompressedStack CompressedStack */
 
@@ -3161,6 +3160,7 @@ Assembly type imports
 #import "System_Text_Encoding.h"
 #import "System_Text_StringBuilder.h"
 #import "System_Threading_CancellationToken.h"
+#import "System_Threading_CancellationTokenSource.h"
 #import "System_Threading_SendOrPostCallback.h"
 #import "System_Threading_SynchronizationContext.h"
 #import "System_Threading_Tasks_Task.h"

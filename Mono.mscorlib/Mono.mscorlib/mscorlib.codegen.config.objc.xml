@@ -1642,6 +1642,7 @@
 		<string>System.Text.Encoding</string>
 		<string>System.Text.StringBuilder</string>
 		<string>System.Threading.CancellationToken</string>
+		<string>System.Threading.CancellationTokenSource</string>
 		<string>System.Threading.SendOrPostCallback</string>
 		<string>System.Threading.SynchronizationContext</string>
 		<string>System.Threading.Tasks.Task</string>
