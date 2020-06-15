@@ -382,6 +382,8 @@
 		ABB8A42D18FF15B300213B80 /* System_Collections_IList+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB8A42518FF15B300213B80 /* System_Collections_IList+mscorlib.m */; };
 		ABB9F2421DC8D4D300A95896 /* NSDate+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB9F2401DC8D4D300A95896 /* NSDate+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABB9F2431DC8D4D300A95896 /* NSDate+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB9F2411DC8D4D300A95896 /* NSDate+mscorlib.m */; };
+		ABC3BC5F248AA85100886002 /* System_Threading_CancellationTokenSource.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC3BC5D248AA85100886002 /* System_Threading_CancellationTokenSource.m */; };
+		ABC3BC60248AA85100886002 /* System_Threading_CancellationTokenSource.h in Headers */ = {isa = PBXBuildFile; fileRef = ABC3BC5E248AA85100886002 /* System_Threading_CancellationTokenSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABCAE54A1AA893C90006453A /* System_Collections_Generic_IEnumerableA1+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCAE5481AA893C90006453A /* System_Collections_Generic_IEnumerableA1+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ABCAE54B1AA893C90006453A /* System_Collections_Generic_IEnumerableA1+mscorlib.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCAE5491AA893C90006453A /* System_Collections_Generic_IEnumerableA1+mscorlib.m */; };
 		ABD682C51E69E9DF00D11963 /* System_NullableA1+mscorlib.h in Headers */ = {isa = PBXBuildFile; fileRef = ABD682C31E69E9DF00D11963 /* System_NullableA1+mscorlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -848,6 +850,8 @@
 		ABB8A42518FF15B300213B80 /* System_Collections_IList+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_IList+mscorlib.m"; sourceTree = "<group>"; };
 		ABB9F2401DC8D4D300A95896 /* NSDate+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+mscorlib.h"; path = "Categories/NSDate+mscorlib.h"; sourceTree = "<group>"; };
 		ABB9F2411DC8D4D300A95896 /* NSDate+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+mscorlib.m"; path = "Categories/NSDate+mscorlib.m"; sourceTree = "<group>"; };
+		ABC3BC5D248AA85100886002 /* System_Threading_CancellationTokenSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Threading_CancellationTokenSource.m; sourceTree = "<group>"; };
+		ABC3BC5E248AA85100886002 /* System_Threading_CancellationTokenSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Threading_CancellationTokenSource.h; sourceTree = "<group>"; };
 		ABCAE5481AA893C90006453A /* System_Collections_Generic_IEnumerableA1+mscorlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_Generic_IEnumerableA1+mscorlib.h"; sourceTree = "<group>"; };
 		ABCAE5491AA893C90006453A /* System_Collections_Generic_IEnumerableA1+mscorlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_Generic_IEnumerableA1+mscorlib.m"; sourceTree = "<group>"; };
 		ABD2EB15202630BE00594010 /* mscorlib.private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mscorlib.private.h; sourceTree = "<group>"; };
@@ -972,6 +976,8 @@
 		AB4CDBCE1FFBF4FE0096326D /* Generated bindings */ = {
 			isa = PBXGroup;
 			children = (
+				ABC3BC5E248AA85100886002 /* System_Threading_CancellationTokenSource.h */,
+				ABC3BC5D248AA85100886002 /* System_Threading_CancellationTokenSource.m */,
 				AB987AF92359B4C1007EEBCB /* System_DateTimeOffset.h */,
 				AB987AFA2359B4C1007EEBCB /* System_DateTimeOffset.m */,
 				AB748CF522A906CB00A25754 /* System_PredicateA1.h */,
@@ -1682,6 +1688,7 @@
 				AB512BD520D062510078F747 /* System_IO_TextReader.h in Headers */,
 				AB512BD720D062510078F747 /* System_Collections_ArrayList.h in Headers */,
 				AB512BAA20D062510078F747 /* System_IntPtr.h in Headers */,
+				ABC3BC60248AA85100886002 /* System_Threading_CancellationTokenSource.h in Headers */,
 				E7A2A6AB238C16D7007D0919 /* System_TupleA6.h in Headers */,
 				AB512B5920D062510078F747 /* System_IEquatableA1_Protocol.h in Headers */,
 				AB24600720F4F62D00D1C09E /* System_Byte+mscorlib.h in Headers */,
@@ -1937,6 +1944,7 @@
 				ABB8A38118FF092400213B80 /* System_IO_FileInfo+mscorlib.m in Sources */,
 				AB512BA920D062510078F747 /* System_DateTime.m in Sources */,
 				AB348B3921CBC5CF00F07B68 /* System_Runtime_Remoting_RemotingTimeoutException.m in Sources */,
+				ABC3BC5F248AA85100886002 /* System_Threading_CancellationTokenSource.m in Sources */,
 				AB24601C20F4F97500D1C09E /* System_Single+mscorlib.m in Sources */,
 				E7A2A6A5238C16D7007D0919 /* System_TupleA6.m in Sources */,
 				AB512B9520D062510078F747 /* System_UnhandledExceptionEventHandler.m in Sources */,
