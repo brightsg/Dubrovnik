@@ -29,6 +29,7 @@
 @class System_Reflection_Assembly;
 @class System_Reflection_AssemblyName;
 @class System_Reflection_Binder;
+@class System_Reflection_BindingFlags;
 @class System_Reflection_MethodInfo;
 @class System_Runtime_Serialization_ISerializable;
 @class System_String;
@@ -41,7 +42,7 @@
 //
 // Local assembly imports
 //
-
+#import "System_Reflection_BindingFlags.h"
 
 //
 // Import superclass and adopted protocols
@@ -258,7 +259,26 @@
 */
 - (id <DBMonoObject>)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2;
 
-/* Skipped method : System.Object CreateInstance(System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateInstance
+
+ Params
+   System.String
+   System.Boolean
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Object[]
+   System.Globalization.CultureInfo
+   System.Object[]
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (id <DBMonoObject>)createInstance_withTypeName:(NSString *)p1 ignoreCase:(BOOL)p2 bindingAttr:(enumSystem_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 args:(System_Array *)p5 culture:(System_Globalization_CultureInfo *)p6 activationAttributes:(System_Array *)p7;
 
 /**
  Managed method.

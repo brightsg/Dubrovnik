@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     05/06/2020 17:11:32
+// Date:     26/06/2020 21:30:06
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -801,8 +801,7 @@
 
 /* Skipped type : System.Reflection.AssemblyVersionAttribute AssemblyVersionAttribute */
 #define SRBinder_ System_Reflection_Binder
-
-/* Skipped type : System.Reflection.BindingFlags BindingFlags */
+#define SRBindingFlags_ System_Reflection_BindingFlags
 
 /* Skipped type : System.Reflection.CallingConventions CallingConventions */
 #define SRConstructorInfo_ System_Reflection_ConstructorInfo
@@ -951,8 +950,7 @@
 /* Skipped type : System.Reflection.ParameterAttributes ParameterAttributes */
 
 /* Skipped type : System.Reflection.ParameterInfo ParameterInfo */
-
-/* Skipped type : System.Reflection.ParameterModifier ParameterModifier */
+#define SRParameterModifier_ System_Reflection_ParameterModifier
 
 /* Skipped type : System.Reflection.Pointer Pointer */
 
@@ -3118,12 +3116,14 @@ Assembly type imports
 #import "System_Reflection_Assembly.h"
 #import "System_Reflection_AssemblyName.h"
 #import "System_Reflection_Binder.h"
+#import "System_Reflection_BindingFlags.h"
 #import "System_Reflection_ConstructorInfo.h"
 #import "System_Reflection_GenericParameterAttributes.h"
 #import "System_Reflection_MemberFilter.h"
 #import "System_Reflection_MemberInfo.h"
 #import "System_Reflection_MethodBase.h"
 #import "System_Reflection_MethodInfo.h"
+#import "System_Reflection_ParameterModifier.h"
 #import "System_Reflection_PropertyInfo.h"
 #import "System_Reflection_TypeAttributes.h"
 #import "System_Runtime_InteropServices__Attribute.h"

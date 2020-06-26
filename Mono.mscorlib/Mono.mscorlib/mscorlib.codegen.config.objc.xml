@@ -1614,12 +1614,14 @@
 		<string>System.Reflection.Assembly</string>
 		<string>System.Reflection.AssemblyName</string>
 		<string>System.Reflection.Binder</string>
+		<string>System.Reflection.BindingFlags</string>
 		<string>System.Reflection.ConstructorInfo</string>
 		<string>System.Reflection.GenericParameterAttributes</string>
 		<string>System.Reflection.MemberFilter</string>
 		<string>System.Reflection.MemberInfo</string>
 		<string>System.Reflection.MethodBase</string>
 		<string>System.Reflection.MethodInfo</string>
+		<string>System.Reflection.ParameterModifier</string>
 		<string>System.Reflection.PropertyInfo</string>
 		<string>System.Reflection.TypeAttributes</string>
 		<string>System.Runtime.Remoting.Lifetime.ClientSponsor</string>

@@ -21,7 +21,9 @@
 @class System_Globalization_CultureInfo;
 @class System_Object;
 @class System_Reflection_Binder;
+@class System_Reflection_BindingFlags;
 @class System_Reflection_MethodBase;
+@class System_Reflection_ParameterModifier;
 @class System_Reflection_PropertyInfo;
 @class System_String;
 @class System_Type;
@@ -30,7 +32,7 @@
 //
 // Local assembly imports
 //
-
+#import "System_Reflection_BindingFlags.h"
 
 //
 // Import superclass and adopted protocols
@@ -50,7 +52,26 @@
 
 /* Skipped method : System.Reflection.FieldInfo BindToField(System.Reflection.BindingFlags bindingAttr, System.Reflection.FieldInfo[] match, System.Object value, System.Globalization.CultureInfo culture) */
 
-/* Skipped method : System.Reflection.MethodBase BindToMethod(System.Reflection.BindingFlags bindingAttr, System.Reflection.MethodBase[] match, System.Object[]& args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] names, System.Object& state) */
+/**
+ Managed method.
+ @textblock
+ Name
+   BindToMethod
+
+ Params
+   System.Reflection.BindingFlags
+   System.Reflection.MethodBase[]
+   ref System.Object[]&
+   System.Reflection.ParameterModifier[]
+   System.Globalization.CultureInfo
+   System.String[]
+   ref System.Object&
+
+ Return
+   System.Reflection.MethodBase
+ @/textblock
+*/
+- (System_Reflection_MethodBase *)bindToMethod_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1 match:(System_Array *)p2 argsRef:(System_Object **)p3 modifiers:(System_Array *)p4 culture:(System_Globalization_CultureInfo *)p5 names:(System_Array *)p6 stateRef:(System_Object **)p7;
 
 /**
  Managed method.
@@ -85,8 +106,41 @@
 */
 - (void)reorderArgumentArray_withArgsRef:(System_Object **)p1 state:(id <DBMonoObject>)p2;
 
-/* Skipped method : System.Reflection.MethodBase SelectMethod(System.Reflection.BindingFlags bindingAttr, System.Reflection.MethodBase[] match, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+/**
+ Managed method.
+ @textblock
+ Name
+   SelectMethod
 
-/* Skipped method : System.Reflection.PropertyInfo SelectProperty(System.Reflection.BindingFlags bindingAttr, System.Reflection.PropertyInfo[] match, System.Type returnType, System.Type[] indexes, System.Reflection.ParameterModifier[] modifiers) */
+ Params
+   System.Reflection.BindingFlags
+   System.Reflection.MethodBase[]
+   System.Type[]
+   System.Reflection.ParameterModifier[]
+
+ Return
+   System.Reflection.MethodBase
+ @/textblock
+*/
+- (System_Reflection_MethodBase *)selectMethod_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1 match:(System_Array *)p2 types:(System_Array *)p3 modifiers:(System_Array *)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   SelectProperty
+
+ Params
+   System.Reflection.BindingFlags
+   System.Reflection.PropertyInfo[]
+   System.Type
+   System.Type[]
+   System.Reflection.ParameterModifier[]
+
+ Return
+   System.Reflection.PropertyInfo
+ @/textblock
+*/
+- (System_Reflection_PropertyInfo *)selectProperty_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1 match:(System_Array *)p2 returnType:(System_Type *)p3 indexes:(System_Array *)p4 modifiers:(System_Array *)p5;
 @end
 //--Dubrovnik.CodeGenerator

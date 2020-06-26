@@ -23,13 +23,14 @@
 @class System_Int32;
 @class System_Object;
 @class System_Reflection_Binder;
+@class System_Reflection_BindingFlags;
 @class System_Reflection_MethodBase;
 @class System_Type;
 
 //
 // Local assembly imports
 //
-
+#import "System_Reflection_BindingFlags.h"
 
 //
 // Import superclass and adopted protocols
@@ -372,7 +373,24 @@
 */
 - (id <DBMonoObject>)invoke_withObj:(id <DBMonoObject>)p1 parameters:(System_Array *)p2;
 
-/* Skipped method : System.Object Invoke(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
+/**
+ Managed method.
+ @textblock
+ Name
+   Invoke
+
+ Params
+   System.Object
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Object[]
+   System.Globalization.CultureInfo
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (id <DBMonoObject>)invoke_withObj:(id <DBMonoObject>)p1 invokeAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 parameters:(System_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
 
 /**
  Managed method.

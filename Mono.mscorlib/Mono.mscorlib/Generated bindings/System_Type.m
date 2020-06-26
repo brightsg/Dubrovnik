@@ -1226,7 +1226,11 @@ static System_Reflection_Binder * m_defaultBinder;
 
 /* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
-/* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+- (System_Reflection_ConstructorInfo *)getConstructor_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 types:(System_Array *)p3 modifiers:(System_Array *)p4
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetConstructor(System.Reflection.BindingFlags,System.Reflection.Binder,System.Type[],System.Reflection.ParameterModifier[])" withNumArgs:4, &p1, [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject]];
+	return [System_Reflection_ConstructorInfo bestObjectWithMonoObject:monoObject];
+}
 
 - (System_Reflection_ConstructorInfo *)getConstructor_withTypes:(System_Array *)p1
 {
@@ -1240,7 +1244,11 @@ static System_Reflection_Binder * m_defaultBinder;
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-/* Skipped method : System.Reflection.ConstructorInfo[] GetConstructors(System.Reflection.BindingFlags bindingAttr) */
+- (System_Array *)getConstructors_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetConstructors(System.Reflection.BindingFlags)" withNumArgs:1, &p1];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
 
 - (System_Array *)getDefaultMembers
 {
@@ -1344,7 +1352,11 @@ static System_Reflection_Binder * m_defaultBinder;
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-/* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name, System.Reflection.BindingFlags bindingAttr) */
+- (System_Array *)getMember_withName:(NSString *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetMember(string,System.Reflection.BindingFlags)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
 
 /* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name, System.Reflection.MemberTypes type, System.Reflection.BindingFlags bindingAttr) */
 
@@ -1354,13 +1366,25 @@ static System_Reflection_Binder * m_defaultBinder;
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-/* Skipped method : System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags bindingAttr) */
+- (System_Array *)getMembers_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetMembers(System.Reflection.BindingFlags)" withNumArgs:1, &p1];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
 
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 types:(System_Array *)p4 modifiers:(System_Array *)p5
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string,System.Reflection.BindingFlags,System.Reflection.Binder,System.Type[],System.Reflection.ParameterModifier[])" withNumArgs:5, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject]];
+	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
+}
 
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(System_Array *)p2 modifiers:(System_Array *)p3
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string,System.Type[],System.Reflection.ParameterModifier[])" withNumArgs:3, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject]];
+	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
+}
 
 - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(System_Array *)p2
 {
@@ -1368,7 +1392,11 @@ static System_Reflection_Binder * m_defaultBinder;
 	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
 }
 
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr) */
+- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetMethod(string,System.Reflection.BindingFlags)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
+	return [System_Reflection_MethodInfo bestObjectWithMonoObject:monoObject];
+}
 
 - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1
 {
@@ -1382,7 +1410,11 @@ static System_Reflection_Binder * m_defaultBinder;
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-/* Skipped method : System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags bindingAttr) */
+- (System_Array *)getMethods_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetMethods(System.Reflection.BindingFlags)" withNumArgs:1, &p1];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
 
 - (System_Type *)getNestedType_withName:(NSString *)p1
 {
@@ -1390,7 +1422,11 @@ static System_Reflection_Binder * m_defaultBinder;
 	return [System_Type bestObjectWithMonoObject:monoObject];
 }
 
-/* Skipped method : System.Type GetNestedType(System.String name, System.Reflection.BindingFlags bindingAttr) */
+- (System_Type *)getNestedType_withName:(NSString *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetNestedType(string,System.Reflection.BindingFlags)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
+	return [System_Type bestObjectWithMonoObject:monoObject];
+}
 
 - (System_Array *)getNestedTypes
 {
@@ -1398,7 +1434,11 @@ static System_Reflection_Binder * m_defaultBinder;
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-/* Skipped method : System.Type[] GetNestedTypes(System.Reflection.BindingFlags bindingAttr) */
+- (System_Array *)getNestedTypes_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetNestedTypes(System.Reflection.BindingFlags)" withNumArgs:1, &p1];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
 
 - (System_Array *)getProperties
 {
@@ -1406,13 +1446,29 @@ static System_Reflection_Binder * m_defaultBinder;
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-/* Skipped method : System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags bindingAttr) */
+- (System_Array *)getProperties_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetProperties(System.Reflection.BindingFlags)" withNumArgs:1, &p1];
+	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
+}
 
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 returnType:(System_Type *)p4 types:(System_Array *)p5 modifiers:(System_Array *)p6
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string,System.Reflection.BindingFlags,System.Reflection.Binder,System.Type,System.Type[],System.Reflection.ParameterModifier[])" withNumArgs:6, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject], [p6 monoRTInvokeObject]];
+	return [System_Reflection_PropertyInfo bestObjectWithMonoObject:monoObject];
+}
 
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(System_Array *)p3 modifiers:(System_Array *)p4
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string,System.Type,System.Type[],System.Reflection.ParameterModifier[])" withNumArgs:4, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject]];
+	return [System_Reflection_PropertyInfo bestObjectWithMonoObject:monoObject];
+}
 
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr) */
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetProperty(string,System.Reflection.BindingFlags)" withNumArgs:2, [p1 monoRTInvokeObject], &p2];
+	return [System_Reflection_PropertyInfo bestObjectWithMonoObject:monoObject];
+}
 
 - (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(System_Array *)p3
 {
@@ -1540,11 +1596,23 @@ static System_Reflection_Binder * m_defaultBinder;
 
 /* Skipped method : System.RuntimeTypeHandle GetTypeHandle(System.Object o) */
 
-/* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Globalization.CultureInfo culture) */
+- (id <DBMonoObject>)invokeMember_withName:(NSString *)p1 invokeAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(id <DBMonoObject>)p4 args:(System_Array *)p5 culture:(System_Globalization_CultureInfo *)p6
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"InvokeMember(string,System.Reflection.BindingFlags,System.Reflection.Binder,object,object[],System.Globalization.CultureInfo)" withNumArgs:6, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject], [p6 monoRTInvokeObject]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-/* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args) */
+- (id <DBMonoObject>)invokeMember_withName:(NSString *)p1 invokeAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(id <DBMonoObject>)p4 args:(System_Array *)p5
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"InvokeMember(string,System.Reflection.BindingFlags,System.Reflection.Binder,object,object[])" withNumArgs:5, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-/* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] namedParameters) */
+- (id <DBMonoObject>)invokeMember_withName:(NSString *)p1 invokeAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(id <DBMonoObject>)p4 args:(System_Array *)p5 modifiers:(System_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 namedParameters:(System_Array *)p8
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"InvokeMember(string,System.Reflection.BindingFlags,System.Reflection.Binder,object,object[],System.Reflection.ParameterModifier[],System.Globalization.CultureInfo,string[])" withNumArgs:8, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject], [p6 monoRTInvokeObject], [p7 monoRTInvokeObject], [p8 monoRTInvokeObject]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
 - (BOOL)isAssignableFrom_withC:(System_Type *)p1
 {

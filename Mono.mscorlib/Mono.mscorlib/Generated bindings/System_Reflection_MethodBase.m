@@ -445,7 +445,11 @@
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-/* Skipped method : System.Object Invoke(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
+- (id <DBMonoObject>)invoke_withObj:(id <DBMonoObject>)p1 invokeAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 parameters:(System_Array *)p4 culture:(System_Globalization_CultureInfo *)p5
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Invoke(object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)" withNumArgs:5, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
 + (BOOL)op_Equality_withLeft:(System_Reflection_MethodBase *)p1 right:(System_Reflection_MethodBase *)p2
 {

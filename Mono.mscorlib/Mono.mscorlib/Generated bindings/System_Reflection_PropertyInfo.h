@@ -23,6 +23,7 @@
 @class System_Int32;
 @class System_Object;
 @class System_Reflection_Binder;
+@class System_Reflection_BindingFlags;
 @class System_Reflection_MethodInfo;
 @class System_Reflection_PropertyInfo;
 @class System_Type;
@@ -31,7 +32,7 @@
 //
 // Local assembly imports
 //
-
+#import "System_Reflection_BindingFlags.h"
 
 //
 // Import superclass and adopted protocols
@@ -341,7 +342,24 @@
 */
 - (id <DBMonoObject>)getValue_withObj:(id <DBMonoObject>)p1 index:(System_Array *)p2;
 
-/* Skipped method : System.Object GetValue(System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetValue
+
+ Params
+   System.Object
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Object[]
+   System.Globalization.CultureInfo
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (id <DBMonoObject>)getValue_withObj:(id <DBMonoObject>)p1 invokeAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 index:(System_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
 
 /**
  Managed method.
@@ -408,6 +426,24 @@
 */
 - (void)setValue_withObj:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2 index:(System_Array *)p3;
 
-/* Skipped method : System.Void SetValue(System.Object obj, System.Object value, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) */
+/**
+ Managed method.
+ @textblock
+ Name
+   SetValue
+
+ Params
+   System.Object
+   System.Object
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Object[]
+   System.Globalization.CultureInfo
+
+ Return
+   System.Void
+ @/textblock
+*/
+- (void)setValue_withObj:(id <DBMonoObject>)p1 value:(id <DBMonoObject>)p2 invokeAttr:(enumSystem_Reflection_BindingFlags)p3 binder:(System_Reflection_Binder *)p4 index:(System_Array *)p5 culture:(System_Globalization_CultureInfo *)p6;
 @end
 //--Dubrovnik.CodeGenerator

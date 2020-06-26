@@ -35,7 +35,15 @@
 
 /* Skipped method : System.Reflection.FieldInfo BindToField(System.Reflection.BindingFlags bindingAttr, System.Reflection.FieldInfo[] match, System.Object value, System.Globalization.CultureInfo culture) */
 
-/* Skipped method : System.Reflection.MethodBase BindToMethod(System.Reflection.BindingFlags bindingAttr, System.Reflection.MethodBase[] match, System.Object[]& args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] names, System.Object& state) */
+- (System_Reflection_MethodBase *)bindToMethod_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1 match:(System_Array *)p2 argsRef:(System_Object **)p3 modifiers:(System_Array *)p4 culture:(System_Globalization_CultureInfo *)p5 names:(System_Array *)p6 stateRef:(System_Object **)p7
+{
+	void *refPtr3 = [*p3 monoRTInvokeArg];
+	void *refPtr7 = [*p7 monoRTInvokeArg];
+	MonoObject *monoObject = [self invokeMonoMethod:"BindToMethod(System.Reflection.BindingFlags,System.Reflection.MethodBase[],object[]&,System.Reflection.ParameterModifier[],System.Globalization.CultureInfo,string[],object&)" withNumArgs:7, &p1, [p2 monoRTInvokeObject], &refPtr3, [p4 monoRTInvokeObject], [p5 monoRTInvokeObject], [p6 monoRTInvokeObject], &refPtr7];
+	*p3 = [System_Object bestObjectWithMonoObject:refPtr3];
+	*p7 = [System_Object bestObjectWithMonoObject:refPtr7];
+	return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
+}
 
 - (id <DBMonoObject>)changeType_withValue:(id <DBMonoObject>)p1 type:(System_Type *)p2 culture:(System_Globalization_CultureInfo *)p3
 {
@@ -50,9 +58,17 @@
 	*p1 = [System_Object bestObjectWithMonoObject:refPtr1];
 }
 
-/* Skipped method : System.Reflection.MethodBase SelectMethod(System.Reflection.BindingFlags bindingAttr, System.Reflection.MethodBase[] match, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+- (System_Reflection_MethodBase *)selectMethod_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1 match:(System_Array *)p2 types:(System_Array *)p3 modifiers:(System_Array *)p4
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"SelectMethod(System.Reflection.BindingFlags,System.Reflection.MethodBase[],System.Type[],System.Reflection.ParameterModifier[])" withNumArgs:4, &p1, [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject]];
+	return [System_Reflection_MethodBase bestObjectWithMonoObject:monoObject];
+}
 
-/* Skipped method : System.Reflection.PropertyInfo SelectProperty(System.Reflection.BindingFlags bindingAttr, System.Reflection.PropertyInfo[] match, System.Type returnType, System.Type[] indexes, System.Reflection.ParameterModifier[] modifiers) */
+- (System_Reflection_PropertyInfo *)selectProperty_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1 match:(System_Array *)p2 returnType:(System_Type *)p3 indexes:(System_Array *)p4 modifiers:(System_Array *)p5
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"SelectProperty(System.Reflection.BindingFlags,System.Reflection.PropertyInfo[],System.Type,System.Type[],System.Reflection.ParameterModifier[])" withNumArgs:5, &p1, [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject]];
+	return [System_Reflection_PropertyInfo bestObjectWithMonoObject:monoObject];
+}
 
 #pragma mark -
 #pragma mark Teardown

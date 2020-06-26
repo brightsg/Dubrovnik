@@ -400,7 +400,11 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 /* Skipped method : System.Object CreateInstanceAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
 
-/* Skipped method : System.Object CreateInstanceAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
+- (id <DBMonoObject>)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(enumSystem_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(System_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(System_Array *)p8
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceAndUnwrap(string,string,bool,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[])" withNumArgs:8, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &p3, &p4, [p5 monoRTInvokeObject], [p6 monoRTInvokeObject], [p7 monoRTInvokeObject], [p8 monoRTInvokeObject]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.String assemblyFile, System.String typeName) */
 
@@ -424,7 +428,11 @@ static int64_t m_monitoringSurvivedProcessMemorySize;
 
 /* Skipped method : System.Object CreateInstanceFromAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
 
-/* Skipped method : System.Object CreateInstanceFromAndUnwrap(System.String assemblyFile, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
+- (id <DBMonoObject>)createInstanceFromAndUnwrap_withAssemblyFile:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(enumSystem_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(System_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(System_Array *)p8
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"CreateInstanceFromAndUnwrap(string,string,bool,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[])" withNumArgs:8, [p1 monoRTInvokeObject], [p2 monoRTInvokeObject], &p3, &p4, [p5 monoRTInvokeObject], [p6 monoRTInvokeObject], [p7 monoRTInvokeObject], [p8 monoRTInvokeObject]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access) */
 

@@ -79,7 +79,11 @@ static NSString * m_typeConstructorName;
 	return [System_Object bestObjectWithMonoObject:monoObject];
 }
 
-/* Skipped method : System.Object Invoke(System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) */
+- (id <DBMonoObject>)invoke_withInvokeAttr:(enumSystem_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 parameters:(System_Array *)p3 culture:(System_Globalization_CultureInfo *)p4
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"Invoke(System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)" withNumArgs:4, &p1, [p2 monoRTInvokeObject], [p3 monoRTInvokeObject], [p4 monoRTInvokeObject]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
 + (BOOL)op_Equality_withLeft:(System_Reflection_ConstructorInfo *)p1 right:(System_Reflection_ConstructorInfo *)p2
 {

@@ -37,9 +37,17 @@
 
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateComInstanceFrom(System.String assemblyName, System.String typeName, System.Byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm) */
 
-/* Skipped method : System.Object CreateInstance(System.Type type, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture) */
++ (id <DBMonoObject>)createInstance_withType:(System_Type *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 args:(System_Array *)p4 culture:(System_Globalization_CultureInfo *)p5
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)" withNumArgs:5, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
-/* Skipped method : System.Object CreateInstance(System.Type type, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
++ (id <DBMonoObject>)createInstance_withType:(System_Type *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 args:(System_Array *)p4 culture:(System_Globalization_CultureInfo *)p5 activationAttributes:(System_Array *)p6
+{
+	MonoObject *monoObject = [self invokeMonoClassMethod:"CreateInstance(System.Type,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo,object[])" withNumArgs:6, [p1 monoRTInvokeObject], &p2, [p3 monoRTInvokeObject], [p4 monoRTInvokeObject], [p5 monoRTInvokeObject], [p6 monoRTInvokeObject]];
+	return [System_Object bestObjectWithMonoObject:monoObject];
+}
 
 + (id <DBMonoObject>)createInstance_withType:(System_Type *)p1 args:(System_Array *)p2
 {

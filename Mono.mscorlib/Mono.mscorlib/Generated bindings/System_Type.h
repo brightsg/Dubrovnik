@@ -28,12 +28,14 @@
 @class System_Object;
 @class System_Reflection_Assembly;
 @class System_Reflection_Binder;
+@class System_Reflection_BindingFlags;
 @class System_Reflection_ConstructorInfo;
 @class System_Reflection_GenericParameterAttributes;
 @class System_Reflection_MemberFilter;
 @class System_Reflection_MemberInfo;
 @class System_Reflection_MethodBase;
 @class System_Reflection_MethodInfo;
+@class System_Reflection_ParameterModifier;
 @class System_Reflection_PropertyInfo;
 @class System_Reflection_TypeAttributes;
 @class System_String;
@@ -42,6 +44,7 @@
 //
 // Local assembly imports
 //
+#import "System_Reflection_BindingFlags.h"
 #import "System_Reflection_GenericParameterAttributes.h"
 #import "System_Reflection_TypeAttributes.h"
 
@@ -882,7 +885,23 @@
 
 /* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
-/* Skipped method : System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetConstructor
+
+ Params
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Type[]
+   System.Reflection.ParameterModifier[]
+
+ Return
+   System.Reflection.ConstructorInfo
+ @/textblock
+*/
+- (System_Reflection_ConstructorInfo *)getConstructor_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1 binder:(System_Reflection_Binder *)p2 types:(System_Array *)p3 modifiers:(System_Array *)p4;
 
 /**
  Managed method.
@@ -914,7 +933,20 @@
 */
 - (System_Array *)getConstructors;
 
-/* Skipped method : System.Reflection.ConstructorInfo[] GetConstructors(System.Reflection.BindingFlags bindingAttr) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetConstructors
+
+ Params
+   System.Reflection.BindingFlags
+
+ Return
+   System.Reflection.ConstructorInfo[]
+ @/textblock
+*/
+- (System_Array *)getConstructors_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1;
 
 /**
  Managed method.
@@ -1145,7 +1177,21 @@
 */
 - (System_Array *)getMember_withName:(NSString *)p1;
 
-/* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name, System.Reflection.BindingFlags bindingAttr) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetMember
+
+ Params
+   System.String
+   System.Reflection.BindingFlags
+
+ Return
+   System.Reflection.MemberInfo[]
+ @/textblock
+*/
+- (System_Array *)getMember_withName:(NSString *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2;
 
 /* Skipped method : System.Reflection.MemberInfo[] GetMember(System.String name, System.Reflection.MemberTypes type, System.Reflection.BindingFlags bindingAttr) */
 
@@ -1164,13 +1210,58 @@
 */
 - (System_Array *)getMembers;
 
-/* Skipped method : System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags bindingAttr) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetMembers
+
+ Params
+   System.Reflection.BindingFlags
+
+ Return
+   System.Reflection.MemberInfo[]
+ @/textblock
+*/
+- (System_Array *)getMembers_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1;
 
 /* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Reflection.CallingConventions callConvention, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
 
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetMethod
 
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+ Params
+   System.String
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Type[]
+   System.Reflection.ParameterModifier[]
+
+ Return
+   System.Reflection.MethodInfo
+ @/textblock
+*/
+- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 types:(System_Array *)p4 modifiers:(System_Array *)p5;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetMethod
+
+ Params
+   System.String
+   System.Type[]
+   System.Reflection.ParameterModifier[]
+
+ Return
+   System.Reflection.MethodInfo
+ @/textblock
+*/
+- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(System_Array *)p2 modifiers:(System_Array *)p3;
 
 /**
  Managed method.
@@ -1188,7 +1279,21 @@
 */
 - (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 types:(System_Array *)p2;
 
-/* Skipped method : System.Reflection.MethodInfo GetMethod(System.String name, System.Reflection.BindingFlags bindingAttr) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetMethod
+
+ Params
+   System.String
+   System.Reflection.BindingFlags
+
+ Return
+   System.Reflection.MethodInfo
+ @/textblock
+*/
+- (System_Reflection_MethodInfo *)getMethod_withName:(NSString *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2;
 
 /**
  Managed method.
@@ -1220,7 +1325,20 @@
 */
 - (System_Array *)getMethods;
 
-/* Skipped method : System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags bindingAttr) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetMethods
+
+ Params
+   System.Reflection.BindingFlags
+
+ Return
+   System.Reflection.MethodInfo[]
+ @/textblock
+*/
+- (System_Array *)getMethods_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1;
 
 /**
  Managed method.
@@ -1237,7 +1355,21 @@
 */
 - (System_Type *)getNestedType_withName:(NSString *)p1;
 
-/* Skipped method : System.Type GetNestedType(System.String name, System.Reflection.BindingFlags bindingAttr) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetNestedType
+
+ Params
+   System.String
+   System.Reflection.BindingFlags
+
+ Return
+   System.Type
+ @/textblock
+*/
+- (System_Type *)getNestedType_withName:(NSString *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2;
 
 /**
  Managed method.
@@ -1254,7 +1386,20 @@
 */
 - (System_Array *)getNestedTypes;
 
-/* Skipped method : System.Type[] GetNestedTypes(System.Reflection.BindingFlags bindingAttr) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetNestedTypes
+
+ Params
+   System.Reflection.BindingFlags
+
+ Return
+   System.Type[]
+ @/textblock
+*/
+- (System_Array *)getNestedTypes_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1;
 
 /**
  Managed method.
@@ -1271,13 +1416,74 @@
 */
 - (System_Array *)getProperties;
 
-/* Skipped method : System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags bindingAttr) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetProperties
 
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+ Params
+   System.Reflection.BindingFlags
 
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Type returnType, System.Type[] types, System.Reflection.ParameterModifier[] modifiers) */
+ Return
+   System.Reflection.PropertyInfo[]
+ @/textblock
+*/
+- (System_Array *)getProperties_withBindingAttr:(enumSystem_Reflection_BindingFlags)p1;
 
-/* Skipped method : System.Reflection.PropertyInfo GetProperty(System.String name, System.Reflection.BindingFlags bindingAttr) */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetProperty
+
+ Params
+   System.String
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Type
+   System.Type[]
+   System.Reflection.ParameterModifier[]
+
+ Return
+   System.Reflection.PropertyInfo
+ @/textblock
+*/
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 returnType:(System_Type *)p4 types:(System_Array *)p5 modifiers:(System_Array *)p6;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetProperty
+
+ Params
+   System.String
+   System.Type
+   System.Type[]
+   System.Reflection.ParameterModifier[]
+
+ Return
+   System.Reflection.PropertyInfo
+ @/textblock
+*/
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 returnType:(System_Type *)p2 types:(System_Array *)p3 modifiers:(System_Array *)p4;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   GetProperty
+
+ Params
+   System.String
+   System.Reflection.BindingFlags
+
+ Return
+   System.Reflection.PropertyInfo
+ @/textblock
+*/
+- (System_Reflection_PropertyInfo *)getProperty_withName:(NSString *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2;
 
 /**
  Managed method.
@@ -1609,11 +1815,66 @@
 
 /* Skipped method : System.RuntimeTypeHandle GetTypeHandle(System.Object o) */
 
-/* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Globalization.CultureInfo culture) */
+/**
+ Managed method.
+ @textblock
+ Name
+   InvokeMember
 
-/* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args) */
+ Params
+   System.String
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Object
+   System.Object[]
+   System.Globalization.CultureInfo
 
-/* Skipped method : System.Object InvokeMember(System.String name, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object target, System.Object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, System.String[] namedParameters) */
+ Return
+   System.Object
+ @/textblock
+*/
+- (id <DBMonoObject>)invokeMember_withName:(NSString *)p1 invokeAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(id <DBMonoObject>)p4 args:(System_Array *)p5 culture:(System_Globalization_CultureInfo *)p6;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   InvokeMember
+
+ Params
+   System.String
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Object
+   System.Object[]
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (id <DBMonoObject>)invokeMember_withName:(NSString *)p1 invokeAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(id <DBMonoObject>)p4 args:(System_Array *)p5;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   InvokeMember
+
+ Params
+   System.String
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Object
+   System.Object[]
+   System.Reflection.ParameterModifier[]
+   System.Globalization.CultureInfo
+   System.String[]
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (id <DBMonoObject>)invokeMember_withName:(NSString *)p1 invokeAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 target:(id <DBMonoObject>)p4 args:(System_Array *)p5 modifiers:(System_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 namedParameters:(System_Array *)p8;
 
 /**
  Managed method.

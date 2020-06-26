@@ -23,13 +23,14 @@
 @class System_Globalization_CultureInfo;
 @class System_Object;
 @class System_Reflection_Binder;
+@class System_Reflection_BindingFlags;
 @class System_String;
 @class System_Type;
 
 //
 // Local assembly imports
 //
-
+#import "System_Reflection_BindingFlags.h"
 
 //
 // Import superclass and adopted protocols
@@ -51,9 +52,44 @@
 
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateComInstanceFrom(System.String assemblyName, System.String typeName, System.Byte[] hashValue, System.Configuration.Assemblies.AssemblyHashAlgorithm hashAlgorithm) */
 
-/* Skipped method : System.Object CreateInstance(System.Type type, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture) */
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateInstance
 
-/* Skipped method : System.Object CreateInstance(System.Type type, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
+ Params
+   System.Type
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Object[]
+   System.Globalization.CultureInfo
+
+ Return
+   System.Object
+ @/textblock
+*/
++ (id <DBMonoObject>)createInstance_withType:(System_Type *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 args:(System_Array *)p4 culture:(System_Globalization_CultureInfo *)p5;
+
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateInstance
+
+ Params
+   System.Type
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Object[]
+   System.Globalization.CultureInfo
+   System.Object[]
+
+ Return
+   System.Object
+ @/textblock
+*/
++ (id <DBMonoObject>)createInstance_withType:(System_Type *)p1 bindingAttr:(enumSystem_Reflection_BindingFlags)p2 binder:(System_Reflection_Binder *)p3 args:(System_Array *)p4 culture:(System_Globalization_CultureInfo *)p5 activationAttributes:(System_Array *)p6;
 
 /**
  Managed method.

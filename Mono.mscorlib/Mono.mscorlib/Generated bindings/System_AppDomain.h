@@ -32,6 +32,7 @@
 @class System_Reflection_Assembly;
 @class System_Reflection_AssemblyName;
 @class System_Reflection_Binder;
+@class System_Reflection_BindingFlags;
 @class System_String;
 @class System_TimeSpan;
 @class System_Type;
@@ -42,7 +43,7 @@
 //
 // Local assembly imports
 //
-
+#import "System_Reflection_BindingFlags.h"
 
 //
 // Import superclass and adopted protocols
@@ -408,7 +409,27 @@ typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object * s
 
 /* Skipped method : System.Object CreateInstanceAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
 
-/* Skipped method : System.Object CreateInstanceAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateInstanceAndUnwrap
+
+ Params
+   System.String
+   System.String
+   System.Boolean
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Object[]
+   System.Globalization.CultureInfo
+   System.Object[]
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (id <DBMonoObject>)createInstanceAndUnwrap_withAssemblyName:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(enumSystem_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(System_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(System_Array *)p8;
 
 /* Skipped method : System.Runtime.Remoting.ObjectHandle CreateInstanceFrom(System.String assemblyFile, System.String typeName) */
 
@@ -453,7 +474,27 @@ typedef void (^System_AppDomain_UnhandledException_EventBlock)(System_Object * s
 
 /* Skipped method : System.Object CreateInstanceFromAndUnwrap(System.String assemblyName, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes, System.Security.Policy.Evidence securityAttributes) */
 
-/* Skipped method : System.Object CreateInstanceFromAndUnwrap(System.String assemblyFile, System.String typeName, System.Boolean ignoreCase, System.Reflection.BindingFlags bindingAttr, System.Reflection.Binder binder, System.Object[] args, System.Globalization.CultureInfo culture, System.Object[] activationAttributes) */
+/**
+ Managed method.
+ @textblock
+ Name
+   CreateInstanceFromAndUnwrap
+
+ Params
+   System.String
+   System.String
+   System.Boolean
+   System.Reflection.BindingFlags
+   System.Reflection.Binder
+   System.Object[]
+   System.Globalization.CultureInfo
+   System.Object[]
+
+ Return
+   System.Object
+ @/textblock
+*/
+- (id <DBMonoObject>)createInstanceFromAndUnwrap_withAssemblyFile:(NSString *)p1 typeName:(NSString *)p2 ignoreCase:(BOOL)p3 bindingAttr:(enumSystem_Reflection_BindingFlags)p4 binder:(System_Reflection_Binder *)p5 args:(System_Array *)p6 culture:(System_Globalization_CultureInfo *)p7 activationAttributes:(System_Array *)p8;
 
 /* Skipped method : System.Reflection.Emit.AssemblyBuilder DefineDynamicAssembly(System.Reflection.AssemblyName name, System.Reflection.Emit.AssemblyBuilderAccess access) */
 
