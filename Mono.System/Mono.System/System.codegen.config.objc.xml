@@ -1007,6 +1007,7 @@
     <string>System.Collections.Specialized.NotifyCollectionChangedEventHandler</string>
 		<string>System.ComponentModel.AsyncCompletedEventArgs</string>
     <string>System.ComponentModel.AsyncCompletedEventHandler</string>
+    <string>System.ComponentModel.DescriptionAttribute</string>
 		<string>System.ComponentModel.INotifyPropertyChanged</string>
 		<string>System.ComponentModel.INotifyPropertyChanging</string>
     <string>System.ComponentModel.ListSortDirection</string>

@@ -31,7 +31,7 @@
 //
 
 
-@interface System_Data_DataSysDescriptionAttribute : System_Object <System_Runtime_InteropServices__Attribute_>
+@interface System_Data_DataSysDescriptionAttribute : System_ComponentModel_DescriptionAttribute <System_Runtime_InteropServices__Attribute_>
 
 #pragma mark -
 #pragma mark Setup

@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     26/06/2020 21:45:43
+// Date:     26/06/2020 22:01:16
 //
 // Assembly: System
 // Fullname: System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -490,8 +490,7 @@
 /* Skipped type : System.ComponentModel.DefaultPropertyAttribute DefaultPropertyAttribute */
 
 /* Skipped type : System.ComponentModel.DefaultValueAttribute DefaultValueAttribute */
-
-/* Skipped type : System.ComponentModel.DescriptionAttribute DescriptionAttribute */
+#define SCDescriptionAttribute_ System_ComponentModel_DescriptionAttribute
 
 /* Skipped type : System.ComponentModel.Design.ActiveDesignerEventArgs ActiveDesignerEventArgs */
 
@@ -2053,6 +2052,7 @@ Assembly type imports
 #import "System_Collections_Specialized_NotifyCollectionChangedEventHandler.h"
 #import "System_ComponentModel_AsyncCompletedEventArgs.h"
 #import "System_ComponentModel_AsyncCompletedEventHandler.h"
+#import "System_ComponentModel_DescriptionAttribute.h"
 #import "System_ComponentModel_INotifyPropertyChanged.h"
 #import "System_ComponentModel_INotifyPropertyChanged.h"
 #import "System_ComponentModel_INotifyPropertyChanged_Protocol.h"
