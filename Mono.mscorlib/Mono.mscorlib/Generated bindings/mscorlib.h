@@ -9,7 +9,7 @@
 // http://github.com/ThesaurusSoftware/Dubrovnik
 // This code has dependencies on the above project.
 //
-// Date:     26/06/2020 21:30:06
+// Date:     26/06/2020 21:45:13
 //
 // Assembly: mscorlib
 // Fullname: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -805,16 +805,11 @@
 
 /* Skipped type : System.Reflection.CallingConventions CallingConventions */
 #define SRConstructorInfo_ System_Reflection_ConstructorInfo
-
-/* Skipped type : System.Reflection.CustomAttributeData CustomAttributeData */
-
-/* Skipped type : System.Reflection.CustomAttributeExtensions CustomAttributeExtensions */
-
-/* Skipped type : System.Reflection.CustomAttributeFormatException CustomAttributeFormatException */
-
-/* Skipped type : System.Reflection.CustomAttributeNamedArgument CustomAttributeNamedArgument */
-
-/* Skipped type : System.Reflection.CustomAttributeTypedArgument CustomAttributeTypedArgument */
+#define SRCustomAttributeData_ System_Reflection_CustomAttributeData
+#define SRCustomAttributeExtensions_ System_Reflection_CustomAttributeExtensions
+#define SRCustomAttributeFormatException_ System_Reflection_CustomAttributeFormatException
+#define SRCustomAttributeNamedArgument_ System_Reflection_CustomAttributeNamedArgument
+#define SRCustomAttributeTypedArgument_ System_Reflection_CustomAttributeTypedArgument
 
 /* Skipped type : System.Reflection.DefaultMemberAttribute DefaultMemberAttribute */
 
@@ -3118,6 +3113,11 @@ Assembly type imports
 #import "System_Reflection_Binder.h"
 #import "System_Reflection_BindingFlags.h"
 #import "System_Reflection_ConstructorInfo.h"
+#import "System_Reflection_CustomAttributeData.h"
+#import "System_Reflection_CustomAttributeExtensions.h"
+#import "System_Reflection_CustomAttributeFormatException.h"
+#import "System_Reflection_CustomAttributeNamedArgument.h"
+#import "System_Reflection_CustomAttributeTypedArgument.h"
 #import "System_Reflection_GenericParameterAttributes.h"
 #import "System_Reflection_MemberFilter.h"
 #import "System_Reflection_MemberInfo.h"

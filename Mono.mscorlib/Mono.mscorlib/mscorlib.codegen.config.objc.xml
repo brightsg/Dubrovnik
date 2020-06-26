@@ -1616,6 +1616,11 @@
 		<string>System.Reflection.Binder</string>
 		<string>System.Reflection.BindingFlags</string>
 		<string>System.Reflection.ConstructorInfo</string>
+		<string>System.Reflection.CustomAttributeData</string>
+		<string>System.Reflection.CustomAttributeExtensions</string>
+		<string>System.Reflection.CustomAttributeFormatException</string>
+		<string>System.Reflection.CustomAttributeNamedArgument</string>
+		<string>System.Reflection.CustomAttributeTypedArgument</string>
 		<string>System.Reflection.GenericParameterAttributes</string>
 		<string>System.Reflection.MemberFilter</string>
 		<string>System.Reflection.MemberInfo</string>

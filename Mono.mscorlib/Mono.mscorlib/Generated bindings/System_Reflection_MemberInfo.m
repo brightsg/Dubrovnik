@@ -33,7 +33,25 @@
 #pragma mark -
 #pragma mark Properties
 
-/* Skipped property : System.Collections.Generic.IEnumerable`1<System.Reflection.CustomAttributeData> CustomAttributes */
+@synthesize customAttributes = _customAttributes;
+- (System_Collections_Generic_IEnumerableA1 *)customAttributes
+{
+	typedef MonoObject * (*Thunk)(MonoObject *, MonoObject**);
+	static Thunk thunk;
+	static MonoClass* thunkClass;
+	MonoObject* monoException = NULL;
+	if (!thunk || thunkClass != self.monoClass) {
+		thunkClass = self.monoClass;
+		MonoMethod* monoMethod = GetPropertyGetMethod(thunkClass, "CustomAttributes");
+		thunk = (Thunk)mono_method_get_unmanaged_thunk(monoMethod);
+	}
+	MonoObject * monoObject = thunk(self.monoObject, &monoException);
+	if (monoException != NULL) @throw(NSExceptionFromMonoException(monoException, @{}));
+	if ([self object:_customAttributes isEqualToMonoObject:monoObject]) return _customAttributes;
+	_customAttributes = [System_Collections_Generic_IEnumerableA1 bestObjectWithMonoObject:monoObject];
+
+	return _customAttributes;
+}
 
 @synthesize declaringType = _declaringType;
 - (System_Type *)declaringType
@@ -139,7 +157,11 @@
 	return [System_Array arrayWithMonoArray:DB_ARRAY(monoObject)];
 }
 
-/* Skipped method : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData> GetCustomAttributesData() */
+- (System_Object <System_Collections_Generic_IListA1> *)getCustomAttributesData
+{
+	MonoObject *monoObject = [self invokeMonoMethod:"GetCustomAttributesData()" withNumArgs:0];
+	return [System_Collections_Generic_IListA1 bestObjectWithMonoObject:monoObject];
+}
 
 - (int32_t)getHashCode
 {

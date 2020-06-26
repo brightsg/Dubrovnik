@@ -21,6 +21,7 @@
 @class System_Boolean;
 @class System_Byte;
 @class System_Collections_Generic_IEnumerableA1;
+@class System_Collections_Generic_IListA1;
 @class System_Globalization_CultureInfo;
 @class System_Int32;
 @class System_Int64;
@@ -30,6 +31,7 @@
 @class System_Reflection_AssemblyName;
 @class System_Reflection_Binder;
 @class System_Reflection_BindingFlags;
+@class System_Reflection_CustomAttributeData;
 @class System_Reflection_MethodInfo;
 @class System_Runtime_Serialization_ISerializable;
 @class System_String;
@@ -38,6 +40,8 @@
 @class System_Void;
 @protocol System_Collections_Generic_IEnumerableA1;
 @protocol System_Collections_Generic_IEnumerableA1_;
+@protocol System_Collections_Generic_IListA1;
+@protocol System_Collections_Generic_IListA1_;
 
 //
 // Local assembly imports
@@ -79,7 +83,17 @@
 */
 @property (nonatomic, strong, readonly) NSString * codeBase;
 
-/* Skipped property : System.Collections.Generic.IEnumerable`1<System.Reflection.CustomAttributeData> CustomAttributes */
+/**
+ Managed property.
+ @textblock
+ Name
+   CustomAttributes
+
+ Type
+   System.Collections.Generic.IEnumerable`1<System.Reflection.CustomAttributeData>
+ @/textblock
+*/
+@property (nonatomic, strong, readonly) System_Collections_Generic_IEnumerableA1 * customAttributes;
 
 /* Skipped property : System.Collections.Generic.IEnumerable`1<System.Reflection.TypeInfo> DefinedTypes */
 
@@ -372,7 +386,20 @@
 */
 - (System_Array *)getCustomAttributes_withAttributeType:(System_Type *)p1 inherit:(BOOL)p2;
 
-/* Skipped method : System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData> GetCustomAttributesData() */
+/**
+ Managed method.
+ @textblock
+ Name
+   GetCustomAttributesData
+
+ Params
+   (none)
+
+ Return
+   System.Collections.Generic.IList`1<System.Reflection.CustomAttributeData>
+ @/textblock
+*/
+- (System_Object <System_Collections_Generic_IListA1> *)getCustomAttributesData;
 
 /**
  Managed method.
