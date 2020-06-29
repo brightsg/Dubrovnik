@@ -47,6 +47,20 @@
 		AB2654861E265E7800422E35 /* Mono_Mscorlib_Assembly.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2654841E265E7800422E35 /* Mono_Mscorlib_Assembly.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2654871E265E7800422E35 /* Mono_Mscorlib_Assembly.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2654851E265E7800422E35 /* Mono_Mscorlib_Assembly.m */; };
 		AB26E09F1E4A0040004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E09E1E4A0040004876FE /* Mono.framework */; };
+		AB2971BE24A693DC009A3B52 /* System_Reflection_ParameterModifier.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2971BA24A693DB009A3B52 /* System_Reflection_ParameterModifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2971BF24A693DC009A3B52 /* System_Reflection_BindingFlags.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2971BB24A693DB009A3B52 /* System_Reflection_BindingFlags.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2971C024A693DC009A3B52 /* System_Reflection_BindingFlags.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2971BC24A693DB009A3B52 /* System_Reflection_BindingFlags.m */; };
+		AB2971C124A693DC009A3B52 /* System_Reflection_ParameterModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2971BD24A693DC009A3B52 /* System_Reflection_ParameterModifier.m */; };
+		AB2971CC24A6979A009A3B52 /* System_Reflection_CustomAttributeTypedArgument.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2971C224A69798009A3B52 /* System_Reflection_CustomAttributeTypedArgument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2971CD24A6979A009A3B52 /* System_Reflection_CustomAttributeData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2971C324A69799009A3B52 /* System_Reflection_CustomAttributeData.m */; };
+		AB2971CE24A6979A009A3B52 /* System_Reflection_CustomAttributeData.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2971C424A69799009A3B52 /* System_Reflection_CustomAttributeData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2971CF24A6979A009A3B52 /* System_Reflection_CustomAttributeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2971C524A69799009A3B52 /* System_Reflection_CustomAttributeExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2971D024A6979A009A3B52 /* System_Reflection_CustomAttributeNamedArgument.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2971C624A69799009A3B52 /* System_Reflection_CustomAttributeNamedArgument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2971D124A6979A009A3B52 /* System_Reflection_CustomAttributeNamedArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2971C724A69799009A3B52 /* System_Reflection_CustomAttributeNamedArgument.m */; };
+		AB2971D224A6979A009A3B52 /* System_Reflection_CustomAttributeFormatException.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2971C824A69799009A3B52 /* System_Reflection_CustomAttributeFormatException.m */; };
+		AB2971D324A6979A009A3B52 /* System_Reflection_CustomAttributeTypedArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2971C924A6979A009A3B52 /* System_Reflection_CustomAttributeTypedArgument.m */; };
+		AB2971D424A6979A009A3B52 /* System_Reflection_CustomAttributeFormatException.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2971CA24A6979A009A3B52 /* System_Reflection_CustomAttributeFormatException.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2971D524A6979A009A3B52 /* System_Reflection_CustomAttributeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2971CB24A6979A009A3B52 /* System_Reflection_CustomAttributeExtensions.m */; };
 		AB2E74C718FFDB0D0061C63E /* Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C218FFDB0D0061C63E /* Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74C818FFDB0D0061C63E /* Framework.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C318FFDB0D0061C63E /* Framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2E74C918FFDB0D0061C63E /* GeneratedBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2E74C418FFDB0D0061C63E /* GeneratedBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -508,6 +522,20 @@
 		AB2654851E265E7800422E35 /* Mono_Mscorlib_Assembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mono_Mscorlib_Assembly.m; sourceTree = "<group>"; };
 		AB26E09E1E4A0040004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.mscorlib/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
 		AB2926F720165C8500478AF4 /* System_Double.__Extra__.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_Double.__Extra__.h; sourceTree = "<group>"; };
+		AB2971BA24A693DB009A3B52 /* System_Reflection_ParameterModifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_ParameterModifier.h; sourceTree = "<group>"; };
+		AB2971BB24A693DB009A3B52 /* System_Reflection_BindingFlags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_BindingFlags.h; sourceTree = "<group>"; };
+		AB2971BC24A693DB009A3B52 /* System_Reflection_BindingFlags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_BindingFlags.m; sourceTree = "<group>"; };
+		AB2971BD24A693DC009A3B52 /* System_Reflection_ParameterModifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_ParameterModifier.m; sourceTree = "<group>"; };
+		AB2971C224A69798009A3B52 /* System_Reflection_CustomAttributeTypedArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_CustomAttributeTypedArgument.h; sourceTree = "<group>"; };
+		AB2971C324A69799009A3B52 /* System_Reflection_CustomAttributeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_CustomAttributeData.m; sourceTree = "<group>"; };
+		AB2971C424A69799009A3B52 /* System_Reflection_CustomAttributeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_CustomAttributeData.h; sourceTree = "<group>"; };
+		AB2971C524A69799009A3B52 /* System_Reflection_CustomAttributeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_CustomAttributeExtensions.h; sourceTree = "<group>"; };
+		AB2971C624A69799009A3B52 /* System_Reflection_CustomAttributeNamedArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_CustomAttributeNamedArgument.h; sourceTree = "<group>"; };
+		AB2971C724A69799009A3B52 /* System_Reflection_CustomAttributeNamedArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_CustomAttributeNamedArgument.m; sourceTree = "<group>"; };
+		AB2971C824A69799009A3B52 /* System_Reflection_CustomAttributeFormatException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_CustomAttributeFormatException.m; sourceTree = "<group>"; };
+		AB2971C924A6979A009A3B52 /* System_Reflection_CustomAttributeTypedArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_CustomAttributeTypedArgument.m; sourceTree = "<group>"; };
+		AB2971CA24A6979A009A3B52 /* System_Reflection_CustomAttributeFormatException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Reflection_CustomAttributeFormatException.h; sourceTree = "<group>"; };
+		AB2971CB24A6979A009A3B52 /* System_Reflection_CustomAttributeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Reflection_CustomAttributeExtensions.m; sourceTree = "<group>"; };
 		AB2E74C218FFDB0D0061C63E /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		AB2E74C318FFDB0D0061C63E /* Framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Framework.h; sourceTree = "<group>"; };
 		AB2E74C418FFDB0D0061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
@@ -976,6 +1004,20 @@
 		AB4CDBCE1FFBF4FE0096326D /* Generated bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB2971C424A69799009A3B52 /* System_Reflection_CustomAttributeData.h */,
+				AB2971C324A69799009A3B52 /* System_Reflection_CustomAttributeData.m */,
+				AB2971C524A69799009A3B52 /* System_Reflection_CustomAttributeExtensions.h */,
+				AB2971CB24A6979A009A3B52 /* System_Reflection_CustomAttributeExtensions.m */,
+				AB2971CA24A6979A009A3B52 /* System_Reflection_CustomAttributeFormatException.h */,
+				AB2971C824A69799009A3B52 /* System_Reflection_CustomAttributeFormatException.m */,
+				AB2971C624A69799009A3B52 /* System_Reflection_CustomAttributeNamedArgument.h */,
+				AB2971C724A69799009A3B52 /* System_Reflection_CustomAttributeNamedArgument.m */,
+				AB2971C224A69798009A3B52 /* System_Reflection_CustomAttributeTypedArgument.h */,
+				AB2971C924A6979A009A3B52 /* System_Reflection_CustomAttributeTypedArgument.m */,
+				AB2971BB24A693DB009A3B52 /* System_Reflection_BindingFlags.h */,
+				AB2971BC24A693DB009A3B52 /* System_Reflection_BindingFlags.m */,
+				AB2971BA24A693DB009A3B52 /* System_Reflection_ParameterModifier.h */,
+				AB2971BD24A693DC009A3B52 /* System_Reflection_ParameterModifier.m */,
 				ABC3BC5E248AA85100886002 /* System_Threading_CancellationTokenSource.h */,
 				ABC3BC5D248AA85100886002 /* System_Threading_CancellationTokenSource.m */,
 				AB987AF92359B4C1007EEBCB /* System_DateTimeOffset.h */,
@@ -1560,6 +1602,7 @@
 				AB512BBA20D062510078F747 /* System_ActionA2.h in Headers */,
 				AB512B6820D062510078F747 /* System_Runtime_Serialization_ISerializable.h in Headers */,
 				AB2F9E2421DBE34A00A28C5C /* NSDecimalNumber+mscorlib.h in Headers */,
+				AB2971CF24A6979A009A3B52 /* System_Reflection_CustomAttributeExtensions.h in Headers */,
 				E7A2A6A7238C16D7007D0919 /* System_TupleA1.h in Headers */,
 				AB512B6E20D062510078F747 /* System_Reflection_MethodInfo.h in Headers */,
 				AB5B149021C27AAF003710A8 /* System_ActionA7.h in Headers */,
@@ -1594,6 +1637,7 @@
 				AB512B2120D062510078F747 /* System_Reflection_MemberFilter.h in Headers */,
 				AB512BB320D062510078F747 /* System_IAsyncResult.h in Headers */,
 				E74BA73F21F8C2FB0067C99F /* System_Collections_Concurrent_IProducerConsumerCollectionA1_Protocol.h in Headers */,
+				AB2971D424A6979A009A3B52 /* System_Reflection_CustomAttributeFormatException.h in Headers */,
 				AB10F91C220B4F44007EA4CA /* System_Collections_Generic_IReadOnlyListA1.h in Headers */,
 				E7A2A687238C1516007D0919 /* System_IComparable.h in Headers */,
 				AB512B5220D062510078F747 /* System_Double.h in Headers */,
@@ -1648,6 +1692,7 @@
 				AB512BB820D062510078F747 /* System_IO_FileInfo.h in Headers */,
 				AB512B9B20D062510078F747 /* System_Single.h in Headers */,
 				AB512B7E20D062510078F747 /* System_Collections_Generic_DictionaryA2__KeyCollection__Enumerator.h in Headers */,
+				AB2971BF24A693DC009A3B52 /* System_Reflection_BindingFlags.h in Headers */,
 				E7A2A44E238BD0FD007D0919 /* System_Runtime_Serialization_IDeserializationCallback_Protocol.h in Headers */,
 				AB512B2A20D062510078F747 /* System_Collections_IEnumerable_Protocol.h in Headers */,
 				AB512B9C20D062510078F747 /* System_AsyncCallback.h in Headers */,
@@ -1669,10 +1714,13 @@
 				AB512B6A20D062510078F747 /* System_Delegate.h in Headers */,
 				AB512B7C20D062510078F747 /* System_Reflection_AssemblyName.h in Headers */,
 				AB512B7620D062510078F747 /* System_Text_StringBuilder.h in Headers */,
+				AB2971CC24A6979A009A3B52 /* System_Reflection_CustomAttributeTypedArgument.h in Headers */,
+				AB2971BE24A693DC009A3B52 /* System_Reflection_ParameterModifier.h in Headers */,
 				AB10F920220B4F44007EA4CA /* System_Collections_Generic_IListA1_Protocol.h in Headers */,
 				AB512BC920D062510078F747 /* System_Collections_Generic_ListA1__Enumerator.h in Headers */,
 				AB512B2920D062510078F747 /* System_Version.h in Headers */,
 				AB24601320F4F8DE00D1C09E /* System_Decimal+mscorlib.h in Headers */,
+				AB2971CE24A6979A009A3B52 /* System_Reflection_CustomAttributeData.h in Headers */,
 				AB512BBF20D062510078F747 /* System_Threading_SendOrPostCallback.h in Headers */,
 				AB512BA020D062510078F747 /* System_Collections_Generic_IComparerA1.h in Headers */,
 				AB512B4E20D062510078F747 /* System_IO_FileAttributes.h in Headers */,
@@ -1699,6 +1747,7 @@
 				AB5B149521C27AAF003710A8 /* System_FuncA6.h in Headers */,
 				AB512B8C20D062510078F747 /* System_Threading_Tasks_TaskA1.h in Headers */,
 				AB5B149B21C27AAF003710A8 /* System_ActionA3.h in Headers */,
+				AB2971D024A6979A009A3B52 /* System_Reflection_CustomAttributeNamedArgument.h in Headers */,
 				AB512B3020D062510078F747 /* System_IO_StringWriter.h in Headers */,
 				AB512B4220D062510078F747 /* System_StringComparison.h in Headers */,
 				AB512B3520D062510078F747 /* System_EventArgs.h in Headers */,
@@ -1886,11 +1935,13 @@
 				AB512B8E20D062510078F747 /* System_ActionA1.m in Sources */,
 				E7A2A6A8238C16D7007D0919 /* System_TupleExtensions.m in Sources */,
 				AB10F923220B4F44007EA4CA /* System_Collections_Generic_IListA1.m in Sources */,
+				AB2971C024A693DC009A3B52 /* System_Reflection_BindingFlags.m in Sources */,
 				ABA4F3E42002BEC200D6597A /* System_Object.m in Sources */,
 				AB5B148B21C27AAF003710A8 /* System_FuncA5.m in Sources */,
 				E7A2A447238BCF78007D0919 /* System_Runtime_InteropServices__Attribute.m in Sources */,
 				AB512B5020D062510078F747 /* System_Collections_Generic_IDictionaryA2.m in Sources */,
 				AB512BA620D062510078F747 /* System_Reflection_MethodBase.m in Sources */,
+				AB2971D524A6979A009A3B52 /* System_Reflection_CustomAttributeExtensions.m in Sources */,
 				AB8EE9FC21539EA1005C2E19 /* System_EventHandler.m in Sources */,
 				AB512BB120D062510078F747 /* System_Reflection_AssemblyName.m in Sources */,
 				AB512B5120D062510078F747 /* System_Array.m in Sources */,
@@ -1915,6 +1966,7 @@
 				AB950DE9192AA6720035ABC6 /* DBNullableDateTransformer.m in Sources */,
 				AB512B4020D062510078F747 /* System_Char.m in Sources */,
 				ABE229381FD026560096A875 /* NSNull+mscorlib.m in Sources */,
+				AB2971D324A6979A009A3B52 /* System_Reflection_CustomAttributeTypedArgument.m in Sources */,
 				ABB8A42718FF15B300213B80 /* System_Collections_ArrayList+mscorlib.m in Sources */,
 				AB35EBFF21DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_LeaseState.m in Sources */,
 				E7A2A6A3238C16D7007D0919 /* System_TupleA1.m in Sources */,
@@ -1931,6 +1983,7 @@
 				AB987AFC2359B4C1007EEBCB /* System_DateTimeOffset.m in Sources */,
 				AB512BB620D062510078F747 /* System_Exception.m in Sources */,
 				AB512B3A20D062510078F747 /* System_Reflection_Assembly.m in Sources */,
+				AB2971CD24A6979A009A3B52 /* System_Reflection_CustomAttributeData.m in Sources */,
 				E7A2A6AC238C16D7007D0919 /* System_TupleA8.m in Sources */,
 				AB348B3121CBC5CF00F07B68 /* System_Runtime_Remoting_Proxies_ProxyAttribute.m in Sources */,
 				AB35EC0121DAB38C009CC602 /* System_Runtime_Remoting_Lifetime_LifetimeServices.m in Sources */,
@@ -2001,6 +2054,7 @@
 				AB512BBD20D062510078F747 /* System_Runtime_InteropServices__Exception.m in Sources */,
 				AB512B3F20D062510078F747 /* System_IAsyncResult.m in Sources */,
 				AB5B149F21C27AAF003710A8 /* System_ActionA3.m in Sources */,
+				AB2971D224A6979A009A3B52 /* System_Reflection_CustomAttributeFormatException.m in Sources */,
 				AB512B5620D062510078F747 /* System_UInt16.m in Sources */,
 				AB512B5820D062510078F747 /* System_Threading_Tasks_TaskA1.m in Sources */,
 				AB512BC020D062510078F747 /* System_SByte.m in Sources */,
@@ -2075,6 +2129,7 @@
 				AB512BB420D062510078F747 /* System_Boolean.m in Sources */,
 				E74BA74421F8C2FB0067C99F /* System_Collections_Concurrent_ConcurrentQueueA1.m in Sources */,
 				AB512B5320D062510078F747 /* System_Reflection_MethodInfo.m in Sources */,
+				AB2971D124A6979A009A3B52 /* System_Reflection_CustomAttributeNamedArgument.m in Sources */,
 				AB512B8020D062510078F747 /* System_IO_FileInfo.m in Sources */,
 				ABB7B6C11EA8D75E0032A7D4 /* System_Collections_Generic_KeyValuePairA2+mscorlib.m in Sources */,
 				AB512B8720D062510078F747 /* System_Reflection_GenericParameterAttributes.m in Sources */,
@@ -2084,6 +2139,7 @@
 				AB57FDEA1C96DC94003D00E8 /* DBNullableInt32Transformer.m in Sources */,
 				ABB8A39718FF09F900213B80 /* System_Array+mscorlib.m in Sources */,
 				E74BA74A21F8C2FB0067C99F /* System_Collections_Concurrent_ConcurrentStackA1.m in Sources */,
+				AB2971C124A693DC009A3B52 /* System_Reflection_ParameterModifier.m in Sources */,
 				AB24602C20F4FB3C00D1C09E /* System_UInt64+mscorlib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

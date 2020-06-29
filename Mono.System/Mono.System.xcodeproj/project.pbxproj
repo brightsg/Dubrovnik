@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AB26E0AD1E4A15C0004876FE /* Mono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB26E0AC1E4A15C0004876FE /* Mono.framework */; };
+		AB2971D824A69A85009A3B52 /* System_ComponentModel_DescriptionAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2971D624A69A84009A3B52 /* System_ComponentModel_DescriptionAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB2971D924A69A85009A3B52 /* System_ComponentModel_DescriptionAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2971D724A69A84009A3B52 /* System_ComponentModel_DescriptionAttribute.m */; };
 		AB2D58DC216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2D58DA216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.m */; };
 		AB2D58DD216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2D58DB216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB2D58E021678B44001F7D3D /* System_ComponentModel_ListSortDirection.h in Headers */ = {isa = PBXBuildFile; fileRef = AB2D58DE21678B44001F7D3D /* System_ComponentModel_ListSortDirection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -105,6 +107,8 @@
 
 /* Begin PBXFileReference section */
 		AB26E0AC1E4A15C0004876FE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/Dubrovnik/Mono.System/../../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
+		AB2971D624A69A84009A3B52 /* System_ComponentModel_DescriptionAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_DescriptionAttribute.h; sourceTree = "<group>"; };
+		AB2971D724A69A84009A3B52 /* System_ComponentModel_DescriptionAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_DescriptionAttribute.m; sourceTree = "<group>"; };
 		AB2D58DA216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Text_RegularExpressions_RegexOptions.m; sourceTree = "<group>"; };
 		AB2D58DB216788E8001F7D3D /* System_Text_RegularExpressions_RegexOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Text_RegularExpressions_RegexOptions.h; sourceTree = "<group>"; };
 		AB2D58DE21678B44001F7D3D /* System_ComponentModel_ListSortDirection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_ListSortDirection.h; sourceTree = "<group>"; };
@@ -335,6 +339,8 @@
 		ABB813BB20D15AB700623A23 /* Generated bindings */ = {
 			isa = PBXGroup;
 			children = (
+				AB2971D624A69A84009A3B52 /* System_ComponentModel_DescriptionAttribute.h */,
+				AB2971D724A69A84009A3B52 /* System_ComponentModel_DescriptionAttribute.m */,
 				AB813BF122B2F62200BAE144 /* System_Collections_Specialized_NotifyCollectionChangedEventHandler.h */,
 				AB813BF322B2F62200BAE144 /* System_Collections_Specialized_NotifyCollectionChangedEventHandler.m */,
 				AB813BF922B2F62200BAE144 /* System_ComponentModel_AsyncCompletedEventHandler.h */,
@@ -422,6 +428,7 @@
 				ABB813F520D15AE900623A23 /* System_ComponentModel_PropertyChangingEventArgs.h in Headers */,
 				ABB8140820D15AE900623A23 /* System_Configuration_SettingsBase.h in Headers */,
 				ABB8140120D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.h in Headers */,
+				AB2971D824A69A85009A3B52 /* System_ComponentModel_DescriptionAttribute.h in Headers */,
 				ABB8140020D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanging.h in Headers */,
 				ABB813FA20D15AE900623A23 /* System_ComponentModel_AsyncCompletedEventArgs.h in Headers */,
 				AB813C0022B2F62200BAE144 /* System_ComponentModel_RunWorkerCompletedEventHandler.h in Headers */,
@@ -576,6 +583,7 @@
 				AB2E64F720D311AB00582990 /* System_Net_HttpWebResponse.m in Sources */,
 				ABB813E620D15AE900623A23 /* System_UriKind.m in Sources */,
 				ABB813FF20D15AE900623A23 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m in Sources */,
+				AB2971D924A69A85009A3B52 /* System_ComponentModel_DescriptionAttribute.m in Sources */,
 				AB2E64F620D311AB00582990 /* System_Net_HttpWebRequest.m in Sources */,
 				ABB813E420D15AE900623A23 /* System_ComponentModel_PropertyChangingEventArgs.m in Sources */,
 				ABB813FB20D15AE900623A23 /* System_UriComponents.m in Sources */,
