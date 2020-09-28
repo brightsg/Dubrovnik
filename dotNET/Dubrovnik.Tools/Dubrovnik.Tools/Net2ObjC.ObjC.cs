@@ -60,11 +60,9 @@ namespace Dubrovnik.Tools {
 			"true",
 		};
 
-		public List<string> UnsafeObjCMethodNames() {
-			return new List<string> {
-									"init" // methods beginning with init are expected to return a type related to the receiver
-			};
-		}
+		public readonly List<string> UnsafeObjCMethodNames = new List<string>() {
+			"release"
+		};
 
 		//
 		// ObjCNonAssociatedTypeIsNSObject
