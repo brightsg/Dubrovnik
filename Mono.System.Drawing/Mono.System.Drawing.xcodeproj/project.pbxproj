@@ -50,6 +50,7 @@
 		AB2E74AE18FFD6C90061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		AB2E74AF18FFD6C90061C63E /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		AB2E74B018FFD6C90061C63E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		AB7CDC6F2565617100186B40 /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABB8A3A618FF0B4900213B80 /* Mono.System.Drawing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Drawing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB8A3A918FF0B4900213B80 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABB8A3AC18FF0B4900213B80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -118,6 +119,7 @@
 		ABB8A39C18FF0B4900213B80 = {
 			isa = PBXGroup;
 			children = (
+				AB7CDC6F2565617100186B40 /* macOS-native-arch.xcconfig */,
 				ABB8A3AF18FF0B4900213B80 /* Mono.System.Drawing */,
 				ABB8A3C418FF0B4A00213B80 /* Mono.System.DrawingTests */,
 				ABB8A3A818FF0B4900213B80 /* Frameworks */,
@@ -422,6 +424,7 @@
 		};
 		ABB8A3CD18FF0B4A00213B80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB7CDC6F2565617100186B40 /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

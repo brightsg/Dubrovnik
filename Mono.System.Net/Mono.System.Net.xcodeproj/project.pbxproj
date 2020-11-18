@@ -38,6 +38,7 @@
 /* Begin PBXFileReference section */
 		AB2E64E120D310FA00582990 /* System_Net.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_Net.h; path = "Generated Bindings/System_Net.h"; sourceTree = "<group>"; };
 		AB2E64E220D310FA00582990 /* System_Net.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_Net.m; path = "Generated Bindings/System_Net.m"; sourceTree = "<group>"; };
+		AB7CDC7C256562AA00186B40 /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABBD3B89190013E800DB59AF /* Mono.System.Net.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Net.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBD3B8C190013E800DB59AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABBD3B8F190013E800DB59AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,6 +88,7 @@
 		ABBD3B7F190013E800DB59AF = {
 			isa = PBXGroup;
 			children = (
+				AB7CDC7C256562AA00186B40 /* macOS-native-arch.xcconfig */,
 				ABBD3B92190013E800DB59AF /* Mono.System.Net */,
 				ABBD3BA7190013E900DB59AF /* Mono.System.NetTests */,
 				ABBD3B8B190013E800DB59AF /* Frameworks */,
@@ -390,6 +392,7 @@
 		};
 		ABBD3BB0190013E900DB59AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB7CDC7C256562AA00186B40 /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

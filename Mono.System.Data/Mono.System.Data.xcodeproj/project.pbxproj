@@ -51,6 +51,7 @@
 		AB3FD5041C76334D0037899F /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3FD5061C76335D0037899F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AB3FD50F1C7635570037899F /* Mono.System.Data-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.System.Data-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		AB7CDC842565630400186B40 /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +89,7 @@
 		AB3FD4CE1C7605740037899F = {
 			isa = PBXGroup;
 			children = (
+				AB7CDC842565630400186B40 /* macOS-native-arch.xcconfig */,
 				AB3FD50A1C7634C80037899F /* Frameworks */,
 				AB3FD4DA1C7605740037899F /* Mono.System.Data */,
 				AB3FD4D91C7605740037899F /* Products */,
@@ -314,6 +316,7 @@
 		};
 		AB3FD4DF1C7605740037899F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB7CDC842565630400186B40 /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

@@ -86,6 +86,7 @@
 		AB2E74A318FFD49A0061C63E /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		AB2E74A418FFD49A0061C63E /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		AB2E74A518FFD49A0061C63E /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		AB7CDC742565623000186B40 /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABB009951B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.h"; sourceTree = "<group>"; };
 		ABB009961B00E0BD00EF538F /* System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Data_Entity_Core_Objects_DataClasses_EntityCollectionA1+Dubrovnik.m"; sourceTree = "<group>"; };
 		ABB8A33A18FEFFD000213B80 /* Mono.EntityFramework.6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.EntityFramework.6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +206,7 @@
 		ABB8A33018FEFFD000213B80 = {
 			isa = PBXGroup;
 			children = (
+				AB7CDC742565623000186B40 /* macOS-native-arch.xcconfig */,
 				ABB8A34318FEFFD000213B80 /* Mono.EntityFramework.6 */,
 				ABB8A35818FEFFD100213B80 /* Mono.EntityFramework.6Tests */,
 				ABB8A33C18FEFFD000213B80 /* Frameworks */,
@@ -576,6 +578,7 @@
 		};
 		ABB8A36118FEFFD100213B80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB7CDC742565623000186B40 /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
