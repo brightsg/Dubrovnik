@@ -141,6 +141,7 @@
 		AB63A09B20D1C57900F697CE /* System_Core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Core.m; sourceTree = "<group>"; };
 		AB63A0B220D1C81000F697CE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = ../../Frameworks/Mono.framework; sourceTree = "<group>"; };
 		AB63A0B420D1C86300F697CE /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/BrightPay/../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
+		AB7CDC6C2565613900186B40 /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		AB95ED42223430AB0054926F /* System_Dynamic_DynamicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Dynamic_DynamicObject.h; sourceTree = "<group>"; };
 		AB95ED43223430AB0054926F /* System_Dynamic_DynamicObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Dynamic_DynamicObject.m; sourceTree = "<group>"; };
 		AB95ED46223434ED0054926F /* System_Dynamic_ExpandoObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Dynamic_ExpandoObject.h; sourceTree = "<group>"; };
@@ -324,6 +325,7 @@
 		ABB8A2EF18FEFED700213B80 = {
 			isa = PBXGroup;
 			children = (
+				AB7CDC6C2565613900186B40 /* macOS-native-arch.xcconfig */,
 				ABB8A30218FEFED700213B80 /* Mono.System.Core */,
 				ABB8A31718FEFED700213B80 /* Mono.System.CoreTests */,
 				ABB8A2FB18FEFED700213B80 /* Frameworks */,
@@ -712,6 +714,7 @@
 		};
 		ABB8A32018FEFED700213B80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB7CDC6C2565613900186B40 /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

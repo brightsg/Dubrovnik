@@ -67,6 +67,7 @@
 		ABF5D27E190C57E300E9CFBD /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D27B190C57E300E9CFBD /* Dubrovnik.framework */; };
 		ABF5D27F190C57E300E9CFBD /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D27C190C57E300E9CFBD /* Mono.mscorlib.framework */; };
 		ABF5D280190C57E300E9CFBD /* Mono.System.Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABF5D27D190C57E300E9CFBD /* Mono.System.Core.framework */; };
+		ABFDF30725656D7D00FCFE3F /* macOS-native-arch.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ABFDF30625656D7D00FCFE3F /* macOS-native-arch.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,7 @@
 		ABF5D27B190C57E300E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D27C190C57E300E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D27D190C57E300E9CFBD /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABFDF30625656D7D00FCFE3F /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 		ABB8A33018FEFFD000213B80 = {
 			isa = PBXGroup;
 			children = (
+				ABFDF30625656D7D00FCFE3F /* macOS-native-arch.xcconfig */,
 				ABB8A34318FEFFD000213B80 /* Mono.EntityFramework.6 */,
 				ABB8A35818FEFFD100213B80 /* Mono.EntityFramework.6Tests */,
 				ABB8A33C18FEFFD000213B80 /* Frameworks */,
@@ -457,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABB8A34818FEFFD000213B80 /* InfoPlist.strings in Resources */,
+				ABFDF30725656D7D00FCFE3F /* macOS-native-arch.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +600,7 @@
 		};
 		ABB8A36118FEFFD100213B80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABFDF30625656D7D00FCFE3F /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

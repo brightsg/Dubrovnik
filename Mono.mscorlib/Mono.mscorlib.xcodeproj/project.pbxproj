@@ -828,6 +828,7 @@
 		AB6752C720F40F840040CAEF /* System_ValueType+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_ValueType+mscorlib.m"; sourceTree = "<group>"; };
 		AB748CF422A906CB00A25754 /* System_PredicateA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_PredicateA1.m; sourceTree = "<group>"; };
 		AB748CF522A906CB00A25754 /* System_PredicateA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_PredicateA1.h; sourceTree = "<group>"; };
+		AB7CDC6425655D2C00186B40 /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		AB8EE9F721539EA0005C2E19 /* System_EventHandlerA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_EventHandlerA1.m; sourceTree = "<group>"; };
 		AB8EE9F821539EA0005C2E19 /* System_EventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_EventHandler.m; sourceTree = "<group>"; };
 		AB8EE9F921539EA0005C2E19 /* System_EventHandlerA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_EventHandlerA1.h; sourceTree = "<group>"; };
@@ -1387,6 +1388,7 @@
 		ABB8A27A18FEFB0700213B80 = {
 			isa = PBXGroup;
 			children = (
+				AB7CDC6425655D2C00186B40 /* macOS-native-arch.xcconfig */,
 				ABB8A28D18FEFB0700213B80 /* Mono.mscorlib */,
 				ABB8A2A218FEFB0700213B80 /* Mono.mscorlibTests */,
 				ABB8A28618FEFB0700213B80 /* Frameworks */,
@@ -2242,6 +2244,7 @@
 		};
 		ABB8A2AB18FEFB0700213B80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB7CDC6425655D2C00186B40 /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

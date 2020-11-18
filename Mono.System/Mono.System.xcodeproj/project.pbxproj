@@ -128,6 +128,7 @@
 		AB37108122A5B46500FAFAEA /* System_IO_ErrorEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_IO_ErrorEventHandler.h; sourceTree = "<group>"; };
 		AB6245211E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.h"; sourceTree = "<group>"; };
 		AB6245221E25294A00FE5316 /* System_Collections_ObjectModel_ObservableCollectionA1+Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "System_Collections_ObjectModel_ObservableCollectionA1+Events.m"; sourceTree = "<group>"; };
+		AB7CDC7F256562D300186B40 /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		AB813BF022B2F62200BAE144 /* System_ComponentModel_PropertyChangedEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_PropertyChangedEventHandler.m; sourceTree = "<group>"; };
 		AB813BF122B2F62200BAE144 /* System_Collections_Specialized_NotifyCollectionChangedEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Collections_Specialized_NotifyCollectionChangedEventHandler.h; sourceTree = "<group>"; };
 		AB813BF222B2F62200BAE144 /* System_ComponentModel_AsyncCompletedEventHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_AsyncCompletedEventHandler.m; sourceTree = "<group>"; };
@@ -236,6 +237,7 @@
 		ABA397041906BA6300D5CA6E = {
 			isa = PBXGroup;
 			children = (
+				AB7CDC7F256562D300186B40 /* macOS-native-arch.xcconfig */,
 				ABA397171906BA6300D5CA6E /* Mono.System */,
 				ABA3972C1906BA6300D5CA6E /* Mono.SystemTests */,
 				ABA397101906BA6300D5CA6E /* Frameworks */,
@@ -697,6 +699,7 @@
 		};
 		ABA397351906BA6300D5CA6E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB7CDC7F256562D300186B40 /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

@@ -26,6 +26,7 @@
 		AB3FD5031C76331F0037899F /* Dubrovnik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5021C76331F0037899F /* Dubrovnik.framework */; };
 		AB3FD5051C76334D0037899F /* Mono.mscorlib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5041C76334D0037899F /* Mono.mscorlib.framework */; };
 		AB3FD5071C76335D0037899F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3FD5061C76335D0037899F /* Cocoa.framework */; };
+		ABFDF30325656D6800FCFE3F /* macOS-native-arch.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ABFDF30225656D6800FCFE3F /* macOS-native-arch.xcconfig */; };
 		E7A2A4AE238BFBC8007D0919 /* System_Data_DataColumnCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A46E238BFBC4007D0919 /* System_Data_DataColumnCollection.m */; };
 		E7A2A4AF238BFBC8007D0919 /* System_Data_DataSet.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A2A46F238BFBC4007D0919 /* System_Data_DataSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7A2A4B0238BFBC8007D0919 /* System_Data_DataRowVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2A470238BFBC4007D0919 /* System_Data_DataRowVersion.m */; };
@@ -116,6 +117,7 @@
 		AB3FD5021C76331F0037899F /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3FD5041C76334D0037899F /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB3FD5061C76335D0037899F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		ABFDF30225656D6800FCFE3F /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		E7A2A46E238BFBC4007D0919 /* System_Data_DataColumnCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataColumnCollection.m; sourceTree = "<group>"; };
 		E7A2A46F238BFBC4007D0919 /* System_Data_DataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_DataSet.h; sourceTree = "<group>"; };
 		E7A2A470238BFBC4007D0919 /* System_Data_DataRowVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_DataRowVersion.m; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 		AB3FD4CE1C7605740037899F = {
 			isa = PBXGroup;
 			children = (
+				ABFDF30225656D6800FCFE3F /* macOS-native-arch.xcconfig */,
 				AB3FD50A1C7634C80037899F /* Frameworks */,
 				AB3FD4DA1C7605740037899F /* Mono.System.Data */,
 				AB3FD4D91C7605740037899F /* Products */,
@@ -463,6 +466,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFDF30325656D6800FCFE3F /* macOS-native-arch.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +582,7 @@
 		};
 		AB3FD4DF1C7605740037899F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABFDF30225656D6800FCFE3F /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

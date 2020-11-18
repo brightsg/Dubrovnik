@@ -66,6 +66,7 @@
 		AB05395420D28465005B7E66 /* System_Xml_Xsl_XsltArgumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_Xsl_XsltArgumentList.h; sourceTree = "<group>"; };
 		AB05395520D28465005B7E66 /* System_Xml_XmlDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Xml_XmlDocument.h; sourceTree = "<group>"; };
 		AB05395E20D284F3005B7E66 /* Mono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.framework; path = /Users/jonathan/Documents/Thesaurus/Development/OSX/BrightPay/BrightPay/../../../../../../../../Library/Frameworks/Mono.framework; sourceTree = "<absolute>"; };
+		AB7CDC772565627200186B40 /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABBD3BC11900141000DB59AF /* Mono.System.Xml.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mono.System.Xml.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBD3BC41900141000DB59AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ABBD3BC71900141000DB59AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -159,6 +160,7 @@
 		ABBD3BB71900141000DB59AF = {
 			isa = PBXGroup;
 			children = (
+				AB7CDC772565627200186B40 /* macOS-native-arch.xcconfig */,
 				ABBD3BCA1900141000DB59AF /* Mono.System.Xml */,
 				ABBD3BDF1900141000DB59AF /* Mono.System.XmlTests */,
 				ABBD3BC31900141000DB59AF /* Frameworks */,
@@ -482,6 +484,7 @@
 		};
 		ABBD3BE81900141000DB59AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB7CDC772565627200186B40 /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
