@@ -810,6 +810,7 @@
 		ABE13550192AB0C5000689BC /* DBNullableInt64Transformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNullableInt64Transformer.m; sourceTree = "<group>"; };
 		ABE229351FD026560096A875 /* NSNull+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSNull+mscorlib.h"; path = "Categories/NSNull+mscorlib.h"; sourceTree = "<group>"; };
 		ABE229361FD026560096A875 /* NSNull+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSNull+mscorlib.m"; path = "Categories/NSNull+mscorlib.m"; sourceTree = "<group>"; };
+		ABE5A818256807810028754E /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABE7D80E20C0063400BDDA24 /* System_Type+mscorlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "System_Type+mscorlib.h"; sourceTree = "<group>"; };
 		ABE7D80F20C0063400BDDA24 /* System_Type+mscorlib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "System_Type+mscorlib.m"; sourceTree = "<group>"; };
 		ABF5D271190C570000E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1210,6 +1211,7 @@
 		ABB8A27A18FEFB0700213B80 = {
 			isa = PBXGroup;
 			children = (
+				ABE5A818256807810028754E /* macOS-native-arch.xcconfig */,
 				ABB8A28D18FEFB0700213B80 /* Mono.mscorlib */,
 				ABB8A2A218FEFB0700213B80 /* Mono.mscorlibTests */,
 				ABB8A28618FEFB0700213B80 /* Frameworks */,
@@ -1666,6 +1668,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = ABB8A27A18FEFB0700213B80;
@@ -2002,6 +2005,7 @@
 		};
 		ABB8A2AB18FEFB0700213B80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABE5A818256807810028754E /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

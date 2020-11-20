@@ -55,6 +55,7 @@
 		ABBD3C03190015B800DB59AF /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		ABBD3C04190015B800DB59AF /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		ABBD3C05190015B800DB59AF /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		ABE5A81D25680FF00028754E /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABF5D285190C589700E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D286190C589700E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D287190C589700E9CFBD /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +88,7 @@
 		ABBD3B7F190013E800DB59AF = {
 			isa = PBXGroup;
 			children = (
+				ABE5A81D25680FF00028754E /* macOS-native-arch.xcconfig */,
 				ABBD3B92190013E800DB59AF /* Mono.System.Net */,
 				ABBD3BA7190013E900DB59AF /* Mono.System.NetTests */,
 				ABBD3B8B190013E800DB59AF /* Frameworks */,
@@ -250,6 +252,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = ABBD3B7F190013E800DB59AF;
@@ -388,6 +391,7 @@
 		};
 		ABBD3BB0190013E900DB59AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABE5A81D25680FF00028754E /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

@@ -169,6 +169,7 @@
 		ABB813E120D15AE900623A23 /* System_UriPartial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_UriPartial.m; path = "Mono.System/Generated bindings/System_UriPartial.m"; sourceTree = SOURCE_ROOT; };
 		ABB813E220D15AE900623A23 /* System_Collections_ObjectModel_ObservableCollectionA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = System_Collections_ObjectModel_ObservableCollectionA1.m; path = "Mono.System/Generated bindings/System_Collections_ObjectModel_ObservableCollectionA1.m"; sourceTree = SOURCE_ROOT; };
 		ABB813E320D15AE900623A23 /* System_ComponentModel_INotifyPropertyChanged_Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = System_ComponentModel_INotifyPropertyChanged_Protocol.h; path = "Mono.System/Generated bindings/System_ComponentModel_INotifyPropertyChanged_Protocol.h"; sourceTree = SOURCE_ROOT; };
+		ABE5A81E256810130028754E /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABF5D28B190C58A900E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dubrovnik.framework; path = "../../../../BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug/Dubrovnik.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D28C190C58A900E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mono.mscorlib.framework; path = "../../../../BrightPay-evzyclkfwllgccgdmfnxveopjbku/Build/Products/Debug/Mono.mscorlib.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -208,6 +209,7 @@
 		ABA397041906BA6300D5CA6E = {
 			isa = PBXGroup;
 			children = (
+				ABE5A81E256810130028754E /* macOS-native-arch.xcconfig */,
 				ABA397171906BA6300D5CA6E /* Mono.System */,
 				ABA3972C1906BA6300D5CA6E /* Mono.SystemTests */,
 				ABA397101906BA6300D5CA6E /* Frameworks */,
@@ -473,6 +475,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = ABA397041906BA6300D5CA6E;
@@ -639,6 +642,7 @@
 		};
 		ABA397351906BA6300D5CA6E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABE5A81E256810130028754E /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

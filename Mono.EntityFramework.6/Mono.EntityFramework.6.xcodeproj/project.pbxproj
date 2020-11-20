@@ -140,6 +140,7 @@
 		ABE12F5520D40E08003E7FB4 /* Mono.System.Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mono.System.Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABE12F5720D40E08003E7FB4 /* Mono.System.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mono.System.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABE12F5920D40EF2003E7FB4 /* EntityFramework.private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntityFramework.private.h; sourceTree = "<group>"; };
+		ABE5A81B256807EB0028754E /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABF5D27B190C57E300E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D27C190C57E300E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D27D190C57E300E9CFBD /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +206,7 @@
 		ABB8A33018FEFFD000213B80 = {
 			isa = PBXGroup;
 			children = (
+				ABE5A81B256807EB0028754E /* macOS-native-arch.xcconfig */,
 				ABB8A34318FEFFD000213B80 /* Mono.EntityFramework.6 */,
 				ABB8A35818FEFFD100213B80 /* Mono.EntityFramework.6Tests */,
 				ABB8A33C18FEFFD000213B80 /* Frameworks */,
@@ -417,6 +419,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = ABB8A33018FEFFD000213B80;
@@ -574,6 +577,7 @@
 		};
 		ABB8A36118FEFFD100213B80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABE5A81B256807EB0028754E /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

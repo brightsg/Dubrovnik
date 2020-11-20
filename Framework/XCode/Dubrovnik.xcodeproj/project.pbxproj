@@ -333,6 +333,7 @@
 		ABD2F23418FB100C00C2B561 /* DBUReferenceObject__NestedClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 2; path = DBUReferenceObject__NestedClass.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		ABE576491D9C5ABA0085C457 /* DBManagedType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedType.h; sourceTree = "<group>"; };
 		ABE5764A1D9C5ABA0085C457 /* DBManagedType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedType.m; sourceTree = "<group>"; };
+		ABE5A817256807560028754E /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABF43FB6179FF4FC00BAB99E /* DBManagedMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedMethod.h; sourceTree = "<group>"; };
 		ABF43FB7179FF4FC00BAB99E /* DBManagedMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedMethod.m; sourceTree = "<group>"; };
 		ABF4846D19D1DCC000769746 /* DBManagedObjectThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedObjectThread.h; sourceTree = "<group>"; };
@@ -390,6 +391,7 @@
 		0867D691FE84028FC02AAC07 /* Dumbarton */ = {
 			isa = PBXGroup;
 			children = (
+				ABE5A817256807560028754E /* macOS-native-arch.xcconfig */,
 				ABBF10A517B3D2E0006F6E93 /* Dubrovnik Unit Tests */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				AB588DC3178308000000AAC1 /* Frameworks */,
@@ -888,6 +890,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* Dumbarton */;
@@ -1157,6 +1160,7 @@
 		};
 		93A417DB087230B000352242 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABE5A817256807560028754E /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
