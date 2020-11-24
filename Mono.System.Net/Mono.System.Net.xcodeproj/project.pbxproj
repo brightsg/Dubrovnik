@@ -63,6 +63,7 @@
 		ABBD3C03190015B800DB59AF /* GeneratedBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedBindings.h; sourceTree = "<group>"; };
 		ABBD3C04190015B800DB59AF /* HelperClasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperClasses.h; sourceTree = "<group>"; };
 		ABBD3C05190015B800DB59AF /* ManualBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualBindings.h; sourceTree = "<group>"; };
+		ABC2A2D9256BE6A8001BD31F /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABDDCC4E1BB1F7BB00953E4A /* System_Net_HttpStatusCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpStatusCode.h; sourceTree = "<group>"; };
 		ABDF3CA81BF0BD800039C3A8 /* System_Net_HttpWebRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Net_HttpWebRequest.h; sourceTree = "<group>"; };
 		ABDF3CA91BF0BD800039C3A8 /* System_Net_HttpWebRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Net_HttpWebRequest.m; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 		ABBD3B7F190013E800DB59AF = {
 			isa = PBXGroup;
 			children = (
+				ABC2A2D9256BE6A8001BD31F /* macOS-native-arch.xcconfig */,
 				ABBD3B92190013E800DB59AF /* Mono.System.Net */,
 				ABBD3BA7190013E900DB59AF /* Mono.System.NetTests */,
 				ABBD3B8B190013E800DB59AF /* Frameworks */,
@@ -301,6 +303,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = ABBD3B7F190013E800DB59AF;
@@ -440,6 +443,7 @@
 		};
 		ABBD3BB0190013E900DB59AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABC2A2D9256BE6A8001BD31F /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

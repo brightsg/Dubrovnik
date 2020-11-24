@@ -37,6 +37,7 @@
 		AB3FD50B1C7635150037899F /* System_Data_IDbConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_IDbConnection.h; sourceTree = "<group>"; };
 		AB3FD50C1C7635150037899F /* System_Data_IDbConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_IDbConnection.m; sourceTree = "<group>"; };
 		AB3FD50F1C7635570037899F /* Mono.System.Data-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mono.System.Data-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		ABC2A2DB256BE708001BD31F /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABFDAB921C7639D7005230C0 /* System_Data_IDataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_IDataReader.h; sourceTree = "<group>"; };
 		ABFDAB931C7639D7005230C0 /* System_Data_IDataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_IDataReader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +60,7 @@
 		AB3FD4CE1C7605740037899F = {
 			isa = PBXGroup;
 			children = (
+				ABC2A2DB256BE708001BD31F /* macOS-native-arch.xcconfig */,
 				AB3FD50A1C7634C80037899F /* Frameworks */,
 				AB3FD4DA1C7605740037899F /* Mono.System.Data */,
 				AB3FD4D91C7605740037899F /* Products */,
@@ -191,6 +193,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = AB3FD4CE1C7605740037899F;
@@ -286,6 +289,7 @@
 		};
 		AB3FD4DF1C7605740037899F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABC2A2DB256BE708001BD31F /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

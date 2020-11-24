@@ -83,6 +83,7 @@
 		ABB8A43818FF21AA00213B80 /* DBSystem_Collections_Generic_DictionaryA2+Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBSystem_Collections_Generic_DictionaryA2+Linq.m"; sourceTree = "<group>"; };
 		ABB8A43D18FF246000213B80 /* DBSystem_Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSystem_Linq.h; sourceTree = "<group>"; };
 		ABB8A43E18FF246000213B80 /* DBSystem_Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSystem_Linq.m; sourceTree = "<group>"; };
+		ABC2A2D5256BE5DF001BD31F /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABF5D273190C577200E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D274190C577200E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -125,6 +126,7 @@
 		ABB8A2EF18FEFED700213B80 = {
 			isa = PBXGroup;
 			children = (
+				ABC2A2D5256BE5DF001BD31F /* macOS-native-arch.xcconfig */,
 				ABB8A30218FEFED700213B80 /* Mono.System.Core */,
 				ABB8A31718FEFED700213B80 /* Mono.System.CoreTests */,
 				ABB8A2FB18FEFED700213B80 /* Frameworks */,
@@ -321,6 +323,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = ABB8A2EF18FEFED700213B80;
@@ -464,6 +467,7 @@
 		};
 		ABB8A32018FEFED700213B80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABC2A2D5256BE5DF001BD31F /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

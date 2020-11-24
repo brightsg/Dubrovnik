@@ -110,6 +110,7 @@
 		ABB8A44F18FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_Core_Objects_ObjectQueryA1.h; sourceTree = "<group>"; };
 		ABB8A45018FF261500213B80 /* System_Data_Entity_Core_Objects_ObjectQueryA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Data_Entity_Core_Objects_ObjectQueryA1.m; sourceTree = "<group>"; };
 		ABBAF83F19223ACE0070DA79 /* System_Data_Entity_Core_Objects_RefreshMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_Data_Entity_Core_Objects_RefreshMode.h; sourceTree = "<group>"; };
+		ABC2A2D7256BE657001BD31F /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABF5D27B190C57E300E9CFBD /* Dubrovnik.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dubrovnik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D27C190C57E300E9CFBD /* Mono.mscorlib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.mscorlib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF5D27D190C57E300E9CFBD /* Mono.System.Core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mono.System.Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +171,7 @@
 		ABB8A33018FEFFD000213B80 = {
 			isa = PBXGroup;
 			children = (
+				ABC2A2D7256BE657001BD31F /* macOS-native-arch.xcconfig */,
 				ABB8A34318FEFFD000213B80 /* Mono.EntityFramework.6 */,
 				ABB8A35818FEFFD100213B80 /* Mono.EntityFramework.6Tests */,
 				ABB8A33C18FEFFD000213B80 /* Frameworks */,
@@ -383,6 +385,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = ABB8A33018FEFFD000213B80;
@@ -532,6 +535,7 @@
 		};
 		ABB8A36118FEFFD100213B80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABC2A2D7256BE657001BD31F /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

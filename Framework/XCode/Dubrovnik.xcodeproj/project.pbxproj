@@ -325,6 +325,7 @@
 		ABBF10AE17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dubrovnik_Unit_Tests.h; sourceTree = "<group>"; };
 		ABBF10AF17B3D2E1006F6E93 /* Dubrovnik_Unit_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dubrovnik_Unit_Tests.m; sourceTree = "<group>"; };
 		ABBF10B117B3D2E1006F6E93 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABC2A2D3256BE4CD001BD31F /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABCF4AB6199ABD44009BE714 /* DBManagedApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManagedApplication.h; sourceTree = "<group>"; };
 		ABCF4AB7199ABD44009BE714 /* DBManagedApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManagedApplication.m; sourceTree = "<group>"; };
 		ABD1CC2019A905FC0072F538 /* NSPointerArray+Dubrovnik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPointerArray+Dubrovnik.h"; sourceTree = "<group>"; };
@@ -391,6 +392,7 @@
 		0867D691FE84028FC02AAC07 /* Dumbarton */ = {
 			isa = PBXGroup;
 			children = (
+				ABC2A2D3256BE4CD001BD31F /* macOS-native-arch.xcconfig */,
 				ABBF10A517B3D2E0006F6E93 /* Dubrovnik Unit Tests */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				AB588DC3178308000000AAC1 /* Frameworks */,
@@ -896,6 +898,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* Dumbarton */;
@@ -1170,6 +1173,7 @@
 		};
 		93A417DB087230B000352242 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABC2A2D3256BE4CD001BD31F /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;

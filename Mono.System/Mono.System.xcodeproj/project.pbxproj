@@ -117,6 +117,7 @@
 		ABA6EEE71E259BDA00B80DA2 /* System_Collections_Specialized_NotifyCollectionChangedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_Collections_Specialized_NotifyCollectionChangedEventArgs.m; sourceTree = "<group>"; };
 		ABAAE71F1E26409F00CC81F1 /* Mono_System_Assembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mono_System_Assembly.h; sourceTree = "<group>"; };
 		ABAAE7201E26409F00CC81F1 /* Mono_System_Assembly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mono_System_Assembly.m; sourceTree = "<group>"; };
+		ABC2A2DA256BE6DE001BD31F /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 		ABDA50E01A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_AsyncCompletedEventArgs.h; sourceTree = "<group>"; };
 		ABDA50E11A9CFC01009926B1 /* System_ComponentModel_AsyncCompletedEventArgs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System_ComponentModel_AsyncCompletedEventArgs.m; sourceTree = "<group>"; };
 		ABDA50E21A9CFC01009926B1 /* System_ComponentModel_RunWorkerCompletedEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System_ComponentModel_RunWorkerCompletedEventArgs.h; sourceTree = "<group>"; };
@@ -162,6 +163,7 @@
 		ABA397041906BA6300D5CA6E = {
 			isa = PBXGroup;
 			children = (
+				ABC2A2DA256BE6DE001BD31F /* macOS-native-arch.xcconfig */,
 				ABA397171906BA6300D5CA6E /* Mono.System */,
 				ABA3972C1906BA6300D5CA6E /* Mono.SystemTests */,
 				ABA397101906BA6300D5CA6E /* Frameworks */,
@@ -392,6 +394,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = ABA397041906BA6300D5CA6E;
@@ -544,6 +547,7 @@
 		};
 		ABA397351906BA6300D5CA6E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABC2A2DA256BE6DE001BD31F /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
