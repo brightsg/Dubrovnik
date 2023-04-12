@@ -495,14 +495,20 @@ MonoObject *DBMonoMethodInvoke(MonoMethod *method, MonoObject *monoObject, unsig
 {
     NSCAssert(method != NULL, @"MonoMethod is NULL");
     
-    // get arguments
-    void *monoArgs[numArgs];
-    DBPopulateMethodArgs(monoArgs, numArgs);
-    
-    // invoke
     // if method represents a static method then monoObject must be NULL
     MonoObject *monoException = NULL;
-    MonoObject *monoResult = mono_runtime_invoke(method, monoObject, monoArgs, &monoException);
+    MonoObject *monoResult = NULL;
+    
+    // get arguments and invoke
+    if (numArgs > 0) {
+        void *monoArgs[numArgs];
+        DBPopulateMethodArgs(monoArgs, numArgs);
+        monoResult = mono_runtime_invoke(method, monoObject, monoArgs, &monoException);
+    }
+    else {
+        monoResult = mono_runtime_invoke(method, monoObject, NULL, &monoException);
+    }
+    
     if (monoException != NULL) {
         NSRaiseExceptionFromMonoException(monoException, @{});
     }
@@ -512,16 +518,22 @@ MonoObject *DBMonoMethodInvoke(MonoMethod *method, MonoObject *monoObject, unsig
 
 MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, unsigned int numArgs, va_list va_args)
 {
-    // get arguments
-    void *monoArgs[numArgs];
-    DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
-
+    MonoObject *monoException = NULL;
+    MonoObject *monoResult = NULL;
+    
     // get method
 	MonoMethod *meth = GetMonoClassMethod(monoClass, methodName, YES);
-
-    // invoke
-    MonoObject *monoException = NULL;
-    MonoObject *monoResult = mono_runtime_invoke(meth, NULL, monoArgs, &monoException);
+    
+    // get arguments and invoke
+    if (numArgs > 0) {
+        void *monoArgs[numArgs];
+        DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
+        monoResult = mono_runtime_invoke(meth, NULL, monoArgs, &monoException);
+    }
+    else {
+        monoResult = mono_runtime_invoke(meth, NULL, NULL, &monoException);
+    }
+    
     if (monoException != NULL) {
         NSRaiseExceptionFromMonoException(monoException, @{@(__func__) : DBClassMemberFunctionString(monoClass, methodName)});
     }
@@ -531,12 +543,12 @@ MonoObject *DBMonoClassInvoke(MonoClass *monoClass, const char *methodName, unsi
 
 MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, unsigned int numArgs, va_list va_args)
 {
-    // get arguments
-    void *monoArgs[numArgs];
-    DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
+    // invoke
+    MonoObject *monoException = NULL;
+    MonoObject *monoResult = NULL;
     
     // get method
-	MonoMethod *monoMethod = GetMonoObjectMethod(monoObject, methodName, YES);
+    MonoMethod *monoMethod = GetMonoObjectMethod(monoObject, methodName, YES);
     if (!monoMethod) {
         [NSException raise:DBMethodNotFoundException format:@"Not found: %@", DBObjectMemberFunctionString(monoObject, methodName)];
     }
@@ -544,9 +556,16 @@ MonoObject *DBMonoObjectInvoke(MonoObject *monoObject, const char *methodName, u
     // get the invocation pointer
     void *invokePtr = DBMonoInvokePtr(monoObject);
     
-    // invoke
-    MonoObject *monoException = NULL;
-    MonoObject *monoResult = mono_runtime_invoke(monoMethod, invokePtr, monoArgs, &monoException);
+    // get arguments and invoke
+    if (numArgs > 0) {
+        void *monoArgs[numArgs];
+        DBPopulateMethodArgsFromVarArgs(monoArgs, va_args, numArgs);
+        monoResult = mono_runtime_invoke(monoMethod, invokePtr, monoArgs, &monoException);
+    }
+    else {
+        monoResult = mono_runtime_invoke(monoMethod, invokePtr, NULL, &monoException);
+    }
+    
     if (monoException != NULL) {
         NSRaiseExceptionFromMonoException(monoException, @{@(__func__) : DBObjectMemberFunctionString(monoObject, methodName)});
     }
